@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4971: 15-intro slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/pdr.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4971
+&nbsp;
+### Capstone Practicum II
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](index.html)</small></center>
+&nbsp;  
+&nbsp;
+## Course Introduction
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Compressed course introduction
+- Pretty much everything is the same as last semester, expect for the few things mentioned herein
+  - See last semester's 01-intro.pptx, and course syllabus, for details (both are on Collab)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Iteration plan
+- There will be 8 two-week iterations this semester (numbered 7-14); iteration 8 starts tomorrow
+- The system must be **feature-complete** by the end of iteration 11 (March 24)
+  - Missing this deadline will result in <strong class="red">failure for the course</strong>!
+  - We now have a bunch of tutorials about how to implement various things
+- That leaves iterations 13-15 for transition: bug fixes, tweaks, testing, deployment, documentation, maintenance, etc.
+  - You will have to implement unit testing (or similar)
+  - As we approach this stage, we'll discuss it further
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Wait? documentation, you say???
+- Yes, documentation:
+  - Transition plan (consists of: Deployment plan, Test plan(s))
+  - User manual
+  - Installation instructions
+  - Programming reference
+  - Updated requirements document
+  - STS report
+- I'm looking for complete documentation, not necessarily long-winded documentation
+- I will provide detailed instructions as to what goes into each
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Making progress
+- As there is no additional semester after this one to complete the project, you will be held to your various requirements:
+  - The original requirements document
+  - Updated versions of this requirements document
+  - Issues entered into Redmine
+- Not completing these requirements means that you did not complete the project!
+- Among other things, this means:
+  - You have to make more actual progress!
+  - Last semester some groups didn't make 'actual progress' until the end of the semester...
+  - And you will need to keep your Redmine issues updated, as this will now directly affect your grade
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Reports
+- These are submitted through Collab -> SLP Admin
+- There are a modification to the reports the lead has to submit this semester
+  - TPS report: same as last semester
+    - This will now incorprate the material from last semester's 2nd weekly report
+  - Weekly report: what the 1st weekly report was last semester
+  - Meeting report: the new report this semester
+- Details about what goes into each report can be found in the 01-intro.pptx slide set from last semester
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Meeting report
+- This to be submitted whenever there is a meeting with an external individual (customer or mentor)
+- The purpose is to notify me of such a meeting, so I can contact them to see how things are going from their end
+- It is due by the <strong class="red">end of the meeting</strong> that the report is for
+  - Anybody can submit this report, and it should be done at the very end of the meeting
+- Meetings without an external individual should not submit this type of report
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Meeting report contents
+- This report need only be **ONE LINE**
+  - "Today we met with Jane Doe (mentor) and John Doe (customer) from 1:00-2:00 in Rice 403"
+  - That's really all I want; this report is not meant to take any significant amount of time
+- It should NOT go into details about what happened in that meeting
+  - Those details would be in the wiki where the meeting notes are being kept
+  - And summaries would presumably go into the weekly or TPS reports,
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Report due dates
+- TPS report: due by noon on the Tuesday immediately after the iteration ends
+- Weekly report: due by noon on Tuesday one week into the iteration
+- Meeting report: due by the end of said meeting
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Course meetings
+- Our schedule will be different this semester
+  - Mondays: group meeting day
+  - Wednesday: lecture or group work day
+  - Friday: no class, unless otherwise notified
+- ...
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## STS 4600
+- Most of you are using this course as the STS 4600 technical project
+  - You must let me know when the STS 4600 due dates come up, as I have no other way of finding out
+  - I'm guessing that you don't yet know when the technical report is due?
+- The *entire* group will work on the technical report (not just the STS 4600 students)
+  - It will be an article about 6 pages in length; I will make a template available as we approach that date
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Today's agenda: group meeting
+- It's the beginning of iteration 7:
+  - What issues will be worked on during this iteration?
+  - Update the Redmine issues and story point counts, as they are not looking like much of a burndown chart?
+	  </script></section>
+
+	</section>
+	
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>
