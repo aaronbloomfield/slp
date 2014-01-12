@@ -44,17 +44,38 @@
 	<section data-markdown><script type="text/template">
 ## Compressed course introduction
 - Pretty much everything is the same as last semester, expect for the few things mentioned herein
-  - See last semester's 01-intro.pptx, and course syllabus, for details (both are on Collab)
+  - See last semester's 01-intro.pptx, and course syllabus, for details (both are on [Collab](https://collab.itc.virginia.edu/portal))
 	</script></section>
+
+	  <section data-markdown><script type="text/template">
+## git Repository
+- I'm now using git to keep track of the slides (and other materials) for the course
+  - It is in a public github repo: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp)
+- To install git:
+```
+sudo apt-get install git
+```
+- To use git:
+  - Enter the following command only once:
+```
+git clone https://github.com/aaronbloomfield/slp.git
+```
+    - This will create a 'slp' directory that contains everything in the repository
+    - Note that much of the content will be added throughout the semester
+  - To get the latest version, change into that directory via the command line, and enter:
+```
+git pull
+```
+	  </script></section>
 
 	<section data-markdown><script type="text/template">
 ## Iteration plan
-- There will be 8 two-week iterations this semester (numbered 7-14); iteration 8 starts tomorrow
-- The system must be **feature-complete** by the end of iteration 11 (March 24)
+- There will be 8 two-week iterations this semester (numbered 7-14); iteration 7 starts tomorrow
+- The system must be *feature-complete* by the end of iteration 11 (March 24)
   - Missing this deadline will result in <strong class="red">failure for the course</strong>!
-  - We now have a bunch of tutorials about how to implement various things
-- That leaves iterations 13-15 for transition: bug fixes, tweaks, testing, deployment, documentation, maintenance, etc.
-  - You will have to implement unit testing (or similar)
+  - Note that we now have a [bunch of tutorials](https://libra.cs.virginia.edu/mediawiki/index.php?title=Main_Page) about how to implement various things
+- That leaves iterations 12-14 for transition: bug fixes, tweaks, testing, deployment, documentation, maintenance, etc.
+- Prior to iteration 12, you will have to implement unit testing (or similar)
   - As we approach this stage, we'll discuss it further
 	</script></section>
 
@@ -88,62 +109,86 @@
 ## Reports
 - These are submitted through Collab -> SLP Admin
 - There are a modification to the reports the lead has to submit this semester
+  - Weekly report (just one!): what the 1st weekly report was last semester
   - TPS report: same as last semester
     - This will now incorprate the material from last semester's 2nd weekly report
-  - Weekly report: what the 1st weekly report was last semester
   - Meeting report: the new report this semester
-- Details about what goes into each report can be found in the 01-intro.pptx slide set from last semester
+- Details about what goes into the first two can be found in the 01-intro.pptx slide set from last semester
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Meeting report
+## The Meeting Report
 - This to be submitted whenever there is a meeting with an external individual (customer or mentor)
 - The purpose is to notify me of such a meeting, so I can contact them to see how things are going from their end
 - It is due by the <strong class="red">end of the meeting</strong> that the report is for
-  - Anybody can submit this report, and it should be done at the very end of the meeting
+  - Any team member can submit this report, and it should be done at the very end of the meeting
 - Meetings without an external individual should not submit this type of report
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Meeting report contents
-- This report need only be **ONE LINE**
+- This report should only be **ONE LINE**
   - "Today we met with Jane Doe (mentor) and John Doe (customer) from 1:00-2:00 in Rice 403"
   - That's really all I want; this report is not meant to take any significant amount of time
 - It should NOT go into details about what happened in that meeting
-  - Those details would be in the wiki where the meeting notes are being kept
-  - And summaries would presumably go into the weekly or TPS reports,
+  - Those details are already in the wiki in the meeting notes
+  - And summaries would presumably go into the weekly or TPS reports
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Report due dates
-- TPS report: due by noon on the Tuesday immediately after the iteration ends
 - Weekly report: due by noon on Tuesday one week into the iteration
+- TPS report: due by noon on the Tuesday immediately after the iteration ends
 - Meeting report: due by the end of said meeting
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Course meetings
-- Our schedule will be different this semester
+- By request, our schedule will be different this semester
   - Mondays: group meeting day
   - Wednesday: lecture or group work day
   - Friday: no class, unless otherwise notified
-- ...
+- As the semester goes on, we will have less lectures are more group work days
+  - This is intentional
+- I'm going to get cranky if people are always coming in late to Monday and Wednesday's classes...
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## STS 4600
 - Most of you are using this course as the STS 4600 technical project
   - You must let me know when the STS 4600 due dates come up, as I have no other way of finding out
-  - I'm guessing that you don't yet know when the technical report is due?
 - The *entire* group will work on the technical report (not just the STS 4600 students)
   - It will be an article about 6 pages in length; I will make a template available as we approach that date
 	</script></section>
 
 	<section data-markdown><script type="text/template">
+## Phases
+- For the 6 person groups, there will be 3 phases this semester:
+  - Phase 4: iterations 7-9 (3 iterations)
+  - Phase 5: iterations 10-11 (2 iterations)
+  - Phase 6: iterations 12-14 (3 iterations)
+- For the 7 person group, there will be 4 phases this semester:
+  - Phase 4: iterations 7-8 (2 iterations)
+  - Phase 5: iterations 9-10 (2 iterations)
+  - Phase 6: iterations 11-12 (2 iterations)
+  - Phase 7: iterations 13-14 (2 iterations)
+	  </script></section>
+
+	<section data-markdown><script type="text/template">
+## Deployment Plan
+- The deliverable for iteration 7 is the **Deployment Plan**
+  - We are going to go over it in detail on Wednesday
+  - It will require input from the customer (and possibly the mentor)
+- If you are going to have a customer meeting **BEFORE** Wednesday's lecture, you must speak to me in class today, and I'll fill you in on what you need to ask
+	  </script></section>
+
+	<section data-markdown><script type="text/template">
 ## Today's agenda: group meeting
 - It's the beginning of iteration 7:
+  - New leads and secretaries 
   - What issues will be worked on during this iteration?
-  - Update the Redmine issues and story point counts, as they are not looking like much of a burndown chart?
+  - How will you get all of your features completed by the end of iteration 11?
+  - Update the Redmine issues and story point counts, as they are not looking like much of a burndown chart...
 	  </script></section>
 
 	</section>
