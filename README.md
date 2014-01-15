@@ -12,7 +12,7 @@ None of these links will work if being viewed on github.com; you will
 have to clone (or otherwise download) the repository.
 
 - [Slides](slides/index.html)
-
+- [Lectures](lectures.html)
 
 
 Markdown
