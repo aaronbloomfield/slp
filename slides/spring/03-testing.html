@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4971: 02-deliverables slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/slp.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4971
+&nbsp;
+### Capstone Practicum II
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="02-deliverables.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Testing and the Test Plan
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+#Contents
+&nbsp;  
+[Introduction](#/introduction)  
+[Requirements](#/requirements)  
+[Software Defects](#/defects)  
+[Terminology](#/terminology)  
+[Specific Test Types](#/specific)  
+[Test Plan](#/testplan)  
+	</script></section>
+
+	<section>
+
+	  <section id="introduction" data-markdown><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Testing is not absolute!
+- You can never prove that a (non-trivial) program is bug free
+  - It's the [halting problem](http://en.wikipedia.org/wiki/Halting_problem): prove that a program halts (successfully) on a given input
+  - Alan Turing proved that this was *undecidable* (meaning an algorithm cannot be constructed that could decide this)
+- It's very easy to prove that a bug exists, though...
+- But you can give yourself -- and your customer -- some sense of confidence that it will likely work correctly
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Bug rate
+- A 1990 review estimated that there were 1 to 3 bugs per 100 executable statements
+  - Actually, programmers make many more (1.5 bugs per executable statement!), but they will catch 99% of those
+- Your job is to catch the other 1%
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Costs of transition
+- A much older study indicated that transition and maintenance takes 67% of the cost of a project
+  - And that doesn't include an additional 15% of testing during development!
+  - Granted, that was during the waterfall methodology craze...
+- You are finished with this class when the semester ends
+  - If you want to help debug it later on, that's great -- but there is no requirement nor expectation for you to do so
+- So we need to ensure that it is well tested before the semester concludes
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Things to keep in mind...
+- We can *NOT* rely on the customer to complete tests!
+- There will be *NO* new code features developed during iterations 12-14
+  - Only test cases, bug fixes, minor feature changes requested by the customer, etc.
+- Your test plan must be significant, and must go beyond what is described here
+  - You can start [here](http://en.wikipedia.org/wiki/Portal:Software_Testing)
+  - If you wait until the last minute, then throw something half-baked together, I am going to get very cranky
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## References
+- Wikipedia, of course: the [portal on software testing](http://en.wikipedia.org/wiki/Portal:Software_Testing)
+- [IEEE 829 (2008) test plan standard](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578383)
+  - This is free if viewed from UVa
+  - It's also in Collab under misc/ as well
+  - But see the warnings later in this slide set before you read through this
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section id="requirements" data-markdown><script type="text/template">
+# Requirements
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why requirements?
+- We can't have a discussion about testing without having some set of requirements to test against
+- Requirements are categorized into functional and non-functional
+- Software attributes are described by the acronym FURPS
+  - Functional, Usability, Reliability, Performance, Supportability
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Functional & non-functional requirements
+- Functional requirements define what a system is supposed to do ("system shall *do* X")
+  - Given an input, what is the desired outcome / output?
+- Non-functional define how a system is supposed to be ("system shall *be* X")
+  - Rather than specific behaviors, it is criteria used to judge a system
+- Functional requirements are defined in the system design; non-functional in the system architecture
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Types of requirements
+- Requirements are usually described by the FURPS acronym
+  - F: Funcionality
+  - U: Usability
+  - R: Reliability
+  - P: Performance
+  - S: Stability
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Furps: Functionality
+- Feature set
+- Capabilities
+- Generality
+- Security
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## fUrps: Usability
+- Human factors
+- Aesthetics
+- Consistency
+- Documentation
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## fuRps: Reliability
+- Frequency/severity of failure
+- Recoverability
+- Predictability
+- Accuracy
+- Mean time to failure
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## furPs: Performance
+- Speed
+- Efficiency
+- Resource consumption
+- Throughput
+- Response time
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## furpS: Supportability
+- Testability
+- Extensibility
+- Adaptability
+- Maintainability
+- Compatibility
+- Configurability
+- Serviceability
+- Installability
+- Localizability
+- Portability
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Requirements document
+- Creating the test plan assumes that you have an updated requirements document
+- If there are no requirements (or the requirements are unknown), then there is no point in testing!
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section id="defects" data-markdown><script type="text/template">
+# Softawre Defects
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is a software "bug"?
+- ... when the system crashes
+- ... when the system has undesirable results
+- ... when the system does not handle border cases
+- ... when the system has invalid output
+- ... when the system has calculation errors
+- ... when the system has control flow errors
+- ... when the system has race conditions
+- ... when the system has errors interpreting data
+- More [here](http://en.wikipedia.org/wiki/Software_bug#Common_types_of_computer_bugs)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is a software "defect"?
+- Certainly any software bug
+- When the software system does not conform to the requirement specification
+  - This assumes that the specification exists and is correct!
+- Usability problems: too difficult to navigate, etc.
+- Missing commands
+  - If it's not in the specification, then it's a specification error as well
+- Performance issues
+- Licensing issues!
+  - This is particularly relevant to us
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section id="terminology" data-markdown><script type="text/template">
+# Terminology
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Terminology
+- Black box testing: internal design is not considered, only external design
+- White box testing: testing is based on detailed knowledge of how the code works
+- Regression testing: testing the entire system after a modification has been made
+- Acceptance testing: running the tests to make sure the system is in an 'acceptable' state (i.e., has passed all the tests)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Alpha versus beta testing
+- Alpha testing: done at the end of development to make sure the system works
+  - This is what you will be doing during development but BEFORE the end of iteration 11 (i.e., March 24)
+- Beta testing: an initial version is deployed, and tested "in-place" by the team, the customer, and possibly others
+  - This is what will happen in iterations 12-14
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section id="specific" data-markdown><script type="text/template">
+# Specific Test Types
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## "On the fly" testing
+- Try to do a bunch of things, and see if it doesn't work right
+  - This is the typical testing done on may types of projects (undergraduate course projects, short pieces of software, etc.)
+- Good as an initial start, but this does not provide very good coverage...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## System or requirements testing
+- Does the system handle the specified requirements?
+- Go through each user case / user story, and see if all the parts are included as system functionality
+  - If not, then either the system has to be modified or the use case / user story needs to be updated
+- Treat the system as a black box
+- Once the user manual is written, you will need to ensure that it conforms to the usage of the system
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Unit testing
+- A set of tests of each individual "unit"
+  - Method, procedure, class, etc.
+- We have a tutorial on PHPUnit testing, which is a good place to start
+  - Both CakePHP and Rails have a lot of support for unit testing
+- The unit testing will need to cover ALL the aspects of the system
+- There will be a significant amount of code for this!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Installation testing, part 1
+- One of the documentation artifacts that you must produce is an installation document
+- Once done, you need to ensure that it works
+- Given a standard Linux machine...
+  - The CS 2150 image, which does NOT have apache installed
+- ... does the installation document properly describe now to configure and install the system?
+  - You can assume a package manager such as apt-get
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Installation testing, part 2
+- Don't forget things such as:
+  - Enabling URL rewriting for CakePHP
+  - Installing all the Rails gems
+  - Permissioning directories
+  - Database installation and setup
+- Note, from the [Deliverables slide set](02-deliverables.html) that the amount of detail you put in about the packages to install should be limited
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Usability testing
+- Most of these systems are intended to be used by specific, trained, individuals
+  - But not all!
+- So while we don't need a perfect UI, it should still be relatively easy to use
+- Can the user understand the application flow?  Are the editing functions easy to use?  Is there sufficient help documentation available (likely in the user manual)?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Security testing
+- Much of the information in these sites is protected under federal law!
+- Can the system be hacked?  Penetrated?  Which pages can be accessed without credentials?
+- How does the system handle authorization versus authentication?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Malformed input testing
+- How well does the system handle malformed input?
+  - For *each* type of input, what happens if the input is invalid?
+- Likewise, how well does the system handle incorrect URLs?
+  - CakePHP can set the various 'debug' option in core.php to control how this is handled
+  - Rails can do something similar
+  - But you may need to add a 404 page as well
+- This may be included in the unit testing (for malformed input) or system testing (for malformed URLs)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Testing we likely won't be doing...
+- Compatibility testing: our system is only going to run on one type of configuration
+- Load, stress, and performance testing: one or two groups may need this, but most won't
+- Recovery testing: our system is not the type that can "crash" very often
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What about other test types?
+- If your system requires other types of tests, then you should definitely include them!
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section id="testplan" data-markdown><script type="text/template">
+# Test Plan
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Acceptance testing
+- This is a test (or multiple tests) performed to ensure that the system meets customer specifications
+- For our purposes, the 'acceptance test' will be the successful execution of the test plan
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration deliverables
+- All of these are due on the last day (a Monday) of each iteration
+- Iteration 7: deployment plan (due Jan 27)
+- Iteration 8: master test plan (due Feb 10)
+- Iteration 9: continuous integration test plan (due Feb 24)
+- Iteration 10: specific test plan(s) (due Mar 10)
+- Iteration 11: the full transition plan, encompassing all of the above, all edited into one document (due Mar 24)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Test plan standard
+- pIEEE 829 (2008): Standard for Software and System Test Documentation](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578383)
+  - Free if viewed from UVa; it's also in Collab under misc/ as well
+  - And on [Wikipedia](http://en.wikipedia.org/wiki/IEEE_829)
+- We will be following *SOME THINGS* of this standard
+  - The full standard is way too bloated and just encourages fluff
+  - This is intended to give you a structure, not to restrict what you do...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## I don't want fluff!
+- If you add verbiage for the sake of adding verbiage, I'll just get really cranky
+  - It's a waste of everybody's time
+  - If a section doesn't apply just put a single sentence that this doesn't apply (and perhaps why not)
+- That being said, I want a well thought-out master test plan
+  - So you are going to have to actually read through some of that standard, various Wikipedia pages, etc.
+  - You can start at [Wikipedia](http://en.wikipedia.org/wiki/Portal:Software_Testing)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Test plan contents: the tests
+- A list (and brief description) of the specific test types that you plan on performing
+  - What requirement each test (or test type) is validating
+  - How you plan on doing those tests.  Some examples:
+    - Requirements testing may mean that you go through each of the requirements (which must be linked!) to ensure that they match
+    - Security testing will require a specific set of "hacks" against the system, such as X, Y, and Z
+    - Unit tests: what parts of the system are you testing?  With which unit tests?  How will you determine which unit tests to write?
+- The point of this part is to think of the testing plan from the point of view of the tests that are going to be performed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Test plan contents: the stuff to be tested
+- A list (and brief description) of the specific things that you are trying to test, and which test(s) will be testing those
+  - Examples: requirements, security, installation, etc.
+- The "which test(s) will be testing those" part can just be a cross-reference into the material from the previous slide
+- The point of this part is to think of the testing plan from the point of view of what needs to be tested
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What should NOT be in the test plan (yet)
+- The specific unit tests that you are going to be performing
+  - You should give overall ideas, but the specific unit tests will be detailed later
+- Full details about specific tests
+  - Example: the "installation test" can be a short paragraph stating that the tester(s) will follow the installation manual from an unconfigured machine
+    - Since there is no installation manual yet, there is no need to go into more detail at this point
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration deliverables format
+- I don't really care what format you keep it in
+- Keeping it as a wiki page in Redmine is fine (and the preferable way)
+- You can also do this as a Google doc, a Word doc, etc.
+- If it is an online document (wiki page, Google doc, etc.), you will have to e-mail me when it is done
+  - And ensure that I have access (if it's not in Redmine)
+  - If it's not Redmine, then the Redmine wiki should have a link to it
+- If it's a offline document (Word, OpenOffice, etc.), then you will have to upload it to Remdine
+  - And again e-mail me when it's there
+- Eventually it will need to be exported to a PDF
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## End-of-semester testing requirements
+- There will be some (relatively minor) end-of-semester testing requirements so that each system's tests operate the same way
+- Examples: a test plan document in a common .pdf file name; 'make test' to kick off the tests; following the CakePHP procedure for unit tests, etc.
+  - Details about this to be decided later...
+- These aren't meant to be onerous, but to ensure that all the systems have some level of consistency
+	  </script></section>
+
+	</section>
+	
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>
