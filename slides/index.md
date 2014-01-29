@@ -10,6 +10,8 @@ bug, and displays the slides correctly.
 
 Spring 2014
 -----------
+
+- [Daily announcements](spring/daily-announcements.html)
 - [01: Course Introduction](spring/01-intro.html)
 - [02: Deliverables](spring/02-deliverables.html)
 - [03: Testing](spring/03-testing.html)

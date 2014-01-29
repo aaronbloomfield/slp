@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CS 4971: 02-deliverables slide set</title>
+    <title>CS 4971: 03-testing slide set</title>
     <meta name="description" content="A set of slides for a course on Program and Data Representation">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,7 +35,7 @@
 ### Spring 2014
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="02-deliverables.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="03-testing.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp;
 ## Testing and the Test Plan
@@ -49,6 +49,8 @@
 [Software Defects](#/defects)  
 [Terminology](#/terminology)  
 [Specific Test Types](#/specific)  
+[Master Test Plan](#/mastertestplan)  
+[Continuous Integration Testing](#/contint)  
 [Test Plan](#/testplan)  
 	</script></section>
 
@@ -99,7 +101,7 @@
 - Wikipedia, of course: the [portal on software testing](http://en.wikipedia.org/wiki/Portal:Software_Testing)
 - [IEEE 829 (2008) test plan standard](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578383)
   - This is free if viewed from UVa
-  - It's also in Collab under misc/ as well
+  - Free if viewed from UVa; it's also in Collab as [Resourfces/misc/IEEE-829-2008.pdf](https://collab.itc.virginia.edu/access/content/group/34417471-f045-46f1-a50f-738fa387fa54/misc/IEEE-829-2008.pdf) as well
   - But see the warnings later in this slide set before you read through this
 	  </script></section>
 
@@ -344,6 +346,156 @@
 
 	</section>
 
+
+	<section>
+
+	  <section id="mastertestplan" data-markdown><script type="text/template">
+# Master Test Plan
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Master test plan
+- Due at the end of iteration 8 (February 10th)
+- This is a high-level overview of the testing
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## IEEE standard
+- [IEEE 829 (2008): Standard for Software and System Test Documentation](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578383)
+  - Free if viewed from UVa; it's also in Collab as [Resourfces/misc/IEEE-829-2008.pdf](https://collab.itc.virginia.edu/access/content/group/34417471-f045-46f1-a50f-738fa387fa54/misc/IEEE-829-2008.pdf)
+  - And on [Wikipedia](http://en.wikipedia.org/wiki/IEEE_829)
+- Section 8 concerns the Master Test Plan ("MTP" in the document)
+- Some of it is fluff-inducing, so we'll take it with a grain of salt
+  - Basically, if something doesn't apply, then state so rather than make something up
+  - The listing there is meant to provide a structure, not cause you to BS your way through the test plan
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Relevant parts of the IEEE standard
+- Some sections are where the real content is going
+  - Section 8.1.5.6: tools, techniques, methods, and metrics
+  - Section 8.2.1: Test processes including definition of test levels
+    - (well, less on the test levels...)
+- That being said, the following slides are things that should go somewhere in the test plan...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What *parts* of the system will be tested?
+- Probably not all the code of the gems (for Rails) or plugins (for CakePHP) that you are using
+  - But likely your code to interact with them
+  - And certainly their functionality
+- And likely not the code that was automatically generated (bake in CakePHP, for example)
+- So saying "everything else" is missing the point
+  - List the specific methods and functionality that are going to be tested
+  - You can certainly use wildcards, etc., for this
+- You have MVC components, and you will need to test all those parts
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Who will write the tests?
+- Is it going to be all one person?  (this is a BAD idea!)
+- Will it be a small group within the overall group?
+- Will it be everybody?
+- If more than one person, who will write the tests for what?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What will you write the tests in?
+- CakePHP and Rails has good support for unit testing
+  - This means you will need to become familiar with the unit testing platform you are using!
+- My plan is to use [Jenkins](http://jenkins-ci.org/) for the continuous integration testing
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How will you determine what cases to test?
+- Corner cases, malformed input cases, first to perform an action, scheduling in a full calendar, etc.
+- This will require creating lots of *fixtures*, which are the sample data in the DB when the unit test is run
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How will you determine what tests to write?
+- There are a lot of sites online for "how to test a X", where 'X' is a various part of your system
+  - Model, View, Controller, etc.
+- See starting [here](http://book.cakephp.org/2.0/en/development/testing.html#testing-models) for CakePHP, and starting [here](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers) for Rails
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How will you ensure that your test covers your code?
+- CakePHP can use [Xdebug](http://xdebug.org/)
+- The Rails standard seems to be [Rconv](https://github.com/relevance/rcov) for older versions of Ruby, and [simplecov](https://github.com/colszowka/simplecov) for Ruby 1.9+
+- Or Google for "code coverage rails" or "code coverage cakephp"
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How will you indicate what is being tested
+- From the point of view of the tests, you will need to indicate what requirement is being tested
+  - This can be a one-line comment in the unit test
+- From the point of view of the requirements, what tests are validating that those requirements work?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What *other* types of tests (other than unit tests) will you be performing?
+- Hint: look at the [previous section](#/specific) for details
+  - This includes, among other things: installation testing, usability testing, security testing, FURPS, etc.
+- You will need to give an overview (following the concepts discussed in the previous few slides) for these tests as well
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## References
+- The page on CakePHP testing is [here](http://book.cakephp.org/2.0/en/development/testing.html), and pretty much contains everything you will need
+  - Well, and the page on [PHPUnit](http://phpunit.de/)
+  - And [Xdebug](http://xdebug.org/) for code coverage
+- Rails can start [here](http://guides.rubyonrails.org/testing.html), which contains almost everything you need
+  - Although you will likey want to get more info on [Rconv](https://github.com/relevance/rcov) or [simplecov](https://github.com/colszowka/simplecov) for the code coverage
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Remember!
+- If something the IEEE docuemnt doesn't make sense, or is confusing, or seems to be in another language, you can ignore it
+- That document is meant to provide *structure*, not to force you to create a lot of fluff
+	  </script></section>
+
+
+
+
+	</section>
+
+
+	<section>
+
+	  <section id="contint" data-markdown><script type="text/template">
+# Continuous Integration Testing
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Jenkins
+- We'll be using [Jenkins](http://jenkins-ci.org/) ([Wikipedia article](http://en.wikipedia.org/wiki/Jenkins_%28software%29)) for our continuous integration testing
+- To get started, visit [http://pegasus.cs.virginia.edu:8080/](http://pegasus.cs.virginia.edu:8080/)
+  - If you install it locally, it will use http://localhost:8080
+  - And all the information is stored in ~/.jenkins/
+- A tutorial can be found [here](https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How we will use Jenkins
+- The group will write unit tests
+- Jenkins will be configured to run those unit tests on each "build" (git push or svn commit)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Unit tests with CakePHP
+- See [here](http://book.cakephp.org/2.0/en/development/testing.html) for all the gory details
+- CakePHP supports PHPUnit, which needs to be installed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Unit tests with Rails
+- See here...
+	  </script></section>
+
+	</section>
+
+
 	<section>
 
 	  <section id="testplan" data-markdown><script type="text/template">
@@ -368,7 +520,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## Test plan standard
-- pIEEE 829 (2008): Standard for Software and System Test Documentation](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578383)
+- [IEEE 829 (2008): Standard for Software and System Test Documentation](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578383)
   - Free if viewed from UVa; it's also in Collab under misc/ as well
   - And on [Wikipedia](http://en.wikipedia.org/wiki/IEEE_829)
 - We will be following *SOME THINGS* of this standard
