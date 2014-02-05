@@ -16,7 +16,7 @@ Lecture Schedule
 | 7 || Jan&nbsp;29 || Wednesday || lecture || [02-deliverables](slides/spring/02-deliverables.html), slides 9 to 12-2 (end); [03-testing](slides/spring/03-testing.html), slides 1 to 4-2 and 7 to 7-10 |
 | 8 || Jan&nbsp;31 || Friday || no class || N/A |
 | 9 || Feb&nbsp;3 || Monday || group meeting || N/A |
-| 10 || Feb&nbsp;5 || Wednesday || lecture || |
+| 10 || Feb&nbsp;5 || Wednesday || lecture || [03-testing](slides/spring/03-testing.html), slides 5 to 9-9 (end) |
 | 11 || Feb&nbsp;7 || Friday || no class || N/A |
 | 12 || Feb&nbsp;10 || Monday || group meeting || N/A |
 | 13 || Feb&nbsp;12 || Wednesday || lecture || |
