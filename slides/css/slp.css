@@ -2,7 +2,8 @@
  * repo, and has the same license as the rest of the repo (CC BY-SA)
  */
 
-/* Fixing some slide formatting to my tastes */ strong.red {
+/* Fixing some slide formatting to my tastes */
+strong.red {
   color: #ff0000; 
 }
 li { 
@@ -20,17 +21,21 @@ p.center {
   margin-left: auto;
   margin-right: auto;
 }
-.reveal table tr:nth-child(even) td {
+.reveal table tr:nth-child(even) {
   background-color: rgb(80,130,190);
   padding-left: 5px;
 }
-.reveal table tr:nth-child(odd) td {
+.reveal table tr:nth-child(odd) {
   background-color: #666666;
   padding-left: 5px;
 }
 .reveal table th {
   background-color: rgb(20,60,110);
   padding: 5px;
+  text-align:center;
+}
+.reveal table tr td {
+  text-align:center;
 }
 
 /* for when no formatting is desired (such as the CS 2150 roadmap) */
@@ -48,7 +53,7 @@ p.center {
 }
 
 /* for side-by-side code blocks */
-.reveal table.wide tr td { 
+.reveal table.wide tr { 
   background-color: transparent;
   width:100%;
 }
@@ -56,7 +61,8 @@ p.center {
 /* make the code blocks bigger */
 .reveal pre {
   font-size: 25px;
-  margin-right: 100px;
+  margin-right: 80px;
+  margin-left: 20px;
 }
 .reveal pre code { 
   max-height: 700px;
@@ -83,6 +89,13 @@ td.top {
 td.middle {
   vertical-align: middle;
 }
+.reveal td.middletrans {
+  vertical-align: middle;
+  background-color: transparent;
+}
+.reveal td.trans {
+  background-color: transparent;
+}
 
 /* currently not used anymore, and slated to be removed eventually */
 span.tt { 
@@ -94,18 +107,28 @@ td.border {
   border-width:medium;
   border-style:solid;
 }
-.reveal table.memory tr td { 
+
+/* for a transparent table background */
+.reveal table.transparent tr { 
   background-color: transparent;
-/*  cellspacing:100px; *//* not working... */
 }
-.reveal table.memory th { 
+.reveal table.transparent th { 
   text-decoration:underline;
+  background-color: transparent;
 }
+
+/* for ... */
 .reveal img.print { 
   border:0px;
   display:inline;
-  position:
-  relative;
+  position:relative;
   top:-11px;
   left:3px
+}
+
+.reveal sub { 
+  font-size: 20px;
+}
+.reveal sup { 
+  font-size: 20px;
 }
