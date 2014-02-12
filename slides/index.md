@@ -15,3 +15,4 @@ Spring 2014
 - [01: Course Introduction](spring/01-intro.html)
 - [02: Deliverables](spring/02-deliverables.html)
 - [03: Testing](spring/03-testing.html)
+- [04: Maintenance](spring/04-maintenance.html)

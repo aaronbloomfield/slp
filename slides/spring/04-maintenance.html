@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4971: 04-maintenance slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/slp.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4971
+&nbsp;
+### Capstone Practicum II
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="04-maintenance.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Maintenance
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+#Contents
+&nbsp;  
+[Introduction](#/introduction)  
+[Lehman's Laws of Software Evolution](#/laws)  
+[Types of Software Maintenance](#/types)  
+[Conclusions](#/conclusions)  
+	</script></section>
+
+	<section>
+
+	  <section id="introduction" data-markdown><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section>
+<h2>Let's all say it together now...</h2>
+<p>Maintenance is what percent of the total cost of software?</p>
+<p class="fragment">Answer: 60-80%</p>
+<p>&nbsp;</p>
+<ul class="fragment">
+<li>Feature enhancement, rather than defect correction, can account for 3/4ths of this (45-60% of total cost)</li>
+<li>Non-corrective maintenance can be as high as 80%</li>
+</ul>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Words of Wisdom
+> All successful software gets changed. Two processes are at work. First, as a software product is found to be useful, people try it in new cases at the edge of or beyond the original domain. The pressures for extended function come chiefly from users who like the basic function and invent new uses for it.
+
+> Second, successful software survives beyond the normal life of the machine vehicle for which it is first written. If not new computers, than at least new disks, new displays, new printers come along; and the software must be conformed to its new vehicles of opportunity.             
+
+--Fred Brooks, No Silver Bullet
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Here's the problem
+- Here's the real problem:
+  - We're human
+  - and humans make mistakes
+  - FYI: the official IEEE definition of a mistake is a human action that produces an incorrect result
+    - IEEE standard 600.12 (1990, revised 2002)
+  - Even if the software is built well, mistakes can lie dormant for years, after several rounds of fixes
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Software Must Evolve
+1. Software is a model of reality. As the reality changes, the software must adapt or die.
+2. If software is found to be useful, there are pressures, chiefly from satisfied users, to extend the functionality of the product.
+3. Software is much easier to change than hardware. As a result, changes are made to the software whenever possible.
+4. Successful software survives well beyond the lifetime of the hardware for which it was written.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Which analogy works better?
+My software is like...
+
+- A house built on a solid foundation
+- A house built upon sand
+- A card tower resting on a table
+- A card tower resting on a table next to a box fan
+- A CookOut milkshake
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section id="laws" data-markdown><script type="text/template">
+# Lehman's Laws of Software Evolution
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lehman's Laws of Software Evolution
+- "Laws" describe the forces behind software evolution
+  - See the Wikipedia article [here](http://en.wikipedia.org/wiki/Lehman%27s_laws_of_software_evolution)
+- They are specifically about the evolution of software that is actively and regularly used to solve a real-world problem
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lehman's Laws of Evolution
+- Law 1: Continuing Change -- A system must be continually adapted or else is becomes progressively less satisfactory.
+- Law 2: Increasing Complexity -- As a system evolves its complexity increases, unless there is work done to reduce it.
+- Law 3: Self Regulation -- Software evolution should be a self-regulating, controlled process.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lehman's Laws of Evolution
+- Law 4: Conservation of organizational stability -- Over a system's lifetime, its activity rate is approximately constant.
+- Law 5: Conservation of familiarity -- The average incremental growth declines over time due to decreasing interest in the product.
+- Law 6: Continuing growth -- Systems must grow to satisfactorily support new situations.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lehman's Laws of Evolution
+- Law 7: Declining Quality -- Unless rigorously adapted to take into account changes in the operational environment, the quality of the system will appear to decline as it evolves.
+- Law 8: Feedback System -- Software evolution should be a multi-level, multi-loop, multi-agent feedback system.
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section id="types" data-markdown><script type="text/template">
+# Types of Software Maintenance
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Types of software maintenance
+- In the late 1970's, a study by Lientz and Swanson categorized maintenance activities into four classes...
+- They are now defined in [ISO 14764](http://www.iso.org/iso/catalogue_detail.htm?csnumber=39064)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Corrective Maintenance
+- Fixing mistakes, obviously
+- "Maintenance which is carried out after failure detection and is aimed at restoring an asset to a condition in which it can perform its intended function" -- a French official norm
+- Two types:
+  - Immediate corrective maintenance (do it NOW)
+  - Deferred corrective maintenance (do it later)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Adaptive Maintenance
+- Modifications to the system to adapt to a new environment:
+  - OS changes, or even service pack installations
+  - New/different/removed hardware
+  - Different web server / configuration / etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Preventative Maintenance
+- Conducted to keep equipment working and/or extend the life of the equipment
+  - Whereas corrective maintenance is to fix a system that is broken
+- Examples: 
+  - Updating security
+  - Improving maintainability or reliability to prevent problems in the future
+  - Fixing security holes BEFORE they become exploited
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Perfective Maintenance
+- Implementing new features
+  - Typically due to changed user requirements
+  - But could also be improving performance
+  - Improving maintainability
+- Concerns functional enhancements to the software
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Frequency of Maintenance
+![maintenance pie chart](../images/maintenance-pie-chart.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factors that decrease maintenance cost<small>
+- Maintenance specialists: 35%
+- High staff experience: 34%
+- Table-driven variables and data: 33%
+- Low complexity of base code: 32%
+- Y2K and special search engines: 30%
+- Code restructuring tools: 29%
+- Re-engineering tools: 27%
+- High level programming languages: 25%
+- Reverse engineering tools: 23%
+- Complexity analysis tools: 20%
+- Defect tracking tools: 20%
+- Y2K "mass update" specialists: 20%
+- Automated change control tools: 18%
+- Unpaid overtime: 18%
+- Quality measurements: 16%
+- Formal base code inspections: 15%
+- Regression test libraries: 15%
+- Excellent response time: 12%
+- Annual training of > 10 days: 12%
+- High management experience: 12%
+- HELP desk automation: 12%
+- No error prone modules: 10%
+- On-line defect reporting: 10%
+- Productivity measurements: 8%
+- Excellent ease of use: 7%
+- User satisfaction measurements: 5%
+- High team morale: 5%
+
+</small>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Factors that increase maintenance cost<small>
+- Error prone modules: -50%
+- Embedded variables and data: -45%
+- Staff inexperience: -40%
+- High code complexity: -30%
+- No Y2K of special search engines: -28%
+- Manual change control methods: -27%
+- Low level programming languages: -25%
+- No defect tracking tools: -24%
+- No Y2K "mass update" specialists: -22%
+- Poor ease of use: -18%
+- No quality measurements: -18%
+- No maintenance specialists: -18%
+- Poor response time: -16%
+- No code inspections: -15%
+- No regression test libraries: -15%
+- No help desk automation: -15%
+- No on-line defect reporting: -12%
+- Management inexperience: -15%
+- No code restructuring tools: -10%
+- No annual training: -10%
+- No reengineering tools: -10%
+- No reverse-engineering tools: -10%
+- No complexity analysis tools: -10%
+- No productivity measurements: -7%
+- Poor team morale: -6%
+- No user satisfaction measurements: -4%
+- No unpaid overtime: 0%
+
+</small>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Agile Maintenance
+- In an ideal agile environment, "maintenance" and "development" are the same thing
+- Remember the Agile Manifesto:
+
+> Individuals and interactions over processes and tools
+> Working software over comprehensive documentation
+> Customer collaboration over contract negotiation
+> Responding to change over following a plan
+
+> That is, while there is value in the items on
+> the right, we value the items on the left more.
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section id="conclusions" data-markdown><script type="text/template">
+# Conclusions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Six software maintenance processes
+- Implementation process (end of elaboration development; creation of maintenance plan)
+- Problem and modification analysis (given a reported problem or change, determine cause and propose a solution)
+- Implementation of the modification (fix the problem)
+- Verify the modification (updated requirements document, acceptance tests, etc.)
+- Migration process (moving to another platform)
+- Software retirement (rarely happens)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Reasons for the High Cost of Maintenance
+- Factors:
+  - Team stability
+  - Contractual responsibility
+  - Staff skills
+  - Program age and structure
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Four Truths
+In the end, with all these different things to consider, just remember these four things:
+
+1. Source code is king (and when that fails, find the programmer)
+2. Documentation is untrustworthy
+3. Bug tracking DBs are a wealth of information
+4. Reproduction of a problem is essential to finding the solution
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## YOU CAN'T HANDLE THE TRUTH!
+- How's your source code looking?
+- Updated any docs recently? Such as your requirements document?
+- Remember that Redmine thing we've been using?
+- How have you been solving your problems?
+	  </script></section>
+
+	</section>
+	
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>

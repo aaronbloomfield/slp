@@ -19,7 +19,7 @@ Lecture Schedule
 | 10 || Feb&nbsp;5 || Wednesday || lecture || [03-testing](slides/spring/03-testing.html), slides 5 to 9-9 (end) |
 | 11 || Feb&nbsp;7 || Friday || no class || N/A |
 | 12 || Feb&nbsp;10 || Monday || group meeting || N/A |
-| 13 || Feb&nbsp;12 || Wednesday || lecture || |
+| 13 || Feb&nbsp;12 || Wednesday || lecture || [04-maintenance](slides/spring/04-maintenance.html) |
 | 14 || Feb&nbsp;14 || Friday || no class || N/A |
 | 15 || Feb&nbsp;17 || Monday || group meeting || N/A |
 | 16 || Feb&nbsp;19 || Wednesday || lecture || |
