@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4971: 05-ci slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/slp.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown id="cover"><script type="text/template">
+# CS 4971
+&nbsp;
+### Capstone Practicum II
+### Spring 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="05-ci.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+<center><small>Themes: [default](?#/cover), [sky](?theme=sky#/cover), [beige](?theme=beige#/cover), [simple](?theme=simple#/cover), [serif](?theme=serif#/cover), [night](?theme=night#/cover), [moon](?theme=moon#/cover), [solarized](?theme=solarized#/cover)</small></center>
+&nbsp;  
+&nbsp;
+## Continuous Integration Testing with Jenkins
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+#Contents
+&nbsp;  
+[Continuous Integration](#/ci)  
+[Jenkins](#/jenkins)  
+[CakePHP Directions](#/cakephp)  
+[Ruby on Rails Directions](#/rails)  
+[Conclusion](#/conclusion) 
+	</script></section>
+
+
+	<section>
+
+	  <section id="ci" data-markdown><script type="text/template">
+# Continuous<br>Integration
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Continuous Integration
+> Continuous integration (CI) is the practice, in software engineering, of merging all developer working copies with a shared mainline several times a day.
+
+- [Wikipedia article on CI](https://en.wikipedia.org/wiki/Continuous_integration)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Fixtures
+- A *fixture* is just a name for sample data in the DB
+  - If you want to test deletion on an empty list, then the fixture would have an empty table
+  - If you want to test adding a duplicate user, then the fixture would have an entry for that user
+  - You get the idea...
+- The testing framework resets the (test) database with the data in the fixture, then executes the test(s)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Testing requirements
+- Throughout the last 3 iterations, you will be writing unit tests to cover all of your code
+- We will use a CI tool called Jenkins to automate the running of the tests that you will write
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Can't I Just Do This On My Machine?
+- Yes, for this project; but for larger projects, that may not be feasible
+- Consider this e-amil I received from a former student in SLP last year:
+> a veteran developer for [big-name-company] ... stressed how important test-driven development was, and casually mentioned the 600 (!!) unit tests he runs every morning to tell him that everything is still okay.  These tests are all automated ... he really didn't care which languages were taught, as long as students were learning the basics of good code development and object-oriented design; what was crucial to him was whether or not you know how to test your code.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is a Unit Test
+- For now it is a test function that returns `true`
+  - (we will add in real unit tests later; the point of this slide set is not to write real unit tests, but to make sure we can automate their execution)
+- For that matter, your fixtures should basically be empty data at this point
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Goal
+- To *successfully* execute the unit tests for your system on Jenkins
+  - This is the 'continuous integration' part of the test plan that is due at the end of this iteration
+- All the unit tests need to do is return `true` at this point!
+  - And you don't need many of them, either
+- The goal is the Jenkins part, not the unit test part (that's later)
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="jenkins" data-markdown><script type="text/template">
+# Jenkins
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Introduction
+- [Jenkins](https://en.wikipedia.org/wiki/Jenkins_%28software%29) is a open-source continuous integration tool written in Java
+  - It was forked from [Hudson](https://en.wikipedia.org/wiki/Hudson_(software), which was started in 2004
+  - This, the software is fairly mature
+- It operates by checking out the latest version (from svn or git), and then:
+  - Building it (for systems that need compilation)
+  - Running unit tests on it
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Accessing Jenkins
+- The URL is http://pegasus.cs.virginia.edu:8080/
+- You can log in with your group tag (vprsf, vocal, etc.) and your group password
+  - The group password can be found in the Post'Em tool of Collab
+![jenkins](images/05-ci/jenkins.jpg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What Jenkins Does
+- It will take the latest revision out of a SCM (svn, git, etc.)
+  - Build it as necessary
+  - Run the tests it has been configured to run on the system
+- These tests can be scheduled via various means:
+  - Continuously
+  - Periodically
+  - Upon every commit (for svn) or push (for git)
+  - Scheduled at certain times throughout the day
+  - Manually run
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Use a Test Database!
+- You should be using a test database
+- Each group has one: if your normal DB is 'slp_foo', then your test DB is 'slp_foo_test'
+- Only the group user ('foo', where 'foo' is vprsf, vocal, etc.) has access to that DB
+- The DB password is the group password (also on Collab / Post'Em)
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="cakephp" data-markdown><script type="text/template">
+# CakePHP Directions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Resources
+- The main resource site is the [CakePHP Testing page](http://book.cakephp.org/2.0/en/development/testing.html)
+  - There is a [section on Jenkins](http://book.cakephp.org/2.0/en/development/testing.html#integration-with-jenkins) on that page
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Directions
+- From http://pegasus.cs.virginia.edu/~tag/test.php
+  - Where 'tag' is your project tag (twi, montanova, etc.)
+- Start clicking on all those tests
+  - The controller ones should all work once you are done
+    - You may need to bake a bunch of fixtures to get that to work
+    - Make sure that all the controller methods test successfully!
+    - You can run this from the command line as well:
+
+```
+app/Console/cake test app Controller/AssessmentsController
+```
+  - Don't worry about getting the model tests to work at this point; you can do that when you are actually implementing your unit tests
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Test success
+- A successful test will display a green bar through the web browser:
+![test success in cakephp](images/05-ci/cakephp-test-success.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Additional Test Files
+- Create an `AllTestsTest.php` file (in app/Test/Case) as described [here](http://book.cakephp.org/2.0/en/development/testing.html#creating-test-suites)
+  - And a 'AllControllerTest.php` file (in the same directory)
+    - This is just like the AllModelTest shown at that link, but with controllers instead of models
+  - Don't forget the `<?php` at the beginning of the file, and `?>` at the end!
+  - These two php files are the command that Jenkins will run
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Jenkins: Getting Started
+- Log in to [Jenkins](http://pegasus.cs.virginia.edu:8080)
+- Create a new Jenkins job (click on 'New Item' in the upper left)
+  - You want the 'Build a free-style software project' option
+  - Enter the build name; your project name (or tag) MUST be in the name you enter!
+  - Select your SCM (git or svn), and enter your credentials
+    - svn URL is https://libra.cs.virginia.edu/svn/tag/trunk
+      - Remember the /trunk/ at the end of the svn URL!
+    - git URL is:
+```
+git@libra.cs.virginia.edu:tag
+```
+    - The credentials are already configured, but choose the appropriate one (git or svn)
+  - Jenkins will let you know if it cannot access the repo
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Jenkins: Build Configuration
+- Create two shell scripts
+  - From the 'Configure' link, at the bottom is 'Add build step', and select 'Execute shell'
+  - The first shell script is the one to reset the DB, as listed [here](http://book.cakephp.org/2.0/en/development/testing.html#add-test-database-config)
+  - You can skip the drop database shell script for now
+  - The second shell script one is where you call your test class, described [here](http://book.cakephp.org/2.0/en/development/testing.html#add-your-tests)
+    - This is your AllTestsTest.php file (or, if your models are not working, AllControllerTest.php)
+- The click 'Build Now'!
+  - It *should* build successfully!
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="rails" data-markdown><script type="text/template">
+# Ruby on Rails<br>Directions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rails Unit Testing
+- There will be a tutorial on [RSpec](http://pivotallabs.com/testing-strategies-with-rspec/) next week, so that is one option
+- The built-in unit test framework is another option
+- The primary reference for Rails testing is [here](http://guides.rubyonrails.org/testing.html)
+  - This reference discusses the built-in framework
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Jenkins setup
+- Much of the Jenkins setup is the same as with CakePHP
+- The difference, really, is the shell scripts that you create at the end
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rails Scripts for Jenkins
+- There are a number of references online that describe these in detail
+  - [Continuous Integration Testing for Ruby on Rails with Jenkins](http://stackoverflow.com/questions/7417282/continuous-integration-testing-for-ruby-on-rails-with-jenkins) on [stackoverflow](http://stackoverflow.com)
+  - [Configuring a Rails build](https://wiki.jenkins-ci.org/display/JENKINS/Configuring+a+Rails+build) on the [Jenkins wiki](https://wiki.jenkins-ci.org/display/JENKINS/Home)
+  - Etc.
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="conclusion" data-markdown><script type="text/template">
+# Conclusion
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Deliverable
+- For the continuous integration part of the test plan (due at the end of this iteration), I will look for:
+  - A properly configured Jenkins job that runs your (likely completely empty) unit tests
+    - This will require getting some dummy unit tests set up on your framework
+  - It must build successfully!  (meaning all your unit tests must return `true`)
+- This should not be all that hard, and it should not take that much time
+	  </script></section>
+
+	</section>
+
+
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>

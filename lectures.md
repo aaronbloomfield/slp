@@ -22,7 +22,7 @@ Lecture Schedule
 | 13 || Feb&nbsp;12 || Wednesday || lecture || [04-maintenance](slides/spring/04-maintenance.html) |
 | 14 || Feb&nbsp;14 || Friday || no class || N/A |
 | 15 || Feb&nbsp;17 || Monday || group meeting || N/A |
-| 16 || Feb&nbsp;19 || Wednesday || lecture || |
+| 16 || Feb&nbsp;19 || Wednesday || lecture || [05-ci](slides/spring/05-ci.html) |
 | 17 || Feb&nbsp;21 || Friday || no class || N/A |
 | 18 || Feb&nbsp;24 || Monday || group meeting || N/A |
 | 19 || Feb&nbsp;26 || Wednesday || lecture || |
