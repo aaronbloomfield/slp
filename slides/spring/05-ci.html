@@ -258,6 +258,16 @@ git@libra.cs.virginia.edu:tag
   - Etc.
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Rails bash script
+- You will be creating a bash script for Jenkins, and it must have this before you call any Ruby or Rails commands (including rake and bundle):
+```
+PATH=$PATH:$HOME/.rvm/bin
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+```
+- You can then call `bundle install`
+	  </script></section>
+
 	</section>
 
 
