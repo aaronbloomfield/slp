@@ -13,7 +13,7 @@ have to clone (or otherwise download) the repository.
 
 - [Slides](slides/index.html)
 - [Lectures](lectures.html)
-
+- [SIGCSE 2014 talk](pubs/sigcse-2014.html) for the paper entitled, "[A Service Learning Practicum Capstone](http://dl.acm.org/citation.cfm?id=2538862.2538974)"
 
 Markdown
 --------

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SIGCSE 2014: A Service Learning Practicum Capstone</title>
+    <meta name="description" content="A Service Learning Practicum Capstone">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/slp.css">
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
+      document.write( '<link rel="stylesheet" href="../slides/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+<!--    <style>
+.reveal li {
+font-size:80%;
+line-height:120%;
+}
+    </style> -->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# A Sercive Learning Practicum Capstone
+&nbsp;  
+## SIGCSE 2014
+&nbsp;  
+<center>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb), The University of Virginia</center>  
+<center>[Mark Sherriff](http://www.cs.virginia.edu/~sherriff), The University of Virginia</center>  
+<center>Kara Williams, [The Center for Nonprofit Excellence](http://thecne.org)</center>  
+&nbsp;  
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) | Online: [http://aaronbloomfield.github.io/slp](http://aaronbloomfield.github.io/slp)</small></center>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Service Learning Practicum (SLP)
+- Main info page: http://www.cs.virginia.edu/~asb/slp
+  - Including lists of all the projects
+- Course materials: http://github.com/aaronbloomfield/slp
+  - A work in progress!
+  - Viewable online at http://aaronbloomfield.github.io/slp
+- Paper: http://dl.acm.org/citation.cfm?id=2538862.2538974
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Service Learning Practicum (SLP) Cycle
+1. Late spring: application available
+2. Early summer: nonprofits apply
+3. Mid summer: project selection
+4. Late summer: requirement solicitation
+5. September: students select projects, learn frameworks
+6. October: inception
+7. November & December: elaboration
+8. January through March: construction
+9. April & May: transition
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Who
+- Team of 6-7 senior undergraduates
+- Mentor
+- Customer
+- (and the course instructor, obviously)
+
+&nbsp;  
+This praticum was done in conjunction with [The Center for Nonprofit Excellence](http://thecne.org)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Technologies used
+- MVC frameworks: CakePHP, Ruby on Rails
+- Source code control: subversion and git
+  - Note that github has licensing issues!
+- Development management: Redmine
+- Testing: PHPUnit, Rails unit testing, Jenkins
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Legal
+The legal agreement between the students and the nonprofit:
+
+- perpetual
+- non-commercial
+- non-distributable
+- non-revocable
+- allow for modification of the software
+- would not infringe on the students' ownership of their code
+
+&nbsp;  
+Other issues: instructor provided software, GPL usage
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Obtaining Student Feedback
+- Reports each (2-week) iteration:
+  - Weekly report
+  - Termination and Post-reflection of Sprint report ([TPS report](http://en.wikipedia.org/wiki/TPS_report#In_popular_culture))
+  - Meeting report(s)
+- Surveys througout the year:
+  - Beginning of semester survey
+  - End of phase survey (6)
+  - End of year survey
+	  </script></section>
+
+	  <section>
+<h2>Sample project: Micro-volunteer website</h2>
+<img src="sigcse-2014/cne-screenshot.png" alt="CNE screenshot" class="stretch">
+	  </section>
+
+	  <section>
+<h2>Sample project: Women's Initiative scheduler</h2>
+<img src="sigcse-2014/twi-screenshot.png" alt="TWI screenshot" class="stretch">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Lessons Learned
+- Customer involvement
+- Project start-up and transition
+- Maintenance
+- Requirement solicitation
+	  </script></section>
+
+	  <section>
+<h2>Ideal Burndown Chart</h2>
+<img src="sigcse-2014/burndown-ideal.png" alt="ideal burndown" class="stretch">
+	  </section>
+
+	  <section>
+<h2>Actual Burndown Chart</h2>
+<img src="sigcse-2014/burndown-actual.png" alt="actual burndown" class="stretch">
+	  </section>
+
+
+      </div>
+
+    </div>
+
+    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.min.js"></script>
+    <script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: true,
+      progress: true,
+      history: true,
+      center: true,
+      slideNumber: true,
+      
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+      
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+		     { src: '../slides/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		     { src: '../slides/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../slides/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		     { src: '../slides/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		     { src: '../slides/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		     { src: '../slides/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		     ]
+      });
+</script>
+
+  </body>
+</html>
