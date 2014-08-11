@@ -8,8 +8,30 @@ in current versions of Firefox will prevent the font used in the
 slides from displaying correctly; Google Chrome does not have this
 bug, and displays the slides correctly.
 
-Spring 2014
------------
+### Fall 2014
+
+- Daily announcements
+- 01: Course introduction
+- 02: Development methods
+- 03: Licensing
+- 04: CakePHP & Ruby on Rails
+- 05: Requirements
+- 06: Customer meetings
+- 07: Project start
+- 08: Estimation workday
+- 09: Documentation
+- 10: Design patterns
+- 11: Website security
+- 12: SQL & XSS
+- 13: Software errors
+- 14: Course conclusion
+
+
+------------------------------------------------------------
+
+This repository was started in the spring of 2014, which was half-way through the course.  Thus, only the second half of the class lecture notes from the 2013-2014 academic year are in this repository.
+
+### Spring 2014
 
 - [Daily announcements](spring/daily-announcements.html)
 - [01: Course Introduction](spring/01-intro.html)
