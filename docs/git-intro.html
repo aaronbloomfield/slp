@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Introduction to git and github</title>
+<link href="../markdown.css" media="all" rel="stylesheet" type="text/css"></head>
+<body>
+<h1>Introduction to git and github</h1>
+
+<p>People familiar with git and github can skip some parts, depending on your level of familiarity.  However, it would be wise to skim the parts you are skipping.  And everybody must read the section on tags and branches, as most people who think they know about branching really don&rsquo;t.</p>
+
+<h3>Introduction</h3>
+
+<p>First, read through the <a href="http://en.wikipedia.org/wiki/Git_%28software%29">Wikipedia page on git</a>.</p>
+
+<p>Git keeps the files, as well as the entire the version hisotry, in a <em>repository</em>.  A repository is just a directory structure created via the <code>git init</code> command (which is not being gone over here).  However, most people who use git have the repository kept on a server.  One can set up their own server to do so, although the user then has to deal with authentication and authorization (who can access which repositories, etc.).  Many people use <a href="https://github.com">github</a>, which is what we will be using here.</p>
+
+<p>The repository itself needs to be <em>cloned</em> in order for the files to be worked on; this is analgous to svn&rsquo;s checkout command.  This is done via the <code>git clone</code> command.  There are a few ways to clone a repository:</p>
+
+<pre><code>git clone git@github.com:aaronbloomfield/slp
+</code></pre>
+
+<p>Or:</p>
+
+<pre><code>git clone https://github.com/aaronbloomfield/slp.git
+</code></pre>
+
+<p>For both of these commands, the user who own&rsquo;s the repository is <code>aaronbloomfield</code>, and the repository is <code>slp</code>.  Either one will work, although the first one is considered more secure (see <a href="https://help.github.com/articles/which-remote-url-should-i-use">here</a> for details).  And both will require you to enter your password (any time you clone a private repo, and any time you <em>push</em> (more on pushing, below) to any repository).</p>
+
+<p>Once the repository is cloned, you can work on the files within the created directory.  The git commands will work anywhere in that cloned repository &ndash; you don&rsquo;t have to be in the root of that directory structure (which was the case with subversion).  As you create files that you want to add to the repository, you use <code>git add</code>.  This stages them for adding to the repository, but does not add them just yet.  When you have finished making your changes (file additions, edits, or deletions), you then <em>commit</em> them.</p>
+
+<p>Git is a distributed system, which means that you can make as many commits as you would like, but they are not sent back to the git server (in our case, github.com) until you instruct git to do so via a <code>git push</code>.</p>
+
+<h3>git command summary</h3>
+
+<ul>
+<li><code>git clone git@github.com:username/repo</code>: clones a repository; a directory named the same name as the repository is created, and the files are placed there.</li>
+<li><code>git add &lt;file&gt;</code>: stages a file to be added to the repository on the next commit.  You can call this on a directory, and git will stage the entire directory structure.</li>
+<li><code>git commit</code>: commits the current changes (additions, deletions, and edits).  A few useful flags:
+
+<ul>
+<li><code>-m "message"</code> will use that as a message as the commit message (otherwise git will prompt you to enter a message)</li>
+<li><code>-a</code>: by default, an edited file is not included in the list of files to be committed unless you add it via <code>git add</code>; this flag adds all edited files (but not all new files; they still have to be manually added via <code>git add</code>.</li>
+</ul>
+</li>
+<li><code>git status</code>: this displays a number of things:
+
+<ul>
+<li>the files that are staged for commit</li>
+<li>the files that have been edited sine the last commit</li>
+<li>the number of commits that you are &ldquo;ahead&rdquo; of the server (meaning how many times you have called &lsquo;git commit&rsquo; without calling &lsquo;git push&rsquo;</li>
+<li>note that if you edit a file that is already in the repo, add it via <code>git add</code>, then edit it again, it will appear twice: as a file staged for commit (the version of the file after the first edit) and in the unstaged files list (the version after the second edit); calling <code>git add</code> on that file again, or commiting with <code>-a</code> will cause the most recent edited version to be committed.</li>
+</ul>
+</li>
+<li><code>git push</code>: this pushes all the local commits to the server&rsquo;s version of the repository.</li>
+<li><code>git pull</code>: this obtains the latest version of the repository from the server, as other people may have pushed changes to the repo since you last did a <code>git clone</code> or <code>git pull</code>.  Note that if one of the files modified in the server&rsquo;s repository is the same as a file you have modified locally, then git will attempt to merge those files; more on this below.</li>
+<li><code>git mv &lt;source&gt; &lt;dest&gt;</code>: moves a file (or directory), or renames a file; this tells git about the move or rename.</li>
+<li><code>git rm &lt;file&gt;</code>: stages a file (or directory) for removal; use the <code>-f</code> flag if that file has been edited since the last commit; use the <code>-r</code> flag to remove a directory.</li>
+<li><code>git checkout</code>: this has two main functions
+
+<ul>
+<li><code>git checkout &lt;file&gt;</code>: this reverts the (presumably edited) file to the version as of the last commit.</li>
+<li><code>git checkout &lt;branch&gt;</code>: this will switch the <em>entire</em> repo over to the branch specified.</li>
+</ul>
+</li>
+<li><code>git reset</code>: this allows you to &ldquo;undo&rdquo; various operations.  If you want to unstage a file for commit, then enter <code>git reset &lt;file&gt;</code>.  If you want to undo the last commit, you can enter <code>git reset --soft HEAD~1</code>.</li>
+<li><code>git branch</code>: creates (or edits) branches; see below for details</li>
+<li><code>git merge</code>: merges branches; see below for details</li>
+<li><code>git tag</code>: creates (or edits) tags; see below for details</li>
+</ul>
+
+
+<p>There are many other git commands; type <code>man git</code> for a list, then type <code>man git-clone</code> for the details about the <code>git clone</code> command (likewise for the other git commands).</p>
+
+<h3>Exploring github</h3>
+
+<p>There are many services that provide git repositories.  <a href="https://github.com/">Github</a> is one of the most popular.  They provide free repositories for education, and have a powerful set of tools available through their web interface for managing your git repositories.</p>
+
+<p>Github defines two types of repositories: public and private.  Anybody can create as many public repositories as they want, but note that anybody else can see the public repositories.  This course (and this document) is avaialble in a public repository.  In contrast, private repositories can only be viewed by those who are authorized to view them.  Private repositories <a href="https://github.com/pricing">cost money</a>, although github provides free repositories for educational use.</p>
+
+<p>When viewing any repository, it will display, underneath the list of files, the contents of a file called README.md (or readme.md, or readme.markdown, etc.).  <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> is a plain text formatting system that aims to make the document readable in both text format as well as easily allowing it to be converted into HTML or similar.  In fact, any directory that has a readme.md (or similar) will display the formatted contents underneath the list of files.</p>
+
+<p>Note on the right-hand side that github provides issues and a wiki (both of which can be formatted with Markdown).  Take a moment to explore these, as they will be used extensively in this course.  For the assignment below, you will need to created formatted wiki pages, and create issues (along with labels and milestones).</p>
+
+<p>Also on the right-hand side is the link for settings.  From there, you can select Collaborators, and select other people who can access the repository.  If the repo is public, then anybody can clone it. But only collaborators can push to a public repo, or have any access (clone and push) to a private repo.  You will need to add me (&lsquo;aaronbloomfield&rsquo;) as a collaborator to your repo for this homework.</p>
+
+<h3>Forks and Pull requests</h3>
+
+<p>Github easily allows one to <a href="http://en.wikipedia.org/wiki/Fork_%28software_development%29">fork</a> a repository that they have access to.  This is a github feature; there is no git command named &ldquo;fork&rdquo;.  Basically, this is a means to create a new repo that is a copy of an old repo, and keep track of which repo is the old repo.  As you have created the forked repo, you can make any changes to it.  This is typically done in two different situations.  One is if you want to suggest a change to be sent back to the source repo; this is called a pull request, and is described shortly.  The other reason is if you want to work on a project that is based off of another project.  For example, the <a href="https://github.com/aaronbloomfield/github-api-tools">aaronbloomfield/github-api-tools</a> is a fork of the <a href="https://github.com/KnpLabs/php-github-api">KnpLabs/php-github-api</a> repo, as the former uses the library that was created in the latter.  However, the fork adds features that are not meant to be in the original (i.e., the fork is an application that uses the original).</p>
+
+<p>There are two ways that people can change a repository.  The first is if the user has permissions to push to a repo.  This is the case for any user&rsquo;s own repositories, and will be the case for the group repositories in this course.</p>
+
+<p>However, it may be that one wants anybody to be able to suggest changes to a repository.  In this case, the user creates a fork, makes changes to the fork, and then suggests those changes back to the maintainer of the original repository.  This is called a <em>pull request</em> (again, this is a github name, and is not a git command, per se).  This will send a notification &ndash; or request &ndash; to the maintainer of the original to &ldquo;pull&rdquo; the changes into the original repository (hence &ldquo;pull request&rdquo;).  To submit a pull request, click on the &ldquo;pull requests&rdquo; button on the right side of the github repository page.</p>
+
+<p>When you create a fork, it copies the original repo at that point in time.  To update the original repo, you will want to follow the directions <a href="https://help.github.com/articles/syncing-a-fork">here</a>.  Note that you will likely have to <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork">configure the upstream repo</a> the first time you do this.</p>
+
+<h3>Tagging</h3>
+
+<p>A tag is a way to denote a particular commit or a particular date.  For example, version releases are typically tags.  This differs from a branch, which is when development is going to go in multiple different directions.  A tag is just a means to demarkate a point in time.  Consider the main <a href="https://github.com/torvalds/linux">linux kernel repo</a> &ndash; there are a <em>lot</em> of tags there.</p>
+
+<p>In the examples below, we use &ldquo;v1.4&rdquo; as the tag name, but it can be any string.</p>
+
+<ul>
+<li>To list all the tags in a repo, enter <code>git tag</code>.</li>
+<li>To create tag, enter <code>git tag -a v1.4 -m 'my version 1.4'</code></li>
+<li>To find out information about a tag, enter <code>git show v1.4</code>.  Note that this shows the final commit that was tagged (and thus the diffs from that commit to the previous).</li>
+<li>If you create a tag in a cloned repo, that tag only exists on your local machine.  To send those tags to the git server (i.e., github), enter <code>git push origin --tags</code>.</li>
+<li>To delete a tag, enter <code>git tag -d v1.4</code>; you will also have to push this back to the git server.</li>
+<li>To switch to a tagged version, enter <code>git checkout tags/v1.4</code>.</li>
+</ul>
+
+
+<p>More information about tagging can be found <a href="http://git-scm.com/book/en/Git-Basics-Tagging">here</a>; the examples in this section were taken from that page.</p>
+
+<h3>Branching and Merging</h3>
+
+<p>First, a comment about what branching is for.  Branching is for when you want a <em>separate</em> development path to occur in <em>conjunction</em> with the original development path.  It is <strong>NOT</strong> to indicate a particular commit or a particular date (that&rsquo;s a tag).  Branching is a wonderful and powerful tool &ndash; but, like all tools, it should be used wisely and for it&rsquo;s proper purpose.  Linus Torvalds, the creator of git and the Linux kernel, has only one branch in his <a href="https://github.com/torvalds/linux">linux kernel github repo</a>, albeit a very large number of tags.</p>
+
+<p>Branching is merging is compliated, and one should read <a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging">this page</a> in it&rsquo;s entirety.</p>
+
+<p>A few notes from that page (this is NOT a summary):</p>
+
+<ul>
+<li>The main branch is called &ldquo;master&rdquo;</li>
+<li><code>git checkout -b foo</code> creates a &ldquo;foo branch&rdquo; from the current branch/commit the repo is currently in.</li>
+<li><code>git checkout master</code> changes to the master branch, re-arranging the files as needed.</li>
+<li>Entering <code>git merge foo</code> will merge the &ldquo;foo&rdquo; branch INTO the current branch</li>
+</ul>
+
+
+<p>&hellip;</p>
+</body>
+</html>

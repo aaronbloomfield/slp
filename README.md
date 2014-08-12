@@ -12,7 +12,7 @@ None of these links will work if being viewed on github.com; you will
 have to clone (or otherwise download) the repository.
 
 - [Slides](slides/index.html)
-- [Schedule](schedule.html) ([md](schedule.md)): lectures, iterations, etc.
+- [Docs](docs/index.html)
 - [SIGCSE 2014 talk](pubs/sigcse-2014.html) for the paper entitled, "[A Service Learning Practicum Capstone](http://dl.acm.org/citation.cfm?id=2538862.2538974)"
 
 Markdown
@@ -22,8 +22,8 @@ The majority of the content in this repository was created using
 Markdown.  Unfortunately, the only standardized Markdown is very old
 (2004), and has limited support for many HTML features, such as
 tables.  Indeed, the default Ubuntu version of Markdown is the 2004
-version.  To address this, a [markdown.c](utils/markdown.c.html)
-([src](utils/markdown.c)) program was written to use more recent
+version.  To address this, a [markdown.cpp](utils/markdown.cpp.html)
+([src](utils/markdown.cpp)) program was written to use more recent
 Markdown features.  This program uses the libmarkdown library, which
 does support more recent Markdown features.  This library installed on
 Ubuntu via the 'libmarkdown2-dev' package.  Note that reveal.js, which
