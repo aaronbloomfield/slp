@@ -11,7 +11,7 @@ bug, and displays the slides correctly.
 ### Fall 2014
 
 - Daily announcements
-- 01: Course introduction
+- [01: Course introduction](fall/01-intro.html)
 - 02: Development methods
 - 03: Licensing
 - 04: CakePHP & Ruby on Rails
