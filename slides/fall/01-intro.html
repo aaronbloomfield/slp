@@ -12,8 +12,14 @@
     <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
     <link rel="stylesheet" href="../css/slp.css">
     <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
-      document.write( '<link rel="stylesheet" href="../reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
     </script>
     <!--[if lt IE 9]>
     <script src="../reveal.js/lib/js/html5shiv.js"></script>
@@ -100,6 +106,12 @@
 - First, if you don't already have one, you should create a github account, as you'll need it for this course
 - Then, request the student discount at https://education.github.com/; this will take a week or so to be processed
 - You should do this ***today***, due to the week-long delay in processing it
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Course syllabus
+- It is availabe in the github repo; you can click [here](../../uva/syllabus.html) to view it
+- It contains all the information covered in this slide set, plus some more stuff
 	  </script></section>
 
 	</section>
