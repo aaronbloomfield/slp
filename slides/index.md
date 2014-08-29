@@ -10,7 +10,7 @@ bug, and displays the slides correctly.
 
 ### Fall 2014
 
-- Daily announcements
+- [Daily announcements](fall/daily-announcements.html)
 - [01: Course introduction](fall/01-intro.html)
 - [02: Development methods](fall/02-development-methods.html)
 - 03: Licensing
