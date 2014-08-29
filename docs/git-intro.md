@@ -7,9 +7,9 @@ People familiar with git and github can skip some parts, depending on your level
 
 First, read through the [Wikipedia page on git](http://en.wikipedia.org/wiki/Git_%28software%29).
 
-Git keeps the files, as well as the entire the version hisotry, in a *repository*.  A repository is just a directory structure created via the `git init` command (which is not being gone over here).  However, most people who use git have the repository kept on a server.  One can set up their own server to do so, although the user then has to deal with authentication and authorization (who can access which repositories, etc.).  Many people use [github](https://github.com), which is what we will be using here.
+Git keeps the files, as well as the entire the version history, in a *repository*.  A repository is just a directory structure created via the `git init` command (which is not being gone over here).  However, most people who use git have the repository kept on a server.  One can set up their own server to do so, although the user then has to deal with authentication and authorization (who can access which repositories, etc.).  Many people use [github](https://github.com), which is what we will be using here.
 
-The repository itself needs to be *cloned* in order for the files to be worked on; this is analgous to svn's checkout command.  This is done via the `git clone` command.  There are a few ways to clone a repository:
+The repository itself needs to be *cloned* in order for the files to be worked on; this is analogous to svn's checkout command.  This is done via the `git clone` command.  There are a few ways to clone a repository:
 
 ```
 git clone git@github.com:aaronbloomfield/slp
@@ -21,9 +21,9 @@ Or:
 git clone https://github.com/aaronbloomfield/slp.git
 ```
 
-For both of these commands, the user who own's the repository is `aaronbloomfield`, and the repository is `slp`.  Either one will work, although the first one is considered more secure (see [here](https://help.github.com/articles/which-remote-url-should-i-use) for details).  And both will require you to enter your password (any time you clone a private repo, and any time you *push* (more on pushing, below) to any repository).
+For both of these commands, the user who owns the repository is `aaronbloomfield`, and the repository is `slp`.  Either of the two commands will work, although the first one is considered more secure (see [here](https://help.github.com/articles/which-remote-url-should-i-use) for details).  And both will require you to enter your password any time you clone a private repo, and any time you *push* (more on pushing, below) to any repository.
 
-Once the repository is cloned, you can work on the files within the created directory.  The git commands will work anywhere in that cloned repository -- you don't have to be in the root of that directory structure (which was the case with subversion).  As you create files that you want to add to the repository, you use `git add`.  This stages them for adding to the repository, but does not add them just yet.  When you have finished making your changes (file additions, edits, or deletions), you then *commit* them.
+Once the repository is cloned, you can work on the files within the created directory.  The git commands will work anywhere in that cloned repository -- you don't have to be in the root of that directory structure (which was the case with subversion).  As you create files that you want to add to the repository, you use `git add <file>`.  This stages them for adding to the repository, but does not add them just yet.  When you have finished making your changes (file additions, edits, or deletions), you then *commit* them.
 
 Git is a distributed system, which means that you can make as many commits as you would like, but they are not sent back to the git server (in our case, github.com) until you instruct git to do so via a `git push`.
 
@@ -38,7 +38,7 @@ Git is a distributed system, which means that you can make as many commits as yo
   - the files that are staged for commit
   - the files that have been edited sine the last commit
   - the number of commits that you are "ahead" of the server (meaning how many times you have called 'git commit' without calling 'git push'
-  - note that if you edit a file that is already in the repo, add it via `git add`, then edit it again, it will appear twice: as a file staged for commit (the version of the file after the first edit) and in the unstaged files list (the version after the second edit); calling `git add` on that file again, or commiting with `-a` will cause the most recent edited version to be committed.
+  - note that if you edit a file that is already in the repo, add it via `git add`, then edit it again, it will appear twice: as a file staged for commit (the version of the file after the first edit) and in the unstaged files list (the version after the second edit); calling `git add` on that file again, or committing with `-a` will cause the most recent edited version to be committed.
 - `git push`: this pushes all the local commits to the server's version of the repository.
 - `git pull`: this obtains the latest version of the repository from the server, as other people may have pushed changes to the repo since you last did a `git clone` or `git pull`.  Note that if one of the files modified in the server's repository is the same as a file you have modified locally, then git will attempt to merge those files; more on this below.
 - `git mv <source> <dest>`: moves a file (or directory), or renames a file; this tells git about the move or rename.
@@ -57,7 +57,7 @@ There are many other git commands; type `man git` for a list, then type `man git
 
 There are many services that provide git repositories.  [Github](https://github.com/) is one of the most popular.  They provide free repositories for education, and have a powerful set of tools available through their web interface for managing your git repositories.
 
-Github defines two types of repositories: public and private.  Anybody can create as many public repositories as they want, but note that anybody else can see the public repositories.  This course (and this document) is avaialble in a public repository.  In contrast, private repositories can only be viewed by those who are authorized to view them.  Private repositories [cost money](https://github.com/pricing), although github provides free repositories for educational use.
+Github defines two types of repositories: public and private.  Anybody can create as many public repositories as they want, but note that anybody else can see the public repositories.  This course (and this document) is available in a public repository.  In contrast, private repositories can only be viewed by those who are authorized to view them.  Private repositories [cost money](https://github.com/pricing), although github provides free repositories for educational use.
 
 When viewing any repository, it will display, underneath the list of files, the contents of a file called README.md (or readme.md, or readme.markdown, etc.).  [Markdown](http://daringfireball.net/projects/markdown/syntax) is a plain text formatting system that aims to make the document readable in both text format as well as easily allowing it to be converted into HTML or similar.  In fact, any directory that has a readme.md (or similar) will display the formatted contents underneath the list of files.
 
@@ -77,7 +77,7 @@ When you create a fork, it copies the original repo at that point in time.  To u
 
 ### Tagging
 
-A tag is a way to denote a particular commit or a particular date.  For example, version releases are typically tags.  This differs from a branch, which is when development is going to go in multiple different directions.  A tag is just a means to demarkate a point in time.  Consider the main [linux kernel repo](https://github.com/torvalds/linux) -- there are a *lot* of tags there.
+A tag is a way to denote a particular commit or a particular date.  For example, version releases are typically tags.  This differs from a branch, which is when development is going to go in multiple different directions.  A tag is just a means to demarcate a point in time.  Consider the main [linux kernel repo](https://github.com/torvalds/linux) -- there are a *lot* of tags there.
 
 In the examples below, we use "v1.4" as the tag name, but it can be any string.
 
@@ -94,7 +94,7 @@ More information about tagging can be found [here](http://git-scm.com/book/en/Gi
 
 First, a comment about what branching is for.  Branching is for when you want a *separate* development path to occur in *conjunction* with the original development path.  It is **NOT** to indicate a particular commit or a particular date (that's a tag).  Branching is a wonderful and powerful tool -- but, like all tools, it should be used wisely and for it's proper purpose.  Linus Torvalds, the creator of git and the Linux kernel, has only one branch in his [linux kernel github repo](https://github.com/torvalds/linux), albeit a very large number of tags.
 
-Branching is merging is compliated, and one should read [this page](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) in it's entirety.
+Branching is merging is complicated, and one should read [this page](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) in it's entirety.
 
 A few notes from that page (this is NOT a summary):
 
@@ -103,4 +103,26 @@ A few notes from that page (this is NOT a summary):
 - `git checkout master` changes to the master branch, re-arranging the files as needed.
 - Entering `git merge foo` will merge the "foo" branch INTO the current branch
 
-...
+The rest of branching and merging should have been covered in that document
+
+### git for those coming from subversion
+
+While there are many differences between git and subversion, there are also similarities.  Here are the equivalent git commands, as much as is possible, to the SVN commands.  Note that the *flags* to these commands are not listed below.
+
+- `svn checkout` is `git clone`.  Note that how URLs are specified for the two will be different.
+- `svn commit` is `git commit` followed by a `git push`.  When you do a commit in SVN, it sends the changes back to the SVN server.  A git commit only does a local commit, but does not send the changes back to the git server until you do a push.  Under git, you can have as many commits as you want between pushes (although having too many somewhat defeats the purpose of the git server that you are using).
+- `svn revert` is `git checkout`.  This is to restore a file to the last checked-in version.
+- `svn update` is `git pull`, and largely operates the same way (although merging of files is much easier under git).
+
+
+A bunch of SVN commands operate the same (more or less) under git:
+
+- `svn status` is `git status`
+- `svn add` is `git add`
+- `svn move` is `git mv`
+- `svn diff` is `git diff`.  Note that, under git, files that you have added will not have their diffs displayed via this command.
+
+And some SVN commands have no equivalent under git:
+
+- `svn mkdir` does not have an equivalent under git.  git does not keep track of directories, and any empty directories are automatically removed.  So if you want to create an otherwise empty directory, create an file called "empty" inside (`touch empty`), and add that via `git add`.  This will automatically add the directory as well.
+- `svn copy` doesn't have a git equivalent.  Just copy the file normally and add the copied file.
