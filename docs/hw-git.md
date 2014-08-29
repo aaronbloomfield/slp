@@ -15,6 +15,10 @@ For this assignment, you will need to create a **private** repository named `cs4
 
 Within that repo, you will need to complete each of the following sections for this assignment.  Note that you may need to enable the wiki and issue sections: from the main repo page, click on Settings (in the right-hand column), and under Features you can enable wikis and issues.
 
+### Allow us to view the repo
+
+The course instructor and any graduate TAs need to be able to view the private repos that you create.  From the main repo page, click on Settings (in the right-hand column), click on Collaborators (in the left-hand column), and enter our github usernames.  You can find that info on the daily announcements slide set.
+
 ### Update your profile picture
 
 The default profile pictures are just patterns.  Make yours interesting!  You can change your profile picture pretty easily.  From your main profile page (https://github.com/username), click on "Edit Profile", then "Upload new picture".  If you have already changed your picture away from the default, then ignore this step.  And you don't **have** to do this.  But all the *cool* people are doing it...
