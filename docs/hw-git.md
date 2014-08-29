@@ -38,7 +38,7 @@ You should create at least one table.  So that we can easily find your markdown'
 
 ### Forks and pull requests
 
-Create a **private** fork of your repo; it doesn't matter what your fork is named.  Clone the fork, make a change, and commit it (to the fork).  Then submit those changes to your original "cs4970-git-hw" via a pull request.  Handle that pull request in the "cs4970-git-hw" repo.  You can then delete the forked repo.
+This part will be finished over the weekend...
 
 ### Branches and merging
 
