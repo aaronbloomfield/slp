@@ -15,8 +15,8 @@ Lectures
 
 | Num | Date        | Day of week | Lecture type  | Planned topic | Actual lecture progress (and recording) |
 |-----|-------------|-------------|---------------|---------------|-----------------------------------------|
-| 1   | Aug&nbsp;27 | Wednesday   | lecture       | Course intro  | [01-intro][1], slides 0 to 6-7 ([recording][2]) |
-| 2   | Aug&nbsp;29 | Friday      | lecture       |               |                                         |
+| 1   | Aug&nbsp;27 | Wednesday   | lecture       | Course intro  | [01-intro][1], slides 0 to 7-7 ([recording][2]) |
+| 2   | Aug&nbsp;29 | Friday      | lecture       | Course intro, development methods | [01-intro][1], slides 7-7 to 9-10 (end); [02-development-methods][3], slides 0 to 2-3 ([recording][4]) |
 | 3   | Sep&nbsp;1  | Monday      | lecture       |               |                                         |
 | 4   | Sep&nbsp;3  | Wednesday   | lecture       |               |                                         |
 | 5   | Sep&nbsp;5  | Friday      | lecture       |               |                                         |
@@ -62,3 +62,5 @@ Lectures
 
 [1]: ../slides/fall/01-intro.html
 [2]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
+[3]: ../slides/fall/02-development-methods.html
+[4]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
