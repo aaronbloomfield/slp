@@ -12,7 +12,7 @@ bug, and displays the slides correctly.
 
 - Daily announcements
 - [01: Course introduction](fall/01-intro.html)
-- 02: Development methods
+- [02: Development methods](fall/02-development-methods.html)
 - 03: Licensing
 - 04: CakePHP & Ruby on Rails
 - 05: Requirements

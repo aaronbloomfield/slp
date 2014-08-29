@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4970: 02-development-methods slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/slp.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4970
+&nbsp;
+### Capstone Practicum I
+### Fall 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="02-development-methods.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Development Methodologies
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](#/intro)  
+[Rational Unified Process](#/rational)  
+[Extreme Programming](#/xp)  
+[Scrum](#/scrum)  
+[Other Methodologies](#/other)  
+[Methodology Synthesis](#/synthesis)  
+
+	</script></section>
+
+	<section>
+
+	  <section data-markdown id="intro"><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Waterfall method
+
+<a href="http://en.wikipedia.org/wiki/Dettifoss#mediaviewer/File:Iceland_Dettifoss_1972-4.jpg"><img style="float:right;margin-left:1em" width="400" src="http://upload.wikimedia.org/wikipedia/commons/0/06/Iceland_Dettifoss_1972-4.jpg" alt="waterfall" title="&quot;Iceland Dettifoss 1972-4&quot; by Roger McLassus - Uploaded by MaksimOriginal version: File:Iceland Dettifoss 1972.jpg. Licensed under Creative Commons Attribution-Share Alike 3.0 via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Iceland_Dettifoss_1972-4.jpg#mediaviewer/File:Iceland_Dettifoss_1972-4.jpg"></a>
+
+Development flows downward, like a waterfall, through:
+
+- Requirements analysis
+- Design
+- Implementation
+- Integration
+- Testing (validation)
+- Installation
+- Maintenance
+
+&nbsp;  
+Dettifoss waterfall in Iceland
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Agile Manifesto
+- A group of industry experts met in 2001
+- Purpose was to outline values and principles for software development
+- Called the Agile Alliance
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Manifesto
+- Individuals and interactions over processes and tools
+- Working software over comprehensive documen-tation
+- Customer collaboration over contract negotiation
+- Responding to change over following a plan
+
+&nbsp;  
+See http://agilemanifesto.org/principles.html for the prose
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="rational"><script type="text/template">
+# Rational<br>Unified<br>Process
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Unified Process
+- Created by Rational Software (now part of IBM)
+  - This, sometimes called the Rational Unified Process (RUP)
+- Four phases
+  - Inception – understanding the problem
+  - Elaboration – refining the solution
+  - Construction – working on the not-as-hard parts
+  - Transition – beta-testing, deployment
+- Coding takes place during all four!
+- And is designed to allow for changing requirements
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Inception
+- Summarized: "Envision the product scope, vision, and business case"
+- The problem solved:
+  - "Do the stakeholders have basic agreement on the vision of the project, and is it worth investing in serious investigation?"
+- The purpose is to see if the project is worth investigating, NOT to determine requirements
+  - Many confuse it with the waterfall requirements phase
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Inception questions asked
+- What is the vision and business case for this project?
+- Feasible?
+- Buy and/or build?
+- *Rough* unreliable range of cost: Is it $10k-$100k or in the millions?
+- Should we proceed or stop?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## You didn’t understand inception when…
+- ...it’s more than a few weeks long
+- ...you define most of the requirements
+- ...estimates or plans are expected to be reliable
+- ...you define the architecture
+- ...there is no Business Case or Vision artifact
+- ...all the use cases were written in detail
+- ...none of the use cases were written in detail
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is elaboration?
+- The building of the high-risk and high-value parts
+- A given use case is done over multiple iterations
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Elaboration in one sentence
+- In one sentence: "Build the core architecture, resolve the high-risk elements, define most requirements, and estimate the overall schedule and resources"
+- If elaboration is only 1 iteration, then you are doing the "waterfall" thinking
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Incorrect ways to do elaboration
+You know you don't nderstand elaboration when...
+
+- It's more than a "few" months
+- Has only 1 iteration
+- Most requirements defined beforehand
+- Risky elements not being tackled
+- Does not result in an executable after each iteration
+- Considered primarily design and/or requirements phase
+- Trying to do all the design beforehand
+- No early and realistic testing
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Planning the next iteration
+- What to include for the next iteration?
+  - Consider: risk, coverage, complexity
+- Give things a priority: high, medium, low
+  - Based on those factors
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Remaining phases
+- Construction
+  - Working on the not-so-hard parts; polish; HCI<br>  &nbsp;
+- Transition
+  - Testing, beta releases, deployment, documentation, etc.
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="xp"><script type="text/template">
+# Extreme<br>Programming
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Principles
+- Customer team member
+- User stories
+- Short cycles
+- Acceptance tests
+- Pair programming
+- Test-driven development
+- Collective ownership
+- Continuous integration
+- Sustainable pace
+- Open workspace
+- The planning game
+- Simple design
+- Refactoring
+- Metaphor
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="scrum"><script type="text/template">
+# Scrum
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Scrum overview
+
+<a href="http://en.wikipedia.org/wiki/Scrum_%28software_development%29#mediaviewer/File:Scrum_process.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/5/58/Scrum_process.svg" alt="scrum overview" title="&quot;Scrum process&quot; by Lakeworks - Own work. Licensed under Creative Commons Attribution-Share Alike 3.0-2.5-2.0-1.0 via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Scrum_process.svg#mediaviewer/File:Scrum_process.svg"></a>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Product back log
+- Lists all the tasks to be completed in the project
+- At the start of each sprint, the tasks to be worked on for that sprint are selected
+- We'll be using github issues for this
+  - With some specific tag names (more info on this later)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sprint backlog and burndown
+- This tracks the issues completed and hours worked *within* a sprint
+- Because our work is not going to be that regular -- as you are not working full time on this -- we will not deal with the sprint versions as much
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Release burndown
+
+<a href="http://en.wikipedia.org/wiki/Scrum_%28software_development%29#mediaviewer/File:SampleBurndownChart.png"><img src="http://upload.wikimedia.org/wikipedia/commons/0/05/SampleBurndownChart.png" alt="burndown" title="&quot;SampleBurndownChart&quot; by Pablo Straub - Own work. Licensed under Public domain via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:SampleBurndownChart.png#mediaviewer/File:SampleBurndownChart.png"></a>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## SLP burndown from 2012-2013
+![SLP 2012-2013 burndown chart](images/02-development-methods/slp-2012-2013.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## SLP burndown from 2013-2014
+![SLP 2013-2014 burndown chart](images/02-development-methods/slp-2013-2014.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Daily Scrums
+
+The daily meeting of the entire programming group
+
+- Updates about progress since the day before
+- What one is going to do today
+- Ask questions about problems being faced
+- Etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Task Board
+
+(we'll be using github issues in lieu of this)
+
+<a href="http://en.wikipedia.org/wiki/Scrum_%28software_development%29#mediaviewer/File:Scrum_task_board.jpg"><img height="500" src="http://upload.wikimedia.org/wikipedia/commons/1/1b/Scrum_task_board.jpg" alt="scrum daily task board" title="&quot;Scrum task board&quot; by Logan Ingalls - Task board. Licensed under Creative Commons Attribution 2.0 via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Scrum_task_board.jpg#mediaviewer/File:Scrum_task_board.jpg"></a>
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="other"><script type="text/template">
+# Other Methodologies
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Cleanroom
+- Principles
+  - Incremental development under statistical quality control
+  - Software development based on mathematical principles
+  - Software testing based on statistical principles
+- Differences with others
+  - Team-based development
+  - Time allocation across life cycle phases
+  - Existing organizational practices
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rapid Application Development
+
+<a href="http://en.wikipedia.org/wiki/Rapid_application_development#mediaviewer/File:RADModel.JPG"><img src="http://upload.wikimedia.org/wikipedia/commons/5/5f/RADModel.JPG" alt="Rapid application development diagram" title="&quot;RADModel&quot; by Karenjoy toletol - Own work. Licensed under Public domain via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:RADModel.JPG#mediaviewer/File:RADModel.JPG"></a>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Spiral development
+
+<a href="http://en.wikipedia.org/wiki/Spiral_model#mediaviewer/File:Spiral_model_%28Boehm,_1988%29.svg"><img style="background-color:white" src="http://upload.wikimedia.org/wikipedia/commons/e/ec/Spiral_model_%28Boehm%2C_1988%29.svg" alt="spiral development diagram" title="&quot;Spiral model (Boehm, 1988)&quot; by Connyderivative work: Spiral_model_(Boehm,_1988).png: Marctroyderivative work: Conan (talk) - File:Spiralmodel_nach_Boehm.png, Spiral_model_(Boehm,_1988).png. Licensed under Public domain via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Spiral_model_(Boehm,_1988).svg#mediaviewer/File:Spiral_model_(Boehm,_1988).svg"></a>
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="synthesis"><script type="text/template">
+# Methodology<br>Synthesis
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Boehm & Turner Radar Chart
+- The next chart defines 5 axes:
+  - Personnel: experience level of the team: percent who are beginners (level 1), intermediate (level 2), or expert (level 3) 
+  - Dynamism: likelihood of changes: what percentage of the requirements will change during the project?
+  - Culture: does the team like change, or prefer order?
+  - Size: the number of personnel on the team
+  - Criticality: what "badness" will occur upon a software defect?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Boehm & Turner Radar Chart
+- Due to licensing issues, it's an external [link](http://leadinganswers.typepad.com/leading_answers/images/radar_diagram.jpg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Result: Sherfield development!
+- From Rational:
+  - The concept of iterations
+  - The documentation
+  - Use cases, UML, etc.
+  - Inception, but we will do more coding and architecture design during that phase
+- From Scrum:
+  - Regular scrum meetings (once a week for us)
+  - Product backlog
+  - Burndown chart
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sherfield development, page 2
+- From XP:
+  - Customer team member
+  - Collective ownership
+  - Refactoring
+  - Continuous integration
+  - What we modify from XP:
+    - Short cycles (Rational iterations are 2 weeks)
+    - Paired programming (really 2-person weekly teams)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Goals for iteration 1
+- Note that iteration 1 does not start until Sep 23rd!
+- Fully understand the problem!
+  - This will require questions posted to the customer
+- Get some basic (and marginally functional) website working
+  - This includes the MySQL schema
+- We want to show the customer something!
+  - Create the product backlog, and assign story points to each item in the backlog
+- Create a few use cases / user stories
+  - Generate a list of questions to ask the customer
+	  </script></section>
+
+	</section>
+
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>
