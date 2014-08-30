@@ -11,13 +11,15 @@ First, create an account on [github.com](https://github.com) if you do not alrea
 
 Approval of the student discount may take some time.  If you wait until the last minute, and do not get the discount in time, then you will not be able to complete this assignment, and you will receive a zero.  Thus, please start this part early.
 
-For this assignment, you will need to create a **private** repository named `cs4970-git-hw`.  It **MUST** be named this, or else we will not be able to find it, and we will assume that you did not complete the assignment.  There will be a second private repository needed later in this assignment.  The actual location of your repository will be: http://github.com/username/cs4970-git-hw (where "username" is your github username).  As mentioned in the course syllabus, if you do not have any private repositories available, you will have to purchase more.
+For this assignment, you will need to create a **private** repository named `cs4970-git-hw`.  It **MUST** be named this, or else we will not be able to find it, and we will assume that you did not complete the assignment.  There will be only one private repository needed in this assignment.  The actual location of your repository will be: http://github.com/username/cs4970-git-hw (where "username" is your github username).  As mentioned in the course syllabus, if you do not have any private repositories available, you will have to purchase more.
 
 Within that repo, you will need to complete each of the following sections for this assignment.  Note that you may need to enable the wiki and issue sections: from the main repo page, click on Settings (in the right-hand column), and under Features you can enable wikis and issues.
 
 ### Allow us to view the repo
 
 The course instructor and any graduate TAs need to be able to view the private repos that you create.  From the main repo page, click on Settings (in the right-hand column), click on Collaborators (in the left-hand column), and enter our github usernames.  You can find that info on the daily announcements slide set.
+
+However, please ***ADD US AFTER YOU HAVE FINISHED THE HOMEWORK***.  This prevents us from getting notifications every time you make any change to your repo (edit a wiki page, add an issue, etc.).  We are going to get really cranky if we get a dozen emails from every person's repo as they are working through this homework.  Since there are over 100 students in the class, that's almost 1,500 github emails that we would rather not have to deal with.
 
 ### Update your profile picture
 
@@ -38,13 +40,15 @@ You should create at least one table.  So that we can easily find your markdown'
 
 ### Forks and pull requests
 
-This part will be finished over the weekend...
+You should do a fork of the `uva-slp/git-hw-to-fork` repository that was set up for this assignment ([https://github.com/uva-slp/git-hw-to-fork](https://github.com/uva-slp/git-hw-to-fork)). You can do this by clicking on the "Fork" button on the upper-right when viewing that page.  Clone your forked repo, and make some change.  Make sure that this change involves just some addition -- if you everybody edits an existing file, then we have to deal with merging 100+ different edits to the same file, and we have better things to do.  So your change can be anything, but please keep it appropriate, as this is a public repo (and your forked repo can also be a public repo).  Entertain us!
+
+Once you have made your change, commit and push.  You should then submit that change as a pull request; see [here](https://help.github.com/articles/creating-a-pull-request) for details. 
 
 ### Branches and merging
 
 Git provides a visual graph of the branches of a repo via the network tool -- it's found off of the graphs link (which is on the right side of the main github repo page).  Alternatively, you can find it at https://github.com/username/repo/network.
 
-Do the branching and merging required to make the network graph look like the last image on the [git branching and merging page](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) that you read in the [git intro](git-intro.html) ([md](git-intro.md)).  That image can be found [here](http://git-scm.com/figures/18333fig0317-tn.png).  Hint: that page describes the commands necessary to make the graph look like that.  You are welcome to have other commits, of course -- we just want to see that particular structure in there somewhere.  You should then remove all the extra branches (other than master, of course) once you have created those branches and merges.
+Do the branching and merging required to make the network graph look like the last image on the [git branching and merging page](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) that you read in the [git intro](git-intro.html) ([md](git-intro.md)).  That image can be found [here](http://git-scm.com/figures/18333fig0317-tn.png).  Hint: that page describes the commands (and their order) necessary to make the graph look like that.  You are welcome to have other commits, of course -- we just want to see that particular structure in there somewhere.  You should then remove all the extra branches (other than master, of course) once you have created those branches and merges.
 
 ### Complicated merging
 
@@ -55,6 +59,10 @@ In this part, you will need to perform a complicated merge -- meaning one that g
 - Edit the **same** part of the file in both branches, committing after each edit
 - Merge the branches.  git will create a conflict-resolution file, which you **MUST** copy (and commit) as conflict.merge.txt so that we can see it.  Fix the conflicts (however you would like), and finish the merge of those branches.
 - Delete any extra branches other than master.
+
+### Finishing up
+
+Now that the homework is done, please don't forget to add us as collaborators!  See above for details.
 
 ### Grading
 
