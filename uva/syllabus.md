@@ -7,7 +7,7 @@ a.k.a. Capstone Practicum I (CS 4970) and Capstone Practicum II (CS 4971)
 ### Fall 2014: M/W/F 10:00-10:50, Rice 130
 ### Spring 2015: location TBA
 
-**Instructor:** [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron).  Office is Rice Hall, room 403.  Office hours are M/W 1:30-3:00.
+**Instructor:** [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron).  Office is Rice Hall, room 403.  Office hours are M/W 2:00-3:30.
 
 **Course Description:** The Service Learning Practicum course involves the application of software engineering and computing principles to the development of a complete software system for non-profit organizations in our community. Students will be expected to work through the entire software system development process, including customer interfacing for requirements, detailed design, and a comprehensive maintenance plan.
 

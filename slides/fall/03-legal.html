@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4970: 03-legal slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/slp.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4970
+&nbsp;
+### Capstone Practicum I
+### Fall 2014
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="03-legal.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Legal Issues
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](/#intro)  
+[History](/#history)  
+[Common "Free" Licenses](/#common)  
+[Licenses and You](/#you)  
+[UVa & Student Software](/#uva)  
+	</script></section>
+
+	<section>
+
+	  <section data-markdown id="intro"><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Where does copyright come from?
+- Article I, Section 8, Clause 8 of the United States Constitution, known as the Copyright Clause, empowers the United States Congress:
+> To promote the Progress of Science and useful Arts, by securing for limited Times to Authors and Inventors the exclusive Right to their respective Writings and Discoveries.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## If I buy software, it’s mine, right?
+- The software publisher grants the use of one or more copies of the software
+- But the ownership remains with the software company
+- Thus, in order to use it, you have to agree to the terms, typically expressed in an End User License Agreement (EULA)
+  - These terms prevent things like reverse engineering, etc.
+  - And, lately, to prevent class action lawsuits ([Paypal did this](http://yro.slashdot.org/story/12/10/18/1637216/paypal-slips-no-class-action-clause-into-policy-update) on Oct 18, 2012)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Reverse engineering
+- If a piece of hardware is legally obtained, then reverse engineering is lawful
+- But not for software, as EULAs generally forbid it
+  - And courts have [found that EULAs override copyright law](http://en.wikipedia.org/wiki/Bowers_v._Baystate_Technologies)
+- However, the DMCA allows for reverse engineering of software if and only if:
+  - You have legally obtained it
+  - It is specifically to achieve interoperability between computer programs
+	</script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="history"><script type="text/template">
+# History
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## rms: Richard Stallman
+
+<a href="http://en.wikipedia.org/wiki/Richard_Stallman#mediaviewer/File:Richard_Stallman_at_Pittsburgh_University.jpg"><img style="float:right;margin-left:1em" width="350"  src="http://upload.wikimedia.org/wikipedia/commons/3/3d/Richard_Stallman_at_Pittsburgh_University.jpg" alt="richard stallman" title="&quot;Richard Stallman at Pittsburgh University&quot; by Victor Powell - Own work. Licensed under Creative Commons Attribution-Share Alike 3.0 via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Richard_Stallman_at_Pittsburgh_University.jpg#mediaviewer/File:Richard_Stallman_at_Pittsburgh_University.jpg"></a>
+
+- Launched the GNU project in<br>1983 to create a free Unix-like<br>operating system
+  - Can anybody name the kernel?
+- Pioneered the GNU copyleft
+- He wrote (or heavily contributed<br>to): emacs, gcc, gdb, etc.
+	  </script></section>
+
+	  <section>
+<h2><a href="http://xkcd.com/743/">xkcd # 743</a></h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/infrastructures.png" title="The heartfelt tune it plays is CC licensed, and you can get it from my seed on JoinDiaspora.com whenever that project gets going." alt="Infrastructures">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## GNU Project
+
+<a href="http://en.wikipedia.org/wiki/GNU#mediaviewer/File:Heckert_GNU_white.svg"><img  style="float:left;margin-left:1em;background-color:white" width="350"  src="http://upload.wikimedia.org/wikipedia/en/2/22/Heckert_GNU_white.svg" alt="gnu project logo" title="&quot;Heckert GNU white&quot;. Via Wikipedia - http://en.wikipedia.org/wiki/File:Heckert_GNU_white.svg#mediaviewer/File:Heckert_GNU_white.svg"></a>
+
+- Also called the free software<br>movement
+- A free software mass<br>collaboration project started in<br>January 1984
+- The tools that make Linux<br>possible are GNU tools
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Free Software Foundation
+- Created by rms on Oct 4, 1985 to support and promote the free software movement
+- Employees and volunteers mostly work on legal and structural issues regarding free software
+
+&nbsp;  
+
+<a href="http://en.wikipedia.org/wiki/Free_Software_Foundation#mediaviewer/File:Free_Software_Foundation_logo_and_wordmark.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/4/4a/Free_Software_Foundation_logo_and_wordmark.svg" alt="fsf logo" style="background-color:white" title="&quot;Free Software Foundation logo and wordmark&quot; by uploaded by User:SvenThis file was made by User:SvenTranslationIf this image contains text, it can be translated easily into your language. If you need help, contact meFlexible licensesIf you want to use this picture with another license than stated below, contact meContact the authorIf you need a really fast answer, mail me. If you need only a fast answer, write me here. - http://www.gnu.org/graphics/fsf-logo.html. Licensed under Public domain via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Free_Software_Foundation_logo_and_wordmark.svg#mediaviewer/File:Free_Software_Foundation_logo_and_wordmark.svg"></a>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## "Free software" became a bad term...
+- Stallman’s unyielding stance and personality turned some people off to using the GPL
+- And the GPL is very restrictive (see later), which also prevented some companies from releasing their code under it
+- So that led to...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## "Open Source"
+- Term created in 1998 by a group of leading free software individuals in reaction to Netscape’s January 1998 announcement of a [source code release](http://en.wikipedia.org/wiki/Netscape#Open_sourcing) to Netscape
+- There are two categories:
+  - "Free open-source software": all parts of the software are free
+  - "Commercial open-source software": some parts are open source, but key parts are kept closed; used by companies who want to claim "open source"
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## So what is "free software"
+- It could be anything from the FSF / GNU
+- Or anything under a "free" license
+- Typically it is called FOSS for "free and open source software"
+  - This can include many licenses, including the GPL
+  - This term is different than "free open source software" from the previous slide
+- Licenses are approved as "open source licenses" by the [Open Source Initiative (OSI)](http://opensource.org/) based on their [Open Source Definition (OSD)](http://opensource.org/osd)
+	</script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="common"><script type="text/template">
+# Common "Free"<br>Licenses
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## [GNU General Public License](http://en.wikipedia.org/wiki/GNU_General_Public_License)
+- Called the ‘copyleft’
+- All derivative works ***<font color="red">MUST</font>*** be released under the SAME license – even if it is only a small part that uses the GPL
+  - This causes it to be very restrictive
+  - This is called a "viral" license
+- GNU software: Linux kernel, gcc/g++, etc.
+	  </script></section>
+
+	  <section>
+<h2><a href="http://xkcd.com/225/">xkcd # 225</a></h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/open_source.png" title="Later we&#39;ll dress up like Big Oil thugs and jump Ralph Nader." alt="Open Source">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.yale.edu/ypu/blog.html">Ninjas attack Stallman...</a></h2>
+<img class="stretch" src="http://www.yale.edu/ypu/images/ninja2.jpg" alt="ninjas attack stallman" title="from the yale political union">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## What if you use GPL code but don’t tell?
+
+- A Linksys (then Cisco) network storage device (product [NAS200](http://en.wikipedia.org/wiki/NAS200)) ran a customized version of Linux
+  - Among other devices they produced
+  - And Linux is released under the GPL
+- Linksys was thus required to release their source code because of the GPL viral clause
+- The case is [*Free Software Foundation v. Cisco Systems*](http://en.wikipedia.org/wiki/Free_Software_Foundation_v._Cisco_Systems)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## [MIT License](http://en.wikipedia.org/wiki/MIT_License)
+- Simplest non-restrictive open source license
+- Three parts:
+  - Anybody can use the software for free for any use
+  - The license must be included in the software
+  - There is no warranty
+- Ruby on Rails and CakePHP are released under this license
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## MIT License, part 1
+- Copyright (C) &lt;year&gt; &lt;copyright holders&gt;
+- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## MIT License, part 2
+- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## [BSD License](http://en.wikipedia.org/wiki/BSD_licenses)
+- A set of permissive licenses
+- Two variants are GPL-compatible
+  - Meaning they can be combined with GPL code, although the resulting code must be released under the GPL
+- The 4-clause variant is not, due to the advertising clause
+  - All advertising materials mentioning features or use of this software must display the following acknowledgement...
+    - This clause (and variant) has since fallen out of favor
+- Still considered a "free software license" by the FSF, but not accepted as an open source license
+- Django is released under the BSD license
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## [Lesser GPL](http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License)
+- Designed as a compromise between the restrictive GPL and the permissive MIT/BSD licenses
+- Differences between LGPL and GPL
+  - LGPL does not place restrictions on software that *links* with LPGL code
+    - Thus, primarily used for software libraries
+  - Need not display license from the command line
+- Originally called "Library GPL"
+- Software using this license: OpenOffice.org, LibreOffice
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Other licenses
+- [Mozilla Public License (MPL)](http://en.wikipedia.org/wiki/Mozilla_Public_License) is a hybrid of the BSD and GPL licenses
+- [Common Development and Distribution License (CDDL)](http://en.wikipedia.org/wiki/Common_Development_and_Distribution_License) is similar to, and based off of, the MPL
+- [Apache License](http://en.wikipedia.org/wiki/Apache_License) requires any *change* in the software to be released in source form
+- [Microsoft Public License (MS-PL)](http://en.wikipedia.org/wiki/Shared_source#Microsoft_Public_License_.28Ms-PL.29): unrestrictive, and similar to MIT and BSD
+- [Microsoft Reciprocal License (MS-RL)](http://en.wikipedia.org/wiki/Shared_source#Microsoft_Reciprocal_License_.28Ms-RL.29): like MS-PL, but you must release changes in source form
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## License comparison 1
+
+| License name | Derived works must remain open? | Can changed derived license? |
+|-|-|-|
+| [Apache](http://en.wikipedia.org/wiki/Apache_License), v 2.0 | no | yes |
+| [CDDL](http://en.wikipedia.org/wiki/Common_Development_and_Distribution_License) | no | yes, if compatible |
+| [GPL](http://en.wikipedia.org/wiki/GNU_General_Public_License), v 2.0 | If published | yes, if compatible or owner agrees |
+| [Lesser GPL](http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License) | similar to GPL | yes, if compatible |
+| [Microsoft: MS-PL](http://en.wikipedia.org/wiki/Shared_source#Microsoft_Public_License_.28Ms-PL.29) | no | no |
+| [Microsoft: MS-RL](http://en.wikipedia.org/wiki/Shared_source#Microsoft_Reciprocal_License_.28Ms-RL.29) | yes | no |
+| [Mozilla (MPL)](http://en.wikipedia.org/wiki/Mozilla_Public_License) | no | no |
+| [BSD License](http://en.wikipedia.org/wiki/BSD_licenses) | no | yes |
+| [MIT License](http://en.wikipedia.org/wiki/MIT_License) | no | yes |
+
+Table content derived from [this page](http://khason.net/blog/open-source-licenses-comparison-table/)
+	  </script></section>
+
+	  <section>
+<h2>License comparison 2 (image from <a href="http://www.shafqatahmed.com/2008/10/comparison-of-d.html">here</a>)</h2>
+<img class="stretch" src="http://www.shafqatahmed.com/WindowsLiveWriter/OpenSourceLicenseComparison_thumb.png" alt="license comparison table"></a>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## [Creative Commons License](http://en.wikipedia.org/wiki/Creative_Commons_license)
+- A means by which authors of works can specify the terms under which people can share said works
+  - Typically (but not always) used for non-software works
+- There are four condition modules:
+  - Attribution (BY): requires attribution to the original author
+  - Share alike (SA): derivative works allowed, but under the same license
+  - Non-commercial (NC): prevents commercial use
+  - No derivative works (ND): prevents derivative works
+- A license is specified by the terms:
+  - "CC BY-SA", which is what Wikipedia and this github SLP repository are released under
+  - "CC BY-NC", which is what xkcd is released under
+	</script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="you"><script type="text/template">
+# Licenses and You
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What this means for this course
+- Ruby on Rails and CakePHP are both released under the MIT license
+- Django is released under the BSD license
+- But if we include any GPL code, we have to release the entire system under the GPL
+  - We can link to LGPL libraries just fine...
+- Because we are developing real software for real customers, we have to pay attention to this
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## But if you want to use GPL code...
+- Here is one alternative:
+  - Consider a single sub-system that is based of GPL code
+  - You can rewrite that sub-system, and release just that sub-system under the GPL (or LGPL)
+  - Then use the binary  from that sub-system in your non-GPL system
+- This allows you to use a GPL component, but not release your entire system under the GPL
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## If you ever set software free...
+- ... it will come back to you if it loves you...
+- If you release it under the GPL, you can never "un-do" that decision!
+	</script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="uva"><script type="text/template">
+# UVa & Student<br>Software
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Who owns your code?
+- If you were paid by the university...
+  - ... as a graduate student, paid RA, etc...
+  - ... then the university would own your code
+- But since you are not paid by the university, you own your code
+  - And can release it, GPL it, sell it, etc.
+  - Since it is a group project, the system is considered to be jointly-owned, and it’s up to the group to hash out any details...
+- This is a university policy, and it follows federal copyright law
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## SLP student agreement
+- As mentioned earlier, I am working on an agreement with UVa‘s provost’s office and general counsel that will modify those rights as follows:
+  - The non-profit obtains the rights to use your system (including the source code), but they can never release it or sell it or claim that it was written by them
+    - They could hire a developer to enhance it, for example, but the enhanced version would have the same restrictions (can not be released or sold)
+    - They can install it on any of their machines that they need to
+  - Your rights are not restricted in any way
+    - You are just giving some (limited) rights to the nonprofit
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## SLP student agreement
+- Can I force you to sign it?
+  - No!  Nobody can force you to give up your rights
+- But I’m hoping everybody will be willing to do so, since I do not believe it restricts your rights
+  - This has (or will have) gotten approval from the provost, comptroller, general counsel, etc., at UVa
+	  </script></section>
+
+	</section>
+
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>

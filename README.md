@@ -43,4 +43,9 @@ have Markdown installed can still view the contents of this
 repository.
 
 
+License
+-------
 
+The material in this repository is released under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).
+
+Copyright (c) 2013-2014 by Aaron Bloomfield.
