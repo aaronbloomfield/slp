@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: MySQL Reference</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-mysql-reference">SLP: MySQL Reference</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<h3 id="starting-up-mysql">Starting up MySQL</h3>
+<p>This assumes that you have already installed MySQL. On Ubuntu, this typically means installing the 'mysql-server' package.</p>
+<p>To start up MySQL, enter <code>mysql -u mst3k -p</code> from the command line. The <code>-u mst3k</code> is the user you are logging in as. The <code>-p</code> tells MySQL to prompt you for a password. If the name of your MySQL user is the same as your Unix user, then you can eliminate the <code>-u mst3k</code> part entirely. You may also want to specify a starting database: <code>mysql -p foobar</code> - if you do not, you will have to execute a <code>use foobar;</code> command (see below) once logged into mysql.</p>
+<p>If you would rather not have to enter your MySQL password each time, you can create a <code>.my.cnf</code> (yes, that's the correct file name) in your Unix user's home directory. It should have two lines:</p>
+<pre><code>[client]
+password=abcdefg</code></pre>
+<p>Be sure the permissions are set properly (<code>chmod 600 .my.cnf</code>), and you can just run <code>mysql</code> or <code>mysql foobar</code> to start the client; the password is read from the .my.cnf file, and thus you are not prompted for it.</p>
+<h3 id="database-management">Database management</h3>
+<p><strong>To create a database:</strong> <code>create database foobar;</code>. Note that this must be run as the administrative user (typically root).</p>
+<p><strong>To see what databases are avaialble:</strong> <code>show databases;</code>. This will show all the databases that you have access to. If you are the root user, then it will show all the databases.</p>
+<p><strong>To use a database once logged in:</strong> <code>use foobar;</code></p>
+<p><strong>To give a user permission to use a database:</strong> <code>grant all on foobar.* to 'userid' identified by 'password';</code>. Note the foobar.* part as well as the quotes around the userid and password. Some platforms also require that you specify <code>'userid'@'localhost'</code> as well as just 'userid', so I usually enter both commands. 'password' is the password you use when you start up mysql. If you already have a password set, you can ignore the <code>identified by 'password'</code> part.</p>
+<h3 id="table-management">Table management</h3>
+<p>A sample table creation command looks like the following. This can all be one line or on multiple lines. And the MySQL keywords are capitalized to differentiate them in the examples below, but they can all be lower case as well (MySQL doesn't care about the case of the keywords, but does with user identifiers):</p>
+<pre><code>CREATE TABLE example_autoincrement (
+       id INT,
+       data VARCHAR(100)
+       thedate DATETIME,
+       value DOUBLE
+);</code></pre>
+<p>Note that there is no comma after the last field in the table.</p>
+<p>If you are creating tables for CakePHP, then there are a few additional things you want to put in all your tables: - an <code>id INT</code> field that automatically increments (each new record has a successively higher value) - a primary key on that <code>id</code> field. A primary key means that this is the primary way to differentiate one record from another. You can create primary keys out of almost anything, but making them out of an auto-incrementing int field is most common. - a <code>created DATETIME</code> field that CakePHP will update for you - a <code>modified DATETIME</code> field that CakePHP will update for you</p>
+<p>Thus, a CakePHP table might look like the following:</p>
+<pre><code>CREATE TABLE semesters (
+       id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+       title TINYTEXT,
+       year INT UNSIGNED,
+       start_month TINYINT UNSIGNED,
+       end_month TINYINT UNSIGNED,
+       created DATETIME DEFAULT NULL,
+       modified DATETIME DEFAULT NULL
+) ENGINE=innodb;</code></pre>
+<p>The title, year, start_month, and end_month fields would be replaced with the data that you want to hold in your table. Note the 'ENGINE=innodb' part at the end - this is necessary if we want to use foreign keys, which this tutorial is not going over. But putting that in doesn't hurt, and allows the inclusion of foreign keys in the future.</p>
+<p>MySQL has a <a href="http://dev.mysql.com/doc/refman/5.0/en/data-types.html">large number of data types</a></p>
+<p><strong>To see the tables that are available:</strong> <code>show tables;</code>. This shows the tables in the current database.</p>
+<p><strong>To delete a table:</strong> <code>drop table semesters;</code>. This will delete all the data from that table!</p>
+<p><strong>To see the information about a table:</strong> <code>describe semesters;</code>. This shows the default column values, which are used below.</p>
+<p><strong>To remove all elements from a talbe:</strong> <code>truncate semesters;</code>. You can do a delete command (see below), but truncate is much faster, as it does not remove each element one-by-one, which is what delete does.</p>
+<h3 id="retrieving-data-from-the-database">Retrieving data from the database</h3>
+<p>We are assuming the semesters table from above is the table we are pulling data from.</p>
+<p>A typical command is: <code>select * from semesters;</code>. You can specify which data you want to retrieve via a where clause: <code>select * from semesters where year=1989;</code>. The <code>*</code> means all columns; you can select individual ones as well: <code>select id, title, year from semesters where year=1989;</code>.</p>
+<p>There are many other options to the select command: http://dev.mysql.com/doc/refman/5.0/en/select.html</p>
+<h3 id="inserting-and-updating-data-in-the-database">Inserting and updating data in the database</h3>
+<p>You can insert data into the database in two forms:</p>
+<pre><code>insert into semesters set year=2012, start_month=3, end_month=12, created=now(), modified=now();
+insert into semesters values (null, &quot;Fall 2012&quot;, 2012, 8, 12, now(), now()), (null, &quot;Fall 2011&quot;, 2011, 8, 12, now(), now());</code></pre>
+<p>A bunch of things are happening here: - in the first one, note that only some of the fields are being specified; the others have the default values (which the describe table command displays) - <code>now()</code> is a function call, and returns the current datetime - the second command inserts multiple rows at once, but all columns in the row must be specified - note that we specify <code>null</code> for the id, as MySQL will assign an auto-incremented id value for us</p>
+<p>To update a row: <code>update semesters set start_month=9 where year=2012;</code>. MAKE SURE that you specify your <code>where</code> clause, else it will update EVERY row in your table!</p>
+<h3 id="reomving-data">Reomving data</h3>
+<p><code>delete from semesters where year=2012;</code> MAKE SURE that you specify your <code>where</code> clause, else it will delete EVERY row in your table!</p>
+<p>You can also use the truncate command, described above</p>
+<h3 id="backing-up-and-restoring-your-database">Backing up and restoring your database</h3>
+<p>From the command line (NOT from the MySQL prompt), we will use the mysqldump command:</p>
+<pre><code>mysqldump -u mst3k -p foobar &gt; foobar.sql</code></pre>
+<p>Note that the options to mysqldump are the same as when you call mysql from the command prompt:</p>
+<ul>
+<li><code>-u mst3k</code>: specifies the user, but is not necessary if it is the same as your Unix user</li>
+<li><code>-p</code>: specifies to prompt for a password, but is not necessary if you set up your .my.cnf as described above</li>
+<li><code>foobar</code>: specifies the database to back up; unlike with the mysql client, this is required</li>
+</ul>
+<p>This command also redirects the dump to a file (called &quot;foobar.sql&quot;).</p>
+<p>To restore the database:</p>
+<pre><code>cat foobar.sql | mysql -u mst3k -p foobar</code></pre>
+<p>Note that this will erase ALL values that currently exist in the tables.</p>
+<h3 id="advanced-topics">Advanced topics</h3>
+<p>There are a number of more advanced topics that we are not going over in this tutorial; we are just listing them here:</p>
+<ul>
+<li>foreign keys</li>
+<li>join operations</li>
+<li>details of the types</li>
+<li>mysql functions (we only saw 'now()')</li>
+<li>views</li>
+<li>etc.</li>
+</ul>
+</body>
+</html>

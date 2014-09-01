@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: Ruby on Rails: Getting Started</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-ruby-on-rails-getting-started">SLP: Ruby on Rails: Getting Started</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<h2 id="install-ruby-and-rails">Install Ruby and Rails</h2>
+<p>Note that Ruby is the programming language, and Rails is the framework.</p>
+<p>If you are running this on the VirtualBox image, then this step has already been performed.</p>
+<p>If you are running this on your <em>own</em> machine, then you will want to follow the instructions at https://gorails.com/setup/ubuntu/14.04 if you are running Ubuntu 14.04. If you are running Mac OS X, that site has directions <a href="https://gorails.com/setup/osx">here</a>. Likewise, other versions of Ubuntu can be found from those two links. If you are using another operating system, you are on your own (but note that the versions <strong><em>MUST</em></strong> match what we are using (Ruby 2.1.2 and Rails 4.1.5)).</p>
+<p>To install this on the course server, you could follow the directions from https://gorails.com/setup/ubuntu/14.04. However, those directions create a series of directories, which have already been partially done for you. Instead, follow these steps. Note that this will only work on the course server!</p>
+<ol style="list-style-type: decimal">
+<li>Enter <code>cd</code> to ensure you are in your home directory</li>
+<li>Enter <code>tar xfz /usr/local/rails-setup.tgz</code></li>
+<li>Edit your <code>.bashrc</code> file, and add the three lines indicated in the <code>bashrc-mods.txt</code> file</li>
+<li>Log out, then log back in again</li>
+<li>Try the &quot;final steps&quot; commands from <a href="https://gorails.com/setup/ubuntu/14.04">those directions</a>. In particular, if you run <code>rails new myapp</code>, then it should work.</li>
+</ol>
+<p>You will have to run through the rest of the &quot;final steps&quot; commands to configure your rails application. As your first rails application needs to be called &quot;rubyrails&quot;, you will need to enter <code>rails new rubyrails -d mysql</code>, and then the rest of the commands listed there.</p>
+<h2 id="viewing-your-rails-application-locally">Viewing your Rails application locally</h2>
+<p>If you want to view your rails application locally, you can view it via the rails server, as described in <a href="https://gorails.com/setup/ubuntu/14.04">those directions</a>. This will allow you to view it at <code>http://localhost:3000</code> in your favorite web browser.</p>
+<h2 id="viewing-your-rails-application-via-apache">Viewing your Rails application via Apache</h2>
+<p>...</p>
+</body>
+</html>

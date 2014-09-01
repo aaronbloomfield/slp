@@ -1,0 +1,40 @@
+SLP: Framework Homework
+=======================
+
+[Go up to the main SLP documents page](index.html) ([md](index.md))
+
+In this homework, you will create essentially very similar systems using three different frameworks: CakePHP, Ruby on Rails, and Django.
+
+All of these systems will use the SAME database, and one of the important aspects of this homework is to make sure that they all use *different* tables in that database.
+
+### Server setup
+
+We are providing you a server to use for this homework.  In an effort not to broadcast the name of the course server -- and to allow it to be changed without having to update everything herein -- it is just called "the server" throughout these documents.  The server name and the login credentials are in the Post'Em tool in Collab.  It will likely be far easier to develop this on your own machine (presumably the VirtualBox image), and then move it to the server when it is ready.
+
+The easiest way is to download the Virtual Box image from Collab (in Resources).  You can read the directions on the [VirtualBox introduction](virtualbox-intro.html) ([md](virtualbox-intro.md)) page for how to set it up.  If you want to configure your own machine, you can view the steps taken to create the image on the [VirtualBox image details](virtualbox-image-details.html) ([md](virtualbox-image-details.md)) page.
+
+### MySQL
+
+First, you will need to become familiar with MySQL, if you are not already.  Depending on your familiarity level, you may want to go through the [MySQL Introduction](mysql-intro.html) ([md](mysql-intro.md)) page.  Both new and advanced users will want to refer to the [MySQL Reference](mysql-reference.html) ([md](mysql-reference.md)) page throughout this course.
+
+Note that the server has phpMyAdmin installed at https://server/phpmyadmin/ (where "server" is the server used for the course).
+
+### CakePHP
+
+First, proceed through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page -- this should get you a first CakePHP web page working.  The URL for that page ***MUST*** be [http://server/~mst3k/cakephp/](http://server/~mst3k/cakephp/) (where "mst3k" is your userid, and "server" is the server used for the course).  Note the lack of capitalization in your URL!  We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.
+
+The purpose of this part of the assignment is to complete the [CakePHP blog tutorial](http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/blog.html).
+
+A few notes:
+
+- The directions here are written assuming that you are developing the system on your VirtualBox image, and then uploading that to the server once completed; if not, that's totally fine, but you may have to adapt them somewhat.
+- You will want to unzip the CakePHP files into ~/html/cakephp/ on your local machine.  You can then view it via http://localhost/~mst3k/cakephp/ (localhost means the machine that you are currently on).  You will see a lot of red and/or warning messages, but proceeding through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page should resolve all of them.  Once finished, the CakePHP splash page should show all green.
+- You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server.  Alternatively, you can dump your entire MySQL database via `mysqldump -p mst3k > db.sql`.  Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.
+- Note that you can set a *prefix* in app/Config/database.php, such as `cake_`.  This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.
+
+### Ruby on Rails
+
+
+### Django
+
+The directions for installing Django and writing your first site can be found [here](https://docs.djangoproject.com/en/1.6/intro/).  Note that this link is to the 1.6 version, as we will be using Django version 1.6.1 -- if you Google for that site, it will likely take you to the default 1.8 version page, which is not what we are looking for.

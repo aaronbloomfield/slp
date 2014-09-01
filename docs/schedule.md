@@ -1,10 +1,9 @@
-Schedule, 2013-2014
-===================
+SLP: Schedule, 2013-2014
+========================
+
+[Go up to the main SLP documents page](index.html) ([md](index.md))
 
 ### Lecture Schedule, Fall 2014
-
-[Go up to the main README file](README.html)
-
 
 | Num |&nbsp;| Date |&nbsp;| Day of week |&nbsp;| Lecture Type |&nbsp;| Event(s) |&nbsp;| Lecture topic |
 |-----|------|------|------|-------------|------|--------------|------|----------|------|---------------|

@@ -1,5 +1,7 @@
-Introduction to git and github
-==============================
+SLP: Introduction to git and github
+===================================
+
+[Go up to the main SLP documents page](index.html) ([md](index.md))
 
 People familiar with git and github can skip some parts, depending on your level of familiarity.  However, it would be wise to skim the parts you are skipping.  And everybody must read the section on tags and branches, as most people who think they know about branching really don't.
 
