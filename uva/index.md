@@ -6,7 +6,7 @@ UVa Specific Material
 Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the CS 4970/4971 version of the course at the University of Virginia.
 
 
-- [Course syllabus](syllabus.html) ([md](syllabus.md))
+- [Course syllabus][1] ([md][2])
 
 
 
@@ -15,10 +15,10 @@ Lectures
 
 | Num | Date        | Day of week | Lecture type  | Planned topic | Actual lecture progress (and recording) |
 |-----|-------------|-------------|---------------|---------------|-----------------------------------------|
-| 1   | Aug&nbsp;27 | Wednesday   | lecture       | Course intro  | [01-intro][1], slides 0 to 7-7 ([recording][2]) |
-| 2   | Aug&nbsp;29 | Friday      | lecture       | Course intro, development methods | [01-intro][1], slides 7-7 to 9-10 (end); [02-development-methods][3], slides 0 to 2-3 ([recording][4]) |
-| 3   | Sep&nbsp;1  | Monday      | lecture       |               |                                         |
-| 4   | Sep&nbsp;3  | Wednesday   | lecture       |               |                                         |
+| 1   | Aug&nbsp;27 | Wednesday   | lecture       | Course intro  | [01-intro][51], slides 0 to 7-7 ([recording][101]) |
+| 2   | Aug&nbsp;29 | Friday      | lecture       | Course intro, development methods | [01-intro][51], slides 7-7 to 9-10 (end); [02-development-methods][52], slides 0 to 2-3 ([recording][102]) |
+| 3   | Sep&nbsp;1  | Monday      | lecture       | Development methods | [02-development-methods][52], slides 3 to 7-5 (end) ([recording][103]) |
+| 4   | Sep&nbsp;3  | Wednesday   | lecture       | Legal issues  |                                         |
 | 5   | Sep&nbsp;5  | Friday      | lecture       |               |                                         |
 | 6   | Sep&nbsp;8  | Monday      | lecture       |               |                                         |
 | 7   | Sep&nbsp;10 | Wednesday   | lecture       |               |                                         |
@@ -60,7 +60,13 @@ Lectures
 | 40  | Dec&nbsp;3  | Wednesday   | lecture       |               |                                         |
 | 41  | Dec&nbsp;5  | Friday      | no class      |               |                                         |
 
-[1]: ../slides/fall/01-intro.html
-[2]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
-[3]: ../slides/fall/02-development-methods.html
-[4]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
+
+[1]: syllabus.html
+[2]: syllabus.md
+
+[51]: ../slides/fall/01-intro.html
+[52]: ../slides/fall/02-development-methods.html
+
+[101]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
+[102]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
+[103]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-2/02-dev-methods-2.htm
