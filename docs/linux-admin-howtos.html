@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Linux Administration Howtos</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="linux-administration-howtos">Linux Administration Howtos</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>Great! You've gotten your VirtualBox all set up and running, but now you need to administer it. Here are a bunch of commands to help you do that.</p>
+<p>Other problems you are running into? Just ask! We'll update this page as we find out what Linux administration issues people are running into.</p>
+<p><strong>Adding a user:</strong> it may be the case that you want to log in as somebody else, such as if you want the user (and thus http URL) to be the same on your Linux box as on the server you are deploying to. To add a user, you enter: 1sudo adduser mst3k`, where mst3k is the username. You will be prompted to enter a bunch of other information.</p>
+<p><strong>To allow a user to use sudo:</strong> the first user on a system ('student' on the VirtualBox image) is allowed to use sudo, and nobody else is. While there are a number of ways to enable other users to use sudo (such as the 'visudo' command), the easiest is just to add that user to the 'adm group - the sudo configuration file (/etc/sudoers) states that all members of this group can use sudo (as they are considered administraotrs). To add a user to a group, enter: <code>sudo usermod -a -G adm mst3k</code>, where mst3k is the user you are modifying. Note that this must be done using an account that <em>already</em> can use sudo. Furthermore, if the 'mst3k' user is logged in, s/he will have to log out and log in again before the change takes effect.</p>
+<p><strong>Viewing the Apache error log:</strong> <code>tail -f /var/log/apache2/error.log</code>. Permission denied? Then the user is not in the 'adm' group (see the 'to allow a user to use sudo' section, above). This command will display the last 10 lines of the apache2 error log, and any additional lines will display as they are added to that file.</p>
+</body>
+</html>

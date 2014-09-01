@@ -14,6 +14,7 @@ SLP: Documents
 New stuff
 ---------
 
+- [Linux Administration Howtos](linux-admin-howtos.html) ([md](linux-admin-howtos.md))
 - [Framework homework](hw-frameworks.html) ([md](framework-hw.md))
     - [VirtualBox introduction](virtualbox-intro.html) ([md](virtualbox-intro.md))
         - [VirtualBox image details](virtualbox-image-details.html) ([md](virtualbox-image-details.md))

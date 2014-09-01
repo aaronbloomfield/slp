@@ -21,16 +21,16 @@ Note that the server has phpMyAdmin installed at https://server/phpmyadmin/ (whe
 
 ### CakePHP
 
-First, proceed through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page -- this should get you a first CakePHP web page working.  The URL for that page ***MUST*** be [http://server/~mst3k/cakephp/](http://server/~mst3k/cakephp/) (where "mst3k" is your userid, and "server" is the server used for the course).  Note the lack of capitalization in your URL!  We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.
+First, proceed through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page -- this should get you a first CakePHP web page working.  The URL for that page ***MUST*** be http://server/~mst3k/cakephp/ (where "mst3k" is your userid, and "server" is the server used for the course).  Note the lack of capitalization in your URL!  We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.
 
-The purpose of this part of the assignment is to complete the [CakePHP blog tutorial](http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/blog.html).
+The purpose of this part of the assignment is to complete the [CakePHP blog tutorial](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html).
 
 A few notes:
 
 - The directions here are written assuming that you are developing the system on your VirtualBox image, and then uploading that to the server once completed; if not, that's totally fine, but you may have to adapt them somewhat.
 - You will want to unzip the CakePHP files into ~/html/cakephp/ on your local machine.  You can then view it via http://localhost/~mst3k/cakephp/ (localhost means the machine that you are currently on).  You will see a lot of red and/or warning messages, but proceeding through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page should resolve all of them.  Once finished, the CakePHP splash page should show all green.
 - You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server.  Alternatively, you can dump your entire MySQL database via `mysqldump -p mst3k > db.sql`.  Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.
-- Note that you can set a *prefix* in app/Config/database.php, such as `cake_`.  This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.
+- Note that you can set a MySQL table *prefix* in config/app.php, such as `cake_`.  This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.
 
 ### Ruby on Rails
 
