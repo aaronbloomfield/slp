@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: Ruby on Rails: Deployment</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-ruby-on-rails-deployment">SLP: Ruby on Rails: Deployment</h1>
+<p>This page is for how to <em>deploy</em> your Ruby on Rails apps on an Ubuntu server. This is not needed for your local development, as you can run <code>rails server</code> to test it out locally, or test it out on the course server provided. However, if you <strong><em>do</em></strong> want to get it running through Apache, read on...</p>
+<p>Ruby on Rails is run through Apache via a module called Phusion Passenger (or just &quot;Passenger&quot;). It is that module that we have to install and configure.</p>
+<p><strong>NOTE:</strong> By following the directions on the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page, the paths and ruby versions are set to custom values. The instructions here were NOT run by that user, and I don't know what would happen if they were.</p>
+<h2 id="installing-passenger">Installing Passenger</h2>
+<p>First, we need to install Passenger. Following the directions <a href="https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html">here</a>, specifically <a href="https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html#install_on_debian_ubuntu">section 2.3</a>, I ran the following commands:</p>
+<ol style="list-style-type: decimal">
+<li><p>Run the following commands:</p>
+<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+sudo apt-get install apt-transport-https ca-certificates</code></pre>
+<pre><code>It may well be the case that the second of those two commands does not install any new packages.</code></pre></li>
+<li><p>Edit /etc/apt/sources.list.d/passenger.list (a new file), and add the following line:</p>
+<pre><code>deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main</code></pre>
+<pre><code>If you are using a version of Ubuntu that is *not* 14.04, see the above URL for the different repository to use.</code></pre></li>
+<li>Make sure that the passenger.list file you created is owned by root (I didn't bother with the chmod command they stated)</li>
+<li>Update apt-get: <code>sudo apt-get update</code></li>
+<li><p>Install the package: <code>sudo apt-get install libapache2-mod-passenger</code>. This installs passenger version 4.0.50, and it will install a bunch of other packages (16 or so). However, this installs ruby versions 1.9.3 and 2.0.0, which are not the versions we want to use.</p></li>
+</ol>
+<h2 id="install-ruby-2.1">Install Ruby 2.1</h2>
+<p>As the directions in the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page use Ruby version 2.1, we want to do that also. Following the directions <a href="http://brightbox.com/blog/2014/01/09/ruby-2-1-ubuntu-packages/">here</a> and <a href="http://askubuntu.com/questions/452243/what-versions-of-ruby-are-supported-in-14-04">here</a>:</p>
+<ol style="list-style-type: decimal">
+<li>Add a new repository: <code>sudo add-apt-repository ppa:brightbox/ruby-ng</code></li>
+<li>Update apt-get: <code>apt-get update</code></li>
+<li>Install Ruby 2.1: <code>apt-get install ruby2.1</code>; this will likely on need to install 2 packages.</li>
+</ol>
+<p>At this point, running <code>/usr/bin/ruby -v</code> should report version 2.1.2 (possibly with a more recent patch level). This matches the Ruby version in the getting started page.</p>
+<h2 id="configure-passenger">Configure Passenger</h2>
+<ol style="list-style-type: decimal">
+<li>Check /etc/apache2/mods-available/passenger.conf. The PassengerDefaultRuby line should be using /usr/bin/ruby, which means (assuming the previous section was completed successfully) that Passenger is using Ruby 2.1.2.</li>
+<li>Ensure passenger is enabled for apache: <code>sudo a2enmod passenger</code>. We will restart the web server shortly.</li>
+<li>Create a new Ruby app in a local direction via <code>rails new myapp</code>, or similar; see the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page for how to configure Ruby and Rails in a user directory.</li>
+<li><p>Edit your /etc/apache2/sites-available/000-default.conf file, and add the following lines:</p>
+<pre><code>    Alias /railstest /home/rails/myapp/public
+    &lt;Location /railstest&gt;
+        PassengerBaseURI /railstest
+        PassengerAppRoot /home/rails/myapp
+    &lt;/Location&gt;
+    &lt;Directory /home/rails/myapp/public&gt;
+        Allow from all
+        Options -MultiViews
+        # Uncomment this if you&#39;re on Apache &gt;= 2.4:                                                                                                      Require all granted
+    &lt;/Directory&gt;</code></pre></li>
+<li>In /etc/apache2/sites-available/passenger.conf, add <code>PassengerDefaultUser www-data</code> as the last line inside the IfModule clause.</li>
+<li>Restart apache: <code>sudo service apache2 restart</code></li>
+<li>View the app at http://localhost/railstest. While it should show a Passenger page, at this point, it should complain about being unable to run bundler/setup (specifically, &quot;cannot load such file -- bundler/setup (LoadError)&quot;).</li>
+<li>Run <code>sudo gem install bundler</code></li>
+<li><p>Reload http://localhost/railstest`. Now it should complain about not <em>having</em> the gems installed, which is a different issue.</p></li>
+</ol>
+<p>The problem, now, is that all of the gems were installed by the local user via <code>bundle install</code>, which just finds the gems that are needed to be installed. However, the Ruby on Rails that is running on the Apache web server (via Passenger) does not use those gems -- instead, it uses the gems in /usr/lib/ruby/gems/2.1.0/ -- and the particular gems needed for that web app have not (yet) been installed.</p>
+<p>You can install gems one-by-one. While this is rather tedious, it will work. In the passenger error page, about 8 lines down, it will say something like, &quot;Could not find rake-10.3.2 in any of the sources (Bundler::GemNotFound)&quot;. That says that the gem that is needed is &quot;rake&quot; and the version is &quot;10.3.2&quot;. So we can install that particular gem via <code>sudo gem install rake -v 10.3.2</code>.</p>
+<p>Alternatively, you can cd into the Rails app directory (which, in the example above, was /home/rails/myapp), and run <code>bundle install</code> as root.</p>
+<p>Some packages may complain about not finding /usr/lib/ruby/include/ruby.h -- see the troubleshooting section, below, for how to fix this.</p>
+<h2 id="todo">Todo</h2>
+<ul>
+<li>It's currently getting an internal server error: &quot;Missing 'secret_key_base' for 'production' environment, set this value in 'config/secrets.yml'&quot;</li>
+<li>Go over how to set it up for many users in the apache2 config files</li>
+<li>How to easily allow them to install their gems?</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="usrlibrubyincluderuby.h-not-found">/usr/lib/ruby/include/ruby.h not found</h3>
+<p>In either case, you may run into a problem when trying to install certain gems -- this happened with the mysql2 gem:</p>
+<pre><code>gem install mysql2 -v 0.3.16
+Building native extensions.  This could take a while...
+ERROR:  Error installing mysql2:
+        ERROR: Failed to build gem native extension.
+
+    /usr/bin/ruby2.1 extconf.rb
+mkmf.rb can&#39;t find header files for ruby at /usr/lib/ruby/include/ruby.h
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /var/lib/gems/2.1.0/gems/mysql2-0.3.16 for inspection.
+Results logged to /var/lib/gems/2.1.0/extensions/x86_64-linux/2.1.0/mysql2-0.3.16/gem_make.out</code></pre>
+<p>The Ruby development files (and, specifically, /usr/lib/ruby/include/ruby.h), were not installed. To do so, run <code>sudo apt-get install ruby2.1-dev</code>. The &quot;2.1&quot; will install the right set of packages from the repository added earlier in these instructions.</p>
+</body>
+</html>

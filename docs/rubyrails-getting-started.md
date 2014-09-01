@@ -6,7 +6,7 @@ SLP: Ruby on Rails: Getting Started
 Install Ruby and Rails
 ----------------------
 
-Note that Ruby is the programming language, and Rails is the framework.
+Note that Ruby is the programming language, and Rails is the framework.  When all is completed, you ***MUST*** have Ruby version 2.1.2 installed and Rails 4.1.5 installed.  It's okay if you have a different patch level version (i.e., Ruby 2.1.3 or rails 4.1.6, for example), but you can't have a different minor or major version.
 
 If you are running this on the VirtualBox image, then this step has already been performed.
 
