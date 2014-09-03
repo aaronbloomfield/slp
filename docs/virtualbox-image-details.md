@@ -126,3 +126,14 @@ sudo update-alternatives --set c++ /usr/bin/clang++
 - To finish installing dropbox, run `dropbox start -i`.  This will download and install the rest of the dropbox files needed
 - To start dropbox, run `dropbox start`.  This first time it will provide a link -- once you go to that link, and log in, it will know which account to link the computer to, and it will start downloading your files.
 - **WARNING:** Many people have a ***lot*** of files in their Dropbox folder.  And if you have 8 Gb of files there, and you install Dropbox on your virtual box image, then it will need to download 8 Gb of files.  In addition to taking quite some time, this will also cause the virtual box image to take up an additional 8 Gb of space.
+
+**Update**
+
+After releasing the image, the following issues were discovered (and corrected):
+
+- To use the 3.0 CakePHP API, the following commands need to be run:
+```
+sudo apt-get install php5-mcrypt php5-intl
+php5enmod intl
+php5enmod mcrypt
+```
