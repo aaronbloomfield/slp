@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: MySQL Introduction</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-mysql-introduction">SLP: MySQL Introduction</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>This page is meant to allow you to use enough MySQL so that you can complete the first set of tutorials. It is not meant to be a reference; the <a href="mysql-reference.html">MySQL Reference</a> (<a href="mysql-reference.md">md</a>) page does that. And it's not meant to be an introduction to MySQL commands, either - in fact, no actual data entry (or extraction) commands are listed here.</p>
+<h3 id="users-and-permissions">Users and permissions</h3>
+<p>MySQL has, as far as this tutorial is concerned, two types of users: ones who can create databases and users, and ones who cannot.</p>
+<p>The 'root' user can create databases. On the VirtualBox image, the password for the root user is 'password'. You will need to create a MySQL user that has your userid (we'll use 'mst3k' in this tutorial for your userid).</p>
+<h3 id="starting-mysql-as-root">Starting MySQL as root</h3>
+<p>To start MySQL from the command line, enter:</p>
+<pre><code>mysql -u root -p</code></pre>
+<p>The <code>-u root</code> flag is specifying the user to log in as. The <code>-p</code> flag is stating that you want it to prompt you for a password. On the VirtualBox image, the password is 'password'.</p>
+<p>You will have a <code>mysql&gt;</code> prompt; enter <code>exit</code> or <code>quit</code> to exit.</p>
+<h3 id="creating-a-database">Creating a database</h3>
+<p>This can only be done as root. To create a database, enter (from the <code>mysql&gt;</code> prompt):</p>
+<pre><code>create database mst3k;</code></pre>
+<p>Note that the database that is being created is the same as your userid. The reason for this is that this will be the database name on the course server, so keeping it the same will make it easier for you when you are deploying your code.</p>
+<p>At this point, the database is created, but only the root user can access it. Thus, we want to:</p>
+<h3 id="create-other-users">Create other users</h3>
+<p>MySQL doesn't have users, per se, but instead has valid username/password pairs that can log in. To create one:</p>
+<pre><code>grant all on mst3k.* to &#39;mst3k&#39; identified by &#39;foobar&#39;;
+grant all on mst3k.* to &#39;mst3k&#39;@&#39;localhost&#39; identified by &#39;foobar&#39;;</code></pre>
+<p>There are a number of things to note: - There are TWO separate commands; the only difference is the <code>@'localhost'</code> on the second command. We aren't going into why this is necessary here. - <code>mst3k</code> is your userid (that is listed twice on each line), and <code>foobar</code> is your password -- Tou will likely want to use the password found in the Post'Em tool; again, this will save you the hassle of having to reconfigure your application when you deploy it to the server - The first occurrence of 'mst3k' on the line is the database name; the second is the userid who can access it. For our purposes, they just happen to be the same. - The syntax is rather tricky, and it does not accept any variations. The database specification is <code>mst3k.*</code>, for example</p>
+<p>At this point, you can log out of mysql via <code>exit</code> or <code>quit</code> (or Control-D)</p>
+<h3 id="starting-mysql-as-your-userid">Starting MySQL as your userid</h3>
+<p>To start MySQL as your userid, enter:</p>
+<pre><code>mysql -u mst3k -p mst3k</code></pre>
+<p>You'll notice this has a slightly different syntax - in addition to specifying the 'mst3k' user instead of the 'root' user, there is an additional 'mst3k' at the end. That last 'mst3k' is specifying the database that you want to connect to.</p>
+<p>Once logged in (i.e., you have the <code>mysql&gt;</code> prompt), you can enter <code>show tables;</code> to see what tables are in your database. There are likely none at this point, so it will state <code>Empty set</code>.</p>
+<h3 id="creating-tables-for-ruby">Creating tables for Ruby</h3>
+<p>One nice aspect of Ruby is that you don't have to create the tables yourself. When you enter <code>rake db:migrate</code>, the tables will be created for you automatically.</p>
+<h3 id="creating-tables-for-cakephp">Creating tables for CakePHP</h3>
+<p>This is a bit more work, but still pretty easy. The tutorial will specify some MySQL commands to create the tables. For example, the blog tutorial includes the following MySQL commands:</p>
+<pre><code>/* First, create our posts table: */
+CREATE TABLE posts (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(50),
+    body TEXT,
+    created DATETIME DEFAULT NULL,
+    modified DATETIME DEFAULT NULL
+);
+
+/* Then insert some posts for testing: */
+INSERT INTO posts (title,body,created)
+    VALUES (&#39;The title&#39;, &#39;This is the post body.&#39;, NOW());
+INSERT INTO posts (title,body,created)
+    VALUES (&#39;A title once again&#39;, &#39;And the post body follows.&#39;, NOW());
+INSERT INTO posts (title,body,created)
+    VALUES (&#39;Title strikes back&#39;, &#39;This is really exciting! Not.&#39;, NOW());</code></pre>
+<p>We can ALMOST just do a cut-and-paste (and paste it into the <code>mysql&gt;</code> prompt). The only thing we have to change is the table name. We want our CakePHP posts table to be called <code>cake_posts</code>, and our Ruby on Rails posts table to be called <code>rails_posts</code>, as we don't want them writing to the same table. So we are going to change the table name (which occurs four times in those MySQL commands) from <code>posts</code> to <code>cake_posts</code>. Once that is done, we can cut-and-paste the commands right into the <code>mysql&gt;</code> prompt.</p>
+</body>
+</html>

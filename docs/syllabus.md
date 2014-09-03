@@ -1,5 +1,7 @@
-CS 4970 and CS 4971: Service Learning Practicum (SLP)
-=====================================================
+SLP: CS 4970 and CS 4971: Service Learning Practicum (SLP)
+==========================================================
+
+[Go up to the main SLP documents page](index.html) ([md](index.md))
 
 This syllabus applies two two courses: CS 4970 in the fall of 2014 (called "Capstone Practicum I") and CS 4971 in the spring of 2015 (called "Capstone Practicum II").
 

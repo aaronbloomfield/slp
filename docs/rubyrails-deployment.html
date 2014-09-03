@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: Ruby on Rails: Deployment</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-ruby-on-rails-deployment">SLP: Ruby on Rails: Deployment</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>This page is for how to <em>deploy</em> your Ruby on Rails apps on an Ubuntu server. This is not needed for your local development, as you can run <code>rails server</code> to test it out locally, or test it out on the course server provided. However, if you <strong><em>do</em></strong> want to get it running through Apache, read on...</p>
+<p>Ruby on Rails is run through Apache via a module called Phusion Passenger (or just &quot;Passenger&quot;). It is that module that we have to install and configure.</p>
+<p><strong>NOTE:</strong> By following the directions on the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page, the paths and ruby versions are set to custom values. The instructions here were NOT run by that user, and I don't know what would happen if they were.</p>
+<h2 id="installing-passenger">Installing Passenger</h2>
+<p>First, we need to install Passenger. Following the directions <a href="https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html">here</a>, specifically <a href="https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html#install_on_debian_ubuntu">section 2.3</a>, I ran the following commands:</p>
+<ol style="list-style-type: decimal">
+<li><p>Run the following commands:</p>
+<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+sudo apt-get install apt-transport-https ca-certificates</code></pre>
+It may well be the case that the second of those two commands does not install any new packages.</li>
+<li><p>Edit /etc/apt/sources.list.d/passenger.list (a new file), and add the following line:</p>
+<pre><code>deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main</code></pre>
+If you are using a version of Ubuntu that is <em>not</em> 14.04, see the above URL for the different repository to use.</li>
+<li>Make sure that the passenger.list file you created is owned by root (I didn't bother with the chmod command they stated)</li>
+<li>Update apt-get: <code>sudo apt-get update</code></li>
+<li><p>Install the package: <code>sudo apt-get install libapache2-mod-passenger</code>. This installs passenger version 4.0.50, and it will install a bunch of other packages (16 or so). However, this installs ruby versions 1.9.3 and 2.0.0, which are not the versions we want to use. That leads us to...</p></li>
+</ol>
+<h2 id="install-ruby-2.1">Install Ruby 2.1</h2>
+<p>As the directions in the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page use Ruby version 2.1, we want to do that also. Following the directions <a href="http://brightbox.com/blog/2014/01/09/ruby-2-1-ubuntu-packages/">here</a> and <a href="http://askubuntu.com/questions/452243/what-versions-of-ruby-are-supported-in-14-04">here</a>:</p>
+<ol style="list-style-type: decimal">
+<li>Add a new repository: <code>sudo add-apt-repository ppa:brightbox/ruby-ng</code></li>
+<li>Update apt-get: <code>sudo apt-get update</code></li>
+<li>Install Ruby 2.1: <code>sudo apt-get install ruby2.1</code>; this will likely on need to install 2 packages.</li>
+</ol>
+<p>At this point, running <code>/usr/bin/ruby -v</code> should report version 2.1.2 (possibly with a more recent patch level). This matches the Ruby version in the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page.</p>
+<h2 id="configure-passenger">Configure Passenger</h2>
+<ol style="list-style-type: decimal">
+<li>Check /etc/apache2/mods-available/passenger.conf. The <code>PassengerDefaultRuby</code> line should be using <code>/usr/bin/ruby</code>, which means (assuming the previous section was completed successfully) that Passenger is using Ruby 2.1.2.</li>
+<li>In /etc/apache2/sites-available/passenger.conf, add <code>PassengerDefaultUser www-data</code> as the last line inside the IfModule clause.</li>
+<li>Ensure passenger is enabled for apache: <code>sudo a2enmod passenger</code> (although it might already be enabled). We will restart the web server shortly.</li>
+<li>Create a new Ruby app in a local direction via <code>rails new myapp</code>, or similar; see the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page for how to configure Ruby and Rails in a user directory. You will need to configure the database and set the secret_key_base values.</li>
+<li><p>Edit your /etc/apache2/sites-available/000-default.conf file, and add the following lines. Here, <code>/home/rails/myapp</code> is where the Rails app is installed, and <code>/rails/railstest</code> is the URL for the Rails app (specifically, it will be at http://server/rails/railstest). In this example, all the rails apps are kept in a rails/ directory, but that need not be the case.</p>
+<pre><code>RailsEnv development
+RailsBaseURI /rails/railstest
+&lt;Directory /home/rails/myapp&gt;
+  Options -MultiViews
+&lt;/Directory&gt;</code></pre></li>
+<li>In the HTML document root (likely <code>/var/www/html</code>), make a <code>rails</code> sub-directory. In that directory, run <code>ln -s /home/rails/myapp/public railstest</code>, where <code>/home/rails/myapp</code> and <code>railstest</code> are the values from step 5, above.</li>
+<li>Restart apache: <code>sudo service apache2 restart</code></li>
+<li>View the app at http://localhost/rails/railstest. While it should show a Passenger page, at this point, it should complain about being unable to run bundler/setup (specifically, &quot;cannot load such file -- bundler/setup (LoadError)&quot;).</li>
+<li>Run <code>sudo gem install bundler</code></li>
+<li><p>Reload <code>http://localhost/railstest</code>. Now it should complain about not <em>having</em> the gems installed, which is a different issue.</p></li>
+</ol>
+<p>The problem, now, is that all of the gems were installed by the local user via <code>bundle install</code>, which just finds the gems that are needed to be installed. However, the Ruby on Rails that is running on the Apache web server (via Passenger) does not use those gems -- instead, it uses the gems in /var/lib/gems/2.1.0/gems -- and the particular gems needed for that web app have not (yet) been installed.</p>
+<p>You can install gems one-by-one. While this is rather tedious, it will work. In the passenger error page, about 8 lines down, it will say something like, &quot;Could not find rake-10.3.2 in any of the sources (Bundler::GemNotFound)&quot;. That says that the gem that is needed is &quot;rake&quot; and the version is &quot;10.3.2&quot;. So we can install that particular gem via <code>sudo gem install rake -v 10.3.2</code>.</p>
+<p>Alternatively, you can cd into the Rails app directory (which, in the example above, was /home/rails/myapp), and run <code>bundle install</code> as root.</p>
+<p>Some packages may complain about not finding /usr/lib/ruby/include/ruby.h -- see the troubleshooting section, below, for how to fix this.</p>
+<h2 id="allowing-users-to-reload-apache">Allowing users to reload apache</h2>
+<p>Reloading apache needs to be run as root. We will allow all users of a given group to execute these functions; we'll call the group 'rails'.</p>
+<p>Compile this file, and call it <code>reload-apache2</code>:</p>
+<pre><code>#include &lt;stdlib.h&gt;
+int main() {
+  system(&quot;service apache2 reload&quot;);
+  return 0;
+}</code></pre>
+<p>Take that binaries (<code>reload-apache2</code>), and move it to /usr/local/bin/. The run <code>chown root:rails reload-apache2</code> and <code>chown 4750 reload-apache2</code>. These commands mean that anybody who runs that binary (which, in this case, can only be done by somebody in the rails group) will execute those commands AS ROOT.</p>
+<p>You can add a user to a group via <code>usermod -a -G rails user</code>, but that user will have to completely log out and log back in for that change to take effect.</p>
+<h2 id="deploying-multiple-rails-apps-on-one-server">Deploying multiple Rails apps on one server</h2>
+<p>Some of these steps were done in the Passenger configuration section, above.</p>
+<ol style="list-style-type: decimal">
+<li>In the HTML document root (which is specified in /etc/apache2/sites-enabled/000-default.conf), create a rails/ directory</li>
+<li>In that directory, make symlinks to the public folders of each of the apps you want to have on the server: <code>ln -s ~rails/myapp/public railstest</code></li>
+<li>Edit /etc/apache2/sites-available/000-default.conf
+<ul>
+<li>Add these lines right above the very last <code>&lt;/VirtualHost&gt;</code> line</li>
+<li>Add <code>RailsEnv development</code></li>
+<li><p>For <strong><em>each</em></strong> rails app to deploy, add the following lines:</p>
+<pre><code>RailsBaseURI /rails/railstest
+&lt;Directory /home/rails/myapp&gt;
+  Options -MultiViews
+&lt;/Directory&gt;</code></pre></li>
+<li>Here, <code>/rails/railstest</code> is the symlink (from the apache2 document root done in step 2, above), and <code>/home/rails/myapp</code> is where the app itself is stored</li>
+<li><p>Alternatively, you can put all of those 4-line stanzas in a separate file, such as /etc/apache2/rails.conf, and then put in the following two lines into /etc/apache2/sites-available/000-default.conf (and, presumably, /etc/apache2/sites-available/default-ssl.conf):</p>
+<pre><code>RailsEnv development
+Include rails.conf</code></pre></li>
+</ul></li>
+<li>Reload the web server (<code>service apache2 reload</code>)</li>
+<li>At this point, you should be able to view your app at <code>http://server/rails/railstest</code> (and possibly the https version of the URL, if that was configured).</li>
+<li>If you swtich from development to production in step 3, the app claims it cannot find the file; see the troubleshooting section, below, for details.</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="generic-error-with-no-known-cause">Generic error with no known cause</h3>
+<p>Rails apps have a log/ directory (such as /home/rails/myapp/log), and therein provide a lot of detail about what is going wrong.</p>
+<h3 id="usrlibrubyincluderuby.h-not-found">/usr/lib/ruby/include/ruby.h not found</h3>
+<p>In either case, you may run into a problem when trying to install certain gems -- this happened with the mysql2 gem:</p>
+<pre><code>gem install mysql2 -v 0.3.16
+Building native extensions.  This could take a while...
+ERROR:  Error installing mysql2:
+        ERROR: Failed to build gem native extension.
+
+    /usr/bin/ruby2.1 extconf.rb
+mkmf.rb can&#39;t find header files for ruby at /usr/lib/ruby/include/ruby.h
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /var/lib/gems/2.1.0/gems/mysql2-0.3.16 for inspection.
+Results logged to /var/lib/gems/2.1.0/extensions/x86_64-linux/2.1.0/mysql2-0.3.16/gem_make.out</code></pre>
+<p>The Ruby development files (and, specifically, /usr/lib/ruby/include/ruby.h), were not installed. To do so, run <code>sudo apt-get install ruby2.1-dev</code>. The &quot;2.1&quot; will install the right set of packages from the repository added earlier in these instructions.</p>
+<h3 id="the-page-you-were-looking-for-doesnt-exist">&quot;The page you were looking for doesn't exist&quot;</h3>
+<p>This problem seems to occur when running the Rails apps in production mode. For the reason why (and clues how to fix it), see the answer <a href="http://stackoverflow.com/questions/22026492/heroku-rails-setup-the-page-you-were-looking-for-doesnt-exist">here</a></p>
+</body>
+</html>

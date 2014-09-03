@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: CakePHP: Getting Started</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-cakephp-getting-started">SLP: CakePHP: Getting Started</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>To get a CakePHP website up and running:</p>
+<ul>
+<li>Make sure your webserver is configured for CakePHP; you need to have URL rewriting turned on. See the <a href="virtualbox-image-details.html">VirtualBox image details</a> (<a href="virtualbox-image-details.md">md</a>) page for how to do this
+<ul>
+<li>There are some updates, below, that will need to be performed to your VirtualBox image to run CakePHP</li>
+<li>However, these things (the rewriting and the steps below) are all done on the course server already</li>
+</ul></li>
+<li>You should have your MySQL datbase and login information ready, as you will need that shortly</li>
+<li>Download the latest 3.0 version version from the <a href="http://cakephp.org/">CakePHP website</a> - as of the writing of this tutorial (Aug 31, 2014), the latest stable version is 3.0.0-beta1
+<ul>
+<li>Even though it's a beta version, we will be using CakePHP 3.0 this year for those projects that decide to use it, and the API is somewhat different from the 2.5 API; so we'll use the latest 3.0 version for this assignment</li>
+<li>Once you know the URL, you can download it directly via wget: <code>wget http://server/file.zip</code></li>
+</ul></li>
+<li>Unzip it somewhere in your web directory (likely somewhere in '~mst3k/html/cakephp/')
+<ul>
+<li>Be warned that it creates all the files in the <em>current</em> directory</li>
+<li>Take note of the non-domain part of the URL, as we will need this later. If you store the files in <code>~mst3k/html/cakephp</code>, then the CakePHP website URL is <code>http://server/~mst3k/cakephp/</code> (where &quot;server&quot; is the server used for the course), then we will need to remember the <code>/~mst3k/cakephp/</code> part</li>
+<li>If you view the page now, you will get a &quot;404: Not Found&quot; error, which is expected at this point</li>
+</ul></li>
+<li>Configure the CakePHP installation
+<ul>
+<li>There are two .htaccess files (in the root CakePHP directory (~mst3k/html/cakephp/), and in webroot (~mst3k/html/cakephp/webroot/). Both will need to be edited and a line like <code>RewriteBase /~mst3k/cakephp/</code> put in (edited for your particular directory/URL). Put this in as the second to last line, just above the <code>&lt;/IfModule&gt;</code> line. This URL part should be what you remembered from above.
+<ul>
+<li>At this point, you should be able to view your URL, although at least one of the bars will not be green (specifically the one about connecting to the database)</li>
+</ul></li>
+<li>In config/app.php, edit app.php, and edit the Datasources =&gt; default array: you will need to change the values for login, password, and database to match your MySQL credentials</li>
+</ul></li>
+<li>At this point, you should be able to view the page. It should look <strong>exactly</strong> like the image below (although, if you used a newer version than 3.0.0-beta1, the version number will obviously be different) (and the add at the top may differ, too)</li>
+<li>Note that all the boxes are green! If <strong>ANY</strong> of them are yellow or red, then something is wrong, and it is not configured properly</li>
+</ul>
+<h3 id="image-update">Image update</h3>
+<p>There are three commands that you will need to run on the VirtualBox image in order to use CakePHP locally, as they were not run when the image was created:</p>
+<pre><code>sudo apt-get install php5-mcrypt php5-intl
+php5enmod intl
+php5enmod mcrypt</code></pre>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>If you are getting &quot;internal server error&quot; or &quot;404: File Not Found&quot; messages when viewing your CakePHP site, there are two things to try:</p>
+<ul>
+<li>make sure your .htaccess files (both of them!) have the RewriteBase line added</li>
+<li>view the Apache error logs - see the <a href="linux-admin-howtos.html">Linux Administration Howtos</a> (<a href="linux-admin-howtos.md">md</a>) page for how to do this</li>
+</ul>
+<h3 id="that-image">That image</h3>
+<div class="figure">
+<img src="images/cakephp-initial.png" />
+</div>
+</body>
+</html>
