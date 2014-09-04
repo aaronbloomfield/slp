@@ -58,7 +58,7 @@ This part of the assignment is to complete the blog tutorial [here](http://guide
 - That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and pegasus
 - To create the Rails application, you just enter `rails new rubyrails -d mysql` in your home directory (this is in section 3.2 of that web page; be sure to name it `rubyrails` so the URL is correct)
 
-Lastly, since you will be using the same database for all three frameworks, you may want to have each Ruby table have given prefix.  You can do this by editing the three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, `ruby_` is the prefix, but use whatever you would like, within reason).
+Lastly, since you will be using the same database for all three frameworks, you may want to have each Ruby table have given prefix.  You can do this by editing the three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, `ruby_` is the prefix, but use whatever you would like, within reason).  This line can go at the end, just before the last line (which is `end`).
 
 ```
 config.active_record.table_name_prefix = "ruby_"

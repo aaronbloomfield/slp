@@ -5,9 +5,9 @@ SLP: Ruby on Rails: Deployment
 
 This page is for how to *deploy* your Ruby on Rails apps on an Ubuntu server.  This is not needed for your local development, as you can run `rails server` to test it out locally, or test it out on the course server provided.  However, if you ***do*** want to get it running through Apache, read on...
 
-Ruby on Rails is run through Apache via a module called Phusion Passenger (or just "Passenger").  It is that module that we have to install and configure.
+Ruby on Rails is run through Apache via a module called Phusion Passenger (or just "Passenger").  It is that module that must be installed and configured.
 
-**NOTE:** By following the directions on the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page, the paths and ruby versions are set to custom values.  The instructions here were NOT run by that user, and I don't know what would happen if they were.
+**NOTE:** By following the directions on the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page, the paths and ruby versions are set to custom values within the user's directory.  The instructions here were NOT run by that user, and I don't know what would happen if they were.
 
 Installing Passenger
 --------------------
@@ -46,10 +46,10 @@ Configure Passenger
 -------------------
 
 1. Check /etc/apache2/mods-available/passenger.conf.  The `PassengerDefaultRuby` line should be using `/usr/bin/ruby`, which means (assuming the previous section was completed successfully) that Passenger is using Ruby 2.1.2.
-2. In /etc/apache2/sites-available/passenger.conf, add `PassengerDefaultUser www-data` as the last line inside the IfModule clause.
-3. Ensure passenger is enabled for apache: `sudo a2enmod passenger` (although it might already be enabled).  We will restart the web server shortly.
+2. In /etc/apache2/sites-available/passenger.conf, add `PassengerDefaultUser www-data` as the last line inside the `<IfModule>` clause.
+3. Ensure passenger is enabled for apache: `sudo a2enmod passenger` (it might already be enabled).  We will restart the web server shortly.
 4. Create a new Ruby app in a local direction via `rails new myapp`, or similar; see the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page for how to configure Ruby and Rails in a user directory.  You will need to configure the database and set the secret\_key\_base values.
-5. Edit your /etc/apache2/sites-available/000-default.conf file, and add the following lines.  Here, `/home/rails/myapp` is where the Rails app is installed, and `/rails/railstest` is the URL for the Rails app (specifically, it will be at http://server/rails/railstest).  In this example, all the rails apps are kept in a rails/ directory, but that need not be the case.
+5. Edit your /etc/apache2/sites-available/000-default.conf file, and add the following lines.  Here, `/home/rails/myapp` is where the Rails app is installed on the local file system, and `/rails/railstest` is the URL for the Rails app (specifically, it will be at http://server/rails/railstest).  In this example, all the rails apps are kept in a `rails/` directory (and that directory was in the HTML document root, which is likely `/var/www/html/`), but that need not be the case.  The lines to add to 000-default.conf:
 ```
 RailsEnv development
 RailsBaseURI /rails/railstest
@@ -57,17 +57,20 @@ RailsBaseURI /rails/railstest
   Options -MultiViews
 </Directory>
 ```
-6. In the HTML document root (likely `/var/www/html`), make a `rails` sub-directory.  In that directory, run `ln -s /home/rails/myapp/public railstest`, where `/home/rails/myapp` and `railstest` are the values from step 5, above.
-7. Restart apache: `sudo service apache2 restart`
-8. View the app at http://localhost/rails/railstest.  While it should show a Passenger page, at this point, it should complain about being unable to run bundler/setup (specifically, "cannot load such file -- bundler/setup (LoadError)").
+6. In the HTML document root (likely `/var/www/html`), make that `rails` sub-directory.  In that directory, run `ln -s /home/rails/myapp/public railstest`, where `/home/rails/myapp` and `railstest` are the values from step 5, above.
+7. Reload apache: `sudo service apache2 reload`
+8. View the app at `http://localhost/rails/railstest`.  While it should show a Passenger page, at this point, it should complain about being unable to run bundler/setup (specifically, "cannot load such file -- bundler/setup (LoadError)").
 8. Run `sudo gem install bundler`
-9. Reload `http://localhost/railstest`.  Now it should complain about not *having* the gems installed, which is a different issue.
+9. Reload `http://localhost/rails/railstest`.  Now it should complain about not *having* the gems installed, which is a different issue.
 
-The problem, now, is that all of the gems were installed by the local user via `bundle install`, which just finds the gems that are needed to be installed.  However, the Ruby on Rails that is running on the Apache web server (via Passenger) does not use those gems -- instead, it uses the gems in /var/lib/gems/2.1.0/gems -- and the particular gems needed for that web app have not (yet) been installed.
+The problem, now, is that all of the gems were installed by the local user via `bundle install` (or, more likely, `bundle install --path vendor/bundle`), whcih installs them to the user's own directory.  However, the Ruby on Rails that is running on the Apache web server (via Passenger) does not use those gems -- instead, it uses the gems in `/var/lib/gems/2.1.0/gems` -- and the particular gems needed for that web app have not (yet) been installed.
 
-You can install gems one-by-one.  While this is rather tedious, it will work.  In the passenger error page, about 8 lines down, it will say something like, "Could not find rake-10.3.2 in any of the sources (Bundler::GemNotFound)".  That says that the gem that is needed is "rake" and the version is "10.3.2".  So we can install that particular gem via `sudo gem install rake -v 10.3.2`.
+A few hard ways to manage this before we get to the easy way:
 
-Alternatively, you can cd into the Rails app directory (which, in the example above, was /home/rails/myapp), and run `bundle install` as root.
+- You can install gems one-by-one.  While this is rather tedious, it will work.  In the passenger error page, about 8 lines down, it will say something like, "Could not find rake-10.3.2 in any of the sources (Bundler::GemNotFound)".  That says that the gem that is needed is "rake" and the version is "10.3.2".  So we can install that particular gem via `sudo gem install rake -v 10.3.2`.
+- Alternatively, you can cd into the Rails app directory (which, in the example above, was /home/rails/myapp), and run `bundle install` as root.
+
+The easist way is to have the users run `bundle install --path vendor/bundle` instead of `bundle install`.  This will install the gems into their rails app directory (specifically, `myapp/vendor/bundle/ruby/2.1.0/gems/`).  Passenger will look there for the gems, in addition to the system directory (which is `/var/lib/gems/2.1.0/gems`).  Having them install the gems locally will take up more disk space (maybe 50-100 Mb per user), but will be far easier, as the students can manage their own gems without sudo privledges.
 
 Some packages may complain about not finding /usr/lib/ruby/include/ruby.h -- see the troubleshooting section, below, for how to fix this.
 
@@ -95,28 +98,51 @@ Deploying multiple Rails apps on one server
 
 Some of these steps were done in the Passenger configuration section, above.
 
-1. In the HTML document root (which is specified in /etc/apache2/sites-enabled/000-default.conf), create a rails/ directory
-2. In that directory, make symlinks to the public folders of each of the apps you want to have on the server: `ln -s ~rails/myapp/public railstest`
+1. In the HTML document root (which is specified in /etc/apache2/sites-enabled/000-default.conf), create a `rails/` directory (this was the same as discussed in steps 5 and 6 in the Configure Passenger section, above).
+2. In that directory, make symlinks to the public folders of each of the apps you want to have on the server: `ln -s ~userid/myapp/public user`
 3. Edit /etc/apache2/sites-available/000-default.conf
-    - Add these lines right above the very last `</VirtualHost>` line
-	- Add `RailsEnv development`
+    - Add all of this right above the very last `</VirtualHost>` line
+	- Add the line: `RailsEnv development`
 	- For ***each*** rails app to deploy, add the following lines:
 ```
-RailsBaseURI /rails/railstest
-<Directory /home/rails/myapp>
+RailsBaseURI /rails/user
+<Directory /home/user/myapp>
   Options -MultiViews
 </Directory>
 ```
-	- Here, `/rails/railstest` is the symlink (from the apache2 document root done in step 2, above), and `/home/rails/myapp` is where the app itself is stored
-	- Alternatively, you can put all of those 4-line stanzas in a separate file, such as /etc/apache2/rails.conf, and then put in the following two lines into /etc/apache2/sites-available/000-default.conf (and, presumably, /etc/apache2/sites-available/default-ssl.conf):
+	- Here, `/rails/user` is the symlink (from the apache2 document root done in step 2, above -- which means the full path to that symlink is likely something like `/var/www/html/rails/user`), and `/home/user/myapp` is where the app itself is stored
+	- Alternatively, you can put all of those 4-line stanzas in a separate file, such as `/etc/apache2/rails.conf`, and then put in the following two lines into `/etc/apache2/sites-available/000-default.conf` (and, presumably, `/etc/apache2/sites-available/default-ssl.conf`):
 ```
 RailsEnv development
 Include rails.conf
 ```	
 4. Reload the web server (`service apache2 reload`)
-5. At this point, you should be able to view your app at `http://server/rails/railstest` (and possibly the https version of the URL, if that was configured).
+5. At this point, you should be able to view your app at `http://server/rails/user` (and possibly the https version of the URL, if that was configured).
 6. If you swtich from development to production in step 3, the app claims it cannot find the file; see the troubleshooting section, below, for details.
 
+
+Easy user Rails installation
+----------------------------
+
+This section is intended for those running a server that many users will be setting up Rails apps.  If you are just running Rails apps under one account, then this section doesn't apply to you.
+
+To set up Rails, as per the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page, you have to follow the directions that are listed [here](https://gorails.com/setup/ubuntu/14.04).  These instructions take about 30 minutes to run, and if anything is done wrong, it will likely mean they have to start over.
+
+Instead, you can run those directions from a given user's directory (user 'rails', for example).  It will be easiest if you actually create an app for that user (and use the `-d mysql` flag when doing so), as that will locally install the gems needed.  Then you can tar/gzip the files.  To do so, you need to include a number of directories and files:
+
+```
+tar cfz rails-setup.tgz .gem .gemrc .rbenv .subversion bashrc-mods.txt
+```
+
+The first four of the included files/directories (.gem, .gemrc, rbenv, and .subversion) were created by the instructions [here](https://gorails.com/setup/ubuntu/14.04).  The last one lists the three lines that the users have to add to their end of their .bashrc.  Those modifications were also created by [those instructions](https://gorails.com/setup/ubuntu/14.04).
+
+The [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page indicates that this file is kept in `/usr/local/`, and it is how it instructs students to set up Rails in their account.
+
+A few important notes:
+
+- zip/unzip seemed to cause some problems, likely with how symlinks are handled.  Or it could have been a user error, but either way, tar/gzip works fine.
+- That file is likely not portable to other machines unless the configuration is the exact same.
+- **You will still have to keep the rails account**.  Many of the paths in the files that you have created via the `tar` command have hard-coded paths to the `rails` user.  The gems are still installed locally (via `bundle install --path vendor/bundle`).
 
 Troubleshooting
 ---------------

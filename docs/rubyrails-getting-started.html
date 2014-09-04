@@ -12,10 +12,11 @@
 <h1 id="slp-ruby-on-rails-getting-started">SLP: Ruby on Rails: Getting Started</h1>
 <p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
 <h3 id="install-ruby-and-rails">Install Ruby and Rails</h3>
+<p>Ruby is the programming language, and Rails is the framework. They are typically used at the same time, so the entire setup is often just called &quot;Rails&quot;.</p>
 <p>Note that Ruby is the programming language, and Rails is the framework. When all is completed, you <strong><em>MUST</em></strong> have Ruby version 2.1.2 installed and Rails 4.1.5 installed. It's okay if you have a different patch level version (i.e., Ruby 2.1.3 or rails 4.1.6, for example), but you can't have a different minor or major version.</p>
 <p>If you are running this on the VirtualBox image, then this step has already been performed.</p>
 <p>If you are running this on your <em>own</em> machine, then you will want to follow the instructions at <a href="https://gorails.com/setup/ubuntu/14.04">https://gorails.com/setup/ubuntu/14.04</a> if you are running Ubuntu 14.04. If you are running Mac OS X, that site has directions <a href="https://gorails.com/setup/osx">here</a>. Likewise, other versions of Ubuntu can be found from those two links. If you are using another operating system, you are on your own (but note that the versions <strong><em>MUST</em></strong> match what we are using (Ruby 2.1.2 and Rails 4.1.5)).</p>
-<p>To install this on the course server, you could follow the directions from https://gorails.com/setup/ubuntu/14.04. However, those directions create a series of directories, which have already been partially done for you. Instead, follow these steps. Note that this will only work on the course server!</p>
+<p>To install this on the course server, you could follow the directions from <a href="https://gorails.com/setup/ubuntu/14.04">that site</a>. However, those directions take about a half hour to complete. Instead, follow the following steps. Note that this will only work on the course server!</p>
 <ol style="list-style-type: decimal">
 <li>Enter <code>cd</code> to ensure you are in your home directory</li>
 <li>Enter <code>tar xfz /usr/local/rails-setup.tgz</code></li>
@@ -27,18 +28,25 @@
 <h3 id="setting-up-a-new-rails-app">Setting up a new Rails app</h3>
 <p>To set up a new Rails app, you will need to follow the &quot;final steps&quot; instructions from <a href="https://gorails.com/setup/ubuntu/14.04">here</a>. Specifically:</p>
 <ol style="list-style-type: decimal">
-<li>Run <code>rails new myapp -d mysql</code>, where &quot;myapp&quot; is the name of the app you are creating</li>
-<li>Edit myapp/config/database.yml, and enter your MySQL credentials (change username, password, and database). For now, change <strong><em>all</em></strong> the fields (username and password appear twice, and database appears three times). For the homework, you can list your password in plaintext in that file. However, for your project app, you are <strong><em>NOT</em></strong> to have the plain text passwords in the files in the repository -- see the Security section, next, for how to handle the password.</li>
-<li>From the myapp/ directory, run <code>rake db:create</code></li>
+<li>Run <code>rails new railshw -d mysql</code>, where &quot;railshw&quot; is the name of the app you are creating
+<ul>
+<li>For this homework, your Rails app MUST be named &quot;railshw&quot;, and it MUST be in your home directory, as this is how the web server is configured. In particular, there must be a ~mst3k/railshw/public directory.</li>
+<li>For your project, the name of the Rails app should match your project tag</li>
+<li>When prompted for your password for sudo, hit Control-C. It wants to install the Ruby gems (the libraries) system-wide, and we are going to do it in your individual user account. To do this, enter <code>cd railshw</code> to move into the Rails application directory that you just created, then enter <code>bundle install --path vendor/bundle</code>. This will take a minute or two to complete.</li>
+</ul></li>
+<li>Edit railshw/config/database.yml, and enter your MySQL credentials (change username, password, and database). For now, change <strong><em>all</em></strong> the fields (username and password appear twice, and database appears three times). For the homework, you can list your password in plaintext in that file. However, for your project app, you are <strong><em>NOT</em></strong> to have the plain text passwords in the files in the repository -- see the Security section, next, for how to handle the password.</li>
+<li><p>If you want to use a database table <em>prefix</em> (which you do for the homework), then you will have to edit the three files in railshw/config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, <code>ruby_</code> is the prefix, but use whatever you would like, within reason). This line can go at the end, just before the last line (which is <code>end</code>).</p>
+<pre><code>config.active_record.table_name_prefix = &quot;ruby_&quot;</code></pre></li>
+<li>From the railshw/ directory, run <code>rake db:create</code>. It will say that 'mst3k already exists', twice -- that's fine.</li>
 <li>Change the production secret_key_base in config/secrets.yml. Again, for your homework, you can put the value in that file, but for your project, you will need to follow the instructions in the Security section, below.</li>
-<li>Run <code>bundle install</code> in your app directory</li>
 <li>Reload the apache web server by running <code>/usr/local/bin/reload-apache2</code></li>
+<li><p>At this point, you should be able to view your Rails app at <code>http://pegasus.cs.virginia.edu/rails/mst3k</code>. Note that there is no tilde (&quot;~&quot;) there! And obviously replace &quot;mst3k&quot; with your userid. It should look <strong><em>exactly</em></strong> like the image at the bottom of this page.</p></li>
 </ol>
 <h3 id="security">Security</h3>
 <p>There are a few values that must <strong><em>NOT</em></strong> be kept in the repositories -- they are the MySQL passwords in config/database.yml, and the secret_key_base in config/secrets.yml. The default files for config/database.yml and config/secrets.yml access environment variables, but the Apache Passenger module doesn't handle those very well for individual users.</p>
 <p>The easiest way is to copy secrets.yml to secrets.yml.template, and like for database.yml to database.yml.template. Edit the actual files (i.e., not the templates), and put the passwords or keys directly into those files. Add the two *.template files via git, but do NOT add the database.yml and secrets.yml files. Create a .gitignore file that lists two lines, which are the names of those two files (database.yml and secrets.yml).</p>
 <p>What this does is commit to the git repo the tempaltes, but the actual files -- the ones with the passwords -- are not kept in the repo. This means, however, that each person who checks out the repo will have to set those values manuall.</p>
-<p>For those who are interested, there are more options listed <a href="http://railsapps.github.io/rails-environment-variables.html">here</a>.</p>
+<p>For those who are interested, there are more options listed <a href="http://railsapps.github.io/rails-environment-variables.html">here</a>. Keeping this information in environment variables, which is the recommended way to handle this, causes conflits with how Passenger works (Passenger is the Apache module that runs your Rails app)</p>
 <h3 id="installing-new-gems">Installing new gems</h3>
 <ol style="list-style-type: decimal">
 <li>Edit the Gemfile, and add the line to add the gem: <code>gem 'foobar', group: :development</code>, or similar</li>
@@ -51,7 +59,7 @@
 <li>Reload the apache web server by running <code>/usr/local/bin/reload-apache2</code></li>
 </ol>
 <h3 id="viewing-your-rails-application">Viewing your Rails application</h3>
-<p>If you want to view your rails application locally, you can view it via the rails server, as described in <a href="https://gorails.com/setup/ubuntu/14.04">those directions</a>. This will allow you to view it at <code>http://localhost:3000</code> in your favorite web browser.</p>
+<p>If you want to view your rails application locally, you can view it via the rails server, as described in <a href="https://gorails.com/setup/ubuntu/14.04">those directions</a> (basically, run <code>rails server</code>, and then view it at <code>http://localhost:3000</code> in your favorite web browser).</p>
 <p>Your Rails app will have a VERY specific directory that it must be installed in, as the web server is already configured for that directory. As long as it is in that directory, it will be visible through Apache.</p>
 <p>When you view your app, it should look like the image below:</p>
 <div class="figure">
