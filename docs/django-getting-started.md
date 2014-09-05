@@ -37,6 +37,7 @@ DATABASES = {
 	- Note that there is no easy way to add a DB table prefix to every table -- instead, you would have to specify the name of *every* table that Django uses.  You can see a whole bunch of people getting twitchy over this [here](https://code.djangoproject.com/ticket/891).
     - And edit `TIME_ZONE` to match our time zone (EST).
 4. From the `mysite/` directory, run `python manage.py syncdb`.  This will set up the DB tables.
+    - The 'superusers' that it prompts you for are a login for your web system -- you can use your userid, and pick any password that you'd like
 
 At this point, you Django app is up and running, even if it doesn't do much.  You can now start about half-way down on the [Django tutorial, part 1](https://docs.djangoproject.com/en/1.6/intro/tutorial01/#creating-models) page (start at the "Creating models" header).
 

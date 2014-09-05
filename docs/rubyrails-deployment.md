@@ -3,7 +3,7 @@ SLP: Ruby on Rails: Deployment
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
 
-This page is for how to *deploy* your Ruby on Rails apps on an Ubuntu server.  This is not needed for your local development, as you can run `rails server` to test it out locally, or test it out on the course server provided.  However, if you ***do*** want to get it running through Apache, read on...
+This page is for how to *deploy* your Ruby on Rails apps on an Ubuntu server -- specifically, Ubuntu 14.04.  This is not needed for your local development, as you can run `rails server` to test it out locally, or test it out on the course server provided.  However, if you ***do*** want to get it running through Apache, read on...
 
 Ruby on Rails is run through Apache via a module called Phusion Passenger (or just "Passenger").  It is that module that must be installed and configured.
 

@@ -23,3 +23,4 @@ SLP: Documents
     - [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md))
         - [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md))
     - ~~[Django getting started](django-getting-started.html) ([md](django-getting-started.md))~~ (this document is NOT ready yet, and should not be consulted)
+        - [Django deployment](django-deployment.html) ([md](django-deployment.md))
