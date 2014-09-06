@@ -23,6 +23,42 @@ Note that the server has phpMyAdmin installed at `https://server/phpmyadmin/` (w
 
 You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server.  Alternatively, you can dump your entire MySQL database via `mysqldump -p mst3k > db.sql`.  Or you can do it via phpMyAdmin.  Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.
 
+You will need to create a database on your local machine.  The easiest way is to have it be the same username and password as is on the server, so that you can use the same database configuration files.
+
+- Start mysql as root: `mysql -u root -p`, and enter the root password (likely 'password')
+- Create the database: `create database mst3k;`
+- Grant permission for your user to use it: `grant all on mst3k.* to 'mst3k' identified by 'password';`
+    - Note the `.*` after the database name (the first 'mst3k')
+	- Use the same username and password as was provided on the server
+- Call that line again, but put a `@'localhost'` after the userid:`grant all on mst3k.* to 'mst3k'@'localhost' identified by 'password';`
+- Exit mysql
+
+At this point, you have the same databse config on both your local machine as on the server.
+
+### Uploading files to the server
+
+If you are working at home, you will likely want to upload the files to the server.  To do so, you can try this command (presumably from your ~/html directory):
+
+```
+rsync -a --del --progress cakephp/ mst3k@server:~/html/cakephp/
+```
+
+Note that this command is very particular about the parameters!  If you were to specify `cakephp` instead of `cakephp/` (this is after the `--progress` parameter), then it will do something very different.
+
+This command will upload all the *changed* files to the server.  The `-a` flag causes it to upload the entire directory structure.  The `--del` flag tells rsync to *delete* files on the remote server that have been deleted on the local copy.  And the `--progress` flag tells it to display the progress.
+
+One of the issues is that this will overwrite files that have been modified, and this may not always be waht you want.  For example, in CakePHP, you will have set up two .htaccess files, and they will be different on your local machine and the remote server.  So if you were to log into the server, and manually change the files, then it would overwrite them with the next rsync call.
+
+To prevent this, you can use the `--exclude` flag, which causes it to not bother uploading certain files:
+
+```
+rsync -a --del --progress --exclude '.htaccess' cakephp/ mst3k@server:~/html/cakephp/
+```
+
+This will cause rsync to not upload any files called `.htaccess`.  Note that you should upload *everything* the first time (i.e., using the first rsync command given), then log into the server and manually change the .htaccess files.  You should then call the second rsync command from then on.
+
+Which files you exclude will depend on which ones differ between your development machine and the server.  If you use the same database config, as described above, then you can use the same database credential files as well.
+
 ### CakePHP
 
 First, proceed through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page -- this should get you a first CakePHP web page working.  Be sure you use the 3.0 API of CakePHP!  The URL for that page ***MUST*** be `http://server/~mst3k/cakephp/` (where "mst3k" is your userid, and "server" is the server used for the course).  Note the lack of capitalization in your URL!  We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.

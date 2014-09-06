@@ -21,6 +21,29 @@
 <p>First, you will need to become familiar with MySQL, if you are not already. Depending on your familiarity level, you may want to go through the <a href="mysql-intro.html">MySQL Introduction</a> (<a href="mysql-intro.md">md</a>) page. Both new and advanced users will want to refer to the <a href="mysql-reference.html">MySQL Reference</a> (<a href="mysql-reference.md">md</a>) page throughout this course.</p>
 <p>Note that the server has phpMyAdmin installed at <code>https://server/phpmyadmin/</code> (where &quot;server&quot; is the server used for the course).</p>
 <p>You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server. Alternatively, you can dump your entire MySQL database via <code>mysqldump -p mst3k &gt; db.sql</code>. Or you can do it via phpMyAdmin. Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.</p>
+<p>You will need to create a database on your local machine. The easiest way is to have it be the same username and password as is on the server, so that you can use the same database configuration files.</p>
+<ul>
+<li>Start mysql as root: <code>mysql -u root -p</code>, and enter the root password (likely 'password')</li>
+<li>Create the database: <code>create database mst3k;</code></li>
+<li>Grant permission for your user to use it: <code>grant all on mst3k.* to 'mst3k' identified by 'password';</code>
+<ul>
+<li>Note the <code>.*</code> after the database name (the first 'mst3k')</li>
+<li>Use the same username and password as was provided on the server</li>
+</ul></li>
+<li>Call that line again, but put a <code>@'localhost'</code> after the userid:<code>grant all on mst3k.* to 'mst3k'@'localhost' identified by 'password';</code></li>
+<li>Exit mysql</li>
+</ul>
+<p>At this point, you have the same databse config on both your local machine as on the server.</p>
+<h3 id="uploading-files-to-the-server">Uploading files to the server</h3>
+<p>If you are working at home, you will likely want to upload the files to the server. To do so, you can try this command (presumably from your ~/html directory):</p>
+<pre><code>rsync -a --del --progress cakephp/ mst3k@server:~/html/cakephp/</code></pre>
+<p>Note that this command is very particular about the parameters! If you were to specify <code>cakephp</code> instead of <code>cakephp/</code> (this is after the <code>--progress</code> parameter), then it will do something very different.</p>
+<p>This command will upload all the <em>changed</em> files to the server. The <code>-a</code> flag causes it to upload the entire directory structure. The <code>--del</code> flag tells rsync to <em>delete</em> files on the remote server that have been deleted on the local copy. And the <code>--progress</code> flag tells it to display the progress.</p>
+<p>One of the issues is that this will overwrite files that have been modified, and this may not always be waht you want. For example, in CakePHP, you will have set up two .htaccess files, and they will be different on your local machine and the remote server. So if you were to log into the server, and manually change the files, then it would overwrite them with the next rsync call.</p>
+<p>To prevent this, you can use the <code>--exclude</code> flag, which causes it to not bother uploading certain files:</p>
+<pre><code>rsync -a --del --progress --exclude &#39;.htaccess&#39; cakephp/ mst3k@server:~/html/cakephp/</code></pre>
+<p>This will cause rsync to not upload any files called <code>.htaccess</code>. Note that you should upload <em>everything</em> the first time (i.e., using the first rsync command given), then log into the server and manually change the .htaccess files. You should then call the second rsync command from then on.</p>
+<p>Which files you exclude will depend on which ones differ between your development machine and the server. If you use the same database config, as described above, then you can use the same database credential files as well.</p>
 <h3 id="cakephp">CakePHP</h3>
 <p>First, proceed through the <a href="cakephp-getting-started.html">CakePHP getting started</a> (<a href="cakephp-getting-started.md">md</a>) page -- this should get you a first CakePHP web page working. Be sure you use the 3.0 API of CakePHP! The URL for that page <strong><em>MUST</em></strong> be <code>http://server/~mst3k/cakephp/</code> (where &quot;mst3k&quot; is your userid, and &quot;server&quot; is the server used for the course). Note the lack of capitalization in your URL! We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.</p>
 <p>The purpose of this part of the assignment is to complete the <a href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">CakePHP blog tutorial</a>.</p>
