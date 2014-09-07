@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite">
+<title>wsgi-admin.cpp</title>
+</head>
+<body bgcolor="white">
+<pre><tt><i><font color="#9A1900">/**</font></i>
+<i><font color="#9A1900"> * wsgi-admin, by Aaron Bloomfield, (c) 2014</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * This is part of the SLP repository</font></i>
+<i><font color="#9A1900"> * (</font></i><u><font color="#0000FF">https://github.com/aaronbloomfield/slp</font></u><i><font color="#9A1900">), and is released under a</font></i>
+<i><font color="#9A1900"> * CC BY-SA license, like the rest of the repository.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * This program will help manage the registration and de-registration</font></i>
+<i><font color="#9A1900"> * of wsgi files.  It needs two Ubuntu pacakges to work: sqlite3 and</font></i>
+<i><font color="#9A1900"> * libsqlite3-dev.</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Installation:</font></i>
+<i><font color="#9A1900"> * - Compile with 'make', put it somewhere (such as /usr/local/bin)</font></i>
+<i><font color="#9A1900"> * - You will need this to be in a group that can write to the two</font></i>
+<i><font color="#9A1900"> *   conf files declared in the #defines, below</font></i>
+<i><font color="#9A1900"> * - Run 'chmod 2755 wsgi-admin': this will set the group ID bit when</font></i>
+<i><font color="#9A1900"> *   the program runs</font></i>
+<i><font color="#9A1900"> * - the django.conf and django-ssl.conf files need to be in that</font></i>
+<i><font color="#9A1900"> *   group, and group-writable</font></i>
+<i><font color="#9A1900"> * - the DB file also needs to be in that group and group-writable</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * This program will take, as a command-line parameter, a wsgi file</font></i>
+<i><font color="#9A1900"> * (such as Django's wsgi.py), and either add it to, or remove it</font></i>
+<i><font color="#9A1900"> * from, a sqlite db.  The django.conf for apache is then</font></i>
+<i><font color="#9A1900"> * re-generated, checking each existing wsgi file to make sure it's</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * The callback functions were adapted from</font></i>
+<i><font color="#9A1900"> * </font></i><u><font color="#0000FF">http://www.sqlite.org/quickstart.html</font></u>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * DB schema:</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * id int auto_increment primary key</font></i>
+<i><font color="#9A1900"> * uid int</font></i>
+<i><font color="#9A1900"> * wsgi text</font></i>
+<i><font color="#9A1900"> * valid boolean</font></i>
+<i><font color="#9A1900"> * added datetime</font></i>
+<i><font color="#9A1900"> * removed datetime</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * The line to create this in sqlite3:</font></i>
+<i><font color="#9A1900"> * create table wsgi(id integer primary key asc, uid int, wsgi text, valid boolean, added datetime, removed datetime);</font></i>
+<i><font color="#9A1900"> */</font></i>
+
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;iostream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sstream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdlib.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;fstream&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sys/types.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sys/stat.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;unistd.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;sqlite3.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;stdio.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;string.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;pwd.h&gt;</font>
+
+<b><font color="#0000FF">using</font></b> <b><font color="#0000FF">namespace</font></b> std<font color="#990000">;</font>
+
+<i><font color="#9A1900">// constants to change as per your system configuration</font></i>
+<b><font color="#000080">#define</font></b> DJANGO_CONF_FILE <font color="#FF0000">"/etc/apache2/django.conf"</font>
+<b><font color="#000080">#define</font></b> DJANGO_SSL_CONF_FILE <font color="#FF0000">"/etc/apache2/django-ssl.conf"</font>
+<b><font color="#000080">#define</font></b> APACHE2_RELOAD_CMD <font color="#FF0000">"/usr/local/bin/reload-apache2"</font>
+<b><font color="#000080">#define</font></b> URL_PREFIX <font color="#FF0000">"/django"</font>
+<b><font color="#000080">#define</font></b> DATABASE_FILE <font color="#FF0000">"/etc/apache2/django.db"</font>
+
+<i><font color="#9A1900">// some global variables</font></i>
+<font color="#008080">stringstream</font> wsgifile<font color="#990000">,</font> wsgisslfile<font color="#990000">,</font> query<font color="#990000">;</font>
+<font color="#009900">int</font> count <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">,</font> find_uid <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#008080">string</font> find_filename <font color="#990000">=</font> <font color="#FF0000">""</font><font color="#990000">;</font>
+
+<i><font color="#9A1900">// for when they invoke it incorrectly...</font></i>
+<font color="#009900">void</font> <b><font color="#000000">printUsage</font></b><font color="#990000">(</font><font color="#009900">char</font> <font color="#990000">*</font>argv0<font color="#990000">,</font> <font color="#009900">bool</font> doexit <font color="#990000">=</font> <b><font color="#0000FF">true</font></b><font color="#990000">)</font> <font color="#FF0000">{</font>
+    cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Usage:  "</font> <font color="#990000">&lt;&lt;</font> argv0 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" -register &lt;wsgi_file&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+	 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> argv0 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" -remove &lt;num&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+	 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> argv0 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" -list</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+	 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> argv0 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" -regenrate"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> doexit <font color="#990000">)</font>
+      <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// prints an error message with the query, deallocates that error message, and exits</font></i>
+<font color="#009900">void</font> <b><font color="#000000">sqlite3_die</font></b><font color="#990000">(</font><font color="#009900">char</font> <font color="#990000">*</font>errmsg<font color="#990000">,</font> <font color="#008080">string</font> query<font color="#990000">)</font> <font color="#FF0000">{</font>
+  cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"SQL error: "</font> <font color="#990000">&lt;&lt;</font> errmsg <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" on query: "</font> <font color="#990000">&lt;&lt;</font> query <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+  <b><font color="#000000">sqlite3_free</font></b><font color="#990000">(</font>errmsg<font color="#990000">);</font>
+  <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// prints the error message and exits</font></i>
+<font color="#009900">void</font> <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#008080">string</font> s<font color="#990000">)</font> <font color="#FF0000">{</font>
+  cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Error: "</font> <font color="#990000">&lt;&lt;</font> s <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+  <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// finds who owns a file</font></i>
+<font color="#009900">int</font> <b><font color="#000000">get_UID_for_file</font></b> <font color="#990000">(</font><font color="#009900">char</font><font color="#990000">*</font> filename<font color="#990000">)</font> <font color="#FF0000">{</font>
+  <b><font color="#0000FF">struct</font></b> <font color="#008080">stat</font> buf<font color="#990000">;</font>
+  <font color="#009900">int</font> uid <font color="#990000">=</font> <b><font color="#000000">stat</font></b><font color="#990000">(</font>filename<font color="#990000">,&amp;</font>buf<font color="#990000">);</font>
+  <b><font color="#0000FF">return</font></b> buf<font color="#990000">.</font>st_uid<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// maps a UID to a Unix user name</font></i>
+<font color="#009900">char</font><font color="#990000">*</font> <b><font color="#000000">get_userid_by_uid</font></b> <font color="#990000">(</font><font color="#009900">int</font> uid<font color="#990000">)</font> <font color="#FF0000">{</font>
+  <b><font color="#0000FF">struct</font></b> <font color="#008080">passwd</font> <font color="#990000">*</font>p <font color="#990000">=</font> <b><font color="#000000">getpwuid</font></b><font color="#990000">(</font>uid<font color="#990000">);</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> p <font color="#990000">==</font> NULL <font color="#990000">)</font> <font color="#FF0000">{</font>
+    cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Unknown user with uid "</font> <font color="#990000">&lt;&lt;</font> uid <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+  <font color="#FF0000">}</font>
+  <b><font color="#0000FF">return</font></b> p<font color="#990000">-&gt;</font>pw_name<font color="#990000">;</font>
+<font color="#FF0000">}</font>
+    
+<i><font color="#9A1900">// checks if a file exists; this function adapted from</font></i>
+<i><font color="#9A1900">//http://stackoverflow.com/questions/12774207/fastest-way-to-check-if-a-file-exist-using-standard-c-c11-c</font></i>
+<b><font color="#0000FF">inline</font></b> <font color="#009900">bool</font> <b><font color="#000000">file_exists</font></b> <font color="#990000">(</font><b><font color="#0000FF">const</font></b> std<font color="#990000">::</font>string<font color="#990000">&amp;</font> name<font color="#990000">)</font> <font color="#FF0000">{</font>
+    <font color="#008080">ifstream</font> <b><font color="#000000">f</font></b><font color="#990000">(</font>name<font color="#990000">.</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font>f<font color="#990000">.</font><b><font color="#000000">good</font></b><font color="#990000">())</font> <font color="#FF0000">{</font>
+        f<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font> <b><font color="#0000FF">else</font></b> <font color="#FF0000">{</font>
+        f<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+        <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
+    <font color="#FF0000">}</font>   
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// checks if the passed file is a valid WSGI file (really if it's a Python script)</font></i>
+<font color="#009900">bool</font> <b><font color="#000000">is_valid_wsgi_file</font></b><font color="#990000">(</font><font color="#009900">char</font> <font color="#990000">*</font>filename<font color="#990000">)</font> <font color="#FF0000">{</font>
+  <i><font color="#9A1900">// get the file type</font></i>
+  <font color="#008080">stringstream</font> cmd<font color="#990000">;</font>
+  cmd <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/usr/bin/file "</font> <font color="#990000">&lt;&lt;</font> filename<font color="#990000">;</font>
+  <font color="#008080">FILE</font> <font color="#990000">*</font>fp <font color="#990000">=</font> <b><font color="#000000">popen</font></b><font color="#990000">(</font>cmd<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">().</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font><font color="#FF0000">"r"</font><font color="#990000">);</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> fp <font color="#990000">==</font> NULL <font color="#990000">)</font>
+    <b><font color="#000000">die</font></b> <font color="#990000">(</font><font color="#FF0000">"Failed to run 'file' command"</font><font color="#990000">);</font>
+  <font color="#009900">char</font> result<font color="#990000">[</font><font color="#993399">1024</font><font color="#990000">];</font>
+  <b><font color="#000000">fgets</font></b><font color="#990000">(</font>result<font color="#990000">,</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font>result<font color="#990000">)-</font><font color="#993399">1</font><font color="#990000">,</font> fp<font color="#990000">);</font>
+  <b><font color="#000000">pclose</font></b><font color="#990000">(</font>fp<font color="#990000">);</font>
+  <i><font color="#9A1900">// check that the output was correct</font></i>
+  <font color="#008080">stringstream</font> expected<font color="#990000">;</font>
+  expected <font color="#990000">&lt;&lt;</font> filename <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": Python script, ASCII text executable</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+  <font color="#008080">string</font> <b><font color="#000000">obtained</font></b><font color="#990000">(</font>result<font color="#990000">);</font>
+  <b><font color="#0000FF">return</font></b> <font color="#990000">(</font> obtained <font color="#990000">==</font> expected<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">()</font> <font color="#990000">);</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// how to handle the data returned when displaying the list of the DB entries</font></i>
+<b><font color="#0000FF">static</font></b> <font color="#009900">int</font> <b><font color="#000000">list_callback</font></b><font color="#990000">(</font><font color="#009900">void</font> <font color="#990000">*</font>NotUsed<font color="#990000">,</font> <font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>azColName<font color="#990000">)</font> <font color="#FF0000">{</font>
+  <b><font color="#0000FF">for</font></b><font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> argc<font color="#990000">;</font> i<font color="#990000">++</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">strcmp</font></b><font color="#990000">(</font>azColName<font color="#990000">[</font>i<font color="#990000">],</font><font color="#FF0000">"id"</font><font color="#990000">)</font> <font color="#990000">)</font>
+      cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\t</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    cout <font color="#990000">&lt;&lt;</font> azColName<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" = "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">?</font> argv<font color="#990000">[</font>i<font color="#990000">]</font> <font color="#990000">:</font> <font color="#FF0000">"NULL"</font><font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">strcmp</font></b><font color="#990000">(</font>azColName<font color="#990000">[</font>i<font color="#990000">],</font><font color="#FF0000">"uid"</font><font color="#990000">)</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+      <font color="#009900">int</font> uid<font color="#990000">;</font>
+      <b><font color="#000000">sscanf</font></b><font color="#990000">(</font>argv<font color="#990000">[</font>i<font color="#990000">],</font><font color="#FF0000">"%d"</font><font color="#990000">,&amp;</font>uid<font color="#990000">);</font>
+      cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" ("</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">get_userid_by_uid</font></b><font color="#990000">(</font>uid<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">")"</font><font color="#990000">;</font>
+    <font color="#FF0000">}</font>
+    cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+  <font color="#FF0000">}</font>
+  cout <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+  <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// gets the count(*) field and saves it in a global variable</font></i>
+<b><font color="#0000FF">static</font></b> <font color="#009900">int</font> <b><font color="#000000">count_callback</font></b><font color="#990000">(</font><font color="#009900">void</font> <font color="#990000">*</font>NotUsed<font color="#990000">,</font> <font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>azColName<font color="#990000">)</font> <font color="#FF0000">{</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">!=</font> <font color="#993399">1</font> <font color="#990000">)</font>
+    <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"count_callback returned multiple columns!"</font><font color="#990000">);</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">strcmp</font></b><font color="#990000">(</font>azColName<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">],</font><font color="#FF0000">"count(*)"</font><font color="#990000">)</font> <font color="#990000">)</font>
+    <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"count_callback not provided a count(*) column"</font><font color="#990000">);</font>
+  <b><font color="#000000">sscanf</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">],</font><font color="#FF0000">"%d"</font><font color="#990000">,&amp;</font>count<font color="#990000">);</font>
+  <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// this callback allows searching for the 'wsgi' and 'uid' fields in the DB</font></i>
+<b><font color="#0000FF">static</font></b> <font color="#009900">int</font> <b><font color="#000000">find_callback</font></b><font color="#990000">(</font><font color="#009900">void</font> <font color="#990000">*</font>NotUsed<font color="#990000">,</font> <font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>azColName<font color="#990000">)</font> <font color="#FF0000">{</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">&lt;</font> <font color="#993399">2</font> <font color="#990000">)</font>
+    <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"invalid result set to find_callback (1)"</font><font color="#990000">);</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">strcmp</font></b><font color="#990000">(</font>azColName<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">],</font><font color="#FF0000">"wsgi"</font><font color="#990000">)</font> <font color="#990000">)</font>
+    <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"invalid result set to find_callback (2)"</font><font color="#990000">);</font>
+  find_filename <font color="#990000">=</font> <b><font color="#000000">string</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]);</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <b><font color="#000000">strcmp</font></b><font color="#990000">(</font>azColName<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#FF0000">"uid"</font><font color="#990000">)</font> <font color="#990000">)</font>
+    <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"invalid result set to find_callback (3)"</font><font color="#990000">);</font>
+  <b><font color="#000000">sscanf</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#FF0000">"%d"</font><font color="#990000">,&amp;</font>find_uid<font color="#990000">);</font>
+  <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// this regenerates the django.conf files</font></i>
+<b><font color="#0000FF">static</font></b> <font color="#009900">int</font> <b><font color="#000000">regenerate_callback</font></b><font color="#990000">(</font><font color="#009900">void</font> <font color="#990000">*</font>NotUsed<font color="#990000">,</font> <font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>azColName<font color="#990000">)</font><font color="#FF0000">{</font>
+  <font color="#009900">int</font> uid<font color="#990000">;</font>
+  <b><font color="#000000">sscanf</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">],</font><font color="#FF0000">"%d"</font><font color="#990000">,&amp;</font>uid<font color="#990000">);</font>
+  <font color="#009900">char</font> <font color="#990000">*</font>filename <font color="#990000">=</font> argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">];</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">file_exists</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">])</font> <font color="#990000">)</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">is_valid_wsgi_file</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">])</font> <font color="#990000">)</font>
+    <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+  <font color="#008080">string</font> <b><font color="#000000">userid</font></b><font color="#990000">(</font><b><font color="#000000">get_userid_by_uid</font></b><font color="#990000">(</font>uid<font color="#990000">));</font>
+  <font color="#008080">string</font> <b><font color="#000000">fullpath</font></b><font color="#990000">(</font><b><font color="#000000">realpath</font></b><font color="#990000">(</font>filename<font color="#990000">,</font>NULL<font color="#990000">));</font>
+  <font color="#009900">int</font> pos <font color="#990000">=</font> fullpath<font color="#990000">.</font><b><font color="#000000">rfind</font></b><font color="#990000">(</font><font color="#FF0000">"/"</font><font color="#990000">);</font>
+  <font color="#008080">string</font> up1 <font color="#990000">=</font> fullpath<font color="#990000">.</font><b><font color="#000000">substr</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font>pos<font color="#990000">);</font>
+  <font color="#008080">string</font> basename <font color="#990000">=</font> fullpath<font color="#990000">.</font><b><font color="#000000">substr</font></b><font color="#990000">(</font>pos<font color="#990000">+</font><font color="#993399">1</font><font color="#990000">);</font>
+  pos <font color="#990000">=</font> up1<font color="#990000">.</font><b><font color="#000000">rfind</font></b><font color="#990000">(</font><font color="#FF0000">"/"</font><font color="#990000">);</font>
+  <font color="#008080">string</font> up2 <font color="#990000">=</font> up1<font color="#990000">.</font><b><font color="#000000">substr</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">,</font>pos<font color="#990000">);</font>
+  wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"WSGIScriptAlias "</font> <font color="#990000">&lt;&lt;</font> URL_PREFIX <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> userid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font> <font color="#990000">&lt;&lt;</font> fullpath <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+  wsgisslfile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"WSGIScriptAlias "</font> <font color="#990000">&lt;&lt;</font> URL_PREFIX <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> userid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font> <font color="#990000">&lt;&lt;</font> fullpath <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+  wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"WSGIDaemonProcess "</font> <font color="#990000">&lt;&lt;</font> userid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" python-path="</font> <font color="#990000">&lt;&lt;</font> up2 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font> <i><font color="#9A1900">// no ssl version</font></i>
+  <font color="#008080">stringstream</font> foo<font color="#990000">;</font>
+  foo <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"WSGIProcessGroup "</font> <font color="#990000">&lt;&lt;</font> userid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+      <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;Directory "</font> <font color="#990000">&lt;&lt;</font> up1 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+      <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  &lt;Files "</font> <font color="#990000">&lt;&lt;</font> basename <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+      <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"    Require all granted</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+      <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  &lt;/Files&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+      <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;/Directory&gt;</font><font color="#CC33CC">\n\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+  wsgifile <font color="#990000">&lt;&lt;</font> foo<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
+  wsgisslfile <font color="#990000">&lt;&lt;</font> foo<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
+  <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<i><font color="#9A1900">// what does the main() say?</font></i>
+<font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
+
+  <b><font color="#0000FF">enum</font></b> <font color="#FF0000">{</font> MODE_NONE<font color="#990000">,</font> MODE_REGISTER<font color="#990000">,</font> MODE_REMOVE<font color="#990000">,</font> MODE_REGENERATE<font color="#990000">,</font> MODE_LIST <font color="#FF0000">}</font> mode <font color="#990000">=</font> MODE_NONE<font color="#990000">;</font>
+  <font color="#009900">char</font> <font color="#990000">*</font>filename <font color="#990000">=</font> NULL<font color="#990000">;</font>
+  <font color="#009900">int</font> uid <font color="#990000">=</font> <b><font color="#000000">getuid</font></b><font color="#990000">(),</font> ret<font color="#990000">;</font>
+
+  <i><font color="#9A1900">// parse command line parameters, get wsgi file and mode</font></i>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">1</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>argc <font color="#990000">&gt;=</font> <font color="#993399">4</font><font color="#990000">)</font> <font color="#990000">)</font>
+    <b><font color="#000000">printUsage</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
+  <font color="#008080">string</font> <b><font color="#000000">param</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">1</font><font color="#990000">]);</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">3</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>param <font color="#990000">==</font> <font color="#FF0000">"-register"</font><font color="#990000">)</font> <font color="#990000">)</font>
+    mode <font color="#990000">=</font> MODE_REGISTER<font color="#990000">;</font>
+  <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">3</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>param <font color="#990000">==</font> <font color="#FF0000">"-remove"</font><font color="#990000">)</font> <font color="#990000">)</font>
+    mode <font color="#990000">=</font> MODE_REMOVE<font color="#990000">;</font>
+  <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>param <font color="#990000">==</font> <font color="#FF0000">"-regenerate"</font><font color="#990000">)</font> <font color="#990000">)</font>
+    mode <font color="#990000">=</font> MODE_REGENERATE<font color="#990000">;</font>
+  <b><font color="#0000FF">else</font></b> <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argc <font color="#990000">==</font> <font color="#993399">2</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>param <font color="#990000">==</font> <font color="#FF0000">"-list"</font><font color="#990000">)</font> <font color="#990000">)</font>
+    mode <font color="#990000">=</font> MODE_LIST<font color="#990000">;</font>
+  <b><font color="#0000FF">else</font></b>
+    <b><font color="#000000">printUsage</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
+
+  <i><font color="#9A1900">// open the DB</font></i>
+  <font color="#008080">sqlite3</font> <font color="#990000">*</font>db<font color="#990000">;</font>
+  <font color="#009900">char</font> <font color="#990000">*</font>errmsg <font color="#990000">=</font> NULL<font color="#990000">;</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">file_exists</font></b><font color="#990000">(</font>DATABASE_FILE<font color="#990000">)</font> <font color="#990000">)</font>
+    <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"database file does not exist"</font><font color="#990000">);</font>
+  ret <font color="#990000">=</font> <b><font color="#000000">sqlite3_open</font></b><font color="#990000">(</font>DATABASE_FILE<font color="#990000">,&amp;</font>db<font color="#990000">);</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> SQLITE_OK <font color="#990000">)</font>
+    <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"Can't open the DB"</font><font color="#990000">);</font>
+
+  <i><font color="#9A1900">// register a new entry</font></i>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> mode <font color="#990000">==</font> MODE_REGISTER <font color="#990000">)</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">// sanity check the file name</font></i>
+    <b><font color="#0000FF">for</font></b> <font color="#990000">(</font> <font color="#009900">int</font> i <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font> i <font color="#990000">&lt;</font> <b><font color="#000000">strlen</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]);</font> i<font color="#990000">++</font> <font color="#990000">)</font>
+      <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">][</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'</font><font color="#CC33CC">\\</font><font color="#FF0000">'</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">][</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'"'</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">][</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">'</font><font color="#CC33CC">\'</font><font color="#FF0000">'</font><font color="#990000">)</font> <font color="#990000">||</font> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">][</font>i<font color="#990000">]</font> <font color="#990000">==</font> <font color="#FF0000">';'</font><font color="#990000">)</font> <font color="#990000">)</font>
+	<b><font color="#000000">die</font></b> <font color="#990000">(</font><font color="#FF0000">"Try choosing a file name that does *not* lend itself to SQL injection attacks"</font><font color="#990000">);</font>
+
+    <i><font color="#9A1900">// does the file exist?</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">file_exists</font></b><font color="#990000">(</font><b><font color="#000000">string</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]))</font> <font color="#990000">)</font> <font color="#FF0000">{</font>
+      cerr <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"File '"</font> <font color="#990000">&lt;&lt;</font> argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"' does not exist!"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+      <b><font color="#000000">exit</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font>
+    <font color="#FF0000">}</font>
+
+    <i><font color="#9A1900">// is it a Python file?</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">is_valid_wsgi_file</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">])</font> <font color="#990000">)</font>
+      <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"Not a valid WSGI file"</font><font color="#990000">);</font>
+
+    <i><font color="#9A1900">// is it owned by the user executing this script?</font></i>
+    <font color="#009900">int</font> fuid <font color="#990000">=</font> <b><font color="#000000">get_UID_for_file</font></b> <font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">]);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>uid <font color="#990000">!=</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>uid <font color="#990000">!=</font> <font color="#993399">1000</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>fuid <font color="#990000">!=</font> uid<font color="#990000">)</font> <font color="#990000">)</font>
+      <b><font color="#000000">die</font></b> <font color="#990000">(</font><font color="#FF0000">"You cannot register a file that you do not own"</font><font color="#990000">);</font>
+
+    <i><font color="#9A1900">// check for duplicate entries of that file</font></i>
+    query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+    query <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"select count(*) from wsgi where wsgi=</font><font color="#CC33CC">\"</font><font color="#FF0000">"</font>
+	  <font color="#990000">&lt;&lt;</font> <b><font color="#000000">realpath</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">],</font>NULL<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\"</font><font color="#FF0000"> and valid=1"</font><font color="#990000">;</font>
+    count <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    ret <font color="#990000">=</font> <b><font color="#000000">sqlite3_exec</font></b><font color="#990000">(</font>db<font color="#990000">,</font> query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">().</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> count_callback<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">&amp;</font>errmsg<font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> SQLITE_OK <font color="#990000">)</font>
+      <b><font color="#000000">sqlite3_die</font></b><font color="#990000">(</font>errmsg<font color="#990000">,</font>query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">());</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> count <font color="#990000">&gt;</font> <font color="#993399">0</font> <font color="#990000">)</font>
+      <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"This wsgi file has already been registered"</font><font color="#990000">);</font>
+
+    <i><font color="#9A1900">// check for existing entries by this UID</font></i>
+    query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+    query <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"select count(*) from wsgi where uid="</font> <font color="#990000">&lt;&lt;</font> uid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" and valid=1"</font><font color="#990000">;</font>
+    count <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
+    ret <font color="#990000">=</font> <b><font color="#000000">sqlite3_exec</font></b><font color="#990000">(</font>db<font color="#990000">,</font> query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">().</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> count_callback<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">&amp;</font>errmsg<font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> SQLITE_OK <font color="#990000">)</font>
+      <b><font color="#000000">sqlite3_die</font></b><font color="#990000">(</font>errmsg<font color="#990000">,</font>query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">());</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> count <font color="#990000">&gt;</font> <font color="#993399">0</font> <font color="#990000">)</font>
+      <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"You can only have one WSGI file registered, so you must first remove it via -remove (and you can find it via -list)"</font><font color="#990000">);</font>
+
+    <i><font color="#9A1900">// insert entry into DB</font></i>
+    query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+    query <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"insert into wsgi values (null,"</font> <font color="#990000">&lt;&lt;</font> uid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">",</font><font color="#CC33CC">\"</font><font color="#FF0000">"</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">realpath</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">],</font>NULL<font color="#990000">)</font> 
+	  <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\"</font><font color="#FF0000">,1,datetime(),null)"</font><font color="#990000">;</font>
+    ret <font color="#990000">=</font> <b><font color="#000000">sqlite3_exec</font></b><font color="#990000">(</font>db<font color="#990000">,</font> query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">().</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> NULL<font color="#990000">,</font> NULL<font color="#990000">,</font> <font color="#990000">&amp;</font>errmsg<font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> SQLITE_OK <font color="#990000">)</font>
+      <b><font color="#000000">sqlite3_die</font></b><font color="#990000">(</font>errmsg<font color="#990000">,</font>query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">());</font>
+
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"entry registered as /django/"</font> <font color="#990000">&lt;&lt;</font> <b><font color="#000000">get_userid_by_uid</font></b><font color="#990000">(</font>uid<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+  <font color="#FF0000">}</font>
+
+  <i><font color="#9A1900">// list entries in the DB</font></i>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> mode <font color="#990000">==</font> MODE_LIST <font color="#990000">)</font> <font color="#FF0000">{</font>
+    query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+    query <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"select * from wsgi where valid=1"</font><font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>uid <font color="#990000">!=</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>uid <font color="#990000">!=</font> <font color="#993399">1000</font><font color="#990000">)</font> <font color="#990000">)</font> <i><font color="#9A1900">// uids 0 and 1000 see all...</font></i>
+      query <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" and uid="</font> <font color="#990000">&lt;&lt;</font> uid<font color="#990000">;</font>
+    ret <font color="#990000">=</font> <b><font color="#000000">sqlite3_exec</font></b><font color="#990000">(</font>db<font color="#990000">,</font> query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">().</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> list_callback<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">&amp;</font>errmsg<font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> SQLITE_OK <font color="#990000">)</font>
+      <b><font color="#000000">sqlite3_die</font></b><font color="#990000">(</font>errmsg<font color="#990000">,</font>query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">());</font>
+  <font color="#FF0000">}</font>
+
+  <i><font color="#9A1900">// remove an entry from the DB</font></i>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> mode <font color="#990000">==</font> MODE_REMOVE <font color="#990000">)</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">// parse int value provided</font></i>
+    <font color="#009900">int</font> id<font color="#990000">;</font>
+    <font color="#009900">int</font> ret <font color="#990000">=</font> <b><font color="#000000">sscanf</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">2</font><font color="#990000">],</font><font color="#FF0000">"%d"</font><font color="#990000">,&amp;</font>id<font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> <font color="#993399">1</font> <font color="#990000">)</font>
+      <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"Invalid numerical ID value for -remove"</font><font color="#990000">);</font>
+
+    <i><font color="#9A1900">// create query, and pull that data from the DB</font></i>
+    query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+    query <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"select * from wsgi where id="</font> <font color="#990000">&lt;&lt;</font> id <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" and valid=1"</font><font color="#990000">;</font>
+    find_filename <font color="#990000">=</font> <b><font color="#000000">string</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+    ret <font color="#990000">=</font> <b><font color="#000000">sqlite3_exec</font></b><font color="#990000">(</font>db<font color="#990000">,</font> query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">().</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> find_callback<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">&amp;</font>errmsg<font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> SQLITE_OK <font color="#990000">)</font>
+      <b><font color="#000000">sqlite3_die</font></b><font color="#990000">(</font>errmsg<font color="#990000">,</font>query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">());</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> find_filename <font color="#990000">==</font> <font color="#FF0000">""</font> <font color="#990000">)</font>
+      <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"no such entry exists"</font><font color="#990000">);</font>
+
+    <i><font color="#9A1900">// check if UID matches</font></i>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">(</font>uid <font color="#990000">!=</font> <font color="#993399">0</font><font color="#990000">)</font> <font color="#990000">&amp;&amp;</font> <font color="#990000">(</font>uid <font color="#990000">!=</font> <font color="#993399">1000</font><font color="#990000">)</font> <font color="#990000">)</font>
+      <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> uid <font color="#990000">!=</font> find_uid <font color="#990000">)</font>
+	<b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"you can't remove that entry"</font><font color="#990000">);</font>
+
+    <i><font color="#9A1900">// remove entry</font></i>
+    query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+    query <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"update wsgi set valid=0 where id="</font> <font color="#990000">&lt;&lt;</font> id<font color="#990000">;</font>
+    ret <font color="#990000">=</font> <b><font color="#000000">sqlite3_exec</font></b><font color="#990000">(</font>db<font color="#990000">,</font> query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">().</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> NULL<font color="#990000">,</font> NULL<font color="#990000">,</font> <font color="#990000">&amp;</font>errmsg<font color="#990000">);</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> SQLITE_OK <font color="#990000">)</font>
+      <b><font color="#000000">sqlite3_die</font></b><font color="#990000">(</font>errmsg<font color="#990000">,</font>query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">());</font>
+
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"entry removed"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+  <font color="#FF0000">}</font>
+
+  <i><font color="#9A1900">// all of these perform the generation</font></i>
+  query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+  query <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"select * from wsgi where valid=1"</font><font color="#990000">;</font>
+  ret <font color="#990000">=</font> <b><font color="#000000">sqlite3_exec</font></b><font color="#990000">(</font>db<font color="#990000">,</font> query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">().</font><b><font color="#000000">c_str</font></b><font color="#990000">(),</font> regenerate_callback<font color="#990000">,</font> <font color="#993399">0</font><font color="#990000">,</font> <font color="#990000">&amp;</font>errmsg<font color="#990000">);</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> ret <font color="#990000">!=</font> SQLITE_OK <font color="#990000">)</font>
+    <b><font color="#000000">sqlite3_die</font></b><font color="#990000">(</font>errmsg<font color="#990000">,</font> query<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">());</font>
+
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> mode <font color="#990000">!=</font> MODE_LIST <font color="#990000">)</font> <font color="#FF0000">{</font>
+
+    <i><font color="#9A1900">// write to django.conf and django-ssl.conf files</font></i>
+    <font color="#008080">ofstream</font> <b><font color="#000000">fout</font></b><font color="#990000">(</font>DJANGO_CONF_FILE<font color="#990000">);</font>
+    fout <font color="#990000">&lt;&lt;</font> wsgifile<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
+    fout<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+    <font color="#008080">ofstream</font> <b><font color="#000000">fout2</font></b><font color="#990000">(</font>DJANGO_SSL_CONF_FILE<font color="#990000">);</font>
+    fout2 <font color="#990000">&lt;&lt;</font> wsgisslfile<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
+    fout2<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"django.conf file regenerated"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+
+    <i><font color="#9A1900">// reload apache</font></i>
+    cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"reloading the web server..."</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
+    <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> <font color="#990000">!</font><b><font color="#000000">file_exists</font></b><font color="#990000">(</font>APACHE2_RELOAD_CMD<font color="#990000">)</font> <font color="#990000">)</font>
+      <b><font color="#000000">die</font></b><font color="#990000">(</font><font color="#FF0000">"unable to find apache2 reload command"</font><font color="#990000">);</font>
+    <font color="#008080">stringstream</font> cmd<font color="#990000">;</font>
+    cmd <font color="#990000">&lt;&lt;</font> APACHE2_RELOAD_CMD <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" &gt; /dev/null"</font><font color="#990000">;</font>
+    <b><font color="#000000">system</font></b><font color="#990000">(</font>cmd<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">().</font><b><font color="#000000">c_str</font></b><font color="#990000">());</font>
+  <font color="#FF0000">}</font>
+
+  <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+</tt></pre>
+</body>
+</html>

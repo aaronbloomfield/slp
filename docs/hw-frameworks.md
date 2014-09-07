@@ -71,16 +71,6 @@ A few notes:
 - You will want to unzip the CakePHP files into ~/html/cakephp/ on your local machine.  You can then view it via `http://localhost/~mst3k/cakephp/` (localhost means the machine that you are currently on).  You will see some warning messages and/or error messages, but proceeding through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page should resolve all of them.  Once finished, the CakePHP splash page should show all green.
 - Note that you can set a MySQL table *prefix* in config/app.php, such as `cake_`.  This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.
 
-------------------------------------------------------------
-
-EVERYTHING BELOW THIS IS NOT YET READY
-======================================
-
-And it's likely to all change, so go away.
-
-------------------------------------------------------------
-
-
 ### Ruby on Rails
 
 First, read through the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page.  The assumption is that you will test it locally via `rails server`, and the deploy it on the course server via the directions on that page.  If you want to try your hand configuring your *own* Rails server, you can look at the [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md)) page -- but be warned, it's a real pain in the rear to configure a Rails server.
@@ -102,4 +92,24 @@ config.active_record.table_name_prefix = "ruby_"
 
 ### Django
 
-The directions for installing Django and writing your first site can be found [here](https://docs.djangoproject.com/en/1.6/intro/).  Note that this link is to the 1.6 version, as we will be using Django version 1.6.1 -- if you Google for that site, it will likely take you to the default 1.8 version page, which is not what we are looking for.
+First, read through the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page.  The assumption is that you will test it locally via `python manage.py runserver`, and the deploy it on the course server via the directions on that page.  If you want to try your hand configuring your *own* Apache server to run Django, you can look at the [Django deployment](django-deployment.html) ([md](django-deployment.md)) page -- but be warned, it's a real pain in the rear to configure a Django server (although not as bad as Rails).
+
+Unlike Ruby on Rails, you can name the Django app anything you want, and put it in any directory that you want.  Although naming it `djangohw` and putting it in our home directory on the course server would not be bad ideas.
+
+The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.6/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.6 version!
+
+When you have updated your Django app, remember to touch the wsgi file to make the web server reload your app; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details.
+
+It is much more difficult to rename your tables in Django -- you have to do it individually for each table.  But if the CakePHP tables all start with `cake_`, and the Ruby on Rails tables all start with `ruby_`, then you can leave the Django talbes to have the default name.
+
+### Submission
+
+None!  We have access to your files on the course server, and we can view your apps at the following URLs:
+
+- CakePHP: `http://server/~mst3k/cakephp/`
+- Ruby on Rails: `http://server/rails/mst3k`
+- Django: `http://server/django/mst3k`
+
+For any sites that have user authentication, you MUST allow user `kermit` with password `frog` to log in and see any and all features.
+
+Whether your program is late or not will be determined by the timestamp on the files in your home directory on the course server.

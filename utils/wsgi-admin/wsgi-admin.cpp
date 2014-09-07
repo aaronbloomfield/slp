@@ -1,4 +1,10 @@
 /**
+ * wsgi-admin, by Aaron Bloomfield, (c) 2014
+ *
+ * This is part of the SLP repository
+ * (https://github.com/aaronbloomfield/slp), and is released under a
+ * CC BY-SA license, like the rest of the repository.
+ *
  * This program will help manage the registration and de-registration
  * of wsgi files.  It needs two Ubuntu pacakges to work: sqlite3 and
  * libsqlite3-dev.

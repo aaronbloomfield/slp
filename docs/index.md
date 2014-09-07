@@ -22,5 +22,5 @@ SLP: Documents
     - [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md))
     - [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md))
         - [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md))
-    - ~~[Django getting started](django-getting-started.html) ([md](django-getting-started.md))~~ (this document is NOT ready yet, and should not be consulted)
+    - [Django getting started](django-getting-started.html) ([md](django-getting-started.md))
         - [Django deployment](django-deployment.html) ([md](django-deployment.md))

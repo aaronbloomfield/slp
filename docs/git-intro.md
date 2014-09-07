@@ -101,9 +101,11 @@ Branching is merging is complicated, and one should read [this page](http://git-
 A few notes from that page (this is NOT a summary):
 
 - The main branch is called "master"
-- `git checkout -b foo` creates a "foo branch" from the current branch/commit the repo is currently in.
-- `git checkout master` changes to the master branch, re-arranging the files as needed.
+- `git checkout -b foo` creates a "foo" branch from the current branch/commit the repo is currently in.
+- `git checkout master` changes to the "master" branch, re-arranging the files as needed.
 - Entering `git merge foo` will merge the "foo" branch INTO the current branch
+- If you have updated a branch, such as "master", and want to "pull" those changes into another branch, such as "foo", then you enter (while in the "foo" branch): `git rebase master`
+- `git branch -D foo` will delete the "foo" branch, but only locally; to do so remotely, use `git push origin --delete foo`
 
 The rest of branching and merging should have been covered in that document
 

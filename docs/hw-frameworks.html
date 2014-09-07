@@ -53,10 +53,6 @@
 <li>You will want to unzip the CakePHP files into ~/html/cakephp/ on your local machine. You can then view it via <code>http://localhost/~mst3k/cakephp/</code> (localhost means the machine that you are currently on). You will see some warning messages and/or error messages, but proceeding through the <a href="cakephp-getting-started.html">CakePHP getting started</a> (<a href="cakephp-getting-started.md">md</a>) page should resolve all of them. Once finished, the CakePHP splash page should show all green.</li>
 <li>Note that you can set a MySQL table <em>prefix</em> in config/app.php, such as <code>cake_</code>. This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.</li>
 </ul>
-<hr />
-<h1 id="everything-below-this-is-not-yet-ready">EVERYTHING BELOW THIS IS NOT YET READY</h1>
-<p>And it's likely to all change, so go away.</p>
-<hr />
 <h3 id="ruby-on-rails">Ruby on Rails</h3>
 <p>First, read through the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page. The assumption is that you will test it locally via <code>rails server</code>, and the deploy it on the course server via the directions on that page. If you want to try your hand configuring your <em>own</em> Rails server, you can look at the <a href="rubyrails-deployment.html">Ruby on Rails deployment</a> (<a href="rubyrails-deployment.md">md</a>) page -- but be warned, it's a real pain in the rear to configure a Rails server.</p>
 <p>We are using Ruby version 2.1.2 and Rails version 4.1.5 for this assigment. If you have a more recent patch level (the last of the three digits of the version number), that's fine. But you can't have a different major version (the first of those three numbers) or a different minor version (the middle of those three numbers).</p>
@@ -69,6 +65,19 @@
 <p>Lastly, since you will be using the same database for all three frameworks, you may want to have each Ruby table have given prefix. You can do this by editing the three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, <code>ruby_</code> is the prefix, but use whatever you would like, within reason). This line can go at the end, just before the last line (which is <code>end</code>).</p>
 <pre><code>config.active_record.table_name_prefix = &quot;ruby_&quot;</code></pre>
 <h3 id="django">Django</h3>
-<p>The directions for installing Django and writing your first site can be found <a href="https://docs.djangoproject.com/en/1.6/intro/">here</a>. Note that this link is to the 1.6 version, as we will be using Django version 1.6.1 -- if you Google for that site, it will likely take you to the default 1.8 version page, which is not what we are looking for.</p>
+<p>First, read through the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page. The assumption is that you will test it locally via <code>python manage.py runserver</code>, and the deploy it on the course server via the directions on that page. If you want to try your hand configuring your <em>own</em> Apache server to run Django, you can look at the <a href="django-deployment.html">Django deployment</a> (<a href="django-deployment.md">md</a>) page -- but be warned, it's a real pain in the rear to configure a Django server (although not as bad as Rails).</p>
+<p>Unlike Ruby on Rails, you can name the Django app anything you want, and put it in any directory that you want. Although naming it <code>djangohw</code> and putting it in our home directory on the course server would not be bad ideas.</p>
+<p>The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found <a href="https://docs.djangoproject.com/en/1.6/intro/">here</a> (the &quot;Tutorial&quot; line in the &quot;First steps&quot; section). Make sure you are going through the 1.6 version!</p>
+<p>When you have updated your Django app, remember to touch the wsgi file to make the web server reload your app; see the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page for details.</p>
+<p>It is much more difficult to rename your tables in Django -- you have to do it individually for each table. But if the CakePHP tables all start with <code>cake_</code>, and the Ruby on Rails tables all start with <code>ruby_</code>, then you can leave the Django talbes to have the default name.</p>
+<h3 id="submission">Submission</h3>
+<p>None! We have access to your files on the course server, and we can view your apps at the following URLs:</p>
+<ul>
+<li>CakePHP: http://server/~mst3k/cakephp/</li>
+<li>Ruby on Rails: http://server/rails/mst3k</li>
+<li>Django: http://server/django/mst3k</li>
+</ul>
+<p>For any sites that have user authentication, you MUST allow user <code>kermit</code> with password <code>frog</code> to log in and see any and all features.</p>
+<p>Whether your program is late or not will be determined by the timestamp on the files in your home directory on the course server.</p>
 </body>
 </html>

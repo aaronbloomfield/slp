@@ -44,5 +44,8 @@ If you are enabling these through SSL, there is a slight change.  When Apache re
 Multiple users
 --------------
 
-If there is only one user, then not all of the above lines are needed...
+The issue with the WSGI module is that if **any one** of the WSGI files it is configured with does not exist, then all of the WSGI modules don't work.  This means you can't pre-generate the list of WSGI links for a class, as none of them will work until everybody has it set up, which is not viable.
+
+To work around this, you can see the [wsgi-admin.cpp](../utils/wsgi-admin/wsgi-admin.cpp.html) ([src](../utils/wsgi-admin/wsgi-admin.cpp)), which will allow students to register and remove their WSGI apps.  It will update the necessary Apache configuration files, and then reload the web server.  It can also be used just to do the regeneration and reloading -- and if a file is not found (or is not valid), then it is excluded from the configuration files.  Installation is tricky, and more details will follow shortly...
+
 

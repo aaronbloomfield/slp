@@ -76,9 +76,11 @@
 <p>A few notes from that page (this is NOT a summary):</p>
 <ul>
 <li>The main branch is called &quot;master&quot;</li>
-<li><code>git checkout -b foo</code> creates a &quot;foo branch&quot; from the current branch/commit the repo is currently in.</li>
-<li><code>git checkout master</code> changes to the master branch, re-arranging the files as needed.</li>
+<li><code>git checkout -b foo</code> creates a &quot;foo&quot; branch from the current branch/commit the repo is currently in.</li>
+<li><code>git checkout master</code> changes to the &quot;master&quot; branch, re-arranging the files as needed.</li>
 <li>Entering <code>git merge foo</code> will merge the &quot;foo&quot; branch INTO the current branch</li>
+<li>If you have updated a branch, such as &quot;master&quot;, and want to &quot;pull&quot; those changes into another branch, such as &quot;foo&quot;, then you enter (while in the &quot;foo&quot; branch): <code>git rebase master</code></li>
+<li><code>git branch -D foo</code> will delete the &quot;foo&quot; branch, but only locally; to do so remotely, use <code>git push origin --delete foo</code></li>
 </ul>
 <p>The rest of branching and merging should have been covered in that document</p>
 <h3 id="git-for-those-coming-from-subversion">git for those coming from subversion</h3>

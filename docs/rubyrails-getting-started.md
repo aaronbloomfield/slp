@@ -68,6 +68,6 @@ If you want to view your rails application locally, you can view it via the rail
 
 Your Rails app will have a VERY specific directory that it must be installed in, as the web server is already configured for that directory.  As long as it is in that directory, it will be visible through Apache.
 
-When you view your app, it should look like the image below:
+When you view your app, it should look ***exactly*** like the image at the image below (albeit with a different URL):
 
 ![](images/rails-initial.png)

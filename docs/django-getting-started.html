@@ -46,8 +46,21 @@
 </ul></li>
 </ol>
 <p>At this point, you Django app is up and running, even if it doesn't do much. You can now start about half-way down on the <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial01/#creating-models">Django tutorial, part 1</a> page (start at the &quot;Creating models&quot; header).</p>
-<h3 id="configuring-it-on-apache">Configuring it on Apache</h3>
-<p>...</p>
+<h3 id="viewing-it-locally">Viewing it locally</h3>
+<p>As mentioned in <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial01/">part 1 of the Django tutorial</a>, to view your Django app locally, you run <code>python manage.py runserver</code>, and then view it in the URL provided (likely <code>http://127.0.0.1:8000/</code>).</p>
+<h3 id="configuring-it-on-apache-on-the-course-server">Configuring it on Apache on the course server</h3>
+<p>When you have created your Django project, you will need to tell the web server that your file exists. The module that runs Python apps on the Apache web server is called WSGI (Web Server Gateway Interface), pronounced &quot;wus-gee&quot;. On the server, there is a <code>wsgi-admin</code> command-line tool to do exactly that, since you can't edit the web server configuration files. Note that you can only have one WSGI app registered at a time. You will need to find the wsgi.py file in your django app (likely in <code>mysite/mysite/wsgi.py</code>, where <code>mysite</code> is the name of your Django app).</p>
+<p>There are four modes to that command:</p>
+<ul>
+<li><code>wsgi-admin -register &lt;wsgi_file&gt;</code>: this will register the passed wsgi.py file, update the Apache configuration files, and reload the web server</li>
+<li><code>wsgi-admin -list</code>: this will list all the WSGI apps that you have registered, although you can only have one at a time. In particular, it will indicate the ID number of your registration, which you will need for the <code>-remove</code> command.</li>
+<li><code>wsgi-admin -remove &lt;id&gt;</code>: this will remove your WSGI app with the passed (integer) ID.</li>
+<li><code>wsgi-admin -regenerate</code>: this will regenerate the web server configuration files and reload the web server. This is automatically done on a <code>-register</code> or <code>-remove</code>. But it could be the case that somebody accidentally deleted their Python app files, which will cause <strong>ALL</strong> of the WSGI apps to stop working -- the <code>-regenerate</code> command will re-create the configuration files without the missing Django apps.</li>
+</ul>
+<h3 id="updating-the-django-app">Updating the Django app</h3>
+<p>If you have updated your Django app, you need to tell the web server that this has occurred. While you can reload the web server (via the <code>reload-apache2</code> command, it's much better to update the timestamp on your wsgi.py file. To do this, use the <code>touch</code> command:</p>
+<pre><code>touch mysite/mysite/wsgi.py</code></pre>
+<p>This will update the timestamp on the wsgi.py file to the current time. The web server (actually the WSGI module) will detect this, and reload the app.</p>
 <h3 id="initial-djano-app-image">Initial Djano app image</h3>
 <div class="figure">
 <img src="images/django-initial.png" />
