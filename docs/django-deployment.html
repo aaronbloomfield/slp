@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: Django: Deployment</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-django-deployment">SLP: Django: Deployment</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>This page is for how to <em>deploy</em> your Django apps on an Ubuntu server -- specifically, Ubuntu 14.04. This is not needed for your local development, as you can run <code>python manage.py runserver</code> to test it out locally, or test it out on the course server provided. However, if you <strong><em>do</em></strong> want to get it running through Apache, read on...</p>
+<h2 id="installing-packages">Installing packages</h2>
+<p>To install Django on your own system, under Ubuntu 14.04, just enter <code>sudo apt-get install python-django python-mysqldb</code>, and it will do the rest. As of the writing of this tutorial (Aug 31, 2014), this installs Python version 2.7.6 and Django version 1.6.1.</p>
+<h2 id="configuring-apache">Configuring Apache</h2>
+<p>For <em>each</em> django app, the following 8 lines need to be added to <code>/etc/apache2/sites-available/000-default.conf</code>, right above the <code>&lt;/VirtualHost&gt;</code> line:</p>
+<pre><code>WSGIScriptAlias /djangohw /home/slp/user/djangohw/djangohw/wsgi.py
+WSGIProcessGroup user
+WSGIDaemonProcess user python-path=/home/slp/user/djangohw
+&lt;Directory /home/slp/user/djangohw/djangohw/&gt;
+    &lt;Files wsgi.py&gt;
+        Require all granted
+    &lt;/Files&gt;
+&lt;/Directory&gt;</code></pre>
+<p>A bunch of notes:</p>
+<ul>
+<li>The <a href="https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIScriptAlias">WSGIScriptAlias</a> line indicates the URL (after the server) links to the particular Django app
+<ul>
+<li>If you want them in sub-directories, you can have the URL part be <code>/django/user</code>, and you don't have to create the <code>/django/</code> directory in the HTML document root (likely <code>/var/www/html</code>)</li>
+</ul></li>
+<li>The <a href="https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIProcessGroup">WSGIProcessGroup</a> creates a process group, which allows one (or more) apps to run as a specific user
+<ul>
+<li>The <code>user</code> part of that line needs to be a valid user name on the system</li>
+</ul></li>
+<li>The <a href="https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIDaemonProcess">WSGIDaemonProcess</a> line indicates that this particular Django app will run under the <code>user</code> user, and the path to the django app is provided
+<ul>
+<li>The <code>user</code> part of that line needs to match the one in the WSGIProcessGroup</li>
+</ul></li>
+<li>The <code>Require all granted</code> line allows the viewing of the Django app
+<ul>
+<li>If you are using Apache 2.2 (or earlier), replace <code>Require all granted</code> with two lines: <code>Order deny,allow</code> and then <code>Allow from all</code></li>
+</ul></li>
+</ul>
+<p>If there are going to be many users in a system, then it will make it easier to put this in a separate file (say, called <code>/etc/apache2/django.conf</code>), and insert a <code>Include django.conf</code> line in <code>/etc/apache2/sites-available/000-default.conf</code> (also right above the <code>&lt;/VirtualHost&gt;</code> line).</p>
+<p>If you are enabling these through SSL, there is a slight change. When Apache restarts (or reloads), the default (i.e., non-SSL) site is brought up first, followed by the SSL site. As the daemon process has already been declared in 000-default.conf (for the non-SSL site), it will cause an error to declare it again for the SSL site. Thus, the SSL version should not have the WSGIDaemonProcess line; all the other lines remain the same. This implies that the file included from default-ssl.conf will be a different one than the one included from 000-default.ssl.</p>
+<h2 id="multiple-users">Multiple users</h2>
+<p>If there is only one user, then not all of the above lines are needed...</p>
+</body>
+</html>

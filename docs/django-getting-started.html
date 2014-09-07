@@ -11,6 +11,46 @@
 <body>
 <h1 id="slp-django-getting-started">SLP: Django: Getting Started</h1>
 <p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
-<p>To install Django, under Ubuntu 14.04, just enter <code>apt-get install python-django</code>, and it will do the rest. As of the writing of this tutorial (Aug 31, 2014), this installs Python version 2.7.6 and Django version 1.6.1.</p>
+<h3 id="install-django">Install Django</h3>
+<p>Django has already been installed on the VirtualBox image provided.</p>
+<p>To install Django on your own system, under Ubuntu 14.04, just enter <code>sudo apt-get install python-django python-mysqldb</code>, and it will do the rest. As of the writing of this tutorial (Aug 31, 2014), this installs Python version 2.7.6 and Django version 1.6.1.</p>
+<h3 id="setting-up-a-new-django-app">Setting up a new Django app</h3>
+<p>Much of these directions are based on the <a href="https://docs.djangoproject.com/en/1.6/intro/">Django intro tutorial</a> from <a href="https://www.djangoproject.com/">Django Proect</a>. Note that the default version for much of the tutorial is 1.7 (the latest Django release), and you have to change it, via the link in the lower right, to 1.6, which is the version we are using.</p>
+<p>To create a Django app, follow these steps. They are adapted from <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial01/">part 1 of the Django tutorial</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Enter <code>django-admin startproject mysite</code>. This will create a <code>mysite/</code> directory with a bunch of files in it.
+<ul>
+<li>Note that the binary we are calling is <code>django-admin</code>, not <code>django-admin.py</code> (Ubuntu installs it as the former, whereas the tutorial indicates it is named the latter).</li>
+</ul></li>
+<li>To view your app, you can run <code>python manage.py runserver</code> from inside the <code>mysite/</code> directory. This will print a URL, such as <code>http://127.0.0.1:8000/</code> -- you can view that URL in your browser, and it should look exactly like the image at the bottom of this page.</li>
+<li>To update the database information, edit mysite/mysite/settings.py
+<ul>
+<li>To use MySQL, change the <code>ENGINE</code> value in <code>DATABASES</code> from <code>django.db.backends.sqlite3</code> to <code>django.db.backends.mysql</code></li>
+<li>Enter values for your DB credentials: <code>USER</code>, <code>NAME</code>, <code>PASSWORD</code>, and <code>HOST</code>.</li>
+<li><p>A completed <code>DATABASES</code> section might look like the following:</p>
+<pre><code>DATABASES = {
+    &#39;default&#39;: {
+        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+        &#39;NAME&#39;: &#39;mst3k&#39;,
+        &#39;USER&#39;: &#39;mst3k&#39;,
+        &#39;PASSWORD&#39;: &#39;password&#39;,
+        &#39;HOST&#39;: &#39;127.0.0.1&#39;,
+    }
+}</code></pre></li>
+<li>Note that there is no easy way to add a DB table prefix to every table -- instead, you would have to specify the name of <em>every</em> table that Django uses. You can see a whole bunch of people getting twitchy over this <a href="https://code.djangoproject.com/ticket/891">here</a>.</li>
+<li>And edit <code>TIME_ZONE</code> to match our time zone (EST).</li>
+</ul></li>
+<li>From the <code>mysite/</code> directory, run <code>python manage.py syncdb</code>. This will set up the DB tables.
+<ul>
+<li>The 'superusers' that it prompts you for are a login for your web system -- you can use your userid, and pick any password that you'd like</li>
+</ul></li>
+</ol>
+<p>At this point, you Django app is up and running, even if it doesn't do much. You can now start about half-way down on the <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial01/#creating-models">Django tutorial, part 1</a> page (start at the &quot;Creating models&quot; header).</p>
+<h3 id="configuring-it-on-apache">Configuring it on Apache</h3>
+<p>...</p>
+<h3 id="initial-djano-app-image">Initial Djano app image</h3>
+<div class="figure">
+<img src="images/django-initial.png" />
+</div>
 </body>
 </html>
