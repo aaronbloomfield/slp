@@ -62,7 +62,7 @@ Which files you exclude will depend on which ones differ between your developmen
 If you did a mysqldump on your local machine to a file called `db.sql`, you can load that data into the database on the server by entering:
 
 ```
-cat db.sql | mysql mst3k
+cat db.sql | mysql -u mst3k -p mst3k
 ```
 
 Replace mst3k with your userid; it will prompt you for your password.

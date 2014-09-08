@@ -45,7 +45,7 @@
 <p>This will cause rsync to not upload any files called <code>.htaccess</code>. Note that you should upload <em>everything</em> the first time (i.e., using the first rsync command given), then log into the server and manually change the .htaccess files. You should then call the second rsync command from then on.</p>
 <p>Which files you exclude will depend on which ones differ between your development machine and the server. If you use the same database config, as described above, then you can use the same database credential files as well.</p>
 <p>If you did a mysqldump on your local machine to a file called <code>db.sql</code>, you can load that data into the database on the server by entering:</p>
-<pre><code>cat db.sql | mysql mst3k</code></pre>
+<pre><code>cat db.sql | mysql -u mst3k -p mst3k</code></pre>
 <p>Replace mst3k with your userid; it will prompt you for your password.</p>
 <h3 id="cakephp">CakePHP</h3>
 <p>First, proceed through the <a href="cakephp-getting-started.html">CakePHP getting started</a> (<a href="cakephp-getting-started.md">md</a>) page -- this should get you a first CakePHP web page working. Be sure you use the 3.0 API of CakePHP! The URL for that page <strong><em>MUST</em></strong> be <code>http://server/~mst3k/cakephp/</code> (where &quot;mst3k&quot; is your userid, and &quot;server&quot; is the server used for the course). Note the lack of capitalization in your URL! We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.</p>
