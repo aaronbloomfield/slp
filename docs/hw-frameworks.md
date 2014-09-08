@@ -21,7 +21,7 @@ First, you will need to become familiar with MySQL, if you are not already.  Dep
 
 Note that the server has phpMyAdmin installed at `https://server/phpmyadmin/` (where "server" is the server used for the course).
 
-You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server.  Alternatively, you can dump your entire MySQL database via `mysqldump -p mst3k > db.sql`.  Or you can do it via phpMyAdmin.  Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.
+You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server.  Alternatively, you can dump your entire MySQL database via `mysqldump -u user -p mst3k > db.sql`.  Here, `user` is whatever user can access the directory (perhaps "student", perhaps your UVa userid).  Or you can do it via phpMyAdmin.  Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.
 
 You will need to create a database on your local machine.  The easiest way is to have it be the same username and password as is on the server, so that you can use the same database configuration files.
 
@@ -59,10 +59,10 @@ This will cause rsync to not upload any files called `.htaccess`.  Note that you
 
 Which files you exclude will depend on which ones differ between your development machine and the server.  If you use the same database config, as described above, then you can use the same database credential files as well.
 
-If you did a mysqldump on your local machine to a file called `database.sql`, you can load that data into the database on the server by entering:
+If you did a mysqldump on your local machine to a file called `db.sql`, you can load that data into the database on the server by entering:
 
 ```
-cat database.sql | mysql mst3k
+cat db.sql | mysql mst3k
 ```
 
 Replace mst3k with your userid; it will prompt you for your password.

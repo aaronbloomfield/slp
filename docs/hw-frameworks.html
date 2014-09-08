@@ -20,7 +20,7 @@
 <h3 id="mysql">MySQL</h3>
 <p>First, you will need to become familiar with MySQL, if you are not already. Depending on your familiarity level, you may want to go through the <a href="mysql-intro.html">MySQL Introduction</a> (<a href="mysql-intro.md">md</a>) page. Both new and advanced users will want to refer to the <a href="mysql-reference.html">MySQL Reference</a> (<a href="mysql-reference.md">md</a>) page throughout this course.</p>
 <p>Note that the server has phpMyAdmin installed at <code>https://server/phpmyadmin/</code> (where &quot;server&quot; is the server used for the course).</p>
-<p>You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server. Alternatively, you can dump your entire MySQL database via <code>mysqldump -p mst3k &gt; db.sql</code>. Or you can do it via phpMyAdmin. Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.</p>
+<p>You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server. Alternatively, you can dump your entire MySQL database via <code>mysqldump -u user -p mst3k &gt; db.sql</code>. Here, <code>user</code> is whatever user can access the directory (perhaps &quot;student&quot;, perhaps your UVa userid). Or you can do it via phpMyAdmin. Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.</p>
 <p>You will need to create a database on your local machine. The easiest way is to have it be the same username and password as is on the server, so that you can use the same database configuration files.</p>
 <ul>
 <li>Start mysql as root: <code>mysql -u root -p</code>, and enter the root password (likely 'password')</li>
@@ -44,8 +44,8 @@
 <pre><code>rsync -a --del --progress --exclude &#39;.htaccess&#39; cakephp/ mst3k@server:~/html/cakephp/</code></pre>
 <p>This will cause rsync to not upload any files called <code>.htaccess</code>. Note that you should upload <em>everything</em> the first time (i.e., using the first rsync command given), then log into the server and manually change the .htaccess files. You should then call the second rsync command from then on.</p>
 <p>Which files you exclude will depend on which ones differ between your development machine and the server. If you use the same database config, as described above, then you can use the same database credential files as well.</p>
-<p>If you did a mysqldump on your local machine to a file called <code>database.sql</code>, you can load that data into the database on the server by entering:</p>
-<pre><code>cat database.sql | mysql mst3k</code></pre>
+<p>If you did a mysqldump on your local machine to a file called <code>db.sql</code>, you can load that data into the database on the server by entering:</p>
+<pre><code>cat db.sql | mysql mst3k</code></pre>
 <p>Replace mst3k with your userid; it will prompt you for your password.</p>
 <h3 id="cakephp">CakePHP</h3>
 <p>First, proceed through the <a href="cakephp-getting-started.html">CakePHP getting started</a> (<a href="cakephp-getting-started.md">md</a>) page -- this should get you a first CakePHP web page working. Be sure you use the 3.0 API of CakePHP! The URL for that page <strong><em>MUST</em></strong> be <code>http://server/~mst3k/cakephp/</code> (where &quot;mst3k&quot; is your userid, and &quot;server&quot; is the server used for the course). Note the lack of capitalization in your URL! We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.</p>
