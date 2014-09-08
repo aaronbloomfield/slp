@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4970: 04-frameworks slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/slp.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4970
+&nbsp;
+### Capstone Practicum I
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="04-frameworks.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Web Frameworks
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](/#intro)  
+[MySQL](/#mysql)  
+[CakePHP](/#cake)  
+[Ruby on Rails](/#rails)  
+[Python Django](/#django)  
+[Conclusions](/#conclusions)  
+	</script></section>
+
+
+	<section>
+
+	  <section data-markdown id="intro"><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why require frameworks in this course?
+- To prevent re-inventing the wheel
+- Frameworks have a significant learning curve, but once learned they do most of the work for you
+- This allows you to focus on *what* your web app does, and not focus so much on the low-level code
+- You don't need to re-implement a linked list, so why re-implement all of the basic web app low-level stuff?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## But I want \[framekwork of choice\]!
+- All of these systems have to run on a UVa server for the first part of the course
+- It is not feasible to have each group pick a different framework, and then expect a reasonable hosting solution
+- It makes this course much more sane if we are all on the same page…
+- The chosen frameowrks represent a wide selection of what's out there
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why some frameworks weren't chosen
+- C#, .NET, and ASP.NET: it requires Windows servers, which costs money (even for education) and I don't use Windows, so I don't have the requisite knowledge to configure them
+- node.js: whie this is the "hot" thing, it's really focused on real-time applications that require a lot of throughput, asynchronous I/O, etc., none of which apply to our projects
+- AngularJS: the focus is on single-page web applications, which is not really what we are doing in this course
+- CodeIgniter, Symfony, and any other PHP framework: we already chose a PHP framework, no need to have multiple ones
+- Spring: it's Java, and getting a Java app working on a web server is just an exercise in frustration
+- And those are the top web frameworks by popularity...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Model-View-Controller
+
+<img style="background-color:white" src="http://upload.wikimedia.org/wikipedia/commons/a/a0/MVC-Process.svg" alt="MVC image" title="&quot;MVC-Process&quot; by RegisFrey - Own work. Licensed under Public domain via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:MVC-Process.svg#mediaviewer/File:MVC-Process.svg">
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Model
+- Represents "knowledge"
+  - The fields of the table, as well as their types
+  - Any validation necessary (this field is required, that field must be a number in this range, etc.)
+  - Relationships to other "things"
+    - A user has many posts
+    - A post has only one user
+- A model is the "application and business rules"
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## View
+- What the user sees
+- In charge of formatting information for the user
+  - Formatting for a PC-based HTML page is different than a smartphone-based HTML page
+  - Displaying for an app will be even more different
+  - Some things may not be visible to all users (a user’s real name may only be visible to that user and the administrators)
+- Gets the information to view from the model
+- May also update the model (last webpage access, for example), but that is done *through* the controller
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Controller
+- Represents "action"
+- These are the commands / functions / etc. that a user can perform
+- Perhaps through a form posting or a link
+- A controller receives input, does some action, and displays the result through some view
+- Those "actions" correspond to methods called on the specified controller class
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Naming controllers and actions
+- ALWAYS name the controllers and actions based on what they do, not based on the URL that you want them to have
+- If you want specific URLs to go to specific places, you do this via *routes*
+- Don’t try to name controllers and actions based on the URL that you want; it will only cause headaches later
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section data-markdown id="mysql"><script type="text/template">
+# MySQL
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## MySQL tables
+- One of the first things you will be doing on your project is to create the database schema
+  - While it can certainly be modified later, creating a "more correct" one early on will save you a headache
+- There are more than enough advice via a Google search
+- What is listed here is a just a few to keep in mind, and ones that I came up with...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rule 1: Pick good table names
+- Table names should be general enough to allow for easy use...
+  - Don’t bother with separate "teachers" and "students" tables unless you have to; have a "people" or "users" with a "isTeacher" flag
+- ... but specific enough to make sense from the table name
+  - "entities", "things" – what do these tables hold?
+- Some table names are reserved, so be careful of those
+	  </script></section>
+<!--   - In Cake: emails, pages, scaffolds, layouts, errors, helpers, elements -->
+
+	  <section data-markdown><script type="text/template">
+## Rule 2: Don’t mix concepts
+- On one project in a previous year, they needed to keep track of individuals and organizations, and they keep track of them in the same Excel spreadsheet
+  - But an individual is not an organization
+  - So they should be in separate tables
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rule 3: Recognize relationships
+- Make sure you understand how a given table relates to anther table
+  - This means you will have to understand the various relationships:
+    - hasOne (one-to-one)
+    - hasMany (one-to-many)
+    - belongsTo (one-to-one or many-to-one)
+    - HABTM (many-to-many)
+  - They will be called different things in different frameworks
+- And you will need to deal with foreign keys in the DB
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rule 4: Create the tables properly
+- With Cake, you need to have `id`, `modified`, and `created` fields
+- For Rails, those fields are `id`, `created_on`, `updated_on`
+- For Django, it is just `id`
+- All tables need to be of the innodb type
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rule 5: Let SQL handle cascading
+- If a user has a bunch of posts, and you delete the user, what happens to the posts?
+  - Perhaps the user cannot be deleted until the posts are gone
+  - Perhaps all the posts are deleted
+  - Perhaps all the posts have their user_id set to null
+- You can set this in MySQL through the "on update" or "on delete" command options
+  - ... on delete cascade
+  - ... on update restrict
+  - ... on delete set null
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rule 6: Let MySQL handle the types
+- If you properly choose the types when creating the schema (either in MySQL or through the framework), then life will be much easier
+  - Data is validated upon entry
+  - The frameworks will notice the type and allow you to perform additional validation
+- Pick the correct type
+  - For something like a UVa userid (which is at most 6 characters), use varchar(6) rather than text
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rule 7: Learn the framework queries
+- The frameworks can perform advanced queries without needing any MySQL syntax
+  - But it takes some time to learn...
+- For any non-trivial data extraction, you will need to learn this...
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section data-markdown id="cake"><script type="text/template">
+# CakePHP
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why CakePHP?
+- There are MANY PHP frameworks out there
+  - [Wikipedia](http://en.wikipedia.org/wiki/PHP_frameworks) lists 26
+  - And that page doesn’t list many of them!
+- We did an evaluation of CakePHP versus a few others (Tonic and Recess), and everybody felt it was “better”
+- It “gets out of your way”, has a reasonable learning curve, and requires minimal configuration
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Setting up CakePHP
+- Choose a directory, such as `~/html/cakephp/`; the URL will then be `http://server/~user/cakephp/`
+- Download the CakePHP distribution .zip file (version 3.0.0-beta1 is [here](https://github.com/cakephp/cakephp/releases/download/3.0.0-beta1/cakephp-3-0-0-beta1.zip), and unzip it *in* that directory
+- Change two .htaccess files: in `~/html/cakephp/` and `~/html/cakephp/webroot/`: add the line `RewriteBase /~user/cakephp` *before* the close `</IfModule>`
+- Edit your database info in config/app.php
+- It should work, and show all green bars!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## A successful CakePHP default installation
+![cakephp image](../../docs/images/cakephp-initial.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Creating things
+- With CakePHP, you first create the table in the database, then create the MVC components around that
+- Some things to remember:
+  - Always have an `id int unsigned auto_increment primary key` as your first field
+  - Always include a `created datetime default null` and `modified datetime default null` as fields as well
+- Note that keywords in MySQL are case-insensitive, but user-defined identifiers are not!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Relationships
+- Foreign keys in a DB are used for hasOne (one-to-one), hasMany (one-to-many), and belongsTo (one-to-one or many-to-one) relationships
+  - If this_table has a foreign key of another_table, then this_table either hasOne or belongsTo another_table (you can choose)
+  - Likewise, another_table either hasMany or belongsTo this_table (again, your choice)
+- Separate tables are needed for HABTM (many-to-many) relationships
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Plurality and Inflection
+- Models are alwasy singular case ("Post.php", "Report.php")
+- Controllers are always plural case ("PostsController.php", "ReportsController.php")
+- Unrelated: views always end in ".ctp" for "Cake TemPlate"
+- CakePHP has an *inflector*, which can singularize or pluraize nouns as necessary
+  - Common non-standard nouns work as well: Person -> People
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section data-markdown id="rails"><script type="text/template">
+# Ruby on Rails
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why Ruby on Rails?
+- It's a very popular framework
+  - Many popular sites are built on Ruby, including github
+- The very large amount of libraries (gems), which are relatively easy to install and use, make it very easy to add a lot of functionatlity very easily
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Setting up Ruby on Rails
+- Everything needed is installed on the VirtualBox image
+- Run `rails new myqpp -d mysql`, which will create the directory structure needed
+- Edit `config/database.yml`, and enter your MySQL information (up to 3 times for each field!)
+- On VirtualBox, you can run `rails server`, and then view the web page via `http://localhost:3000`
+- On the course server, you have to follow the instructions on the [Ruby on Rails: Getting Started page](../../docs/rubyrails-getting-started.html) ([md](../../docs/rubyrails-getting-started.md))
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+A successful Ruby on Rails default installation
+![ruby on rails image](../../docs/images/rails-initial.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Creating things
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section data-markdown id="django"><script type="text/template">
+# Python Django
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="conclusions"><script type="text/template">
+# Conclusions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+	  </script></section>
+
+	</section>
+
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>

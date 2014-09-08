@@ -14,7 +14,7 @@ bug, and displays the slides correctly.
 - [01: Course introduction](fall/01-intro.html)
 - [02: Development methods](fall/02-development-methods.html)
 - [03: Legal Issues](fall/03-legal.html)
-- 04: CakePHP & Ruby on Rails
+- [04: Frameworks](fall/04-frameworks.html)
 - 05: Requirements
 - 06: Customer meetings
 - 07: Project start

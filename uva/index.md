@@ -6,7 +6,7 @@ UVa Specific Material
 Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the CS 4970/4971 version of the course at the University of Virginia.
 
 
-- [Fall daily announcements](../slides/fall/daily-announcements.html)
+- [Fall semester daily announcements](../slides/fall/daily-announcements.html)
 - [Course syllabus][1] ([md][2])
 
 
@@ -20,7 +20,7 @@ Lectures
 | 2   | Aug&nbsp;29 | Friday      | lecture       | Course intro, development methods | [01-intro][51], slides 7-7 to 9-10 (end); [02-development-methods][52], slides 0 to 2-3 ([recording][102]) |
 | 3   | Sep&nbsp;1  | Monday      | lecture       | Development methods | [02-development-methods][52], slides 3 to 7-5 (end) ([recording][103]) |
 | 4   | Sep&nbsp;3  | Wednesday   | lecture       | Legal issues  | [03-legal][53], slides 0 to 4-9 ([recording][104]) |
-| 5   | Sep&nbsp;5  | Friday      | lecture       |               |                                         |
+| 5   | Sep&nbsp;5  | Friday      | no class      |               |                                         |
 | 6   | Sep&nbsp;8  | Monday      | lecture       |               |                                         |
 | 7   | Sep&nbsp;10 | Wednesday   | lecture       |               |                                         |
 | 8   | Sep&nbsp;12 | Friday      | lecture       |               |                                         |

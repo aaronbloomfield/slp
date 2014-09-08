@@ -63,7 +63,9 @@ Which files you exclude will depend on which ones differ between your developmen
 
 First, proceed through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page -- this should get you a first CakePHP web page working.  Be sure you use the 3.0 API of CakePHP!  The URL for that page ***MUST*** be `http://server/~mst3k/cakephp/` (where "mst3k" is your userid, and "server" is the server used for the course).  Note the lack of capitalization in your URL!  We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.
 
-The purpose of this part of the assignment is to complete the [CakePHP blog tutorial](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html).
+The purpose of this part of the assignment is to complete the [CakePHP blog tutorial](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html).  An easier way to get CakePHP set up is to download the .zip of the latest release (as of the time of this writing, it's 3.0.0-beta1), and unzip it in a `~/html/cakephp/` directory.  For CakePHP version 3.0.0-beta1, the .zip file is [here](https://github.com/cakephp/cakephp/releases/download/3.0.0-beta1/cakephp-3-0-0-beta1.zip).  This allows you to effectively skip the "Getting Started" section of the tutorial.
+
+Note that the CakePHP tutorial has a [part two](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/part-two.html) that must be completed as well.
 
 A few notes:
 
