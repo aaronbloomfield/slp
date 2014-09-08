@@ -29,8 +29,8 @@ There are three commands that you will need to run on the VirtualBox image in or
 
 ```
 sudo apt-get install php5-mcrypt php5-intl
-php5enmod intl
-php5enmod mcrypt
+sudo php5enmod intl
+sudo php5enmod mcrypt
 ```
 
 
