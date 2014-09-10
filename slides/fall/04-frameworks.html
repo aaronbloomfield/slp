@@ -372,6 +372,24 @@ python manage.py syncdb
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Configuring Django on the server
+- You must use the `wsgi-admin` utility, as described in the [Django: Getting Started page](../../docs/django-getting-started.html) ([md](../../docs/django-getting-started.md))
+```
+wsgi-admin -register <wsgi_file>
+```
+```
+wsgi-admin -list
+```
+```
+wsgi-admin -remove <id>
+```
+```
+wsgi-admin -regerate
+```
+
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 ## A successful Django installation
 ![django image](../../docs/images/django-initial.png)
 	  </script></section>

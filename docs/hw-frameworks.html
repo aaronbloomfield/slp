@@ -46,7 +46,9 @@
 <p>Which files you exclude will depend on which ones differ between your development machine and the server. If you use the same database config, as described above, then you can use the same database credential files as well.</p>
 <p>If you did a mysqldump on your local machine to a file called <code>db.sql</code>, you can load that data into the database on the server by entering:</p>
 <pre><code>cat db.sql | mysql -u mst3k -p mst3k</code></pre>
-<p>Replace mst3k with your userid; it will prompt you for your password.</p>
+<p>Replace mst3k with your userid; it will prompt you for your password. This command must be run on the server. To log into the server, enter:</p>
+<pre><code>ssh mst3k@server</code></pre>
+<p>Where 'mst3k' is your userid, and 'server' is the <em>full</em> name of the server. Once you enter your password, you will be logged into a command prompt on the server.</p>
 <h3 id="cakephp">CakePHP</h3>
 <p>First, proceed through the <a href="cakephp-getting-started.html">CakePHP getting started</a> (<a href="cakephp-getting-started.md">md</a>) page -- this should get you a first CakePHP web page working. Be sure you use the 3.0 API of CakePHP! The URL for that page <strong><em>MUST</em></strong> be <code>http://server/~mst3k/cakephp/</code> (where &quot;mst3k&quot; is your userid, and &quot;server&quot; is the server used for the course). Note the lack of capitalization in your URL! We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.</p>
 <p>The purpose of this part of the assignment is to complete the <a href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">CakePHP blog tutorial</a>. An easier way to get CakePHP set up is to download the .zip of the latest release (as of the time of this writing, it's 3.0.0-beta1), and unzip it in a <code>~/html/cakephp/</code> directory. For CakePHP version 3.0.0-beta1, the .zip file is <a href="https://github.com/cakephp/cakephp/releases/download/3.0.0-beta1/cakephp-3-0-0-beta1.zip">here</a>. This allows you to effectively skip the &quot;Getting Started&quot; section of the tutorial.</p>

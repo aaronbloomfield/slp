@@ -65,7 +65,13 @@ If you did a mysqldump on your local machine to a file called `db.sql`, you can 
 cat db.sql | mysql -u mst3k -p mst3k
 ```
 
-Replace mst3k with your userid; it will prompt you for your password.
+Replace mst3k with your userid; it will prompt you for your password.  This command must be run on the server.  To log into the server, enter:
+
+```
+ssh mst3k@server
+```
+
+Where 'mst3k' is your userid, and 'server' is the *full* name of the server.  Once you enter your password, you will be logged into a command prompt on the server.
 
 ### CakePHP
 
