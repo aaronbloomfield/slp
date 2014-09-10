@@ -93,12 +93,12 @@ First, read through the [Ruby on Rails getting started](rubyrails-getting-starte
 
 We are using Ruby version 2.1.2 and Rails version 4.1.5 for this assigment.  If you have a more recent patch level (the last of the three digits of the version number), that's fine.  But you can't have a different major version (the first of those three numbers) or a different minor version (the middle of those three numbers).
 
-Your app *must* be called `rubyrails`, and it *must* be in your home directory.  In other words, there must be a `/home/slp/mst3k/rubyrails/public` directory, as this is what the webserver will be looking for.  If you change anything in that path, the web server will never find your app.  You can then view your app at `http://server/rails/mst3k`, where "server" is the course server.
+Your app *must* be called `railshw`, and it *must* be in your home directory.  In other words, there must be a `/home/slp/mst3k/rubyrails/public` directory, as this is what the webserver will be looking for.  If you change anything in that path, the web server will never find your app.  You can then view your app at `http://server/rails/mst3k`, where "server" is the course server.
 
 This part of the assignment is to complete the blog tutorial [here](http://guides.rubyonrails.org/getting_started.html)
 
 - That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and pegasus
-- To create the Rails application, you just enter `rails new rubyrails -d mysql` in your home directory (this is in section 3.2 of that web page; be sure to name it `rubyrails` so the URL is correct)
+- To create the Rails application, you just enter `rails new railshw -d mysql` in your home directory (this is in section 3.2 of that web page; be sure to name it `railshw` so the URL is correct)
 
 Lastly, since you will be using the same database for all three frameworks, you may want to have each Ruby table have given prefix.  You can do this by editing the three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, `ruby_` is the prefix, but use whatever you would like, within reason).  This line can go at the end, just before the last line (which is `end`).
 

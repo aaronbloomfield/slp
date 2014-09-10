@@ -21,7 +21,7 @@ To install this on the course server, you could follow the directions from [that
 4. Log out, then log back in again
 5. Try the "final steps" commands from [those directions](https://gorails.com/setup/ubuntu/14.04).  In particular, if you run `rails new myapp`, then it should work.  (You will likely want to delete the myapp/ directory once you've tested this)
 
-You will have to run through the rest of the "final steps" commands to configure your rails application.  As your first rails application needs to be called "rubyrails", you will need to enter `rails new rubyrails -d mysql`, and then the rest of the commands listed there.
+You will have to run through the rest of the "final steps" commands to configure your rails application.  As your first rails application needs to be called "railshw", you will need to enter `rails new railshw -d mysql`, and then the rest of the commands listed there.
 
 ### Setting up a new Rails app
 
