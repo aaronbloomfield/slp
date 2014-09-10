@@ -40,7 +40,7 @@
 <li>From the railshw/ directory, run <code>rake db:create</code>. It will say that 'mst3k already exists', twice -- that's fine.</li>
 <li>Change the production secret_key_base in config/secrets.yml. Again, for your homework, you can put the value in that file, but for your project, you will need to follow the instructions in the Security section, below.</li>
 <li>Reload the apache web server by running <code>/usr/local/bin/reload-apache2</code></li>
-<li><p>At this point, you should be able to view your Rails app at <code>http://pegasus.cs.virginia.edu/rails/mst3k</code>. Note that there is no tilde (&quot;~&quot;) there! And obviously replace &quot;mst3k&quot; with your userid. It should look <strong><em>exactly</em></strong> like the image at the bottom of this page.</p></li>
+<li><p>At this point, you should be able to view your Rails app at <code>http://server/rails/mst3k</code>. Note that there is no tilde (&quot;~&quot;) there! And obviously replace &quot;mst3k&quot; with your userid. It should look <strong><em>exactly</em></strong> like the image at the bottom of this page.</p></li>
 </ol>
 <h3 id="security">Security</h3>
 <p>There are a few values that must <strong><em>NOT</em></strong> be kept in the repositories -- they are the MySQL passwords in config/database.yml, and the secret_key_base in config/secrets.yml. The default files for config/database.yml and config/secrets.yml access environment variables, but the Apache Passenger module doesn't handle those very well for individual users.</p>
@@ -58,6 +58,8 @@
 <li>The previous command installs the gem(s) in a single <code>gems/</code> directory that <em>all</em> of your Ruby apps can use. However, the webserver cannot access that directory. Thus, you need to run <code>bundle --deployment</code>. This will install all the gems <em>again</em>, but this time to vendor/bundle, which the web server <em>can</em> find.</li>
 <li>Reload the apache web server by running <code>/usr/local/bin/reload-apache2</code></li>
 </ol>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>If you get a Passenger error on the server that states, &quot;wrong ELF class&quot;, as shown <a href="images/rails-bad-elf.png">here</a>, then the problem is that you have installed all of your gems (via <code>bundle install --path vendor/bundle</code>) on your local <strong><em>32-bit</em></strong> machine or image, and then uploaded them to the server, which is a 64-bit machine. To fix, you must delete the <strong><em>entire</em></strong> bundle directory on the server: <code>/bin/rm -rf ~/railshw/vendor/bundle</code>, and then reinstall them all again (via <code>bundle install --path vendor/bundle</code>).</p>
 <h3 id="viewing-your-rails-application">Viewing your Rails application</h3>
 <p>If you want to view your rails application locally, you can view it via the rails server, as described in <a href="https://gorails.com/setup/ubuntu/14.04">those directions</a> (basically, run <code>rails server</code>, and then view it at <code>http://localhost:3000</code> in your favorite web browser).</p>
 <p>Your Rails app will have a VERY specific directory that it must be installed in, as the web server is already configured for that directory. As long as it is in that directory, it will be visible through Apache.</p>

@@ -39,7 +39,7 @@ config.active_record.table_name_prefix = "ruby_"
 4. From the railshw/ directory, run `rake db:create`.  It will say that 'mst3k already exists', twice -- that's fine.
 5. Change the production secret\_key\_base in config/secrets.yml.  Again, for your homework, you can put the value in that file, but for your project, you will need to follow the instructions in the Security section, below.
 6. Reload the apache web server by running `/usr/local/bin/reload-apache2`
-7. At this point, you should be able to view your Rails app at `http://pegasus.cs.virginia.edu/rails/mst3k`.  Note that there is no tilde ("~") there!  And obviously replace "mst3k" with your userid.  It should look ***exactly*** like the image at the bottom of this page.
+7. At this point, you should be able to view your Rails app at `http://server/rails/mst3k`.  Note that there is no tilde ("~") there!  And obviously replace "mst3k" with your userid.  It should look ***exactly*** like the image at the bottom of this page.
 
 
 ### Security
@@ -61,6 +61,10 @@ For those who are interested, there are more options listed [here](http://railsa
 3. You should be able to view your app through `rails server`, as you have installed it locally (in ./.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/, if you are interested).
 4. The previous command installs the gem(s) in a single `gems/` directory that *all* of your Ruby apps can use.  However, the webserver cannot access that directory.  Thus, you need to run `bundle --deployment`.  This will install all the gems *again*, but this time to vendor/bundle, which the web server *can* find.
 4. Reload the apache web server by running `/usr/local/bin/reload-apache2`
+
+### Troubleshooting
+
+If you get a Passenger error on the server that states, "wrong ELF class", as shown [here](images/rails-bad-elf.png), then the problem is that you have installed all of your gems (via `bundle install --path vendor/bundle`) on your local ***32-bit*** machine or image, and then uploaded them to the server, which is a 64-bit machine.  To fix, you must delete the ***entire*** bundle directory on the server: `/bin/rm -rf ~/railshw/vendor/bundle`, and then reinstall them all again (via `bundle install --path vendor/bundle`).
 
 ### Viewing your Rails application
 
