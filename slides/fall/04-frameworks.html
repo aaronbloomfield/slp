@@ -244,7 +244,7 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## A successful CakePHP default installation
+## A successful CakePHP installation
 ![cakephp image](../../docs/images/cakephp-initial.png)
 	  </script></section>
 
@@ -293,22 +293,49 @@
 	  <section data-markdown><script type="text/template">
 ## Setting up Ruby on Rails
 - Everything needed is installed on the VirtualBox image
-- Run `rails new myqpp -d mysql`, which will create the directory structure needed
+- The following command will create the directory structure needed:
+```
+rails new myapp -d mysql
+```
 - Edit `config/database.yml`, and enter your MySQL information (up to 3 times for each field!)
 - On VirtualBox, you can run `rails server`, and then view the web page via `http://localhost:3000`
 - On the course server, you have to follow the instructions on the [Ruby on Rails: Getting Started page](../../docs/rubyrails-getting-started.html) ([md](../../docs/rubyrails-getting-started.md))
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-A successful Ruby on Rails default installation
+## A successful Ruby on Rails installation
 ![ruby on rails image](../../docs/images/rails-initial.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Creating things
+- With Rails, you tell the framework that you want to create a table/model:
+```
+bin/rails generate model Article title:string text:text
+```
+- You then *migrate* your changes to the DB, which is what creates (or modifies) the tables:
+```
+bin/rake db:migrate
+```
+The [ActiveRecord::Timestamp](http://api.rubyonrails.org/classes/ActiveRecord/Timestamp.html) API allows for `created_on` and `updated_on` fields
+  - ActiveRecord is the gem, Timestamp is the functionaliy
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Relationships
+- The ActiveRecord gem, in the [Association API](http://guides.rubyonrails.org/association_basics.html) manages relationships, similar to what CakePHP has
+  - has_one
+  - has_many
+  - belongs_to
+  - has_and_belongs_to_many
+- It also defines *through* modifiers to has_many and has_one, indicating a 3rd model is between
+  - A person has_many grandparents *through* their parents
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Plurality and Inflection
+- Models use a singular name ("post")
+- Database tables use a plural name ("posts")
 	  </script></section>
 
 	</section>
@@ -321,6 +348,72 @@ A successful Ruby on Rails default installation
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Why Django?
+- Python is a very nice language to program in
+- It's a very popular frameowrk
+- I wanted to add a 3rd framework choice this year
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Setting up Django
+- Everything needed is installed on the VirtualBox image
+- The following command will create the directory structure needed:
+```
+django-admin startproject mysite
+```
+  Note that this is `django-admin`, *not* `django-admin.py`
+- Edit `mysite/mysite/settings.py`, and enter your MySQL information (and change the time zone)
+- To set up the DB tables, run:
+```
+python manage.py syncdb
+```
+- On VirtualBox, you can run `python manage.py runserver`, and then view the web page via the URL printed
+- On the course server, you have to follow the instructions on the [Django: Getting Started page](../../docs/django-getting-started.html) ([md](../../docs/django-getting-started.md))
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## A successful Django installation
+![django image](../../docs/images/django-initial.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Projects versus Apps
+- So far, what has been created is a *project*
+  - You will also need to create one or more *apps*
+
+&nbsp;
+
+> What’s the difference between a project and an app? An app is a Web application that does something – e.g., a Weblog system, a database of public records or a simple poll app. A project is a collection of configuration and apps for a particular Web site. A project can contain multiple apps. An app can be in multiple projects.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Creating things
+- The structure for a model is created in a Python file (`polls/models.py`, for example)
+  - It's a specific Python syntax for a class
+- You can then print the SQL to create the matching tables for that model:
+```
+python manage.py sql polls
+```
+- You can then have those tables automatically created:
+```
+python manage.py syncdb
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Relationships
+- Django has similar relationships as the others
+- For each, there is a particular keyword used in the field declaration
+  - One-to-one: use `OneToOneField`
+  - Many-to-one: use `ForeignKey`
+  - Many-to-many: use `ManyToManyField`
+- Note that belongs-to is implicit, and thus not explicitly defined
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Plurality and Inflection
+- Django does not require singular and plurality like the other frameworks do
+- But if you don't follow the convention, you have to separately define what the singular name and plural name are for each field!
 	  </script></section>
 
 	</section>
@@ -332,6 +425,54 @@ A successful Ruby on Rails default installation
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Survey Framework Questions
+- Last year, there were two frameworks allowed: CakePHP and Ruby
+  - Django was the new framework this year
+- In the end-of-year survey, students were asked two framework questions:
+  - What is your overall opinion of the framework you used (CakePHP or Rails)?
+  - Overall, how satisfied were you with the framework that you chose to work with?
+- Answers were on a 1-5 scale (1 = very unsatisifed, 3 = neutral, 5 = very satisfied)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Survey Framework Results
+
+This is from the 2013-2014 academic year, which means these results were completed in May, 2014
+
+|    | CakePHP | Ruby on Rails |
+|--|--|--|
+| Framework opinion | 4.49 | 4.01 |
+| Framework satisfaction | 4.40 | 3.86 |
+| Number of surveys | 13 | 26 |
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Upcoming survey questions
+- For each framework, you will rate your interest from 1-5:
+  1. I really DESPISE this framework, and would be very unhappy using it
+  2. I would rather not use this framework, and would not be thrilled using it
+  3. I am neutral about using this framework
+  4. I would like to use this framework, and would be happy using it
+  5. I am a FANATIC about this framework, and would be ecstatic using it
+- (phrasing may vary)
+- If you enter 3's for the three framework prompts, I'll assume you don't care about which framework you use
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What *not* to base your framework preference on
+- The learning curve: they all have learning curves, so that's a wash
+- What is the *hot* framework of the day: some Rails groups got burned last year because of this
+- What your friend told you you should use
+- How hard it is to configure
+  - I'm doing that on pegasus for you, and it's only a one-time thing, anyway
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What you should base your framework preference on
+- A desire to learn a particular language or framework
+- Existing knowledge or experience using a particular framework
+- Your experiences with the frameworks homework
+  - But take them with a grain of salt -- it's not like none of the frameworks will cause you frustration ever
 	  </script></section>
 
 	</section>
