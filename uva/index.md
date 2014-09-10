@@ -21,12 +21,12 @@ Lectures
 | 3   | Sep&nbsp;1  | Monday      | lecture       | Development methods | [02-development-methods][52], slides 3 to 7-5 (end) ([recording][103]) |
 | 4   | Sep&nbsp;3  | Wednesday   | lecture       | Legal issues  | [03-legal][53], slides 0 to 4-9 ([recording][104]) |
 | 5   | Sep&nbsp;5  | Friday      | no class      |               |                                         |
-| 6   | Sep&nbsp;8  | Monday      | lecture       |               | [03-legal][53], slides 4-10 to 6-3 (end); [04-frameworks][54], slides 0 to 2-7 ([recording][105]) |
-| 7   | Sep&nbsp;10 | Wednesday   | lecture       |               |                                         |
-| 8   | Sep&nbsp;12 | Friday      | lecture       |               |                                         |
-| 9   | Sep&nbsp;15 | Monday      | lecture       |               |                                         |
-| 10  | Sep&nbsp;17 | Wednesday   | lecture       |               |                                         |
-| 11  | Sep&nbsp;19 | Friday      | lecture       |               |                                         |
+| 6   | Sep&nbsp;8  | Monday      | lecture       | Legal issues, frameworks | [03-legal][53], slides 4-10 to 6-3 (end); [04-frameworks][54], slides 0 to 2-7 ([recording][105]) |
+| 7   | Sep&nbsp;10 | Wednesday   | lecture       | Frameworks    |                                         |
+| 8   | Sep&nbsp;12 | Friday      | no class      |               |                                         |
+| 9   | Sep&nbsp;15 | Monday      | lecture       | Requirements  |                                         |
+| 10  | Sep&nbsp;17 | Wednesday   | lecture       | Customer meetings |                                         |
+| 11  | Sep&nbsp;19 | Friday      | class optional |               | Class is for those who have questions about the survey or the projects |
 | 12  | Sep&nbsp;22 | Monday      | group meeting |               |                                         |
 | 13  | Sep&nbsp;24 | Wednesday   | lecture       |               |                                         |
 | 14  | Sep&nbsp;26 | Friday      | no class      |               |                                         |
