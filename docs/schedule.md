@@ -3,56 +3,7 @@ SLP: Schedule, 2013-2014
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
 
-### Lecture Schedule, Fall 2014
-
-| Num |&nbsp;| Date |&nbsp;| Day of week |&nbsp;| Lecture Type |&nbsp;| Event(s) |&nbsp;| Lecture topic |
-|-----|------|------|------|-------------|------|--------------|------|----------|------|---------------|
-| 1  || Aug&nbsp;27 || Wednesday || lecture       || First day of class               || Course introduction            |
-| 2  || Aug&nbsp;29 || Friday    || lecture       || HW 1 (git) released              || Intro to git and github        |
-| 3  || Sep&nbsp;1  || Monday    || lecture       || Project descriptions released    || Intro to CakePHP               |
-| 4  || Sep&nbsp;3  || Wednesday || lecture       ||                                  || Intro to Ruby on Rails         |
-| 5  || Sep&nbsp;5  || Friday    || lecture       || HW 1 due; HW 2 (Cake/Ruby) released || Development methods            |
-| 6  || Sep&nbsp;8  || Monday    || lecture       ||                                  || Development methods, licensing |
-| 7  || Sep&nbsp;10 || Wednesday || lecture       ||                                  || Licensing                      |
-| 8  || Sep&nbsp;12 || Friday    || lecture       || Semester start survey released; HW 2 due; HW 3 (Cake/Ruby part 2) released || Requirements                   |
-| 9  || Sep&nbsp;15 || Monday    || lecture       ||                                  ||                                |
-| 10 || Sep&nbsp;17 || Wednesday || lecture       ||                                  ||                                |
-| 11 || Sep&nbsp;19 || Friday    || lecture       || Semester start survey due; HW 3 due ||                                |
-| 12 || Sep&nbsp;22 || Monday    || group meeting || Projects assigned; first group meeting; iteration 1 starts (on Tue)      || Project start                  |
-| 13 || Sep&nbsp;24 || Wednesday || lecture       ||                                  || Customer meetings              |
-| 14 || Sep&nbsp;26 || Friday    || no class      ||                                  ||                                |
-| 15 || Sep&nbsp;29 || Monday    || group meeting ||                                  ||                                |
-| 16 || Oct&nbsp;1  || Wednesday || lecture       ||                                  ||                                |
-| 17 || Oct&nbsp;3  || Friday    || no class      ||                                  ||                                |
-| 18 || Oct&nbsp;6  || Monday    || group meeting || Iteration 2 starts (on Tue)      ||                                |
-| 19 || Oct&nbsp;8  || Wednesday || lecture       ||                                  ||                                |
-| 20 || Oct&nbsp;10 || Friday    || no class      ||                                  ||                                |
-|    || Oct&nbsp;13 || Monday    || no class      || UVa's spring break               ||                                |
-| 21 || Oct&nbsp;15 || Wednesday || group meeting || (as there was no meeting on Mon) ||                                |
-| 22 || Oct&nbsp;17 || Friday    || no class      ||                                  ||                                |
-| 23 || Oct&nbsp;20 || Monday    || group meeting || Iteration 3 starts (on Tue)      ||                                |
-| 24 || Oct&nbsp;22 || Wednesday || lecture       ||                                  ||                                |
-| 25 || Oct&nbsp;24 || Friday    || no class      ||                                  ||                                |
-| 26 || Oct&nbsp;27 || Monday    || group meeting ||                                  ||                                |
-| 27 || Oct&nbsp;29 || Wednesday || lecture       ||                                  ||                                |
-| 28 || Oct&nbsp;31 || Friday    || no class      ||                                  ||                                |
-| 29 || Nov&nbsp;3  || Monday    || group meeting || Iteration 4 starts (on Tue)      ||                                |
-| 30 || Nov&nbsp;5  || Wednesday || lecture       ||                                  ||                                |
-| 31 || Nov&nbsp;7  || Friday    || no class      ||                                  ||                                |
-| 32 || Nov&nbsp;10 || Monday    || group meeting ||                                  ||                                |
-| 33 || Nov&nbsp;12 || Wednesday || lecture       ||                                  ||                                |
-| 34 || Nov&nbsp;14 || Friday    || no class      ||                                  ||                                |
-| 35 || Nov&nbsp;17 || Monday    || group meeting || Iteration 5 starts (on Tue)      ||                                |
-| 36 || Nov&nbsp;19 || Wednesday || lecture       ||                                  ||                                |
-| 37 || Nov&nbsp;21 || Friday    || no class      ||                                  ||                                |
-| 38 || Nov&nbsp;24 || Monday    || group meeting ||                                  ||                                |
-|    || Nov&nbsp;26 || Wednesday || no class      || UVa's Thanksgiving break         ||                                |
-|    || Nov&nbsp;28 || Friday    || no class      || UVa's Thanksgiving break         ||                                |
-| 39 || Dec&nbsp;1  || Monday    || group meeting || Iteration 6 starts (on Tue)      ||                                |
-| 40 || Dec&nbsp;3  || Wednesday || lecture       ||                                  ||                                |
-| 41 || Dec&nbsp;5  || Friday    || no class      ||                                  ||                                |
-
-
+For the lecture schedule, see the [main UVa page](../uva/index.html) ([md](../uva/index.md))
 
 ### Iteration Schedule, 2013-2014
 
