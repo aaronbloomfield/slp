@@ -93,7 +93,7 @@ First, read through the [Ruby on Rails getting started](rubyrails-getting-starte
 
 We are using Ruby version 2.1.2 and Rails version 4.1.5 for this assigment.  If you have a more recent patch level (the last of the three digits of the version number), that's fine.  But you can't have a different major version (the first of those three numbers) or a different minor version (the middle of those three numbers).
 
-Your app *must* be called `railshw`, and it *must* be in your home directory.  In other words, there must be a `/home/slp/mst3k/rubyrails/public` directory, as this is what the webserver will be looking for.  If you change anything in that path, the web server will never find your app.  You can then view your app at `http://server/rails/mst3k`, where "server" is the course server.
+Your app *must* be called `railshw`, and it *must* be in your home directory.  In other words, there must be a `/home/slp/mst3k/railshw/public` directory, as this is what the webserver will be looking for.  If you change anything in that path, the web server will never find your app.  You can then view your app at `http://server/rails/mst3k`, where "server" is the course server.
 
 This part of the assignment is to complete the blog tutorial [here](http://guides.rubyonrails.org/getting_started.html)
 
