@@ -24,7 +24,7 @@ Lectures
 | 6   | Sep&nbsp;8  | Monday      | lecture       | Legal issues, frameworks || [03-legal][53], slides 4-10 to 6-3 (end); [04-frameworks][54], slides 0 to 2-7 ([recording][105]) |
 | 7   | Sep&nbsp;10 | Wednesday   | lecture       | Frameworks    | CakePHP part of [HW 2][22] ([md][23])| [04-frameworks][54], slides 2-8 to 7-5 (end) ([recording][106]) |
 | 8   | Sep&nbsp;12 | Friday      | no class      |               ||                                         |
-| 9   | Sep&nbsp;15 | Monday      | lecture       | Requirements  | Rails part of [HW 2][22] ([md][23]) |                                         |
+| 9   | Sep&nbsp;15 | Monday      | lecture       | Requirements  | Rails part of [HW 2][22] ([md][23]) | [05-requirements][55], slides 0 to 2-10 ([recording][107]) |
 | 10  | Sep&nbsp;17 | Wednesday   | lecture       | Customer meetings ||                                         |
 | 11  | Sep&nbsp;19 | Friday      | class optional |               | Django part of [HW 2][22] ([md][23]) | Class is for those who have questions about the survey or the projects |
 | 12  | Sep&nbsp;22 | Monday      | group meeting | Project start ||                                         |
@@ -74,6 +74,7 @@ Lectures
 [52]: ../slides/fall/02-development-methods.html
 [53]: ../slides/fall/03-legal.html
 [54]: ../slides/fall/04-frameworks.html
+[55]: ../slides/fall/05-requirements.html
 
 [101]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
 [102]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
@@ -81,3 +82,4 @@ Lectures
 [104]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/03-legal-1/03-legal-1.htm
 [105]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/04-frameworks-1/04-frameworks-1.htm
 [106]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/04-frameworks-2/04-frameworks-2.htm
+[107]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/05-requirements-1/05-requirements-1.htm
