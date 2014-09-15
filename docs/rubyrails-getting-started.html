@@ -58,6 +58,21 @@
 <li>The previous command installs the gem(s) in a single <code>gems/</code> directory that <em>all</em> of your Ruby apps can use. However, the webserver cannot access that directory. Thus, you need to run <code>bundle --deployment</code>. This will install all the gems <em>again</em>, but this time to vendor/bundle, which the web server <em>can</em> find.</li>
 <li>Reload the apache web server by running <code>/usr/local/bin/reload-apache2</code></li>
 </ol>
+<h3 id="uploading-to-the-server">Uploading to the server</h3>
+<p>The server is 64-bit, and your local development platform is likely 32-bit (especially if you are using the VirtualBox image). Thus, in addition to uploading, you will have to reinstall the gems. To do so:</p>
+<ul>
+<li>Upload the files to pegasus: <code>rsync -a railshw/ mst3k@server:~/railshw</code>
+<ul>
+<li>The syntax for that command (such as all the forward slashes) must be exact!</li>
+<li>At this point, your rails page should give a Passenger error with &quot;wrong ELF class&quot; listed there</li>
+</ul></li>
+<li>Log into pegasus: <code>ssh mst3k@server</code></li>
+<li>Move into the railshw/ directory that was just created when we uploaded the directory: <code>cd railshw</code></li>
+<li>Delete the vendor/bundle directory: <code>/bin/rm -rf vendor/bundle</code></li>
+<li>Reinstall the gems: <code>bundle install --path vendor/bundle</code></li>
+<li>At this point, you should be able to view your application</li>
+</ul>
+<p>You may need to transfer the DB, or run db:migrate, depending on the details of your app</p>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>If you get a Passenger error on the server that states, &quot;wrong ELF class&quot;, as shown <a href="images/rails-bad-elf.png">here</a>, then the problem is that you have installed all of your gems (via <code>bundle install --path vendor/bundle</code>) on your local <strong><em>32-bit</em></strong> machine or image, and then uploaded them to the server, which is a 64-bit machine. To fix, you must delete the <strong><em>entire</em></strong> bundle directory on the server: <code>/bin/rm -rf ~/railshw/vendor/bundle</code>, and then reinstall them all again (via <code>bundle install --path vendor/bundle</code>).</p>
 <h3 id="viewing-your-rails-application">Viewing your Rails application</h3>

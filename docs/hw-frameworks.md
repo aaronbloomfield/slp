@@ -106,6 +106,8 @@ Lastly, since you will be using the same database for all three frameworks, you 
 config.active_record.table_name_prefix = "ruby_"
 ```
 
+Lastly, to see how to upload your Rails app to the server, see the "Uploading to the server" section of the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page.
+
 ### Django
 
 First, read through the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page.  The assumption is that you will test it locally via `python manage.py runserver`, and the deploy it on the course server via the directions on that page.  If you want to try your hand configuring your *own* Apache server to run Django, you can look at the [Django deployment](django-deployment.html) ([md](django-deployment.md)) page -- but be warned, it's a real pain in the rear to configure a Django server (although not as bad as Rails).
