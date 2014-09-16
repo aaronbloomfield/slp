@@ -16,8 +16,8 @@ bug, and displays the slides correctly.
 - [03: Legal Issues](fall/03-legal.html)
 - [04: Frameworks](fall/04-frameworks.html)
 - [05: Requirements](fall/05-requirements.html)
-- 06: Customer meetings
-- 07: Project start
+- [06: Customer meetings](fall/06-customer-meetings.html)
+- [07: Project start](fall/07-project-start.html)
 - 08: Estimation workday
 - 09: Documentation
 - 10: Design patterns
