@@ -25,10 +25,10 @@ Lectures
 | 7   | Sep&nbsp;10 | Wednesday   | lecture       | Frameworks    | CakePHP part of [HW 2][22] ([md][23])| [04-frameworks][54], slides 2-8 to 7-5 (end) ([recording][106]) |
 | 8   | Sep&nbsp;12 | Friday      | no class      |               ||                                         |
 | 9   | Sep&nbsp;15 | Monday      | lecture       | Requirements  | Rails part of [HW 2][22] ([md][23]) | [05-requirements][55], slides 0 to 2-10 ([recording][107]) |
-| 10  | Sep&nbsp;17 | Wednesday   | lecture       | Customer meetings ||                                         |
+| 10  | Sep&nbsp;17 | Wednesday   | lecture       | Requirements || [05-requirements][55], slides 3-1 to 4-7 (end) ([recording][108]) |
 | 11  | Sep&nbsp;19 | Friday      | class optional |               | Django part of [HW 2][22] ([md][23]) | Class is for those who have questions about the survey or the projects |
 | 12  | Sep&nbsp;22 | Monday      | group meeting | Project start ||                                         |
-| 13  | Sep&nbsp;24 | Wednesday   | lecture       |               ||                                         |
+| 13  | Sep&nbsp;24 | Wednesday   | lecture       | Customer meetings ||                                         |
 | 14  | Sep&nbsp;26 | Friday      | no class      |               ||                                         |
 | 15  | Sep&nbsp;29 | Monday      | group meeting |               ||                                         |
 | 16  | Oct&nbsp;1  | Wednesday   | lecture       |               ||                                         |
@@ -83,3 +83,4 @@ Lectures
 [105]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/04-frameworks-1/04-frameworks-1.htm
 [106]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/04-frameworks-2/04-frameworks-2.htm
 [107]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/05-requirements-1/05-requirements-1.htm
+[108]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/05-requirements-2/05-requirements-2.htm
