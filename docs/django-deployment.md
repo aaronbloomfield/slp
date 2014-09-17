@@ -49,3 +49,16 @@ The issue with the WSGI module is that if **any one** of the WSGI files it is co
 To work around this, you can see the [wsgi-admin.cpp](../utils/wsgi-admin/wsgi-admin.cpp.html) ([src](../utils/wsgi-admin/wsgi-admin.cpp)), which will allow students to register and remove their WSGI apps.  It will update the necessary Apache configuration files, and then reload the web server.  It can also be used just to do the regeneration and reloading -- and if a file is not found (or is not valid), then it is excluded from the configuration files.  Installation is tricky, and more details will follow shortly...
 
 
+Django static/ directory
+------------------------
+
+In addition to the per-user configuration, there are some configurations for everybody.  In particular, the http://server/static directory needs to point to the base Django static directory.  The following lines in the Apache2 configuration file for the site will achieve this:
+
+```
+Alias /static /usr/lib/python2.7/dist-packages/django/contrib/admin/static
+<Directory /usr/lib/python2.7/dist-packages/django/contrib/admin/static>
+  Require all granted
+</Directory>
+```
+
+Verify that the `/usr/lib/python2.7/dist-packages/django/contrib/admin/static` directory is correct on your system.

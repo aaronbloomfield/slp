@@ -47,14 +47,40 @@ As mentioned in [part 1 of the Django tutorial](https://docs.djangoproject.com/e
 
 ### Configuring it on Apache on the course server
 
-When you have created your Django project, you will need to tell the web server that your file exists.  The module that runs Python apps on the Apache web server is called WSGI (Web Server Gateway Interface), pronounced "wus-gee".  On the server, there is a `wsgi-admin` command-line tool to do exactly that, since you can't edit the web server configuration files.  Note that you can only have one WSGI app registered at a time.  You will need to find the wsgi.py file in your django app (likely in `mysite/mysite/wsgi.py`, where `mysite` is the name of your Django app).
+We are not configuring it on the web server for the hoemwork; this will be done for individual projects that choose the Django framework.
 
-There are four modes to that command:
+#### Registering the Django project
 
-- `wsgi-admin -register <wsgi_file>`: this will register the passed wsgi.py file, update the Apache configuration files, and reload the web server
-- `wsgi-admin -list`: this will list all the WSGI apps that you have registered, although you can only have one at a time.  In particular, it will indicate the ID number of your registration, which you will need for the `-remove` command.
-- `wsgi-admin -remove <id>`: this will remove your WSGI app with the passed (integer) ID.
-- `wsgi-admin -regenerate`: this will regenerate the web server configuration files and reload the web server.  This is automatically done on a `-register` or `-remove`.  But it could be the case that somebody accidentally deleted their Python app files, which will cause **ALL** of the WSGI apps to stop working -- the `-regenerate` command will re-create the configuration files without the missing Django apps.
+~~When you have created your Django project, you will need to tell the web server that your file exists.  The module that runs Python apps on the Apache web server is called WSGI (Web Server Gateway Interface), pronounced "wus-gee".  On the server, there is a `wsgi-admin` command-line tool to do exactly that, since you can't edit the web server configuration files.  Note that you can only have one WSGI app registered at a time.  You will need to find the wsgi.py file in your django app (likely in `mysite/mysite/wsgi.py`, where `mysite` is the name of your Django app).~~
+
+~~There are four modes to that command:~~
+
+- ~~`wsgi-admin -register <wsgi_file>`: this will register the passed wsgi.py file, update the Apache configuration files, and reload the web server~~
+    - ~~Note that you can supply an additional parameter, after the wsgi file, which is the name of the app you are using; if you don't specify, it assumes it is "polls" (which is the name of the app in the [Django intro tutorial](https://docs.djangoproject.com/en/1.6/intro/))~~
+- ~~`wsgi-admin -list`: this will list all the WSGI apps that you have registered, although you can only have one at a time.  In particular, it will indicate the ID number of your registration, which you will need for the `-remove` command.~~
+- ~~`wsgi-admin -remove <id>`: this will remove your WSGI app with the passed (integer) ID.~~
+- ~~`wsgi-admin -regenerate`: this will regenerate the web server configuration files and reload the web server.  This is automatically done on a `-register` or `-remove`.  But it could be the case that somebody accidentally deleted their Python app files, which will cause **ALL** of the WSGI apps to stop working -- the `-regenerate` command will re-create the configuration files without the missing Django apps.~~
+
+#### Configuring the Django app's URLs
+
+~~The next thing to do is to update your urls.py (the project-wide one, not the app-specific one); this may be in `~/djangohw/djangohw/urls.py`.  A typical one will have the following as the `urlpatterns` array:~~
+
+```
+urlpatterns = patterns('',
+    url(r'^polls/', include('polls.urls', namespace="polls")),
+    url(r'^admin/', include(admin.site.urls)),
+)
+```
+ 
+~~This describes a route for two URLs: http://server/django/mst3k/polls and http://server/django/mst3k/admin.  And, indeed, both of those URLs work.  But it doesn't define a route for the http://server/django/mst3k/ URL.  To do that, add a line similar to the following into that urlpatterns array (above the existing 'polls' line):~~
+
+
+```
+    url(r'^', include('polls.urls', namespace="polls")),
+```
+
+~~This will cause the base URL of the Djagno project (http://server/django/mst3k) to display the contents of the polls/ app.~~
+
 
 ### Updating the Django app
 

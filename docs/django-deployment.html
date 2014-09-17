@@ -48,5 +48,12 @@ WSGIDaemonProcess user python-path=/home/slp/user/djangohw
 <h2 id="multiple-users">Multiple users</h2>
 <p>The issue with the WSGI module is that if <strong>any one</strong> of the WSGI files it is configured with does not exist, then all of the WSGI modules don't work. This means you can't pre-generate the list of WSGI links for a class, as none of them will work until everybody has it set up, which is not viable.</p>
 <p>To work around this, you can see the <a href="../utils/wsgi-admin/wsgi-admin.cpp.html">wsgi-admin.cpp</a> (<a href="../utils/wsgi-admin/wsgi-admin.cpp">src</a>), which will allow students to register and remove their WSGI apps. It will update the necessary Apache configuration files, and then reload the web server. It can also be used just to do the regeneration and reloading -- and if a file is not found (or is not valid), then it is excluded from the configuration files. Installation is tricky, and more details will follow shortly...</p>
+<h2 id="django-static-directory">Django static/ directory</h2>
+<p>In addition to the per-user configuration, there are some configurations for everybody. In particular, the http://server/static directory needs to point to the base Django static directory. The following lines in the Apache2 configuration file for the site will achieve this:</p>
+<pre><code>Alias /static /usr/lib/python2.7/dist-packages/django/contrib/admin/static
+&lt;Directory /usr/lib/python2.7/dist-packages/django/contrib/admin/static&gt;
+  Require all granted
+&lt;/Directory&gt;</code></pre>
+<p>Verify that the <code>/usr/lib/python2.7/dist-packages/django/contrib/admin/static</code> directory is correct on your system.</p>
 </body>
 </html>

@@ -76,13 +76,21 @@
 <p>Unlike Ruby on Rails, you can name the Django app anything you want, and put it in any directory that you want. Although naming it <code>djangohw</code> and putting it in our home directory on the course server would not be bad ideas.</p>
 <p>The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found <a href="https://docs.djangoproject.com/en/1.6/intro/">here</a> (the &quot;Tutorial&quot; line in the &quot;First steps&quot; section). Make sure you are going through the 1.6 version!</p>
 <p>When you have updated your Django app, remember to touch the wsgi file to make the web server reload your app; see the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page for details.</p>
-<p>It is much more difficult to rename your tables in Django -- you have to do it individually for each table. But if the CakePHP tables all start with <code>cake_</code>, and the Ruby on Rails tables all start with <code>ruby_</code>, then you can leave the Django talbes to have the default name.</p>
+<p>It is much more difficult to rename your tables in Django -- you have to do it individually for each table. But if the CakePHP tables all start with <code>cake_</code>, and the Ruby on Rails tables all start with <code>ruby_</code>, then you can leave the Django talbes to have the default name. However, the names used in the Django tutorial should not conflict with the other tables therein.</p>
+<p>For the submission, we are not going to be configuring it on the web server, for reasons that will be explained elsewhere. Instead, we will look at your project files on the server, and run it through <code>python manage.py runserver</code>. Thus, you MUST take the following steps:</p>
+<ul>
+<li>Upload your ENTIRE django app onto pegasus; put it somewhere in your root directory so we can find it
+<ul>
+<li>There should be only three directories in your home directory: html (which also contains the CakePHP part), railshw (which contains the Rails part), and the directory that contains the Django part.</li>
+</ul></li>
+<li>Make <strong><em>SURE</em></strong> that the DB on pegasus contains all the tables that you need for this. You can do a mysqldump of the DB on your VirtualBox image, and then restore that to your DB on pegasus.</li>
+</ul>
 <h3 id="submission">Submission</h3>
 <p>None! We have access to your files on the course server, and we can view your apps at the following URLs:</p>
 <ul>
 <li>CakePHP: <code>http://server/~mst3k/cakephp/</code></li>
 <li>Ruby on Rails: <code>http://server/rails/mst3k</code></li>
-<li>Django: <code>http://server/django/mst3k</code></li>
+<li>Django: See above</li>
 </ul>
 <p>For any sites that have user authentication, you MUST allow user <code>kermit</code> with password <code>frog</code> to log in and see any and all features.</p>
 <p>Whether your program is late or not will be determined by the timestamp on the files in your home directory on the course server.</p>

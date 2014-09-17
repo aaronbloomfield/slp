@@ -9,6 +9,10 @@
  * of wsgi files.  It needs two Ubuntu pacakges to work: sqlite3 and
  * libsqlite3-dev.
  *
+ * Full directions for how to use it can be found in the
+ * django-getting-started.md (and .html) files in the docs/ directory
+ * in the SLP repo.
+ *
  * Installation:
  * - Compile with 'make', put it somewhere (such as /usr/local/bin)
  * - You will need this to be in a group that can write to the two
@@ -35,9 +39,10 @@
  * valid boolean
  * added datetime
  * removed datetime
+ * app text
  *
  * The line to create this in sqlite3:
- * create table wsgi(id integer primary key asc, uid int, wsgi text, valid boolean, added datetime, removed datetime);
+ * create table wsgi(id integer primary key asc, uid int, wsgi text, valid boolean, added datetime, removed datetime, app text);
  */
 
 #include <iostream>
@@ -60,15 +65,17 @@ using namespace std;
 #define APACHE2_RELOAD_CMD "/usr/local/bin/reload-apache2"
 #define URL_PREFIX "/django"
 #define DATABASE_FILE "/etc/apache2/django.db"
+#define DEFAULT_APP_NAME "polls"
 
 // some global variables
 stringstream wsgifile, wsgisslfile, query;
 int count = 0, find_uid = 0;
 string find_filename = "";
+string appname = string(DEFAULT_APP_NAME);
 
 // for when they invoke it incorrectly...
 void printUsage(char *argv0, bool doexit = true) {
-    cerr << "Usage:  " << argv0 << " -register <wsgi_file>\n"
+    cerr << "Usage:  " << argv0 << " -register <wsgi_file> [<app_name>]\n"
 	 << "\t" << argv0 << " -remove <num>\n"
 	 << "\t" << argv0 << " -list\n"
 	 << "\t" << argv0 << " -regenrate" << endl;
@@ -193,10 +200,16 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
   string basename = fullpath.substr(pos+1);
   pos = up1.rfind("/");
   string up2 = up1.substr(0,pos);
-  wsgifile << "WSGIScriptAlias " << URL_PREFIX << "/" << userid << " " << fullpath << "\n";
-  wsgisslfile << "WSGIScriptAlias " << URL_PREFIX << "/" << userid << " " << fullpath << "\n";
-  wsgifile << "WSGIDaemonProcess " << userid << " python-path=" << up2 << "\n"; // no ssl version
   stringstream foo;
+  foo << "Alias " << URL_PREFIX << "/" << userid << "/static " << up2 << "/" << appname << "/static\n"
+      << "<Directory " << up2 << "/" << appname << "/static>\n"
+      << "  Require all granted\n"
+      << "</Directory>\n"
+      << "WSGIScriptAlias " << URL_PREFIX << "/" << userid << " " << fullpath << "\n";
+  wsgifile << foo.str();
+  wsgisslfile << foo.str();
+  wsgifile << "WSGIDaemonProcess " << userid << " python-path=" << up2 << "\n"; // no ssl version
+  foo.str("");
   foo << "WSGIProcessGroup " << userid << "\n"
       << "<Directory " << up1 << ">\n"
       << "  <Files " << basename << ">\n"
@@ -219,7 +232,7 @@ int main(int argc, char **argv) {
   if ( (argc == 1) || (argc >= 4) )
     printUsage(argv[0]);
   string param(argv[1]);
-  if ( (argc == 3) && (param == "-register") )
+  if ( ((argc == 3) || (argc == 4)) && (param == "-register") )
     mode = MODE_REGISTER;
   else if ( (argc == 3) && (param == "-remove") )
     mode = MODE_REMOVE;
@@ -283,10 +296,17 @@ int main(int argc, char **argv) {
     if ( count > 0 )
       die("You can only have one WSGI file registered, so you must first remove it via -remove (and you can find it via -list)");
 
+    // get the app name
+    if ( argc == 4 )
+      appname = string(argv[3]);
+    else
+      // the appname field is set to the default above
+      cout << "No app name provided, so assuming '" << DEFAULT_APP_NAME << "'" << endl;
+
     // insert entry into DB
     query.str("");
     query << "insert into wsgi values (null," << uid << ",\"" << realpath(argv[2],NULL) 
-	  << "\",1,datetime(),null)";
+	  << "\",\"" << appname << "\",1,datetime(),null)";
     ret = sqlite3_exec(db, query.str().c_str(), NULL, NULL, &errmsg);
     if ( ret != SQLITE_OK )
       sqlite3_die(errmsg,query.str());

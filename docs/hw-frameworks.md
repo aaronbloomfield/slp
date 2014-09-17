@@ -118,7 +118,13 @@ The task for the Django part of this homework is to go through all six parts of 
 
 When you have updated your Django app, remember to touch the wsgi file to make the web server reload your app; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details.
 
-It is much more difficult to rename your tables in Django -- you have to do it individually for each table.  But if the CakePHP tables all start with `cake_`, and the Ruby on Rails tables all start with `ruby_`, then you can leave the Django talbes to have the default name.
+It is much more difficult to rename your tables in Django -- you have to do it individually for each table.  But if the CakePHP tables all start with `cake_`, and the Ruby on Rails tables all start with `ruby_`, then you can leave the Django talbes to have the default name.  However, the names used in the Django tutorial should not conflict with the other tables therein.
+
+For the submission, we are not going to be configuring it on the web server, for reasons that will be explained elsewhere.  Instead, we will look at your project files on the server, and run it through `python manage.py runserver`.  Thus, you MUST take the following steps:
+
+- Upload your ENTIRE django app onto pegasus; put it somewhere in your root directory so we can find it
+    - There should be only three directories in your home directory: html (which also contains the CakePHP part), railshw (which contains the Rails part), and the directory that contains the Django part.
+- Make ***SURE*** that the DB on pegasus contains all the tables that you need for this.  You can do a mysqldump of the DB on your VirtualBox image, and then restore that to your DB on pegasus.
 
 ### Submission
 
@@ -126,7 +132,7 @@ None!  We have access to your files on the course server, and we can view your a
 
 - CakePHP: `http://server/~mst3k/cakephp/`
 - Ruby on Rails: `http://server/rails/mst3k`
-- Django: `http://server/django/mst3k`
+- Django: See above
 
 For any sites that have user authentication, you MUST allow user `kermit` with password `frog` to log in and see any and all features.
 
