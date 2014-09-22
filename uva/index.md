@@ -27,7 +27,7 @@ Lectures
 | 9   | Sep&nbsp;15 | Monday      | lecture       | Requirements  | Rails part of [HW 2][22] ([md][23]) | [05-requirements][55], slides 0 to 2-10 ([recording][107]) |
 | 10  | Sep&nbsp;17 | Wednesday   | lecture       | Requirements || [05-requirements][55], slides 3-1 to 4-7 (end) ([recording][108]) |
 | 11  | Sep&nbsp;19 | Friday      | class optional |               | Django part of [HW 2][22] ([md][23]) | Class is for those who have questions about the survey or the projects |
-| 12  | Sep&nbsp;22 | Monday      | group meeting | Project start ||                                         |
+| 12  | Sep&nbsp;22 | Monday      | group meeting | Project start || [06-project-start][56], slides 0 to 4-16 (end) ([recording][109]) |
 | 13  | Sep&nbsp;24 | Wednesday   | lecture       | Customer meetings ||                                         |
 | 14  | Sep&nbsp;26 | Friday      | no class      |               ||                                         |
 | 15  | Sep&nbsp;29 | Monday      | group meeting |               ||                                         |
@@ -75,6 +75,7 @@ Lectures
 [53]: ../slides/fall/03-legal.html
 [54]: ../slides/fall/04-frameworks.html
 [55]: ../slides/fall/05-requirements.html
+[56]: ../slides/fall/06-project-start.html
 
 [101]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
 [102]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
@@ -84,3 +85,4 @@ Lectures
 [106]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/04-frameworks-2/04-frameworks-2.htm
 [107]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/05-requirements-1/05-requirements-1.htm
 [108]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/05-requirements-2/05-requirements-2.htm
+[109]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/06-project-start-1/06-project-start-1.htm
