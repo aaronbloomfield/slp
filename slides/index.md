@@ -19,12 +19,13 @@ bug, and displays the slides correctly.
 - [06: Project start](fall/06-project-start.html)
 - [07: Customer meetings](fall/07-customer-meetings.html)
 - 08: Estimation workday
-- 09: Documentation
-- 10: Design patterns
-- 11: Website security
-- 12: SQL & XSS
-- 13: Software errors
-- 14: Course conclusion
+- 09: Wireframing
+- 10: Documentation
+- 11: Continuous integration testing
+- 12: Website security (including the old SQL & XSS slide set)
+- 13: Design patterns
+- 14: Software errors
+- 15: Course conclusion
 
 
 ------------------------------------------------------------

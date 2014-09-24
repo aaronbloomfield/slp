@@ -28,22 +28,22 @@ Lectures
 | 10  | Sep&nbsp;17 | Wednesday   | lecture       | Requirements || [05-requirements][55], slides 3-1 to 4-7 (end) ([recording][108]) |
 | 11  | Sep&nbsp;19 | Friday      | class optional |               | Django part of [HW 2][22] ([md][23]) | Class is for those who have questions about the survey or the projects |
 | 12  | Sep&nbsp;22 | Monday      | group meeting | Project start || [06-project-start][56], slides 0 to 4-16 (end) ([recording][109]) |
-| 13  | Sep&nbsp;24 | Wednesday   | lecture       | Customer meetings ||                                         |
+| 13  | Sep&nbsp;24 | Wednesday   | lecture       | Customer meetings || [07-customer-meetings][57], slides 0 to 4-5 (end) ([recording][110]) |
 | 14  | Sep&nbsp;26 | Friday      | no class      |               ||                                         |
 | 15  | Sep&nbsp;29 | Monday      | group meeting |               ||                                         |
-| 16  | Oct&nbsp;1  | Wednesday   | lecture       |               ||                                         |
+| 16  | Oct&nbsp;1  | Wednesday   | lecture       | Estimation workday ||                                         |
 | 17  | Oct&nbsp;3  | Friday      | no class      |               ||                                         |
 | 18  | Oct&nbsp;6  | Monday      | group meeting |               ||                                         |
-| 19  | Oct&nbsp;8  | Wednesday   | lecture       |               ||                                         |
+| 19  | Oct&nbsp;8  | Wednesday   | lecture       | Wireframing   ||                                         |
 | 20  | Oct&nbsp;10 | Friday      | no class      |               ||                                         |
 |     | Oct&nbsp;13 | Monday      | group meeting |               ||                                         |
-| 21  | Oct&nbsp;15 | Wednesday   | lecture       |               ||                                         |
+| 21  | Oct&nbsp;15 | Wednesday   | lecture       | Documentation ||                                         |
 | 22  | Oct&nbsp;17 | Friday      | no class      |               ||                                         |
 | 23  | Oct&nbsp;20 | Monday      | group meeting |               ||                                         |
-| 24  | Oct&nbsp;22 | Wednesday   | lecture       |               ||                                         |
+| 24  | Oct&nbsp;22 | Wednesday   | lecture       | Documentation ||                                         |
 | 25  | Oct&nbsp;24 | Friday      | no class      |               ||                                         |
 | 26  | Oct&nbsp;27 | Monday      | group meeting |               ||                                         |
-| 27  | Oct&nbsp;29 | Wednesday   | lecture       |               ||                                         |
+| 27  | Oct&nbsp;29 | Wednesday   | lecture       | Continuous integration testing ||                                         |
 | 28  | Oct&nbsp;31 | Friday      | no class      |               ||                                         |
 | 29  | Nov&nbsp;3  | Monday      | group meeting |               ||                                         |
 | 30  | Nov&nbsp;5  | Wednesday   | lecture       |               ||                                         |
@@ -76,6 +76,7 @@ Lectures
 [54]: ../slides/fall/04-frameworks.html
 [55]: ../slides/fall/05-requirements.html
 [56]: ../slides/fall/06-project-start.html
+[57]: ../slides/fall/07-customer-meetings.html
 
 [101]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
 [102]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
@@ -86,3 +87,4 @@ Lectures
 [107]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/05-requirements-1/05-requirements-1.htm
 [108]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/05-requirements-2/05-requirements-2.htm
 [109]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/06-project-start-1/06-project-start-1.htm
+[110]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/07-customer-meetings-1/07-customer-meetings-1.htm
