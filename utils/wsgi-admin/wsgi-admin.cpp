@@ -201,16 +201,18 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
   pos = up1.rfind("/");
   string up2 = up1.substr(0,pos);
   stringstream foo;
-  foo << "Alias " << URL_PREFIX << "/" << userid << "/static " << up2 << "/" << appname << "/static\n"
-      << "<Directory " << up2 << "/" << appname << "/static>\n"
-      << "  Require all granted\n"
-      << "</Directory>\n"
-      << "WSGIScriptAlias " << URL_PREFIX << "/" << userid << " " << fullpath << "\n";
+  //foo << "Alias " << URL_PREFIX << "/" << userid << "/static " << up2 << "/" << appname << "/static\n"
+  //<< "<Directory " << up2 << "/" << appname << "/static>\n"
+  //<< "  Require all granted\n"
+  //<< "</Directory>\n";
+  foo << "WSGIScriptAlias " << URL_PREFIX << "/" << userid << " " << fullpath << "\n";
   wsgifile << foo.str();
   wsgisslfile << foo.str();
-  wsgifile << "WSGIDaemonProcess " << userid << " python-path=" << up2 << "\n"; // no ssl version
+  wsgifile << "WSGIDaemonProcess " << userid << " python-path=" << up2 << "\n"; // not in the ssl version
   foo.str("");
-  foo << "WSGIProcessGroup " << userid << "\n"
+  foo << "<Location " << URL_PREFIX << "/" << userid << ">\n"
+      << "  WSGIProcessGroup " << userid << "\n"
+      << "</Location>\n"
       << "<Directory " << up1 << ">\n"
       << "  <Files " << basename << ">\n"
       << "    Require all granted\n"
@@ -229,7 +231,7 @@ int main(int argc, char **argv) {
   int uid = getuid(), ret;
 
   // parse command line parameters, get wsgi file and mode
-  if ( (argc == 1) || (argc >= 4) )
+  if ( (argc == 1) || (argc > 4) )
     printUsage(argv[0]);
   string param(argv[1]);
   if ( ((argc == 3) || (argc == 4)) && (param == "-register") )
@@ -306,7 +308,7 @@ int main(int argc, char **argv) {
     // insert entry into DB
     query.str("");
     query << "insert into wsgi values (null," << uid << ",\"" << realpath(argv[2],NULL) 
-	  << "\",\"" << appname << "\",1,datetime(),null)";
+	  << "\",1,datetime(),null,\"" << appname << "\")";
     ret = sqlite3_exec(db, query.str().c_str(), NULL, NULL, &errmsg);
     if ( ret != SQLITE_OK )
       sqlite3_die(errmsg,query.str());
@@ -351,7 +353,7 @@ int main(int argc, char **argv) {
 
     // remove entry
     query.str("");
-    query << "update wsgi set valid=0 where id=" << id;
+    query << "update wsgi set valid=0, removed=now() where id=" << id;
     ret = sqlite3_exec(db, query.str().c_str(), NULL, NULL, &errmsg);
     if ( ret != SQLITE_OK )
       sqlite3_die(errmsg,query.str());
