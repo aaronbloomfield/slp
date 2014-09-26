@@ -87,7 +87,7 @@ In the examples below, we use "v1.4" as the tag name, but it can be any string.
 - To create tag, enter `git tag -a v1.4 -m 'my version 1.4'`
 - To find out information about a tag, enter `git show v1.4`.  Note that this shows the final commit that was tagged (and thus the diffs from that commit to the previous).
 - If you create a tag in a cloned repo, that tag only exists on your local machine.  To send those tags to the git server (i.e., github), enter `git push origin --tags`.
-- To delete a tag, enter `git tag -d v1.4`; you will also have to push this back to the git server.
+- To delete a tag, enter `git tag -d v1.4`; you will also have to push this back to the git server via `git push origin :refs/tags/v1.4`
 - To switch to a tagged version, enter `git checkout tags/v1.4`.
 
 More information about tagging can be found [here](http://git-scm.com/book/en/Git-Basics-Tagging); the examples in this section were taken from that page.

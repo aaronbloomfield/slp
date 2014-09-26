@@ -47,23 +47,23 @@ As mentioned in [part 1 of the Django tutorial](https://docs.djangoproject.com/e
 
 ### Configuring it on Apache on the course server
 
-We are not configuring it on the web server for the hoemwork; this will be done for individual projects that choose the Django framework.
+When running it locally, you view it via `python manage.py runserver`.  But on the course server, you will have to configure it run through the apache web server.
 
-#### Registering the Django project
+##### Registering the Django project
 
-~~When you have created your Django project, you will need to tell the web server that your file exists.  The module that runs Python apps on the Apache web server is called WSGI (Web Server Gateway Interface), pronounced "wus-gee".  On the server, there is a `wsgi-admin` command-line tool to do exactly that, since you can't edit the web server configuration files.  Note that you can only have one WSGI app registered at a time.  You will need to find the wsgi.py file in your django app (likely in `mysite/mysite/wsgi.py`, where `mysite` is the name of your Django app).~~
+When you have created your Django project, you will need to tell the web server that your file exists.  The module that runs Python apps on the Apache web server is called WSGI (Web Server Gateway Interface), pronounced "wus-gee".  On the server, there is a `wsgi-admin` command-line tool to do exactly that, since you can't edit the web server configuration files yourself.  Note that you can only have one WSGI app registered at a time.  You will need to find the wsgi.py file in your django app (likely in `mysite/mysite/wsgi.py`, where `mysite` is the name of your Django app).
 
-~~There are four modes to that command:~~
+There are four modes to that command:
 
-- ~~`wsgi-admin -register <wsgi_file>`: this will register the passed wsgi.py file, update the Apache configuration files, and reload the web server~~
-    - ~~Note that you can supply an additional parameter, after the wsgi file, which is the name of the app you are using; if you don't specify, it assumes it is "polls" (which is the name of the app in the [Django intro tutorial](https://docs.djangoproject.com/en/1.6/intro/))~~
-- ~~`wsgi-admin -list`: this will list all the WSGI apps that you have registered, although you can only have one at a time.  In particular, it will indicate the ID number of your registration, which you will need for the `-remove` command.~~
-- ~~`wsgi-admin -remove <id>`: this will remove your WSGI app with the passed (integer) ID.~~
-- ~~`wsgi-admin -regenerate`: this will regenerate the web server configuration files and reload the web server.  This is automatically done on a `-register` or `-remove`.  But it could be the case that somebody accidentally deleted their Python app files, which will cause **ALL** of the WSGI apps to stop working -- the `-regenerate` command will re-create the configuration files without the missing Django apps.~~
+- `wsgi-admin -register <wsgi_file>`: this will register the passed wsgi.py file, update the Apache configuration files, and reload the web server
+    - Note that you can supply an additional parameter, after the wsgi file, which is the name of the app you are using; if you don't specify, it assumes it is "polls" (which is the name of the app in the [Django intro tutorial](https://docs.djangoproject.com/en/1.6/intro/))
+- `wsgi-admin -list`: this will list all the WSGI apps that you have registered, although you can only have one at a time.  In particular, it will indicate the ID number of your registration, which you will need for the `-remove` command.
+- `wsgi-admin -remove <id>`: this will remove your WSGI app with the passed (integer) ID.
+- `wsgi-admin -regenerate`: this will regenerate the web server configuration files and reload the web server.  This is automatically done on a `-register` or `-remove`.  But it could be the case that somebody accidentally deleted their Python app files, which will cause **ALL** of the WSGI apps to stop working -- the `-regenerate` command will re-create the configuration files without the missing Django apps.
 
-#### Configuring the Django app's URLs
+##### Configuring the Django app's URLs
 
-~~The next thing to do is to update your urls.py (the project-wide one, not the app-specific one); this may be in `~/djangohw/djangohw/urls.py`.  A typical one will have the following as the `urlpatterns` array:~~
+The next thing to do is to update your urls.py (the project-wide one, not the app-specific one); this may be in `~/djangohw/djangohw/urls.py`.  A typical one will have the following as the `urlpatterns` array:
 
 ```
 urlpatterns = patterns('',
@@ -72,15 +72,24 @@ urlpatterns = patterns('',
 )
 ```
  
-~~This describes a route for two URLs: http://server/django/mst3k/polls and http://server/django/mst3k/admin.  And, indeed, both of those URLs work.  But it doesn't define a route for the http://server/django/mst3k/ URL.  To do that, add a line similar to the following into that urlpatterns array (above the existing 'polls' line):~~
+This describes a route for two URLs: http://server/django/mst3k/polls and http://server/django/mst3k/admin.  And, indeed, both of those URLs work.  But it doesn't define a route for the http://server/django/mst3k/ URL.  To do that, add a line similar to the following into that urlpatterns array (above the existing 'polls' line):
 
 
 ```
     url(r'^', include('polls.urls', namespace="polls")),
 ```
 
-~~This will cause the base URL of the Djagno project (http://server/django/mst3k) to display the contents of the polls/ app.~~
+This will cause the base URL of the Djagno project (http://server/django/mst3k) to display the contents of the polls/ app.
 
+##### Setting the static directory
+
+There are many static files that are needed for a Django project; these are described in more detail in [part 6 of the Djago tutorial](https://docs.djangoproject.com/en/1.6/intro/tutorial06/).  Normally, the static files are found in http://server/static.  However, as there are many Django projects running on this web server -- and thus many *different* static directories, the URL is different: ours will be at http://server/django/mst3k/static.  You need to tell the Django app where these files are.  In the settings.py file (which you edited, above), you will need to change the `STATIC_URL` line to look like the following (replacing mst3k with your userid):
+
+```
+STATIC_URL = '/django/mst3k/static/'
+```
+
+Once that is done, the tutorial (specifically, [part 6](https://docs.djangoproject.com/en/1.6/intro/tutorial06/) proceeds normally, and no changes to the tutorial are needed.
 
 ### Updating the Django app
 

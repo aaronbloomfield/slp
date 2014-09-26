@@ -49,28 +49,32 @@
 <h3 id="viewing-it-locally">Viewing it locally</h3>
 <p>As mentioned in <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial01/">part 1 of the Django tutorial</a>, to view your Django app locally, you run <code>python manage.py runserver</code>, and then view it in the URL provided (likely <code>http://127.0.0.1:8000/</code>).</p>
 <h3 id="configuring-it-on-apache-on-the-course-server">Configuring it on Apache on the course server</h3>
-<p>We are not configuring it on the web server for the hoemwork; this will be done for individual projects that choose the Django framework.</p>
-<h4 id="registering-the-django-project">Registering the Django project</h4>
-<p><del>When you have created your Django project, you will need to tell the web server that your file exists. The module that runs Python apps on the Apache web server is called WSGI (Web Server Gateway Interface), pronounced &quot;wus-gee&quot;. On the server, there is a <code>wsgi-admin</code> command-line tool to do exactly that, since you can't edit the web server configuration files. Note that you can only have one WSGI app registered at a time. You will need to find the wsgi.py file in your django app (likely in <code>mysite/mysite/wsgi.py</code>, where <code>mysite</code> is the name of your Django app).</del></p>
-<p><del>There are four modes to that command:</del></p>
+<p>When running it locally, you view it via <code>python manage.py runserver</code>. But on the course server, you will have to configure it run through the apache web server.</p>
+<h5 id="registering-the-django-project">Registering the Django project</h5>
+<p>When you have created your Django project, you will need to tell the web server that your file exists. The module that runs Python apps on the Apache web server is called WSGI (Web Server Gateway Interface), pronounced &quot;wus-gee&quot;. On the server, there is a <code>wsgi-admin</code> command-line tool to do exactly that, since you can't edit the web server configuration files yourself. Note that you can only have one WSGI app registered at a time. You will need to find the wsgi.py file in your django app (likely in <code>mysite/mysite/wsgi.py</code>, where <code>mysite</code> is the name of your Django app).</p>
+<p>There are four modes to that command:</p>
 <ul>
-<li><del><code>wsgi-admin -register &lt;wsgi_file&gt;</code>: this will register the passed wsgi.py file, update the Apache configuration files, and reload the web server</del>
+<li><code>wsgi-admin -register &lt;wsgi_file&gt;</code>: this will register the passed wsgi.py file, update the Apache configuration files, and reload the web server
 <ul>
-<li><del>Note that you can supply an additional parameter, after the wsgi file, which is the name of the app you are using; if you don't specify, it assumes it is &quot;polls&quot; (which is the name of the app in the <a href="https://docs.djangoproject.com/en/1.6/intro/">Django intro tutorial</a>)</del></li>
+<li>Note that you can supply an additional parameter, after the wsgi file, which is the name of the app you are using; if you don't specify, it assumes it is &quot;polls&quot; (which is the name of the app in the <a href="https://docs.djangoproject.com/en/1.6/intro/">Django intro tutorial</a>)</li>
 </ul></li>
-<li><del><code>wsgi-admin -list</code>: this will list all the WSGI apps that you have registered, although you can only have one at a time. In particular, it will indicate the ID number of your registration, which you will need for the <code>-remove</code> command.</del></li>
-<li><del><code>wsgi-admin -remove &lt;id&gt;</code>: this will remove your WSGI app with the passed (integer) ID.</del></li>
-<li><del><code>wsgi-admin -regenerate</code>: this will regenerate the web server configuration files and reload the web server. This is automatically done on a <code>-register</code> or <code>-remove</code>. But it could be the case that somebody accidentally deleted their Python app files, which will cause <strong>ALL</strong> of the WSGI apps to stop working -- the <code>-regenerate</code> command will re-create the configuration files without the missing Django apps.</del></li>
+<li><code>wsgi-admin -list</code>: this will list all the WSGI apps that you have registered, although you can only have one at a time. In particular, it will indicate the ID number of your registration, which you will need for the <code>-remove</code> command.</li>
+<li><code>wsgi-admin -remove &lt;id&gt;</code>: this will remove your WSGI app with the passed (integer) ID.</li>
+<li><code>wsgi-admin -regenerate</code>: this will regenerate the web server configuration files and reload the web server. This is automatically done on a <code>-register</code> or <code>-remove</code>. But it could be the case that somebody accidentally deleted their Python app files, which will cause <strong>ALL</strong> of the WSGI apps to stop working -- the <code>-regenerate</code> command will re-create the configuration files without the missing Django apps.</li>
 </ul>
-<h4 id="configuring-the-django-apps-urls">Configuring the Django app's URLs</h4>
-<p><del>The next thing to do is to update your urls.py (the project-wide one, not the app-specific one); this may be in <code>~/djangohw/djangohw/urls.py</code>. A typical one will have the following as the <code>urlpatterns</code> array:</del></p>
+<h5 id="configuring-the-django-apps-urls">Configuring the Django app's URLs</h5>
+<p>The next thing to do is to update your urls.py (the project-wide one, not the app-specific one); this may be in <code>~/djangohw/djangohw/urls.py</code>. A typical one will have the following as the <code>urlpatterns</code> array:</p>
 <pre><code>urlpatterns = patterns(&#39;&#39;,
     url(r&#39;^polls/&#39;, include(&#39;polls.urls&#39;, namespace=&quot;polls&quot;)),
     url(r&#39;^admin/&#39;, include(admin.site.urls)),
 )</code></pre>
-<p><del>This describes a route for two URLs: http://server/django/mst3k/polls and http://server/django/mst3k/admin. And, indeed, both of those URLs work. But it doesn't define a route for the http://server/django/mst3k/ URL. To do that, add a line similar to the following into that urlpatterns array (above the existing 'polls' line):</del></p>
+<p>This describes a route for two URLs: http://server/django/mst3k/polls and http://server/django/mst3k/admin. And, indeed, both of those URLs work. But it doesn't define a route for the http://server/django/mst3k/ URL. To do that, add a line similar to the following into that urlpatterns array (above the existing 'polls' line):</p>
 <pre><code>    url(r&#39;^&#39;, include(&#39;polls.urls&#39;, namespace=&quot;polls&quot;)),</code></pre>
-<p><del>This will cause the base URL of the Djagno project (http://server/django/mst3k) to display the contents of the polls/ app.</del></p>
+<p>This will cause the base URL of the Djagno project (http://server/django/mst3k) to display the contents of the polls/ app.</p>
+<h5 id="setting-the-static-directory">Setting the static directory</h5>
+<p>There are many static files that are needed for a Django project; these are described in more detail in <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial06/">part 6 of the Djago tutorial</a>. Normally, the static files are found in http://server/static. However, as there are many Django projects running on this web server -- and thus many <em>different</em> static directories, the URL is different: ours will be at http://server/django/mst3k/static. You need to tell the Django app where these files are. In the settings.py file (which you edited, above), you will need to change the <code>STATIC_URL</code> line to look like the following (replacing mst3k with your userid):</p>
+<pre><code>STATIC_URL = &#39;/django/mst3k/static/&#39;</code></pre>
+<p>Once that is done, the tutorial (specifically, <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial06/">part 6</a> proceeds normally, and no changes to the tutorial are needed.</p>
 <h3 id="updating-the-django-app">Updating the Django app</h3>
 <p>If you have updated your Django app, you need to tell the web server that this has occurred. While you can reload the web server (via the <code>reload-apache2</code> command, it's much better to update the timestamp on your wsgi.py file. To do this, use the <code>touch</code> command:</p>
 <pre><code>touch mysite/mysite/wsgi.py</code></pre>

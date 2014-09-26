@@ -9,24 +9,32 @@
  * of wsgi files.  It needs two Ubuntu pacakges to work: sqlite3 and
  * libsqlite3-dev.
  *
+ * This program will take, as a command-line parameter, a wsgi file
+ * (such as Django's wsgi.py), and either add it to, or remove it
+ * from, a sqlite db.  The django.conf for apache is then
+ * re-generated, checking each existing wsgi file to make sure they
+ * are valid.
+ *
  * Full directions for how to use it can be found in the
  * django-getting-started.md (and .html) files in the docs/ directory
  * in the SLP repo.
  *
+ * There is one additional command-line parameter that is specifically
+ * not described in the document mentioned above: -register_root.
+ * This acts just like the -register flag, but it puts the app in
+ * http://server/mst3k, rather than http://server/django/mst3k (where
+ * the "/django" part is the URL_PREFIX, defined below).
+ *
  * Installation:
  * - Compile with 'make', put it somewhere (such as /usr/local/bin)
  * - You will need this to be in a group that can write to the two
- *   conf files declared in the #defines, below
- * - Run 'chmod 2755 wsgi-admin': this will set the group ID bit when
- *   the program runs
- * - the django.conf and django-ssl.conf files need to be in that
- *   group, and group-writable
- * - the DB file also needs to be in that group and group-writable
- *
- * This program will take, as a command-line parameter, a wsgi file
- * (such as Django's wsgi.py), and either add it to, or remove it
- * from, a sqlite db.  The django.conf for apache is then
- * re-generated, checking each existing wsgi file to make sure it's
+ *   conf files (in the directories declared in the #defines, below)
+ * - Run 'chmod 4755 wsgi-admin': this will set the set-uid bit when
+ *   the program runs.  This means the program will run as the user
+ *   who owns it, who (presumably) can edit those files.
+ * - the django.conf and django-ssl.conf files need to be writable by
+ *   the user who owns the compiled file
+ * - the DB file also needs to be writable by that user
  *
  * The callback functions were adapted from
  * http://www.sqlite.org/quickstart.html
@@ -40,9 +48,10 @@
  * added datetime
  * removed datetime
  * app text
+ * rootdir boolean default 0
  *
  * The line to create this in sqlite3:
- * create table wsgi(id integer primary key asc, uid int, wsgi text, valid boolean, added datetime, removed datetime, app text);
+ * create table wsgi(id integer primary key asc, uid int, wsgi text, valid boolean, added datetime, removed datetime, app text, rootdir boolean default 0);
  */
 
 #include <iostream>
@@ -69,9 +78,8 @@ using namespace std;
 
 // some global variables
 stringstream wsgifile, wsgisslfile, query;
-int count = 0, find_uid = 0;
-string find_filename = "";
-string appname = string(DEFAULT_APP_NAME);
+int count = 0, find_uid = 0, reg_root = 0;
+string find_filename = "", appname = string(DEFAULT_APP_NAME);
 
 // for when they invoke it incorrectly...
 void printUsage(char *argv0, bool doexit = true) {
@@ -186,14 +194,16 @@ static int find_callback(void *NotUsed, int argc, char **argv, char **azColName)
 
 // this regenerates the django.conf files
 static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azColName){
-  int uid;
+  int uid, rootdir;
   sscanf(argv[1],"%d",&uid);
   char *filename = argv[2];
   if ( !file_exists(argv[2]) )
     return 0;
   if ( !is_valid_wsgi_file(argv[2]) )
     return 0;
+  sscanf(argv[7], "%d", &rootdir);
   string userid(get_userid_by_uid(uid));
+  cout << userid << ": " << rootdir << endl;
   string fullpath(realpath(filename,NULL));
   int pos = fullpath.rfind("/");
   string up1 = fullpath.substr(0,pos);
@@ -201,16 +211,16 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
   pos = up1.rfind("/");
   string up2 = up1.substr(0,pos);
   stringstream foo;
-  //foo << "Alias " << URL_PREFIX << "/" << userid << "/static " << up2 << "/" << appname << "/static\n"
-  //<< "<Directory " << up2 << "/" << appname << "/static>\n"
-  //<< "  Require all granted\n"
-  //<< "</Directory>\n";
-  foo << "WSGIScriptAlias " << URL_PREFIX << "/" << userid << " " << fullpath << "\n";
+  foo << "Alias " << (rootdir?"":URL_PREFIX) << "/" << userid << "/static " << up2 << "/" << appname << "/static\n"
+      << "<Directory " << up2 << "/" << appname << "/static>\n"
+      << "  Require all granted\n"
+      << "</Directory>\n";
+  foo << "WSGIScriptAlias " << (rootdir?"":URL_PREFIX) << "/" << userid << " " << fullpath << "\n";
   wsgifile << foo.str();
   wsgisslfile << foo.str();
   wsgifile << "WSGIDaemonProcess " << userid << " python-path=" << up2 << "\n"; // not in the ssl version
   foo.str("");
-  foo << "<Location " << URL_PREFIX << "/" << userid << ">\n"
+  foo << "<Location " << (rootdir?"":URL_PREFIX) << "/" << userid << ">\n"
       << "  WSGIProcessGroup " << userid << "\n"
       << "</Location>\n"
       << "<Directory " << up1 << ">\n"
@@ -240,7 +250,10 @@ int main(int argc, char **argv) {
     mode = MODE_REMOVE;
   else if ( (argc == 2) && (param == "-regenerate") )
     mode = MODE_REGENERATE;
-  else if ( (argc == 2) && (param == "-list") )
+  else if ( (argc == 2) && (param == "-regenerate_root") ) {
+    reg_root = 1;
+    mode = MODE_REGENERATE;
+  } else if ( (argc == 2) && (param == "-list") )
     mode = MODE_LIST;
   else
     printUsage(argv[0]);
@@ -308,7 +321,7 @@ int main(int argc, char **argv) {
     // insert entry into DB
     query.str("");
     query << "insert into wsgi values (null," << uid << ",\"" << realpath(argv[2],NULL) 
-	  << "\",1,datetime(),null,\"" << appname << "\")";
+	  << "\",1,datetime(),null,\"" << appname << "\"," << reg_root << ")";
     ret = sqlite3_exec(db, query.str().c_str(), NULL, NULL, &errmsg);
     if ( ret != SQLITE_OK )
       sqlite3_die(errmsg,query.str());
