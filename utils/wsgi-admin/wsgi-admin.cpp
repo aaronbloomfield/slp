@@ -19,12 +19,6 @@
  * django-getting-started.md (and .html) files in the docs/ directory
  * in the SLP repo.
  *
- * There is one additional command-line parameter that is specifically
- * not described in the document mentioned above: -register_root.
- * This acts just like the -register flag, but it puts the app in
- * http://server/mst3k, rather than http://server/django/mst3k (where
- * the "/django" part is the URL_PREFIX, defined below).
- *
  * Installation:
  * - Compile with 'make', put it somewhere (such as /usr/local/bin)
  * - You will need this to be in a group that can write to the two
@@ -78,8 +72,9 @@ using namespace std;
 
 // some global variables
 stringstream wsgifile, wsgisslfile, query;
-int count = 0, find_uid = 0, reg_root = 0;
-string find_filename = "", appname = string(DEFAULT_APP_NAME);
+int count = 0, find_uid = 0, reg_root = 0, remove_id = 0, force_uid = 0;
+string find_filename = "", appname = string(DEFAULT_APP_NAME), wsgi_file_name;
+bool check_file = true, compact_list = false, show_all = false;
 
 // for when they invoke it incorrectly...
 void printUsage(char *argv0, bool doexit = true) {
@@ -105,7 +100,7 @@ void die(string s) {
 }
 
 // finds who owns a file
-int get_UID_for_file (char* filename) {
+int get_UID_for_file (const char* filename) {
   struct stat buf;
   int uid = stat(filename,&buf);
   return buf.st_uid;
@@ -135,7 +130,7 @@ inline bool file_exists (const std::string& name) {
 }
 
 // checks if the passed file is a valid WSGI file (really if it's a Python script)
-bool is_valid_wsgi_file(char *filename) {
+bool is_valid_wsgi_file(const char *filename) {
   // get the file type
   stringstream cmd;
   cmd << "/usr/bin/file " << filename;
@@ -155,15 +150,19 @@ bool is_valid_wsgi_file(char *filename) {
 // how to handle the data returned when displaying the list of the DB entries
 static int list_callback(void *NotUsed, int argc, char **argv, char **azColName) {
   for( int i = 0; i < argc; i++ ) {
-    if ( strcmp(azColName[i],"id") )
-      cout << "\t";
-    cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL");
-    if ( !strcmp(azColName[i],"uid") ) {
-      int uid;
-      sscanf(argv[i],"%d",&uid);
-      cout << " (" << get_userid_by_uid(uid) << ")";
+    if ( compact_list ) {
+      cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL") << "; ";
+    } else {
+      if ( strcmp(azColName[i],"id") )
+	cout << "\t";
+      cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL");
+      if ( !strcmp(azColName[i],"uid") ) {
+	int uid;
+	sscanf(argv[i],"%d",&uid);
+	cout << " (" << get_userid_by_uid(uid) << ")";
+      }
+      cout << endl;
     }
-    cout << endl;
   }
   cout << endl;
   return 0;
@@ -203,7 +202,6 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
     return 0;
   sscanf(argv[7], "%d", &rootdir);
   string userid(get_userid_by_uid(uid));
-  cout << userid << ": " << rootdir << endl;
   string fullpath(realpath(filename,NULL));
   int pos = fullpath.rfind("/");
   string up1 = fullpath.substr(0,pos);
@@ -241,22 +239,63 @@ int main(int argc, char **argv) {
   int uid = getuid(), ret;
 
   // parse command line parameters, get wsgi file and mode
-  if ( (argc == 1) || (argc > 4) )
-    printUsage(argv[0]);
-  string param(argv[1]);
-  if ( ((argc == 3) || (argc == 4)) && (param == "-register") )
-    mode = MODE_REGISTER;
-  else if ( (argc == 3) && (param == "-remove") )
-    mode = MODE_REMOVE;
-  else if ( (argc == 2) && (param == "-regenerate") )
-    mode = MODE_REGENERATE;
-  else if ( (argc == 2) && (param == "-regenerate_root") ) {
-    reg_root = 1;
-    mode = MODE_REGENERATE;
-  } else if ( (argc == 2) && (param == "-list") )
-    mode = MODE_LIST;
-  else
-    printUsage(argv[0]);
+  for ( int i = 1; i < argc; i++ ) {
+    string param(argv[i]);
+    if ( param == "-help" )
+      printUsage(argv[0]);
+    else if ( param == "-register" )
+      mode = MODE_REGISTER;
+    else if ( param == "-remove" )
+      mode = MODE_REMOVE;
+    else if ( param == "-regenerate" )
+      mode = MODE_REGENERATE;
+    else if ( param == "-compact" )
+      compact_list = true;
+    else if ( param == "-root" ) {
+      //if ( (uid != 0) && (uid != 1000) )
+      //die ("You are not allowed to use the -root flag");
+      reg_root = 1;
+    } else if ( param == "-list" )
+      mode = MODE_LIST;
+    else if ( param == "-all" ) {
+      if ( (uid != 0) && (uid != 1000) )
+	die ("You are not allowed to use the -all flag");
+      show_all = true;
+    } else if ( param == "-nocheck" ) {
+      if ( (uid != 0) && (uid != 1000) )
+	die ("You are not allowed to use the -nocheck flag");
+      check_file = false;
+    } else if ( param == "-app" ) {
+      if ( argc == i+1 )
+	die ("Must supply a app name to -app");
+      appname = string(argv[++i]);
+    } else if ( param == "-uid" ) {
+      if ( (uid != 0) && (uid != 1000) )
+	die ("You are not allowed to use the -uid flag");
+      int ret = sscanf(argv[++i], "%d", &force_uid);
+      if ( ret != 1 )
+	die ("Invalid integer format to -uid");
+    } else if ( param == "-id" ) {
+      if ( argc == i+1 )
+	die ("Must supply a numerical id to -id");
+      int ret = sscanf(argv[++i], "%d", &remove_id);
+      if ( ret != 1 )
+	die ("Invalid integer format to -id");
+    } else if ( param == "-file" ) {
+      if ( argc == i+1 )
+	die ("Must supply a file name to -file");
+      wsgi_file_name = string(argv[++i]);
+      if ( !file_exists(wsgi_file_name) )
+	die ("File does not exist!");
+    } else
+      printUsage(argv[0]);
+  }
+
+  // check the parameters
+  if ( (wsgi_file_name == "") && (mode == MODE_REGISTER) )
+    die("Must supply a file name with -register");
+  if ( (remove_id == 0) && (mode == MODE_REMOVE) )
+    die("Must supply a id (via -id) with -remove");
 
   // open the DB
   sqlite3 *db;
@@ -271,29 +310,31 @@ int main(int argc, char **argv) {
   if ( mode == MODE_REGISTER ) {
 
     // sanity check the file name
-    for ( int i = 0; i < strlen(argv[2]); i++ )
-      if ( (argv[2][i] == '\\') || (argv[2][i] == '"') || (argv[2][i] == '\'') || (argv[2][i] == ';') )
+    for ( int i = 0; i < wsgi_file_name.length(); i++ )
+      if ( (wsgi_file_name[i] == '\\') || (wsgi_file_name[i] == '"') || (wsgi_file_name[i] == '\'') || (wsgi_file_name[i] == ';') )
 	die ("Try choosing a file name that does *not* lend itself to SQL injection attacks");
 
     // does the file exist?
-    if ( !file_exists(string(argv[2])) ) {
-      cerr << "File '" << argv[2] << "' does not exist!" << endl;
+    if ( !file_exists(wsgi_file_name) ) {
+      cerr << "File '" << wsgi_file_name << "' does not exist!" << endl;
       exit(0);
     }
 
     // is it a Python file?
-    if ( !is_valid_wsgi_file(argv[2]) )
+    if ( check_file && !is_valid_wsgi_file(wsgi_file_name.c_str()) )
       die("Not a valid WSGI file");
 
     // is it owned by the user executing this script?
-    int fuid = get_UID_for_file (argv[2]);
+    int fuid = get_UID_for_file (wsgi_file_name.c_str());
+    if ( force_uid != 0 )
+      fuid = force_uid;
     if ( (uid != 0) && (uid != 1000) && (fuid != uid) )
       die ("You cannot register a file that you do not own");
 
     // check for duplicate entries of that file
     query.str("");
     query << "select count(*) from wsgi where wsgi=\""
-	  << realpath(argv[2],NULL) << "\" and valid=1";
+	  << realpath(wsgi_file_name.c_str(),NULL) << "\" and valid=1";
     count = 0;
     ret = sqlite3_exec(db, query.str().c_str(), count_callback, 0, &errmsg);
     if ( ret != SQLITE_OK )
@@ -311,16 +352,13 @@ int main(int argc, char **argv) {
     if ( count > 0 )
       die("You can only have one WSGI file registered, so you must first remove it via -remove (and you can find it via -list)");
 
-    // get the app name
-    if ( argc == 4 )
-      appname = string(argv[3]);
-    else
-      // the appname field is set to the default above
-      cout << "No app name provided, so assuming '" << DEFAULT_APP_NAME << "'" << endl;
+    // warn about using the default app name
+    if ( appname == string(DEFAULT_APP_NAME) )
+      cout << "Using the default app name of '" << DEFAULT_APP_NAME << "'" << endl;
 
     // insert entry into DB
     query.str("");
-    query << "insert into wsgi values (null," << uid << ",\"" << realpath(argv[2],NULL) 
+    query << "insert into wsgi values (null," << uid << ",\"" << realpath(wsgi_file_name.c_str(),NULL) 
 	  << "\",1,datetime(),null,\"" << appname << "\"," << reg_root << ")";
     ret = sqlite3_exec(db, query.str().c_str(), NULL, NULL, &errmsg);
     if ( ret != SQLITE_OK )
@@ -332,7 +370,9 @@ int main(int argc, char **argv) {
   // list entries in the DB
   if ( mode == MODE_LIST ) {
     query.str("");
-    query << "select * from wsgi where valid=1";
+    query << "select * from wsgi";
+    if ( !show_all )
+      query << " where valid=1";
     if ( (uid != 0) && (uid != 1000) ) // uids 0 and 1000 see all...
       query << " and uid=" << uid;
     ret = sqlite3_exec(db, query.str().c_str(), list_callback, 0, &errmsg);
@@ -343,15 +383,9 @@ int main(int argc, char **argv) {
   // remove an entry from the DB
   if ( mode == MODE_REMOVE ) {
 
-    // parse int value provided
-    int id;
-    int ret = sscanf(argv[2],"%d",&id);
-    if ( ret != 1 )
-      die("Invalid numerical ID value for -remove");
-
     // create query, and pull that data from the DB
     query.str("");
-    query << "select * from wsgi where id=" << id << " and valid=1";
+    query << "select * from wsgi where id=" << remove_id << " and valid=1";
     find_filename = string("");
     ret = sqlite3_exec(db, query.str().c_str(), find_callback, 0, &errmsg);
     if ( ret != SQLITE_OK )
@@ -366,7 +400,7 @@ int main(int argc, char **argv) {
 
     // remove entry
     query.str("");
-    query << "update wsgi set valid=0, removed=now() where id=" << id;
+    query << "update wsgi set valid=0, removed=datetime() where id=" << remove_id;
     ret = sqlite3_exec(db, query.str().c_str(), NULL, NULL, &errmsg);
     if ( ret != SQLITE_OK )
       sqlite3_die(errmsg,query.str());

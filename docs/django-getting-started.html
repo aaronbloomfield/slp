@@ -52,16 +52,33 @@
 <p>When running it locally, you view it via <code>python manage.py runserver</code>. But on the course server, you will have to configure it run through the apache web server.</p>
 <h5 id="registering-the-django-project">Registering the Django project</h5>
 <p>When you have created your Django project, you will need to tell the web server that your file exists. The module that runs Python apps on the Apache web server is called WSGI (Web Server Gateway Interface), pronounced &quot;wus-gee&quot;. On the server, there is a <code>wsgi-admin</code> command-line tool to do exactly that, since you can't edit the web server configuration files yourself. Note that you can only have one WSGI app registered at a time. You will need to find the wsgi.py file in your django app (likely in <code>mysite/mysite/wsgi.py</code>, where <code>mysite</code> is the name of your Django app).</p>
-<p>There are four modes to that command:</p>
+<p>There are four main &quot;modes&quot; to that command:</p>
 <ul>
-<li><code>wsgi-admin -register &lt;wsgi_file&gt;</code>: this will register the passed wsgi.py file, update the Apache configuration files, and reload the web server
-<ul>
-<li>Note that you can supply an additional parameter, after the wsgi file, which is the name of the app you are using; if you don't specify, it assumes it is &quot;polls&quot; (which is the name of the app in the <a href="https://docs.djangoproject.com/en/1.6/intro/">Django intro tutorial</a>)</li>
-</ul></li>
-<li><code>wsgi-admin -list</code>: this will list all the WSGI apps that you have registered, although you can only have one at a time. In particular, it will indicate the ID number of your registration, which you will need for the <code>-remove</code> command.</li>
-<li><code>wsgi-admin -remove &lt;id&gt;</code>: this will remove your WSGI app with the passed (integer) ID.</li>
-<li><code>wsgi-admin -regenerate</code>: this will regenerate the web server configuration files and reload the web server. This is automatically done on a <code>-register</code> or <code>-remove</code>. But it could be the case that somebody accidentally deleted their Python app files, which will cause <strong>ALL</strong> of the WSGI apps to stop working -- the <code>-regenerate</code> command will re-create the configuration files without the missing Django apps.</li>
+<li><code>-register</code> will register a wsgi file, supplied with the <code>-file</code> flag</li>
+<li><code>-list</code> will list your existing entry, including the ID (which is needed to remove that entry)</li>
+<li><code>-remove</code> will remove a previously registered wsgi file via entry's ID number, which is specified via the <code>-id</code> flag</li>
+<li><code>-regenerate</code> will regenerate the web server configuration files and reload the web server. This is automatically done on a <code>-register</code> or <code>-remove</code>. But it could be the case that somebody accidentally deleted their Python app files, which will cause <strong>ALL</strong> of the WSGI apps to stop working -- the <code>-regenerate</code> command will re-create the configuration files without the missing Django apps.</li>
 </ul>
+<p>There are a few other flags to the above:</p>
+<ul>
+<li><code>-file &lt;wsgi_file&gt;</code> specifies which file to register</li>
+<li><code>-id &lt;id_num&gt;</code> will remove the wsgi file entry with the specified <em>integer</em> ID; the IDs can be found via the <code>-list</code> flag</li>
+<li><code>-app &lt;app_name&gt;</code> will assume that the app name is what is passed; it defaults to 'polls' (since that is what the tutorial uses). This really on matters for the static directory name.</li>
+<li><code>-compact</code> will cause the output of the <code>-list</code> to be one line per entry</li>
+</ul>
+<p>Lastly, there are a few flags that are restricted as to who can use them:</p>
+<ul>
+<li><code>-uid &lt;uid_num&gt;</code> will register the wsgi file as a different user (you can find the UID of a user via <code>getent passwd &lt;user&gt;</code>)</li>
+<li><code>-nocheck</code> will skip the check as to whether the passed wsgi file is a valid wsgi file or not</li>
+<li><code>-root</code> will register the file as http://server/user, rather than http://server/django/user</li>
+<li><code>-all</code> will list all the registered wsgi files, including the ones that have been removed</li>
+</ul>
+<p>So, to register your file for the tutorial:</p>
+<pre><code>wsgi-admin -register -file djangohw/djangohw/wsgi.py</code></pre>
+<p>To find the existing entries that you have:</p>
+<pre><code>wsgi-admin -list</code></pre>
+<p>To remove your entry with ID 42:</p>
+<pre><code>wsgi-admin -remove -id 42</code></pre>
 <h5 id="configuring-the-django-apps-urls">Configuring the Django app's URLs</h5>
 <p>The next thing to do is to update your urls.py (the project-wide one, not the app-specific one); this may be in <code>~/djangohw/djangohw/urls.py</code>. A typical one will have the following as the <code>urlpatterns</code> array:</p>
 <pre><code>urlpatterns = patterns(&#39;&#39;,
