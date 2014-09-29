@@ -18,7 +18,7 @@ bug, and displays the slides correctly.
 - [05: Requirements](fall/05-requirements.html)
 - [06: Project start](fall/06-project-start.html)
 - [07: Customer meetings](fall/07-customer-meetings.html)
-- 08: Estimation workday
+- [08: Estimation workday](fall/08-estimation.html)
 - 09: Wireframing
 - 10: Documentation
 - 11: Continuous integration testing

@@ -52,6 +52,106 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2>Monday, September 29th, 2014</h2>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1427/">xkcd # 1427</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Friday, September 29th, 2014
+- We are one week into iteration 1
+  - Iteration goals on an upcoming slide
+- Customer meetings
+  - Don't forget to submit the meeting report when you have met with them!
+  - If you met last week, and didn't submit it, then please do so during class today
+  - And don't forget to wear your name tags!
+- Leads: your first weekly reports are due tomorrow by noon
+  - Details can be found in the [course introduction slide set](01-intro.html), specifically [here](01-intro.html#/6/2)
+  - We will see the reporting system today
+- My office hours are back to being 2:00-3:30 M/W
+- Today is a group meeting day
+- Wednesday is a half lecture on [estimation](08-estimation.html), and then a half group workday on entering issues
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Reporting System
+- Two ways to access it
+  - Via the "Reporting" tool in Collab
+  - Through netbadge via https://libra.cs.virginia.edu/~aaron/slp/ (this *should* work...)
+- This is how you submit your reports for this course
+- Features
+  - Submit, view, and edit reports
+  - Submit, view, and edit hours worked
+  - View attendance, evaluations, grades, leadership iterations, and project members
+- We'll see a tour of it today
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Project accounts, git, etc.
+- How to initalize the repo with git...
+  - You *should* add a readme.md file (and fill it in appropriately)
+- I need to know, soonish, the platform choice of that one last group...
+- Properly configured URLs (here 'project' is your project tag):
+  - CakePHP: put the files in project@server:~/html; the URL will be http://server/~project/ (no configuration from me needed); in all cases, http://server/project redirects to http://server/~project
+  - Ruby: the files will go in ~/project (aka ~project/project), and the URL will be http://server/project; this is alrady configured on the web server
+  - Django: it's all working!  Directions on the next slide; the URL will be http://server/project
+- The server account info on PostEm has been updated with the group account info
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Django instructions
+- Create the django project:
+```
+django-admin startproject project
+```
+  - And set up the DB, etc.
+- Create the Django app:
+```
+django manage.py startapp app
+```
+  - This implies that the static directory is: app/static/app/
+- Set the Django app's URLs, as described in the "Setting the static directory" section of the [Django getting started](../../docs/django-getting-started.html) ([md](../../docs/django-getting-started.md)) page
+- Change the location of the static directory in settings.py, as described on that same page in the "Setting the static directory" section
+  - This may require different settings.py on the local machine and on the server
+- Upload those files to the project accout, and then (as the project user), run:
+```
+wsgi-admin -register <wsgi.py> -app app -root
+```
+- At this point, your project should be available at http://server/project
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Goals for iteration 1
+- This is duplicated from the [06: project start](06-project-start.html) slide set (specifically, [here](06-project-start.html#/goals))
+- Fully understand the requirements
+  - Generate questions to ask the customer!
+  - This may mean that the requirements document is updated or changed; the original source version is in the [uva-slp/projects repo](https://github.com/uva-slp/projects)
+- Meet with the customer
+  - As the questions that you generated!
+- Design a basic DB schema
+  - And enter it into your pegasus group DB, or generate the forms via Rails or Django
+- Get a basic MVC website working (CRUD operations for the schema tables)
+  - This should all be working on pegasus by the end of the iteration
+- Have the system stored properly in the github repo
+  - You are all members of your respective repos
+  - I will give directions for initalizing the repo later this week
+  - ***PASSWORDS ARE NOT TO BE STORED IN THE REPO***
+- Enter all the requirements as tasks as Github issues
+  - We'll talk about this in an upcoming class
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Meting locations
+- Do we still need this?  If so, then it's in a [local file](../../../../work/slp/groups/meeting-locations.html)
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Wednesday, September 24th, 2014</h2>
 <img class="stretch" src="http://imgs.xkcd.com/comics/tasks.png" title="In the 60s, Marvin Minsky assigned a couple of undergrads to spend the summer programming a computer to use a camera to identify objects in a scene. He figured they&#39;d have the problem solved by the end of the summer. Half a century later, we&#39;re still working on it." alt="Tasks">
 <p class="center"><a href="http://xkcd.com/1425/">xkcd # 1425</a></p>
