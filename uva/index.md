@@ -30,8 +30,8 @@ Lectures
 | 12  | Sep&nbsp;22 | Monday      | group meeting | Project start || [06-project-start][56], slides 0 to 4-16 (end) ([recording][109]) |
 | 13  | Sep&nbsp;24 | Wednesday   | lecture       | Customer meetings || [07-customer-meetings][57], slides 0 to 4-5 (end) ([recording][110]) |
 | 14  | Sep&nbsp;26 | Friday      | no class      |               ||                                         |
-| 15  | Sep&nbsp;29 | Monday      | group meeting |               ||                                         |
-| 16  | Oct&nbsp;1  | Wednesday   | lecture       | Estimation workday ||                                         |
+| 15  | Sep&nbsp;29 | Monday      | group meeting |               || Group meeting day |
+| 16  | Oct&nbsp;1  | Wednesday   | lecture       | Estimation workday || [08-estimation][58], slides 0 to 6-2 (end) ([recording][111]) |
 | 17  | Oct&nbsp;3  | Friday      | no class      |               ||                                         |
 | 18  | Oct&nbsp;6  | Monday      | group meeting |               ||                                         |
 | 19  | Oct&nbsp;8  | Wednesday   | lecture       | Wireframing   ||                                         |
@@ -77,6 +77,7 @@ Lectures
 [55]: ../slides/fall/05-requirements.html
 [56]: ../slides/fall/06-project-start.html
 [57]: ../slides/fall/07-customer-meetings.html
+[58]: ../slides/fall/08-estimation.html
 
 [101]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
 [102]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
@@ -88,3 +89,4 @@ Lectures
 [108]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/05-requirements-2/05-requirements-2.htm
 [109]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/06-project-start-1/06-project-start-1.htm
 [110]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/07-customer-meetings-1/07-customer-meetings-1.htm
+[111]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/08-estimation/08-estimation.htm
