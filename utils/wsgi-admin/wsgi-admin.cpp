@@ -206,11 +206,12 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
   int pos = fullpath.rfind("/");
   string up1 = fullpath.substr(0,pos);
   string basename = fullpath.substr(pos+1);
+  string app(argv[6]);
   pos = up1.rfind("/");
   string up2 = up1.substr(0,pos);
   stringstream foo;
-  foo << "Alias " << (rootdir?"":URL_PREFIX) << "/" << userid << "/static " << up2 << "/" << appname << "/static\n"
-      << "<Directory " << up2 << "/" << appname << "/static>\n"
+  foo << "Alias " << (rootdir?"":URL_PREFIX) << "/" << userid << "/static " << up2 << "/" << app << "/static\n"
+      << "<Directory " << up2 << "/" << app << "/static>\n"
       << "  Require all granted\n"
       << "</Directory>\n";
   foo << "WSGIScriptAlias " << (rootdir?"":URL_PREFIX) << "/" << userid << " " << fullpath << "\n";
