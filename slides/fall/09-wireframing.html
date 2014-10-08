@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4970: 09-wireframing slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/slp.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4970
+&nbsp;
+### Capstone Practicum I
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="09-wireframing.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Wireframing
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](#/intro)  
+[UI Rules](#/uirules)  
+[Wireframing](#/wireframing)  
+[Tools](#/tools)  
+	</script></section>
+
+	<section>
+
+	  <section data-markdown id="intro"><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sources
+- [Wireframes and UI-Prototypes](http://www.slideshare.net/tec/wireframes-and-uiprototypes) on [SlideShare](http://www.slideshare.net) (License: none; all rights reserved by the original author)
+- [Introduction to Building Wireframes](http://www.slideshare.net/folletto/introduction-to-building-wireframes) on [SlideShare](http://www.slideshare.net) (License: CC BY-NC-SA)
+- [Wireframes and Interaction Design Documents](http://www.slideshare.net/piksels/wireframes-and-interaction-design-documents-presentation) on [SlideShare](http://www.slideshare.net) (License: none; all rights reserved by the original author)
+- [Mark Sherriff](https://www.cs.virginia.edu/~sherriff/)'s "Usability and Accessibility" lecture from CS 4720 (Web & Mobile Systems); used with permission
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Definition
+> A website wireframe ... is a visual guide that represents the skeletal framework of a website. Wireframes are created for the purpose of arranging elements to best accomplish a particular purpose. The purpose is usually ... informed by a business objective and a creative idea.  
+- [Wikipedia article on "Website Wireframes"](http://en.wikipedia.org/wiki/Website_wireframe)
+
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Wireframes:
+- Depict the page layout or arrangement of the website’s content
+  - Including interface elements and navigational systems, and how they work together
+- Usually lacks typographic style, color, or graphics, since the main focus lies in functionality, behavior, and priority of content
+  - In other words, it focuses on what a screen does, not what it looks like
+- Can be pencil drawings or sketches on a whiteboard, or they can be produced by means of a broad array of free or commercial software applications
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Prototypes versus Wireframes
+- Wireframes are: "a visual representation of an interface used to communicate the structure, content, informaion hierarchy, functionality, and behavior of an interface"
+- Prototypes are: "a simulation of some aspects of the finalsolution used to develop, demonstrate, and evaluate the process, capability, performance, or usability of the solution"
+- [Source](http://www.slideshare.net/tec/wireframes-and-uiprototypes)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Different Qualities
+- Wireframes can be many different levels of detail (from rough to detailed):
+  1. A bunch of post-its (good for moving things around)
+  2. Hand-drawn sketches (easy to generate)
+  3. Very neatly drawn
+  4. Box-based computer generated
+  5. Box-based, computer generated, and with text
+  6. Fully detailed, showing the final interface
+- We will be generating levels 4 and 5
+- Note that it is easier to criticize more "rough-looking" ones, but they also look less professional...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Goals
+- From [piksels](http://www.slideshare.net/piksels/wireframes-and-interaction-design-documents-presentation):
+  - Communicate solutions for design problems
+  - Communicate fundamental design choices
+  - Get everybody on the same page
+- From [Wikipedia](http://en.wikipedia.org/wiki/Website_wireframe): focus on:
+  - The range of functions available
+  - The relative priorities of the information and functions
+  - The rules for displaying certain kinds of information
+  - The effect of different scenarios on the display[1]:169
+
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Wireframes Analogy
+- Your wireframe is more similar to movie stills than individual photos
+- Even if it's a one-page website, there will still be *interaction*
+  - That interaction will cause there to be progress through the "movie"
+
+![star wars story board](http://3.bp.blogspot.com/-edLcg7Q3xCI/UH7MhCs4gwI/AAAAAAAAALU/FqdMXB92Wq0/s1600/empire+storyboards.jpg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Elements of the User Experience
+- *Surface* brings everything together visually: What will the finished product look like?
+- *Skeleton* makes structure concrete: What components will enable people to use the site?
+- *Structure* gives shape to scope: How will the pieces of the site fit together and behave?
+- *Scope* transforms strategy into requirements: What features will the site need to include?
+- *Strategy* is where it all begins: What do we want to get out of the site? What do our users want?
+	  </script></section>
+
+	  <section>
+<h2>Elements of the User Experience</h2>
+<table class="transparent">
+<tr>
+<td style="width:50%"><img src="images/09-wireframing/elements_simpleplanes.svg" style="width:100%;background-color:white"></td>
+<td class="top">
+<p>&nbsp;</p>
+<ul>
+<li>visual appearance<br>&nbsp;</li>
+<li>components, shapes, HCI, dialogues</li>
+<li>architecture, behavior, work flow, information structure</li>
+<li>requirements, features<br>&nbsp;</li>
+<li>idea, goals</li>
+</ul>
+</tr></table>
+	  </section>
+
+	  <section data-transition="none">
+<h2>Elements of the User Experience</h2>
+<table class="transparent">
+<tr>
+<td style="width:50%"><img src="images/09-wireframing/elements_simpleplanes.svg" style="width:100%;background-color:white"></td>
+<td class="top">
+<p>This is all from Jesse Garret's <a href="http://www.jjg.net/elements/">The Elements of User Experience</a></p>
+<p>&nbsp;</p>
+<p>Wireframing consists of the skeleton and structure parts</p>
+</tr></table>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="uirules"><script type="text/template">
+# User Interface Rules
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Ten Rules of HCI
+- These rules were adapted, with permission, from [Mark Sherriff](https://www.cs.virginia.edu/~sherriff/)'s "Usability and Accessibility" lecture
+- If you are currently in CS 4720 (Web & Mobile Systems), you will be going through these (in much more detail) later this semester
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 1: Visibility of system status
+- The system should always keep users informed about what is going on through appropriate feedback within reasonable time
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 2: Match the system to the real world
+- The system should follow real-world conventions, making information appear in natural and logical order
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 3: The "uh-oh" button
+- Users often choose system functions by mistake (particularly on mobile) and will need a clearly marked "emergency exit" to leave the unwanted state without having to go through extended steps
+- Systems should support undo and redo
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 4: Consistency and standards
+- User should not have to wonder whether different words, situations, or actions mean the same thing
+- The system should follow plahorm conventions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 5: Error prevention
+- Add input checks
+  - How many digits in that phone number?
+  - How many digits in that credit card number?
+  - Are there really 39 days in July?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 6: Recognition rather than recall
+- An icon should represent the action and should
+immediately recognizable as to what it does
+- Part of this is following plahorm standards, part is being consistent in your own application
+- An action/swipe/etc should be consistent across screens
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 7: Flexibility
+- Accelerators, shortcuts, etc (which are unseen by the novice user) can speed up interactions for the expert user to such an extent that the system can cater to both inexperienced and experienced users
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 8: Aesthetic and minimalist design
+- Every extra unit of information in a dialog competes with the relevant units of information and diminishes their relative visibility
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 9: Error explanations
+- Error messages should be expressed in plain language (NO CODES), precisely indicate the problem, and constructively suggest a solution
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Evaluating an Interface
+- Rule 10: Help!
+- Have reasonable help information available if possible
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="wireframing"><script type="text/template">
+# Wireframing
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The box
+- The basic element of a wireframe is the *box*
+- It can be:
+  - a text box
+  - an image
+  - a container of other boxes
+  - a form element
+- Boxes typically contain *uniform* content
+  - What level of content depends on the detail in the wireframe
+	  </script></section>
+
+	  <section>
+<h2>Box wireframe example</h2>
+<img class="stretch" src="http://www.vitalaims.com/blog/wp-content/uploads/2014/07/wireframe-example.jpg" alt="wireframe example">
+<a href="http://www.vitalaims.com/blog/wire-framing-a-part-web-design/">Source</a>
+	  </section>
+
+	  <section>
+<h2>Facebook as a wireframe</h2>
+<img class="stretch" src="http://blog.mockupbuilder.com/wp-content/uploads/2013/05/Facebook-fan-page.jpg">
+<a href="http://blog.mockupbuilder.com/9-wireframe-examples-of-most-popular-social-networks/">source</a> (it's a slightly older Facebook UI)
+	  </section>
+
+	  <section>
+<h2>Twitter as a wireframe</h2>
+<img class="stretch" src="http://blog.mockupbuilder.com/wp-content/uploads/2013/05/Twitter.jpg">
+<a href="http://blog.mockupbuilder.com/9-wireframe-examples-of-most-popular-social-networks/">source</a> (it's a slightly older Twitter UI)
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Temporary-ness of wireframes
+- Wireframes are going to be used only in the beginning of the project
+- They are iterated through until everybody is happy
+- They are then discarded once the UI has been developed
+  - (Although you will need to save them for this course)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Wireframe content
+- Wireframes can include *text*, but should not include textual *content*
+  - We don't want the content of the text to distract from the design
+- Mock-ups should often contain the "Lorem ipsum" text
+  - This replacing meaningful but distracting content, allowing the focus to be on the graphical elements
+
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lorem ipsum text
+> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	  </script></section>
+
+	  <section>
+<h2>Wireframe example with Lorem Ipsum</h2>
+<a href="http://commons.wikimedia.org/wiki/File:Profilewireframe.png"><img class="stretch" src="http://upload.wikimedia.org/wikipedia/commons/4/47/Profilewireframe.png" alt="wireframe example" title="&quot;Profilewireframe&quot; by http://www.flickr.com/people/doos/ - http://www.flickr.com/photos/doos/3931846833/. Licensed under Creative Commons Attribution 2.0 via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Profilewireframe.png#mediaviewer/File:Profilewireframe.png"></a>
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="tools"><script type="text/template">
+# Tools
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Your task
+- For iteration 2, you will have to create wireframes of the website
+  - They may not be presented to the customer until iteration 3
+- Then you and s/he can *iterate* on the designs
+- You may choose any wireframe tool you like, but with a few restrictions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Tools
+- The Google found: http://codecondo.com/free-wireframe-tools/
+  - This lists 11 free online wireframing tools
+  - [Mockflow](http://www.mockflow.com/) and [wireframe.cc](https://wireframe.cc/) looked intriguing...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Requirements
+- Your wireframes should be kept in a `wireframe` directory in your repo
+  - If it is not in the root directory, then the lead will need to let me know in the TPS report
+  - Three (or so) wireframes is reasonable; more is certainly better, as long as they are needed
+- If the free trial period is too limited, then you cannot use it
+  - As you won't be able to go back later and edit it
+  - Some sites only have a 7-day trial period
+- It needs to be a site that everybody *could* access
+  - Not everybody necessarily *needs* access, but it cannot be restricted to one or two team members
+	  </script></section>
+
+	</section>
+
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>
