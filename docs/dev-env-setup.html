@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Development Environment Setup</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="development-environment-setup">Development Environment Setup</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>This page is meant to help you get your local development environment up and running. The assumption is that you are developing on the provided Linux VirtualBox image. Mac OS X will work somewhat similarly, but you are on your own for configuring this on Windows.</p>
+<p>In the directions below, your &quot;local machine&quot; is whatever account you are doing the development on; this will often be the VirtualBox image, but could be other things as well. On the course server, <code>team</code> is the tag of your team (which is the same as the account name).</p>
+<h3 id="automatic-mysql-login">Automatic MySQL login</h3>
+<p>To make it easier to automatically log into MySQL, you should edit a file named <code>~/.my.cnf</code>. It should contain exactly two lines:</p>
+<pre><code>[client]
+password=foobar</code></pre>
+<p>Set <code>foobar</code> to your password. When you enter <code>mysql</code>, it will attempt to log you in as the same user you are already logged into Linux as (your UVa userid, or your team account), and the provided password. You will want to do this on both your local machine and the group account on the course server.</p>
+<p>If you want to create mysql users or databases, or grant permissions to them for mysql users to access certain databases, see the <a href="mysql-intro.html">MySQL introduction</a> (<a href="mysql-intro.md">md</a>) and <a href="mysql-reference.html">MySQL reference</a> (<a href="mysql-reference.md">md</a>) pages.</p>
+<h3 id="automatic-ssh-login">Automatic SSH login</h3>
+<p>If you want to gain a command prompt on another machine, you can enter <code>ssh foo@bar.edu</code>, which will attempt to log you in to the bar.edu server as the <code>foo</code> user. It will prompt you for a password each time. To prevent this, you can use ssh authentication keys.</p>
+<p>To do so, enter <code>ssh-keygen</code> on your local machine; you will likely not want to enter a password. This will create two files: <code>~/.ssh/id_rsa.pub</code> and <code>~/.ssh/id_rsa</code>. These are your public and private keys, respectively, for logging in to places.</p>
+<p>Log into the team account on the course server. Edit <code>~/.ssh/authorized_keys</code> (on the course server), creating the file if it does not exist. Copy and paste the contents of your <code>~/.ssh/id_rsa.pub</code> into that file, save, and exit.</p>
+<p>Now when you attempt to log into the team account, it should not ask you for a password.</p>
+<h3 id="automatic-github-login">Automatic Github login</h3>
+<p>From the <a href="https://github.com/settings/ssh">Github :: profile :: SSH keys</a> page, you can enter your public key (the contents of the <code>~/.ssh/id_rsa.pub</code> file) as an SSH key. This will allow you to automatically log into github. Note that you will want to clone a repo via <code>git clone git@github.com:org/repo</code>, and <em>not</em> via the https URL.</p>
+<h3 id="download-of-the-team-database">Download of the team database</h3>
+<p>This section will describe how to automatically download the team database from the course server to your local machine. A number of things need to be set up first:</p>
+<ul>
+<li>You need to be able to automatically log in, via ssh, to the course server as the team account (see &quot;automatic ssh login&quot;, above)</li>
+<li>You need to be able to log in, without a password, to mysql as the team user on the course server</li>
+<li>You need to be able to log in, without a password, to mysql as the team user on your <em>local</em> machine</li>
+<li>If you use the team user on your local machine, then you don't have to change any of the configuration settings</li>
+<li>The team user needs to be able to access the team database</li>
+</ul>
+<p>You can then execute the following command to download the database contents from the course server. Note that this will <strong><em>ERASE</em></strong> the local database!</p>
+<pre><code>ssh team@server &#39;mysqldump database | gzip -9c -&#39; | gzip -dc | mysql database</code></pre>
+<p>Make sure the format is exactly as shown, including the location of the single quotes! You will need to change <code>team</code>, <code>server</code>, and <code>database</code> in that command. This command does a mysqldump on the server, and compresses it, and downloads that -- which is then uncompressed and restored to the local database.</p>
+<p>This is a lot to remember -- and get right -- so you can put it into a Makefile:</p>
+<pre><code>syncdb:
+    @echo Downloading the DB from the course server...
+    @ssh team@server &#39;mysqldump database | gzip -9c -&#39; | gzip -dc | mysql database</code></pre>
+<p>Remember that indented lines in a Makefile MUST be tabbed, and not spaces. You then only have to type <code>make syncdb</code>, and it will perform the download for you. The <code>@</code> before the various commands causes it to only display the results of that command, and not the command itself.</p>
+<h3 id="deployment-options">Deployment options</h3>
+<p>There are two ways to easily deploy your project to the team account. They don't work well with each other, so you should likely choose one or the other. They two options are rsync and github.</p>
+<p>The rsync version allows you to deploy the current version you are working on, and you do not need to commit it (and push to github) to deploy a version to test. The github is easier, but you have to do a push to have any changes pushed to the server. The former is likely going to be easier in the long run.</p>
+<h3 id="rsync-deployment">Rsync deployment</h3>
+<p>To configure rsync deployment, we are assuming that you can automatically log in, via ssh, to the course server as the team account (see &quot;automatic ssh login&quot;, above).</p>
+<p>What you are going to do here is enter an rsync command to upload the files to the course server. Rsync is tricky to get right, but it's a very powerful tool. Rsync is described in a bit more detail on the &quot;uploading files to the server&quot; section of the <a href="hw-frameworks.html">framework homework</a> (<a href="framework-hw.md">md</a>).</p>
+<p>You will enter a command similar to:</p>
+<pre><code>rsync -C --del --progress -a ./ team@server:~/html/</code></pre>
+<p>There are a lot of things that need to be changed on that line to make it work for you: <code>team</code>, <code>server</code>, and the directory (only the CakePHP projects will go into <code>~/html</code>. Furthermore, you may want to exclude certain files, such as your .htaccess files (for CakePHP), or the settings (for all projects). You can do this via the <code>--exclude file</code> flag.</p>
+<p>The other issue with this command is that it MUST be executed from the <code>~/html/</code> (or equivalent) directory. It, too, is tricky to get right. So you can put it as a Makefile target:</p>
+<pre><code>publish:
+    rsync -C --del --progress -a --exclude foo/settings.py ./ team@server:~/html/</code></pre>
+<p>Then, you only have to type <code>make publish</code> to publish it to the course server.</p>
+<h3 id="rsync-deployment-to-localhost">Rsync deployment to localhost</h3>
+<p>This section will be of most use for the CakePHP folks, as the Rails and Django folks view the app differently.</p>
+<p>You can create a user on your local machine that has the same name as the team account on the course server, and do a publish there -- that command would look similar to the rsync of the previous section, but the course server is replaced with <code>localhost</code>. This works well as a <code>local</code> target, meaning you enter <code>make local</code> to publish it to the local machine. You will have to set up automatic ssh login. And note that any files that you exclude still have to be uploaded the very first time (and possibly edited).</p>
+<h3 id="github-deployment">Github deployment</h3>
+<p>One way that github allows for updating a website is through a web hook -- this is a URL that github will call every time a push occurs.</p>
+<p>First, you need to clone the repository, and be able to update that clone. This may mean the use of a <a href="https://developer.github.com/guides/managing-deploy-keys/#deploy-keys">deploy key</a> -- a SSH public key that is allowed to do that for a single repository. Under the team account on the course server, run <code>ssh-keygen</code>, and save that as a deploy key (it is unclear if anybody who has access to the repo can do this, or only the admin of the organization -- if the latter, send an email to the course instructor). Deploy keys are set up via the repository's settings.</p>
+<p>You should then be able to clone the repo in the team account. Make sure the cloned repo is the right directory (<code>~/html</code>, for example). The website should be viewable.</p>
+<p>You then need to set up a <em>webhook</em> -- this will have github force an update of the repo on every push. Consider the following PHP code:</p>
+<pre><code>&lt;?php
+$logfile = &quot;/home/slp/team/html/autodeploy.log&quot;;
+$fp = fopen($logfile,&quot;a&quot;);
+fprintf ($fp, &quot;Auto-deploy at &quot; . date(&quot;r&quot;) . &quot; from &quot; . $_SERVER[&#39;REMOTE_ADDR&#39;] . &quot;\n&quot;);
+fprintf ($fp, &quot;Commit info: &quot; . $_POST[&#39;payload&#39;] . &quot;\n\n&quot;);
+fclose($fp);
+echo `cd /home/slp/team/html/; git pull`;
+?&gt;</code></pre>
+<p>Edit this file to work with your paths, and then try calling it (it will be something like, <code>http://server/team/github-hook.php</code>).</p>
+<p>Only the last line does the update; the rest is logging. You then enter a webhook (under the repository's settings, select &quot;webhooks &amp; services&quot;). Enter the URL, in the previous paragraph, of your webhook. Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.</p>
+<p><strong><em>NOTE:</em></strong> If a file is <em>locally</em> modified (meaning somebody updates a file on the course server), then git will <strong><em>NOT</em></strong> update that file from the repo! This is why the two deployment options do not play nicely together.</p>
+</body>
+</html>

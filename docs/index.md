@@ -3,15 +3,19 @@ SLP: Documents
 
 [Go up to the main README file](../README.html)
 
+### Course-related
+
 - [Schedule](schedule.html) ([md](schedule.md)): the schedule of lectures, iterations, etc.
 - [Syllabus](syllabus.html) ([md](syllabus.md)) for the fall 2014 and spring 2015 semesters
 
-&nbsp;
+### Documents and tutorials
+
+- [Development environment setup](dev-env-setup.html) ([md](dev-env-setup.md))
+
+### Homeworks
 
 - [Git HW](hw-git.html) ([md](hw-git.html))
     - [Introduction to git and github](git-intro.html) ([md](git-intro.md))
-
-&nbsp;
 
 - [Framework homework](hw-frameworks.html) ([md](framework-hw.md))
     - [VirtualBox introduction](virtualbox-intro.html) ([md](virtualbox-intro.md))
