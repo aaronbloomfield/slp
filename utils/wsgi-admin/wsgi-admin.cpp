@@ -78,9 +78,9 @@ bool check_file = true, compact_list = false, show_all = false;
 
 // for when they invoke it incorrectly...
 void printUsage(char *argv0, bool doexit = true) {
-    cerr << "Usage:  " << argv0 << " -register <wsgi_file> [<app_name>]\n"
-	 << "\t" << argv0 << " -remove <num>\n"
-	 << "\t" << argv0 << " -list\n"
+    cerr << "Usage:  " << argv0 << " -register -file <wsgi_file> [-app <app_name>] [-root]\n"
+	 << "\t" << argv0 << " -remove -id <num>\n"
+	 << "\t" << argv0 << " -list [-compact]\n"
 	 << "\t" << argv0 << " -regenrate" << endl;
     if ( doexit )
       exit(0);
@@ -238,6 +238,9 @@ int main(int argc, char **argv) {
   enum { MODE_NONE, MODE_REGISTER, MODE_REMOVE, MODE_REGENERATE, MODE_LIST } mode = MODE_NONE;
   char *filename = NULL;
   int uid = getuid(), ret;
+
+  if ( argc == 1 )
+    printUsage(argv[0]);
 
   // parse command line parameters, get wsgi file and mode
   for ( int i = 1; i < argc; i++ ) {
