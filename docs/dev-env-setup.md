@@ -123,3 +123,13 @@ Edit this file to work with your paths, and then try calling it (it will be some
 Only the last line does the update; the rest is logging.  You then enter a webhook (under the repository's settings, select "webhooks & services").  Enter the URL, in the previous paragraph, of your webhook.  Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.
 
 ***NOTE:*** If a file is *locally* modified (meaning somebody updates a file on the course server), then git will ***NOT*** update that file from the repo!  This is why the two deployment options do not play nicely together.
+
+### Hybrid approach
+
+ALternatively, you should set up a hybrid approach.  You can use a deployment key to clone the git repo in the project account, but rather than have that updated automatically via a web hook, you instead only update it manually.  This can be done via a single ssh command -- which, with auto-login set up, can easily be put into a Makefile:
+
+```
+ssh project@server 'cd ~/html; git pull`
+```
+
+Obviously, you will have to change the directory (and user and server host) as necessary.
