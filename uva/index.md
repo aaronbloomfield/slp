@@ -40,7 +40,7 @@ Lectures
 | 21  | Oct&nbsp;15 | Wednesday   | group meeting |               || |
 | 22  | Oct&nbsp;17 | Friday      | no class      |               || |
 | 23  | Oct&nbsp;20 | Monday      | group meeting |               || |
-| 24  | Oct&nbsp;22 | Wednesday   | lecture       | Documentation || |
+| 24  | Oct&nbsp;22 | Wednesday   | lecture       | Documentation || [10-documentation][60], slides 0 to 5-2 (end) ([recording][113]) |
 | 25  | Oct&nbsp;24 | Friday      | no class      |               || |
 | 26  | Oct&nbsp;27 | Monday      | group meeting |               || |
 | 27  | Oct&nbsp;29 | Wednesday   | lecture       | Documentation || |
@@ -79,6 +79,7 @@ Lectures
 [57]: ../slides/fall/07-customer-meetings.html
 [58]: ../slides/fall/08-estimation.html
 [59]: ../slides/fall/09-wireframing.html
+[60]: ../slides/fall/10-documentation.html
 
 [101]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
 [102]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
@@ -92,3 +93,4 @@ Lectures
 [110]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/07-customer-meetings-1/07-customer-meetings-1.htm
 [111]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/08-estimation/08-estimation.htm
 [112]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/09-wireframing/09-wireframing.htm
+[113]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/10-documentation/10-documentation.htm
