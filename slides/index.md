@@ -20,7 +20,7 @@ bug, and displays the slides correctly.
 - [07: Customer meetings](fall/07-customer-meetings.html)
 - [08: Estimation workday](fall/08-estimation.html)
 - [09: Wireframing](fall/09-wireframing.html)
-- 10: Documentation
+- [10: Documentation](fall/10-documentation.html)
 - 11: Continuous integration testing
 - 12: Website security (including the old SQL & XSS slide set)
 - 13: Design patterns

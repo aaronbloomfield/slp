@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4970: 10-documentation slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/slp.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4970
+&nbsp;
+### Capstone Practicum I
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="10-documentation.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Documentation
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[UML](#/uml)  
+[Use Cases & User Stories](#/usecases)  
+[Misc Documentation](#/misc)  
+[Conclusions](#/conclusions)  
+	</script></section>
+
+	<section>
+
+	  <section data-markdown id="uml"><script type="text/template">
+# UML
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## When to use UML
+- When you need to clarify something through diagrams!
+  - Typically used with bigger development groups, or when two separate groups' code need to interact
+- Don't write UML diagrams just for the sake of writing UML diagrams...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## UML diagrams diagram (!)
+
+<a href="http://commons.wikimedia.org/wiki/File:Uml_diagram.svg"><img alt="uml diagram diagram" src="http://upload.wikimedia.org/wikipedia/commons/7/74/Uml_diagram.svg" style="background-color:white"></a>
+
+(Object diagrams are now Domain model diagrams)
+	  </script></section>
+
+	  <section>
+<h2>UML diagram types</h2>
+<table class="transparent"><tr><td class="top">
+<ul><li>Structure diagrams<ul>
+<li>Class diagram</li>
+<li>Component diagram</li>
+<li>Composite structure diagram</li>
+<li>Deployment diagram</li>
+<li>Domain model diagram</li>
+<li>Package diagram</li></ul></li></ul></td>
+<td style="width:50px"></td>
+<td><ul><li>Behaviour diagrams<ul>
+<li>Activity diagram</li>
+<li>Use case diagram</li>
+<li>State diagram</li>
+<li>Sequence diagram</li>
+<li>Communication diagram</li>
+<li>Interaction overview diagram</li>
+<li>Timing diagram</li>
+</ul></li></td></tr></table>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Sources
+- A few diagram images are from Wikipedia (or Wikicommons)
+- Most are from http://www.uml-diagrams.org/
+  - These images are not part of the repo, as their licenses do not provide for that
+  - So this slide set just deep links to those imags
+  - That site has a lot of information, far beyond what is in this lecture set
+- In all cases, the title is the hyperlink to the source page, to allow for the image to be the largest size possible
+	  </script></section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/class-diagrams-overview.html">Class diagram</a></h2>
+<img src="http://www.uml-diagrams.org/class-diagrams/class-diagram-implementation-elements.png" class="stretch" alt="class diagram">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/component-diagrams.html">Component diagram</a></h2>
+<img src="http://www.uml-diagrams.org/component-diagrams/component-diagram-overview.png" class="stretch" alt="component diagram">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/composite-structure-diagrams.html">Composite structure diagram</a></h2>
+<img src="http://www.uml-diagrams.org/composite-structure-diagrams/composite-internal-structure-diagram-elements.png" class="stretch">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/deployment-diagrams-overview.html">Deployment diagram</a></h2>
+<img alt="deployment diagram" src="http://www.uml-diagrams.org/deployment-diagrams/deployment-diagram-overview-specification.png">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/class-diagrams-overview.html">Domain model diagram</a></h2>
+<img class="stretch" src="http://www.uml-diagrams.org/class-diagrams/class-diagram-domain-overview.png" alt="domain model diagram">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/package-diagrams-overview.html">Package diagram</a></h2>
+<img alt="package diagram" src="http://www.uml-diagrams.org/package-diagrams/package-diagram-elements.png" class="stretch">
+	  </section>
+
+	  <section>
+<h2><a href="http://commons.wikimedia.org/wiki/File:Activity_conducting.svg">Activity diagram</a></h2>
+<img src="http://upload.wikimedia.org/wikipedia/commons/e/e7/Activity_conducting.svg" class="stretch" style="background-color:white" alt="activity diagram">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/use-case-diagrams.html">Use case diagram</a></h2>
+<img src="http://www.uml-diagrams.org/use-case-diagrams/business-use-case-diagram-elements.png" alt="use case diagram" class="stretch">
+	  </section>
+
+	  <section>
+<h2><a href="http://commons.wikimedia.org/wiki/File:UML_State_diagram.svg">State diagram</a></h2>
+<img src="http://upload.wikimedia.org/wikipedia/commons/2/2f/UML_State_diagram.svg" alt="state diagram" class="stretch" style="background-color:white">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/sequence-diagrams.html">Sequence diagram</a></h2>
+<img src="http://www.uml-diagrams.org/sequence-diagrams/sequence-diagram-overview.png" class="stretch" alt="sequence diagram">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/interaction-overview-diagrams.html">Interaction overview diagram</a></h2>
+<img alt="interactin diagram" src="http://www.uml-diagrams.org/notation/uml-interaction-overview-diagram-elements.png" class="stretch">
+	  </section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/timing-diagrams-examples.html">Timing diagram</a></h2>
+<img src="http://www.uml-diagrams.org/examples/timing-diagram-example-website.png" class="stretch" alt="timing diagram">
+	  </section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="usecases"><script type="text/template">
+# Use Cases &<br>User Stories
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## User stories
+>  a user story is one or more sentences in the everyday or business language of the end user or user of a system that captures what a user does or needs to do as part of his or her job function
+
+- from [Wikipedia](http://en.wikipedia.org/wiki/User_story)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Use cases
+- Just a prose (i.e. English) explanation of what's happening
+  - Play a dice game: player requests to roll the dice.  System presents results: if the dice face value totals seven, player wins; otherwise, player looses.
+- Three types:
+  - Brief: one-paragraph summary (like the one 2 slides ago) that covers the 'happy path'
+    - This is like a user story
+  - Casual: multiple-paragraph format that covers multiple scenarios
+  - Fully dressed: highly detailed
+	  </script></section>
+
+	  <section>
+<h2>Fully dressed use case</h2>
+<p>Alistair Cockburn <a href="http://www.amazon.com/dp/0201699699">describes</a> the following fields:</p>
+<p>&nbsp;</p>
+<table class="transparent"><tr>
+<td style="width:45%">
+<ul>
+<li>Title: "an active-verb goal phrase that names the goal of the primary actor"</li>
+<li>Primary Actor</li>
+<li>Goal in Context</li>
+<li>Scope</li>
+<li>Level</li>
+<li>Stakeholders &amp; interests</li>
+<li>Precondition</li>
+</ul></td><td style="width:10%"></td><td class="top" style="width:45%"><ul>
+<li>Minimal Guarantees</li>
+<li>Success Guarantees</li>
+<li>Trigger</li>
+<li>Main Success Scenario</li>
+<li>Extensions</li>
+<li>Technology &amp; Data Variations List</li>
+<li>Related Information</li>
+</ul></td></tr></table>
+<p>&nbsp;</p>
+<p>I have a 4-page example.  Want to see it?<?p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## UML for use cases
+- Use cases are primarily text!
+- However, you may often see a diagram that shows how the use cases *interact*
+  - The use case diagram from earlier in this slide set (and repeated next slide) is such an example
+	  </script></section>
+
+	  <section>
+<h2><a href="http://www.uml-diagrams.org/use-case-diagrams.html">Use case diagram</a></h2>
+<img src="http://www.uml-diagrams.org/use-case-diagrams/business-use-case-diagram-elements.png" alt="use case diagram" class="stretch">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Actors
+- Some 'thing' with a behavior
+  - A person, computer system, organization, etc.
+- Three types
+  - Primary actor
+  - Supporting actor
+  - Offstage actor
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Use case writing guidelines
+- Write in an essential UI-free style
+- Write terse use cases
+- Write black-box use cases
+- Take an actor and actor-goal perspective
+- Finding use cases
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Use cases: the big picture
+- The waterfall method defines all the use cases up front
+- Agile development methods define them over time
+  - And they are refined iteratively
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="misc"><script type="text/template">
+# Miscellaneous<br>Documentation
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Buzzword alert: artifacts
+- An 'artifact' (as far as the Unified Process is concerned) is a document that defines some aspect of the development
+  - Wikipedia [defines](http://en.wikipedia.org/wiki/Artifact_%28software_development%29) them as the "tangible by-products produced during the development of software"
+- Examples: Vision, Business Case, Use-Case Model, Supplementary
+  Specification, Glossary, Business Rules, Risk List, Risk Management
+  Plan, Prototypes, Iteration Plan, Phase Plan, Software Development
+  Plan, Development Case, etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Vision
+Sections of a vision statement:
+
+- Introduction and product description
+- Positioning
+  - Business opportunity
+  - Problem statement
+  - Product position statement
+- Stakeholder descriptions
+- Product overview 
+- Summary of system features
+- Other requirements and constraints
+	  </script></section>
+
+	  <section>
+<h2>Supplementary Specification</h2>
+<p>This includes anything specifications not covered in a use case. Possible sections:</p>
+<p>&nbsp;</p>
+<table class="transparent"><tr>
+<td style="width:40%" class="top"><ul>
+<li>Introduction</li>
+<li>Functionality</li>
+<li>Usability</li>
+<li>Reliability</li>
+<li>Performance</li>
+<li>Supportability</li>
+<li>Implementation constraints</li>
+</ul></td><td style="width:10%"></td><td style="width:50%"><ul>
+<li>Purchased components</li>
+<li>Free open source components</li>
+<li>Interfaces</li>
+<li>Application-specific domain (business) rules</li>
+<li>Legal issues</li>
+<li>Information in domains of interest</li>
+</ul></td></tr></table>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Glossary
+- Includes (among other things):
+  - Definitions
+  - A data dictionary: Metadata
+- And, not surprisingly, it evolves over time...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Domain (business) rules
+- These rules dictate how a domain (or business) may operate
+  - Such as laws, regulations, policies, etc.
+- Example: a cashier system will need to know how sales tax is calculated, and on what times (i.e., not food)
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="conclusions"><script type="text/template">
+# Conclusions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What's Missing?
+- Only a few critical things...
+- User manual
+- Installation manual
+- Licensing document
+- Guide to the code for future developers & maintainers
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## When to use all of this
+- Here, "this" means either UML diagrams or documentation
+- Some companies write a *lot* of documentation
+  - These tend to be more waterfall-based development shops
+  - Sometimes with good reasoan, but not always
+- My philosophy is you only use it when you need it to clarify something
+  - That doesn't mean you avoid it at all costs!
+	  </script></section>
+
+	</section>
+
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>
