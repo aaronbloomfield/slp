@@ -115,7 +115,7 @@ char* get_userid_by_uid (int uid) {
   }
   return p->pw_name;
 }
-    
+
 // checks if a file exists; this function adapted from
 //http://stackoverflow.com/questions/12774207/fastest-way-to-check-if-a-file-exist-using-standard-c-c11-c
 inline bool file_exists (const std::string& name) {
@@ -126,7 +126,7 @@ inline bool file_exists (const std::string& name) {
     } else {
         f.close();
         return false;
-    }   
+    }
 }
 
 // checks if the passed file is a valid WSGI file (really if it's a Python script)
@@ -210,7 +210,7 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
   pos = up1.rfind("/");
   string up2 = up1.substr(0,pos);
   stringstream foo;
-  foo << "Alias " << (rootdir?"":URL_PREFIX) << "/" << userid << "/static " << up2 << "/" << app << "/static\n"
+  foo << "Alias " << (rootdir?"":URL_PREFIX) << "/" << userid << "/static " << up2 << "/static\n"
       << "<Directory " << up2 << "/" << app << "/static>\n"
       << "  Require all granted\n"
       << "</Directory>\n";
@@ -362,7 +362,7 @@ int main(int argc, char **argv) {
 
     // insert entry into DB
     query.str("");
-    query << "insert into wsgi values (null," << uid << ",\"" << realpath(wsgi_file_name.c_str(),NULL) 
+    query << "insert into wsgi values (null," << uid << ",\"" << realpath(wsgi_file_name.c_str(),NULL)
 	  << "\",1,datetime(),null,\"" << appname << "\"," << reg_root << ")";
     ret = sqlite3_exec(db, query.str().c_str(), NULL, NULL, &errmsg);
     if ( ret != SQLITE_OK )

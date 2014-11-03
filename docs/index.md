@@ -11,6 +11,7 @@ SLP: Documents
 ### Documents and tutorials
 
 - [Development environment setup](dev-env-setup.html) ([md](dev-env-setup.md))
+- [Continuous Integration testing setup](ci-setup.html) ([md](ci-setup.md))
 
 ### Homeworks
 
