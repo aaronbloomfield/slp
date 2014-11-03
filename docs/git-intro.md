@@ -52,6 +52,7 @@ Git is a distributed system, which means that you can make as many commits as yo
 - `git branch`: creates (or edits) branches; see below for details
 - `git merge`: merges branches; see below for details
 - `git tag`: creates (or edits) tags; see below for details
+- `git update-index --assume-unchanged  <file>`: if there is a file that you want to modify from the version in the repo, but you do NOT want those changes to be committed, you use this command.  It's useful if you are updating passwords in a file, but you don't want those passwords stored in the repo.
 
 There are many other git commands; type `man git` for a list, then type `man git-clone` for the details about the `git clone` command (likewise for the other git commands).
 

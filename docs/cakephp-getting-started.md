@@ -28,7 +28,7 @@ To get a CakePHP website up and running:
 There are three commands that you will need to run on the VirtualBox image in order to use CakePHP locally, as they were not run when the image was created:
 
 ```
-sudo apt-get install php5-mcrypt php5-intl
+sudo apt-get install php5-mcrypt php5-intl phpunit
 sudo php5enmod intl
 sudo php5enmod mcrypt
 sudo service apache2 restart

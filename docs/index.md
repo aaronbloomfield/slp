@@ -17,7 +17,7 @@ SLP: Documents
 - [Git HW](hw-git.html) ([md](hw-git.html))
     - [Introduction to git and github](git-intro.html) ([md](git-intro.md))
 
-- [Framework homework](hw-frameworks.html) ([md](framework-hw.md))
+- [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md))
     - [VirtualBox introduction](virtualbox-intro.html) ([md](virtualbox-intro.md))
         - [VirtualBox image details](virtualbox-image-details.html) ([md](virtualbox-image-details.md))
         - [Linux Administration Howtos](linux-admin-howtos.html) ([md](linux-admin-howtos.md))

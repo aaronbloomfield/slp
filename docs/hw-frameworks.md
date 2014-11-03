@@ -116,6 +116,19 @@ Unlike Ruby on Rails, you can name the Django app anything you want, and put it 
 
 The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.6/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.6 version!
 
+A few notes on that tutorial:
+
+- When editing the models.py file, you will have to put two additional imports at the top that the tutorial does not mention (`from django.utils import timezone` and `import datetime`); this is described in more detail [here](https://code.djangoproject.com/ticket/19793)
+- If python complains about not knowing what 'timezone' is, figure out which file it is running into this issue (this is listed in the stack trace), and put `from django.utils import timezone` at the top of that file
+- The last line of `test_index_view_with_two_past_polls()` (in [page 5](https://docs.djangoproject.com/en/1.6/intro/tutorial05/)) needs to change to the following, as per [here](http://www.simonveal.com/trying-to-compare-non-ordered-queryset-against-more-than-one-ordered-values/):
+```
+self.assertQuerysetEqual(
+        response.context['latest_poll_list'].order_by('question'),
+         ['<Poll: Past poll 1.>', '<Poll: Past poll 2.>']
+    )
+```
+- Note that one of the tests (specifically, `test_detail_view_with_a_future_poll()`) only succeeds if a future poll returns a 404 page, which is what the original `results()` view did.  However, when the view was switched over to Django's generic views (the bottom of [tutorial 4](https://docs.djangoproject.com/en/1.6/intro/tutorial04/)), that is no longer the default behavior.  Thus, that test can be removed.  This will make much more sense once you have read through the end of the testing section in the tutorial.
+
 When you have updated your Django app, remember to touch the wsgi file to make the web server reload your app; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details.
 
 It is much more difficult to rename your tables in Django -- you have to do it individually for each table.  But if the CakePHP tables all start with `cake_`, and the Ruby on Rails tables all start with `ruby_`, then you can leave the Django talbes to have the default name.  However, the names used in the Django tutorial should not conflict with the other tables therein.
