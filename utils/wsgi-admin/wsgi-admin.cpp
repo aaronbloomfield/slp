@@ -43,9 +43,10 @@
  * removed datetime
  * app text
  * rootdir boolean default 0
+ * staticdir text
  *
  * The line to create this in sqlite3:
- * create table wsgi(id integer primary key asc, uid int, wsgi text, valid boolean, added datetime, removed datetime, app text, rootdir boolean default 0);
+ * create table wsgi(id integer primary key asc, uid int, wsgi text, valid boolean, added datetime, removed datetime, app text, rootdir boolean default 0, staticdir text);
  */
 
 #include <iostream>
@@ -73,17 +74,17 @@ using namespace std;
 // some global variables
 stringstream wsgifile, wsgisslfile, query;
 int count = 0, find_uid = 0, reg_root = 0, remove_id = 0, force_uid = 0;
-string find_filename = "", appname = string(DEFAULT_APP_NAME), wsgi_file_name;
+string find_filename = "", appname = string(DEFAULT_APP_NAME), wsgi_file_name, staticdir;
 bool check_file = true, compact_list = false, show_all = false;
 
 // for when they invoke it incorrectly...
 void printUsage(char *argv0, bool doexit = true) {
-    cerr << "Usage:  " << argv0 << " -register -file <wsgi_file> [-app <app_name>] [-root]\n"
-	 << "\t" << argv0 << " -remove -id <num>\n"
-	 << "\t" << argv0 << " -list [-compact]\n"
-	 << "\t" << argv0 << " -regenrate" << endl;
-    if ( doexit )
-      exit(0);
+  cerr << "Usage:  " << argv0 << " -register -file <wsgi_file> [-app <app_name>] [-root]\n"
+       << "\t" << argv0 << " -remove -id <num>\n"
+       << "\t" << argv0 << " -list [-compact]\n"
+       << "\t" << argv0 << " -regenrate" << endl;
+  if ( doexit )
+    exit(0);
 }
 
 // prints an error message with the query, deallocates that error message, and exits
@@ -119,14 +120,14 @@ char* get_userid_by_uid (int uid) {
 // checks if a file exists; this function adapted from
 //http://stackoverflow.com/questions/12774207/fastest-way-to-check-if-a-file-exist-using-standard-c-c11-c
 inline bool file_exists (const std::string& name) {
-    ifstream f(name.c_str());
-    if (f.good()) {
-        f.close();
-        return true;
-    } else {
-        f.close();
-        return false;
-    }
+  ifstream f(name.c_str());
+  if (f.good()) {
+    f.close();
+    return true;
+  } else {
+    f.close();
+    return false;
+  }
 }
 
 // checks if the passed file is a valid WSGI file (really if it's a Python script)
@@ -154,12 +155,12 @@ static int list_callback(void *NotUsed, int argc, char **argv, char **azColName)
       cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL") << "; ";
     } else {
       if ( strcmp(azColName[i],"id") )
-	cout << "\t";
+        cout << "\t";
       cout << azColName[i] << " = " << (argv[i] ? argv[i] : "NULL");
       if ( !strcmp(azColName[i],"uid") ) {
-	int uid;
-	sscanf(argv[i],"%d",&uid);
-	cout << " (" << get_userid_by_uid(uid) << ")";
+        int uid;
+        sscanf(argv[i],"%d",&uid);
+        cout << " (" << get_userid_by_uid(uid) << ")";
       }
       cout << endl;
     }
@@ -192,7 +193,7 @@ static int find_callback(void *NotUsed, int argc, char **argv, char **azColName)
 }
 
 // this regenerates the django.conf files
-static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azColName){
+static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azColName) {
   int uid, rootdir;
   sscanf(argv[1],"%d",&uid);
   char *filename = argv[2];
@@ -207,11 +208,17 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
   string up1 = fullpath.substr(0,pos);
   string basename = fullpath.substr(pos+1);
   string app(argv[6]);
+  string staticdir;
+  if ( argv[8] != NULL )
+    staticdir = string(argv[8]);
   pos = up1.rfind("/");
   string up2 = up1.substr(0,pos);
   stringstream foo;
-  foo << "Alias " << (rootdir?"":URL_PREFIX) << "/" << userid << "/static " << up2 << "/static\n"
-      << "<Directory " << up2 << "/" << app << "/static>\n"
+  if ( staticdir == "" )
+    foo << "Alias " << (rootdir?"":URL_PREFIX) << "/" << userid << "/static " << up2 << "/" << app << "/static\n";
+  else
+    foo << "Alias " << (rootdir?"":URL_PREFIX) << "/" << userid << "/static " << staticdir << "\n";
+  foo << "<Directory " << up2 << "/" << app << "/static>\n"
       << "  Require all granted\n"
       << "</Directory>\n";
   foo << "WSGIScriptAlias " << (rootdir?"":URL_PREFIX) << "/" << userid << " " << fullpath << "\n";
@@ -263,34 +270,40 @@ int main(int argc, char **argv) {
       mode = MODE_LIST;
     else if ( param == "-all" ) {
       if ( (uid != 0) && (uid != 1000) )
-	die ("You are not allowed to use the -all flag");
+        die ("You are not allowed to use the -all flag");
       show_all = true;
+    } else if ( param == "-staticdir" ) {
+      if ( (uid != 0) && (uid != 1000) )
+        die ("You are not allowed to use the -nocheck flag");
+      if ( argc == i+1 )
+        die ("Must supply a directory name to -staticdir");
+      staticdir = string(argv[++i]);
     } else if ( param == "-nocheck" ) {
       if ( (uid != 0) && (uid != 1000) )
-	die ("You are not allowed to use the -nocheck flag");
+        die ("You are not allowed to use the -nocheck flag");
       check_file = false;
     } else if ( param == "-app" ) {
       if ( argc == i+1 )
-	die ("Must supply a app name to -app");
+        die ("Must supply a app name to -app");
       appname = string(argv[++i]);
     } else if ( param == "-uid" ) {
       if ( (uid != 0) && (uid != 1000) )
-	die ("You are not allowed to use the -uid flag");
+        die ("You are not allowed to use the -uid flag");
       int ret = sscanf(argv[++i], "%d", &force_uid);
       if ( ret != 1 )
-	die ("Invalid integer format to -uid");
+        die ("Invalid integer format to -uid");
     } else if ( param == "-id" ) {
       if ( argc == i+1 )
-	die ("Must supply a numerical id to -id");
+        die ("Must supply a numerical id to -id");
       int ret = sscanf(argv[++i], "%d", &remove_id);
       if ( ret != 1 )
-	die ("Invalid integer format to -id");
+        die ("Invalid integer format to -id");
     } else if ( param == "-file" ) {
       if ( argc == i+1 )
-	die ("Must supply a file name to -file");
+        die ("Must supply a file name to -file");
       wsgi_file_name = string(argv[++i]);
       if ( !file_exists(wsgi_file_name) )
-	die ("File does not exist!");
+        die ("File does not exist!");
     } else
       printUsage(argv[0]);
   }
@@ -316,7 +329,7 @@ int main(int argc, char **argv) {
     // sanity check the file name
     for ( int i = 0; i < wsgi_file_name.length(); i++ )
       if ( (wsgi_file_name[i] == '\\') || (wsgi_file_name[i] == '"') || (wsgi_file_name[i] == '\'') || (wsgi_file_name[i] == ';') )
-	die ("Try choosing a file name that does *not* lend itself to SQL injection attacks");
+        die ("Try choosing a file name that does *not* lend itself to SQL injection attacks");
 
     // does the file exist?
     if ( !file_exists(wsgi_file_name) ) {
@@ -338,7 +351,7 @@ int main(int argc, char **argv) {
     // check for duplicate entries of that file
     query.str("");
     query << "select count(*) from wsgi where wsgi=\""
-	  << realpath(wsgi_file_name.c_str(),NULL) << "\" and valid=1";
+          << realpath(wsgi_file_name.c_str(),NULL) << "\" and valid=1";
     count = 0;
     ret = sqlite3_exec(db, query.str().c_str(), count_callback, 0, &errmsg);
     if ( ret != SQLITE_OK )
@@ -363,7 +376,7 @@ int main(int argc, char **argv) {
     // insert entry into DB
     query.str("");
     query << "insert into wsgi values (null," << uid << ",\"" << realpath(wsgi_file_name.c_str(),NULL)
-	  << "\",1,datetime(),null,\"" << appname << "\"," << reg_root << ")";
+          << "\",1,datetime(),null,\"" << appname << "\"," << reg_root << ",\"" << staticdir << "\")";
     ret = sqlite3_exec(db, query.str().c_str(), NULL, NULL, &errmsg);
     if ( ret != SQLITE_OK )
       sqlite3_die(errmsg,query.str());
@@ -400,7 +413,7 @@ int main(int argc, char **argv) {
     // check if UID matches
     if ( (uid != 0) && (uid != 1000) )
       if ( uid != find_uid )
-	die("you can't remove that entry");
+        die("you can't remove that entry");
 
     // remove entry
     query.str("");
