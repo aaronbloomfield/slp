@@ -36,17 +36,17 @@ Lectures
 | 18  | Oct&nbsp;6  | Monday      | group meeting |               || |
 | 19  | Oct&nbsp;8  | Wednesday   | lecture       | Wireframing   || [09-wireframing][59], slides 0 to 5-3 (end) ([recording][112]) |
 | 20  | Oct&nbsp;10 | Friday      | no class      |               || |
-|     | Oct&nbsp;13 | Monday      | no class (fall break) |               || |
+|     | Oct&nbsp;13 | Monday      | no class      | (fall break)  || |
 | 21  | Oct&nbsp;15 | Wednesday   | group meeting |               || |
 | 22  | Oct&nbsp;17 | Friday      | no class      |               || |
 | 23  | Oct&nbsp;20 | Monday      | group meeting |               || |
 | 24  | Oct&nbsp;22 | Wednesday   | lecture       | Documentation || [10-documentation][60], slides 0 to 5-2 (end) ([recording][113]) |
 | 25  | Oct&nbsp;24 | Friday      | no class      |               || |
 | 26  | Oct&nbsp;27 | Monday      | group meeting |               || |
-| 27  | Oct&nbsp;29 | Wednesday   | lecture       | Documentation || |
+| 27  | Oct&nbsp;29 | Wednesday   | lecture       | Pivotal Tracker work day || See [here][80] for details |
 | 28  | Oct&nbsp;31 | Friday      | no class      |               || |
 | 29  | Nov&nbsp;3  | Monday      | group meeting |               || |
-| 30  | Nov&nbsp;5  | Wednesday   | lecture       | Continuous integration testing || |
+| 30  | Nov&nbsp;5  | Wednesday   | lecture       | Continuous integration testing || [11-ci-testing][61], slides 0 to 5-4 (end) ([recording][114]) |
 | 31  | Nov&nbsp;7  | Friday      | no class      |               || |
 | 32  | Nov&nbsp;10 | Monday      | group meeting |               || |
 | 33  | Nov&nbsp;12 | Wednesday   | lecture       |               || |
@@ -55,8 +55,8 @@ Lectures
 | 36  | Nov&nbsp;19 | Wednesday   | lecture       |               || |
 | 37  | Nov&nbsp;21 | Friday      | no class      |               || |
 | 38  | Nov&nbsp;24 | Monday      | group meeting |               || |
-|     | Nov&nbsp;26 | Wednesday   | lecture       |               || |
-|     | Nov&nbsp;28 | Friday      | no class      |               || |
+|     | Nov&nbsp;26 | Wednesday   | no class      | (Thanksgiving break) || |
+|     | Nov&nbsp;28 | Friday      | no class      | (Thanksgiving break) || |
 | 39  | Dec&nbsp;1  | Monday      | group meeting |               || |
 | 40  | Dec&nbsp;3  | Wednesday   | lecture       |               || |
 | 41  | Dec&nbsp;5  | Friday      | no class      |               || |
@@ -80,6 +80,9 @@ Lectures
 [58]: ../slides/fall/08-estimation.html
 [59]: ../slides/fall/09-wireframing.html
 [60]: ../slides/fall/10-documentation.html
+[61]: ../slides/fall/11-ci-testing.html
+
+[80]: ../slides/fall/daily-announcements.html#pivotal
 
 [101]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
 [102]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
@@ -94,3 +97,4 @@ Lectures
 [111]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/08-estimation/08-estimation.htm
 [112]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/09-wireframing/09-wireframing.htm
 [113]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/10-documentation/10-documentation.htm
+[114]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/11-ci-testing/11-ci-testing.htm
