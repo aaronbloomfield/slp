@@ -153,9 +153,13 @@ http://www.gnu.org/software/src-highlite">
   <b><font color="#000000">fgets</font></b><font color="#990000">(</font>result<font color="#990000">,</font> <b><font color="#0000FF">sizeof</font></b><font color="#990000">(</font>result<font color="#990000">)-</font><font color="#993399">1</font><font color="#990000">,</font> fp<font color="#990000">);</font>
   <b><font color="#000000">pclose</font></b><font color="#990000">(</font>fp<font color="#990000">);</font>
   <i><font color="#9A1900">// check that the output was correct</font></i>
+  <font color="#008080">string</font> <b><font color="#000000">obtained</font></b><font color="#990000">(</font>result<font color="#990000">);</font>
   <font color="#008080">stringstream</font> expected<font color="#990000">;</font>
   expected <font color="#990000">&lt;&lt;</font> filename <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": Python script, ASCII text executable</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-  <font color="#008080">string</font> <b><font color="#000000">obtained</font></b><font color="#990000">(</font>result<font color="#990000">);</font>
+  <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> obtained <font color="#990000">==</font> expected<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">()</font> <font color="#990000">)</font>
+    <b><font color="#0000FF">return</font></b> <b><font color="#0000FF">true</font></b><font color="#990000">;</font>
+  expected<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
+  expected <font color="#990000">&lt;&lt;</font> filename <font color="#990000">&lt;&lt;</font> <font color="#FF0000">": Python script, ASCII text executable, with CRLF line terminators</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
   <b><font color="#0000FF">return</font></b> <font color="#990000">(</font> obtained <font color="#990000">==</font> expected<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">()</font> <font color="#990000">);</font>
 <font color="#FF0000">}</font>
 

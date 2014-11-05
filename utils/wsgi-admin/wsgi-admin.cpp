@@ -142,9 +142,13 @@ bool is_valid_wsgi_file(const char *filename) {
   fgets(result, sizeof(result)-1, fp);
   pclose(fp);
   // check that the output was correct
+  string obtained(result);
   stringstream expected;
   expected << filename << ": Python script, ASCII text executable\n";
-  string obtained(result);
+  if ( obtained == expected.str() )
+    return true;
+  expected.str("");
+  expected << filename << ": Python script, ASCII text executable, with CRLF line terminators\n";
   return ( obtained == expected.str() );
 }
 
