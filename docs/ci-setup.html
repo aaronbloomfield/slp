@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: Continuous Integration Testing: Getting Started</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-continuous-integration-testing-getting-started">SLP: Continuous Integration Testing: Getting Started</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>There are seven sections in this document: a common introduction for everybody, one for each of the three development platforms, one for each of the two Continuous Integration testing services (we are using <a href="http://travis-ci.com">Travis CI</a> and <a href="http://circleci.com/">CircleCI</a>), and a common conclusion section for everybody. Each group will be assigned to one of the two CI services. You will need to read the introduction, the section on your platform, the section on your assigned CI service, and the conclusion.</p>
+<p>Note that this document does not describe <em>how</em> to write unit tests, but it links to other documents for each platform that describe how to do that. This document is concerned with getting the projects configured with the CI services.</p>
+<h2 id="introduction">Introduction</h2>
+<p>This document will get you up and running using either of the two Continuous Integration (CI) testing services: <a href="http://travis-ci.com">Travis CI</a> and <a href="http://circleci.com/">CircleCI</a>; your project will be assigned to one or the other.</p>
+<p>The two CI servers work the same way: whenever someone pushes commits to Github, a notification is sent to the CI server. The CI server will then clone the repo a <a href="http://en.wikipedia.org/wiki/LXC">Linux Container</a>, and run the tests. This happens on <em>every</em> push. While we are using two CI servers, we only have one process (container) per server. This means that if two of the Travis groups push at the same time, one will be queued until the other one completes. Likewise for Circle (and if you are ssh'ing into your Circle container, it blocks everything else until the container is destroyed). As we progress through the year, this will become more noticeable, as your tests can easily take 30 minutes or so to complete.</p>
+<p>You will configure your system to run (many) unit tests, all through a single command. The CI service will then execute that command, and run all of the project's unit tests.</p>
+<p>As you work through this document, you may run into unexpected issues. The conclusion section, at the very end, has some troubleshooting tips.</p>
+<h4 id="database-information">Database Information</h4>
+<p>When a unit test is run, the database is cleared out, and only a limited amount of information -- just enough to run the test -- is loaded ino the DB. This information is called a <em>fixture</em>. The intent is to clear out the <em>test</em> database, not the production (or development) database. One aspect of configuring your unit tests is pre-populating the database with the necessary information through fixtures.</p>
+<p>It may be the case that you want to use a different type of database for the unit tests. <a href="http://en.wikipedia.org/wiki/SQLite">SQLite</a> is a database that stores all of the information in a file on the filesystem. You can use the sqlite client (<code>sqlite3</code>) to enter basic SQL commands on that database. One benefit is that you do not need a server, since the database is just a single file. SQLite is good for small databases (which is what our test databases will be), but not good for large databases or databases in which the data will often change (which is what we need for our projects).</p>
+<p>The configuration in this document assumes that you are using the MySQL test databases for the CakePHP and Rails projects, and that you are using SQLite for Django projects. CakePHP and Rails projects are welcome to switch to SQLite, if that is preferred, but this document does not cover that switch.</p>
+<p>In either case, the database configuration files in the repo should <strong><em>NOT</em></strong> contain the real passwords (it's okay if they contain the host ('localhost') or the username). They can either have &quot;fake&quot; passwords (i.e., not the real ones that you are using on the course server), or they can have blank passwords. One option that people use is to store a default database credentials file in the DB, and locally modify it after a clone; they then run <code>git update-index --assume-unchanged &lt;file&gt;</code> on the database credentials file, as that will prevent git from committing that change. Regardless, the credentials that we will be using on Travis will be the ones stored in the repository.</p>
+<p><strong>NOTE:</strong> You must <em>FIRST</em> change the test database name in your database settings file (config/database.yml for Rails, config/app.php for CakePHP, and settings.py for Django). What the tests do is they <em>wipe</em> the database, and completely rebuild it. Thus, if your test database is the same name as your regular database, it will <strong>ERASE</strong> everything! All the groups have a <code>project_test</code> database (with the same permissions) specifically for this purpose.</p>
+<hr />
+<h2 id="cakephp">CakePHP</h2>
+<p><strong><em>NOTE:</em></strong> The CakePHP installation comes with a .travis.yml script that is used to test the framework (i.e., not the code that <em>you</em> write). If you push a commit with that file, it will kick off those tests, and those tests take about 40 minutes to complete. Thus, if it is not already done for you, then you should rename that file to .travis.yml.orig (or something else, or delete it, etc.).</p>
+<p>This tutorial assumes that you have completed the <a href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html">CakePHP Blog Tutorial</a> and the <a href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/part-two.html">CakePHP Blog Tutorial, part 2</a>, which is what was done in the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>).</p>
+<p>In order to run these tests, you will have to install the <code>phpunit</code> package on your development host (<code>sudo apt-get install phpunit</code>); this was not already done on the prepared VirtualBox image. The <a href="cakephp-getting-started.html">CakePHP getting started</a> (<a href="cakephp-getting-started.md">md</a>) page has been updated with this package installation requirement as well.</p>
+<p><strong>NOTE:</strong> You must <em>FIRST</em> change the test database name in config/app.php. What the tests do is they <em>wipe</em> the database, and completely rebuild it. Thus, if your test database is the same name as your regular database, it will <strong>ERASE</strong> everything! All the groups have a <code>project_test</code> database (with the same permissions) specifically for this purpose.</p>
+<p>In the blog tutorial, you hand-entered (or cut-and-pasted) the contents for the model, views, and the controller. But at this point you should consider <a href="http://book.cakephp.org/3.0/en/console-and-shells/code-generation-with-bake.html">using Bake</a>. If you use Bake to create the MVC components, then it will also create (blank) tests for them. Alternatively, you can have it just create the tests via the following commands.</p>
+<pre><code>bin/cake bake test Table Articles
+bin/cake bake test Controller Articles
+bin/cake bake fixture Articles</code></pre>
+<p>Performing these commands will get you started on testing, but they do not write test cases for you. To run the tests, just enter <code>phpunit</code> from the root directory of your cloned repository.</p>
+<p>After you bake the testing components from the tutorial, one of the tests will fail -- specifically, it will complain that there are no tests found in ArticlesTableTest; to fix this, put the following method in tests/Model/Table/ArticlesTableTest.php:</p>
+<pre><code>public function testFoo() {
+  return true;
+}</code></pre>
+<p>Now when you run <code>phpunit</code>, it will mention that a bunch of tests were incomplete, but none should have failed. The incomplete tests are in the tests/TestCase/Controller/ArticlesControllerTest.php file, and they can be fixed later.</p>
+<p>To get started on actually writing the tests, start working through the <a href="http://book.cakephp.org/3.0/en/development/testing.html">CakePHP: Testing page</a>. This uses the code base created in the <a href="http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/part-two.html">CakePHP Blog Tutorial, part 2</a>; thus, you will likely have to adapt the tests described for your specific project. Once you get through the beginning of the &quot;Running Tests&quot; section, you can move on (you'll come back to the rest later). A quick note about the testing tutorial: the ProgressHelper should go into src/View/Helper/ProgressHelper.php, it should extend <code>Helper</code> (not <code>AppHelper</code>), and it should have a <code>use Cake\View\Helper;</code> line after the <code>namespace</code> line.</p>
+<p>The testing command (<code>phpunit</code>) is what we will be using on our Continuous Integration servers. Assuming that works (i.e., successfully runs all the tests), then you are ready to move onto the CI service configuration.</p>
+<h2 id="ruby-on-rails">Ruby on Rails</h2>
+<p>This tutorial assumes that you have completed the <a href="http://guides.rubyonrails.org/getting_started.html">Getting Started with Rails Tutorial</a>, which is what was done in the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>).</p>
+<p><strong>NOTE:</strong> You must <em>FIRST</em> change the test database name in config/database.yml. What the tests do is they <em>wipe</em> the database, and completely rebuild it. Thus, if your test database is the same name as your regular database, it will <strong>ERASE</strong> everything! All the groups have a <code>project_test</code> database (with the same permissions) specifically for this purpose.</p>
+<p>To get started, start working through the <a href="http://guides.rubyonrails.org/testing.html">Guide to Testing Rails Applications</a>. This uses the code base created in the <a href="http://guides.rubyonrails.org/getting_started.html">Getting Started with Rails Tutorial</a>; thus, you will likely have to adapt the tests described for your specific project. Once you have written the first two tests, you can move onto the configuration with the CI tool. This means you have to get through the end of section 3.2 (but ignore, for now, the error-producing test case at the very end of section 3.2); you'll come back to the rest later. A few notes (these will make more sense once you have read through the testing tutorial):</p>
+<ul>
+<li>The test harnesses are created when you run <code>bin/rails generate model</code> and <code>bin/rails generate controller</code></li>
+<li>Of the two tests that you have to work through in that tutorial, the first test always returns true, and the second test actually tests something. That's fine for now.</li>
+<li>After you generate your scaffold, you will have to set up your test database; to do this, run <code>bin/rake db:migrate RAILS_ENV=test</code></li>
+<li>Note that the command to kick off the tests is: <code>bin/rake test test/models/post_test.rb</code>; however, we are shortly going to use a different command.</li>
+</ul>
+<p>If you run <code>bin/rake test test/models/post_test.rb</code>, you will notice (on the last line) that there are 2 runs and 2 assertions. That command only runs one set of tests, but we want to run more. To do that, we enter <code>rake test</code>, which runs <em>all</em> of the tests, including the two that we just entered.</p>
+<p>It turns out that just running <code>rake</code> will do the same thing as <code>rake test</code> (<code>rake</code> is like <code>make</code>: if no parameters are given, it runs the first &quot;target&quot;, which is &quot;test&quot;). To ensure that rake is run in the context of all of our gems (we don't want it accidentally using a wrong gem version), a better command is <code>bundle exec rake</code>: the <code>bundle exec</code> part ensures that the correct set of gems are loaded.</p>
+<p>The testing command (<code>bundle exec rake</code>) is what we will be using on our Continuous Integration servers. Assuming that works (i.e., successfully runs all the tests), then you are ready to move onto the CI service configuration.</p>
+<h2 id="django">Django</h2>
+<p>This tutorial assumes that you have completed the <a href="https://docs.djangoproject.com/en/1.6/intro/">Django Getting Started Tutorial</a>, which is what was done in the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>).</p>
+<p>While going through that <a href="https://docs.djangoproject.com/en/1.6/intro/">Django Getting Started Tutorial</a>, you went through writing tests for the Django app; this is described on <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial05/">page 5 of the tutorial</a>. We will make a few modifications from what is said on that page, but we will generally follow what they say. Note that there were some problems and errors in what was presented in the tutorial with regard to testing; this is described in the Django section of the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>).</p>
+<p>Django does not seem to want to allow setting the test database to an arbitrary name; whatever you specify, it will insist on prepending <code>test_</code> to that name (presumably so we don't kill our production or development databse, but it would still be nice to allow for different naming conventions). So we are going to use a <a href="http://en.wikipedia.org/wiki/SQLite">SQLite</a> database, as described in the introduction section, above. In order to change the database setup for the testing suite, we will use the following hack (adapted from <a href="http://stackoverflow.com/questions/6353124/running-django-tests-with-sqlite">here</a>). This should go in your settings.py file, right <strong><em>AFTER</em></strong> the <code>DATABASES</code> array.</p>
+<pre><code>import sys
+if &#39;test&#39; in sys.argv:
+    DATABASES[&#39;default&#39;][&#39;ENGINE&#39;] = &#39;django.db.backends.sqlite3&#39;
+    DATABASES[&#39;default&#39;][&#39;NAME&#39;] = os.path.join(BASE_DIR, &#39;db.sqlite3&#39;)</code></pre>
+<p>Working through <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial05/">page 5 of the tutorial</a>, and adapting those tests to be valid tests for your project, is enough to get you up and running on writing unit tests. The full page on Django testing can be found <a href="https://docs.djangoproject.com/en/1.6/topics/testing/">here</a>.</p>
+<p>The command to run the tests is <code>python manage.py test</code>, and that command is what we will be using on our Continuous Integration servers. Assuming that works (i.e., successfully runs all the tests), then you are ready to move onto the CI service configuration.</p>
+<hr />
+<h2 id="travis-ci">Travis CI</h2>
+<p>Travis is a well-known service because it provides free testing for open source projects -- specifically, if it is a public repository on Github, then Travis will allow you to run tests on it for free. To run tests on a private repository, you have to purchase a subscription. To this end, they have two websites: <a href="http://travis-ci.org">http://travis-ci.org</a> (notice the '.org' ending) is the website for open source builds (i.e., public repositories), and <a href="http://travis-ci.com">http://travis-ci.com</a> (notice the '.com' ending) is the website for non-open source builds (i.e., private repositories). Travis has generously donated a free subscription to this course; thus we can test our private repos. This means that we will be using the '.com' version of their website.</p>
+<p>You will need to sign in to <a href="http://travis-ci.com">Travis</a> -- this is done via authorizing Travis as a Github application (when you click &quot;sign in&quot; on <a href="http://travis-ci.com">Travis</a>, it guides you through that process). One you have logged in, you will see any and all repositories that you have access to. In addition to your project repository, you will see three example repositories for configuring Travis with the three platforms in the course; those repos are <a href="https://github.com/uva-slp/rails-test">rails-test</a>, <a href="https://github.com/uva-slp/cake-test">cake-test</a>, and <a href="https://github.com/uva-slp/django-test">django-test</a>. These are described in the Troubleshooting section of the Conclusions, below. The specific URL for the testing of your project repo will be <a href="https://magnum.travis-ci.com/uva-slp/project">https://magnum.travis-ci.com/uva-slp/project</a> where &quot;project&quot; is your project tag (i.e., the same name as your github repo).</p>
+<p>If your project was assigned to Travis, then Travis has already been configured to work with your repository. Every time commits are pushed to the repo, then Travis will look for a .travis.yml file (described next) -- if it finds one, it will run tests; if it doesn't, then it will do nothing. Thus, as soon as you push a commit with a .travis.yml file, Travis will go to work.</p>
+<h4 id="configuration">Configuration</h4>
+<p>To configure Travis, you need to create a .travis.yml file in the root directory of your repository. This <a href="http://en.wikipedia.org/wiki/YAML">YAML</a> file is plain text, and tells Travis the details about your project: what language you are using (and what version), the database configuration, etc.</p>
+<p>Here is a sample .travis.yml file for Rails apps:</p>
+<pre><code>language: ruby
+
+rvm:
+  - 2.1.2
+
+before_script:
+  - &quot;mysql -u root -e &#39;create database asb2t_test;&#39;&quot;
+  - &quot;mysql -u root -e \&quot;grant all on asb2t_test.* to &#39;asb2t&#39;;\&quot;&quot;</code></pre>
+<p>Here is a sample .travis.yml file for CakePHP apps:</p>
+<pre><code>language: php
+
+php:
+  - 5.5
+
+before_script:
+  - &quot;mysql -u root -e &#39;create database asb2t_test;&#39;&quot;
+  - &quot;mysql -u root -e \&quot;grant all on asb2t_test.* to &#39;asb2t&#39;;\&quot;&quot;</code></pre>
+<p>Here is a sample .travis.yml for Django apps:</p>
+<pre><code>language: python
+
+python:
+  - &quot;2.7&quot;
+
+install:
+  - pip install -q Django==1.6.1
+
+script: python manage.py test</code></pre>
+<p>Let's take each part one at a time.</p>
+<p><strong>Language</strong></p>
+<p>The <code>language</code> stanza is where you specify which language your code is using. You only pick one of these stanzas, depending on your platform language.</p>
+<pre><code>language: php</code></pre>
+<pre><code>language: python</code></pre>
+<pre><code>language: ruby</code></pre>
+<p>This is pretty self-explanitory about what this does. The choices for us are PHP, Python, and Ruby, depending on what platform you are using. Travis supports <a href="http://docs.travis-ci.com/user/getting-started/">many other languages</a> as well. In addition, each language has it's own page that lists the configuration options: <a href="http://docs.travis-ci.com/user/languages/php/">PHP</a>, <a href="http://docs.travis-ci.com/user/languages/python/">Python</a>, and <a href="http://docs.travis-ci.com/user/languages/ruby/">Ruby</a>. Obviously, you only pick one of these lines. The next stanza will be specific to your language as well.</p>
+<p><strong>Language configuration</strong></p>
+<p>You only pick one of these stanzas, depending on your platform language.</p>
+<pre><code>php:
+  - 5.5</code></pre>
+<p>While we are using PHP version 5.5.9, only the major and minor versions (i.e., 5.5) are specifed; the patch level (i.e., the &quot;.9&quot;) is not specified.</p>
+<pre><code>rvm:
+  - 2.1.2</code></pre>
+<p><a href="http://rvm.io/">RVM</a> is the Ruby Version Manager, which is a tool to manage Ruby and Rails versions. We are using <a href="https://github.com/sstephenson/rbenv">rbenv</a> (Ruby Environment) on the course server, but they both accomplish essentially the same thing. The second line in this stanza specifies the Ruby version that we want to use (2.1.2). Note that the Rails version is specified in our Gemfile, so we do not specify it here.</p>
+<pre><code>python:
+  - &quot;2.7&quot;</code></pre>
+<p>This specifies the Python versionl the Django version is specified later. While we are using Python version 2.7.6, only the major and minor versions (i.e., 2.7) are specifed; the patch level (i.e., the &quot;.6&quot;) is not specified. Note that, unlike the other languages, the Python version is enclosed in double quotes.</p>
+<p><strong>Installing necessary software</strong></p>
+<p>Travis will configure the necessary version of the language, and install any obvious dependencies (standard PHP and Python libraries, run <code>bundle install</code> for Rails, etc.). However, your system might need additional software to be installed.</p>
+<p>If you have any additional dependencies that were installed with pip (or other commands), you would specify them as such:</p>
+<pre><code>install:
+  - &quot;pip install ...&quot;</code></pre>
+<p>In particular, the Django projects need to install Django; we have to specify which version when we install it. Version 1.6.1 is what this course is using.</p>
+<pre><code>install:
+  - pip install -q Django==1.6.1</code></pre>
+<p>Note that, if we were testing against multiple versions of Django, or if we wanted to know that version in our testing scripts, we could do the previous commands by setting (and then using) an environment variable:</p>
+<pre><code>env:
+  - DJANGO_VERSION=1.6.1
+install:
+  - pip install -q Django==$DJANGO_VERSION</code></pre>
+<p>If you want to install a package -- for example, some groups are using <a href="http://south.aeracode.org/">South</a> in their Django projects, and this was installed via the <code>python-django-south</code> package on Ubuntu. To install that on Travis, you would also put it in the <code>install:</code> stanza (you may already have one if you used the <code>pip install</code> line, above):</p>
+<pre><code>install:
+  - sudo apt-get install python-django-south</code></pre>
+<p>Note that we have to use <code>sudo</code> on this command.</p>
+<p><strong>Database setup</strong></p>
+<p>The following sets up the necessary database:</p>
+<pre><code>before_script:
+  - &quot;mysql -u root -e &#39;create database asb2t_test;&#39;&quot;
+  - &quot;mysql -u root -e \&quot;grant all on asb2t_test.* to &#39;asb2t&#39;;\&quot;&quot;</code></pre>
+<p>This is the database setup. The database credentials in the repo specify that the database to be used is <code>asb2t_test</code>, and that the <code>asb2t</code> user should be able to access that database. Note that we do not require a password for the MySQL user here. You obviously will need to adapt that to your particular setup. Because this is in the <code>before_script</code> stanza, that setup is created prior to running the tests (hence, the &quot;before&quot; part of &quot;before_script&quot;). Note that the syntax here is very precise, especially with regards to all those quotes. Travis has <a href="http://docs.travis-ci.com/user/database-setup/">more information on database setup</a>, including a section specifically on <a href="http://docs.travis-ci.com/user/database-setup/#MySQL">MySQL</a>.</p>
+<p>If your user needs a password, then you will have change the <code>grant</code> command to something like the the following:</p>
+<pre><code>  - &quot;mysql -u root -e \&quot;grant all on asb2t_test.* to &#39;asb2t&#39; identified by &#39;password&#39;;\&quot;&quot;</code></pre>
+<p>Note that the Django apps use a sqlite DB for testing -- partly because it's faster in their case, and partly because Django doesn't like using a custom named DB. This means that the Django scripts do not need this stanza to set up the database.</p>
+<p><strong>Testing command</strong></p>
+<p>Travis makes some assumptions about what command to run in order to test the code base. For Ruby, it assumes <code>bundle exec rake</code>; for PHP, it assumes <code>phpunit</code>; for Django, it assumes incorrectly, and we have to tell it how to correctly run the tests. If you are using the default commands (for Cake and Rails), then you don't have to specify which command to use.</p>
+<p>Django needs to specify the testing command, as Travis does not figure it out. This is done as follows.</p>
+<pre><code>script: python manage.py test</code></pre>
+<p>If you have multiple test commands, you have to write a separate script to run each of the invidiaul testing commands. The catch is that for <em>each</em> of the separate testing calls in your script, you have to catch the error code, and then return non-zero if ANY of them fail (note that returning 0 means success, and returning non-zero means failure).</p>
+<p><strong>Additional configuration</strong></p>
+<p>Travis allows a very large number of configuration options for your build; you can view <a href="http://docs.travis-ci.com/">the documentation for all of them online</a>. The only other one discussed here is notifications. By default, Travis will send an email if either (1) a build is broken, or (2) a previously broken build was just fixed. Those emails are sent to the committer and the commit author (typically the are the same person). This can be changed through the <a href="http://docs.travis-ci.com/user/notifications/">Travis Notifications</a> section.</p>
+<h4 id="final-steps">Final Steps</h4>
+<p>When you view your repo on Travis, there is a &quot;build|passing&quot; image on the upper-right (or &quot;build|failing&quot;, but we hope it's passing). This image is called a &quot;status badge&quot;. You should put this in your repo's readme.md file at the top. To do this, click on that image in Travis, select Markdown, and it will give you the Markdown to cut-and-paste into your project's readme.md file. This image also serves as a link to the Travis page for your repo.</p>
+<h2 id="circleci">CircleCI</h2>
+<p><a href="https://circleci.com/">CircleCI</a> is a well-known testing service that runs a large number of platforms. They only provide testing for users who have paid subscription, and thus are generally used for private repositories. Circle has generously donated a free subscription to this course; thus we can test our private repos.</p>
+<p>You will need to sign in to <a href="http://circleci.com">Circle</a> -- this is done via authorizing Circle as a Github application (when you click &quot;sign in&quot; on <a href="http://circleci.com">Circle</a>, it guides you through that process). One you have logged in, you will see any and all repositories that you have access to. In addition to your project repository, you will see three example repositories for configuring Circle with the three platforms in the course; those repos are <a href="https://github.com/uva-slp/rails-test">rails-test</a>, <a href="https://github.com/uva-slp/cake-test">cake-test</a>, and <a href="https://github.com/uva-slp/django-test">django-test</a>. These are described in the Troubleshooting section of the Conclusions, below. The specific URL for the testing of your project repo will be <a href="https://circleci.com/gh/uva-slp/project">https://circleci.com/gh/uva-slp/project</a> where &quot;project&quot; is your project tag (i.e., the same name as your github repo).</p>
+<p>If your project was assigned to Circle, then Circle has already been configured to work with your repository. Every time commits are pushed to the repo, then Circle will look for a circle.yml file (described next) -- if it finds one, it will run tests; if it doesn't, then it will do nothing. Thus, as soon as you push a commit with a circle.yml file, Circle will go to work.</p>
+<h4 id="configuration-1">Configuration</h4>
+<p>To configure Circle, you need to create a circle.yml file in the root directory of your repository. This <a href="http://en.wikipedia.org/wiki/YAML">YAML</a> file is plain text, and tells Circle the details about your project: what language you are using (and what version), the database configuration, etc.</p>
+<p>Here is a sample circle.yml file for Rails apps:</p>
+<pre><code>machine:
+  ruby:
+    version: 2.1.2
+
+dependencies:
+  pre:
+    - &quot;mysql -u root -e &#39;create database asb2t_test;&#39;&quot;
+    - &quot;mysql -u root -e \&quot;grant all on asb2t_test.* to &#39;asb2t&#39;;\&quot;&quot;
+    - &quot;/bin/rm -rf /home/ubuntu/project/vendor/bundle/ruby/2.1.0/specifications&quot;</code></pre>
+<p>Here is a sample circle.yml file for CakePHP apps:</p>
+<pre><code>machine:
+  php:
+    version: 5.5.8
+
+dependencies:
+  pre:
+    - &quot;mysql -u root -e &#39;create database asb2t_test;&#39;&quot;
+    - &quot;mysql -u root -e \&quot;grant all on asb2t_test.* to &#39;asb2t&#39;;\&quot;&quot;
+    - &quot;ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock&quot;</code></pre>
+<p>Here is a sample circle.yml for Django apps:</p>
+<pre><code>machine:
+  python:
+    version: 2.7.6
+
+dependencies:
+  pre:
+    - pip install -q Django==1.6.1</code></pre>
+<p>Let's take each part one at a time.</p>
+<p><strong>Machine</strong></p>
+<p>The <code>machine</code> stanza is where you specify the language and language version for your code. You only pick one of these stanzas, depending on your platform language.</p>
+<pre><code>machine:
+  php:
+    version: 5.5.8</code></pre>
+<pre><code>machine:
+  python:
+    version: 2.7.6</code></pre>
+<pre><code>machine:
+  ruby:
+    version: 2.1.2</code></pre>
+<p>This is pretty self-explanitory about what this does. The choices for us are PHP, Python, and Ruby, depending on what platform you are using. Circle supports <a href="https://circleci.com/docs/environment">many other languages</a> as well. While there are other options that can be specified in the machine stanza, we won't need to use any of them now.</p>
+<p><strong>Dependencies</strong></p>
+<p>There are many types of dependencies that you can put into a circle.yml file, but we are only going to focus here on <em>pre</em> dependencies, which means it is done before anything else (including before the <code>bundle install</code> command for Rails apps).</p>
+<p>All of the remaining commands described in this section are meant to be in the dependencies/pre section of the circle.yml file. There is a common section on databases, followed by a section on each platform.</p>
+<p><strong>Database setup</strong></p>
+<p>First is the setup of the database:</p>
+<pre><code>- &quot;mysql -u root -e &#39;create database asb2t_test;&#39;&quot;
+- &quot;mysql -u root -e \&quot;grant all on asb2t_test.* to &#39;asb2t&#39;;\&quot;&quot;</code></pre>
+<p>This is the database setup. The database credentials in the repo specify that the database to be used is <code>asb2t_test</code>, and that the <code>asb2t</code> user should be able to access that database. Note that we do not require a password for the MySQL user here. You obviously will need to adapt that to your particular setup. Because this is a pre-dependency, that setup is created prior to running the tests. Note that the syntax here is very precise, especially with regards to all those quotes. Circle has [more information on database setuphttps://circleci.com/docs/environment#databases).</p>
+<p>If your user needs a password, then you will have change the <code>grant</code> command to something like the the following:</p>
+<pre><code>  - &quot;mysql -u root -e \&quot;grant all on asb2t_test.* to &#39;asb2t&#39; identified by &#39;password&#39;;\&quot;&quot;</code></pre>
+<p>Note that the Django apps use a sqlite DB for testing -- partly because it's faster in their case, and partly because Django doesn't like using a custom named DB. This means that the Django scripts do not need these options to set up the database.</p>
+<p><strong>Rails specific</strong></p>
+<p>All Rails apps need to have this line in the pre-dependencies section:</p>
+<pre><code>- &quot;/bin/rm -rf /home/ubuntu/project/vendor/bundle/ruby/2.1.0/specifications&quot;</code></pre>
+<p>Recall that on the course server, we are installing the gems locally (recall that the command is <code>bundle install --path vendor/bundle</code> -- the <code>--path vendor/bundle</code> part tells the <code>bundle</code> command to install them locally instead of system-wide). This causes problems for Circle, as it is not sure how to manage the versions that are installed locally versus the versions installed system-wide.</p>
+<p>To solve this, we remove all of the locally installed gems, and the just reinstall everything; the reinstallation is system-wide on Circle, but that doesn't really matter for us. While this takes a bit longer (say, 10 more seconds), it also allows it to work properly. Note that the gems are installed via <code>bundle install</code>, which Circle will automatically run for us after the pre-dependencies.</p>
+<p><strong><em>NOTE:</em></strong> you have to replace <code>project</code> in that above command with your project's name (i.e., the github repo name)! Otherwise it will not delete the files.</p>
+<p><strong>Cake specific</strong></p>
+<p>All CakePHP apps need have this line in the pre-dependencies section:</p>
+<pre><code>- &quot;ln -s /var/run/mysqld/mysqld.sock /tmp/mysql.sock&quot;</code></pre>
+<p>The MySQL socket file is the file that all mysql clients access in order to connect to the database; this includes the PHP mysql routines. PHP expects the socket file to be /var/run/mysqld/mysqld.sock, which is what it is on both the course server and on the VirtualBox image. But on the Circle container, it is /tmp/mysql.sock, and PHP can't seem to figure this out. So we create a <a href="http://en.wikipedia.org/wiki/Symbolic_link"><em>symlink</em></a> to link one to the other. Then, even though PHP is looking for /var/run/mysqld/mysqld.sock, it will find /tmp/mysql.sock through the symlink.</p>
+<p><strong>Django specific</strong></p>
+<p>All Django apps need to have this line in the pre-dependencies section:</p>
+<pre><code>- pip install -q Django==1.6.1</code></pre>
+<p>We have to install the right version of Django, and this is done through pip, as described below.</p>
+<p><strong>Installing necessary software</strong></p>
+<p>Circle will configure the necessary version of the language, and install any obvious dependencies (standard PHP and Python libraries, run <code>bundle install</code> for Rails, etc.). However, your system might need additional software to be installed.</p>
+<p>If you have any additional dependencies that were installed with pip (or other commands), you would specify them as such:</p>
+<pre><code>install:
+  - &quot;pip install ...&quot;</code></pre>
+<p>In particular, the Django projects need to install Django; we have to specify which version when we install it. Version 1.6.1 is what this course is using.</p>
+<pre><code>install:
+  - pip install -q Django==1.6.1</code></pre>
+<p>If you want to install a package -- for example, some groups are using <a href="http://south.aeracode.org/">South</a> in their Django projects, and this was installed via the <code>python-django-south</code> package on Ubuntu. To install that on Circle, you would also put it in the <code>install:</code> stanza (you may already have one if you used the <code>pip install</code> line, above):</p>
+<pre><code>install:
+  - sudo apt-get install python-django-south</code></pre>
+<p>Note that we have to use <code>sudo</code> on this command.</p>
+<p><strong>Additional configuration</strong></p>
+<p>Circle allows a very large number of configuration options for your build; you can view <a href="https://circleci.com/docs">the documentation for all of them online</a>. The only other one discussed here is notifications. By default, Circle will send an email if either (1) a build is broken, or (2) a previously broken build was just fixed. Those emails are sent to the committer and the commit author (typically the are the same person). This can be changed through the <a href="https://circleci.com/docs/configuration#notify">Circle Notifications</a> section.</p>
+<h4 id="final-steps-1">Final Steps</h4>
+<p>When you view your repo on Circle, there is a status indicator that indicates if it is passing or not (we hope it's passing). You can also create a &quot;status badge&quot;, which is an image that indicates if it is passing or not. You should put this in your repo's readme.md file at the top. To do this, go to the setings for your repo in Circle (the gear icon in the upper-right), and then click on Status Badges. You will have to create an API token for this; create one of the 'Status' type. The Status Badges part of the options will generate the Markdown needed, and you can cut-and-paste that into your project's readme.md file. Note that the default status badge is of the 'badge' type, and we are using the 'shield' type -- to change this, in the image URL provided, change <code>style=badge</code> to <code>style=shield</code>. This image also serves as a link to the Circle page for your repo.</p>
+<hr />
+<h2 id="conclusions">Conclusions</h2>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>Did something not work correctly? If so, here is where to find the solutions.</p>
+<p>There are three repos that where all this configuration was performed for each language / CI tool combination. You can look at those repos for help. In particular, the commits take very specific steps, so seeing the changes from one commit to another may help (you can do this easily through github's interface). Those repos are: <a href="https://github.com/uva-slp/rails-test">rails-test</a>, <a href="https://github.com/uva-slp/cake-test">cake-test</a>, and <a href="https://github.com/uva-slp/django-test">django-test</a>. Each of those repos are configured with <em>both</em> Travis and Circle. All of those repos start with the default site, run through the tutorials described in the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>), and then proceed to configure the CI tests. The .travis.yml and circle.yml files in those repos are the sample files shown above in this document.</p>
+<h3 id="what-you-must-do">What you must do</h3>
+<p>You have to do the following tasks:</p>
+<ol style="list-style-type: decimal">
+<li>Ensure that no database passwords are kept in the github repo</li>
+<li>Configure your project to properly run some unit tests (just running 2 is fine at this point; you'll write more in step (5), below)</li>
+<li>Configure your project to properly run on Travis or Circle, as per your assignment; it must run the tests successfully</li>
+<li>Have the status badge for your project's build shown at the <em>top</em> of your project's readme.md file, which will cause it to display on github when you view the project; for Circle projects, this needs to be the <code>shield</code> type, and not the <code>badge</code> type</li>
+<li>Write a number of unit tests; these tests are beyond what was done in (2). Specifically:</li>
+</ol>
+<ul>
+<li>Each <em>person</em> in the group must write at least 5 (five!) unit tests; you must commit your own unit tests to the repo</li>
+<li>Each person in the group must write at least one fixture, which is used in some/all of their unit tests; you must also commit your own fixture (need not be a separate commit)</li>
+<li>These unit tests must be actually test something, and it must be a valid unit test</li>
+<li>They must all succeed (if they don't, then fix the code to make them succeed)</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>Ensure that all the unit tests written by the group (at least 30 or 35, depending on the group size) run successfully on the CI service</li>
+</ol>
+</body>
+</html>

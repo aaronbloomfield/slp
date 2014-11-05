@@ -21,7 +21,7 @@ bug, and displays the slides correctly.
 - [08: Estimation workday](fall/08-estimation.html)
 - [09: Wireframing](fall/09-wireframing.html)
 - [10: Documentation](fall/10-documentation.html)
-- 11: Continuous integration testing
+- [11: Continuous integration testing](fall/11-ci-testing.html)
 - 12: Website security (including the old SQL & XSS slide set)
 - 13: Design patterns
 - 14: Software errors
