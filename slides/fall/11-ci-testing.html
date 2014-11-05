@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4970: 11-ci-testing slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../css/slp.css">
+    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4970
+&nbsp;
+### Capstone Practicum I
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="11-ci-testing.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+&nbsp;
+&nbsp;
+## Continuous Integration Testing
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Introduction](#/intro)  
+[Writing Unit Tests](#/unittests)  
+[CI Testing Services](#/ciservices)  
+[Conclusions](#/conclusions)  
+	</script></section>
+
+	<section>
+
+	  <section data-markdown id="intro"><script type="text/template">
+# Introduction
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Testing lectures
+- This is one of two lectures on testing
+  - It focuses only on unit tests and CI testing services
+- The other is the full testing lecture
+  - Given in the spring
+  - Contents: test plan, other types of tests, etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is Continuous Integration
+- As you add code to a code base, you need to know that this code will *integrate* into the existing code base without errors
+  - Given a large number of unit tests, run those tests on the system after each code change
+- This is done *continuously* (as opposed to once a week, before release, etc.)
+  - This can mean upon every git push, or multiple times a day at fixed times, etc.
+- The hitch: running all those tests can take many hours!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Background: Fixtures
+- A given test will likely need some information in the database
+  - But not much!
+- That information is called a *fixture*
+  - It is a few database records necessary to complete the test
+- Specifying fixtures
+  - CakePHP: using PHP arrays (see [here](http://book.cakephp.org/3.0/en/development/testing.html#creating-fixtures))
+  - Django: using [JSON](http://en.wikipedia.org/wiki/JSON) or [YAML](http://en.wikipedia.org/wiki/YAML) (see [here](https://docs.djangoproject.com/en/dev/howto/initial-data/))
+  - Rails: using [YAML](http://en.wikipedia.org/wiki/YAML) (see [here](http://guides.rubyonrails.org/testing.html#the-low-down-on-fixtures))
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="unittests"><script type="text/template">
+# Writing Unit Tests
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Step 1: Configure the Database
+- You need to have a test database
+  - Either MySQL or [SQLite](http://en.wikipedia.org/wiki/SQLite)
+  - Note that unit tests wipe the ENTIRE database!
+- Your DB passwords should ***NOT*** be kept in the github repo
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Step 2: Write some Unit Tests
+- See the appropriate tutorial
+  - CakePHP: [CakePHP: Testing](http://book.cakephp.org/3.0/en/development/testing.html)
+  - Rails: [A Guide to Testing Rails Applications](http://guides.rubyonrails.org/testing.html)
+  - Django: [Testing in Django](https://docs.djangoproject.com/en/1.6/topics/testing/)
+    - But start with [page 5 of the intro tutorial](https://docs.djangoproject.com/en/1.6/intro/tutorial05/)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Step 3: Call the Testing Command
+- CakePHP: `phpunit`
+  - This requires installing phpunit: `sudo apt-get install phpunit`
+- Rails: `bundle exec rake`
+- Django: `python manage.py test`
+- In all cases, this should run the unit tests, and they should all succeed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What to Test
+- Your system is an MVC (Model-View-Controller) based system
+  - So you should write tests for each of the components
+- Model tests: does data validate properly?  what if required data is missing?  what about invalid associations?
+- Controller tests: for each function in the controller, test out *each* flow of control through that method
+- Views: given various data in the fixture, does the view render properly
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What to Test, take 2
+- This adapted from [here](https://developer.salesforce.com/page/How_to_Write_Good_Unit_Tests)
+- Unit tests should test:
+  - Normal conditions
+  - Unexpected conditions (user performs functions in the wrong order, etc.)
+  - Bad input values
+  - Boundary conditions
+  - That bugs were fixed (and thus that the bug is not later re-introduced)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Code Coverage
+- How much of the code base was "covered" (i.e., executed) by a given run?
+  - Or, in our case, by a series of tests
+- There are many code coverage tools, here are some:
+  - CakePHP: [phpunit](https://phpunit.de/); see [here](http://book.cakephp.org/3.0/en/development/testing.html#generating-code-coverage)
+  - Rails: the [simplecov](https://github.com/colszowka/simplecov) gem; see [here](http://www.rubydoc.info/gems/simplecov/frames)
+  - Django: [coverage](http://nedbatchelder.com/code/coverage/), see [here](https://docs.djangoproject.com/en/1.6/topics/testing/advanced/#integration-with-coverage-py)
+- Later in the year we will need to ensure that our code is fully covered by our unit tests
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Unit Tests are not to find bugs!
+- (well, not *only*...)
+- Finding bugs is *integration testing*
+  - As bugs tend to appear more when all the parts of the system are interacting
+  - Unit tests are just for a single *unit*
+- Unit tests are for:
+  - Ensuring that some functionality works properly
+  - A way to ensure that this functionaity works in the future when system changes are made
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Unit Testing Tips
+- These are from [here](http://blog.stevensanderson.com/2009/08/24/writing-great-unit-tests-best-and-worst-practises/)
+- Make each test orthogonal
+- Don't unit-test configuration settings 
+- Name your unit tests clearly and consistently
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="ciservices"><script type="text/template">
+# CI Testing Services
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Background: Virtualization
+- Types
+  - System-level: emulates the entire machine; what you are used to with VirtualBox
+  - Process-level: runs a single process inside an execution environment; an example is a Java program running on the JRE; also .NET
+  - Operating system-level: the OS partitions user space to run different "containers", each of which appears as a separate machine
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Background: LXC (Linux Containers)
+- Boot-up time is only a second or two
+  - But the kernel version is the same as the running host
+- This means that processes can be run *very* fast inside an LXC
+- Your CS 2150 submissions were all run within a Linux Container for security reasons
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## How a CI service works
+- A *webhook* is set up in the github repo to notify the service on each push
+  - Commits are ignored, only pushes are monitored (as only pushes modify the github repo)
+- When notified of a push, the service creates a container, clones the repo, then configures that container as per the configuration in the repo
+- The tests are run, and the result is (somehow) reported back to the user
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Continuous Integration Software
+- This is the software that automates the running of your tests
+- Some are software you download or buy, and run on your server; an example is [Jenkins](http://jenkins-ci.org/)
+- Others run your code (and tests) on their servers, or in the "cloud"
+  - We'll see two: [Travis CI](https://magnum.travis-ci.com/) and [Circle CI](https://circleci.com)
+- Wikipedia has a [long list](http://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software) of such software
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Circle CI versus Travis CI
+- They are remarkably the same:
+  - Both integrate nicely with github, use Linux Containers and [YAML](http://en.wikipedia.org/wiki/YAML) configuration files, and run the major platforms
+- [Travis CI](https://magnum.travis-ci.com/) is a bit easier to configure, as it can infer a bit more about the system
+  - It provides free testing for public github repos
+- [Circle CI](https://circleci.com) has much better debugging facilities (you can SSH into the container, for example)
+- In the end, these two are a wash, and the services are largely identical for our purposes
+- Each project will be assigned to one of the two services
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Configuring your CI service
+- See the [CI setup page](../../docs/ci-setup.html) ([md](../../docs/ci-setup.md))
+- You will have to do this in iteration 4
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="conclusions"><script type="text/template">
+# Conclusions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Who is assigned to which group
+- Travis CI: band (6; cake), tjace (7; cake), haven (6; django), hopeslegacy (6; django), servicedogs (7; django), wtju (7; rails), arbor (7; rails), cars (7; rails)
+- Circle CI: jaunt (7; cake), was (7; cake), alzheimers (7; django), loaves (7; django), madisonhouse (7; django), innisfree (7; rails), shelter (7; rails)
+- Methodology
+  - 4 groups requested a CI service, and were granted that one
+  - There are 8 on Travis (including all the 6 person groups) and 7 on Circle
+  - Each service has 3 django, 2 cake, and 2 rails; Travis has an extra rails app
+    </script></section>
+
+    <section data-markdown><script type="text/template">
+## Your tasks
+1. Remove all DB passwords from the repo
+2. Write 2 (or so) unit tests, as per the tutorials
+3. Configure your project to run unit tests on the assigned CI service
+4. Have the status badge for your project's build shown at the top of your project's readme.md file
+5. Write a number of unit tests, beyond what was done in (2); see the next slide
+6. Ensure that all the unit tests written by the group (at least 30 or 35, depending on the group size) run successfully on the CI service
+    </script></section>
+
+    <section data-markdown><script type="text/template">
+## Writing the unit tests
+- Each *person* in the group must write at least 5 (five!) unit tests; you must commit your own unit tests to the repo
+- Each person in the group must write at least one fixture, which is used in some/all of their unit tests; you must also commit your own fixture (need not be a separate commit)
+- These unit tests must be actually test something, and it must be a valid unit test
+- They must all succeed (if they don't, then fix the code to make them succeed)
+    </script></section>
+
+    <section data-markdown><script type="text/template">
+## Your build should never fail!
+- Under no circumstances should you push code to the repo that you know breaks the build (i.e., causes the tests to fail)
+  - If you do so accidentally, then fix it right away
+- If you have tests, then they should all pass!
+  - You can run the test specific to the code you are writing; the rest are run by the CI service
+  - If they don't pass, then either fix the code or fix the test
+    </script></section>
+
+
+	</section>
+
+      </div>
+
+    </div>
+
+    <script src="../reveal.js/lib/js/head.min.js"></script>
+    <script src="../reveal.js/js/reveal.min.js"></script>
+    <script src="../js/settings.js"></script>
+
+  </body>
+</html>
