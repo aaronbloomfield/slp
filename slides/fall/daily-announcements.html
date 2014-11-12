@@ -52,6 +52,97 @@ line-height:120%;
 <section>
 
   <section>
+<h2>Wednesday, November 12th, 2014</h2>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1446/">xkcd # 1446</a></p>
+  </section>
+
+  <section data-markdown><script type="text/template">
+## Wednesday, November 12th, 2014
+- We are one week into iteration 4
+- Customer meetings: don't forget to submit the meeting report when you have met with them!  And wear those nifty name tags.
+- Leads: your weekly reports were due yesterday by noon
+  - Everybody got them in!
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+  - Details can be found in the [course introduction slide set](01-intro.html), specifically [here](01-intro.html#weeklyreport)
+- The meeting reports should only be 1 sentence!  And no need to mention meetings with Jamie
+- If your system requires authentication (as most will, eventually), you need to create accounts (of all user levels) for Jamie and myself
+- Don't forget to report your hours!!! This is a course requirement!
+- Iteration evaluations out through iteration 3 (which was just released)
+  - Please read it over, as many received poor progress ratings because I couldn't log in or find the work that was done
+  - Once that is fixed, come see me (for iteration 2) or Jamie (for iteraitons 1 and 3) during office hours or the meeting, and we will re-do the evaluation
+- Today will be a CI testing work day
+  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Upcoming Iteration Goals
+- Future iterations this semester will have fewer explicit goals
+- For all iterations, you should pick 24 or 28 story points worth of "stuff" to do; pick the highest priority stuff!
+- Some specific iteration goals follow:
+  - Iteration 3: show the wireframe to the customer, get their feedback, iterate on the design
+  - Iteration 4: implement continuous integration testing
+    - See the details in the [Continuous Integration Testing](11-ci-testing.html) slide set
+  - Iteration 5: get a preliminary system that implements the minimum requirements working
+  - Iteration 6: get a final system that implements the minimum requirements working
+- Keep in mind that iteration 6's goal is what you are working toward this entire semester!
+  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- ...
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Today's task
+- Today we will be working on the CI testing setup
+- Only one group is fully there yet (which is fine, since it's due at the end of the iteration)
+  - 7 groups have passing builds, but only one of those seven have all the unit tests configured
+  - Recall that each *person* must contribute at least 5 valid test cases (and one fixture per person)
+- To do today:
+  - Get Travis or Circle configured for your project; see the [CI testing](11-ci-testing.html) slide set for details
+  - Contribute the desired number of unit tests (at least 5 per person)
+- At the end of today, all the build status badges should be green!
+  </script></section>
+
+  <section id="cistatus">
+<h2>CI Testing Status</h2>
+<ul>
+<li>Alzheimer's Association: <a href="https://circleci.com/gh/uva-slp/alzheimers"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/alzheimers.png?style=shield&amp;circle-token="></a></li>
+<li>The Arbor: <a href="https://magnum.travis-ci.com/uva-slp/arbor"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/arbor.svg?token="></a></li>
+<li>CARS: <a href="https://magnum.travis-ci.com/uva-slp/cars"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/cars.svg?token="></a></li>
+<li>Band: <a href="https://magnum.travis-ci.com/uva-slp/band"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/band.svg?token="></a></li>
+<li>Hope's Legacy: <a href="https://magnum.travis-ci.com/uva-slp/hopeslegacy"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/hopeslegacy.svg?token="></a></li>
+<li>Innisfree Village: <a href="https://circleci.com/gh/uva-slp/innisfree"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/innisfree.png?style=shield&amp;circle-token="></a></li>
+<li>JAUNT: <a href="https://circleci.com/gh/uva-slp/jaunt"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/jaunt.png?style=shield&amp;circle-token="></a></li>
+<li>Loaves and Fishes: <a href="https://circleci.com/gh/uva-slp/loaves"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/loaves.png?style=shield&amp;circle-token="></a></li>
+<li>Madison House: <a href="https://circleci.com/gh/uva-slp/madisonhouse"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/madisonhouse.png?style=shield&amp;circle-token="></a></li>
+<li>Service Dogs: <a href="https://magnum.travis-ci.com/uva-slp/servicedogs"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/servicedogs.svg?token="></a></li>
+<li>The Haven: <a href="https://magnum.travis-ci.com/uva-slp/haven"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/haven.svg?token="></a></li>
+<li>Shelter for Help in Emergency: <a href="https://circleci.com/gh/uva-slp/shelter"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/shelter.png?style=shield&amp;circle-token="></a></li>
+<li>TJACE: <a href="https://magnum.travis-ci.com/uva-slp/tjace"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/tjace.svg?token="></a></li>
+<li>Wintergreen Adaptive Sports: <a href="https://circleci.com/gh/uva-slp/was"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/was.png?style=shield&amp;circle-token="></a></li>
+<li>WTJU 91.1 FM: <a href="https://magnum.travis-ci.com/uva-slp/wtju"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/wtju.svg?token="></a></li>
+</ul>
+<p>&nbsp;</p>
+<p>This page refreshes every 30 seconds</p>
+  </section>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+<section>
+
+  <section>
 <h2>Monday, November 10th, 2014</h2>
 <img class="stretch" src="http://imgs.xkcd.com/comics/efficiency.png" title="I need an extension for my research project because I spent all month trying to figure out whether learning Dvorak would help me type it faster." alt="Efficiency">
 <p class="center"><a href="http://xkcd.com/1445/">xkcd # 1445</a></p>
@@ -1303,6 +1394,21 @@ Specifically, see the [2014/readme.md](https://github.com/uva-slp/projects/blob/
     <script src="../reveal.js/lib/js/head.min.js"></script>
     <script src="../reveal.js/js/reveal.min.js"></script>
     <script src="../js/settings.js"></script>
+<script>
+var interval;
 
+function reloadCIStatusPage() {
+  if (Reveal.getCurrentSlide().id == "cistatus" )
+    location.reload();
+  else
+    clearInterval(interval);
+}
+
+Reveal.addEventListener( 'slidechanged', function( event ) {
+  if ( event.currentSlide.id == "cistatus" ) {
+    var interval = setInterval(function(){reloadCIStatusPage()}, 30000);
+  }
+} );
+</script>
   </body>
 </html>
