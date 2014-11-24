@@ -49,10 +49,10 @@ Lectures
 | 30  | Nov&nbsp;5  | Wednesday   | lecture       | Continuous integration testing || [11-ci-testing][61], slides 0 to 5-4 (end) ([recording][114]) |
 | 31  | Nov&nbsp;7  | Friday      | no class      |               || |
 | 32  | Nov&nbsp;10 | Monday      | group meeting |               || |
-| 33  | Nov&nbsp;12 | Wednesday   | lecture       |               || |
+| 33  | Nov&nbsp;12 | Wednesday   | lecture       | CI Testing work day || See [here][81] for details |
 | 34  | Nov&nbsp;14 | Friday      | no class      |               || |
 | 35  | Nov&nbsp;17 | Monday      | group meeting |               || |
-| 36  | Nov&nbsp;19 | Wednesday   | lecture       |               || |
+| 36  | Nov&nbsp;19 | Wednesday   | lecture       | Guest lecturer || Topic: software engineering in the real world |
 | 37  | Nov&nbsp;21 | Friday      | no class      |               || |
 | 38  | Nov&nbsp;24 | Monday      | group meeting |               || |
 |     | Nov&nbsp;26 | Wednesday   | no class      | (Thanksgiving break) || |
@@ -85,6 +85,7 @@ Lectures
 [61]: ../slides/fall/11-ci-testing.html
 
 [80]: ../slides/fall/daily-announcements.html#pivotal
+[81]: ../slides/fall/daily-announcements.html#citestingworkday
 
 [101]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/01-intro-1/01-intro-1.htm
 [102]: https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/lectures/02-dev-methods-1/02-dev-methods-1.htm
