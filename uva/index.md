@@ -8,7 +8,7 @@ Much of the rest of this git repo is meant to be generic to anybody who has a cl
 
 - [Fall semester daily announcements](../slides/fall/daily-announcements.html)
 - [Course syllabus][1] ([md][2])
-
+- [Legal forms][3] ([md][4])
 
 
 Lectures
@@ -64,6 +64,8 @@ Lectures
 
 [1]: syllabus.html
 [2]: syllabus.md
+[3]: legal.html
+[4]: legal.md
 
 [20]: ../docs/hw-git.html
 [21]: ../docs/hw-git.md
