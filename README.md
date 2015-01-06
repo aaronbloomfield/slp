@@ -2,8 +2,7 @@ Service Learning Practicum
 ==========================
 
 The Service Learning Practicum course (CS 4970/4971) at the University
-of Virginia.  Content will be added to this repo throughout the 2014
-calendar year.
+of Virginia.  This is a 4th year software engineering capstone course for computing majors.  It's focus is on developing software for local nonprofits.
 
 Repository Contents
 -------------------
@@ -48,4 +47,4 @@ License
 
 The material in this repository is released under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).
 
-Copyright (c) 2013-2014 by Aaron Bloomfield.
+Copyright (c) 2013-2015 by Aaron Bloomfield.

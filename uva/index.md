@@ -5,67 +5,75 @@ UVa Specific Material
 
 Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the CS 4970/4971 version of the course at the University of Virginia.
 
-
-- [Fall semester daily announcements](../slides/fall/daily-announcements.html)
+- [Spring semester daily announcements][5]
 - [Course syllabus][1] ([md][2])
 - [Legal forms][3] ([md][4])
-
+- [Old UVa SLP documents][6] ([md][7]), including the lectures and recordings from previous semesters
 
 Lectures
 --------
 
-| Num | Date        | Day of week | Lecture type  | Planned topic | Things due | Actual lecture progress (and recording) |
-|-----|-------------|-------------|---------------|---------------|-------------|----------------------------|
-| 1   | Aug&nbsp;27 | Wednesday   | lecture       | Course intro  || [01-intro][51], slides 0 to 7-7 ([recording][101]) |
-| 2   | Aug&nbsp;29 | Friday      | lecture       | Course intro, development methods || [01-intro][51], slides 7-7 to 9-10 (end); [02-development-methods][52], slides 0 to 2-3 ([recording][102]) |
-| 3   | Sep&nbsp;1  | Monday      | lecture       | Development methods || [02-development-methods][52], slides 3 to 7-5 (end) ([recording][103]) |
-| 4   | Sep&nbsp;3  | Wednesday   | lecture       | Legal issues  || [03-legal][53], slides 0 to 4-9 ([recording][104]) |
-| 5   | Sep&nbsp;5  | Friday      | no class      |               | [HW 1][20] ([md][21])|                                         |
-| 6   | Sep&nbsp;8  | Monday      | lecture       | Legal issues, frameworks || [03-legal][53], slides 4-10 to 6-3 (end); [04-frameworks][54], slides 0 to 2-7 ([recording][105]) |
-| 7   | Sep&nbsp;10 | Wednesday   | lecture       | Frameworks    | CakePHP part of [HW 2][22] ([md][23])| [04-frameworks][54], slides 2-8 to 7-5 (end) ([recording][106]) |
-| 8   | Sep&nbsp;12 | Friday      | no class      |               || |
-| 9   | Sep&nbsp;15 | Monday      | lecture       | Requirements  | Rails part of [HW 2][22] ([md][23]) | [05-requirements][55], slides 0 to 2-10 ([recording][107]) |
-| 10  | Sep&nbsp;17 | Wednesday   | lecture       | Requirements || [05-requirements][55], slides 3-1 to 4-7 (end) ([recording][108]) |
-| 11  | Sep&nbsp;19 | Friday      | class optional |               | Django part of [HW 2][22] ([md][23]) | Class is for those who have questions about the survey or the projects |
-| 12  | Sep&nbsp;22 | Monday      | group meeting | Project start || [06-project-start][56], slides 0 to 4-16 (end) ([recording][109]) |
-| 13  | Sep&nbsp;24 | Wednesday   | lecture       | Customer meetings || [07-customer-meetings][57], slides 0 to 4-5 (end) ([recording][110]) |
-| 14  | Sep&nbsp;26 | Friday      | no class      |               || |
-| 15  | Sep&nbsp;29 | Monday      | group meeting |               || Group meeting day |
-| 16  | Oct&nbsp;1  | Wednesday   | lecture       | Estimation workday || [08-estimation][58], slides 0 to 6-2 (end) ([recording][111]) |
-| 17  | Oct&nbsp;3  | Friday      | no class      |               || |
-| 18  | Oct&nbsp;6  | Monday      | group meeting |               || |
-| 19  | Oct&nbsp;8  | Wednesday   | lecture       | Wireframing   || [09-wireframing][59], slides 0 to 5-3 (end) ([recording][112]) |
-| 20  | Oct&nbsp;10 | Friday      | no class      |               || |
-|     | Oct&nbsp;13 | Monday      | no class      | (fall break)  || |
-| 21  | Oct&nbsp;15 | Wednesday   | group meeting |               || |
-| 22  | Oct&nbsp;17 | Friday      | no class      |               || |
-| 23  | Oct&nbsp;20 | Monday      | group meeting |               || |
-| 24  | Oct&nbsp;22 | Wednesday   | lecture       | Documentation || [10-documentation][60], slides 0 to 5-2 (end) ([recording][113]) |
-| 25  | Oct&nbsp;24 | Friday      | no class      |               || |
-| 26  | Oct&nbsp;27 | Monday      | group meeting |               || |
-| 27  | Oct&nbsp;29 | Wednesday   | lecture       | Pivotal Tracker work day || See [here][80] for details |
-| 28  | Oct&nbsp;31 | Friday      | no class      |               || |
-| 29  | Nov&nbsp;3  | Monday      | group meeting |               || |
-| 30  | Nov&nbsp;5  | Wednesday   | lecture       | Continuous integration testing || [11-ci-testing][61], slides 0 to 5-4 (end) ([recording][114]) |
-| 31  | Nov&nbsp;7  | Friday      | no class      |               || |
-| 32  | Nov&nbsp;10 | Monday      | group meeting |               || |
-| 33  | Nov&nbsp;12 | Wednesday   | lecture       | CI Testing work day || See [here][81] for details |
-| 34  | Nov&nbsp;14 | Friday      | no class      |               || |
-| 35  | Nov&nbsp;17 | Monday      | group meeting |               || |
-| 36  | Nov&nbsp;19 | Wednesday   | lecture       | Guest lecturer || Topic: software engineering in the real world |
-| 37  | Nov&nbsp;21 | Friday      | no class      |               || |
-| 38  | Nov&nbsp;24 | Monday      | group meeting |               || |
-|     | Nov&nbsp;26 | Wednesday   | no class      | (Thanksgiving break) || |
-|     | Nov&nbsp;28 | Friday      | no class      | (Thanksgiving break) || |
-| 39  | Dec&nbsp;1  | Monday      | group meeting |               || |
-| 40  | Dec&nbsp;3  | Wednesday   | lecture       |               || |
-| 41  | Dec&nbsp;5  | Friday      | no class      |               || |
+| Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
+|-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
+| 1 | Jan&nbsp; 12 | Monday | lecture / group meeting | Course introduction and group meeting |  |  |  
+| 2 | Jan&nbsp; 14 | Wednesday | group meeting |  | Start of 7 (due: deployment plan) |  |  
+| 3 | Jan&nbsp; 16 | Friday | no class |  |  |  |  
+|  | Jan&nbsp; 19 | Monday | (none) | no class (MLK day) |  |  |  
+| 4 | Jan&nbsp; 21 | Wednesday | group meeting | since there wasn't one on Monday |  |  |  
+| 5 | Jan&nbsp; 23 | Friday | no class |  |  |  |  
+| 6 | Jan&nbsp; 26 | Monday | group meeting |  | End of 7 (due: deployment plan) |  |  
+| 7 | Jan&nbsp; 28 | Wednesday | lecture | Deliverables | Start of 8 (due: license) |  |  
+| 8 | Jan&nbsp; 30 | Friday | no class |  |  |  |  
+| 9 | Feb&nbsp; 2 | Monday | group meeting |  |  |  |  
+| 10 | Feb&nbsp; 4 | Wednesday | lecture | Deliverables |  |  |  
+| 11 | Feb&nbsp; 6 | Friday | no class |  |  |  |  
+| 12 | Feb&nbsp; 9 | Monday | group meeting |  | End of 8 (due: license) |  |  
+| 13 | Feb&nbsp; 11 | Wednesday | lecture | Testing | Start of 9 (due: test plan) |  |  
+| 14 | Feb&nbsp; 13 | Friday | no class |  |  |  |  
+| 15 | Feb&nbsp; 16 | Monday | group meeting |  |  |  |  
+| 16 | Feb&nbsp; 18 | Wednesday | lecture |  |  |  |  
+| 17 | Feb&nbsp; 20 | Friday | no class |  |  |  |  
+| 18 | Feb&nbsp; 23 | Monday | group meeting |  | End of 9 (due: test plan) |  |  
+| 19 | Feb&nbsp; 25 | Wednesday | lecture |  | Start of 10 (due: requirements document) |  |  
+| 20 | Feb&nbsp; 27 | Friday | no class |  |  |  |  
+| 21 | Mar&nbsp; 2 | Monday | group meeting |  |  |  |  
+| 22 | Mar&nbsp; 4 | Wednesday | lecture |  |  |  |  
+| 23 | Mar&nbsp; 6 | Friday | no class |  |  |  |  
+|  | Mar&nbsp; 9 | Monday | (none) | no class (spring break) | End of 10 (due: requirements document) |  |  
+|  | Mar&nbsp; 11 | Wednesday | (none) | no class (spring break) | Start of 11 (due: transition plan) |  |  
+|  | Mar&nbsp; 13 | Friday | (none) | no class (spring break) |  |  |  
+| 24 | Mar&nbsp; 16 | Monday | group meeting |  |  |  |  
+| 25 | Mar&nbsp; 18 | Wednesday | lecture |  |  |  |  
+| 26 | Mar&nbsp; 20 | Friday | no class |  |  |  |  
+| 27 | Mar&nbsp; 23 | Monday | group meeting |  | End of 11 (due: transition plan) |  |  
+| 28 | Mar&nbsp; 25 | Wednesday | lecture |  | Start of 12 (due: technical report) |  |  
+| 29 | Mar&nbsp; 27 | Friday | no class |  |  |  |  
+| 30 | Mar&nbsp; 30 | Monday | group meeting |  |  |  |  
+| 31 | Apr&nbsp;1 | Wednesday | lecture |  |  |  |  
+| 32 | Apr&nbsp;3 | Friday | no class |  |  |  |  
+| 33 | Apr&nbsp;6 | Monday | group meeting |  | End of 12 (due: technical report) |  |  
+| 34 | Apr&nbsp;8 | Wednesday | lecture |  | Start of 13 (due: user manual, programming reference) |  |  
+| 35 | Apr&nbsp;10 | Friday | no class |  |  |  |  
+| 36 | Apr&nbsp;13 | Monday | group meeting |  |  |  |  
+| 37 | Apr&nbsp;15 | Wednesday | lecture |  |  |  |  
+| 38 | Apr&nbsp;17 | Friday | no class |  |  |  |  
+| 39 | Apr&nbsp;20 | Monday | group meeting |  | End of 13 (due: user manual, programming reference) |  |  
+| 40 | Apr&nbsp;22 | Wednesday | lecture |  | Start of 14 (due: completed system and documentation) |  |  
+| 41 | Apr&nbsp;24 | Friday | no class |  |  |  |  
+| 42 | Apr&nbsp;27 | Monday | group meeting |  |  |  |  
+|  | Apr&nbsp;29 | Wednesday |  |  |  |  |  
+|  | May&nbsp;1 | Friday |  |  |  |  |  
+|  | May&nbsp;4 | Monday |  |  | End of 14 (due: completed system and documentation) |  |  
+
 
 
 [1]: syllabus.html
 [2]: syllabus.md
 [3]: legal.html
 [4]: legal.md
+[5]: daily-announcements.html
+[6]: old/index.html
+[7]: old/index.md
 
 [20]: ../docs/hw-git.html
 [21]: ../docs/hw-git.md

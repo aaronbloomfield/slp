@@ -1,8 +1,7 @@
 Lecture Schedule
 ================
 
-[Go up to the main README file](README.html)
-
+[Go up to the main Old SLP page](index.html)
 
 | Num |&nbsp;| Date |&nbsp;| Day of week |&nbsp;| Lecture Type |&nbsp;| Notes |
 |-----|------|------|------|-------------|------|--------------|------|-------|

@@ -8,9 +8,20 @@ in current versions of Firefox will prevent the font used in the
 slides from displaying correctly; Google Chrome does not have this
 bug, and displays the slides correctly.
 
-### Fall 2014
+### Spring lectures
 
-- [Daily announcements](fall/daily-announcements.html)
+- [Daily announcements](../uva/daily-announcements.html) (UVa specific)
+- [01: Course Introduction](spring/01-intro.html)
+- [02: Deliverables](spring/02-deliverables.html)
+- [03: Testing](spring/03-testing.html)
+- [04: Maintenance](spring/04-maintenance.html)
+- [05: Continuous Integration](spring/05-ci.html)
+
+------------------------------------------------------------
+
+### Fall lectures
+
+- [Daily announcements](../uva/old/daily-announcements-fall-2014.html) (UVa-specific)
 - [01: Course introduction](fall/01-intro.html)
 - [02: Development methods](fall/02-development-methods.html)
 - [03: Legal Issues](fall/03-legal.html)
@@ -22,21 +33,14 @@ bug, and displays the slides correctly.
 - [09: Wireframing](fall/09-wireframing.html)
 - [10: Documentation](fall/10-documentation.html)
 - [11: Continuous integration testing](fall/11-ci-testing.html)
-- 12: Website security (including the old SQL & XSS slide set)
-- 13: Design patterns
-- 14: Software errors
-- 15: Course conclusion
-
 
 ------------------------------------------------------------
 
-This repository was started in the spring of 2014, which was half-way through the course.  Thus, only the second half of the class lecture notes from the 2013-2014 academic year are in this repository.
+### Potential topics
 
-### Spring 2014
+These are ideas for potential topics; they may be included this academic year, or next, or never.
 
-- [Daily announcements](spring/daily-announcements.html)
-- [01: Course Introduction](spring/01-intro.html)
-- [02: Deliverables](spring/02-deliverables.html)
-- [03: Testing](spring/03-testing.html)
-- [04: Maintenance](spring/04-maintenance.html)
-- [05: Continuous Integration](spring/05-ci.html)
+- Website security (including the old SQL & XSS slide set)
+- Design patterns
+- Software errors
+- Course conclusion

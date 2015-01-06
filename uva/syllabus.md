@@ -5,7 +5,7 @@ a.k.a. Capstone Practicum I (CS 4970) and Capstone Practicum II (CS 4971)
 
 ### Fall 2014 & Spring 2015
 ### Fall 2014: M/W/F 10:00-10:50, Rice 130
-### Spring 2015: location TBA
+### Spring 2015: M/W/F 9:00-9:50, Rice 130
 
 **Instructor:** [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron).  Office is Rice Hall, room 403.  Office hours are M/W 2:00-3:30.
 
