@@ -1,12 +1,12 @@
 SLP: Documents
 ==============
 
-[Go up to the main README file](../README.html)
+[Go up to the main README file](../README.html) ([md](../README.md))
 
-### Course-related
+### UVa-specific
 
-- [Schedule](schedule.html) ([md](schedule.md)): the schedule of lectures, iterations, etc.
-- [Syllabus](syllabus.html) ([md](syllabus.md)) for the fall 2014 and spring 2015 semesters
+- [Schedule](../uva/schedule.html) ([md](../uva/schedule.md)): the schedule of lectures, iterations, etc.
+- [Syllabus](../uva/syllabus.html) ([md](../uva/syllabus.md)) for the fall 2014 and spring 2015 semesters
 
 ### Documents and tutorials
 

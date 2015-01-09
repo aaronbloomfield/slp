@@ -1,7 +1,7 @@
 Old UVa-specific SLP files
 ==========================
 
-[Go up to the main UVa content page](../index.html) ([md](index.md))
+[Go up to the main UVa page](index.html) ([md](index.md))
 
 This page contains various files from previous semesters at UVa.
 

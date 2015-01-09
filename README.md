@@ -1,45 +1,35 @@
 Service Learning Practicum
 ==========================
 
-The Service Learning Practicum course (CS 4970/4971) at the University
-of Virginia.  This is a 4th year software engineering capstone course for computing majors.  It's focus is on developing software for local nonprofits.
+This repository is for the Service Learning Practicum course sequence
+(CS 4970/4971) at the University of Virginia.  It is a 4th year
+software engineering capstone course for computing majors.  The focus
+of the capstone is on developing software for local nonprofits.
 
 Repository Contents
 -------------------
 
-None of these links will work if being viewed on github.com; you will
-have to clone (or otherwise download) the repository.
+The "md" links will work if viewed on github.com; the other links work if the repo is cloned locally.
 
 - [Slides](slides/index.html) ([md](slides/index.md))
 - [Docs](docs/index.html) ([md](docs/index.md))
 - [UVa specific material](uva/index.html) ([md](uva/index.md))
 - [SIGCSE 2014 talk](pubs/sigcse-2014.html) for the paper entitled, "[A Service Learning Practicum Capstone](http://dl.acm.org/citation.cfm?id=2538862.2538974)"
 
-Markdown
---------
+Entering `make` in the cloned repo directory will convert all the .md files to .html files for local viewing (requires [pandoc](http://johnmacfarlane.net/pandoc/)).
 
-The majority of the content in this repository was created using
-Markdown.  Unfortunately, the only standardized Markdown is very old
-(2004), and has limited support for many HTML features, such as
-tables.  Indeed, the default Ubuntu version of Markdown is the 2004
-version.  To address this, a [markdown.cpp](utils/markdown.cpp.html)
-([src](utils/markdown.cpp)) program was written to use more recent
-Markdown features.  This program uses the libmarkdown library, which
-does support more recent Markdown features.  This library installed on
-Ubuntu via the 'libmarkdown2-dev' package.  Note that reveal.js, which
-is used for the slides, also supports more modern Markdown features.
-That being said, the extra Markdown features used in this repository
-should be compatible with the generally accepted Markdown features.
 
-To compile: "gcc markdown.c -o markdown -lmarkdown". To use, specify
-the input file name, and optionally an output file.  The resulting
-document is a full HTML document -- meaning it adds the doctype, html,
-head, and body tags to the document, as necessary.
+External Links
+--------------
 
-For all the Markdown files, both the original (.md) file and the HTML
-version (.html) are added to the repository, so that people who do not
-have Markdown installed can still view the contents of this
-repository.
+You can view more [information about the Service Learning Practicum](http://www.cs.virginia.edu/~asb/slp/).  In particular, this page includes information about how to apply, as well as current and former projects.
+
+We have also had some press coverage:
+
+- [A different kind of classroom][28], [Cavalier Daily][29], October 24, 2013. The SLP is the third of the courses listed.
+- [Tom Tom Founders Festival 2012: Crowd Funded Pitch Night][30]. The [micro-volunteering website][24] is pitched starting at 3:49, and we won second place (shown at 4:55).
+- [Local catering business wins $1K at crowd-source event][31], [C-ville][32], May 8, 2012. We are mentioned in paragraphs 7 and 8.
+
 
 
 License
@@ -48,3 +38,11 @@ License
 The material in this repository is released under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA).
 
 Copyright (c) 2013-2015 by Aaron Bloomfield.
+
+
+[24]: http://www.cs.virginia.edu/~asb/slp/2012-2013.php#cnemv
+[28]: http://www.cavalierdaily.com/article/2013/10/a-different-kind-of-classroom_1024
+[29]: http://www.cavalierdaily.com/
+[30]: http://www.earlessrabbit.com/bronze/ttff-crowd-funded-pitch-night/http://www.earlessrabbit.com/bronze/ttff-crowd-funded-pitch-night/
+[31]: http://www.c-ville.com/Article/News_Extra/Local_catering_business_wins_1K_at_crowd_source_event/
+[32]: http://www.c-ville.com

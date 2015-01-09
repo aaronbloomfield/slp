@@ -1,7 +1,7 @@
 UVa Specific Material
 =====================
 
-[Go up to the main README file](../README.html)
+[Go up to the main README file](../README.html) ([md](../README.md))
 
 Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the CS 4970/4971 version of the course at the University of Virginia.
 

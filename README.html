@@ -10,19 +10,24 @@
 </head>
 <body>
 <h1 id="service-learning-practicum">Service Learning Practicum</h1>
-<p>The Service Learning Practicum course (CS 4970/4971) at the University of Virginia. This is a 4th year software engineering capstone course for computing majors. It's focus is on developing software for local nonprofits.</p>
+<p>This repository is for the Service Learning Practicum course sequence (CS 4970/4971) at the University of Virginia. It is a 4th year software engineering capstone course for computing majors. The focus of the capstone is on developing software for local nonprofits.</p>
 <h2 id="repository-contents">Repository Contents</h2>
-<p>None of these links will work if being viewed on github.com; you will have to clone (or otherwise download) the repository.</p>
+<p>The &quot;md&quot; links will work if viewed on github.com; the other links work if the repo is cloned locally.</p>
 <ul>
 <li><a href="slides/index.html">Slides</a> (<a href="slides/index.md">md</a>)</li>
 <li><a href="docs/index.html">Docs</a> (<a href="docs/index.md">md</a>)</li>
 <li><a href="uva/index.html">UVa specific material</a> (<a href="uva/index.md">md</a>)</li>
 <li><a href="pubs/sigcse-2014.html">SIGCSE 2014 talk</a> for the paper entitled, &quot;<a href="http://dl.acm.org/citation.cfm?id=2538862.2538974">A Service Learning Practicum Capstone</a>&quot;</li>
 </ul>
-<h2 id="markdown">Markdown</h2>
-<p>The majority of the content in this repository was created using Markdown. Unfortunately, the only standardized Markdown is very old (2004), and has limited support for many HTML features, such as tables. Indeed, the default Ubuntu version of Markdown is the 2004 version. To address this, a <a href="utils/markdown.cpp.html">markdown.cpp</a> (<a href="utils/markdown.cpp">src</a>) program was written to use more recent Markdown features. This program uses the libmarkdown library, which does support more recent Markdown features. This library installed on Ubuntu via the 'libmarkdown2-dev' package. Note that reveal.js, which is used for the slides, also supports more modern Markdown features. That being said, the extra Markdown features used in this repository should be compatible with the generally accepted Markdown features.</p>
-<p>To compile: &quot;gcc markdown.c -o markdown -lmarkdown&quot;. To use, specify the input file name, and optionally an output file. The resulting document is a full HTML document -- meaning it adds the doctype, html, head, and body tags to the document, as necessary.</p>
-<p>For all the Markdown files, both the original (.md) file and the HTML version (.html) are added to the repository, so that people who do not have Markdown installed can still view the contents of this repository.</p>
+<p>Entering <code>make</code> in the cloned repo directory will convert all the .md files to .html files for local viewing (requires <a href="http://johnmacfarlane.net/pandoc/">pandoc</a>).</p>
+<h2 id="external-links">External Links</h2>
+<p>You can view more <a href="http://www.cs.virginia.edu/~asb/slp/">information about the Service Learning Practicum</a>. In particular, this page includes information about how to apply, as well as current and former projects.</p>
+<p>We have also had some press coverage:</p>
+<ul>
+<li><a href="http://www.cavalierdaily.com/article/2013/10/a-different-kind-of-classroom_1024">A different kind of classroom</a>, <a href="http://www.cavalierdaily.com/">Cavalier Daily</a>, October 24, 2013. The SLP is the third of the courses listed.</li>
+<li><a href="http://www.earlessrabbit.com/bronze/ttff-crowd-funded-pitch-night/http://www.earlessrabbit.com/bronze/ttff-crowd-funded-pitch-night/">Tom Tom Founders Festival 2012: Crowd Funded Pitch Night</a>. The <a href="http://www.cs.virginia.edu/~asb/slp/2012-2013.php#cnemv">micro-volunteering website</a> is pitched starting at 3:49, and we won second place (shown at 4:55).</li>
+<li><a href="http://www.c-ville.com/Article/News_Extra/Local_catering_business_wins_1K_at_crowd_source_event/">Local catering business wins $1K at crowd-source event</a>, <a href="http://www.c-ville.com">C-ville</a>, May 8, 2012. We are mentioned in paragraphs 7 and 8.</li>
+</ul>
 <h2 id="license">License</h2>
 <p>The material in this repository is released under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA).</p>
 <p>Copyright (c) 2013-2015 by Aaron Bloomfield.</p>

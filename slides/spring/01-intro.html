@@ -44,39 +44,16 @@
 	<section data-markdown><script type="text/template">
 ## Compressed course introduction
 - Pretty much everything is the same as last semester, expect for the few things mentioned herein
-  - See last semester's 01-intro.pptx, and course syllabus, for details (both are on [Collab](https://collab.itc.virginia.edu/portal))
+  - See last semester's [course introduction slide set](../fall/01-intro.html), and the [course syllabus](../../uva/syllabus.html) ([md](../../uva/syllabus.md)), for details
 	</script></section>
-
-	  <section data-markdown><script type="text/template">
-## git Repository
-- I'm now using git to keep track of the slides (and other materials) for the course
-  - It is in a public github repo: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp)
-- To install git:
-```
-sudo apt-get install git
-```
-- To use git:
-  - Enter the following command only once:
-```
-git clone https://github.com/aaronbloomfield/slp.git
-```
-    - This will create a 'slp' directory that contains everything in the repository
-    - Note that much of the content will be added throughout the semester
-  - To get the latest version, change into that directory via the command line, and enter:
-```
-git pull
-```
-	  </script></section>
 
 	<section data-markdown><script type="text/template">
 ## Iteration plan
 - There will be 8 two-week iterations this semester (numbered 7-14); iteration 7 starts tomorrow
-- The system must be *feature-complete* by the end of iteration 11 (March 24)
+- The system must be *feature-complete* by the end of iteration 11 (March 23)
   - Missing this deadline will result in <strong class="red">failure for the course</strong>!
-  - Note that we now have a [bunch of tutorials](https://libra.cs.virginia.edu/mediawiki/index.php?title=Main_Page) about how to implement various things
+  - Note that we now have a [bunch of tutorials](http://github.com/uva-slp/tutorials) about how to implement various things
 - That leaves iterations 12-14 for transition: bug fixes, tweaks, testing, deployment, documentation, maintenance, etc.
-- Prior to iteration 12, you will have to implement unit testing (or similar)
-  - As we approach this stage, we'll discuss it further
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -87,9 +64,10 @@ git pull
   - Installation instructions
   - Programming reference
   - Updated requirements document
-  - STS report
+  - STS technical report
 - I'm looking for complete documentation, not necessarily long-winded documentation
 - I will provide detailed instructions as to what goes into each
+  - It's in the [deliverables](02-deliverables.html) slide set, which will be gone over in lecture
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -97,49 +75,12 @@ git pull
 - As there is no additional semester after this one to complete the project, you will be held to your various requirements:
   - The original requirements document
   - Updated versions of this requirements document
-  - Issues entered into Redmine
+  - Issues entered into github
 - Not completing these requirements means that you did not complete the project!
 - Among other things, this means:
   - You have to make more actual progress!
   - Last semester some groups didn't make 'actual progress' until the end of the semester...
-  - And you will need to keep your Redmine issues updated, as this will now directly affect your grade
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Reports
-- These are submitted through Collab -> SLP Admin
-- There are a modification to the reports the lead has to submit this semester
-  - Weekly report (just one!): what the 1st weekly report was last semester
-  - TPS report: same as last semester
-    - This will now incorprate the material from last semester's 2nd weekly report
-  - Meeting report: the new report this semester
-- Details about what goes into the first two can be found in the 01-intro.pptx slide set from last semester
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## The Meeting Report
-- This to be submitted whenever there is a meeting with an external individual (customer or mentor)
-- The purpose is to notify me of such a meeting, so I can contact them to see how things are going from their end
-- It is due by the <strong class="red">end of the meeting</strong> that the report is for
-  - Any team member can submit this report, and it should be done at the very end of the meeting
-- Meetings without an external individual should not submit this type of report
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Meeting report contents
-- This report should only be **ONE LINE**
-  - "Today we met with Jane Doe (mentor) and John Doe (customer) from 1:00-2:00 in Rice 404"
-  - That's really all I want; this report is not meant to take any significant amount of time
-- It should NOT go into details about what happened in that meeting
-  - Those details are already in the wiki in the meeting notes
-  - And summaries would presumably go into the weekly or TPS reports
-	</script></section>
-
-	<section data-markdown><script type="text/template">
-## Report due dates
-- Weekly report: due by noon on Tuesday one week into the iteration
-- TPS report: due by noon on the Tuesday immediately after the iteration ends
-- Meeting report: due by the end of said meeting
+  - And you will need to keep your github issues updated
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -172,6 +113,8 @@ git pull
   - Phase 5: iterations 9-10 (2 iterations)
   - Phase 6: iterations 11-12 (2 iterations)
   - Phase 7: iterations 13-14 (2 iterations)
+- If there ends up being a 5 person group, we'll chat about that offline
+- Full schedule can be found [here](../../uva/schedule.html) ([md](../../uva/schedule.md))
 	  </script></section>
 
 	<section data-markdown><script type="text/template">
@@ -180,16 +123,56 @@ git pull
   - We are going to go over it in detail on Wednesday
   - It will require input from the customer (and possibly the mentor)
 - If you are going to have a customer meeting **BEFORE** Wednesday's lecture, you must speak to me in class today, and I'll fill you in on what you need to ask
-	  </script></section>
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Project Status
+- Your customer should have played with the system over break
+- You should thus have feedback from him or her
+  - (you may have to email them to remind them to send you that feedback)
+- That should provide you some stuff to do in the current iteration
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Meetings
+- You do not have to have your bi-weekly iterations with the customer this iteration, **AS LONG AS** you get email feedback instead
+  - Although you are welcome to do so
+- The bi-weekly meetings with the graduate TA will start next iteration
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Grades reminder
+As mentioned in the [first lecture in the fall](../fall/01-intro.html) (specifically, [here](../fall/01-intro.html#/grades)):
+
+- Not completing time sheets or surveys will penalize your grade
+  - Likewise with reports
+- ***EVERYBODY*** is expected to contribute to the project
+  - This means, among other things, that there should be (real) git commits from everybody (and likely for each iteration)
+- We can re-do the iteration evaluations, for example if we could not find something, as long as it is brought to our attention within a reasonable time frame (say, 2 weeks from when they are released)
+- Attendance is still required (I know the class starts at 9 a.m., and I can't do anything about that)
+	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Today's agenda: group meeting
 - It's the beginning of iteration 7:
   - New leads and secretaries 
+  - Is your CI build green?
   - What issues will be worked on during this iteration?
   - How will you get all of your features completed by the end of iteration 11?
-  - Update the Redmine issues and story point counts, as they are not looking like much of a burndown chart...
-	  </script></section>
+  - Update the github issues and story point counts, as they are not looking like much of a burndown chart...
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Schedule for the first month
+- Mon, Jan 12th (today): course introduction, group meetings
+- Wed, Jan 14th: deployment plan discussion, group meetings
+- Mon, Jan 19th: no class, as it's MLK day
+- Wed, Jan 21st: group meetings (since they weren't that Monday)
+- Mon, Jan 26th: group meetings
+- Wed, Jan 28th: [deliverables](02-deliverables.html) lecture
+- Mon, Feb 2nd: group meetings
+- Wed, Feb 4th: the rest of the [deliverables](02-deliverables.html) lecture
+	</script></section>
 
       </div>
 

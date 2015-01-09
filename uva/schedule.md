@@ -1,11 +1,11 @@
-SLP: Schedule, 2013-2014
+SLP: Schedule, 2014-2015
 ========================
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
 
 For the lecture schedule, see the [main UVa page](../uva/index.html) ([md](../uva/index.md))
 
-### Iteration Schedule, 2013-2014
+### Iteration Schedule, 2014-2015
 
 Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the end of the day on a Monday two weeks later (at 11:59 p.m. on that Monday).  The first 6 iterations are in the fall semester, and the last 8 iterations are in the spring semester.
 

@@ -1,7 +1,7 @@
 UVa Legal Forms
 ===============
 
-[Go up to the main UVa content page](../index.html) ([md](index.md))
+[Go up to the main UVa page](index.html) ([md](index.md))
 
 The forms on this page have been approved by the powers-that-be at the University of Virginia ("UVa") for use by UVa students participating in a fourth-year capstone course.  Other institutions are welcome to look over these, but they are obviously need to be approved by that institution for use there.
 

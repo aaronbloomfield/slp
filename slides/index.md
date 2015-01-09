@@ -1,7 +1,7 @@
 Service Learning Practicum: Slides
 ==================================
 
-[Go up to the main README file](../README.html)
+[Go up to the main README file](../README.html) ([md](../README.md))
 
 Note that a [bug](https://bugzilla.mozilla.org/show_bug.cgi?id=760436)
 in current versions of Firefox will prevent the font used in the
