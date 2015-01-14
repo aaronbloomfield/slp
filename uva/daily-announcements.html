@@ -12,8 +12,14 @@
     <link rel="stylesheet" href="../slides/reveal.js/css/theme/default.css" id="theme">
     <link rel="stylesheet" href="../slides/css/slp.css">
     <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
-    <script><!-- If the query includes 'print-pdf', use the PDF print sheet -->
-      document.write( '<link rel="stylesheet" href="../slides/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../slides/reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
     </script>
     <!--[if lt IE 9]>
     <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
@@ -52,12 +58,68 @@ line-height:110%;
 	<section>
 
 	  <section>
-...
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1473/">xkcd # 1473</a></p>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## Lecture 1: Monday, January 12th, 2015
-- ...
+## Lecture 1: Wednesday, January 14th, 2015
+- We are starting iteration 7 (new leads and new secretaries)
+  - The deliverable for this iteration is the *deployment plan* (see next slide)
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Leads: your weekly reports are due by noon *next* Tuesday
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+  - Details can be found in the fall [course introduction slide set](../../slides/fall/01-intro.html), specifically [here](../../slides/fall/01-intro.html#weeklyreport)
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day; there is no class this Friday or next Monday
+  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Deployment plan
+- Due at the end of iteration 7 (January 26th)
+- So that we can find it, please make a docs/ directory in the root of your github repo, and put it there (in PDF or Markdown format)
+- It should contain:
+  - Where the system is being deployed (URL, provider, etc.)
+    - Alternatively: AWS, Heroku, customer's machine, etc.
+  - What "things" need to be acquired for said deployment
+    - Servers? Domain names? Hosting accounts?  Credentials?
+  - Acknowledgement from the customer that s/he will need to acquire those "things"
+    - This can be an e-mail separate from the deployment plan
+    - You should start an email conversation with the customer about all this; said email conversation is likely sufficient
+    - And a rough timeline for the acquisition of said "things"
+- A single paragraph is fine, if that covers everything
+- You should also include whatever indicators you have that the customer understands that s/he will have to acquire this, if appropriate
+	  </script></section>
+
+
+	<section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- Wed, Jan 14th: deployment plan discussion, group meetings
+- Mon, Jan 19th: no class, as it's MLK day
+- Wed, Jan 21st: group meetings (since they weren't that Monday)
+- Mon, Jan 26th: group meetings
+- Wed, Jan 28th: [deliverables](../slides/spring/02-deliverables.html) lecture
+- Mon, Feb 2nd: group meetings
+- Wed, Feb 4th: the rest of the [deliverables](../slides/spring/02-deliverables.html) lecture
+	</script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Arbor: issue #113
+- Innisfree: issue #53
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
 	  </script></section>
 
 	</section>
