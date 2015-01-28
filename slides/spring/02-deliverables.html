@@ -32,7 +32,7 @@
 # CS 4971
 &nbsp;
 ### Capstone Practicum II
-### Spring 2014
+### Spring 2015
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="02-deliverables.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
@@ -52,6 +52,7 @@
 [Requirements Document](#/reqsdoc)  
 [STS Technical Report](#/stsreport)  
 [Final Presentation](#/finalpres)  
+[Miscellaneous Deliverables](#/misc)  
 [Tutorials](#/tutorials)  
 [Submission Requirements](#/submission)  
 [Conclusion](#/conclusion)  
@@ -67,32 +68,32 @@
 ## Non-documentation deliverables
 - A working, installed, and deployed system built to the customer's requirements
   - Obviously...
-- Source code in some electronic format
-  - Posted online, an emailed .zip file, etc.
-  - Details about that are to be determined later
+- Source code in electronic format
+  - In the `master` branch of the github repo
+  - Emailed as a .zip file to the customer
+  - Details about that are to be specified later
 - The rest of the deliverables are documentation...
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Documentation artifacts to be produced
 - Transition plan
-  - Including: deployment plan, master test plan, continuous integratino test plan, specific test plans, etc.
+  - Including: deployment plan, installation instructions, master test plan, code coverage report
 - User manual
 - Installation instructions
 - Programming reference
 - Updated requirements document
 - STS technical report
 - Final presentation presentation
-  - Including a one-slide version
-- Tutorial (individual)
-  - Instead of a final exam
+- Miscellaneous: screen shot(s) and a one-slide version
+- Tutorial (individual, instead of a final exam)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Size notes
 - These don't have to be long-winded documents!
-  - For example, the installation instructions can be a single page in the user manual
-    - But will probably be more for Rails...
+  - For example, the installation instructions can be a single page
+  - But will probably be more for Rails...
 - I don't want you to add fluff
   - Having to read that just makes me cranky and wastes my time
 - But it needs to be well English
@@ -102,6 +103,22 @@
 ## Lecture notes
 - This slide set is (intentionally) very verbose because I want it to also serve as a reference throughout the rest of the semester when writing these artifacts
 - So please excuse the fact that there is way too much text on the slides...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Deliverable format
+- All documents are to be in a `docs/` directory in the *root* of your github repo
+- The documents need to be either Markdown or PDF
+  - If PDF, then the source (.docx, .tex, etc.) should be in there as well
+- Name them something appropriate: `deployment-plan.md`, `transition-plan.pdf`, etc.
+  - The names are specified at the end of this document
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## A note on quality
+- We are not expecting you to spend days and days on each one
+- But throwing something together at the last minute, and not putting an appropriate amount of effort into it, is not sufficient
+- They must be reasonably good quality, else they will not be considered fulfilling of the requirement
 	  </script></section>
 
 	</section>
@@ -115,9 +132,10 @@
 
 	  <section data-markdown><script type="text/template">
 ## Overview
-- To be developed by the end of iteration 11 (March 24th), this will contain the necessary information for a proper transition
+- To be developed by the end of iteration 11 (March 23rd), this will contain the necessary information for a proper transition
+  - The parts of the transition plan are developed over the next few iterations
 - Audience: the development group
-- The requirements document is not technically part of the transition plan, but the updated version is also due March 24th
+- The requirements document is not technically part of the transition plan, but the updated version is also due March 23rd
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -126,73 +144,79 @@
   - Technically not part of the transition plan...
 - The full transition plan consists of:
   1. Deployment plan
-  2. Master test plan
-  3. Continuous integration test plan
-  4. Specific test plans
+  2. Installation instructions
+  3. Master test plan
+  4. Code coverage report
 - The parts above are due at the end of iterations 7-10, respectively
   - The full transition plan is due at the end of iteration 11
-- Initially, each of the four parts will be kept as a separate wiki page in Redmine
-  - It needs to be clearly labeled so that I can find it!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Deployment plan
-- Due at the end of iteration 7 (January 27th)
+- Was due at the end of iteration 7 (January 26th)
 - It should contain:
-  - Where the system is being deployed
+  - Where the system is being deployed (URL, provider, etc.)
+    - Alternatively: AWS, Heroku, customer's machine, etc.
   - What "things" need to be acquired for said deployment
-    - Servers? Domain names? Hosting accounts?
+    - Servers? Domain names? Hosting accounts?  Credentials?
   - Acknowledgement from the customer that s/he will need to acquire those "things"
     - This can be an e-mail separate from the deployment plan
+    - You should start an email conversation with the customer about all this; said email conversation is likely sufficient
     - And a rough timeline for the acquisition of said "things"
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Deployment plan, part 2
 - A single paragraph is fine, if that covers everything
+- You should also include whatever indicators you have that the customer understands that s/he will have to acquire this, if appropriate (email snippet, for example)
+- Many of you will need a couple of iterations to have this finalized; that's fine; just mention that in the deployment plan, and keep it updated
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Installation instructions
+- Due at the end of iteration 8 (February 9th)
+- Discussed [later in this slide set](#/installation)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Master test plan
-- Due at the end of iteration 8 (February 10th)
-- See the forthcoming testing slide set for details
+- Due at the end of iteration 9 (February 23rd)
+- See the forthcoming [testing slide set](03-testing.html) for details
+  - That slide set is not yet ready, as it needs updates...
 - This is a high-level overview of the testing
   - From the point of view of the tests: which requirements are being tested?
   - From the point of view of the requirements: what tests are validating that those requirements work?
+- It also contains a list of all the types of tests you are going to perform
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Continuous integration test plan
-- Due at the end of iteration 9 (February 24th)
-- We will be using [Jenkins](http://jenkins-ci.org/) ([on Wikipedia](http://en.wikipedia.org/wiki/Jenkins_%28software%29)) as our continuous integration tool
-  - Jenkins is installed on pegasus
-- There are three things you will need to do:
-  1. Configure Jenkins for your system
-  2. Write some tests (but not all at this point)
-  3. Write a high-level overivew of your plan for continuous integration (more on this later)
-- I will be going over Jenkins (either in lecture or as a tutorial) later
+## Code coverage report
+- Due at the end of iteration 10 (March 9th)
+- You already have a number of unit tests written, and it should be running on Travis or CircleCI
+- You need to ask: do the unit tests cover *all* of the code?
+- Each group will need to run a code coverage analysis tool, and report how much of the code base is covered
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Specific test plans, take 1
-- Due at the end of iteration 10 (March 10th)
-- You need to start planning what specific tests you are going to perform
-- The overview of those tests is in the master test plan
-- So now fill in the details:
-  - What unit tests are you going to use?  What is your plan for determining which ones to write?  How are yhou going to write them?
-  - Describe the installation test in more detail
-  - Describe the requirements tests that will be performed
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Specific test plans, take 2
-- Whereas the master test plan is a high level overview
-- The specific test plans add in the low level details
-- Combined, the two should describe exactly how you are going to test the system
+## Code coverage report
+- Your *entire* code base needs to be covered!
+  - Anything *not* covered will have to have an explanation as to why
+- This means you will need to start writing lots of unit tests!
+  - Don't wait until the last minute to do this!
+  - It will be *far* easier to do this as you develop in the next few iterations
+- This part of the transition plan is purposely the last part due to give you more time to develop the unit tests
+- More details about code coverage will be forthcoming in the [testing slide set](03-testing.html) slide set
+  - That slide set is not yet ready, as it needs updates...
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Full transition plan
-- Due at the end of iteration 11 (March 24th)
-- This entails taking the four previous sections, combining them together into a single document, and making edits and updates
+- Due at the end of iteration 11 (March 23rd)
+- This entails taking the four previous sections and updating them and making edits
+  - Example: as you will likely add more code in this iteration, you will be writing some more unit tests, and thus your code coverage report will have to be updated
+- This will be turned in along with the updated requirements document
 - It will thus contain:
-  - The roadmap for how to rapidly deploy the system
+  - The roadmap for how to deploy the system
   - A plan for the testing of the system
 	  </script></section>
 
@@ -209,9 +233,9 @@
 ## Overview
 - This includes directions for how to use the system
 - Audience:
-  - A new customer -- say, if your customer leaves, and a new one takes over -- to learn how to use the system when they have NO prior knowledge
+  - A new customer -- say, if your customer leaves, and a new one takes over -- who will need to learn how to use the system when they have NO prior knowledge
   - The existing customer, to use as a reference
-  - Assume that the audience has NO technical knowledge
+  - But assume that the audience has NO technical knowledge
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -233,10 +257,10 @@
 
 	  <section data-markdown><script type="text/template">
 ## Format
-- Letter page size
-- Single spaced
-- Reasonable margins
-- Reasonable fonts
+- If PDF: letter page size, single spaced, reasonable margins, reasonable fonts
+- If Markdown, you will need to ensure that this prints out properly
+  - Embedded images, word wrap, etc., do not format so well with Markdown
+  - Thus, the user manual will be more difficult to generate in Markdown (but not impossible)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -262,7 +286,7 @@
 - [How To Write a User's Manual](http://www.ehow.com/how_5140680_write-user-manual.html)
 - Or just Google for "how to write a user manual"
   - Those are the first three results from that search
-- We also have a Collab tutorial on [How to Write a Good User Manual](https://collab.itc.virginia.edu/portal/tool/38ee7d60-9626-4b2a-8732-0bc53f30d69c?pageName=%2Fsite%2F34417471-f045-46f1-a50f-738fa387fa54%2Fhow+to+write+a+good+user+manual&action=printview&panel=Main&breadcrumb=0&realm=%2Fsite%2F34417471-f045-46f1-a50f-738fa387fa54)
+- We also have a tutorial on [How to Write a Good User Manual](https://github.com/uva-slp/tutorials/blob/master/other/how-to-write-good-user-manual/index.md)
 	  </script></section>
 
 	</section>
@@ -276,34 +300,43 @@
 
 	  <section data-markdown><script type="text/template">
 ## Overview
+- This is actually part of the transition plan
 - This should contain instructions for how to install the system
 - Audience is the customer
   - So do not assume that they have any technical knowledge beyond what you already know they have
+  - And don't really assume that much either -- a new customer with zero knowledge may have to install the system
 - If the installation is easy, it can be a single page
  - Some groups will have much longer installation instructions (Rails, in particular)
-- This should be included in the user manual
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Assumptions
 - You can assume:
   - They already have a system that runs Apache and MySQL (or they know how to install it)
-    - But you should include a quick line as to what packages would have to be installed if they choose to install it themselves
+    - But you should include a quick note as to what packages would have to be installed if they choose to install it themselves
     - Feel free to include the instructions from the wiki on how to configure Apache
-    - You can copy this all verbatim from the "VirtualBox image configured with LAMP" wiki page
-  - phpMyAdmin is installed (or they can install it)
+    - You can copy this all verbatim from the [VirtualBox image configured with LAMP](../../docs/virtualbox-image-details.html) ([md](../../docs/virtualbox-image-details.md)) page
+  - phpMyAdmin is installed (or they can install it) -- this is a single package on Ubuntu
+    - `sudo apt-get install phpmyadmin`
   - That they are installing the software system (not the LAMP stack) from scratch (i.e., creating the database, etc.)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## What to include
+## What to include, part 1
 - How to create the account(s) that will host the file
   - In Dreamhost or Bluehost, for example, a walk-through of the web pages to configure this
+  - Likewise for Heroku, AWS, or similar
+- How to install any dependent packages
+  - apt-get installs, PHP libraries, Ruby gems, or Python libraries
 - How to upload all the files from the system
   - Have them download a free version of SecureCRT or similar
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What to include, part 2
 - How to configure those files
   - They will need to update database.php or database.yml with the MySQL username, password, and DB
-  - They will need to 'chmod 777 app/tmp' for CakePHP, for exmaple
+  - They will need to `chmod 777 app/tmp` for CakePHP, for exmaple
 - How to initialize the database
   - There should be a schema.sql (or similar) that they can upload to create the tables
 - How to load any default values into the database
@@ -313,9 +346,9 @@
 ## Testing
 - This will need to be tested!
   - The 'installation testing' aspect of the master test plan
+  - More details in the [testing slide set](03-testing.html) slide set
 - Given a BLANK VirtualBox image, or a BLANK Dreamhost or Bluehost account, do the instructions work?
-  - Note that a blank image is NOT the one I provided to you earlier in the semester (as that was already configured)
-  - I'll provide a blank image (the CS 2150 one) shortly
+  - Note that the provided course image already has some of the installation commands completed!
 	  </script></section>
 
 	</section>
@@ -330,7 +363,7 @@
 	  <section data-markdown><script type="text/template">
 ## Overview
 - This is a document intended to allow a programmer to modify the system
-- Audience: a person who is (somewhat) knowledgeable in CakePHP or Rails, as appropriate
+- Audience: a person who is (somewhat) knowledgeable in CakePHP, Rails, or Django, as appropriate
 - The nonprofits may hire somebody to augment the system
   - Or I may have to go in and fix something
   - Or another team may take it over in the future
@@ -338,7 +371,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## Assumptions
-- The intended audience knows a bit about CakePHP or Rails, as appropriate
+- The intended audience knows a bit about CakePHP, Rails, or Django, as appropriate
   - Enough to write a simple system
   - But not necessarily a lot of in-depth knowledge
 - That the audience has sufficient other technical knowledge
@@ -349,19 +382,21 @@
 	  <section data-markdown><script type="text/template">
 ## What to include
 - An overview of what goes where, design decisions made, how data is stored, etc.
-- The purpose is so that a person familiar with CakePHP or Rails can rapidly get up to speed with modifying the system without having to read through a lot of source code
-- Did you use other components (CakePHP plugins or Rails gems)?
+- The purpose is so that a person familiar with CakePHP / Rails / Django can rapidly get up to speed with modifying the system without having to read through a lot of source code
+- Did you use other components (CakePHP plugins, Rails gems, Python packages)?
   - If so, discuss those as well
 - You are welcome to include UML if it will help explain things, but it is by no means required
-  - See last semester's documentation lecture (in Resources/slides/)
+  - See [last semester's documentation lecture](../fall/10-documentation.html) for the UML diagram details
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Consequences
 - This means that your code will need to have some comments!
-  - In the non-obvious sections
-- We aren't talking about full-fledged doxygen comments
+  - In the non-obvious sections, especially
+- We aren't necessarily talking about full-fledged doxygen comments
 - Just enough so that the programmer can figure out what is going on
+- However, this can all be provided via sufficient doxygen comments
+  - In this case, the programming reference will state how to generate said doxygen comments, and where to start reading
 	  </script></section>
 
 	</section>
@@ -411,8 +446,8 @@
 	  <section data-markdown><script type="text/template">
 ## Format
 
-<table class="default"><tr>
-<td class="top"><ul><li>Two-column</li><li>Single spaced</li><li>Size 10 font</li><li>Standard margins</li><li>5-6 pages</li><li>That will be some-where from 4,000 to 5,000 words</li></td>
+<table class="transparent"><tr>
+<td class="top"><p>&nbsp;</p><ul><li>Two-column</li><li>Single spaced</li><li>Size 10 font</li><li>Standard margins</li><li>5-6 pages</li><li>That will be somewhere between 4,000 to 5,000 words</li></td>
 <td><img src="../images/slp-article-first-page.png" alt="SLP paper first page"></td>
 </tr></table>
 
@@ -421,10 +456,13 @@
 	  <section data-markdown><script type="text/template">
 ## Format, take 2
 - Templates available from [here](http://www.acm.org/sigs/publications/proceedings-templates) (use the "tighter alternate style")
-- Available in Word or LaTeX; your choice
+  - Available in Word or LaTeX; your choice
 - You are welcome to use a group editing system to develop it; just the final version must be in that format
+  - Reports not in that format will not be accepted nor signed!
 - References must also be in that format
   - LaTeX makes references VERY easy; Word is a pain
+  - For LaTeX, use [Google Scholar](http://scholar.google.com/) to look up a citation, and then cut-and-paste the BibTeX into a references.bib file
+    - I can explain more if you are interested...
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -499,6 +537,26 @@
 - Who did what is irrelevant for the purposes of this article; everything was done "by the group"
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Author list
+- All authors should be listed
+  - The order is up to you, but I suggest alphabetically
+- There should be exactly two lines under your name:
+  - Your affiliation ("University of Virginia")
+  - Your email ("mst3k@virginia.edu", or pick another)
+- And nothing else!  No cell numbers, no addresses, etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Due date
+- I need the articles ***two weeks*** before they are due to your STS instructor
+  - If group members have different deadlines, then it's two weeks before the *earliest* of those deadlines
+- I will spend a week (or so) reading them over
+  - Yes, I read over and comment on each of them!
+  - But I have 15 to read over, so I will need time to get through them all...
+- And then you have a week to make any changes and then get all the signatures
+	  </script></section>
+
 	</section>
 
 
@@ -511,8 +569,10 @@
 	  <section data-markdown><script type="text/template">
 ## Overview
 - There will be a final presentation at the end of the semester
-  - During the final exam time slot (Tuesday, May 6th, from 9 a.m. to 12 noon)
-- Audience: the rest of the class, the mentors, and the customers
+  - One option is during the last few classes
+  - Another option is during the final exam time slot (Monday, May 4th, from 2 p.m. to 5 p.m.)
+  - Details about when to follow
+- Audience: the rest of the class and the customers
   - And other selected guests and big-wigs
 - You will demo the system, the challenges you faced, etc.
 - It is to be done by the entire group!  And all group members must participate!
@@ -531,7 +591,8 @@
 	  <section data-markdown><script type="text/template">
 ## Guidelines
 - Part of this presentation is a demo of your system (on pegasus is fine)
-- Presentations should be about 15 minutes each.
+- Presentations should be about 10 minutes each
+  - Due to the number of projects, we have to keep to that time limit!
 - Everybody in the group should participate in some way; this is a group presentation
 - This should be rehearsed, and flow smoothly
   - If you were presenting such a project in front of your boss, you would not want to run into logistical problems during the presentation (such as, "wait, I thought *you* were talking about this part")
@@ -565,16 +626,32 @@
   - Things not appropriate for a presentation can instead go into the last end-of-year survey or the course evaluations
 	  </script></section>
 
+	</section>
+
+
+	<section>
+
+	  <section id="misc" data-markdown><script type="text/template">
+# Miscellaneous<br>Deliverables
+	  </script></section>
+
 	  <section id="otherdeliverables" data-markdown><script type="text/template">
-## Other deliverables with the presentation
-- In addition to the slide set for the presentation...
-- I will need a single screen shot of the system
+## Screen shot(s)
+- We want a few screen shot(s) of the system
   - This is going to be used in advertising and publicity, so make it a good one!
   - It SHOULD include the logo of the nonprofit in some way
+- Name it `screenshot.png`, `screenshot-2.png`, etc.
+- These need to be a "publicity shot" that shows off as much of your system as can be done in a single screen shot
+	  </script></section>
+
+	  <section id="otherdeliverables" data-markdown><script type="text/template">
+## Single slide
 - A single slide about your system
   - This is a one-shot description of your system, also to be used in advertising and publicity
   - Make it a good slide!
   - Slides with just text indicate a complete lack of caring about and indifference to... um...
+- This is also a "publicity" slide
+- The intent is to merge all 15 into a single slide show to show off all that you have done
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -582,7 +659,8 @@
 - You are welcome to use any software that you want for your main presentation
   - PowerPoint (from Microsoft Office), Impress (from LibreOffice), Keynote (Mac OS X), or reveal.js (what this slide set is in)
   - If you want to use reveal.js, you can grab my slides as samples from the [github repo](https://github.com/aaronbloomfield/slp), or just clone the [reveal.js repo](https://github.com/hakimel/reveal.js/)
-- However, the one-slide version MUST be in PowerPoint
+- However, the one-slide version ***MUST*** be in PowerPoint
+  - Sorry!
   - It's too hard to stich together slides of different formats
 	  </script></section>
 
@@ -606,39 +684,43 @@
 
 	  <section data-markdown><script type="text/template">
 ## Guidelines, part 1
-- Basically, we want to ensure that you develop a quality tutorial that can be used by future students
-- All the tutorials must be developed in the MediaWiki on libra
-  - Preference would be for each tutorial to be on one page (i.e. no sub-pages), if possible
-- Tutorials should have embedded images, screen shots, code segments, etc., as appropriate. 
-  - The How To Develop A Collab Wiki page discusses how to create all these.
+- Just like last semester
+- The intent is to write a tutorial on *something* that you had to work through this semester
+  - Something that, if you had had a tutorial ahead of time, would have saved you time or effort
+  - It must be something that there does not exist a tutorial already online
+- They are due at the end of the normal final exam period (Mon, May 4th @ 5 p.m.)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Guidelines, part 2
-- You are welcome to build upon the old tutorials, but you must cite the old tutorial that you built upon
-  - And there must be a significant improvement!
-- Likewise, you are welcome to build upon existing online tutorials, but you must also cite them as well.
+- Basically, we want to ensure that you develop a quality tutorial that can be used by future students
+- All the tutorials must be developed in the [uva-slp/tutorials](https://github.com/uva-slp/tutorials), just like last semester
+  - Preference would be for each tutorial to be on one page (i.e. no sub-pages), if possible
+- Tutorials should have embedded images, screen shots, code segments, etc., as appropriate. 
+- You are welcome to build upon existing online tutorials, but you must also cite them as well.
 - However, we do NOT want you just duplicating an existing online tutorial
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Guidelines, part 3
-- We want the tutorials to be quality pieces of work
-  - We don't intend for you to have to spend weeks developing it
-  - But a quick rush-job is not what we are looking for either
-  - Tutorials will be graded
-- The instructions for creating the tutorial will be the same as last semestser
-  - And I'll get to those as the semester is coming to a close
+- Everybody will have to one (individually) or convert two (from an older format)
+  - Note that conversion means making sure that it still works!
+- The format will be [Markdown](https://help.github.com/articles/markdown-basics/)
+  - There is a repo that everybody will fork: [uva-slp/tutorials](https://github.com/uva-slp/tutorials)
+  - The [README.md](https://github.com/uva-slp/tutorials/blob/master/README.md) contains instructions for topic reservation and how to complete the tutorial (which is done via a [pull request](https://help.github.com/articles/creating-a-pull-request/))
+- This is meant to take about 3 hours, which is the time a final exam would take
+- This will count in lieu of your final exam, which will be a non-insignificant part of your final grade
+- In an effort to keep this sane for us, will are going to insist that you please follow the directions laid out in that tutorial
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Topics
-- While many tutorials will be on CakePHP or Rails topics, there will be a lot of new things you will be using this semester
-- Some ideas:
-  - Using related technologies
-  - Incorporating AJAX, jQuery, etc.
-  - Testing-related tutorails (Jenkins, etc.)
-- But check last semester's tutorials first!
+## Logistics
+- The list of tutorials to convert will be updated later in the semester
+- If you want to start it earlier, please get in touch with me first
+- We want the tutorials to be quality pieces of work
+  - We don't intend for you to have to spend weeks developing it
+  - But a quick rush-job is not what we are looking for either
+  - Tutorials will be graded!
 	  </script></section>
 
 	</section>
@@ -654,40 +736,37 @@
 ## Consistency requirements
 - For the final submission, the documentation files will need to be named something consistent
 - Basically, you need to include all the documents that have been created this year
-- This should not be particularly onerous (it's really just renaming files and converting them to PDF), and should take all of 5 minutes...
+- This should not be particularly onerous (it's really just renaming files), and should take all of 5 minutes...
+- Any notes on the documentation will be included in a `docs/readme.md` file (discussed later)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Documentation submission
-- Create a zip called foo.zip, where 'foo' is the short name of your group (VPRSF, vocal, etc.).  It should contain:
-  - user-manual.pdf: the PDF version of the user manual
-  - user-manual.XXX: the original source of your user manual (.docx, .tex, etc.)
-    - If it's an online document, please note this in the readme.txt (see below)
-    - If it's LaTeX, you will likely need a directory of supporting images in the .zip file also
-  - installation-instructions.pdf: the installation instructions; if it's part of the user manual, please note this in the readme.txt
-  - installation-instructions.XXX: the original source; if it's an online document, or if it's part of the user manual, please note this in the readme.txt
+- All documents should be in a `docs/` directory in your github repo
+- If the files are PDFs, then you ***MUST*** include the original source files (.docx, .tex, etc)
+  - LaTeX documents may need sub-directories of supporting images, etc.
+- If they were generated via an online editor (Google Drive or similar), then export it to an editable format (.docx, .odt, etc.), and note this in the readme.md
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Documentation submission, cont'd
-- More contents to include:
-  - programming-reference.pdf: the programming reference
-    - If it's part of the code base (such as doxygen comments), please note this in the readme.txt, along with directions how to create that documentation
-  - programming-reference.XXX: the original source; if it's an online document, or if it's part of the code base, please note this in the readme.txt
+- Stuff to include:
+  - user-manual.md/pdf: the Markdown or PDF version of the user manual
+  - installation-instructions.md/pdf: the installation instructions (actually part of the transition plan, mentioned on the next slide also)
+  - programming-reference.md/pdf: the programming reference
+    - If it's part of the code base (such as doxygen comments), then there should still be a programming-reference.md/pdf file that states this (and has quick directions how to generate said documentation)
   - technical-report.pdf: what you turned in for your STS thesis
-  - technical-report.XXX: the original source; which will likely be in either .docx or LaTeX
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Documentation submission, cont'd
 - More contents to include:
-  - requirements-document.pdf: what was completed at the end of iteration 11
-    - And requirements-document.XXX: the source, or indicate in the readme.txt if it's online
-  - Transition plan documents
-    - deployment-plan.pdf, continuous-integration-plan.pdf, master-test-plan.pdf, specific-test-plans.pdf: what you developed in iterations 7-10
-      - If they are on Redmine, please convert them to PDF (you can just print to a PDF file), but ALSO indicate in the readme.txt that they are from Redmine
-     - If they are all in one file, name it transition-plan.pdf
-     - Otherwise, please include the source for those files (or indicate in the readme.txt if they are online)
+  - requirements-document.md/pdf: what was completed at the end of iteration 11
+  - Transition plan documents: what you developed in iterations 7-10
+    - deployment-plan.md/pdf
+    - installation-instructions.md/pdf
+    - master-test-plan.md/pdf
+    - code-coverage-report.md/pdf
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -696,51 +775,53 @@
   - Final presentation materials
     - final-presentation.XXX: Final presentation slide set
     - final-presentation.pdf: a PDF version of your presentation (one slide per page), as I may not have access to the program that you used to create your slide set
-    - one-slide.pptx: the 'one slide' marketing version
-    - screenshot.png: the screenshot(s)
-      - They can be .png, .jpg, etc.  And feel free to include more than one; just number them sequentially
+  - one-slide.pptx: the 'one slide' marketing version
+  - screenshot.png: the screenshot(s)
+    - They can be .png, .jpg, etc.  And feel free to include more than one; just number them sequentially
   - Any supporting files (files and images needed to make LaTeX compile, etc.)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Documentation submission, cont'd
 - More contents to include:
-  - readme.txt: this should any explanations about where files (for online files) are or how to access them, or anything else that is relevant to the documentation
-    - If there is nothing to report, please just put "nothing to report" in a readme.txt file, so that I know this file wasn't just forgotten
+  - readme.md: this should any explanations about where files (for online files) are or how to access them, or anything else that is relevant to the documentation
+    - If there is nothing to report, please just put "nothing to report" in a readme.md file, so that I know this file wasn't just forgotten
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Code base submission
-- The assumption is that the latest SVN or git repository revision contains the entire website that can be deployed on the customer's deployment host
+- The assumption is that the `master` branch in the github repository contains the entire system that can be deployed on the customer's deployment host
 - If there is ANYTHING that needs to be changed upon deployment, that should be indicated in the deployment plan
   - For example: .htaccess files need changing, the database.php or database.yml needs updating, etc.
   - You don't have to include their DB account information; just indicate that it needs updating
-- Thus, you don't have to submit the code base to me (I have access to the SVN or git repo); but you will to the customer (see next slide)
+- Thus, you don't have to submit the code base to me (I have access to the git repo); but you will need to send it to the customer (see next slide)
 	  </script></section>
 
 	  <section id="customer" data-markdown><script type="text/template">
 ## Hand-off to the customer, part 1
 - You should e-mail the customer the following documents
   - Include a one or two sentence explanation of what they are
-  - And please CC me on that e-mail
+  - And CC me on that e-mail
+- *Please convert Markdown to PDF when sending to the customer*
 - To email the customer:
-  - user-manual.pdf 
-    - And the installation-instructions.pdf, if separate from the user manual; if it's a part of the user manual, then no need to indicate this to them
-  - requirements-document.pdf
-  - A .zip file of the developed website
-    - Remove all the .svn and .git directories to reduce the file size
-    - And indicate to them that I can also provide this code base as necessary
+  - user-manual.md/pdf 
+  - installation-instructions.md/pdf
+  - requirements-document.md/pdf
+  - programming-reference.md/pdf
+  - A .zip file of the code base
+    - Indicate to them that I can also provide this code base as necessary
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Hand-off to the customer, part 2
-- If the customer wants to see more of the documentation, that's fine -- nothing is really secret from them (I just assumed they would not be interested in the rest)
+- If the customer wants to see more of the documentation, that's fine
+  - Nothing is really secret from them; I just assumed they would not be interested in the rest
 - And thank them for their participation!  I want to remain on good terms!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Redmine issues
-- Upon completion of the project, the ONLY things that should be in the Redmine issues database are bugs that you know are still there and are unresolved
+## Github issues
+- Upon completion of the project, the ONLY things that should be in the Github issues listing are bugs that you know are still there and are unresolved
   - Meaning you should clear out all the issues!
   - And if there are still bugs, please let me know so that we can chat about their status...
 	  </script></section>
@@ -767,14 +848,15 @@
 	  <section data-markdown><script type="text/template">
 ## Due dates
 - Due at the end of iterations 7-11:
-  - Iteration 7 (January 27th): deployment plan
-  - Iteration 8 (February 10th): master test plan
-  - Iteration 9 (February 24th): continuous integration plan
-  - Iteration 10 (March 10th): specific test plan(s)
-  - Iteration 11 (March 24th): full transition plan
-- Due throught the transition period (iterations 12-14; specific dates TBA): user manual (with installation instructions), Programming reference
-- Due ????: STS technical report (I will need them two weeks before STS needs them)
-- Due right before our final presentations: final presentation slide set (and the screen shot, and the one-slide version); tutorial
+  - Iteration 7 (January 26th): deployment plan
+  - Iteration 8 (February 9th): installation instructions
+  - Iteration 9 (February 23rd): master test plan
+  - Iteration 10 (March 9th): code coverage report
+  - Iteration 11 (March 23th): full transition plan, including the updated requirements document
+- Due throught the transition period (iterations 12-14; specific dates TBA): user manual, programming reference
+- Due ????: STS technical report
+  - I will need them two weeks before STS needs them
+- Due at the beginning of the final exam period (Mon, May 4th @ 5 p.m.): final presentation slide set, screen shot(s), the one-slide version, and the tutorial
 	  </script></section>
 
 	</section>
