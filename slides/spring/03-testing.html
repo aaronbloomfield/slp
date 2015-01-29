@@ -57,6 +57,7 @@
 [Specific Test Types](#/specific)  
 [Master Test Plan](#/mastertestplan)  
 [Continuous Integration Testing](#/contint)  
+[Code Coverage](#/codecoverage)  
 [Test Plan](#/testplan)  
 	</script></section>
 
@@ -461,7 +462,28 @@
 - That document is meant to provide *structure*, not to force you to create a lot of fluff
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Todo
+- the next two slides were separate previously, but should be merged into the master test plan
+	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## Specific test plans, take 1
+- Due at the end of iteration 10 (March 10th)
+- You need to start planning what specific tests you are going to perform
+- The overview of those tests is in the master test plan
+- So now fill in the details:
+  - What unit tests are you going to use?  What is your plan for determining which ones to write?  How are yhou going to write them?
+  - Describe the installation test in more detail
+  - Describe the requirements tests that will be performed
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Specific test plans, take 2
+- Whereas the master test plan is a high level overview
+- The specific test plans add in the low level details
+- Combined, the two should describe exactly how you are going to test the system
+	  </script></section>
 
 
 	</section>
@@ -497,6 +519,118 @@
 	  <section data-markdown><script type="text/template">
 ## Unit tests with Rails
 - Links to follow soon...
+	  </script></section>
+
+	</section>
+
+
+	<section>
+
+	  <section id="codecoverage" data-markdown><script type="text/template">
+# Code Coverage
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## To talk about
+- include code coverage tools and analysis
+- problems with code coverage reports: https://wiki.python.org/moin/CodeCoverage
+- the master test plan needs to include what was in the specific test plans
+- in addition to travis/circle, they should be able to run unit tests on the course server
+- they can use other tools, if they check with me first; these are just some suggestions
+  - specify what the requirements for those other tools are (what needs to be shown, etc.)
+- examples online, but need to get the groups' permission before displaying them...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Problems with code coverage
+Consider the following pseudo-code:
+```
+if ( foo() && bar() && baz() ) {
+  // do something...
+}
+```
+- If `foo()` returns false, then by [short circuit evaluation](http://en.wikipedia.org/wiki/Short-circuit_evaluation), `bar()` and `baz()` will not be evaluated
+  - PHP, Ruby, and Python all perform short-circuit evaluation (as do most programming languages)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Python / Django instructions
+- The assumption is that `python manage.py test` works
+- Install [coverage.py](https://pypi.python.org/pypi/coverage): `sudo apt-get install python-coverage`
+  - The binary is `python-coverage`, not `coverage.py`
+- The tests must be run prior to generating the reports:
+```
+python-coverage run --source='.' manage.py test
+```
+- Commands generate the report:
+```
+python-coverage report
+python-coverage report -m
+python-coverage html
+```
+  - The first is a text-based report; the second has line numbers; the third is an HTML-based report (in a htmlcov/ sub-directory)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## PHP / CakePHP instructions
+- The assumption is that `phpunit` works
+- No additional installs necessary
+- The tests are run *while* generating the reports, not before
+- Commands to generate the report:
+```
+phpunit --coverage-text
+phpunit --coverage-text=file.txt
+phpunit --coverage-html webroot/coverage
+```
+  - The first generates a text-based report to standard output; the second generates a text-based report to `file.txt`; the third creates an HTML-based report in the `webroot/coverage` sub-directory
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Ruby / Rails
+- The assumeption is that `bundle exec rake test` works
+- Installation (instructions are duplicated from [here](https://github.com/colszowka/simplecov#getting-started))
+  - Install the [simplecov](https://github.com/colszowka/simplecov) gem: put in the following into the Gemfile, then run `bundle install --path=vendor/bundle`
+```
+gem 'simplecov', :require => false, :group => :test
+```
+  - Add a few lines to the top of `test/test_helper.rb`:
+```
+if ENV['RAILS_ENV'] == 'test'
+      require 'simplecov'
+      SimpleCov.start 'rails'
+      puts "required simplecov"
+end
+```
+- When you run `bundle exec rake test`, it will generate the HTML report in the `coverage/` sub-directory
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Links
+- Django
+  - [coverage.py](https://pypi.python.org/pypi/coverage) and the [documentation](http://nedbatchelder.com/code/coverage/)
+  - [Django testing tutorial for version 1.6](https://docs.djangoproject.com/en/1.6/topics/testing/)
+    - [The part of that page on code coverage](https://docs.djangoproject.com/en/1.6/topics/testing/advanced/#integration-with-coverage-py)
+- CakePHP
+  - [phpunit](https://phpunit.de/) and the [documentation](https://phpunit.de/manual/current/en/index.html)
+  - [CakePHP's testing page](http://book.cakephp.org/3.0/en/development/testing.html)
+    - [The part of that page on code coverage](http://book.cakephp.org/3.0/en/development/testing.html#generating-code-coverage)
+- Rails
+  - [simplecov](https://github.com/colszowka/simplecov)
+    - [The part of that page on installation](https://github.com/colszowka/simplecov#getting-started)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Using other tools
+- The tools listed here were chosen because they can run on the course server and on your VirtualBox image
+- You are welcome to use different code coverage tools, with the following requirements:
+  - It needs to generate the same type of data (percent covered, lines not covered, etc.)
+  - You need to check with me first
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 	  </script></section>
 
 	</section>
