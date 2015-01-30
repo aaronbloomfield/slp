@@ -56,7 +56,6 @@
 [Terminology](#/terminology)  
 [Specific Test Types](#/specific)  
 [Master Test Plan](#/mastertestplan)  
-[Continuous Integration Testing](#/contint)  
 [Code Coverage](#/codecoverage)  
 [Test Plan](#/testplan)  
 	</script></section>
@@ -491,54 +490,8 @@
 
 	<section>
 
-	  <section id="contint" data-markdown><script type="text/template">
-# Continuous Integration Testing
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Jenkins
-- We'll be using [Jenkins](http://jenkins-ci.org/) ([Wikipedia article](http://en.wikipedia.org/wiki/Jenkins_%28software%29)) for our continuous integration testing
-- To get started, visit [http://pegasus.cs.virginia.edu:8080/](http://pegasus.cs.virginia.edu:8080/)
-  - If you install it locally, it will use http://localhost:8080
-  - And all the information is stored in ~/.jenkins/
-- A tutorial can be found [here](https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins)
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## How we will use Jenkins
-- The group will write unit tests
-- Jenkins will be configured to run those unit tests on each "build" (git push or svn commit)
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Unit tests with CakePHP
-- See [here](http://book.cakephp.org/2.0/en/development/testing.html) for all the gory details
-- CakePHP supports PHPUnit, which needs to be installed
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Unit tests with Rails
-- Links to follow soon...
-	  </script></section>
-
-	</section>
-
-
-	<section>
-
 	  <section id="codecoverage" data-markdown><script type="text/template">
 # Code Coverage
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## To talk about
-- include code coverage tools and analysis
-- problems with code coverage reports: https://wiki.python.org/moin/CodeCoverage
-- the master test plan needs to include what was in the specific test plans
-- in addition to travis/circle, they should be able to run unit tests on the course server
-- they can use other tools, if they check with me first; these are just some suggestions
-  - specify what the requirements for those other tools are (what needs to be shown, etc.)
-- examples online, but need to get the groups' permission before displaying them...
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -556,7 +509,10 @@ if ( foo() && bar() && baz() ) {
 	  <section data-markdown><script type="text/template">
 ## Python / Django instructions
 - The assumption is that `python manage.py test` works
-- Install [coverage.py](https://pypi.python.org/pypi/coverage): `sudo apt-get install python-coverage`
+- Install [coverage.py](https://pypi.python.org/pypi/coverage):
+```
+sudo apt-get install python-coverage
+```
   - The binary is `python-coverage`, not `coverage.py`
 - The tests must be run prior to generating the reports:
 ```
@@ -566,33 +522,35 @@ python-coverage run --source='.' manage.py test
 ```
 python-coverage report
 python-coverage report -m
-python-coverage html
+python-coverage html -d coverage
 ```
-  - The first is a text-based report; the second has line numbers; the third is an HTML-based report (in a htmlcov/ sub-directory)
+  - The first is a text-based report; the second is text-based and includes line numbers; the third is an HTML-based report (in a coverage/ sub-directory)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## PHP / CakePHP instructions
 - The assumption is that `phpunit` works
-- No additional installs necessary
+- No additional installs are necessary
 - The tests are run *while* generating the reports, not before
 - Commands to generate the report:
 ```
 phpunit --coverage-text
-phpunit --coverage-text=file.txt
-phpunit --coverage-html webroot/coverage
+phpunit --coverage-text=report.txt
+phpunit --coverage-html coverage
 ```
-  - The first generates a text-based report to standard output; the second generates a text-based report to `file.txt`; the third creates an HTML-based report in the `webroot/coverage` sub-directory
+  - The first generates a text-based report to standard output; the second generates a text-based report to `report.txt`; the third creates an HTML-based report in the `coverage/` sub-directory
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Ruby / Rails
-- The assumeption is that `bundle exec rake test` works
-- Installation (instructions are duplicated from [here](https://github.com/colszowka/simplecov#getting-started))
-  - Install the [simplecov](https://github.com/colszowka/simplecov) gem: put in the following into the Gemfile, then run `bundle install --path=vendor/bundle`
+- The assumption is that `bundle exec rake test` works
+- Installation (instructions are duplicated from [here](https://github.com/colszowka/simplecov#getting-started)):
+  - Install the [simplecov](https://github.com/colszowka/simplecov) gem
+    - Put in the following into the Gemfile:
 ```
 gem 'simplecov', :require => false, :group => :test
 ```
+    - Run `bundle install --path=vendor/bundle`
   - Add a few lines to the top of `test/test_helper.rb`:
 ```
 if ENV['RAILS_ENV'] == 'test'
@@ -601,7 +559,8 @@ if ENV['RAILS_ENV'] == 'test'
       puts "required simplecov"
 end
 ```
-- When you run `bundle exec rake test`, it will generate the HTML report in the `coverage/` sub-directory
+- Now when you run `bundle exec rake test`, it will generate the HTML report in the `coverage/` sub-directory
+  - The tests are run *while* generating the reports, not before
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -621,16 +580,41 @@ end
 
 	  <section data-markdown><script type="text/template">
 ## Using other tools
-- The tools listed here were chosen because they can run on the course server and on your VirtualBox image
-- You are welcome to use different code coverage tools, with the following requirements:
-  - It needs to generate the same type of data (percent covered, lines not covered, etc.)
+- The tools listed here were chosen because they can run on the course server and on your VirtualBox image, and do not require external accounts
+- You are welcome to use a different code coverage tool, with the following requirements:
   - You need to check with me first
+  - It needs to generate the same type of data:
+    - Percent covered for the entire system
+    - Percent covered for each individual "part" (file, class, etc.)
+    - Specific parts not covered (line numbers, most likely)
+    - All this in a nicely formatted HTML-based report (with hyperlinks and what-not)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Submission requirements
+- Each of the commands listed previous create a `coverage/` sub-directory
+  - If you use another tool, then an HTML-based copy of the report should likewise be put into a `coverage/` sub-directory
+- That `coverage/` sub-directory must go in the `docs/` directory in your repo (i.e., `docs/coverage/`)
+  - The assumption is that there is a `docs/coverage/index.html` file used to view the report
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Code Coverage Amount
+- But the time development ends at the end of iteration 12 (one week into the transition phase), your unit tests must have 100% coverage of your code!
+- By the end of iteration 11 (when development ends), we are looking for 90% coverage
+- By the end of iteration 10 (when the code coverage report is due), we are looking for 80% coverage
+- All of these are *overall* coverage; individual files may vary (except for the 100% one, of course)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## TODO: To talk about
+- include code coverage tools and analysis
+- problems with code coverage reports: https://wiki.python.org/moin/CodeCoverage
+- the master test plan needs to include what was in the specific test plans
+- in addition to travis/circle, they should be able to run unit tests on the course server
+- they can use other tools, if they check with me first; these are just some suggestions
+  - specify what the requirements for those other tools are (what needs to be shown, etc.)
+- examples online, but need to get the groups' permission before displaying them...
 	  </script></section>
 
 	</section>
