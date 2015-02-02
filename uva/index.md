@@ -22,7 +22,7 @@ Lectures
 | 4 | Jan&nbsp; 21 | Wednesday | group meeting | since there wasn't one on Monday |  |  |  
 | 5 | Jan&nbsp; 23 | Friday | no class |  |  |  |  
 | 6 | Jan&nbsp; 26 | Monday | group meeting |  | End of 7 (due: deployment plan) |  |  
-| 7 | Jan&nbsp; 28 | Wednesday | lecture | [Deliverables][72] | Start of 8 (due: installation instructions) |  slides 0 to 8-6 ([recording][115]) |  
+| 7 | Jan&nbsp; 28 | Wednesday | lecture | [Deliverables][72] | Start of 8 (due: installation instructions) | [Deliverables][72], slides 0 to 8-6 ([recording][115]) |  
 | 8 | Jan&nbsp; 30 | Friday | no class |  |  |  |  
 | 9 | Feb&nbsp; 2 | Monday | group meeting |  |  |  |  
 | 10 | Feb&nbsp; 4 | Wednesday | lecture | [Deliverables][72] |  |  |  

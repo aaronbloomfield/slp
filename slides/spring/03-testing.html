@@ -38,7 +38,7 @@
 # CS 4971
 &nbsp;
 ### Capstone Practicum II
-### Spring 2014
+### Spring 2015
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="03-testing.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
@@ -52,7 +52,6 @@
 &nbsp;  
 [Introduction](#/introduction)  
 [Requirements](#/requirements)  
-[Software Defects](#/defects)  
 [Terminology](#/terminology)  
 [Specific Test Types](#/specific)  
 [Master Test Plan](#/mastertestplan)  
@@ -72,7 +71,7 @@
   - It's the [halting problem](http://en.wikipedia.org/wiki/Halting_problem): prove that a program halts (successfully) on a given input
   - Alan Turing proved that this was *undecidable* (meaning an algorithm cannot be constructed that could decide this)
 - It's very easy to prove that a bug exists, though...
-- But you can give yourself -- and your customer -- some sense of confidence that it will likely work correctly
+- But you can give yourself -- and your customer -- some sense of confidence that it will *likely* work correctly
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -98,7 +97,7 @@
 - There will be *NO* new code features developed during iterations 12-14
   - Only test cases, bug fixes, minor feature changes requested by the customer, etc.
 - Your test plan must be significant, and must go beyond what is described here
-  - You can start [here](http://en.wikipedia.org/wiki/Portal:Software_Testing)
+  - You can start at the [Wikipedia Software Testing portal page](http://en.wikipedia.org/wiki/Portal:Software_Testing)
   - If you wait until the last minute, then throw something half-baked together, I am going to get very cranky
 	  </script></section>
 
@@ -107,7 +106,7 @@
 - Wikipedia, of course: the [portal on software testing](http://en.wikipedia.org/wiki/Portal:Software_Testing)
 - [IEEE 829 (2008) test plan standard](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578383)
   - This is free if viewed from UVa
-  - Free if viewed from UVa; it's also in Collab as [Resourfces/misc/IEEE-829-2008.pdf](https://collab.itc.virginia.edu/access/content/group/34417471-f045-46f1-a50f-738fa387fa54/misc/IEEE-829-2008.pdf) as well
+  - Free if viewed from UVa; it's also in Collab as [Resources/misc/IEEE-829-2008.pdf](https://collab.itc.virginia.edu/access/content/group/34417471-f045-46f1-a50f-738fa387fa54/misc/IEEE-829-2008.pdf) as well
   - But see the warnings later in this slide set before you read through this
 	  </script></section>
 
@@ -204,8 +203,8 @@
 
 	<section>
 
-	  <section id="defects" data-markdown><script type="text/template">
-# Softawre Defects
+	  <section id="terminology" data-markdown><script type="text/template">
+# Terminology
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -232,14 +231,6 @@
 - Performance issues
 - Licensing issues!
   - This is particularly relevant to us
-	  </script></section>
-
-	</section>
-
-	<section>
-
-	  <section id="terminology" data-markdown><script type="text/template">
-# Terminology
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -514,7 +505,7 @@ if ( foo() && bar() && baz() ) {
 sudo apt-get install python-coverage
 ```
   - The binary is `python-coverage`, not `coverage.py`
-- The tests must be run prior to generating the reports:
+- The tests must be run *prior* to generating the reports:
 ```
 python-coverage run --source='.' manage.py test
 ```
@@ -574,6 +565,7 @@ end
   - [CakePHP's testing page](http://book.cakephp.org/3.0/en/development/testing.html)
     - [The part of that page on code coverage](http://book.cakephp.org/3.0/en/development/testing.html#generating-code-coverage)
 - Rails
+  - [Rails testing page](http://guides.rubyonrails.org/testing.html)
   - [simplecov](https://github.com/colszowka/simplecov)
     - [The part of that page on installation](https://github.com/colszowka/simplecov#getting-started)
 	  </script></section>
