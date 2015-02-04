@@ -25,7 +25,7 @@ Lectures
 | 7 | Jan&nbsp; 28 | Wednesday | lecture | [Deliverables][72] | Start of 8 (due: installation instructions) | [Deliverables][72], slides 0 to 8-6 ([recording][115]) |  
 | 8 | Jan&nbsp; 30 | Friday | no class |  |  |  |  
 | 9 | Feb&nbsp; 2 | Monday | group meeting |  |  |  |  
-| 10 | Feb&nbsp; 4 | Wednesday | lecture | [Deliverables][72] |  |  |  
+| 10 | Feb&nbsp; 4 | Wednesday | lecture | [Deliverables][72] |  | [Deliverables][72], rest of the slide set; group work day |
 | 11 | Feb&nbsp; 6 | Friday | no class |  |  |  |  
 | 12 | Feb&nbsp; 9 | Monday | group meeting |  | End of 8 (due: installation instructions) |  |  
 | 13 | Feb&nbsp; 11 | Wednesday | lecture | Testing | Start of 9 (due: master test plan) |  |  
