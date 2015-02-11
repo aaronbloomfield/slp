@@ -53,10 +53,11 @@
 [Introduction](#/introduction)  
 [Requirements](#/requirements)  
 [Terminology](#/terminology)  
-[Specific Test Types](#/specific)  
+[Test Types](#/specific)  
 [Master Test Plan](#/mastertestplan)  
+[Specific Test Plan](#/specificplans)  
 [Code Coverage](#/codecoverage)  
-[Test Plan](#/testplan)  
+[Conclusions](#/conclusion)  
 	</script></section>
 
 	<section>
@@ -96,7 +97,7 @@
 - We can *NOT* rely on the customer to complete tests!
 - There will be *NO* new code features developed during iterations 12-14
   - Only test cases, bug fixes, minor feature changes requested by the customer, etc.
-- Your test plan must be significant, and must go beyond what is described here
+- Your test plan must be significant, and must have real thought put into it
   - You can start at the [Wikipedia Software Testing portal page](http://en.wikipedia.org/wiki/Portal:Software_Testing)
   - If you wait until the last minute, then throw something half-baked together, I am going to get very cranky
 	  </script></section>
@@ -105,7 +106,6 @@
 ## References
 - Wikipedia, of course: the [portal on software testing](http://en.wikipedia.org/wiki/Portal:Software_Testing)
 - [IEEE 829 (2008) test plan standard](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578383)
-  - This is free if viewed from UVa
   - Free if viewed from UVa; it's also in Collab as [Resources/misc/IEEE-829-2008.pdf](https://collab.itc.virginia.edu/access/content/group/34417471-f045-46f1-a50f-738fa387fa54/misc/IEEE-829-2008.pdf) as well
   - But see the warnings later in this slide set before you read through this
 	  </script></section>
@@ -130,8 +130,10 @@
 ## Functional & non-functional requirements
 - Functional requirements define what a system is supposed to do ("system shall *do* X")
   - Given an input, what is the desired outcome / output?
+  - These are *objective* tests and results
 - Non-functional define how a system is supposed to be ("system shall *be* X")
   - Rather than specific behaviors, it is criteria used to judge a system
+  - These are *subjective* tests and results
 - Functional requirements are defined in the system design; non-functional in the system architecture
 	  </script></section>
 
@@ -238,13 +240,14 @@
 - Black box testing: internal design is not considered, only external design
 - White box testing: testing is based on detailed knowledge of how the code works
 - Regression testing: testing the entire system after a modification has been made
+  - We are using Travis/Circle for this
 - Acceptance testing: running the tests to make sure the system is in an 'acceptable' state (i.e., has passed all the tests)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Alpha versus beta testing
 - Alpha testing: done at the end of development to make sure the system works
-  - This is what you will be doing during development but BEFORE the end of iteration 11 (i.e., March 24)
+  - This is what you will be doing during development but BEFORE the end of iteration 11 (i.e., March 23rd)
 - Beta testing: an initial version is deployed, and tested "in-place" by the team, the customer, and possibly others
   - This is what will happen in iterations 12-14
 	  </script></section>
@@ -254,7 +257,7 @@
 	<section>
 
 	  <section id="specific" data-markdown><script type="text/template">
-# Specific Test Types
+# Test Types
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -264,7 +267,7 @@
 - Good as an initial start, but this does not provide very good coverage...
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="reqtesting"><script type="text/template">
 ## System or requirements testing
 - Does the system handle the specified requirements?
 - Go through each user case / user story, and see if all the parts are included as system functionality
@@ -277,30 +280,15 @@
 ## Unit testing
 - A set of tests of each individual "unit"
   - Method, procedure, class, etc.
-- We have a tutorial on PHPUnit testing, which is a good place to start
-  - Both CakePHP and Rails have a lot of support for unit testing
+- We have instructions on unit testing for the various platforms, which are good places to start
 - The unit testing will need to cover ALL the aspects of the system
 - There will be a significant amount of code for this!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Installation testing, part 1
-- One of the documentation artifacts that you must produce is an installation document
-- Once done, you need to ensure that it works
-- Given a standard Linux machine...
-  - The CS 2150 image, which does NOT have apache installed
-- ... does the installation document properly describe now to configure and install the system?
-  - You can assume a package manager such as apt-get
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Installation testing, part 2
-- Don't forget things such as:
-  - Enabling URL rewriting for CakePHP
-  - Installing all the Rails gems
-  - Permissioning directories
-  - Database installation and setup
-- Note, from the [Deliverables slide set](02-deliverables.html) that the amount of detail you put in about the packages to install should be limited
+## Installation testing
+- Do the [installation instructions](02-deliverables.html#/installation) work?
+- How do we know (meaning, how can we ascertain this)?
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -318,13 +306,13 @@
 - How does the system handle authorization versus authentication?
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="malformed"><script type="text/template">
 ## Malformed input testing
 - How well does the system handle malformed input?
   - For *each* type of input, what happens if the input is invalid?
 - Likewise, how well does the system handle incorrect URLs?
   - CakePHP can set the various 'debug' option in core.php to control how this is handled
-  - Rails can do something similar
+  - Rails and Django can do something similar
   - But you may need to add a 404 page as well
 - This may be included in the unit testing (for malformed input) or system testing (for malformed URLs)
 	  </script></section>
@@ -352,17 +340,17 @@
 
 	  <section data-markdown><script type="text/template">
 ## Master test plan
-- Due at the end of iteration 8 (February 10th)
+- Due at the end of iteration 9 (February 23rd)
 - This is a high-level overview of the testing
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## IEEE standard
 - [IEEE 829 (2008): Standard for Software and System Test Documentation](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578383)
-  - Free if viewed from UVa; it's also in Collab as [Resourfces/misc/IEEE-829-2008.pdf](https://collab.itc.virginia.edu/access/content/group/34417471-f045-46f1-a50f-738fa387fa54/misc/IEEE-829-2008.pdf)
+  - Free if viewed from UVa; it's also in Collab as [Resources/misc/IEEE-829-2008.pdf](https://collab.itc.virginia.edu/access/content/group/54bcbf62-81cb-45bc-bf8c-c7d46467bba5/misc/IEEE-829-2008.pdf)
   - And on [Wikipedia](http://en.wikipedia.org/wiki/IEEE_829)
 - Section 8 concerns the Master Test Plan ("MTP" in the document)
-- Some of it is fluff-inducing, so we'll take it with a grain of salt
+- Some of it is fluff-inducing, so we'll take it with a ***HUGE*** grain of salt
   - Basically, if something doesn't apply, then state so rather than make something up
   - The listing there is meant to provide a structure, not cause you to BS your way through the test plan
 	  </script></section>
@@ -374,14 +362,15 @@
   - Section 8.2.1: Test processes including definition of test levels
     - (well, less on the test levels...)
 - That being said, the following slides are things that should go somewhere in the test plan...
+  - And questions to ask yourself -- the goal is for you to *think* about the testing process
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## What *parts* of the system will be tested?
-- Probably not all the code of the gems (for Rails) or plugins (for CakePHP) that you are using
+- Obviously not the framework code itself
+- Probably not all the code of the gems (for Rails), packages (for Django), or plugins (for CakePHP) that you are using
   - But likely your code to interact with them
   - And certainly their functionality
-- And likely not the code that was automatically generated (bake in CakePHP, for example)
 - So saying "everything else" is missing the point
   - List the specific methods and functionality that are going to be tested
   - You can certainly use wildcards, etc., for this
@@ -397,13 +386,6 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## What will you write the tests in?
-- CakePHP and Rails has good support for unit testing
-  - This means you will need to become familiar with the unit testing platform you are using!
-- My plan is to use [Jenkins](http://jenkins-ci.org/) for the continuous integration testing
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
 ## How will you determine what cases to test?
 - Corner cases, malformed input cases, first to perform an action, scheduling in a full calendar, etc.
 - This will require creating lots of *fixtures*, which are the sample data in the DB when the unit test is run
@@ -413,18 +395,11 @@
 ## How will you determine what tests to write?
 - There are a lot of sites online for "how to test a X", where 'X' is a various part of your system
   - Model, View, Controller, etc.
-- See starting [here](http://book.cakephp.org/2.0/en/development/testing.html#testing-models) for CakePHP, and starting [here](http://guides.rubyonrails.org/testing.html#functional-tests-for-your-controllers) for Rails
+- See [here](http://book.cakephp.org/2.0/en/development/testing.html) for CakePHP, [here](http://guides.rubyonrails.org/testing.html) for Rails, and [here](https://docs.djangoproject.com/en/1.6/topics/testing/) for Django
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## How will you ensure that your test covers your code?
-- CakePHP can use [Xdebug](http://xdebug.org/)
-- The Rails standard seems to be [Rconv](https://github.com/relevance/rcov) for older versions of Ruby, and [simplecov](https://github.com/colszowka/simplecov) for Ruby 1.9+
-- Or Google for "code coverage rails" or "code coverage cakephp"
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## How will you indicate what is being tested
+## How will you indicate what is being tested?
 - From the point of view of the tests, you will need to indicate what requirement is being tested
   - This can be a one-line comment in the unit test
 - From the point of view of the requirements, what tests are validating that those requirements work?
@@ -438,43 +413,159 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## References
-- The page on CakePHP testing is [here](http://book.cakephp.org/2.0/en/development/testing.html), and pretty much contains everything you will need
-  - Well, and the page on [PHPUnit](http://phpunit.de/)
-  - And [Xdebug](http://xdebug.org/) for code coverage
-- Rails can start [here](http://guides.rubyonrails.org/testing.html), which contains almost everything you need
-  - Although you will likey want to get more info on [Rconv](https://github.com/relevance/rcov) or [simplecov](https://github.com/colszowka/simplecov) for the code coverage
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
 ## Remember!
-- If something the IEEE docuemnt doesn't make sense, or is confusing, or seems to be in another language, you can ignore it
+- If something the IEEE docuemnt doesn't make sense, doesn't apply, or is confusing, or seems to be in another language, you can ignore it
 - That document is meant to provide *structure*, not to force you to create a lot of fluff
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Todo
-- the next two slides were separate previously, but should be merged into the master test plan
+## Tests that are elsewhere
+- The master test plan will describe tests to be performed
+  - Installation test, usability test, security test, etc.
+- These will be completed an iteration or two later
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Specific test plans, take 1
-- Due at the end of iteration 10 (March 10th)
-- You need to start planning what specific tests you are going to perform
-- The overview of those tests is in the master test plan
-- So now fill in the details:
-  - What unit tests are you going to use?  What is your plan for determining which ones to write?  How are yhou going to write them?
-  - Describe the installation test in more detail
-  - Describe the requirements tests that will be performed
+## Test plan contents: the tests
+- A list (and brief description) of the specific test types that you plan on performing
+  - What requirement each test (or test type) is validating
+  - How you plan on doing those tests.  Some examples:
+    - Requirements testing may mean that you go through each of the requirements (which must be linked!) to ensure that they match
+    - Security testing will require a specific set of "hacks" against the system, such as X, Y, and Z
+    - Unit tests: what parts of the system are you testing?  With which unit tests?  How will you determine which unit tests to write?
+- The point of this part is to think of the testing plan from the point of view of the tests that are going to be performed
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Specific test plans, take 2
-- Whereas the master test plan is a high level overview
-- The specific test plans add in the low level details
-- Combined, the two should describe exactly how you are going to test the system
+## Test plan contents: the stuff to be tested
+- A list (and brief description) of the specific things that you are trying to test, and which test(s) will be testing those
+  - Examples: requirements, security, installation, etc.
+- The "which test(s) will be testing those" part can just be a cross-reference into the material from the previous slide
+- The point of this part is to think of the testing plan from the point of view of what needs to be tested
 	  </script></section>
 
+	  <section data-markdown><script type="text/template">
+## What should NOT be in the test plan (yet)
+- The specific unit tests that you are going to be performing
+  - You should give overall ideas, but the specific unit tests are in the source code
+- Full details about specific tests
+  - Example: the "installation test" can be a short paragraph stating that the tester(s) will follow the installation manual from an unconfigured machine
+    - Since there is no installation manual yet, there is no need to go into more detail at this point
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="specifictests"><script type="text/template">
+# Specific test plans
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Specific test plans
+- Whereas the master test plan (MTP) is the high-level overview...
+- ... we need some specific details about the tests
+- These are the specific test plans
+  - Installation test (does it install properly?)
+  - Usability test (is it usable?)
+  - Security testing (is it secure?)
+  - Requirements testing (does it meet the requirements?)
+  - More, as necessary
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Submission requirements
+- These should be combined into a single file (with multiple sections, one for each test type) called `docs/specific-test-plan.md` (or .pdf)
+- Note that you may not need all of these -- if you don't need one, then mention so in the specific-test-plan.md (or .pdf) file so we know you intentionally didn't include it (as opposed to you forgot it)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Due dates
+- Preliminary versions of these are due with the master test plan (iteration 9 (February 23rd))
+  - Just a high-level outline so we know which specific test plans you will writing -- you only need to include a paragraph for each specific test plan
+- The full versions of the tests are due at the end of iteration 12 (April 6th)
+  - That's two weeks after development ends!
+  - Some of the tests need not be *compelted* then, even though the test plans are due then
+- Completed tests by the end of iteration 13 (April 20th)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Installation test
+- You are testing that the [installation instructions](02-deliverables.html#/installation) work
+- This can be a single paragraph stating:
+  - What the system is that you will start with
+    - Perhaps a VirtualBox image without apache installed
+    - You can assume a package manager such as apt-get
+  - How you will know if the test works or not
+    - You can't just say "if it works" -- that's not a measurable goal
+    - Instead, perhaps you know it works because they can do functions A, B, and C on the system, and the unit tests all pass
+- You have to actually run through this test!!!
+  - Although that is after development ends
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Usability test
+- This is a *subjective* test, not an *objective* test
+  - This means that you will have to get people's *opinions* as to how usable the system is!
+- Who to ask?
+  - Certainly the customer
+  - Members of your group
+  - Members of other groups (you will likely have to reciprocate)
+  - Friends / relatives / significant other(s)
+- What you want from them is *opinions* of the usability of the system
+  - We want honest opinions, not just "it looks great"
+  - They will only need to spend 5 (or so) minutes playing with the system; you can help guide them through
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Usability test plan
+- It should include:
+  - What parts of the system people are going to use
+  - What questions you will ask them, and what opinions you want to get from them
+- Once you get those, you should put them in the plan (please anonymize)
+  - And then you should use those opinions to improve your system!
+- We are looking for, say 4+ people *outside* the group, and ideally 2 that are not the customer or in this class
+  - This is in addition to the entire group and the customer
+  - And this can be long-hand opinions; we aren't looking for formal human subject experiements with Likert scales here
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Security testing, part 1
+- Questions to answer:
+  - What prevents people from doing actions they should not be allowed to do (deleting things)?
+  - What about bot-based password login attempts?
+  - [SQL injection](https://en.wikipedia.org/wiki/SQL_injection) and/or [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting) attacks?
+  - What about password choice security (i.e., not 'password' as your password)?
+  - Malformed input testing, described [earlier](#/malformed)
+  - And lots of others...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Security testing, part 2
+- These can be a series of unit tests!
+  - If so, just briefly state which ones they are -- and why they accomplish this goal
+  - Keep in mind that your framework will handle much of the security for you
+- You can also describe a test where people try to log in (or whatever), and ensure the result is the desired one
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Requirements testing
+- Does the system meet all the requirements?
+  - As described [before](#/reqtest)
+- This will likely be a outline as to how you will go through each requirement and ensure that it is properly implemented in the system
+  - One paragraph is propbably sufficient
+- You have to actually run through this test!!!
+  - Although that is after development ends
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Other test types?
+- The specifics of your system may require it
+  - Compatability testing
+  - Load testing
+  - Recovery testing
+- Perhaps others...
+	  </script></section>
 
 	</section>
 
@@ -498,9 +589,83 @@ if ( foo() && bar() && baz() ) {
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Code coverage is not absolute!
+- Code coverage is just one metric (of many)
+- Consider the following (purposely terrible) PHP code:
+```
+class MyClass {
+    public function __construct(Array $properties=array()){
+      foreach($properties as $key => $value)
+        $this->{$key} = $value;
+    }
+}
+function qux($x) {
+    $a = array( 0 => array('field'=>0),
+                1 => array('field'=>1),
+                3 => null);
+    $var = new MyClass($a[$x]);
+    echo print_r($var,true) . "\n";
+    echo $var->field . "\n";
+}
+```
+- What does it do?
+- What bugs can we find?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Code coverage is not absolute!
+```
+function qux($x) {
+    $a = array( 0 => array('field'=>0),
+                1 => array('field'=>1),
+                3 => null);
+    $var = new MyClass($a[$x]);
+    echo print_r($var,true) . "\n";
+    echo $var->field . "\n";
+}
+```
+- For full code coverage, we can just run:
+```
+qux(0);
+qux(1);
+```
+- But there are *multiple* test cases that we don't test, but will fail (each for a different reason):
+```
+qux(-1);
+qux(2);
+qux(3);
+qux(4);
+```
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Code coverage is not absolute!
+- Two test cases work, most do not
+  - But only one of the working ones will generate 100% code coverage (for that function)
+- The problem is that we did not put any *thought* into the unit tests
+  - We did not test array out of bounds (`qux(-1)` and `qux(4)`)
+  - We did not test null pointer exceptions (`qux(3)`)
+  - We did not test "holes" in the array (`qux(2)`)
+  - We did not test boundary cases (`qux(3)` and `qux(4)` again)
+- The purpose of writing unit tests is to test for all of these conditions!
+  - So you have to put `thought` into your design choices for the unit tests
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Code coverage requirements
+- Everybody will need to run a code coverage tool
+  - Suggestions follow for each platform; you can also choose your own
+- The output of said code coverage tool must be included in your repo
+  - And updated regularly!
+- You will have code coverage percentage requirements!
+  - Eventually reaching 100%
+- Each of the platform tools follow, with an online example
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 ## Python / Django instructions
 - The assumption is that `python manage.py test` works
-- Install [coverage.py](https://pypi.python.org/pypi/coverage):
+- Install [coverage.py](https://pypi.python.org/pypi/coverage) (already done on the course server):
 ```
 sudo apt-get install python-coverage
 ```
@@ -574,11 +739,11 @@ end
 ## Using other tools
 - The tools listed here were chosen because they can run on the course server and on your VirtualBox image, and do not require external accounts
 - You are welcome to use a different code coverage tool, with the following requirements:
-  - You need to check with me first
+  - You need to run it by me first
   - It needs to generate the same type of data:
     - Percent covered for the entire system
     - Percent covered for each individual "part" (file, class, etc.)
-    - Specific parts not covered (line numbers, most likely)
+    - Specific parts not covered (displayed code with line numbers, most likely)
     - All this in a nicely formatted HTML-based report (with hyperlinks and what-not)
 	  </script></section>
 
@@ -588,25 +753,16 @@ end
   - If you use another tool, then an HTML-based copy of the report should likewise be put into a `coverage/` sub-directory
 - That `coverage/` sub-directory must go in the `docs/` directory in your repo (i.e., `docs/coverage/`)
   - The assumption is that there is a `docs/coverage/index.html` file used to view the report
+  - And viewing that file will properly view the other HTML-based assets (images, CSS, etc.)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Code Coverage Amount
 - But the time development ends at the end of iteration 12 (one week into the transition phase), your unit tests must have 100% coverage of your code!
 - By the end of iteration 11 (when development ends), we are looking for 90% coverage
-- By the end of iteration 10 (when the code coverage report is due), we are looking for 80% coverage
+- By the end of iteration 10 (when the code coverage report is first due), we are looking for 80% coverage
+- You are welcome to have the `docs/coverage` directory earlier; we will only look for the 80% target at the end of iteration 10
 - All of these are *overall* coverage; individual files may vary (except for the 100% one, of course)
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## TODO: To talk about
-- include code coverage tools and analysis
-- problems with code coverage reports: https://wiki.python.org/moin/CodeCoverage
-- the master test plan needs to include what was in the specific test plans
-- in addition to travis/circle, they should be able to run unit tests on the course server
-- they can use other tools, if they check with me first; these are just some suggestions
-  - specify what the requirements for those other tools are (what needs to be shown, etc.)
-- examples online, but need to get the groups' permission before displaying them...
 	  </script></section>
 
 	</section>
@@ -614,8 +770,13 @@ end
 
 	<section>
 
-	  <section id="testplan" data-markdown><script type="text/template">
-# Test Plan
+	  <section id="conclusion" data-markdown><script type="text/template">
+# Conclusions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## One other requirement...
+- Your unit tests, in addition to running on Travis or Circle, must *also* be able to be run on the course server!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -627,11 +788,17 @@ end
 	  <section data-markdown><script type="text/template">
 ## Iteration deliverables
 - All of these are due on the last day (a Monday) of each iteration
-- Iteration 7: deployment plan (due Jan 27)
-- Iteration 8: master test plan (due Feb 10)
-- Iteration 9: continuous integration test plan (due Feb 24)
-- Iteration 10: specific test plan(s) (due Mar 10)
-- Iteration 11: the full transition plan, encompassing all of the above, all edited into one document (due Mar 24)
+- Iteration 7: deployment plan (due Jan 26)
+- Iteration 8: installation instructions (due Feb 9)
+- Iteration 9: master test plan (due Feb 23)
+  - And the short version of the specific test plans
+- Iteration 10: code coverage @ 80% (due Mar 9)
+- Iteration 11: the full transition plan, encompassing all of the above, all edited into one document (due Mar 23)
+  - As well as code coverage @ 90%
+- Iteration 12: the completed specific test plans (due Apr 6)
+  - As well as code coverage @ 100%
+- Iteration 13: all test completed (due Apr 20)
+  - Including those in the specific test plan
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -655,52 +822,13 @@ end
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Test plan contents: the tests
-- A list (and brief description) of the specific test types that you plan on performing
-  - What requirement each test (or test type) is validating
-  - How you plan on doing those tests.  Some examples:
-    - Requirements testing may mean that you go through each of the requirements (which must be linked!) to ensure that they match
-    - Security testing will require a specific set of "hacks" against the system, such as X, Y, and Z
-    - Unit tests: what parts of the system are you testing?  With which unit tests?  How will you determine which unit tests to write?
-- The point of this part is to think of the testing plan from the point of view of the tests that are going to be performed
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Test plan contents: the stuff to be tested
-- A list (and brief description) of the specific things that you are trying to test, and which test(s) will be testing those
-  - Examples: requirements, security, installation, etc.
-- The "which test(s) will be testing those" part can just be a cross-reference into the material from the previous slide
-- The point of this part is to think of the testing plan from the point of view of what needs to be tested
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## What should NOT be in the test plan (yet)
-- The specific unit tests that you are going to be performing
-  - You should give overall ideas, but the specific unit tests will be detailed later
-- Full details about specific tests
-  - Example: the "installation test" can be a short paragraph stating that the tester(s) will follow the installation manual from an unconfigured machine
-    - Since there is no installation manual yet, there is no need to go into more detail at this point
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
 ## Iteration deliverables format
-- I don't really care what format you keep it in
-- Keeping it as a wiki page in Redmine is fine (and the preferable way)
-- You can also do this as a Google doc, a Word doc, etc.
-- If it is an online document (wiki page, Google doc, etc.), you will have to e-mail me when it is done
-  - And ensure that I have access (if it's not in Redmine)
-  - If it's not Redmine, then the Redmine wiki should have a link to it
-- If it's a offline document (Word, OpenOffice, etc.), then you will have to upload it to Remdine
-  - And again e-mail me when it's there
-- Eventually it will need to be exported to a PDF
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## End-of-semester testing requirements
-- There will be some (relatively minor) end-of-semester testing requirements so that each system's tests operate the same way
-- Examples: a test plan document in a common .pdf file name; 'make test' to kick off the tests; following the CakePHP procedure for unit tests, etc.
-  - Details about this to be decided later...
-- These aren't meant to be onerous, but to ensure that all the systems have some level of consistency
+- It should be in either Markdown or PDF, and kept in the docs/ directory of your github repo
+- Name them something sensible: 
+  - docs/master-test-plan.md
+  - docs/specific-test-plan.md
+  - docs/coverage/
+  - etc.
 	  </script></section>
 
 	</section>
