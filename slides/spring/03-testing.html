@@ -420,37 +420,43 @@
 
 	  <section data-markdown><script type="text/template">
 ## Tests that are elsewhere
-- The master test plan will describe tests to be performed
-  - Installation test, usability test, security test, etc.
-- These will be completed an iteration or two later
+- The master test plan will *briefly* describe other tests to be performed
+  - Installation test, usability test, security test, requirements test, etc.
+- These will be completed an iteration or two later (that's the the [speicifc test plan](#/specifictests))
+  - But you need a brief description of each in your MTP; see next slide
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Test plan contents: the tests
-- A list (and brief description) of the specific test types that you plan on performing
+## Master test plan contents: the specific tests
+- A brief description of the specific test types that you plan on performing
   - What requirement each test (or test type) is validating
   - How you plan on doing those tests.  Some examples:
     - Requirements testing may mean that you go through each of the requirements (which must be linked!) to ensure that they match
     - Security testing will require a specific set of "hacks" against the system, such as X, Y, and Z
     - Unit tests: what parts of the system are you testing?  With which unit tests?  How will you determine which unit tests to write?
 - The point of this part is to think of the testing plan from the point of view of the tests that are going to be performed
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Test plan contents: the stuff to be tested
-- A list (and brief description) of the specific things that you are trying to test, and which test(s) will be testing those
-  - Examples: requirements, security, installation, etc.
-- The "which test(s) will be testing those" part can just be a cross-reference into the material from the previous slide
-- The point of this part is to think of the testing plan from the point of view of what needs to be tested
+- No details yet -- that's done later
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## What should NOT be in the test plan (yet)
 - The specific unit tests that you are going to be performing
   - You should give overall ideas, but the specific unit tests are in the source code
-- Full details about specific tests
+- Full details about the specific test plan tests
   - Example: the "installation test" can be a short paragraph stating that the tester(s) will follow the installation manual from an unconfigured machine
     - Since there is no installation manual yet, there is no need to go into more detail at this point
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sample MTP Outline
+- Basically, the slides in this section describe the various sections of the MTP
+  - Relevant parts of the IEEE MTP document
+  - A listing of the parts of the system to be tested
+  - A description of who will write the tests
+  - How you will determine what cases to test?
+  - How will you determine what unit tests to write?
+  - How will you indicate what is being tested?
+  - What other (non-unit) tests will you be performing?  This is the brief outline of the specific test plan
 	  </script></section>
 
 	</section>
@@ -475,18 +481,21 @@
 
 	  <section data-markdown><script type="text/template">
 ## Submission requirements
-- These should be combined into a single file (with multiple sections, one for each test type) called `docs/specific-test-plan.md` (or .pdf)
-- Note that you may not need all of these -- if you don't need one, then mention so in the specific-test-plan.md (or .pdf) file so we know you intentionally didn't include it (as opposed to you forgot it)
+- A brief outline of the specific test plan will be part of the Master Test Plan
+- The detailed version (due later) should be combined into a single file (with multiple sections, one for each test type) called `docs/specific-test-plans.md` (or .pdf)
+- Note that you may not need all of the tests described here -- if you don't need one, then mention so in the specific-test-plans.md (or .pdf) file so we know you intentionally didn't include it (as opposed to you forgot it)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Due dates
 - Preliminary versions of these are due with the master test plan (iteration 9 (February 23rd))
   - Just a high-level outline so we know which specific test plans you will writing -- you only need to include a paragraph for each specific test plan
+  - This is *part* of the MTP
 - The full versions of the tests are due at the end of iteration 12 (April 6th)
-  - That's two weeks after development ends!
+  - That's one iteration after development ends
   - Some of the tests need not be *compelted* then, even though the test plans are due then
 - Completed tests by the end of iteration 13 (April 20th)
+  - That's two iterations after development ends
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -513,7 +522,7 @@
   - Members of other groups (you will likely have to reciprocate)
   - Friends / relatives / significant other(s)
 - What you want from them is *opinions* of the usability of the system
-  - We want honest opinions, not just "it looks great"
+  - We want honest opinions and feedback, not just "it looks great"
   - They will only need to spend 5 (or so) minutes playing with the system; you can help guide them through
 	  </script></section>
 
@@ -629,7 +638,7 @@ function qux($x) {
 qux(0);
 qux(1);
 ```
-- But there are *multiple* test cases that we don't test, but will fail (each for a different reason):
+- But there are *multiple* test cases that we don't test, but will fail (for different reasons):
 ```
 qux(-1);
 qux(2);
@@ -655,10 +664,11 @@ qux(4);
 ## Code coverage requirements
 - Everybody will need to run a code coverage tool
   - Suggestions follow for each platform; you can also choose your own
-- The output of said code coverage tool must be included in your repo
+- The output of said code coverage tool must be included in your repo in a `docs/coverage` directory
   - And updated regularly!
 - You will have code coverage percentage requirements!
   - Eventually reaching 100%
+  - That's 100% of *your* code, not the framework code
 - Each of the platform tools follow, with an online example
 	  </script></section>
 
@@ -782,7 +792,7 @@ end
 	  <section data-markdown><script type="text/template">
 ## Acceptance testing
 - This is a test (or multiple tests) performed to ensure that the system meets customer specifications
-- For our purposes, the 'acceptance test' will be the successful execution of the test plan
+- For our purposes, the 'acceptance test' will be the successful execution of the master test plan
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -791,7 +801,7 @@ end
 - Iteration 7: deployment plan (due Jan 26)
 - Iteration 8: installation instructions (due Feb 9)
 - Iteration 9: master test plan (due Feb 23)
-  - And the short version of the specific test plans
+  - Which includes the brief summary of the specific test plans
 - Iteration 10: code coverage @ 80% (due Mar 9)
 - Iteration 11: the full transition plan, encompassing all of the above, all edited into one document (due Mar 23)
   - As well as code coverage @ 90%
@@ -826,7 +836,7 @@ end
 - It should be in either Markdown or PDF, and kept in the docs/ directory of your github repo
 - Name them something sensible: 
   - docs/master-test-plan.md
-  - docs/specific-test-plan.md
+  - docs/specific-test-plans.md
   - docs/coverage/
   - etc.
 	  </script></section>
