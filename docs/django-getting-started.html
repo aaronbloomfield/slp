@@ -61,10 +61,11 @@
 </ul>
 <p>There are a few other flags to the above:</p>
 <ul>
-<li><code>-file &lt;wsgi_file&gt;</code> specifies which file to register</li>
+<li><code>-file &lt;wsgi_file&gt;</code> specifies which file to register; it must be the <code>wsgi.py</code> file</li>
 <li><code>-id &lt;id_num&gt;</code> will remove the wsgi file entry with the specified <em>integer</em> ID; the IDs can be found via the <code>-list</code> flag</li>
 <li><code>-app &lt;app_name&gt;</code> will assume that the app name is what is passed; it defaults to 'polls' (since that is what the tutorial uses). This really on matters for the static directory name.</li>
 <li><code>-compact</code> will cause the output of the <code>-list</code> to be one line per entry</li>
+<li><code>-staticdir &lt;dir&gt;</code> specifies what the static directory is; this must be a full path name</li>
 </ul>
 <p>Lastly, there are a few flags that are restricted as to who can use them:</p>
 <ul>

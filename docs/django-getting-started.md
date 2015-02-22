@@ -62,10 +62,11 @@ There are four main "modes" to that command:
 
 There are a few other flags to the above:
 
-- `-file <wsgi_file>` specifies which file to register
+- `-file <wsgi_file>` specifies which file to register; it must be the `wsgi.py` file
 - `-id <id_num>` will remove the wsgi file entry with the specified *integer* ID; the IDs can be found via the `-list` flag
 - `-app <app_name>` will assume that the app name is what is passed; it defaults to 'polls' (since that is what the tutorial uses).  This really on matters for the static directory name.
 - `-compact` will cause the output of the `-list` to be one line per entry
+- `-staticdir <dir>` specifies what the static directory is; this must be a full path name
 
 Lastly, there are a few flags that are restricted as to who can use them:
 

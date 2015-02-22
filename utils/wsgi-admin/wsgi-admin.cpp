@@ -279,8 +279,6 @@ int main(int argc, char **argv) {
         die ("You are not allowed to use the -all flag");
       show_all = true;
     } else if ( param == "-staticdir" ) {
-      if ( (uid != 0) && (uid != 1000) )
-        die ("You are not allowed to use the -nocheck flag");
       if ( argc == i+1 )
         die ("Must supply a directory name to -staticdir");
       staticdir = string(argv[++i]);
