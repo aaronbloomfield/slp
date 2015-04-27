@@ -14,7 +14,8 @@ bug, and displays the slides correctly.
 - [01: Course Introduction](spring/01-intro.html)
 - [02: Deliverables](spring/02-deliverables.html)
 - [03: Testing](spring/03-testing.html)
-- [04: Maintenance](spring/04-maintenance.html)
+- ~~[04: Maintenance](spring/04-maintenance.html)~~ (we didn't go over this slide set in the spring 2015 semester)
+- [Course conclusion](../uva/course-conclusion.html) (UVa specific)
 
 ------------------------------------------------------------
 

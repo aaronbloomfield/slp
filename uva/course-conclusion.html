@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4971: course-conclusion slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/slp.css">
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../slides/reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4971
+&nbsp;
+### Capstone Practicum II
+### Spring 2015
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../slides/index.html) / <a href="course-conclusion.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp; 
+## Course Conclusion
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+![](http://img1.wikia.nocookie.net/__cb20070719215456/lotr/images/8/81/Mithlondwide.jpg)
+> Here at last, dear friends, on the shores of the Sea comes the end of our fellowship in Middle-earth. Go in peace! I will not say: do not weep; for not all tears are an evil.
+	  </script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Remaining Work](#/remainingwork)  
+[Estimation](#/estimation)  
+[Charts](#/charts)  
+[Hours](#/hours)  
+[Reflection](#/reflection)  
+[Conclusion](#/conclusion)  
+	</script></section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown id="remaining work"><script type="text/template">
+# Remaining Work
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What you have to do to get outta here...
+- The remaining tasks are all described on the following slides
+- They include:
+  - If you didn't complete the specific tests from iteration 13, they need to be completed!
+  - Complete the iteration 14 checklist
+  - Documentation in the proper format
+  - Github repo clean-up
+  - Hand-off to the customer
+- A few other things are at the very end of this slide set (in the [Conclusion](#/conclusion))
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 14 checklist
+(this is what is due during this current iteration)
+
+- Individual tutorial (completed)
+- Screen shots
+- One slide version
+- All tests must pass (including green CI status and being able to run the tests on the course server)
+- At the end: end-of-phase AND end-of-year surveys
+  - FYI, these need to be completed, else incompletes will be issued  :-(
+- All github issues trimmed
+- Leads must still submit both reports, including a TPS report!
+- Final hand-off to myself and the customer
+  - We'll talk about this next Monday
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Documentation
+- Your documentation needs to be in a standard state -- both so that I can ensure that everything is present, and to help me find things for the customer
+- Pretty much everything will need to be in ***TWO*** formats: .md (or whatever source you used) and .pdf (so the customer can read them)
+  - If you used Google Docs (or similar), that's fine -- just save a .odt (or whatever) version in the repo
+- If some of the documenmts are elsewhere in the repo, create a one-line document of the appropriate name that just states where the document can be found
+  - This is most likely to occur with the programming reference and/or installation instructions
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Document files I will look for
+- technical-report.???/pdf
+- user-manual.md/pdf
+- installation-instructions.md/pdf
+- programming-reference.md/pdf
+- requirements-document.md/pdf
+- deployment-plan.md/pdf
+- master-test-plan.md/pdf
+- coverage/index.html (and the entire coverage/ directory)
+- final-presentation.???/pdf
+- one-slide.pptx
+- screenshot*.png
+- readme.md (see [here](../slides/spring/02-deliverables.html#/readmemd))
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Documentation, continued
+- This should all be in the `docs/` directory in your github repo
+- An automated script will be looking for all those things, so please follow the naming conventions there
+  - And as we are all computer scientists, so let's get the cApItAlIzAtIoN case correct
+  - And, really, who puts spaces in file names these days?
+- I am happy to "pre-check" all this for you, so that you don't run into any last-minute surprises
+  - Just send me an email asking me to check your docs/ directory to make sure everything is correct
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Github repo cleanup
+- Your github repo should be in a reasonable state -- remember that other people may work on your project
+- In particular:
+  - Reasonable directory structure
+    - Example: if you have a bagillion data files in the root directory (I know who you are!), then put them in a data/ sub-directory
+  - All issues either resolved, or we have talked about it (an open issue means you did not complete something)
+    - That being said, you can have future enhancements listed as github issues
+  - Other than the master branch, the other branches should all have a specific purpose (i.e., clean up your branches)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Hand-off to the customer
+- This is described more fully [here](../slides/spring/02-deliverables.html#/customer)
+- In particular (but read the full description):
+  - Email them thanking them for the whole process
+  - Include some documentation and other attachments, and briefly describe them
+  - CC me when you do so
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Show stoppers
+- Any of the following will prevent the *entire* group from completing this course:
+  - Not having all the tests completed and working
+    - This includes the specific tests from iteration 13, as well as a green CI status badge
+  - Not having cleaned up the github repo
+  - Not having the documentation in the correct format
+  - Not having handed off the project to the customer
+  - Not having completed all the things from the checklists from iterations 12, 13, and 14
+  - Not having a working system (yes, I have to say that...)
+- The following will prevent you, specifically, from completing this course:
+  - Not completing the two remaining surveys
+	  </script></section>
+
+
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown id="estimation"><script type="text/template">
+# Estimation
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Burndown charts
+- Remember I had you estimate all the tasks at the beginning of the year?
+- The purpose was to illustrate how difficult estimation really is
+- Let's compare a sample burndown chart with our charts...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sample Burndown Chart
+
+<a href="http://en.wikipedia.org/wiki/Scrum_%28software_development%29#mediaviewer/File:SampleBurndownChart.png"><img src="http://upload.wikimedia.org/wikipedia/commons/0/05/SampleBurndownChart.png" alt="burndown" title="&quot;SampleBurndownChart&quot; by Pablo Straub - Own work. Licensed under Public domain via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:SampleBurndownChart.png#mediaviewer/File:SampleBurndownChart.png"></a>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Burndown chart from 2012-2013 (2 years ago)
+![SLP 2012-2013 burndown chart](../slides/fall/images/02-development-methods/slp-2012-2013.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Burndown chart from 2013-2014 (1 year ago)
+![SLP 2013-2014 burndown chart](../slides/fall/images/02-development-methods/slp-2013-2014.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Burndown chart from 2014-2015 (ours!)
+![SLP 2014-2015 burndown chart](images/slp-2014-2015-remaining-hours.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Lessons learned...
+- Estimates are rarely accurate
+- Estimation is quite difficult to do
+- If this were a paid project, we would have spent much more time on estimation than we did
+  - (not that I think *we* should have spent more time...)
+  - For a commercial project, a poor estimate can bankrupt a company!
+- Generating proper estimates require an experienced person (possibly a consultant)
+- We did better this year than in past years!
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown id="charts"><script type="text/template">
+# Charts
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Disclaimer
+- As the current iteration (#14) is not yet complete, the data for the following charts is thus also not yet complete
+- So take it with a grain of salt...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Total github issues
+![](images/slp-2014-2015-total-issues.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Remaining github issues
+![](images/slp-2014-2015-remaining-issues.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Total github story points
+![](images/slp-2014-2015-total-hours.svg)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Remaining github story points
+![](images/slp-2014-2015-remaining-hours.svg)
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown id="hours"><script type="text/template">
+# Hours
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Disclaimer
+- Again, as the current iteration (#14) is not yet complete, the data for the following slides is thus also not yet complete
+- What follows are the *reported* hours, which I know is not the same as *actual* hours.  But it's all I have to go by...
+- Some groups had people drop out, which affect the totals on the next page
+- So take it with a big grain of salt...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Reported hours
+
+<p>&nbsp;</p>
+<table class="transparent">
+<tr><td><ul>
+<li>alzheimers: 607.8 hours</li>
+<li>arbor: 559.4 hours</li>
+<li>cars: 662.0 hours</li>
+<li>band: 721.8 hours</li>
+<li>hopeslegacy: 1,247.5 hours</li>
+<li>innisfree: 496.0 hours</li>
+<li>jaunt: 801.2 hours</li>
+<li>loaves: 847.5 hours</li>
+</ul>
+</td><td class="top">
+<ul>
+<li>madisonhouse: 530.2 hours</li>
+<li>servicedogs: 583.5 hours</li>
+<li>haven: 450.8 hours</li>
+<li>shelter: 443.2 hours</li>
+<li>tjace: 746.5 hours</li>
+<li>was: 649.0 hours</li>
+<li>wtju: 756.2 hours</li>
+</ul>
+</td></tr></table>
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## I have kept my word...
+
+The numerical amount of hours you submitted has never, and will never, be used as a factor in your grade
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Reported hours analysis
+- Total was 10,102.6 hours
+- Average was 673.5 hours per group
+  - It was 657 hours per group last year
+- Which is 48.1 hours per (two-week) iteration
+- Which is 8.0 hours per student per (two-week) iteration (assuming a 6-person group)
+- Which is 4.0 hours per student per week
+- At $100 per hour (a reasonable consulting rate), that's $67,350 "given" to the community per project
+- Or $1,010,260 overall (over $1 million!)
+- Even if we charge half that, it's still a very significant sum
+	  </script></section>
+
+<!-- To obtain the data for the next slide:
+
+- Generated the reported times table
+- Get a list of all students that are no longer in the course
+- The total reported times should be n*i where n is the number of students and i is the number of iterations
+- Verify that (modfiy the date and the usernames, of course):
+
+select * from reported_times where start_date>"2014-07-01" and username!="mst3k" and username!="mst4k";
+
+- Now, count how many were missing:
+
+select * from reported_times where start_date>"2014-07-01" and count=0 and count_late=0 and username!="mst3k" and username!="mst4k";
+
+-->
+
+	  <section data-markdown><script type="text/template">
+## Can we do better?
+- 205 (of 14*97 = 1358) iterations did not have any hours reported
+  - Due to not entering hours; entering zero hours is not counted here
+  - 70 of those are from the current iteration 14, which has not been required to be reported yet
+- Can we assume that those iterations had work done?  Sure, why not
+  - Some of those are from people who totally slacked off, but others (I know) did not report all their hours; but we'll scale it down all the same
+- 205/1358 = 15.1%, which we'll scale down to 10% -- so we can increase all our estimates by that much
+- That yields $74,085 given per project (round to $74k)
+- And $1,111,286 overall (round to $1.1 million)
+	  </script></section>
+
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown id="reflection"><script type="text/template">
+# Reflection
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Course Objectives
+Students who complete the course will:
+
+- have gained experience with the development of large software projects through all phases from inception through development, testing, deployment, and maintenance
+- be able to design a customized development methodology for a particular project with given specifications
+- understand customer interaction for a software development project
+- understand proper documentation generation for a software development project
+- be able to properly generate, use, and understand the importance of various artifacts: use cases, requirements documents, etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What didn't work well
+- Deployment was still slow, even though it started even earlier this year than previous years
+  - A fix is on deck for that one...
+- The increased load on the teaching faculty meant I could not prepare as many lectures as I had intended
+- The increased course size meant I could not follow the projects as closely as I would have liked
+- The 9 a.m. meeting time in the spring was not super popular...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What did work well
+- We developed 15 projects for the customers!
+- And it seems that all of them will be used by the nonprofits
+- Django, as a platform, was well received and (generally) bug free
+- Having a grad TA really helped everything move along smoothly
+- You (hopefully) gained some real-world experience
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Changes for next year
+- I estimate about 80 students (down from about 100 this year)
+- All new projects!
+- A full legal agreement with the customers
+  - This has already been written, and be presented up front this time
+- Likely no new platforms, although the verions will likely be updated
+- Deployment even earlier (December)
+- More lectures, especially during the spring
+- I might bring back mentors next year
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section data-markdown id="conclusion"><script type="text/template">
+# Conclusion
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Final exam grade
+- In addition to the tutorial, it is partly based on your completion of the end-of-year survey
+- I'm not looking for sycophantic answers!
+  - I'm looking for your honest opinions
+  - And I want constructive criticism, as that is what will help me improve the SLP
+- I'm going to be looking that you:
+  - Completed the survey
+  - Took time to respond to (some, if not all) of the fill-in questions
+- Please don't add fluff or flattery or anything else like that; it just wastes both our times
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is left for you to do
+- Leads: fill out your weekly report today, and your TPS reports next Monday
+- Fill out the end-of-phase survey (survey prompt to follow later this week)
+- Fill out the end-of-year survey (survey prompt to follow later this week)
+  - I'm really interested in your comments!
+  - And if you get a survey time-out, I can provide you with your previous answers
+  - I'll put the survey pages online so you can see the questions ahead of time
+- Tutorials!  I hope you have a topic...
+- Fill out the Collab course evaluations
+- Complete the stuff mentioned in the beginning of this slide set
+- And...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Have a great summer!
+
+![](http://www.itsvery.net/lord-of-the-rings/lord-of-the-rings-022.jpg)
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.min.js"></script>
+    <script src="../slides/js/settings2.js"></script>
+
+  </body>
+</html>
