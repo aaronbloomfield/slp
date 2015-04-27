@@ -781,6 +781,21 @@ end
 - All of these are *overall* coverage; individual files may vary (except for the 100% one, of course)
 	  </script></section>
 
+	  <section data-markdown id="codecoverageslacking"><script type="text/template">
+## If <100% code coverage...
+- It may be that there is a part of your code that you cannot test, such as from a sanity check
+```
+if ( the sun explodes )
+    print "sorry, I cannot continue"
+```
+- If there is such code in your system, it will prohibit you from hitting 100% code coverage
+- To this end, you will need to create a code-coverage-excuses.md file (in the docs/ directory) that explains, for ***each*** code snippet that is not covered
+  - What code it is that is not covered
+  - Why it is not covered
+  - Why you think it is reasonable that you code will still work
+- This is only for code that cannot be tested for one reason or another!
+	  </script></section>
+
 	</section>
 
 
