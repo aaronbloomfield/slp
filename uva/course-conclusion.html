@@ -119,6 +119,7 @@
 - requirements-document.md/pdf
 - deployment-plan.md/pdf
 - master-test-plan.md/pdf
+- specific-test-plans.md/pdf
 - coverage/index.html (and the entire coverage/ directory)
 - code-coverage-excuses.md (optional; see [here](../slides/spring/03-testing.html#/codecoverageslacking))
 - final-presentation.???/pdf
@@ -135,6 +136,18 @@
   - And, really, who puts spaces in file names these days?
 - I am happy to "pre-check" all this for you, so that you don't run into any last-minute surprises
   - Just send me an email asking me to check your docs/ directory to make sure everything is correct
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Documentation, continued, continued
+- Note that if any of these documents are LaTeX, put those files in an appropriately named sub-directory
+  - i.e., `technical-report/`, `programming-reference/`, etc.
+- You can use pandoc to convert markdown to PDF:
+  - Install the package, if it's not already: `sudo apt-get install pandoc`
+  - The command to convert it is:
+```
+pandoc -f markdown --smart -o file.pdf file.md
+```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
