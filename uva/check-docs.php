@@ -59,6 +59,7 @@ foreach ( array_keys($files) as $i ) {
   // if it's a PDF file, an HTML file, a powerpoint file, or a
   // directory, and it's found, then remove it from the two lists
   if ( ((substr($file,-4) == ".pdf") ||
+	(substr($file,-3) == ".md") ||
 	(substr($file,-1) == "/") ||
 	(substr($file,-5) == ".pptx") ||
 	(substr($file,-5) == ".html")) &&
@@ -105,7 +106,6 @@ foreach ( array_keys($docs) as $doc ) {
     }
 
   }
-
 
 }
 
