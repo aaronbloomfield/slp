@@ -41,16 +41,19 @@ $docs = array (
 	       "user-manual.*" => "user manual source", 
 	       );
 
+$allowunderscores = false; // do we allow underscores in file names? currently, no.
+
 // get the files in the currect directory
-$files = split("\n",trim(`ls -F . coverage/index.html | sort`));
-
-
+$files = split("\n",trim(`ls -F . coverage/index.html 2> /dev/null | sort`));
 
 // Go through each file found in the directory
 foreach ( array_keys($files) as $i ) {
 
   $file = $files[$i];
-  $fileus = str_replace("_","-",$file); // allow underscores in the file name
+  if ( $allowunderscores )
+    $fileus = str_replace("_","-",$file); // allow underscores in the file name
+  else
+    $fileus = $file;
 
   // remove empty entries
   if ( ($file == "") || ($file == ".:") )
@@ -72,13 +75,19 @@ foreach ( array_keys($files) as $i ) {
 
 // Go through each file expected
 foreach ( array_keys($docs) as $doc ) {
-  $docus = str_replace("-","_",$doc);
+  if ( $allowunderscores )
+    $docus = str_replace("-","_",$doc);
+  else
+    $docus = $doc;
 
   // if the file name ends with a '.*', then we don't care about the
   // extension (and it could even be a directory)
   if ( substr($doc,-2) == ".*" ) {
     $filenamebase = substr($doc,0,strlen($doc)-1);
-    $filenamebaseus = substr($docus,0,strlen($docus)-1); // allow underscores in the file name
+    if ( $allowunderscores )
+      $filenamebaseus = substr($docus,0,strlen($docus)-1); // allow underscores in the file name
+    else
+      $filenamebaseus = $filenamebase;
 
     // see if anything in the directory matches that file name
     foreach ( array_keys($files) as $i ) {
@@ -93,7 +102,10 @@ foreach ( array_keys($docs) as $doc ) {
 
     // see if there is a directory of that name
     $dirname = substr($doc,0,strlen($doc)-2) . "/";
-    $dirnameus = substr($docus,0,strlen($docus)-2) . "/";
+    if ( $allowunderscores )
+      $dirnameus = substr($docus,0,strlen($docus)-2) . "/";
+    else
+      $dirnameus = $dirname;
     if ( (array_search($dirname,$files) != FALSE) ||
 	 (array_search($dirnameus,$files) != FALSE) ) {
       unset($docs[$doc]);
@@ -108,6 +120,22 @@ foreach ( array_keys($docs) as $doc ) {
   }
 
 }
+
+// handle screen shots separately
+if ( isset($docs["screenshot*.png"]) ) {
+  $screenshots = split("\n",trim(`ls screenshot* | sort`));
+  foreach ( $screenshots as $file )
+    if ( (substr($file,-4) == ".jpg") ||
+	 (substr($file,-4) == ".png") ) {
+      unset($docs["screenshot*.png"]);
+      $i = array_search($file,$files);
+      if ( $i != FALSE )
+	unset($files[$i]);
+    }
+}
+
+// reindex the files array
+$files = array_values($files);
 
 echo "The following expected files were not found:\n";
 print_r($docs);
