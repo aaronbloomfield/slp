@@ -19,7 +19,7 @@ This form is a generic non-disclosure agreement (NDA) between the students and t
 
 A few notes when filling out this form:
 
-- In the title of the form, you have to fill in a short description of the capstone project, such as "ACME volunteer scheduler"
+- In the title of the form, you have to fill in a short title for the capstone project, such as "ACME volunteer scheduler"
 - The "Collaborator" is the nonprofit for which the students are developing the project.
 - The "Capstone Project" line is a slightly longer description of the project -- the idea is to give a one sentence overview of what the project is or does.
 
@@ -34,8 +34,8 @@ This form is how a student indicates his/her awareness of what is going on in th
 
 A few notes when filling out this form:
 
-- In the title of the form, you have to fill in a short description of the capstone project, such as "ACME volunteer scheduler"
+- In the title of the form, you have to fill in a short title for the capstone project, such as "ACME volunteer scheduler"
 - The "Collaborator" is the nonprofit for which the students are developing the project.
-- The school (SEAS) has already been filled in.  Even if the student is not in SEAS (CLAS majors, for example), the class itself is still a CS class, and CS is in SEAS, so the agreement is still considered to be between SEAS and 
+- The school (SEAS) has already been filled in.  Even if the student is not in SEAS (CLAS majors, for example), the class itself is still a CS class, and CS is in SEAS, so the agreement is still considered to be between SEAS and the other entities (the external entity and the students).
 - The "Capstone Project" line is a slightly longer description of the project -- the idea is to give a one sentence overview of what the project is or does.
 - "Exhibit A", mentioned in item 7, is the Capstone NDA, above.
