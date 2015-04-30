@@ -123,7 +123,7 @@ foreach ( array_keys($docs) as $doc ) {
 
 // handle screen shots separately
 if ( isset($docs["screenshot*.png"]) ) {
-  $screenshots = split("\n",trim(`ls screenshot* | sort`));
+  $screenshots = split("\n",trim(`ls screenshot* 2> /dev/null | sort`));
   foreach ( $screenshots as $file )
     if ( (substr($file,-4) == ".jpg") ||
 	 (substr($file,-4) == ".png") ) {
