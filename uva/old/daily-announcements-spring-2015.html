@@ -1,0 +1,1976 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4971: daily-announcements slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../../slides/css/slp.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../../slides/reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+.reveal li {
+font-size:90%;
+line-height:110%;
+}
+    </style>
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4971
+&nbsp;
+### Capstone Practicum II
+### Spring 2015
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../../slides/index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp; 
+## Daily Announcements
+	</script></section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Spectroscopy</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/spectroscopy.png" title="Although right now I&#39;m more excited about ESPRESSO&#39;s radial velocity measurements, so I&#39;m listening to This Kiss, her song about measuring &quot;centrifugal motion&quot; on &quot;a rooftop under the sky&quot;." alt="Spectroscopy">
+<p class="center"><a href="http://xkcd.com/1517/">xkcd # 1517</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, April 27th, 2015
+- We are at the middle of iteration 14: transition, part 3
+- Leads: your weekly reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Iteration 13 evaluations released
+  - You only have *1 week* to challenge the results (to Jamie)
+- There will not be evaluations for iteration 14
+- Your group will not have an iteration 14 meeting with Jamie
+- My office hours are M/W 1:30-3:00, but will end after today's
+- All technical reports have been commented on
+  - Most need revisions...
+- Don't forget to report your hours!!! This is a course requirement!
+- Everybody has to do a [tutorial](#/tutorials) in lieu of a final exam
+- We discussed [course grades](#/grades2) previously
+- All of the stuff todo will be gone over in the [course conclusion](course-conclusion.html) slide set today
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- None!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Basketball Earth</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/basketball_earth.png" title="How many points do you get for dunking every basketball in existence at once?" alt="Basketball Earth">
+<p class="center"><a href="http://xkcd.com/1515/">xkcd # 1515</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, April 22nd, 2015
+- We are at the beginning of iteration 14: transition, part 3
+- Leads: your TPS reports were due yesterday by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Your group will not have an iteration 14 meeting with Jamie
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Your technical report feedback will be coming back soon...
+- Don't forget to report your hours!!! This is a course requirement!
+- Today's final presentations: was, cars, arbor, band
+- Everybody has to do a [tutorial](#/tutorials) in lieu of a final exam
+- We discussed [course grades](#/grades2) last time
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 14 checklist
+(this is what is due during this current iteration)
+
+- Individual tutorial (completed)
+- Screen shots
+- One slide version
+- All tests must pass (including green CI status and being able to run the tests on the course server)
+- At the end: end-of-phase AND end-of-year surveys
+  - FYI, these need to be completed, else incompletes will be issued  :-(
+- All github issues trimmed
+- Leads must still submit both reports, including a TPS report!
+- Final hand-off to myself and the customer
+  - We'll talk about this next Monday
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- None!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>PermaCal</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/permacal.png" title="The flood of PermaCalNTP leap-second notifications was bad enough, but when people started asking for millisecond resolution, the resulting DDOS brought down the internet." alt="PermaCal">
+<p class="center"><a href="http://xkcd.com/1514/">xkcd # 1514</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, April 20th, 2015
+- We are finishing up iteration 13: transition, part 2
+  - 7 person groups had a phase change two weeks ago; some surveys need to be filled out
+- Leads: your TPS reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Iteration 12 evaluations were released last week
+  - You have 2 weeks from when they were released to bring up a concern about them
+  - Comments on the specific test plans are in these evaluations
+- Your group will have an iteration 13 meeting with Jamie, but will *not* have an iteration 14 meeting with him
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Final Presentations
+- Today will be final presentations
+- Presenting today: loaves, tjace, wtju, was
+- Presenting Wednesday: cars, arbor, band
+- You can see the full schedule [here](#/finalpresorder)
+- Details about what to put in the final presentation can be found [here](#/finalpres) and [here](../../slides/spring/02-deliverables.html#/finalpres)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 13 checklist
+(this is what is due during this current iteration)
+
+- User manual (completed)
+- Programming reference (completed)
+- Specific test plans (completed and documented)
+- STS technical report (completed)
+  - Please just put it in the repo in PDF form, and send me an email
+- Prepare your final presentation slide set
+- Updated installation instructions
+- All tests must pass (including green CI status and being able to run the tests on the course server)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 14 checklist
+(what is due during the next iteration)
+
+- Individual tutorial (completed)
+- Screen shots
+- One slide version
+- All tests must pass (including green CI status and being able to run the tests on the course server)
+- At the end: end-of-phase AND end-of-year surveys
+  - FYI, these need to be completed, else incompletes will be issued  :-(
+- All github issues trimmed
+- Final hand-off to myself and the customer
+  - We'll talk about this next Monday
+	  </script></section>
+
+	  <section data-markdown id="tutorials"><script type="text/template">
+## Tutorials
+- These are in lieu of a final exam
+- Details can be found [here](../../slides/spring/02-deliverables.html#/tutorials)
+- They are due by the end of the normal final exam period (Mon, May 4th @ 5 p.m.)
+- Note that there is a ***GRADE DIFFERENCE*** depending on if you are creating a new tutorial or converting an old tutorial
+  - We don't have as many old tutorials to covert (only 43)
+  - So you only have to convert 1 (as opposed to 2 from last semester)
+  - However, if you convert tutorials, your grade is capped out at 60% of the maximum
+    - This is partly because it's a much easier task, but also to encourage people to write new tutorials
+  - I am happy to chat about potential new tutorial topics
+	  </script></section>
+
+	  <section data-markdown id="grades2"><script type="text/template">
+## Course grades
+- The details for what is being graded can be found [here](#/grades)
+- The weighting will likely not be known until right before the final grades are determined and submitted
+  - Mostly because it's not really possible to estimate what the final weighting will be
+- However, I will post all the criteria used to determine the final grades via Collab's PostEm tool
+  - You will have a day or two to look it over and register any concerns or complaints
+- I will then use my [Magic 8-ball](http://www.indra.com/8ball/front.html), and determine the final grades
+	  </script></section>
+
+
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Cars: issue #106
+    - This is now the third time I have told you about this specific issue.  This is starting to get annoying.
+- Haven: issue #136
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Horoscopes</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/horoscopes.png" title="If you live in the Northern hemisphere, anyway. In the southern hemisphere, due to the coriolis effect, babies are born nine months BEFORE they&#39;re conceived." alt="Horoscopes">
+<p class="center"><a href="http://xkcd.com/1512/">xkcd # 1512</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, April 15th, 2015
+- We are half-way through iteration 13: transition, part 2
+  - 7 person groups had a phase change last week; surveys need to be filled out
+- Leads: your weekly reports were due yesterday by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Iteration 12 evaluations have been released
+  - You have 2 weeks to bring up a concern about them
+  - Comments on the specific test plans are in these evaluations
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today will be final presentations
+  - Today: hopeslegacy, jaunt, madisonhouse, haven
+  - Next Monday: loaves, tjace, wtju, was
+  - You can see the full schedule [here](#/finalpresorder)
+  - Details about what to put in the final presentation can be found [here](#/finalpres) and [here](../../slides/spring/02-deliverables.html#/finalpres)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 13 checklist
+(this is what is due during this current iteration)
+
+- User manual (completed)
+- Programming reference (completed)
+- Specific test plans (completed and documented)
+- STS technical report (completed)
+  - Please just put it in the repo in PDF form, and send me an email
+- Prepare your final presentation slide set
+- Updated installation instructions
+- All tests must pass (including green CI status and being able to run the tests on the course server)
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Cars: issues #106, #111
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Spice Girl</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/spice_girl.png" title="Haha, you&#39;ll see!" alt="Spice Girl">
+<p class="center"><a href="http://xkcd.com/1511/">xkcd # 1511</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, April 13th, 2015
+- We are half-way through iteration 13: transition, part 2
+  - 7 person groups had a phase change last week; surveys need to be filled out
+- Leads: your weekly reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today will be final presentations
+  - Today: innisfree, shelter, alzheimers, servicedogs
+  - Wednesday: hopeslegacy, jaunt, madisonhouse, haven
+  - You can see the full schedule [here](#/finalpresorder)
+  - Details about what to put in the final presentation can be found [here](#/finalpres) and [here](../../slides/spring/02-deliverables.html#/finalpres)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 13 checklist
+(this is what is due during this current iteration)
+
+- User manual (completed)
+- Programming reference (completed)
+- Specific test plans (completed and documented)
+- STS technical report (completed)
+  - Please just put it in the repo in PDF form, and send me an email
+- Prepare your final presentation slide set
+- Updated installation instructions
+- All tests must pass (including green CI status and being able to run the tests on the course server)
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Cars: issues #106, #111
+- Hopeslegacy: issue #764
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Scenery Cheat Sheet</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/scenery_cheat_sheet.png" title="At the boundary between each zone, stories blend together. Somewhere in the New Mexico desert, the Roadrunner is pursued by a tireless Anton Chigurh." alt="Scenery Cheat Sheet">
+<p class="center"><a href="http://xkcd.com/1509/">xkcd # 1509</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, April 8th, 2015
+- We are starting iteration 13: transition, part 2
+  - 7 person groups had a phase change yesterday; the survey prompt was sent out last night
+- Leads: your TPS reports were due yesterday by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Note that we must be able to run the unit tests on the course server!
+  - We were unable to do so on some of the groups' accounts
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown id="finalpresorder"><script type="text/template">
+## Final presentation order
+- Algorithm to select this order:
+  1. Solicit volunteers
+  2. `select name from projects order by rand();`
+- They start *next week*!
+- Who is going when:
+  - Monday, April 13th: innisfree, shelter, alzheimers, servicedogs
+  - Wednesday, April 15th: hopeslegacy, jaunt, madisonhouse, haven
+  - Monday, April 20th: loaves, tjace, wtju, was
+  - Wednesday, April 22nd: cars, arbor, band
+- We will have to keep the presentations to 10 minutes each...
+- Details about what to put in the final presentation can be found [here](#/finalpres) and [here](../../slides/spring/02-deliverables.html#/finalpres)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 12 checklist
+(this is what you just completed)
+
+- Code coverage up to 100%
+  - Anything not covered should be described in a code-coverage-excuses.md file
+- User manual (draft, but a good draft)
+- Specific test plans (written)
+- STS technical report (draft or outline)
+- Submitted an "other" report with login credentials
+- Unit tests can be run on the course server
+- Possibly prep your final presentation
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 13 checklist
+(this is what is due during this current iteration)
+
+- User manual (completed)
+- Programming reference (completed)
+- Specific test plans (completed and documented)
+- STS technical report (completed)
+  - Please just put it in the repo in PDF form, and send me an email
+- Prepare your final presentation slide set
+- Updated installation instructions
+- All tests must pass (including green CI status and being able to run the tests on the course server)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 14 checklist
+(this is a preview so you know what is coming up)
+
+- Individual tutorial (completed)
+- Screen shots
+- One slide version
+- All tests must pass (including green CI status and being able to run the tests on the course server)
+- At the end: end-of-phase AND end-of-year surveys
+- All github issues trimmed
+- Final hand-off to the customer
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- None!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Operating Systems</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/operating_systems.png" title="One of the survivors, poking around in the ruins with the point of a spear, uncovers a singed photo of Richard Stallman. They stare in silence. &quot;This,&quot; one of them finally says, &quot;This is a man who BELIEVED in something.&quot;" alt="Operating Systems">
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, April 6th, 2015
+- We are ending iteration 12: transition!
+  - 6 person groups had a phase change two weeks ago; the survey prompt and reminder were sent out
+    - That survey will be turned off tonight, and if you don't fill it out, that's *bad*
+  - 7 person groups will have a phase change tomorrow; survey prompts will be sent out tonight
+- Leads: your TPS reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Note that we must be able to run the unit tests on the course server!
+  - We were unable to do so on some of the groups' accounts
+- Please be sure to submit an "other" report with login credentials
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Final presentation order
+- Algorithm to select this order:
+  1. Solicit volunteers
+  2. `select name from projects order by rand();`
+- They start *next week*!
+- Who is going when:
+  - Monday, April 13th: innisfree, shelter, alzheimers, servicedogs
+  - Wednesday, April 15th: hopeslegacy, jaunt, madisonhouse, haven
+  - Monday, April 20th: loaves, tjace, wtju, was
+  - Wednesday, April 22nd: cars, arbor, band
+- We will have to keep the presentations to 10 minutes each...
+- Details about what to put in the final presentation can be found [here](#/finalpres) and [here](../../slides/spring/02-deliverables.html#/finalpres)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 12 checklist
+- Code coverage up to 100%
+  - Anything not covered should be described in a code-coverage-excuses.md file
+- User manual (draft, but a good draft)
+- Specific test plans (written)
+- STS technical report (draft or outline)
+- Submitted an "other" report with login credentials
+- Unit tests can be run on the course server
+- Possibly prep your final presentation
+	  </script></section>
+
+	  <section data-markdown id="grades"><script type="text/template">
+## Course Grading Metric
+- This is quite similar to what was used last semester, and follows what was dicussed in the [course introduction](../../slides/fall/01-intro.html#/grades) last August
+  - The intent is to have grades released to you a few days before I turn them in so that you can vent your wrath at me
+- The base grade is group-based:
+  - Results of the evaluations of the iterations
+  - Customer and instructor evaluation of the final system
+    - The customer evaluations are taken with an appropriate grain of salt
+  - Deliverables evaluation
+- This is modified by a *factor* based on how much work we felt you did for the project (below average, average, above average, etc.)
+- There are some individual components (tutorial for the final, for example)
+- Penalties for attendance, not filling out surveys, not reporting hours, wearing mismatched socks, etc.
+- It is calibrated so that all "good" evlauations with an average amount of work will yield an A
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- None!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>xkcloud</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/xkcloud.png" title="" alt="xkcloud">
+<p class="center"><a href="http://xkcd.com/1506/">xkcd # 1506</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, April 1st, 2015
+- We are half-way through iteration 12: transition!
+  - 6 person groups just had a phase change last week; the survey prompt reminder was sent out Sunday night
+- Leads: your weekly reports were due yesterday by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Note that we must be able to run the unit tests on the course server!
+  - We were unable to do so on some of the groups' accounts
+- Please be sure to submit an "other" report with login credentials
+- My office hours are M/W 1:30-3:00, but not today unless we chat about it
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More stuffs
+- Did you complete everything in the [end of development checklist](#/enddevchecklist)?
+- Is your customer using the system?  I emailed them about it on Sunday night.
+  - If not, you MUST let me know!
+- The [full schedule of transition deliverables](#/transdel) was gone over last Wednesday
+- Deliverables for iteration 12: code coverage up to 100%, user manual (draft), specific test plans (written), STS technical report (draft or outline)
+  - These need to be quality drafts -- throwing together something at the last minute because you have senioritis will just make me really cranky
+- We will be doing tutorials again in lieu of a final exam
+  - So start thinking about topics!
+  - The mechanism to reserve them is not yet ready...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Final presentation order
+- Algorithm to select this order:
+  1. Solicit volunteers
+  2. `select name from projects order by rand();`
+- Who is going when:
+  - Monday, April 13th: innisfree, shelter, alzheimers, servicedogs
+  - Wednesday, April 15th: hopeslegacy, jaunt, madisonhouse, haven
+  - Monday, April 20th: loaves, tjace, wtju, was
+  - Wednesday, April 22nd: cars, arbor, band
+- We will have to keep the presentations to 10 minutes each...
+- Details about what to put in the final presentation can be found [here](#/finalpres) and [here](../../slides/spring/02-deliverables.html#/finalpres)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 12 checklist
+- Code coverage up to 100%
+- User manual (draft, but a good draft)
+- Specific test plans (written)
+- STS technical report (draft or outline)
+- Submitted an "other" report with login credentials
+- Unit tests can be run on the course server
+- Possibly prep your final presentation
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Haven: issue #129
+- Shelter: issue #160
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Ontological Argument</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/ontological_argument.png" title="A God who holds the world record for eating the most skateboards is greater than a God who does not hold that record." alt="Ontological Argument">
+<p class="center"><a href="http://xkcd.com/1505/">xkcd # 1505</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, March 30th, 2015
+- We are half-way through iteration 12: transition!
+  - 6 person groups just had a phase change last week; the survey prompt reminder was sent out last night
+- Leads: your weekly reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- There was a delay allowed for the 90% testing code coverage; that delay is one week (i.e., until the end of next Monday)
+  - Really we are just going to look if you hit 100% by the end of the current iteration
+- Note that we must be able to run the unit tests on the course server!
+  - We were unable to do so on some of the groups' accounts
+- My office hours are M/W 1:30-3:00, but not this Wednesday unless we chat about it
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More stuffs
+- Did you complete everything in the [end of development checklist](#/enddevchecklist)?
+- [Final presentation details](#/finalpres) are available.  Anybody want to volunteer to go on day 1 (Apr 13)?
+  - If no one volunteers, I will role my 15-sided die...
+- Is your customer using the system?  I emailed them about it last night.
+  - If not, you MUST let me know!
+- The [full schedule of transition deliverables](#/transdel) was gone over last Wednesday
+- Deliverables for iteration 12: code coverage up to 100%, user manual (draft), specific test plans (written), STS technical report (draft or outline)
+  - These need to be quality drafts -- throwing together something at the last minute because you have senioritis will just make me really cranky
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Shelter: issues #158, #160
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Squirrel Plan</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/squirrel_plan.png" title="[Halfway to the Sun ...] Heyyyy ... what if this BALLOON is full of acorns?!" alt="Squirrel Plan">
+<p class="center"><a href="http://xkcd.com/1503/">xkcd # 1503</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, March 25th, 2015
+- We are at the start of iteration 12: system development should be complete!
+  - 6 person groups just had a phase change; the survey prompt was sent out last night
+  - Transition period deliveriables will be on the next few slides
+- Leads: your TPS reports were due yesterday by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- There was a delay allowed for the 90% testing code coverage; that delay is one week (i.e., until the end of next Monday)
+  - Really we are just going to look if you hit 100% by the end of the current iteration
+- Note that we must be able to run the unit tests on the course server!
+  - We were unable to do so on some of the groups' accounts
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown id="enddevchecklist"><script type="text/template">
+## End of Development Checklist
+- Updated transition plan documents, code coverage at 90%
+- Updated requirements documents
+- The system meets all the requirements
+- Github issues "trimmed": only those that are actually going to be handled during transition should remain
+  - No major feature development issues should remain
+- CI status is green (it wasn't as of last night for 2 groups)
+- System deployed to final deployment host
+- Customer is aware of the deployed system, and will start using it
+- TPS report submitted; it MUST contain the URL of the deployed site
+- *New:* credentials sent to Jamie/Bloomfield to log in to *both* servers (pegasus and deployed site)
+  - You can submit this as an "other" report for the current iteration, even if you have already given them to us
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Transition Period Overview
+- <font color='red'>YOUR CUSTOMER MUST BE USING THE SYSTEM!!!</font>
+  - If not, and you and I are not in discussion about this, it will be considered a failure to properly deploy the system -- which means you will not have completed the entire point of this course
+  - I will be emailing all the customers later this week to remind them to use the system
+- There are many deliverables due during the transition period (described next)
+- You must still be "tweaking" your system: implementing any fixes (or minor changes) that the customer requests
+	  </script></section>
+
+	  <section data-markdown id="finalpres"><script type="text/template">
+## Final presentations
+- Will happen during the last two full weeks of class
+  - Dates: Mon, Apr 13; Wed, Apr 15; Mon, Apr 20; Wed, Apr 22
+  - The very last da of class (Mon, Apr 27) will be a course wrap-up
+- Details about what to present can be found [here](../../slides/spring/02-deliverables.html#/finalpres)
+- There will be 4 per day, and they should be about 10 minutes
+  - Note that they cannot go beyond 10 minutes!
+- We can choose a schedule ahead of time so that everybody knows what day they are going
+- You all are going to have to close your computers for this!
+	  </script></section>
+
+	  <section data-markdown id="transdel"><script type="text/template">
+## Transition period deliverables
+- Completed so far: deployment plan (it 7), installation instructions (it 8), master test plan (it 9), code coverage report @ 80% (it 10), requirements document (it 11)
+- Deliverables that are due during the transition period (all are described in the [deliverables slide set](../../slides/spring/02-deliverables.html)):
+  - User manual
+  - Programming reference
+  - STS technical report
+  - Final presentation slide set
+  - Screen shots
+  - One-slide version
+  - Tutorial (individual)
+  - Updated installation instructions
+- Testing that is due during the transition period (all are described in the [testing slide set](../../slides/spring/03-testing.html)):
+  - Code coverage up to 100%
+  - Specific test plans (written and then, later, performed successfully)
+  - All tests must pass
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Proposed Deliverable Schedule
+- Iteration 12 (ends Apr 6)
+  - Code coverage up to 100%
+  - User manual (draft)
+  - Specific test plans (written)
+  - STS technical report (draft or outline)
+- Iteration 13 (ends Apr 20)
+  - At the beginning for 7 person groups: end of phase survey
+  - Final presentation slide set
+  - STS technical report
+  - User manual (final)
+  - Programming reference
+  - Specific test plans (performed successfully)
+  - Updated installation instructions
+- Iteration 14 (ends May 4)
+  - All tests must pass
+  - Tutorial (individual)
+  - Screen shots
+  - One-slide version
+  - At the end: end of phase survey *AND* end of year survey
+  - Final hand-off to the customer
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Alzheimers: issues #29, #159, #165, #171
+- Band: issue #16
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Wasted Time</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/wasted_time.png" title="Since it sounds like your time spent typing can&#39;t possibly be less productive than your time spent not typing, have you tried typing SLOWER?" alt="Wasted Time">
+<p class="center"><a href="http://xkcd.com/1502/">xkcd # 1502</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, March 23rd, 2015: T-1 day!
+- We are at the end of iteration 11
+  - The deliverable for this iteration is an updated transition plan: deployment plan (it 7), installation instructions (it 8), master test plan (it 9), and the code coverage report @ 90% (it 10)
+  - Any requested edits to these should be there!
+  - Along with the updated requirements document
+  - As well as the normal 24-28 story points worth of "stuff"
+- Seven person groups had a phase change last week (during spring break); the survey prompt was sent out yesterday, and a reminder will be sent out early today
+- Six person groups will have a phase change tomorrow; the survey prompt will be out shortly as well
+- Leads: your TPS reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## End of development
+- As mentioned on day 1 of the fall semester today (well, tomorrow by noon, really) -- is when the system must be fully developed
+- It must also be fully deployed and working on *both* pegasus and the deployment server mentioned in the deployment plan
+- At that point, all requirements should be completed, and the system should conform to the updated requirements document
+  - And your CI testing should be green!
+- Next week we will talk about the schedule as we move through the transition period
+- Note that the ***WHOLE POINT*** of this 3 iteration long transition period is to have your customer actually use the system!!!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## End of Development Checklist
+- Updated transition plan documents, code coverage at 90%
+- Updated requirements documents
+- The system meets all the requirements
+- Github issues "trimmed": only those that are actually going to be handled during transition should remain
+  - No major feature development issues should remain
+- CI status is green (it wasn't as of last night for 3 groups)
+- System deployed to final deployment host
+- Customer is aware of the deployed system, and will start using it
+- TPS report submitted; it MUST contain the URL of the deployed site
+
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- No one!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Upside-Down Map</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/upside_down_map.png" title="Due to their proximity across the channel, there&#39;s long been tension between North Korea and the United Kingdom of Great Britain and Southern Ireland." alt="Upside-Down Map">
+<p class="center"><a href="http://xkcd.com/1500/">xkcd # 1500</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, March 18th, 2015
+## T-5 days!
+- We are half-way through iteration 11
+  - The deliverable for this iteration is an updated transition plan: deployment plan (it 7), installation instructions (it 8), master test plan (it 9), and the code coverage report @ 90% (it 10)
+  - Any requested edits to these should be there!
+  - Along with the updated requirements document
+  - As well as the normal 24-28 story points worth of "stuff"
+- Seven person groups had a phase change last week (during spring break); the survey prompt was sent out yesterday
+- Leads: your weekly reports were due yesterday by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- When are your STS technical reports due?
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## End of development
+- As mentioned on day 1 of the fall semester, March 23rd -- next Monday! -- is when the system must be fully developed
+- It must also be fully deployed and working on *both* pegasus and the deployment server mentioned in the deployment plan
+- At that point, all requirements should be completed, and the system should conform to the updated requirements document
+  - And your CI testing should be green!
+- Next week we will talk about the schedule as we move through the transition period
+- Note that the ***WHOLE POINT*** of this 3 iteration long transition period is to have your customer actually use the system!!!
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Hopeslegacy: issue #618
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Arbitrage</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/arbitrage.png" title="The invisible hand of the market never texts me back." alt="Arbitrage">
+<p class="center"><a href="http://xkcd.com/1499/">xkcd # 1499</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, March 16th, 2015
+- We are half-way through iteration 11
+  - The deliverable for this iteration is an updated transition plan: deployment plan (it 7), installation instructions (it 8), master test plan (it 9), and the code coverage report @ 90% (it 10)
+  - Any requested edits to these should be there!
+  - Along with the updated requirements document
+  - As well as the normal 24-28 story points worth of "stuff"
+- Seven person groups had a phase change last week (during spring break); the survey prompt will be out later today
+- Leads: your weekly reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Compatability Testing
+- This is now being added as one of the specific test plans; the [testing](../../slides/spring/03-testing.html) slide set has been updated with this info (see [here](../../slides/spring/03-testing.html#/compatabilitytesting)).
+- But this is your entire test plan:
+> We will execute the requirements test on the most recent version of the major web browsers (Firefox, Chrome, IE, and Safari).  If -- and only if -- the requirements test passes on all of those browsers, then the compability test will be considered to have passed.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## End of development
+- As mentioned on day 1 of the fall semester, March 23rd -- next Monday! -- is when the system must be fully developed
+- It must also be fully deployed and working on *both* pegasus and the deployment server mentioned in the deployment plan
+- At that point, all requirements should be completed, and the system should conform to the updated requirements document
+  - And your CI testing should be green!
+- Next week we will talk about the schedule as we move through the transition period
+- Note that the ***WHOLE POINT*** of this 3 iteration long transition period is to have your customer actually use the system!!!
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Band: issue #94
+- Hopeslegacy: issue #618
+- TJACE: issue #84
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Insurance</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/insurance.png" title="LIFEHACKS: You can just take all the luggage off the airport conveyer belt and leave with it. They don&#39;t check that it&#39;s yours at the door!" alt="Insurance">
+<p class="center"><a href="http://xkcd.com/1494/">xkcd # 1494</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, March 4th, 2015
+- We are half-way through iteration 10
+  - The deliverable for this iteration is the [code coverage report](../../slides/spring/03-testing.html#/codecoverage) as well as 80% code coverage (or, if you did that for the last iteration, then the [master test plan](../../slides/spring/03-testing.html#/mastertestplan))
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Six person groups just had a *phase change*
+  - New leads and new secretaries
+  - Those groups must fill out the end-of-phase survey (it's a course requirement)
+  - Survey prompts were sent out during Monday's class
+- Compatability testing: you should test your system on *multiple* browsers (IE, Firefox, Chrome, and Safari)
+- Leads: your weekly reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- My office hours are M/W 1:30-3:00, but I won't holding them on today
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule changes moving forward
+- As mentioned on the first day of the spring semester, there will only be Wednesday lectures for about the first half of the semester
+  - We've largely hit that point
+  - There isn't much I can lecture to you about that:
+    1. Will be of use to you as you wrap up your projects, and
+    2. Won't be a waste of your time
+- There is one more definite lecture ([maintenance](../../slides/spring/04-maintenance.html)), as well as a few other things: guest talk, course conclusions, presentations etc.
+- But most of the following Wednesdays will now become group work days
+  - Thus, there will be two group work days each week: Mondays and Wednesdays
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- No one!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h4>Meeting</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/meeting.png" title="Here at CompanyName.website, our three main strengths are our web-facing chairs, our huge collection of white papers, and the fact that we physically cannot die." alt="Meeting">
+<p class="center"><a href="http://xkcd.com/1493/">xkcd # 1493</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, March 2nd, 2015
+- We are half-way through iteration 10
+  - The deliverable for this iteration is the [code coverage report](../../slides/spring/03-testing.html#/codecoverage) as well as 80% code coverage (or, if you did that for the last iteration, then the [master test plan](../../slides/spring/03-testing.html#/mastertestplan))
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Six person groups just had a *phase change*
+  - New leads and new secretaries
+  - Those groups must fill out the end-of-phase survey (it's a course requirement)
+  - Survey prompts were sent out during Monday's class
+- Leads: your weekly reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- My office hours are M/W 1:30-3:00, but I won't holding them on Wednesday
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule changes moving forward
+- As mentioned on the first day of the spring semester, there will only be Wednesday lectures for about the first half of the semester
+  - We've largely hit that point
+  - There isn't much I can lecture to you about that:
+    1. Will be of use to you as you wrap up your projects, and
+    2. Won't be a waste of your time
+- There is one more definite lecture ([maintenance](../../slides/spring/04-maintenance.html)), as well as a few other things: guest talk, course conclusions, presentations etc.
+- But most of the following Wednesdays will now become group work days
+  - Thus, there will be two group work days each week: Mondays and Wednesdays
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- No one!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/stories_of_the_past_and_future.png" title="Little-known fact: The &#39;Dawn of Man&#39; opening sequence in 2001 cuts away seconds before the Flinstones theme becomes recognizable." alt="Stories of the Past and Future" />
+<p class="center"><a href="http://xkcd.com/1491/">xkcd # 1491</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, February 25th, 2015
+- We are at the start of iteration 10
+  - The deliverable for this iteration is the [code coverage report](../../slides/spring/03-testing.html#/codecoverage) as well as 80% code coverage (or, if you did that for the last iteration, then the [master test plan](../../slides/spring/03-testing.html#/mastertestplan))
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Six person groups just had a *phase change*
+  - New leads and new secretaries
+  - Those groups must fill out the end-of-phase survey (it's a course requirement)
+  - Survey prompts were sent out during Monday's class
+- Leads: your TPS reports were due yesterday by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule changes moving forward
+- As mentioned on the first day of the spring semester, there will only be Wednesday lectures for about the first half of the semester
+  - We've largely hit that point
+  - There isn't much I can lecture to you about that:
+    1. Will be of use to you as you wrap up your projects, and
+    2. Won't be a waste of your time
+- There is one more definite lecture ([maintenance](../../slides/spring/04-maintenance.html)), as well as a few other things: guest talk, course conclusions, presentations etc.
+- But most of the following Wednesdays will now become group work days
+  - Thus, there will be two group work days each week: Mondays and Wednesdays
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- WTJU: issue #161 and #162
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/atoms.png" title="When I was little I had trouble telling my dad apart form the dog. I always recognized my mom because she had a bunch of extra plutoniums in her middle. I never did ask her why ..." alt="Atoms">
+<p class="center"><a href="http://xkcd.com/1490/">xkcd # 1490</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, February 23rd, 2015
+- We are at the end of iteration 9
+  - The deliverable for this iteration is the [master test plan](../../slides/spring/03-testing.html#/mastertestplan); you can submit the [code coverage report](../../slides/spring/03-testing.html#/codecoverage) instead; see [this slide](#/codecoverageinstead) for details
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Six person groups have a *phase change* tomorrow
+  - New leads and new secretaries
+  - Those groups must fill out the end-of-phase survey (it's a course requirement)
+  - Survey prompts will be sent out later today
+- Leads: your TPS reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- ~~Wed, Jan 21st: group meetings (since they weren't that Monday)~~
+- ~~Mon, Jan 26th: group meetings~~
+- ~~Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 2nd: group meetings~~
+- ~~Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 9nd: group meetings~~
+- ~~Wed, Feb 11th: the [testing](../../slides/spring/03-testing.html) lecture, part 1~~
+- ~~Mon, Feb 16th: group meetings~~
+- ~~Wed, Feb 18th: the [testing](../../slides/spring/03-testing.html) lecture, part 2~~
+- ...
+- Profit!
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- WTJU: issue #156
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/flowcharts.png" title="Whoa, and if you overlay a Fibonacci spiral on a golden spiral it matches up almost perfectly!" alt="Flowcharts">
+<p class="center"><a href="http://xkcd.com/1488/">xkcd # 1488</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, February 18th, 2015
+- We are half-way through iteration 9
+  - The deliverable for this iteration is the [master test plan](../../slides/spring/03-testing.html#/mastertestplan) which we will go over more today; you can also submit the [code coverage report](../../slides/spring/03-testing.html#/codecoverage) instead; see the next slide
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Leads: your weekly reports were due yesterday by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Seven person groups had a *phase change* one week ago
+  - Surveys are now over due!  Except Jaunt, who I just added yesterday...
+- Iteration 8 evaluations evals have been released (attendance is not yet entered); concerns need to be raised within 2 weeks
+- My office hours are M/W 1:30-3:00, but not today (chat with me after class if you were going to swing by)
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is the second (or 2) lectures on [testing](../../slides/spring/03-testing.html)
+	  </script></section>
+
+	  <section data-markdown id="codecoverageinstead"><script type="text/template">
+## Master Test Plan versus Code Coverage Report
+- The original idea, as presented in the [deliverables slide set](../../slides/spring/02-deliverables.html), was to submit the [code coverage report](../../slides/spring/03-testing.html#/codecoverage) instead of the [master test plan](../../slides/spring/03-testing.html#/mastertestplan) this iteration
+  - I sneakily changed it; the reason was to give you more time to write your unit tests for the code coverage report
+- Some have asked that that order be reversed
+- That's fine, with the following caveats:
+  - If you are submitting the code coverage report this iteration, then you *still* need to submit a `docs/master-test-plan.md` (or .pdf) file that has one line: "we are submitting the code coverage report this iteration instead"
+    - This way we know you didn't forget
+  - You still need to hit the 80% target for code coverage
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- ~~Wed, Jan 21st: group meetings (since they weren't that Monday)~~
+- ~~Mon, Jan 26th: group meetings~~
+- ~~Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 2nd: group meetings~~
+- ~~Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 9nd: group meetings~~
+- ~~Wed, Feb 11th: the [testing](../../slides/spring/03-testing.html) lecture, part 1~~
+- ~~Mon, Feb 16th: group meetings~~
+- Wed, Feb 18th: the [testing](../../slides/spring/03-testing.html) lecture, part 2
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Shelter: issue #123
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/tornado.png" title="Nearby, there were also no injuries when a multi-vortex tornado hit one of those spinning teacup rides." alt="Tornado">
+<p class="center"><a href="http://xkcd.com/1487/">xkcd # 1487</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, February 16th, 2015
+- We are half-way through iteration 9
+  - The deliverable for this iteration is the [master test plan](../../slides/spring/03-testing.html#/mastertestplan), which we will go over more on Wednesday
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Leads: your weekly reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/weeklyreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Seven person groups had a *phase change* one week ago
+  - Please fill out the surveys by the end of the day today
+- Iteration 8 evaluations evals have been released (attendance is not yet entered)
+  - Any concerns need to be brought up within two weeks of when it was returned (i.e., two weeks after today)
+- My office hours are M/W 1:30-3:00
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day; Wednesday is the second (or 2) lectures on [testing](../../slides/spring/03-testing.html)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- ~~Wed, Jan 21st: group meetings (since they weren't that Monday)~~
+- ~~Mon, Jan 26th: group meetings~~
+- ~~Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 2nd: group meetings~~
+- ~~Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 9nd: group meetings~~
+- ~~Wed, Feb 11th: the [testing](../../slides/spring/03-testing.html) lecture, part 1~~
+- Mon, Feb 16th: group meetings
+- Wed, Feb 18th: the [testing](../../slides/spring/03-testing.html) lecture, part 2
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Arbor: issues #158
+- Jaunt: issues #138 and #139
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/friendship.png" title="The only other Wikipedia vandalism that I would feel zero remorse about is editing the article on active US militia groups to replace &quot;militia&quot; with &quot;fanclub&quot;." alt="Friendship">
+<p class="center"><a href="http://xkcd.com/1485/">xkcd # 1485</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, February 11th, 2015, page 1
+- We are starting iteration 9
+  - The deliverable for this iteration is the [master test plan](../../slides/spring/03-testing.html#/mastertestplan), which we will go over today
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Seven person groups just had a *phase change*
+  - This means new leads and secretaries, as well as the end-of-phase survey
+  - Incoming leads were emailed about this earlier today
+  - And the survey prompt was also sent then as well
+    - This needs to be filled out in a timely manner (about a week)
+- Iteration 7 evaluations are out, but attendance is not yet entered
+  - Any concerns need to be brought up within two weeks of when it was returned (i.e., two weeks after Monday, 2/2)
+- We are aiming to have iteration 8 evals out early next week
+- A note about the deliverables: you will have to follow what is detailed in the [deliverables](../../slides/spring/02-deliverables.html) slide set exactly...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, February 11th, 2015, page 2
+- Installation notes
+  - The system needs to be fully deployed, to the deployment host, at the end of the development phase (March 23rd)
+  - However, I will want a version deployed one iteration earlier (March 9th)
+    - Whatever the current state is at that point
+  - I just wanted to give you a heads-up so it does not come as a surprise later on...
+- My office hours are M/W 1:30-3:00
+  - Although they will be 2:00-3:30 today
+- Leads: your TPS reports were due yesterday by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a lecture on [testing](../../slides/spring/03-testing.html), which will likely finish next Wednesday
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Server hack
+- The [ZmEu](http://en.wikipedia.org/wiki/ZmEu_%28vulnerability_scanner%29) malware succesfully attacked the course server on Monday, February 9th
+  - It likely got access through a weak password in phpmyadmin
+  - From there, a vulnerability in phpmyadmin allowed console access
+- Even though the system was fully updated, the installed version of phpmyadmin (4.0.10) is well below the most recent version (4.3.9)
+  - It's unclear if the exploit was a weak password or a bug in phpmyadmin that has since been fixed
+- The server was allowed to be reconnected to the network this morning
+  - Assuming the malware was properly removed, it should stay up for the foreseeable future
+- Some of your processess - and all of your login shells -- were terminated as a result of all of this
+- Consequence: phpmyadmin has been disabled
+  - And likely will not be enabled again this semester
+  - You will have to use the command-line mysql client
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- ~~Wed, Jan 21st: group meetings (since they weren't that Monday)~~
+- ~~Mon, Jan 26th: group meetings~~
+- ~~Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 2nd: group meetings~~
+- ~~Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 9nd: group meetings~~
+- Wed, Feb 11th: the [testing](../../slides/spring/03-testing.html) lecture, part 1
+- Mon, Feb 16th: group meetings
+- Wed, Feb 18th: the [testing](../../slides/spring/03-testing.html) lecture, part 2
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Jaunt: issues #138 and #139
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/quotative_like.png" title="God was like, &quot;Let there be light,&quot; and there was light." alt="Quotative Like">
+<p class="center"><a href="http://xkcd.com/1483/">xkcd # 1483</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, February 9th, 2015
+- We are ending iteration 8
+  - The deliverable for this iteration is the [installation instructions](../../slides/spring/02-deliverables.html#/installation)
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Seven person groups will have a *phase change*
+  - This means new leads and secretaries, as well as the end-of-phase survey
+  - This needs to be filled out in a timely manner (about a week)
+- Iteration 7 evaluations are out, but attendance is not yet entered
+  - Any concerns need to be brought up within two weeks of when it was returned (i.e., two weeks after Monday, 2/2)
+- My office hours are M/W 1:30-3:00
+  - Although they will be 2:00-3:30 this Wednesday (2/11)
+- Leads: your TPS reports are due tomorrow by noon; details [here](../../slides/fall/01-intro.html#/tpsreport)
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day; Wednesday is the lecture on [testing](../../slides/spring/03-testing.html)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- ~~Wed, Jan 21st: group meetings (since they weren't that Monday)~~
+- ~~Mon, Jan 26th: group meetings~~
+- ~~Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 2nd: group meetings~~
+- ~~Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- Mon, Feb 9nd: group meetings
+- Wed, Feb 13th: the [testing](../../slides/spring/03-testing.html) lecture
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- No one!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/nowplaying.png" title="If you click on the post, it takes you to search results for the note on various online music stores." alt="#NowPlaying">
+<p class="center"><a href="http://xkcd.com/1482/">xkcd # 1482</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, February 4th, 2015
+- We are half-way through iteration 8
+  - The deliverable for this iteration is the *installation instructions*, discussed in the [deliverables slide set](../../slides/spring/02-deliverables.html#/installation)
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Iteration 7 evaluations are out
+  - Any concerns need to be brought up within two weeks of when it was returned (i.e., Monday)
+- Leads: your weekly reports were due yesterday by noon
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+  - Details can be found in the fall [course introduction slide set](../../slides/fall/01-intro.html), specifically [here](../../slides/fall/01-intro.html#/tpsreport)
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Meetings w/Jamie should all have started
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a the second (of 2) lectures on [deliverables](../../slides/spring/02-deliverables.html)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- ~~Wed, Jan 21st: group meetings (since they weren't that Monday)~~
+- ~~Mon, Jan 26th: group meetings~~
+- ~~Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- ~~Mon, Feb 2nd: group meetings~~
+- Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture
+- Mon, Feb 9nd: group meetings
+- Wed, Feb 13th: the [testing](../../slides/spring/03-testing.html) lecture
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- No one!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/api.png" title="ACCESS LIMITS: Clients may maintain connections to the server for no more than 86,400 seconds per day. If you need additional time, you may contact IERS to file a request for up to one additional second." alt="API">
+<p class="center"><a href="http://xkcd.com/1481/">xkcd # 1481</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, February 2nd, 2015
+- We are half-way through iteration 8
+  - The deliverable for this iteration is the *installation instructions*, discussed in the [deliverables slide set](../../slides/spring/02-deliverables.html#/installation)
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Iteration 7 evaluations should be out "soon"
+- Leads: your weekly reports are due tomorrow by noon
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+  - Details can be found in the fall [course introduction slide set](../../slides/fall/01-intro.html), specifically [here](../../slides/fall/01-intro.html#/tpsreport)
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Meetings w/Jamie should all have started
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day; Wednesday is the second (of 2) lectures on [deliverables](../../slides/spring/02-deliverables.html)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- ~~Wed, Jan 21st: group meetings (since they weren't that Monday)~~
+- ~~Mon, Jan 26th: group meetings~~
+- ~~Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture~~
+- Mon, Feb 2nd: group meetings
+- Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture
+- Mon, Feb 9nd: group meetings
+- Wed, Feb 13th: the [testing](../../slides/spring/03-testing.html) lecture
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- No one!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/troubleshooting.png" title="&quot;Oh, you&#39;re using their Chrome APP, not their Chrome EXTENSION. They&#39;re very similar but one handles window creation differently.&quot; is a thing I hope I can stop saying soon." alt="Troubleshooting">
+<p class="center"><a href="http://xkcd.com/1479/">xkcd # 1479</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, January 28th, 2015
+- We are one day into iteration 8
+  - The deliverable for this iteration is the *installation instructions*, discussed in [today's lecture](../../slides/spring/02-deliverables.html#/installation)
+  - As well as the normal 24-28 story points worth of "stuff"
+  - You may need to update your deployment plan during this iteration...
+- Iteration 7 evaluations should be out later this week (or this weekend)
+- Leads: your TPS reports were due by noon yesterday
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+  - Details can be found in the fall [course introduction slide set](../../slides/fall/01-intro.html), specifically [here](../../slides/fall/01-intro.html#/tpsreport)
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Meetings w/Jamie will start with iteration 8 (i.e., now)
+- Don't forget to report your hours!!! This is a course requirement!
+- Town Hall with the dept chair!  Did anybody go?  How was it?
+- Today is the first (of 2) lectures on [deliverables](../../slides/spring/02-deliverables.html)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- ~~Wed, Jan 21st: group meetings (since they weren't that Monday)~~
+- ~~Mon, Jan 26th: group meetings~~
+- Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture
+- Mon, Feb 2nd: group meetings
+- Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture
+- Mon, Feb 9nd: group meetings
+- Wed, Feb 13th: the [testing](../../slides/spring/03-testing.html) lecture
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- No one!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/p_values.png" title="If all else fails, use &quot;signifcant at a p&gt;0.05 level&quot; and hope no one notices." alt="P-Values">
+<p class="center"><a href="http://xkcd.com/1478/">xkcd # 1478</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, January 26th, 2015
+- We are on the last day of iteration 7
+  - The deliverable for this iteration is the *deployment plan* (see next slide)
+  - As well as the normal 24-28 story points worth of "stuff"
+- Leads: your TPS reports are due by noon tomorrow
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+  - Details can be found in the fall [course introduction slide set](../../slides/fall/01-intro.html), specifically [here](../../slides/fall/01-intro.html#/tpsreport)
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Meetings w/Jamie will start with iteration 8 (i.e., tomorrow)
+  - Didn't fill out the second survey?  Please do so now: [http://whenisgood.net/amg8938](http://whenisgood.net/amg8938)
+  - The meeting schedule should be out today
+- Don't forget to report your hours!!! This is a course requirement!
+- Town Hall with the dept chair!  Tue (1/27) from 5-6 p.m. in Olsson 120.  Free pizza!
+- Today is a group work day; Wednesday will be a lecture on [deliverables](../../slides/spring/02-deliverables.html)
+  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Deployment plan
+- Due at the end of iteration 7 (January 26th)
+- So that we can find it, please make a `docs/` directory in the root of your github repo, and put it there (in PDF or Markdown format)
+- It should contain:
+  - Where the system is being deployed (URL, provider, etc.)
+    - Alternatively: AWS, Heroku, customer's machine, etc.
+  - What "things" need to be acquired for said deployment
+    - Servers? Domain names? Hosting accounts?  Credentials?
+  - Acknowledgement from the customer that s/he will need to acquire those "things"
+    - This can be an e-mail separate from the deployment plan
+    - You should start an email conversation with the customer about all this; said email conversation is likely sufficient
+    - And a rough timeline for the acquisition of said "things"
+- A single paragraph is fine, if that covers everything
+- You should also include whatever indicators you have that the customer understands that s/he will have to acquire this, if appropriate
+	  </script></section>
+
+
+	<section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- ~~Wed, Jan 21st: group meetings (since they weren't that Monday)~~
+- Mon, Jan 26th: group meetings
+- Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture
+- Mon, Feb 2nd: group meetings
+- Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture
+	</script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- No one!  w00t!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/ceres.png" title="Earth clearly hasn&#39;t been inspected, since it&#39;s definitely contaminated with salmonella." alt="Ceres">
+<p class="center"><a href="http://xkcd.com/1476/">xkcd # 1476</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, January 21st, 2015
+- We are half-way through iteration 7
+  - The deliverable for this iteration is the *deployment plan* (see next slide)
+  - As well as the normal 24-28 story points worth of "stuff"
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Meetings w/Jamie will start next iteration (next week)
+  - Fill out your availability at [http://tinyurl.com/oxsrvk4](http://tinyurl.com/oxsrvk4)
+  - Today you need to pick all the times that your entire group can go
+  - Jamie will get back to you with a schedule
+- Leads: your weekly reports were due by noon yesterday
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+  - Details can be found in the fall [course introduction slide set](../../slides/fall/01-intro.html), specifically [here](../../slides/fall/01-intro.html#/weeklyreport)
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day, since there was not one on Monday
+  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Deployment plan
+- Due at the end of iteration 7 (January 26th)
+- So that we can find it, please make a `docs/` directory in the root of your github repo, and put it there (in PDF or Markdown format)
+- It should contain:
+  - Where the system is being deployed (URL, provider, etc.)
+    - Alternatively: AWS, Heroku, customer's machine, etc.
+  - What "things" need to be acquired for said deployment
+    - Servers? Domain names? Hosting accounts?  Credentials?
+  - Acknowledgement from the customer that s/he will need to acquire those "things"
+    - This can be an e-mail separate from the deployment plan
+    - You should start an email conversation with the customer about all this; said email conversation is likely sufficient
+    - And a rough timeline for the acquisition of said "things"
+- A single paragraph is fine, if that covers everything
+- You should also include whatever indicators you have that the customer understands that s/he will have to acquire this, if appropriate
+	  </script></section>
+
+
+	<section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- ~~Wed, Jan 14th: deployment plan discussion, group meetings~~
+- ~~Mon, Jan 19th: no class, as it's MLK day~~
+- Wed, Jan 21st: group meetings (since they weren't that Monday)
+- Mon, Jan 26th: group meetings
+- Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture
+- Mon, Feb 2nd: group meetings
+- Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture
+	</script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Jaunt: issues #127 and #128
+- WAS: issue #96
+- WTJU: issue #125
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<img class="stretch" src="http://imgs.xkcd.com/comics/location_sharing.png" title="Our phones must have great angular momentum sensors because the compasses really suck." alt="Location Sharing" />
+<p class="center"><a href="http://xkcd.com/1473/">xkcd # 1473</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, January 14th, 2015
+- We are starting iteration 7 (new leads and new secretaries)
+  - The deliverable for this iteration is the *deployment plan* (see next slide)
+- Customer meetings in 1 line: reports (1 sentence) but not w/Jamie; name tags
+- Leads: your weekly reports are due by noon *next* Tuesday
+  - Everybody can view the submitted reports through the [reporting system](https://libra.cs.virginia.edu/slp/)
+  - Details can be found in the fall [course introduction slide set](../../slides/fall/01-intro.html), specifically [here](../../slides/fall/01-intro.html#/weeklyreport)
+- Don't forget to report your hours!!! This is a course requirement!
+- Today is a group work day; there is no class this Friday or next Monday
+  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Deployment plan
+- Due at the end of iteration 7 (January 26th)
+- So that we can find it, please make a `docs/` directory in the root of your github repo, and put it there (in PDF or Markdown format)
+- It should contain:
+  - Where the system is being deployed (URL, provider, etc.)
+    - Alternatively: AWS, Heroku, customer's machine, etc.
+  - What "things" need to be acquired for said deployment
+    - Servers? Domain names? Hosting accounts?  Credentials?
+  - Acknowledgement from the customer that s/he will need to acquire those "things"
+    - This can be an e-mail separate from the deployment plan
+    - You should start an email conversation with the customer about all this; said email conversation is likely sufficient
+    - And a rough timeline for the acquisition of said "things"
+- A single paragraph is fine, if that covers everything
+- You should also include whatever indicators you have that the customer understands that s/he will have to acquire this, if appropriate
+	  </script></section>
+
+
+	<section data-markdown><script type="text/template">
+## Schedule for the first month
+- ~~Mon, Jan 12th (today): course introduction, group meetings~~
+- Wed, Jan 14th: deployment plan discussion, group meetings
+- Mon, Jan 19th: no class, as it's MLK day
+- Wed, Jan 21st: group meetings (since they weren't that Monday)
+- Mon, Jan 26th: group meetings
+- Wed, Jan 28th: [deliverables](../../slides/spring/02-deliverables.html) lecture
+- Mon, Feb 2nd: group meetings
+- Wed, Feb 4th: the rest of the [deliverables](../../slides/spring/02-deliverables.html) lecture
+	</script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- Arbor: issue #113
+- Innisfree: issue #53
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+    <script src="../../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../slides/reveal.js/js/reveal.min.js"></script>
+    <script src="../../slides/js/settings.js"></script>
+
+  </body>
+</html>
