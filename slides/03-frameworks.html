@@ -8,21 +8,21 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="../reveal.js/css/reveal.min.css">
-    <link rel="stylesheet" href="../reveal.js/css/theme/default.css" id="theme">
-    <link rel="stylesheet" href="../css/slp.css">
-    <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="css/slp.css">
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
     <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
 	if( window.location.search.match( /print-pdf/gi ) ) {
 		var link = document.createElement( 'link' );
 		link.rel = 'stylesheet';
 		link.type = 'text/css';
-		link.href = '../reveal.js/css/print/pdf.css';
+		link.href = 'reveal.js/css/print/pdf.css';
 		document.getElementsByTagName( 'head' )[0].appendChild( link );
 	}
     </script>
     <!--[if lt IE 9]>
-    <script src="../reveal.js/lib/js/html5shiv.js"></script>
+    <script src="reveal.js/lib/js/html5shiv.js"></script>
     <![endif]-->
   </head>
 
@@ -40,7 +40,7 @@
 ### Capstone Practicum I
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../index.html) / <a href="04-frameworks.html?print-pdf"><img class="print" width="20" src="../images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](index.html) / <a href="04-frameworks.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp;
 ## Web Frameworks
@@ -245,7 +245,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## A successful CakePHP installation
-![cakephp image](../../docs/images/cakephp-initial.png)
+![cakephp image](../docs/images/cakephp-initial.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -299,12 +299,12 @@ rails new myapp -d mysql
 ```
 - Edit `config/database.yml`, and enter your MySQL information (up to 3 times for each field!)
 - On VirtualBox, you can run `rails server`, and then view the web page via `http://localhost:3000`
-- On the course server, you have to follow the instructions on the [Ruby on Rails: Getting Started page](../../docs/rubyrails-getting-started.html) ([md](../../docs/rubyrails-getting-started.md))
+- On the course server, you have to follow the instructions on the [Ruby on Rails: Getting Started page](../docs/rubyrails-getting-started.html) ([md](../docs/rubyrails-getting-started.md))
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## A successful Ruby on Rails installation
-![ruby on rails image](../../docs/images/rails-initial.png)
+![ruby on rails image](../docs/images/rails-initial.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -368,12 +368,12 @@ django-admin startproject mysite
 python manage.py syncdb
 ```
 - On VirtualBox, you can run `python manage.py runserver`, and then view the web page via the URL printed
-- On the course server, you have to follow the instructions on the [Django: Getting Started page](../../docs/django-getting-started.html) ([md](../../docs/django-getting-started.md))
+- On the course server, you have to follow the instructions on the [Django: Getting Started page](../docs/django-getting-started.html) ([md](../docs/django-getting-started.md))
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Configuring Django on the server
-- You must use the `wsgi-admin` utility, as described in the [Django: Getting Started page](../../docs/django-getting-started.html) ([md](../../docs/django-getting-started.md))
+- You must use the `wsgi-admin` utility, as described in the [Django: Getting Started page](../docs/django-getting-started.html) ([md](../docs/django-getting-started.md))
 ```
 wsgi-admin -register <wsgi_file>
 ```
@@ -391,7 +391,7 @@ wsgi-admin -regerate
 
 	  <section data-markdown><script type="text/template">
 ## A successful Django installation
-![django image](../../docs/images/django-initial.png)
+![django image](../docs/images/django-initial.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -499,9 +499,9 @@ This is from the 2013-2014 academic year, which means these results were complet
 
     </div>
 
-    <script src="../reveal.js/lib/js/head.min.js"></script>
-    <script src="../reveal.js/js/reveal.min.js"></script>
-    <script src="../js/settings.js"></script>
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+    <script src="js/settings.js"></script>
 
   </body>
 </html>

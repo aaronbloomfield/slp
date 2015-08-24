@@ -8,31 +8,31 @@ in current versions of Firefox will prevent the font used in the
 slides from displaying correctly; Google Chrome does not have this
 bug, and displays the slides correctly.
 
-### Spring lectures
+### Fall lectures
 
-- [Daily announcements](../uva/daily-announcements.html) (UVa specific)
-- [01: Course Introduction](spring/01-intro.html)
-- [02: Deliverables](spring/02-deliverables.html)
-- [03: Testing](spring/03-testing.html)
-- ~~[04: Maintenance](spring/04-maintenance.html)~~ (we didn't go over this slide set in the spring 2015 semester)
-- [Course conclusion](../uva/course-conclusion.html) (UVa specific)
+- [Daily announcements](../uva/daily-announcements.html#/) (UVa specific)
+- [Course introduction (fall)](../uva/course-introduction-fall.html#/) (UVa specific)
+- [01: Development methods](01-development-methods.html#/)
+- [02: Legal Issues](02-legal.html#/)
+- [03: Frameworks](03-frameworks.html#/)
+- [04: Requirements](04-requirements.html#/)
+- [05: Project start](05-project-start.html#/)
+- [06: Customer meetings](06-customer-meetings.html#/)
+- [07: Estimation workday](07-estimation.html#/)
+- [08: Wireframing](08-wireframing.html#/)
+- [09: Documentation](09-documentation.html#/)
+- [10: Continuous integration testing](10-ci-testing.html#/)
 
 ------------------------------------------------------------
 
-### Fall lectures
+### Spring lectures
 
-- [Daily announcements](../uva/old/daily-announcements-fall-2014.html) (UVa-specific)
-- [01: Course introduction](fall/01-intro.html)
-- [02: Development methods](fall/02-development-methods.html)
-- [03: Legal Issues](fall/03-legal.html)
-- [04: Frameworks](fall/04-frameworks.html)
-- [05: Requirements](fall/05-requirements.html)
-- [06: Project start](fall/06-project-start.html)
-- [07: Customer meetings](fall/07-customer-meetings.html)
-- [08: Estimation workday](fall/08-estimation.html)
-- [09: Wireframing](fall/09-wireframing.html)
-- [10: Documentation](fall/10-documentation.html)
-- [11: Continuous integration testing](fall/11-ci-testing.html)
+- Daily announcements (UVa specific)
+- [Course Introduction (spring)](../uva/course-introduction-spring.html#/) (UVa specific)
+- [11: Deliverables](11-deliverables.html#/)
+- [12: Testing](12-testing.html#/)
+- [13: Maintenance](13-maintenance.html#/)
+- [Course conclusion](../uva/course-conclusion.html#/) (UVa specific)
 
 ------------------------------------------------------------
 
