@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4971: 01-intro slide set</title>
+    <meta name="description" content="A set of slides for a course on Program and Data Representation">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.min.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/slp.css">
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css"><!-- For syntax highlighting -->
+    <script><!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = '../slides/reveal.js/css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+    </script>
+    <!--[if lt IE 9]>
+    <script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4971
+&nbsp;
+### Capstone Practicum II
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../slides/index.html) / <a href="01-intro.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Course Introduction
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Compressed course introduction
+- Pretty much everything is the same as last semester, expect for the few things mentioned herein
+  - See last semester's [course introduction slide set](course-introduction-fall.html), and the [course syllabus](syllabus.html) ([md](syllabus.md)), for details
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Iteration plan
+- There will be 8 two-week iterations this semester (numbered 7-14); iteration 7 starts tomorrow
+  - We have new leads and secretaries
+- The system must be *feature-complete* by the end of iteration 11 (March 23)
+  - Missing this deadline will result in <strong class="red">failure for the course</strong>!
+  - Note that we now have a [bunch of tutorials](http://github.com/uva-slp/tutorials) about how to implement various things
+- That leaves iterations 12-14 for transition: bug fixes, tweaks, testing, deployment, documentation, maintenance, etc.
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Wait? documentation, you say???
+- Yes, documentation:
+  - Transition plan (consists of: Deployment plan, Test plan(s))
+  - User manual
+  - Installation instructions
+  - Programming reference
+  - Updated requirements document
+  - STS technical report
+- I'm looking for complete documentation, not necessarily long-winded documentation
+- I will provide detailed instructions as to what goes into each
+  - It's in the [deliverables](02-deliverables.html) slide set, which will be gone over in lecture
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Making progress
+- As there is no additional semester after this one to complete the project, you will be held to your various requirements:
+  - The original requirements document
+  - Updated versions of this requirements document
+  - Issues entered into github
+- Not completing these requirements means that you did not complete the project!
+- Among other things, this means:
+  - You have to make more actual progress!
+  - Last semester some groups didn't make 'actual progress' until the end of the semester...
+  - And you will need to keep your github issues updated
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Course meetings
+- The weekly schedule will be the same as last semester:
+  - Mondays: group meeting day
+  - Wednesday: lecture or group work day
+  - Friday: no class, unless otherwise notified
+- As the semester goes on, we will have less lectures are more group work days
+  - This is intentional
+- I'm going to get cranky if people are always coming in late to Monday and Wednesday's classes...
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## STS 4600
+- Most of you are using this course as the STS 4600 technical project
+  - You must let me know when the STS 4600 due dates come up, as I have no other way of finding out
+- The *entire* group will work on the technical report (not just the STS 4600 students)
+  - It will be an article about 6 pages in length; I will make a template available as we approach that date
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Phases
+- For the 6 person groups, there will be 3 phases this semester:
+  - Phase 4: iterations 7-9 (3 iterations)
+  - Phase 5: iterations 10-11 (2 iterations)
+  - Phase 6: iterations 12-14 (3 iterations)
+- For the 7 person group, there will be 4 phases this semester:
+  - Phase 4: iterations 7-8 (2 iterations)
+  - Phase 5: iterations 9-10 (2 iterations)
+  - Phase 6: iterations 11-12 (2 iterations)
+  - Phase 7: iterations 13-14 (2 iterations)
+- If there ends up being a 5 person group, we'll chat about that offline
+- Full schedule can be found [here](schedule.html) ([md](schedule.md))
+	  </script></section>
+
+	<section data-markdown><script type="text/template">
+## Deployment Plan
+- The deliverable for iteration 7 is the **Deployment Plan**
+  - We are going to go over it in detail on Wednesday
+  - It will require input from the customer
+- If you are going to have a customer meeting **BEFORE** Wednesday's lecture, you must speak to me in class today, and I'll fill you in on what you need to ask
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Project Status
+- Your customer should have played with the system over break
+- You should thus have feedback from him or her
+  - (you may have to email them to remind them to send you that feedback)
+- That, plus existing github issues, should provide you some stuff to do in the current iteration
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Meetings
+- You do not have to have your bi-weekly meeting with the customer this iteration, **AS LONG AS** you get email feedback instead
+  - Although you are welcome to do so
+- The bi-weekly meetings with the graduate TA will start next iteration
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Grades reminder
+As mentioned in the [first lecture in the fall](course-introduction-fall.html) (specifically, [here](course-introduction-fall.html#/grades)):
+
+- Not completing time sheets or surveys will penalize your grade
+  - Likewise with reports
+- ***EVERYBODY*** is expected to contribute to the project
+  - This means, among other things, that there should be (real) git commits from everybody (and likely for each iteration)
+- We can re-do the spring iteration evaluations, for example if we could not find something, as long as it is brought to our attention within a reasonable time frame (say, 2 weeks from when they are released)
+- Attendance is still required (I know the class starts at 9 a.m., and I can't do anything about that)
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Today's agenda: group meeting
+- It's the beginning of iteration 7:
+  - New leads and secretaries 
+  - Is your CI build green?
+  - Did you get feedback from the customer?
+  - What issues will be worked on during this iteration?
+  - How will you get all of your features completed by the end of iteration 11?
+  - Update the github issues and story point counts, as they are not looking like much of a burndown chart...
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Schedule for the first month
+- Mon, Jan 12th (today): course introduction, group meetings
+- Wed, Jan 14th: deployment plan discussion, group meetings
+- Mon, Jan 19th: no class, as it's MLK day
+- Wed, Jan 21st: group meetings (since they weren't that Monday)
+- Mon, Jan 26th: group meetings
+- Wed, Jan 28th: [deliverables](02-deliverables.html) lecture
+- Mon, Feb 2nd: group meetings
+- Wed, Feb 4th: the rest of the [deliverables](02-deliverables.html) lecture
+	</script></section>
+
+      </div>
+
+    </div>
+
+    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.min.js"></script>
+    <script src="../slides/js/settings.js"></script>
+
+  </body>
+</html>
