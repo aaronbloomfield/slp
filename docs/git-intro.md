@@ -25,7 +25,7 @@ git clone https://github.com/aaronbloomfield/slp.git
 
 For both of these commands, the user who owns the repository is `aaronbloomfield`, and the repository is `slp`.  Either of the two commands will work, although the first one is considered more secure (see [here](https://help.github.com/articles/which-remote-url-should-i-use) for details).  And both will require you to enter your password any time you clone a private repo, and any time you *push* (more on pushing, below) to any repository.
 
-Once the repository is cloned, you can work on the files within the created directory.  The git commands will work anywhere in that cloned repository -- you don't have to be in the root of that directory structure (which was the case with subversion).  As you create files that you want to add to the repository, you use `git add <file>`.  This stages them for adding to the repository, but does not add them just yet.  When you have finished making your changes (file additions, edits, or deletions), you then *commit* them.
+Once the repository is cloned, you can work on the files within the created directory.  The git commands will work anywhere in that cloned repository -- you don't have to be in the root of that directory structure (which was the case with subversion).  As you create files that you want to add to the repository, you use `git add <file>`.  This stages them for (i.e., gets them ready for) adding to the repository, but does not add them just yet.  When you have finished making your changes (file additions, edits, or deletions), you then *commit* them.
 
 Git is a distributed system, which means that you can make as many commits as you would like, but they are not sent back to the git server (in our case, github.com) until you instruct git to do so via a `git push`.
 
@@ -34,21 +34,23 @@ Git is a distributed system, which means that you can make as many commits as yo
 - `git clone git@github.com:username/repo`: clones a repository; a directory named the same name as the repository is created, and the files are placed there.
 - `git add <file>`: stages a file to be added to the repository on the next commit.  You can call this on a directory, and git will stage the entire directory structure.
 - `git commit`: commits the current changes (additions, deletions, and edits).  A few useful flags:
-  - `-m "message"` will use that as a message as the commit message (otherwise git will prompt you to enter a message)
-  - `-a`: by default, an edited file is not included in the list of files to be committed unless you add it via `git add`; this flag adds all edited files (but not all new files; they still have to be manually added via `git add`.
+    - `-m "message"` will use that as a message as the commit message (otherwise git will prompt you to enter a message)
+    - `-a`: by default, an edited file is not included in the list of files to be committed unless you add it via `git add`; this flag adds all edited files (but not all new files; they still have to be manually added via `git add`.
 - `git status`: this displays a number of things:
-  - the files that are staged for commit
-  - the files that have been edited sine the last commit
-  - the number of commits that you are "ahead" of the server (meaning how many times you have called 'git commit' without calling 'git push'
-  - note that if you edit a file that is already in the repo, add it via `git add`, then edit it again, it will appear twice: as a file staged for commit (the version of the file after the first edit) and in the unstaged files list (the version after the second edit); calling `git add` on that file again, or committing with `-a` will cause the most recent edited version to be committed.
+    - the files that are staged for commit
+    - the files that have been edited sine the last commit
+    - the number of commits that you are "ahead" of the server (meaning how many times you have called 'git commit' without calling 'git push')
+    - note that if you edit a file that is already in the repo, add it via `git add`, then edit it again, it will appear twice: as a file staged for commit (the version of the file after the first edit) and in the unstaged files list (the version after the second edit); calling `git add` on that file again, or committing with `-a` will cause the most recent edited version to be committed.
 - `git push`: this pushes all the local commits to the server's version of the repository.
 - `git pull`: this obtains the latest version of the repository from the server, as other people may have pushed changes to the repo since you last did a `git clone` or `git pull`.  Note that if one of the files modified in the server's repository is the same as a file you have modified locally, then git will attempt to merge those files; more on this below.
 - `git mv <source> <dest>`: moves a file (or directory), or renames a file; this tells git about the move or rename.
 - `git rm <file>`: stages a file (or directory) for removal; use the `-f` flag if that file has been edited since the last commit; use the `-r` flag to remove a directory.
 - `git checkout`: this has two main functions
-  - `git checkout <file>`: this reverts the (presumably edited) file to the version as of the last commit.
-  - `git checkout <branch>`: this will switch the *entire* repo over to the branch specified.
-- `git reset`: this allows you to "undo" various operations.  If you want to unstage a file for commit, then enter `git reset <file>`.  If you want to undo the last commit, you can enter `git reset --soft HEAD~1`.
+    - `git checkout <file>`: this reverts the (presumably edited) file to the version as of the last commit.
+    - `git checkout <branch>`: this will switch the *entire* repo over to the branch specified.
+- `git reset`: this allows you to "undo" various operations
+    - If you want to unstage a file for commit, then enter `git reset <file>`
+	- If you want to undo the last commit, you can enter `git reset --soft HEAD~1`.
 - `git branch`: creates (or edits) branches; see below for details
 - `git merge`: merges branches; see below for details
 - `git tag`: creates (or edits) tags; see below for details
@@ -95,7 +97,7 @@ More information about tagging can be found [here](http://git-scm.com/book/en/Gi
 
 ### Branching and Merging
 
-First, a comment about what branching is for.  Branching is for when you want a *separate* development path to occur in *conjunction* with the original development path.  It is **NOT** to indicate a particular commit or a particular date (that's a tag).  Branching is a wonderful and powerful tool -- but, like all tools, it should be used wisely and for it's proper purpose.  Linus Torvalds, the creator of git and the Linux kernel, has only one branch in his [linux kernel github repo](https://github.com/torvalds/linux), albeit a very large number of tags.
+First, a comment about what branching is for.  Branching is for when you want a *separate* development path to occur in *conjunction* with the original development path.  It is **NOT** to indicate a particular commit or a particular date (that's a tag).  Branching is a wonderful and powerful tool -- but, like all tools, it should be used wisely and for it's proper purpose.  Linus Torvalds, the creator of git and the Linux kernel, has only one branch in his [linux kernel github repo](https://github.com/torvalds/linux), albeit a very large number of tags.  (Granted, he doesn't use github as his primary workflow git server, but still...)
 
 Branching is merging is complicated, and one should read [this page](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) in it's entirety.
 

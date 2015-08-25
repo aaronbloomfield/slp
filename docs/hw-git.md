@@ -19,9 +19,9 @@ Within that repo, you will need to complete each of the following sections for t
 
 ### Allow us to view the repo
 
-The course instructor and any graduate TAs need to be able to view the private repos that you create.  From the main repo page, click on Settings (in the right-hand column), click on Collaborators (in the left-hand column), and enter our github usernames.  You can find that info on the daily announcements slide set.
+The course instructor and any graduate TA(s) need to be able to view the private repos that you create.  From the main repo page, click on Settings (in the right-hand column), click on Collaborators (in the left-hand column), and enter our github usernames.  You can find the appropriate github usernames in the [daily announcements slide](../uva/daily-announcements.html#/) set.
 
-However, please ***ADD US AFTER YOU HAVE FINISHED THE HOMEWORK***.  This prevents us from getting notifications every time you make any change to your repo (edit a wiki page, add an issue, etc.).  We are going to get really cranky if we get a dozen emails from every person's repo as they are working through this homework.  Since there are over 100 students in the class, that's almost 1,500 github emails that we would rather not have to deal with.
+However, please ***ADD US AFTER YOU HAVE FINISHED THE HOMEWORK***.  This prevents us from getting notifications every time you make any change to your repo (edit a wiki page, add an issue, etc.).  We are going to get really cranky if we get a dozen emails from every person's repo as they are working through this homework.  Since there are many students in the class, that's well over 1,000 github emails that we would rather not have to deal with.
 
 ### Update your profile picture
 
@@ -58,7 +58,7 @@ In this part, you will need to perform a complicated merge -- meaning one that g
 
 - Pick some file.  While it doesn't matter what it is, it will have to have a number of lines of text (or source code, or whatever) to modify.
 - Create a separate branch, and call it whatever you want
-- Edit the **same** part of the file in both branches, committing after each edit
+- Edit the **same** part of the file in both branches, committing after each edit.  However, the changes must be *different* (if you make the *same* edit in both branches, there is nothing to merge!)
 - Merge the branches.  git will create a conflict-resolution file, which you **MUST** copy (and commit) as conflict.merge.txt so that we can see it.  Fix the conflicts (however you would like), and finish the merge of those branches.
 - Delete any extra branches other than master.
 

@@ -66,7 +66,7 @@ Lectures
 [2]: syllabus.md
 [3]: legal.html
 [4]: legal.md
-[5]: daily-announcements.html
+[5]: daily-announcements.html#/
 [6]: old/index.html
 [7]: old/index.md
 
@@ -75,16 +75,16 @@ Lectures
 [22]: ../docs/hw-frameworks.html
 [23]: ../docs/hw-frameworks.md
 
-[51]: ../slides/fall/01-intro.html
-[52]: ../slides/fall/02-development-methods.html
-[53]: ../slides/fall/03-legal.html
-[54]: ../slides/fall/04-frameworks.html
-[55]: ../slides/fall/05-requirements.html
-[56]: ../slides/fall/06-project-start.html
-[57]: ../slides/fall/07-customer-meetings.html
-[58]: ../slides/fall/08-estimation.html
-[59]: ../slides/fall/09-wireframing.html
-[60]: ../slides/fall/10-documentation.html
-[61]: ../slides/fall/11-ci-testing.html
+[51]: ../slides/fall/01-intro.html#/
+[52]: ../slides/fall/02-development-methods.html#/
+[53]: ../slides/fall/03-legal.html#/
+[54]: ../slides/fall/04-frameworks.html#/
+[55]: ../slides/fall/05-requirements.html#/
+[56]: ../slides/fall/06-project-start.html#/
+[57]: ../slides/fall/07-customer-meetings.html#/
+[58]: ../slides/fall/08-estimation.html#/
+[59]: ../slides/fall/09-wireframing.html#/
+[60]: ../slides/fall/10-documentation.html#/
+[61]: ../slides/fall/11-ci-testing.html#/
 
 [81]: ../slides/fall/daily-announcements.html#citestingworkday
