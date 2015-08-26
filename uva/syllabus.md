@@ -27,7 +27,7 @@ This syllabus applies two two courses: CS 4970 in the fall of 2015 (called "Caps
 
 **Connectivity:** While using electronic devices during class that are not directly course related (i.e., social media) is strongly discouraged, you will need to have *some* means of connecting to the Internet during lecture.  This can be a laptop, smart phone, or anything else that can log into a website.
 
-**Participation:** Participation is vital to this course.  You must participate in the lecture (i.e., by attending) and in your project and group meetings.  You must participate in the work of the group -- this means that **everybody** must contribute to the code base.  Furthermore, you will be required to fill out occassional surveys (4-5 a semester) and complete your time tracking.
+**Participation:** Participation is vital to this course.  You must participate in the lecture (i.e., by attending) and in your project and group meetings.  You must participate in the work of the group -- this means that **everybody** must contribute to the *code base*.  Furthermore, you will be required to fill out occassional surveys (4-5 a semester) and complete your time tracking.
 
 **Grades:** See the [first slide set](course-introduction-fall.html#/) for details.  This course is not being graded on a bell curve, which means that everybody could receive an A.  Likewise, everybody could receive a D.  Any disagreement with any of the returned grades, including iteration evaluations, must be brought up within two weeks of when the grade was returned.  Failure to produce a viable and working software system -- in either December (for CS 4970) or May (for CS 4971) -- will result in either an **incomplete or failure for the entire group**.  Note that for the 4th year BS CS majors, this will prevent May graduation.
 
@@ -39,9 +39,9 @@ This syllabus applies two two courses: CS 4970 in the fall of 2015 (called "Caps
 
 **Exams:** None planned.  I reserve the write to add one if I feel like I want to spend some time grading.  There will be an individual project in lieu of the final exam.
 
-**Github:** We will be using [github](https://github.com) for source code management.  The projects will be kept in private repositories, which will be provided to you at no cost.  However, for your individual homeworks, you will need to acquire 2 private repositories.  Students can get those for free, although you must give them a week or so to process your request.  If you have used all of yours, or if you wait until the last minute to request your free private repos, then you will have to purchase some.  The private repos will need to be kept until the assignment is graded and returned.
+**Github:** We will be using [github](https://github.com) for source code management.  The projects will be kept in private repositories, which will be provided to you at no cost.  However, for your individual homeworks, you will need to acquire 2 private repositories.  Students can get those for free, although you must give them a week or so to process your request.  If you have used all of yours, or if you wait until the last minute to request your free private repos, then you will have to purchase some.  The private repos will need to be kept intact until the assignment is graded and returned.
 
-**Time Tracking:** Time tracking: each student must keep very careful track of the number of hours s/he works on the project.  This must be totaled by week.  This is not expect to take very long to do (say, 2 minutes each week), but must be done carefully from the beginning of the course.  More info on this during the first lecture.
+**Time Tracking:** Each student must keep very careful track of the number of hours s/he works on the project.  This must be totaled by week.  This is not expect to take very long to do (say, 2 minutes each week), but must be done carefully from the beginning of the course.  More information on this in the first lecture.
 
 **Miscellaneous:** There are a few miscellaneous topics:
 
