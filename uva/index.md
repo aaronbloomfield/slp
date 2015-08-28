@@ -16,8 +16,8 @@ Lectures
 
 | Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
 |-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
-| 1   | Aug&nbsp;26 | Wednesday   | lecture       | [Course introduction][8]  || [course-introduction-fall][8], slides [1][8] to [43][100] |
-| 2   | Aug&nbsp;28 | Friday      | lecture       | [Course introduction][8], [development methods][51] |||
+| 1   | Aug&nbsp;26 | Wednesday   | lecture       | [Course introduction][8]  || [course-introduction-fall][8], slides [1][8] to [43][100] ([recording][200]) |
+| 2   | Aug&nbsp;28 | Friday      | lecture       | [Course introduction][8], [development methods][51] || [course-introduction-fall][8], slides [44][101] to [75][102] ([recording][200]) |
 | 3   | Aug&nbsp;31  | Monday      | lecture       | Development methods |||
 | 4   | Sep&nbsp;2  | Wednesday   | lecture       | Legal issues  |||
 | 5   | Sep&nbsp;4  | Friday      | no class      |               | [HW 1][20] ([md][21])|                                         |
@@ -94,3 +94,7 @@ Lectures
 [81]: daily-announcements.html#citestingworkday
 
 [100]: course-introduction-fall.html#/6/8
+[101]: course-introduction-fall.html#/7
+[102]: course-introduction-fall.html#/9/10
+
+[200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
