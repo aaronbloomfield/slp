@@ -14,59 +14,72 @@
 <p>People familiar with git and github can skip some parts, depending on your level of familiarity. However, it would be wise to skim the parts you are skipping. And everybody must read the section on tags and branches, as most people who think they know about branching really don't.</p>
 <h3 id="introduction">Introduction</h3>
 <p>First, read through the <a href="http://en.wikipedia.org/wiki/Git_%28software%29">Wikipedia page on git</a>.</p>
-<p>Git keeps the files, as well as the entire the version history, in a <em>repository</em>. A repository is just a directory structure created via the <code>git init</code> command (which is not being gone over here). However, most people who use git have the repository kept on a server. One can set up their own server to do so, although the user then has to deal with authentication and authorization (who can access which repositories, etc.). Many people use <a href="https://github.com">github</a>, which is what we will be using here.</p>
-<p>The repository itself needs to be <em>cloned</em> in order for the files to be worked on; this is analogous to svn's checkout command. This is done via the <code>git clone</code> command. There are a few ways to clone a repository:</p>
+<p>Git keeps the files, as well as the entire the version history, in a <em>repository</em>. A repository is just a directory structure created via the <code>git init</code> command (which is not being gone over here). However, most people who use git have the repository kept on a server. One can set up their own server to do so, although the user then has to deal with authentication and authorization (who can access which repositories, etc.). Many people use <a href="https://github.com">github</a>, which is what we will be using for this course; other online services also provide git repository hosting, but we won't be going over them here.</p>
+<p>The repository itself needs to be <em>cloned</em> in order for the files to be worked on; this is analogous to subversion's checkout command. This is done via the <code>git clone</code> command. There are a few ways to clone a repository:</p>
 <pre><code>git clone git@github.com:aaronbloomfield/slp</code></pre>
 <p>Or:</p>
-<pre><code>git clone https://github.com/aaronbloomfield/slp.git</code></pre>
-<p>For both of these commands, the user who owns the repository is <code>aaronbloomfield</code>, and the repository is <code>slp</code>. Either of the two commands will work, although the first one is considered more secure (see <a href="https://help.github.com/articles/which-remote-url-should-i-use">here</a> for details). And both will require you to enter your password any time you clone a private repo, and any time you <em>push</em> (more on pushing, below) to any repository.</p>
-<p>Once the repository is cloned, you can work on the files within the created directory. The git commands will work anywhere in that cloned repository -- you don't have to be in the root of that directory structure (which was the case with subversion). As you create files that you want to add to the repository, you use <code>git add &lt;file&gt;</code>. This stages them for (i.e., gets them ready for) adding to the repository, but does not add them just yet. When you have finished making your changes (file additions, edits, or deletions), you then <em>commit</em> them.</p>
-<p>Git is a distributed system, which means that you can make as many commits as you would like, but they are not sent back to the git server (in our case, github.com) until you instruct git to do so via a <code>git push</code>.</p>
+<pre><code>git clone https://github.com/aaronbloomfield/slp</code></pre>
+<p>For both of these commands, the user who owns the repository is <code>aaronbloomfield</code>, and the repository is <code>slp</code>. Either of the two commands will work, although the first one is considered more secure (see <a href="https://help.github.com/articles/which-remote-url-should-i-use">here</a> for details). And both will require you to enter your github username and password any time you clone a private repo, and any time you <em>push</em> (more on pushing, below) to any repository.</p>
+<p>The <a href="dev-env-setup.html">Development Environment Setup</a> (<a href="dev-env-setup.md">md</a>) page describes how to configure ssh and git so that you do not have to enter your password each time.</p>
+<p>Once the repository is cloned, you can work on the files within the created directory. The git commands will work anywhere in that cloned repository -- you don't have to be in the root of that directory structure (which was the case with subversion). There are three separate steps to get a file added to the github repository.</p>
+<ol style="list-style-type: decimal">
+<li>As you create files that you want to add to the repository, you use <code>git add &lt;file&gt;</code>. This stages them for (i.e., gets them ready for) adding to the repository, but does not add them just yet. You can enter <code>git status</code> to see what files have been added and what not been added. If you modify a file, and you want to add those modifications to the repository, you also do a <code>git add &lt;file&gt;</code>. You can add as many files as you want before proceeding to the next step.</li>
+<li>Once you have made the changes that you want to make, you <em>commit</em> the changes to the repository: <code>git commit -m&quot;I implemented HAL 9000&quot;</code>. This takes all the staged changes (those what were added via <code>git add &lt;file&gt;</code>), and adds them to the repository wrapped into a single commit; you can specify the mssage on the command line as shown in the example. You can commit as many times as you want before proceeding to the next step.</li>
+<li>git is a distributed version control system. What this means is that any commits are made to the <em>local</em> repository (i.e., what you have on your computer), and not (yet) made to the version of the repository that git hosts. In order to do that, you execute a <code>git push</code> -- this takes all the commits, and <em>pushes</em> them to the remote server (i.e., github). This means that all the committed changes are now on github.</li>
+</ol>
 <h3 id="git-command-summary">git command summary</h3>
 <ul>
 <li><code>git clone git@github.com:username/repo</code>: clones a repository; a directory named the same name as the repository is created, and the files are placed there.</li>
-<li><code>git add &lt;file&gt;</code>: stages a file to be added to the repository on the next commit. You can call this on a directory, and git will stage the entire directory structure.</li>
+<li><code>git add &lt;file&gt;</code>: stages a file to be added to the repository on the next commit. You can call this on a directory, and git will stage the entire directory structure. However, git does not keep track of <em>empty</em> directories, so you will have to add a file to a directory to keep that directory in the git repo.</li>
 <li><code>git commit</code>: commits the current changes (additions, deletions, and edits). A few useful flags:
 <ul>
 <li><code>-m &quot;message&quot;</code> will use that as a message as the commit message (otherwise git will prompt you to enter a message)</li>
-<li><code>-a</code>: by default, an edited file is not included in the list of files to be committed unless you add it via <code>git add</code>; this flag adds all edited files (but not all new files; they still have to be manually added via <code>git add</code>.</li>
+<li><code>-a</code>: by default, an modified file is not included in the list of files to be committed unless you add it via <code>git add</code>; this flag adds all modified files (but not all new files; they still have to be manually added via <code>git add</code>)</li>
 </ul></li>
 <li><code>git status</code>: this displays a number of things:
 <ul>
 <li>the files that are staged for commit</li>
-<li>the files that have been edited sine the last commit</li>
-<li>the number of commits that you are &quot;ahead&quot; of the server (meaning how many times you have called 'git commit' without calling 'git push')</li>
-<li>note that if you edit a file that is already in the repo, add it via <code>git add</code>, then edit it again, it will appear twice: as a file staged for commit (the version of the file after the first edit) and in the unstaged files list (the version after the second edit); calling <code>git add</code> on that file again, or committing with <code>-a</code> will cause the most recent edited version to be committed.</li>
+<li>the files that have been modified sine the last commit</li>
+<li>the number of commits that you are &quot;ahead&quot; of the server (meaning how many times you have called <code>git commit</code> without calling <code>git push</code>)</li>
+<li>note that if you edit a file that is already in the repo, add it via <code>git add</code>, then edit it again, it will appear twice: as a file staged for commit (the version of the file after the first edit) and in the unstaged files list (the version after the second edit); calling <code>git add</code> on that file again, or committing with <code>-a</code> will cause the most recent modified version to be committed.</li>
 </ul></li>
-<li><code>git push</code>: this pushes all the local commits to the server's version of the repository.</li>
-<li><code>git pull</code>: this obtains the latest version of the repository from the server, as other people may have pushed changes to the repo since you last did a <code>git clone</code> or <code>git pull</code>. Note that if one of the files modified in the server's repository is the same as a file you have modified locally, then git will attempt to merge those files; more on this below.</li>
+<li><code>git push</code>: this pushes all the local commits to the server's version of the repository. Depending on your settings, this may only push the commits from the current branch.</li>
+<li><code>git pull</code>: this obtains the latest version of the repository from the server, as other people may have pushed changes to the repo since you last did a <code>git clone</code> or <code>git pull</code>. Note that if one of the files modified in the server's repository is the same as a file you have modified locally, then git will attempt to merge those files; more on this below. Depending on your settings, this may only pull the changes from the current branch.</li>
 <li><code>git mv &lt;source&gt; &lt;dest&gt;</code>: moves a file (or directory), or renames a file; this tells git about the move or rename.</li>
-<li><code>git rm &lt;file&gt;</code>: stages a file (or directory) for removal; use the <code>-f</code> flag if that file has been edited since the last commit; use the <code>-r</code> flag to remove a directory.</li>
+<li><code>git rm &lt;file&gt;</code>: stages a file (or directory) for removal; use the <code>-f</code> flag if that file has been modified since the last commit; use the <code>-r</code> flag to remove a directory.</li>
 <li><code>git checkout</code>: this has two main functions
 <ul>
-<li><code>git checkout &lt;file&gt;</code>: this reverts the (presumably edited) file to the version as of the last commit.</li>
-<li><code>git checkout &lt;branch&gt;</code>: this will switch the <em>entire</em> repo over to the branch specified.</li>
+<li><code>git checkout &lt;file&gt;</code>: this reverts the (presumably modified) file to the version as of the last commit.</li>
+<li><code>git checkout &lt;branch&gt;</code>: this will switch the <em>entire</em> repo over to the branch specified; this will not work if there are modified files -- you can enther undo your modifications, commit your modifications, or see <code>git stash</code>, below</li>
 </ul></li>
 <li><code>git reset</code>: this allows you to &quot;undo&quot; various operations
 <ul>
 <li>If you want to unstage a file for commit, then enter <code>git reset &lt;file&gt;</code></li>
-<li>If you want to undo the last commit, you can enter <code>git reset --soft HEAD~1</code>.</li>
+<li>If you want to undo the last commit, you can enter <code>git reset --soft HEAD~1</code></li>
 </ul></li>
 <li><code>git branch</code>: creates (or edits) branches; see below for details</li>
 <li><code>git merge</code>: merges branches; see below for details</li>
 <li><code>git tag</code>: creates (or edits) tags; see below for details</li>
 <li><code>git update-index --assume-unchanged  &lt;file&gt;</code>: if there is a file that you want to modify from the version in the repo, but you do NOT want those changes to be committed, you use this command. It's useful if you are updating passwords in a file, but you don't want those passwords stored in the repo.</li>
+<li><code>git stash</code>: this command allows you to save modifications without doing a full commit; you can then restore those modifications at a later date.
+<ul>
+<li><code>git stash save</code>: saves (stashes) the current changes -- things that have been added via <code>git add</code>, as well as all modified files (but not new files that git does know about). These are saved in the stash, and the repo is reverted back to the state after the last commit.</li>
+<li><code>git stash pop</code>: applies the top saved stash, re-doing all of the modifications. If git cannot resolve the changes, then it will notify you about a conflict, like when a branch merge runs into this problem as well.</li>
+<li><code>git stash list</code>: lists all of the saved stashes</li>
+<li><code>git stash drop</code>: removes a saved stash</li>
+<li>If you make changes to the wrong branch, for example, this is how you fix it: save those changes (<code>git stash save</code>), switch to the new branch (<code>git checkout branchname</code>), and then re-apply those changes (<code>git stash pop</code>).</li>
+</ul></li>
 </ul>
 <p>There are many other git commands; type <code>man git</code> for a list, then type <code>man git-clone</code> for the details about the <code>git clone</code> command (likewise for the other git commands).</p>
 <h3 id="exploring-github">Exploring github</h3>
 <p>There are many services that provide git repositories. <a href="https://github.com/">Github</a> is one of the most popular. They provide free repositories for education, and have a powerful set of tools available through their web interface for managing your git repositories.</p>
 <p>Github defines two types of repositories: public and private. Anybody can create as many public repositories as they want, but note that anybody else can see the public repositories. This course (and this document) is available in a public repository. In contrast, private repositories can only be viewed by those who are authorized to view them. Private repositories <a href="https://github.com/pricing">cost money</a>, although github provides free repositories for educational use.</p>
-<p>When viewing any repository, it will display, underneath the list of files, the contents of a file called README.md (or readme.md, or readme.markdown, etc.). <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> is a plain text formatting system that aims to make the document readable in both text format as well as easily allowing it to be converted into HTML or similar. In fact, any directory that has a readme.md (or similar) will display the formatted contents underneath the list of files.</p>
+<p>When viewing any repository, it will display, underneath the list of files, the contents of a file called README.md (or readme.md, or readme.markdown, etc.). <a href="http://daringfireball.net/projects/markdown/syntax">Markdown</a> is a plain text formatting system that aims to make the document readable in both text format as well as easily allowing it to be converted into HTML or similar. In fact, any directory that has a readme.md (or similar) will display the formatted contents underneath the list of files. For a quick example of the Markdown syntax, see <a href="http://www.unexpected-vortices.com/sw/rippledoc/quick-markdown-example.html">here</a>.</p>
 <p>Note on the right-hand side that github provides issues and a wiki (both of which can be formatted with Markdown). Take a moment to explore these, as they will be used extensively in this course. For the assignment below, you will need to created formatted wiki pages, and create issues (along with labels and milestones).</p>
-<p>Also on the right-hand side is the link for settings. From there, you can select Collaborators, and select other people who can access the repository. If the repo is public, then anybody can clone it. But only collaborators can push to a public repo, or have any access (clone and push) to a private repo. You will need to add me ('aaronbloomfield') as a collaborator to your repo for this homework.</p>
+<p>Also on the right-hand side is the link for settings. From there, you can select Collaborators, and select other people who can access the repository. If the repo is public, then anybody can clone it. But only collaborators can push to a public repo, or have any access (clone and push) to a private repo. You will need to add the course instructors to your private repo for the <a href="hw-git.html">git homework</a> (<a href="hw-git.md">md</a>).</p>
 <h3 id="forks-and-pull-requests">Forks and Pull requests</h3>
-<p>Github easily allows one to <a href="http://en.wikipedia.org/wiki/Fork_%28software_development%29">fork</a> a repository that they have access to. This is a github feature; there is no git command named &quot;fork&quot;. Basically, this is a means to create a new repo that is a copy of an old repo, and keep track of which repo is the old repo. As you have created the forked repo, you can make any changes to it. This is typically done in two different situations. One is if you want to suggest a change to be sent back to the source repo; this is called a pull request, and is described shortly. The other reason is if you want to work on a project that is based off of another project. For example, the <a href="https://github.com/aaronbloomfield/github-api-tools">aaronbloomfield/github-api-tools</a> is a fork of the <a href="https://github.com/KnpLabs/php-github-api">KnpLabs/php-github-api</a> repo, as the former uses the library that was created in the latter. However, the fork adds features that are not meant to be in the original (i.e., the fork is an application that uses the original).</p>
-<p>There are two ways that people can change a repository. The first is if the user has permissions to push to a repo. This is the case for any user's own repositories, and will be the case for the group repositories in this course.</p>
+<p>Github easily allows one to <a href="http://en.wikipedia.org/wiki/Fork_%28software_development%29">fork</a> a repository that they have access to. This is a github feature; there is no git command named &quot;fork&quot;. Basically, this is a means to create a new repo that is a copy of an old repo, and keep track of which repo is the old repo. As you have created the forked repo, you can make any changes to it. This is typically done in two different situations. One is if you want to suggest a change to be sent back to the source repo; this is done in github via a pull request (also a github-only feature), and is described shortly. The other reason is if you want to work on a project that is based off of another project. For example, the <a href="https://github.com/aaronbloomfield/github-api-tools">aaronbloomfield/github-api-tools</a> is a fork of the <a href="https://github.com/KnpLabs/php-github-api">KnpLabs/php-github-api</a> repo, as the former uses the library that was created in the latter. However, the fork adds features that are not meant to be in the original (i.e., the fork is an application that uses the original).</p>
+<p>There are two ways that people can change a repository. The first is if the user has permissions to push to a repo. This is the case for any user's own repositories, and will generally be the case for the group repositories in this course.</p>
 <p>However, it may be that one wants anybody to be able to suggest changes to a repository. In this case, the user creates a fork, makes changes to the fork, and then suggests those changes back to the maintainer of the original repository. This is called a <em>pull request</em> (again, this is a github name, and is not a git command, per se). This will send a notification -- or request -- to the maintainer of the original to &quot;pull&quot; the changes into the original repository (hence &quot;pull request&quot;). To submit a pull request, click on the &quot;pull requests&quot; button on the right side of the github repository page.</p>
 <p>When you create a fork, it copies the original repo at that point in time. To update the original repo, you will want to follow the directions <a href="https://help.github.com/articles/syncing-a-fork">here</a>. Note that you will likely have to <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork">configure the upstream repo</a> the first time you do this.</p>
 <h3 id="tagging">Tagging</h3>
@@ -86,16 +99,21 @@
 <p>Branching is merging is complicated, and one should read <a href="http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging">this page</a> in it's entirety.</p>
 <p>A few notes from that page (this is NOT a summary):</p>
 <ul>
-<li>The main branch is called &quot;master&quot;</li>
-<li><code>git checkout -b foo</code> creates a &quot;foo&quot; branch from the current branch/commit the repo is currently in.</li>
+<li>The main branch is always called &quot;master&quot;</li>
+<li><code>git checkout -b foo</code> creates a &quot;foo&quot; branch from the current branch/commit the repo is currently in, and changes over to that branch.</li>
 <li><code>git checkout master</code> changes to the &quot;master&quot; branch, re-arranging the files as needed.</li>
 <li>Entering <code>git merge foo</code> will merge the &quot;foo&quot; branch INTO the current branch</li>
-<li>If you have updated a branch, such as &quot;master&quot;, and want to &quot;pull&quot; those changes into another branch, such as &quot;foo&quot;, then you enter (while in the &quot;foo&quot; branch): <code>git rebase master</code></li>
 <li><code>git branch -D foo</code> will delete the &quot;foo&quot; branch, but only locally; to do so remotely, use <code>git push origin --delete foo</code></li>
 </ul>
+<p>Note that if you have local changes (modified files, or things added via <code>git add</code>), then you cannot switch branches. You will either have to one of the following:</p>
+<ol style="list-style-type: decimal">
+<li>Undo the changes (run <code>git checkout &lt;file&gt;</code> to switch to the version before the modifications; run <code>git reset &lt;file&gt;</code> to undo an add)</li>
+<li>Save the changes via <code>git stash save</code></li>
+<li>Commit the changes via <code>git commit</code></li>
+</ol>
 <p>The rest of branching and merging should have been covered in that document</p>
 <h3 id="git-for-those-coming-from-subversion">git for those coming from subversion</h3>
-<p>While there are many differences between git and subversion, there are also similarities. Here are the equivalent git commands, as much as is possible, to the SVN commands. Note that the <em>flags</em> to these commands are not listed below.</p>
+<p>While there are many differences between git and subversion, there are also similarities. Here are the equivalent git commands, as much as is possible, to the SVN commands. Note that the <em>flags</em> to these commands are not listed below, and are generally different between the two systems.</p>
 <ul>
 <li><code>svn checkout</code> is <code>git clone</code>. Note that how URLs are specified for the two will be different.</li>
 <li><code>svn commit</code> is <code>git commit</code> followed by a <code>git push</code>. When you do a commit in SVN, it sends the changes back to the SVN server. A git commit only does a local commit, but does not send the changes back to the git server until you do a push. Under git, you can have as many commits as you want between pushes (although having too many somewhat defeats the purpose of the git server that you are using).</li>
@@ -107,12 +125,12 @@
 <li><code>svn status</code> is <code>git status</code></li>
 <li><code>svn add</code> is <code>git add</code></li>
 <li><code>svn move</code> is <code>git mv</code></li>
-<li><code>svn diff</code> is <code>git diff</code>. Note that, under git, files that you have added will not have their diffs displayed via this command.</li>
+<li><code>svn diff</code> is <code>git diff</code>. Note that, under git, files that you have added via <code>git add</code> will not have their diffs displayed via this command.</li>
 </ul>
 <p>And some SVN commands have no equivalent under git:</p>
 <ul>
 <li><code>svn mkdir</code> does not have an equivalent under git. git does not keep track of directories, and any empty directories are automatically removed. So if you want to create an otherwise empty directory, create an file called &quot;empty&quot; inside (<code>touch empty</code>), and add that via <code>git add</code>. This will automatically add the directory as well.</li>
-<li><code>svn copy</code> doesn't have a git equivalent. Just copy the file normally and add the copied file.</li>
+<li><code>svn copy</code> doesn't have a git equivalent. Just copy the file normally and <code>git add</code> the copied file.</li>
 </ul>
 </body>
 </html>

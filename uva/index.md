@@ -8,6 +8,7 @@ Much of the rest of this git repo is meant to be generic to anybody who has a cl
 - [Fall semester daily announcements][5]
 - [Course syllabus][1] ([md][2])
 - [Legal forms][3] ([md][4])
+- [Schedule][10] ([md][11]) of iterations and phases
 - [Old UVa SLP documents][6] ([md][7]), including the lectures and recordings from previous semesters
 
 Lectures
@@ -15,8 +16,8 @@ Lectures
 
 | Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
 |-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
-| 1   | Aug&nbsp;26 | Wednesday   | lecture       | Course intro  |||
-| 2   | Aug&nbsp;28 | Friday      | lecture       | Course intro, development methods |||
+| 1   | Aug&nbsp;26 | Wednesday   | lecture       | [Course introduction][8]  || [course-introduction-fall][8], slides [1][8] to [43][100] |
+| 2   | Aug&nbsp;28 | Friday      | lecture       | [Course introduction][8], [development methods][51] |||
 | 3   | Aug&nbsp;31  | Monday      | lecture       | Development methods |||
 | 4   | Sep&nbsp;2  | Wednesday   | lecture       | Legal issues  |||
 | 5   | Sep&nbsp;4  | Friday      | no class      |               | [HW 1][20] ([md][21])|                                         |
@@ -69,22 +70,27 @@ Lectures
 [5]: daily-announcements.html#/
 [6]: old/index.html
 [7]: old/index.md
+[8]: course-introduction-fall.html#/
+[9]: course-introduction-spring.html#/
+[10]: schedule.html
+[11]: schedule.md
 
 [20]: ../docs/hw-git.html
 [21]: ../docs/hw-git.md
 [22]: ../docs/hw-frameworks.html
 [23]: ../docs/hw-frameworks.md
 
-[51]: ../slides/fall/01-intro.html#/
-[52]: ../slides/fall/02-development-methods.html#/
-[53]: ../slides/fall/03-legal.html#/
-[54]: ../slides/fall/04-frameworks.html#/
-[55]: ../slides/fall/05-requirements.html#/
-[56]: ../slides/fall/06-project-start.html#/
-[57]: ../slides/fall/07-customer-meetings.html#/
-[58]: ../slides/fall/08-estimation.html#/
-[59]: ../slides/fall/09-wireframing.html#/
-[60]: ../slides/fall/10-documentation.html#/
-[61]: ../slides/fall/11-ci-testing.html#/
+[51]: ../slides/01-development-methods.html#/
+[52]: ../slides/02-legal.html#/
+[53]: ../slides/03-frameworks.html#/
+[54]: ../slides/04-requirements.html#/
+[55]: ../slides/05-project-start.html#/
+[56]: ../slides/06-customer-meetings.html#/
+[57]: ../slides/07-estimation.html#/
+[58]: ../slides/08-wireframing.html#/
+[59]: ../slides/09-documentation.html#/
+[60]: ../slides/10-ci-testing.html#/
 
-[81]: ../slides/fall/daily-announcements.html#citestingworkday
+[81]: daily-announcements.html#citestingworkday
+
+[100]: course-introduction-fall.html#/6/8
