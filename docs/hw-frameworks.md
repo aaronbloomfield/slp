@@ -19,7 +19,7 @@ The provided course server has a valid (and properly signed) SSL certificate, so
 
 First, you will need to become familiar with MySQL, if you are not already.  Depending on your familiarity level, you may want to go through the [MySQL Introduction](mysql-intro.html) ([md](mysql-intro.md)) page.  Both new and advanced users will want to refer to the [MySQL Reference](mysql-reference.html) ([md](mysql-reference.md)) page throughout this course.
 
-Note that the server has phpMyAdmin installed at `https://server/phpmyadmin/` (where "server" is the server used for the course).
+~~Note that the server has phpMyAdmin installed at `https://server/phpmyadmin/` (where "server" is the server used for the course).~~ Due to vulnerabilites in phpMyAdmin, it is disabled for the time being on the course server.  You will have to use the command line interface for now.
 
 You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server.  Alternatively, you can dump your entire MySQL database via `mysqldump -u user -p mst3k > db.sql`.  Here, `user` is whatever user can access the directory (perhaps "student", perhaps your UVa userid).  Or you can do it via phpMyAdmin.  Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.
 
@@ -77,17 +77,16 @@ Where 'mst3k' is your userid, and 'server' is the *full* name of the server.  On
 
 First, proceed through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page -- this should get you a first CakePHP web page working.  Be sure you use the 3.0 API of CakePHP!  The URL for that page ***MUST*** be `http://server/~mst3k/cakephp/` (where "mst3k" is your userid, and "server" is the server used for the course).  Note the lack of capitalization in your URL!  We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.
 
-The purpose of this part of the assignment is to complete the [CakePHP blog tutorial](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html).  An easier way to get CakePHP set up is to download the .zip of the latest release (as of the time of this writing, it's 3.0.0-beta1), and unzip it in a `~/html/cakephp/` directory.  For CakePHP version 3.0.0-beta1, the .zip file is [here](https://github.com/cakephp/cakephp/releases/download/3.0.0-beta1/cakephp-3-0-0-beta1.zip).  This allows you to effectively skip the "Getting Started" section of the tutorial.
+The purpose of this part of the assignment is to complete the [CakePHP blog tutorial](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html).  You run a single `composer` line, described in the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page, to install and configure your app.
 
 Note that the CakePHP tutorial has a [part two](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/part-two.html) that must be completed as well.
 
 A few notes:
 
 - The directions here are written assuming that you are developing the system on your VirtualBox image, and then uploading that to the server once completed; if not, that's totally fine, but you may have to adapt them somewhat.
-- You will want to unzip the CakePHP files into ~/html/cakephp/ on your local machine.  You can then view it via `http://localhost/~mst3k/cakephp/` (localhost means the machine that you are currently on).  You will see some warning messages and/or error messages, but proceeding through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page should resolve all of them.  Once finished, the CakePHP splash page should show all green.
 - Note that you can set a MySQL table *prefix* in config/app.php, such as `cake_`.  This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.
 
-### Ruby on Rails
+### Ruby on Rails (THESE DIRECTIONS ARE NOT YET READY)
 
 First, read through the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page.  The assumption is that you will test it locally via `rails server`, and the deploy it on the course server via the directions on that page.  If you want to try your hand configuring your *own* Rails server, you can look at the [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md)) page -- but be warned, it's a real pain in the rear to configure a Rails server.
 
@@ -108,7 +107,7 @@ config.active_record.table_name_prefix = "ruby_"
 
 Lastly, to see how to upload your Rails app to the server, see the "Uploading to the server" section of the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page.
 
-### Django
+### Django (THESE DIRECTIONS ARE NOT YET READY)
 
 First, read through the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page.  The assumption is that you will test it locally via `python manage.py runserver`, and the deploy it on the course server via the directions on that page.  If you want to try your hand configuring your *own* Apache server to run Django, you can look at the [Django deployment](django-deployment.html) ([md](django-deployment.md)) page -- but be warned, it's a real pain in the rear to configure a Django server (although not as bad as Rails).
 
