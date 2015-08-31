@@ -17,16 +17,16 @@ Lectures
 | Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
 |-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
 | 1   | Aug&nbsp;26 | Wednesday   | lecture       | [Course introduction][8]  || [course-introduction-fall][8], slides [1][8] to [43][100] ([recording][200]) |
-| 2   | Aug&nbsp;28 | Friday      | lecture       | [Course introduction][8], [development methods][51] || [course-introduction-fall][8], slides [44][101] to [75][102] ([recording][200]) |
-| 3   | Aug&nbsp;31  | Monday      | lecture       | Development methods |||
-| 4   | Sep&nbsp;2  | Wednesday   | lecture       | Legal issues  |||
-| 5   | Sep&nbsp;4  | Friday      | no class      |               | [HW 1][20] ([md][21])|                                         |
-| 6   | Sep&nbsp;7  | Monday      | lecture       | Legal issues, frameworks |||
-| 7   | Sep&nbsp;9 | Wednesday   | lecture       | Frameworks    | CakePHP part of [HW 2][22] ([md][23])||
-| 8   | Sep&nbsp;11 | Friday      | no class      |               || |
-| 9   | Sep&nbsp;14 | Monday      | lecture       | Requirements  | Rails part of [HW 2][22] ([md][23]) ||
+| 2   | Aug&nbsp;28 | Friday      | lecture       | [Course introduction][8] || [course-introduction-fall][8], slides [44][101] to [75][102] ([recording][200]) |
+| 3   | Aug&nbsp;31  | Monday      | lecture       | [Development methods][51] |||
+| 4   | Sep&nbsp;2  | Wednesday   | lecture       | [Development methods][51], [Legal issues][52] |||
+| 5   | Sep&nbsp;4  | Friday      | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21])|                                         |
+| 6   | Sep&nbsp;7  | Monday      | lecture       | Legal issues, frameworks | CakePHP part of [HW 2][22] ([md][23])||
+| 7   | Sep&nbsp;9 | Wednesday   | lecture       | Frameworks    |||
+| 8   | Sep&nbsp;11 | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) ||
+| 9   | Sep&nbsp;14 | Monday      | lecture       | Requirements  | Django part of [HW 2][22] ([md][23]) |
 | 10  | Sep&nbsp;16 | Wednesday   | lecture       | Requirements |||
-| 11  | Sep&nbsp;18 | Friday      | class optional |               | Django part of [HW 2][22] ([md][23]) | Class is for those who have questions about the survey or the projects |
+| 11  | Sep&nbsp;18 | Friday      | class optional |               | Year-start surveys due | Class is for those who have questions about the survey or the projects |
 | 12  | Sep&nbsp;21 | Monday      | group meeting | Project start |||
 | 13  | Sep&nbsp;23 | Wednesday   | lecture       | Customer meetings |||
 | 14  | Sep&nbsp;25 | Friday      | no class      |               || |
