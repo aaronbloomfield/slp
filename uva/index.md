@@ -16,10 +16,10 @@ Lectures
 
 | Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
 |-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
-| 1   | Aug&nbsp;26 | Wednesday   | lecture       | [Course introduction][8]  || [course-introduction-fall][8], slides [1][8] to [43][100] ([recording][200]) |
-| 2   | Aug&nbsp;28 | Friday      | lecture       | [Course introduction][8] || [course-introduction-fall][8], slides [44][101] to [75][102] ([recording][200]) |
-| 3   | Aug&nbsp;31  | Monday      | lecture       | [Development methods][51] |||
-| 4   | Sep&nbsp;2  | Wednesday   | lecture       | [Development methods][51], [Legal issues][52] |||
+| 1   | Aug&nbsp;26 | Wednesday   | lecture       | [Course introduction][8]  || [Course introduction][8], slides [1][8] to [43][100] ([recording][200]) |
+| 2   | Aug&nbsp;28 | Friday      | lecture       | [Course introduction][8] || [Course introduction][8], slides [44][101] to [75][102] (end) ([recording][200]) |
+| 3   | Aug&nbsp;31  | Monday      | lecture       | [Development methods][51] || [Developemnt methods][51], slides [1][51] to [38][103] (end) ([recording][201]) |
+| 4   | Sep&nbsp;2  | Wednesday   | lecture       | [Legal issues][52] |||
 | 5   | Sep&nbsp;4  | Friday      | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21])|                                         |
 | 6   | Sep&nbsp;7  | Monday      | lecture       | Legal issues, frameworks | CakePHP part of [HW 2][22] ([md][23])||
 | 7   | Sep&nbsp;9 | Wednesday   | lecture       | Frameworks    |||
@@ -96,5 +96,7 @@ Lectures
 [100]: course-introduction-fall.html#/6/8
 [101]: course-introduction-fall.html#/7
 [102]: course-introduction-fall.html#/9/10
+[103]: ../slides/01-development-methods.html#/7/5
 
 [200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
+[201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-development-methods/01-development-methods.htm
