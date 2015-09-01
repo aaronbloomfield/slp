@@ -96,7 +96,7 @@ alias xemacs='emacs'
 sudo update-alternatives --set cc /usr/bin/gcc
 sudo update-alternatives --set c++ /usr/bin/g++
 ```
-- I then followed the directions at [https://gorails.com/setup/ubuntu/14.04](https://gorails.com/setup/ubuntu/14.04).  **HOWEVER**, there were different versions used: since that document was created, Ruby is up to 2.2.3, and Rails is up to 4.2.3 (at the time of this document's writing).  The newer version numbers were used with those instructions.
+- I then followed the directions at [https://gorails.com/setup/ubuntu/14.04](https://gorails.com/setup/ubuntu/14.04).  The versions I used were Ruby 2.2.3, and Rails 4.2.3 (at the time of this document's writing); newer versions may have since appeared.
     - The git/github configuration step was skipped, as that requires the final user of the image
     - MySQL was already set up in the LAMP configuration section
     - PostgreSQL is another SQL database, but we are not using that on the image
