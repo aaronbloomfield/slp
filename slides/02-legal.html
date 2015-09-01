@@ -27,6 +27,14 @@
     <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
     <script type="text/javascript" src="../slides/js/canvas.js"></script>
     <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+
+<style>
+/* This is for the license comparison table, which is the only such table in this slide set */
+.reveal table td {
+font-size:70%;
+}
+</style>
+
   </head>
 
   <body>
@@ -84,10 +92,11 @@
 ## Reverse engineering
 - If a piece of hardware is legally obtained, then reverse engineering is lawful
 - But not for software, as EULAs generally forbid it
-  - And courts have [found that EULAs override copyright law](http://en.wikipedia.org/wiki/Bowers_v._Baystate_Technologies)
+  - And federal courts have [found that EULAs override copyright law](http://en.wikipedia.org/wiki/Bowers_v._Baystate_Technologies)
 - However, the DMCA allows for reverse engineering of software if and only if:
   - You have legally obtained it
   - It is specifically to achieve interoperability between computer programs
+- This doesn't prevent you from being sued, though (anybody can file a lawsuit for anything); it just means the suit is not likely to be successful
 	</script></section>
 
 	</section>
@@ -103,10 +112,9 @@
 
 <a href="http://en.wikipedia.org/wiki/Richard_Stallman#mediaviewer/File:Richard_Stallman_at_Pittsburgh_University.jpg"><img style="float:right;margin-left:1em" width="350"  src="http://upload.wikimedia.org/wikipedia/commons/3/3d/Richard_Stallman_at_Pittsburgh_University.jpg" alt="richard stallman" title="&quot;Richard Stallman at Pittsburgh University&quot; by Victor Powell - Own work. Licensed under Creative Commons Attribution-Share Alike 3.0 via Wikimedia Commons - http://commons.wikimedia.org/wiki/File:Richard_Stallman_at_Pittsburgh_University.jpg#mediaviewer/File:Richard_Stallman_at_Pittsburgh_University.jpg"></a>
 
-- Launched the GNU project in<br>1983 to create a free Unix-like<br>operating system
-  - Can anybody name the kernel?
-- Pioneered the GNU copyleft
-- He wrote (or heavily contributed<br>to): emacs, gcc, gdb, etc.
+- Launched the GNU project in<br>1983 to create a free Unix-like<br>operating system (can anybody<br>name the kernel?)
+- Pioneered the [GPL (the GNU<br>copyleft)](https://en.wikipedia.org/wiki/GNU_General_Public_License)
+- He wrote (or heavily <br>contributed to): emacs, gcc,<br>gdb, etc.
 	  </script></section>
 
 	  <section>
@@ -126,7 +134,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## Free Software Foundation
-- Created by rms on Oct 4, 1985 to support and promote the free software movement
+- Created by Stallman on Oct 4, 1985 to support and promote the free software movement
 - Employees and volunteers mostly work on legal and structural issues regarding free software
 
 &nbsp;  
@@ -187,13 +195,15 @@
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## What if you use GPL code but don’t tell?
+## Let's use GPL code but not tell!
 
 - A Linksys (then Cisco) network storage device (product [NAS200](http://en.wikipedia.org/wiki/NAS200)) ran a customized version of Linux
-  - Among other devices they produced
+  - As did other products that Linksys developed
   - And Linux is released under the GPL
-- Linksys was thus required to release their source code because of the GPL viral clause
-- The case is [*Free Software Foundation v. Cisco Systems*](http://en.wikipedia.org/wiki/Free_Software_Foundation_v._Cisco_Systems)
+- Linksys did not release the code, even when requested, and they were taken to court
+  - They were ordered to release their source code because of the GPL viral clause, although the settled
+- The case is [*Free Software Foundation v. Cisco Systems*](http://en.wikipedia.org/wiki/Free_Software_Foundation_v._Cisco_Systems) (2008)
+- This was the first (real) court-backed enforcement of the GPL
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -224,7 +234,7 @@
 - Two variants are GPL-compatible
   - Meaning they can be combined with GPL code, although the resulting code must be released under the GPL
 - The 4-clause variant is not, due to the advertising clause
-  - All advertising materials mentioning features or use of this software must display the following acknowledgement...
+  - "All advertising materials mentioning features or use of this software must display the following acknowledgement..."
     - This clause (and variant) has since fallen out of favor
 - Still considered a "free software license" by the FSF, but not accepted as an open source license
 - Django is released under the BSD license
@@ -259,8 +269,8 @@
 | [CDDL](http://en.wikipedia.org/wiki/Common_Development_and_Distribution_License) | no | yes, if compatible |
 | [GPL](http://en.wikipedia.org/wiki/GNU_General_Public_License), v 2.0 | If published | yes, if compatible or owner agrees |
 | [Lesser GPL](http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License) | similar to GPL | yes, if compatible |
-| [Microsoft: MS-PL](http://en.wikipedia.org/wiki/Shared_source#Microsoft_Public_License_.28Ms-PL.29) | no | no |
-| [Microsoft: MS-RL](http://en.wikipedia.org/wiki/Shared_source#Microsoft_Reciprocal_License_.28Ms-RL.29) | yes | no |
+| [Microsoft:&nbsp;MS&#8209;PL](http://en.wikipedia.org/wiki/Shared_source#Microsoft_Public_License_.28Ms-PL.29) | no | no |
+| [Microsoft:&nbsp;MS&#8209;RL](http://en.wikipedia.org/wiki/Shared_source#Microsoft_Reciprocal_License_.28Ms-RL.29) | yes | no |
 | [Mozilla (MPL)](http://en.wikipedia.org/wiki/Mozilla_Public_License) | no | no |
 | [BSD License](http://en.wikipedia.org/wiki/BSD_licenses) | no | yes |
 | [MIT License](http://en.wikipedia.org/wiki/MIT_License) | no | yes |
@@ -269,7 +279,7 @@ Table content derived from [this page](http://khason.net/blog/open-source-licens
 	  </script></section>
 
 	  <section>
-<h2>License comparison 2 (image from <a href="http://www.shafqatahmed.com/2008/10/comparison-of-d.html">here</a>)</h2>
+<h2>License comparison 2 (from <a href="http://www.shafqatahmed.com/2008/10/comparison-of-d.html">here</a>)</h2>
 <img class="stretch" src="http://www.shafqatahmed.com/WindowsLiveWriter/OpenSourceLicenseComparison_thumb.png" alt="license comparison table"></a>
 	  </section>
 
@@ -278,12 +288,12 @@ Table content derived from [this page](http://khason.net/blog/open-source-licens
 - A means by which authors of works can specify the terms under which people can share said works
   - Typically (but not always) used for non-software works
 - There are four condition modules:
-  - Attribution (BY): requires attribution to the original author
+  - Attribution (BY): requires attribution to original author
   - Share alike (SA): derivative works allowed, but under the same license
   - Non-commercial (NC): prevents commercial use
   - No derivative works (ND): prevents derivative works
 - A license is specified by the terms:
-  - "CC BY-SA", which is what Wikipedia and this github SLP repository are released under
+  - "CC BY-SA", which is what Wikipedia and this github SLP and PDR repositories are released under
   - "CC BY-NC", which is what xkcd is released under
 	</script></section>
 
@@ -309,7 +319,7 @@ Table content derived from [this page](http://khason.net/blog/open-source-licens
 - Here is one alternative:
   - Consider a single sub-system that is based of GPL code
   - You can rewrite that sub-system, and release just that sub-system under the GPL (or LGPL)
-  - Then use the binary  from that sub-system in your non-GPL system
+  - Then use the *binary*  from that sub-system in your non-GPL system
 - This allows you to use a GPL component, but not release your entire system under the GPL
 	  </script></section>
 
@@ -340,20 +350,65 @@ Table content derived from [this page](http://khason.net/blog/open-source-licens
 
 	  <section data-markdown><script type="text/template">
 ## SLP student agreement
-- As mentioned earlier, I am working on an agreement with UVa‘s provost’s office and general counsel that will modify those rights as follows:
-  - The non-profit obtains the rights to use your system (including the source code), but they can never release it or sell it or claim that it was written by them
+- As mentioned earlier, there is an agreement ([pdf](../uva/student-participation-form.pdf), [word](../uva/student-participation-form.docx)) developed in conjunction with UVa‘s provost’s office and general counsel that does the following:
+  - The non-profit obtains the rights to use your system forever (including the source code), but they can never release it or sell it or claim that it was written by them
     - They could hire a developer to enhance it, for example, but the enhanced version would have the same restrictions (can not be released or sold)
     - They can install it on any of their machines that they need to
-  - Your rights are not restricted in any way
-    - You are just giving some (limited) rights to the nonprofit
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## SLP student agreement
+- Your rights are not restricted in any way
+  - You are just giving some (limited) rights to the nonprofit
+- It also releases UVa from any responsibility if your software fails
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Must you sign it?
 - Can I force you to sign it?
   - No!  Nobody can force you to give up your rights
-- But I’m hoping everybody will be willing to do so, since I do not believe it restricts your rights
-  - This has (or will have) gotten approval from the provost, comptroller, general counsel, etc., at UVa
+  - Even though what you are giving up is the ability to charge the nonprofit for your project in the future
+- But if you do not, then you can not work on a project with an external entity (i.e., a nonprofit)
+  - This means you will have to take the independent project capstone track
+  - This has gotten approval from the provost's office at UVa
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Non-disclosure agreement
+- There is a non-disclosure agreement (NDA) that has also been created for you by UVa ([pdf](../uva/capstone-nda-for-students.pdf), [word](../uva/capstone-nda-for-students.docx))
+- The nonprofits will have information that they do not want to have released, and thus will likely ask you to sign the NDA
+- This form was created to prevent nonprofits from having you sign a less favorable NDA
+- This form ONLY details their information and data; you still own the code
+  - There is no IP transfer, etc., in this form
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Must you sign it?
+- Like the capstone agreement, I cannot force you to sign it
+- But you can't work on a project for a nonprofit without signing it
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Warning
+- All the nonprofits were told that, if they wanted an NDA signed, then they had to either:
+  1. Use the one we provide ([pdf](../uva/capstone-nda-for-students.pdf), [word](../uva/capstone-nda-for-students.docx))
+  2. Get theirs approved by UVa prior to having you sign it
+- Under NO CIRCUMSTANCES are you to sign any form provided by the nonprofit that is not this NDA until you speak to me (and/or the legal powers at UVa) FIRST
+  - The capstone agreement is given to you by me, not by the nonprofit
+  - I don't expect this to ever happen, by the way...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## UVa Legal Agreements
+- There is a [UVa Legal Forms](../uva/legal.html) page in the repository
+- There are three forms therein:
+  - "Student Participation and Release Form" ([pdf](../uva/student-participation-form.pdf), [word](../uva/student-participation-form.docx)), which is the SLP Student Agreement mentioned earlier
+    - I will have you sign this form
+  - "Capstone NDA" ([pdf](../uva/capstone-nda-for-students.pdf), [word](../uva/capstone-nda-for-students.docx)), which is the non-disclosure agreement form
+    - The nonprofits will (likely) have you sign this form
+  - "Customer Information Agreement" ([pdf](../uva/customer-project-agreement.pdf), [word](../uva/customer-project-agreement.docx)), which is a form that only the nonprofits sign
+    - It indicates that they are aware of a bunch of disclaimers
+- Please read these forms through!!!
 	  </script></section>
 
 	</section>
