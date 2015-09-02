@@ -56,7 +56,10 @@
 <p>A few notes:</p>
 <ul>
 <li>The directions here are written assuming that you are developing the system on your VirtualBox image, and then uploading that to the server once completed; if not, that's totally fine, but you may have to adapt them somewhat.</li>
-<li>Note that you can set a MySQL table <em>prefix</em> in config/app.php, such as <code>cake_</code>. This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.</li>
+<li><del>Note that you can set a MySQL table <em>prefix</em> in config/app.php, such as <code>cake_</code>. This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.</del>
+<ul>
+<li>Apparently, CakePHP version 3.0 no longer allows one to set the table prefixes this way. However, for this homework, the tables that you use for the CakePHP part should not conflit with the tables used for Django.</li>
+</ul></li>
 </ul>
 <h3 id="ruby-on-rails">Ruby on Rails</h3>
 <p>First, read through the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page. The assumption is that you will test it locally via <code>rails server</code>, and the deploy it on the course server via the directions on that page. If you want to try your hand configuring your <em>own</em> Rails server, you can look at the <a href="rubyrails-deployment.html">Ruby on Rails deployment</a> (<a href="rubyrails-deployment.md">md</a>) page -- but be warned, it's a real pain in the rear to configure a Rails server.</p>
@@ -67,7 +70,7 @@
 <li>That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and the course server</li>
 <li>To create the Rails application, you just enter <code>rails new railshw -d mysql</code> in your home directory (this is in section 3.2 of that web page; be sure to name it <code>railshw</code> so the URL is correct)</li>
 </ul>
-<p>Since you will be using the same database for all three frameworks, you will want to have each Ruby table have given prefix. You can do this by editing the three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, <code>ruby_</code> is the prefix, but use whatever you would like, within reason). This line can go at the end, just before the last line (which is <code>end</code>).</p>
+<p>Since you will be using the same database for all three frameworks, you will want to have each Ruby table have given prefix. You can do this by editing <em>all</em> three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, <code>ruby_</code> is the prefix, but use whatever you would like, within reason). This line can go at the end, just before the last line (which is <code>end</code>).</p>
 <pre><code>config.active_record.table_name_prefix = &quot;ruby_&quot;</code></pre>
 <p>Lastly, to see how to upload your Rails app to the server, see the &quot;Uploading to the server&quot; section of the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page.</p>
 <h3 id="django">Django</h3>

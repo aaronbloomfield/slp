@@ -84,7 +84,8 @@ Note that the CakePHP tutorial has a [part two](http://book.cakephp.org/3.0/en/t
 A few notes:
 
 - The directions here are written assuming that you are developing the system on your VirtualBox image, and then uploading that to the server once completed; if not, that's totally fine, but you may have to adapt them somewhat.
-- Note that you can set a MySQL table *prefix* in config/app.php, such as `cake_`.  This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.
+- ~~Note that you can set a MySQL table *prefix* in config/app.php, such as `cake_`.  This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.~~
+    - Apparently, CakePHP version 3.0 no longer allows one to set the table prefixes this way.  However, for this homework, the tables that you use for the CakePHP part should not conflit with the tables used for Django.
 
 ### Ruby on Rails
 
@@ -99,7 +100,7 @@ This part of the assignment is to complete the blog tutorial [here](http://guide
 - That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and the course server
 - To create the Rails application, you just enter `rails new railshw -d mysql` in your home directory (this is in section 3.2 of that web page; be sure to name it `railshw` so the URL is correct)
 
-Since you will be using the same database for all three frameworks, you will want to have each Ruby table have given prefix.  You can do this by editing the three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, `ruby_` is the prefix, but use whatever you would like, within reason).  This line can go at the end, just before the last line (which is `end`).
+Since you will be using the same database for all three frameworks, you will want to have each Ruby table have given prefix.  You can do this by editing *all* three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, `ruby_` is the prefix, but use whatever you would like, within reason).  This line can go at the end, just before the last line (which is `end`).
 
 ```
 config.active_record.table_name_prefix = "ruby_"
