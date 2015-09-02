@@ -96,7 +96,7 @@ Your app *must* be called `railshw`, and it *must* be in your home directory.  I
 
 This part of the assignment is to complete the blog tutorial [here](http://guides.rubyonrails.org/getting_started.html)
 
-- That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and pegasus
+- That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and the course server
 - To create the Rails application, you just enter `rails new railshw -d mysql` in your home directory (this is in section 3.2 of that web page; be sure to name it `railshw` so the URL is correct)
 
 Since you will be using the same database for all three frameworks, you will want to have each Ruby table have given prefix.  You can do this by editing the three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, `ruby_` is the prefix, but use whatever you would like, within reason).  This line can go at the end, just before the last line (which is `end`).
@@ -107,45 +107,46 @@ config.active_record.table_name_prefix = "ruby_"
 
 Lastly, to see how to upload your Rails app to the server, see the "Uploading to the server" section of the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page.
 
-### Django (THESE DIRECTIONS ARE NOT YET READY)
+### Django
 
 First, read through the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page.  The assumption is that you will test it locally via `python manage.py runserver`, and the deploy it on the course server via the directions on that page.  If you want to try your hand configuring your *own* Apache server to run Django, you can look at the [Django deployment](django-deployment.html) ([md](django-deployment.md)) page -- but be warned, it's a real pain in the rear to configure a Django server (although not as bad as Rails).
 
-Unlike Ruby on Rails, you can name the Django app anything you want, and put it in any directory that you want.  Although naming it `djangohw` and putting it in our home directory on the course server would not be bad ideas.
+Unlike Ruby on Rails, you can name the Django project anything you want, and put it in any directory that you want.  Although naming it `djangohw` and putting it in our home directory on the course server would not be bad ideas.
 
-The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.6/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.6 version!
+The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.8/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.8 version!
 
-A few notes on that tutorial:
+A few notes on that tutorial (these were notes from a previous version of the tutorial, so take these with a grain of salt):
 
-- When editing the models.py file, you will have to put two additional imports at the top that the tutorial does not mention (`from django.utils import timezone` and `import datetime`); this is described in more detail [here](https://code.djangoproject.com/ticket/19793)
+- When editing the models.py file, you may have to put two additional imports at the top that the tutorial does not mention (`from django.utils import timezone` and `import datetime`); this is described in more detail [here](https://code.djangoproject.com/ticket/19793)
 - If python complains about not knowing what 'timezone' is, figure out which file it is running into this issue (this is listed in the stack trace), and put `from django.utils import timezone` at the top of that file
-- The last line of `test_index_view_with_two_past_polls()` (in [page 5](https://docs.djangoproject.com/en/1.6/intro/tutorial05/)) needs to change to the following, as per [here](http://www.simonveal.com/trying-to-compare-non-ordered-queryset-against-more-than-one-ordered-values/):
+- The last line of `test_index_view_with_two_past_polls()` (in [page 5](https://docs.djangoproject.com/en/1.8/intro/tutorial05/)) may need to change to the following, as per [here](http://www.simonveal.com/trying-to-compare-non-ordered-queryset-against-more-than-one-ordered-values/):
 ```
 self.assertQuerysetEqual(
         response.context['latest_poll_list'].order_by('question'),
          ['<Poll: Past poll 1.>', '<Poll: Past poll 2.>']
     )
 ```
-- Note that one of the tests (specifically, `test_detail_view_with_a_future_poll()`) only succeeds if a future poll returns a 404 page, which is what the original `results()` view did.  However, when the view was switched over to Django's generic views (the bottom of [tutorial 4](https://docs.djangoproject.com/en/1.6/intro/tutorial04/)), that is no longer the default behavior.  Thus, that test can be removed.  This will make much more sense once you have read through the end of the testing section in the tutorial.
+- Note that one of the tests (specifically, `test_detail_view_with_a_future_poll()`) only succeeds if a future poll returns a 404 page, which is what the original `results()` view did.  However, when the view was switched over to Django's generic views (the bottom of [tutorial 4](https://docs.djangoproject.com/en/1.8/intro/tutorial04/)), that is no longer the default behavior.  Thus, that test can be removed.  This will make much more sense once you have read through the end of the testing section in the tutorial.
 
-When you have updated your Django app, remember to touch the wsgi file to make the web server reload your app; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details.
+When you have updated your Django project, remember to touch the wsgi.py file to make the web server reload your project; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details.
 
 It is much more difficult to rename your tables in Django -- you have to do it individually for each table.  But if the CakePHP tables all start with `cake_`, and the Ruby on Rails tables all start with `ruby_`, then you can leave the Django talbes to have the default name.  However, the names used in the Django tutorial should not conflict with the other tables therein.
 
 For the submission, we are not going to be configuring it on the web server, for reasons that will be explained elsewhere.  Instead, we will look at your project files on the server, and run it through `python manage.py runserver`.  Thus, you MUST take the following steps:
 
-- Upload your ENTIRE django app onto pegasus; put it somewhere in your root directory so we can find it
+- Upload your ENTIRE django project onto the course server; put it somewhere in your root directory so we can find it
     - There should be only three directories in your home directory: html (which also contains the CakePHP part), railshw (which contains the Rails part), and the directory that contains the Django part.
-- Make ***SURE*** that the DB on pegasus contains all the tables that you need for this.  You can do a mysqldump of the DB on your VirtualBox image, and then restore that to your DB on pegasus.
+- Make ***SURE*** that the DB on the course server contains all the tables that you need for this.  You can do a mysqldump of the DB on your VirtualBox image, and then restore that to your DB on the course server.
 
 ### Submission
 
-None!  We have access to your files on the course server, and we can view your apps at the following URLs:
+None!  We have access to your files on the course server, and we can view your projects at the following URLs.  It must be at these EXACT URLs, or else your assignment will not be graded.
 
 - CakePHP: `http://server/~mst3k/cakephp/`
 - Ruby on Rails: `http://server/rails/mst3k`
-- Django: See above
+- Django: `http://server/django/mst3k`
+    - You *MUST* enter the urls.py rule to make that URL work; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details (specifically, the "Configuring the Django project's URLs" section)
 
-For any sites that have user authentication, you MUST allow user `kermit` with password `frog` to log in and see any and all features.
+For any sites that have user authentication, you MUST allow user `kermit` with password `frog` to log in and see any and all features.  For the Rails app, we will also try authenticating `dhh` and `secret`, which is what the tutorial tells you to use (so either one is fine for the Rails app).
 
 Whether your program is late or not will be determined by the timestamp on the files in your home directory on the course server.

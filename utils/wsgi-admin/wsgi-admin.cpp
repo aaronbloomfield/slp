@@ -30,6 +30,10 @@
  *   the user who owns the compiled file
  * - the DB file also needs to be writable by that user
  *
+ * Note that the app name is no longer used (it was previously used as
+ * part of the static directory), but has not been removed from this
+ * program yet.
+ *
  * The callback functions were adapted from
  * http://www.sqlite.org/quickstart.html
  *
@@ -206,20 +210,22 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
   if ( !is_valid_wsgi_file(argv[2]) )
     return 0;
   sscanf(argv[7], "%d", &rootdir);
-  string userid(get_userid_by_uid(uid));
-  string fullpath(realpath(filename,NULL));
+  string userid(get_userid_by_uid(uid)); // userid of who registered this
+  string fullpath(realpath(filename,NULL)); // full path of the wsgi.py file
   int pos = fullpath.rfind("/");
-  string up1 = fullpath.substr(0,pos);
-  string basename = fullpath.substr(pos+1);
-  string app(argv[6]);
+  string up1 = fullpath.substr(0,pos); // the directory that the wsgi.py file is in
+  string basename = fullpath.substr(pos+1); // typically 'wsgi.py', the actual file name
+  string app(argv[6]); // the app name
   pos = up1.rfind("/");
-  string up2 = up1.substr(0,pos);
-  string staticdir;
+  string up2 = up1.substr(0,pos); // the directory *above* the wsgi.py file
+  string staticdir; // the static directory, which is determined below
   stringstream foo;
   if ( (argv[8] == NULL) || (strlen(argv[8]) == 0) ) {
-    foo << up2 << "/" << app << "/static";
+    // the assumption is that there is a static/ directory in the main project directory...
+    foo << up2 << "/static";
     staticdir = foo.str();
   } else
+    /// ... unless they have specified otherwise
     staticdir = string(argv[8]);
 
   foo.str("");
@@ -373,9 +379,11 @@ int main(int argc, char **argv) {
     if ( count > 0 )
       die("You can only have one WSGI file registered, so you must first remove it via -remove (and you can find it via -list)");
 
-    // warn about using the default app name
-    if ( appname == string(DEFAULT_APP_NAME) )
-      cout << "Using the default app name of '" << DEFAULT_APP_NAME << "'" << endl;
+    // we are not using the app name anymore (see the comments at the
+    // top of this file), so there is no need anymore to warn about
+    // using the default app name...
+    //if ( appname == string(DEFAULT_APP_NAME) )
+    //cout << "Using the default app name of '" << DEFAULT_APP_NAME << "'" << endl;
 
     // insert entry into DB
     query.str("");

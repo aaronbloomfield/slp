@@ -15,25 +15,26 @@
 <h2 id="installing-packages">Installing packages</h2>
 <p>To install Django on your own system, under Ubuntu 14.04, just enter <code>sudo apt-get install python-django python-mysqldb</code>, and it will do the rest. As of the writing of this tutorial (Aug 31, 2014), this installs Python version 2.7.6 and Django version 1.6.1.</p>
 <h2 id="configuring-apache">Configuring Apache</h2>
+<p>This assumes Apache version 2.4; if you are using version 2.2, then the syntax for this is quite different (some of those differences are described below).</p>
 <p>This part specifically deals with configuring <em>multiple</em> django apps on the same web server, as that is what is needed for this course. For <em>each</em> django app, the following 8 lines need to be added to <code>/etc/apache2/sites-available/000-default.conf</code>, right above the end <code>&lt;/VirtualHost&gt;</code> line:</p>
-<pre><code>Alias /django/user/static /home/slp/user/mysite2/polls/static
-&lt;Directory /home/slp/user/mysite2/polls/static&gt;
+<pre><code>Alias /django/user/static /home/slp/user/mysite/static
+&lt;Directory /home/slp/user/mysite/static&gt;
   Require all granted
 &lt;/Directory&gt;
-WSGIScriptAlias /django/user /home/slp/user/djangohw/djangohw/wsgi.py
-WSGIDaemonProcess user python-path=/home/slp/user/djangohw
+WSGIScriptAlias /django/user /home/slp/user/mysite/mysite/wsgi.py
+WSGIDaemonProcess user python-path=/home/slp/user/mysite
 &lt;Location /django/user&gt;
   WSGIProcessGroup user
 &lt;/Location&gt;
-&lt;Directory /home/slp/user/djangohw/djangohw&gt;
+&lt;Directory /home/slp/user/mysite/mysite&gt;
   &lt;Files wsgi.py&gt;
     Require all granted
   &lt;/Files&gt;
 &lt;/Directory&gt;</code></pre>
 <p>A bunch of notes:</p>
 <ul>
-<li><code>user</code> is the username of whomever is running the Django app, and <code>djangohw</code> is the name of the project.</li>
-<li>The first four lines deal with the <code>static</code> directory -- since there are multiple Django apps, there will be multiple static directories. See the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page for how to configure a given Django project to use the correct static directory.</li>
+<li><code>user</code> is the username of whomever is running the Django app, and <code>mysite</code> is the name of the project.</li>
+<li>The first four lines deal with the <code>static</code> directory -- since there are multiple Django apps, there will be multiple static directories. See the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page for how to configure a given Django project to use the correct static directory. Using a static directory that is directly below the main project directory (as opposed to in an app directory) will likely require one to run <code>python manage.py collectstatic</code>, as described on the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page.</li>
 <li>The <a href="https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIScriptAlias">WSGIScriptAlias</a> line indicates the URL (after the server) links to the particular Django app. As we want them in sub-directories, we have the URL part be <code>/django/user</code>. Note that we do <em>not</em> have to create the <code>/django/</code> directory in the HTML document root (likely <code>/var/www/html</code>).</li>
 <li>The <a href="https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIProcessGroup">WSGIProcessGroup</a> creates a process group, which allows one (or more) apps to run as a specific user. The <code>user</code> part of that line needs to be a valid user name on the system</li>
 <li>The <a href="https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIDaemonProcess">WSGIDaemonProcess</a> line indicates that this particular Django app will run under the <code>user</code> user, and the path to the django app is provided. The <code>user</code> part of that line needs to match the one in the WSGIProcessGroup.</li>

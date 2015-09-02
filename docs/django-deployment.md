@@ -13,19 +13,21 @@ To install Django on your own system, under Ubuntu 14.04, just enter `sudo apt-g
 Configuring Apache
 ------------------
 
+This assumes Apache version 2.4; if you are using version 2.2, then the syntax for this is quite different (some of those differences are described below).
+
 This part specifically deals with configuring *multiple* django apps on the same web server, as that is what is needed for this course.  For *each* django app, the following 8 lines need to be added to `/etc/apache2/sites-available/000-default.conf`, right above the end `</VirtualHost>` line:
 
 ```
-Alias /django/user/static /home/slp/user/mysite2/polls/static
-<Directory /home/slp/user/mysite2/polls/static>
+Alias /django/user/static /home/slp/user/mysite/static
+<Directory /home/slp/user/mysite/static>
   Require all granted
 </Directory>
-WSGIScriptAlias /django/user /home/slp/user/djangohw/djangohw/wsgi.py
-WSGIDaemonProcess user python-path=/home/slp/user/djangohw
+WSGIScriptAlias /django/user /home/slp/user/mysite/mysite/wsgi.py
+WSGIDaemonProcess user python-path=/home/slp/user/mysite
 <Location /django/user>
   WSGIProcessGroup user
 </Location>
-<Directory /home/slp/user/djangohw/djangohw>
+<Directory /home/slp/user/mysite/mysite>
   <Files wsgi.py>
     Require all granted
   </Files>
@@ -34,8 +36,8 @@ WSGIDaemonProcess user python-path=/home/slp/user/djangohw
 
 A bunch of notes:
 
-- `user` is the username of whomever is running the Django app, and `djangohw` is the name of the project.
-- The first four lines deal with the `static` directory -- since there are multiple Django apps, there will be multiple static directories.  See the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for how to configure a given Django project to use the correct static directory.
+- `user` is the username of whomever is running the Django app, and `mysite` is the name of the project.
+- The first four lines deal with the `static` directory -- since there are multiple Django apps, there will be multiple static directories.  See the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for how to configure a given Django project to use the correct static directory.  Using a static directory that is directly below the main project directory (as opposed to in an app directory) will likely require one to run `python manage.py collectstatic`, as described on the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page.
 - The [WSGIScriptAlias](https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIScriptAlias) line indicates the URL (after the server) links to the particular Django app.  As we want them in sub-directories, we have the URL part be `/django/user`.  Note that we do *not* have to create the `/django/` directory in the HTML document root (likely `/var/www/html`).
 - The [WSGIProcessGroup](https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIProcessGroup) creates a process group, which allows one (or more) apps to run as a specific user. The `user` part of that line needs to be a valid user name on the system
 - The [WSGIDaemonProcess](https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIDaemonProcess) line indicates that this particular Django app will run under the `user` user, and the path to the django app is provided. The `user` part of that line needs to match the one in the WSGIProcessGroup.
