@@ -21,7 +21,7 @@ Lectures
 | 3   | Aug&nbsp;31  | Monday      | lecture       | [Development methods][51] || [Developemnt methods][51], slides [1][51] to [38][103] (end) ([recording][201]) |
 | 4   | Sep&nbsp;2  | Wednesday   | lecture       | [Legal issues][52] |||
 | 5   | Sep&nbsp;4  | Friday      | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21])|                                         |
-| 6   | Sep&nbsp;7  | Monday      | lecture       | Legal issues, frameworks | CakePHP part of [HW 2][22] ([md][23])||
+| 6   | Sep&nbsp;7  | Monday      | lecture       | Frameworks | CakePHP part of [HW 2][22] ([md][23])||
 | 7   | Sep&nbsp;9 | Wednesday   | lecture       | Frameworks    |||
 | 8   | Sep&nbsp;11 | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) ||
 | 9   | Sep&nbsp;14 | Monday      | lecture       | Requirements  | Django part of [HW 2][22] ([md][23]) |
