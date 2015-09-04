@@ -19,8 +19,8 @@ Lectures
 | 1   | Aug&nbsp;26 | Wednesday   | lecture       | [Course introduction][8]  || [Course introduction][8], slides [1][8] to [43][100] ([recording][200]) |
 | 2   | Aug&nbsp;28 | Friday      | lecture       | [Course introduction][8] || [Course introduction][8], slides [44][101] to [75][102] (end) ([recording][200]) |
 | 3   | Aug&nbsp;31  | Monday      | lecture       | [Development methods][51] || [Developemnt methods][51], slides [1][51] to [38][103] (end) ([recording][201]) |
-| 4   | Sep&nbsp;2  | Wednesday   | lecture       | [Legal issues][52] |||
-| 5   | Sep&nbsp;4  | Friday      | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21])|                                         |
+| 4   | Sep&nbsp;2  | Wednesday   | lecture       | [Legal issues][52] || [Legal issues][52], slides [1][52] to [28][104] |
+| 5   | Sep&nbsp;4  | Friday      | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21])| [Legal issues][52], slides [29][105] to ... |
 | 6   | Sep&nbsp;7  | Monday      | lecture       | Frameworks | CakePHP part of [HW 2][22] ([md][23])||
 | 7   | Sep&nbsp;9 | Wednesday   | lecture       | Frameworks    |||
 | 8   | Sep&nbsp;11 | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) ||
@@ -97,6 +97,8 @@ Lectures
 [101]: course-introduction-fall.html#/7
 [102]: course-introduction-fall.html#/9/10
 [103]: ../slides/01-development-methods.html#/7/5
+[104]: ../slides/02-legal.html#/4/13
+[105]: ../slides/02-legal.html#/5
 
 [200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
 [201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-development-methods/01-development-methods.htm
