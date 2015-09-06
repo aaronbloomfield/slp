@@ -15,7 +15,7 @@ To get a CakePHP website up and running:
 	- To do this, run `composer create-project --prefer-dist cakephp/app cakephp` from your ~/public_html directory (on VirtualBox) or ~/html directory (on the course server)
 	- If your URLs are the same, then you can just do an rsync upload to transfer the files, and they should work on the course server as well; see the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)) for details about rsync
 - Configure the CakePHP installation
-    - There is one .htaccess file (in the root CakePHP directory (~mst3k/html/cakephp/)), and will need to be edited and a line like `RewriteBase /~mst3k/cakephp/` put in (edited for your particular directory/URL).  Put this in as the second to last line, just above the `</IfModule>` line.
+    - There are ***TWO*** .htaccess files (in the root CakePHP directory (~mst3k/html/cakephp/) and in the webroot directly below that (~mst3k/html/cakephp/webroot/)), and both will need to be edited and a line like `RewriteBase /~mst3k/cakephp/` put in (edited for your particular directory/URL).  Put this in as the second to last line, just above the `</IfModule>` line.
     - At this point, you should be able to view your URL, although it will indicate that it cannot connect to the database
     - In config/app.php, edit app.php, and edit the Datasources =&gt; default array: you will need to change the values for username, password, and database to match your MySQL credentials (both username and database are your userid for this homework; your password is from above)
 - At this point, you should be able to view the page.  It should look **exactly** like the image below
