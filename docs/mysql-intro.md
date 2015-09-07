@@ -91,5 +91,3 @@ INSERT INTO posts (title,body,created)
 INSERT INTO posts (title,body,created)
     VALUES ('Title strikes back', 'This is really exciting! Not.', NOW());
 ```
-
-We can ALMOST just do a cut-and-paste (and paste it into the `mysql>` prompt).  The only thing we have to change is the table name.  We want our CakePHP posts table to be called `cake_posts`, and our Ruby on Rails posts table to be called `rails_posts`, as we don't want them writing to the same table.  So we are going to change the table name (which occurs four times in those MySQL commands) from `posts` to `cake_posts`.  Once that is done, we can cut-and-paste the commands right into the `mysql>` prompt.
