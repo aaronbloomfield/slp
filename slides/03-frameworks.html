@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CS 4970: 04-frameworks slide set</title>
+    <title>CS 4970: 03-frameworks slide set</title>
     <meta name="description" content="A set of slides for UVa's Service Learning Practicum course">
     <meta name="author" content="Aaron Bloomfield">
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -43,7 +43,7 @@
 ### Capstone Practicum I
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](index.html) / <a href="04-frameworks.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](index.html) / <a href="03-frameworks.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp;
 ## Web Frameworks
@@ -77,18 +77,23 @@
 
 	  <section data-markdown><script type="text/template">
 ## But I want \[framekwork of choice\]!
-- All of these systems have to run on a UVa server for the first part of the course
-- It is not feasible to have each group pick a different framework, and then expect a reasonable hosting solution
+- All of these systems have to run on my UVa server for the first part of the course
+- It is not feasible to have each group pick a different framework, and then have me able to provide a reasonable hosting solution
 - It makes this course much more sane if we are all on the same page…
 - The chosen frameowrks represent a wide selection of what's out there
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Why some frameworks weren't chosen
-- C#, .NET, and ASP.NET: it requires Windows servers, which costs money (even for education) and I don't use Windows, so I don't have the requisite knowledge to configure them
-- node.js: whie this is the "hot" thing, it's really focused on real-time applications that require a lot of throughput, asynchronous I/O, etc., none of which apply to our projects
+- You can see one (of many) lists of the top frameworks a [hotframeworks.com](http://hotframeworks.com/)
+- C#, .NET, ASP.NET, and ASP.NET MVC: they all require Windows servers, which costs money (even for education) and I don't use Windows, so I don't have the requisite knowledge to configure them
+- node.js (and Meteor and Express, which are node.js in disguise): whie node.js is the "hot" thing, it's really focused on real-time applications that require a lot of throughput, asynchronous I/O, etc., none of which apply to our projects
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Why some frameworks weren't chosen
 - AngularJS: the focus is on single-page web applications, which is not really what we are doing in this course
-- CodeIgniter, Symfony, and any other PHP framework: we already chose a PHP framework, no need to have multiple ones
+- CodeIgniter, Symfony, Laravel, and any other PHP framework: we already chose a PHP framework, so no need to have multiple ones
 - Spring: it's Java, and getting a Java app working on a web server is just an exercise in frustration
 - And those are the top web frameworks by popularity...
 	  </script></section>
@@ -102,12 +107,12 @@
 	  <section data-markdown><script type="text/template">
 ## Model
 - Represents "knowledge"
-  - The fields of the table, as well as their types
+  - The fields of the (database) table, as well as their types
   - Any validation necessary (this field is required, that field must be a number in this range, etc.)
   - Relationships to other "things"
     - A user has many posts
     - A post has only one user
-- A model is the "application and business rules"
+- A model represents the "application and business rules"
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -116,25 +121,26 @@
 - In charge of formatting information for the user
   - Formatting for a PC-based HTML page is different than a smartphone-based HTML page
   - Displaying for an app will be even more different
-  - Some things may not be visible to all users (a user’s real name may only be visible to that user and the administrators)
-- Gets the information to view from the model
+  - Some things may not be visible to all users (a user's real name may only be visible to that user and the administrators)
+- Gets the information to view from the model, often through the controller
 - May also update the model (last webpage access, for example), but that is done *through* the controller
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Controller
 - Represents "action"
-- These are the commands / functions / etc. that a user can perform
-- Perhaps through a form posting or a link
+- These are the commands / functions / methods / etc. that a user can perform
+  - Perhaps through a form posting or a link
 - A controller receives input, does some action, and displays the result through some view
+  - Data is read or written via the model
 - Those "actions" correspond to methods called on the specified controller class
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Naming controllers and actions
 - ALWAYS name the controllers and actions based on what they do, not based on the URL that you want them to have
-- If you want specific URLs to go to specific places, you do this via *routes*
-- Don’t try to name controllers and actions based on the URL that you want; it will only cause headaches later
+  - If you want specific URLs to go to specific places, you do this via *routes*
+- I repeat: Don't try to name controllers and actions based on the URL that you want; it will only cause headaches later
 	  </script></section>
 
 	</section>
@@ -157,15 +163,15 @@
 	  <section data-markdown><script type="text/template">
 ## Rule 1: Pick good table names
 - Table names should be general enough to allow for easy use...
-  - Don’t bother with separate "teachers" and "students" tables unless you have to; have a "people" or "users" with a "isTeacher" flag
+  - Don't bother with separate "teachers" and "students" tables unless you have to; have a "people" or "users" with a "isTeacher" flag
 - ... but specific enough to make sense from the table name
   - "entities", "things" – what do these tables hold?
-- Some table names are reserved, so be careful of those
+- Some table names are reserved in each framework, so be careful of those
 	  </script></section>
 <!--   - In Cake: emails, pages, scaffolds, layouts, errors, helpers, elements -->
 
 	  <section data-markdown><script type="text/template">
-## Rule 2: Don’t mix concepts
+## Rule 2: Don't mix concepts
 - On one project in a previous year, they needed to keep track of individuals and organizations, and they keep track of them in the same Excel spreadsheet
   - But an individual is not an organization
   - So they should be in separate tables
@@ -210,6 +216,7 @@
   - The frameworks will notice the type and allow you to perform additional validation
 - Pick the correct type
   - For something like a UVa userid (which is at most 6 characters), use varchar(6) rather than text
+    - Although varchar(7) wouuld allow for more room for expansion...
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -226,30 +233,41 @@
 
 	  <section data-markdown id="cake"><script type="text/template">
 # CakePHP
+### (v. 3.0)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Why CakePHP?
 - There are MANY PHP frameworks out there
-  - [Wikipedia](http://en.wikipedia.org/wiki/PHP_frameworks) lists 26
-  - And that page doesn’t list many of them!
-- We did an evaluation of CakePHP versus a few others (Tonic and Recess), and everybody felt it was “better”
+  - [Wikipedia](http://en.wikipedia.org/wiki/PHP_frameworks#PHP) lists 25
+  - And that page doesn't list many of them!
+- A few years ago, we did an evaluation of CakePHP versus a few others (Tonic and Recess), and everybody felt it was “better”
 - It “gets out of your way”, has a reasonable learning curve, and requires minimal configuration
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Setting up CakePHP
+## Setting up CakePHP, part 1
+- More details in the [CakePHP: Getting Started](../docs/cakephp-getting-started.html) page
 - Choose a directory, such as `~/html/cakephp/`; the URL will then be `http://server/~user/cakephp/`
-- Download the CakePHP distribution .zip file (version 3.0.0-beta1 is [here](https://github.com/cakephp/cakephp/releases/download/3.0.0-beta1/cakephp-3-0-0-beta1.zip), and unzip it *in* that directory
-- Change two .htaccess files: in `~/html/cakephp/` and `~/html/cakephp/webroot/`: add the line `RewriteBase /~user/cakephp` *before* the close `</IfModule>`
-- Edit your database info in config/app.php
-- It should work, and show all green bars!
+- Ensure [composer](https://getcomposer.org/) is installed (it is on the VirtualBox image and on the course server)
+  - See how to install it on the [VirtualBox image creation details](../docs/virtualbox-image-details.html) page
+- Run (from ~/html):
+```
+composer create-project --prefer-dist cakephp/app cakephp
+```
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## A successful CakePHP installation
-![cakephp image](../docs/images/cakephp-initial.png)
+## Setting up CakePHP, part 2
+- Change two .htaccess files: in `~/html/cakephp/` and `~/html/cakephp/webroot/`: add the line `RewriteBase /~user/cakephp` *before* the close `</IfModule>`
+- Edit your database info in config/app.php
+- It should work, and show all green check marks!
 	  </script></section>
+
+	  <section>
+<h2>A successful CakePHP installation</h2>
+<img class="stretch" src="../docs/images/cakephp-initial.png">
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Creating things
@@ -284,6 +302,7 @@
 
 	  <section data-markdown id="rails"><script type="text/template">
 # Ruby on Rails
+### (Ruby v. 2.2.3; Rails v. 4.2.?)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -305,10 +324,10 @@ rails new myapp -d mysql
 - On the course server, you have to follow the instructions on the [Ruby on Rails: Getting Started page](../docs/rubyrails-getting-started.html) ([md](../docs/rubyrails-getting-started.md))
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## A successful Ruby on Rails installation
-![ruby on rails image](../docs/images/rails-initial.png)
-	  </script></section>
+	  <section>
+<h2>A successful Ruby on Rails installation</h2>
+<img class="stretch" src="../docs/images/rails-initial.png">
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Creating things
@@ -348,13 +367,14 @@ The [ActiveRecord::Timestamp](http://api.rubyonrails.org/classes/ActiveRecord/Ti
 
 	  <section data-markdown id="django"><script type="text/template">
 # Python Django
+### (Python v. 2.7.6, Django v. 1.8.4)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Why Django?
 - Python is a very nice language to program in
-- It's a very popular frameowrk
-- I wanted to add a 3rd framework choice this year
+- Django is a very popular frameowrk
+- I wanted to add a 3rd framework choice last year
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -364,19 +384,16 @@ The [ActiveRecord::Timestamp](http://api.rubyonrails.org/classes/ActiveRecord/Ti
 ```
 django-admin startproject mysite
 ```
-  Note that this is `django-admin`, *not* `django-admin.py`
 - Edit `mysite/mysite/settings.py`, and enter your MySQL information (and change the time zone)
-- To set up the DB tables, run:
-```
-python manage.py syncdb
-```
-- On VirtualBox, you can run `python manage.py runserver`, and then view the web page via the URL printed
+- To set up the DB tables, run the commands listed on [page 1 of the Django tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial01/#activating-models)
+- On VirtualBox, you can run `python manage.py runserver`, and view the web page via the URL printed
 - On the course server, you have to follow the instructions on the [Django: Getting Started page](../docs/django-getting-started.html) ([md](../docs/django-getting-started.md))
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Configuring Django on the server
 - You must use the `wsgi-admin` utility, as described in the [Django: Getting Started page](../docs/django-getting-started.html) ([md](../docs/django-getting-started.md))
+- Usage overview:
 ```
 wsgi-admin -register <wsgi_file>
 ```
@@ -389,36 +406,40 @@ wsgi-admin -remove <id>
 ```
 wsgi-admin -regerate
 ```
-
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## A successful Django installation
-![django image](../docs/images/django-initial.png)
+## Configuring Django on the server, part 2
+- Specifically, to register your project:
+```
+wsgi-admin -register -file mysite/mysite/wsgi.py
+```
+  - Where "mysite/mysite/wsgi.py" is the (only) wsgi.py file in the project you created
+- Note that you can only have one project registered at a time; you will have to remove the old one to register a new one
+- For your projects, there is more details to register; I'll help you with that when the time comes
 	  </script></section>
+
+	  <section>
+<h2>A successful Django installation</h2>
+<img class="stretch" src="../docs/images/django-initial.png">
+	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Projects versus Apps
 - So far, what has been created is a *project*
   - You will also need to create one or more *apps*
 
-&nbsp;
-
-> What’s the difference between a project and an app? An app is a Web application that does something – e.g., a Weblog system, a database of public records or a simple poll app. A project is a collection of configuration and apps for a particular Web site. A project can contain multiple apps. An app can be in multiple projects.
+> What's the difference between a project and an app? An app is a Web application that does something – e.g., a Weblog system, a database of public records or a simple poll app. A project is a collection of configuration and apps for a particular Web site. A project can contain multiple apps. An app can be in multiple projects.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Creating things
 - The structure for a model is created in a Python file (`polls/models.py`, for example)
   - It's a specific Python syntax for a class
-- You can then print the SQL to create the matching tables for that model:
-```
-python manage.py sql polls
-```
-- You can then have those tables automatically created:
-```
-python manage.py syncdb
-```
+- You have to first *migrate* the changes
+  - Meaning you tell Django to figure out what changes to make to the DB (including creating new tables)
+- You then can either print them or write those changes to the DB
+- See [page 1 of the Django tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial01/#activating-models) for the details of those commands
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -447,20 +468,20 @@ python manage.py syncdb
 
 	  <section data-markdown><script type="text/template">
 ## Survey Framework Questions
-- Last year, there were two frameworks allowed: CakePHP and Ruby
-  - Django was the new framework this year
-- In the end-of-year survey, students were asked two framework questions:
-  - What is your overall opinion of the framework you used (CakePHP or Rails)?
+- Last year, all three frameworks were used (albeit earlier versions)
+  - The year before, only CakePHP and Rails (no Django)
+- In the last two end-of-year surveys, students were asked two framework questions:
+  - What is your overall opinion of the framework you used (CakePHP or Rails [or Django])?
   - Overall, how satisfied were you with the framework that you chose to work with?
 - Answers were on a 1-5 scale (1 = very unsatisifed, 3 = neutral, 5 = very satisfied)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Survey Framework Results
+## Survey Framework Results, 2014
 
 This is from the 2013-2014 academic year, which means these results were completed in May, 2014
 
-|    | CakePHP | Ruby on Rails |
+|    | CakePHP | Rails |
 |--|--|--|
 | Framework opinion | 4.49 | 4.01 |
 | Framework satisfaction | 4.40 | 3.86 |
@@ -468,28 +489,39 @@ This is from the 2013-2014 academic year, which means these results were complet
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Survey Framework Results, 2015
+
+This is from the 2014-2015 academic year, which means these results were completed in May, 2015
+
+|    | CakePHP | Rails | Django |
+|--|--|--|--|
+| Framework opinion | 3.52 | 3.84 | 4.65 |
+| Framework satisfaction | 3.64 | 3.88 | 4.54 |
+| Number of surveys | 25 | 32 | 37 |
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 ## Upcoming survey questions
-- For each framework, you will rate your interest from 1-5:
+- For each framework, you will rate your interest from 1-5 (phrasing may vary):
   1. I really DESPISE this framework, and would be very unhappy using it
-  2. I would rather not use this framework, and would not be thrilled using it
+  2. I would rather not use this framework, but it wouldn't be the end of the world if I used it
   3. I am neutral about using this framework
   4. I would like to use this framework, and would be happy using it
   5. I am a FANATIC about this framework, and would be ecstatic using it
-- (phrasing may vary)
 - If you enter 3's for the three framework prompts, I'll assume you don't care about which framework you use
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## What *not* to base your framework preference on
 - The learning curve: they all have learning curves, so that's a wash
-- What is the *hot* framework of the day: some Rails groups got burned last year because of this
+- What is the *hot* framework of the day: some Rails groups have gotten burned because of this
 - What your friend told you you should use
 - How hard it is to configure
-  - I'm doing that on pegasus for you, and it's only a one-time thing, anyway
+  - I'm doing that on the course server for you, and it's only a one-time thing, anyway
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## What you should base your framework preference on
+## What you *should* base your framework preference on
 - A desire to learn a particular language or framework
 - Existing knowledge or experience using a particular framework
 - Your experiences with the frameworks homework
