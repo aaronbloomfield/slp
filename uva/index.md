@@ -24,8 +24,8 @@ Lectures
 | 6   | Sep&nbsp;7  | Monday      | lecture       | [Frameworks][53] | CakePHP part of [HW 2][22] ([md][23])| [Frameworks][53], slides [1][53] to [29][107] ([recording][203]) |
 | 7   | Sep&nbsp;9 | Wednesday   | lecture       | [Frameworks][53]    || [Frameworks][53], slides [30][108] to [53][109] ([recording][203]) |
 | 8   | Sep&nbsp;11 | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) ||
-| 9   | Sep&nbsp;14 | Monday      | lecture       | [Requirements][54]  | Django part of [HW 2][22] ([md][23]) |
-| 10  | Sep&nbsp;16 | Wednesday   | lecture       | [Requirements][54] |||
+| 9   | Sep&nbsp;14 | Monday      | lecture       | [Requirements][54], project discussion  | Django part of [HW 2][22] ([md][23]) | Project discussion; [Requirements][54], slides [1][54] to [13][110] |
+| 10  | Sep&nbsp;16 | Wednesday   | lecture       | [Requirements][54], survey discussion |||
 | 11  | Sep&nbsp;18 | Friday      | class optional |               | Year-start surveys due | Class is for those who have questions about the survey or the projects |
 | 12  | Sep&nbsp;21 | Monday      | group meeting | Project start |||
 | 13  | Sep&nbsp;23 | Wednesday   | lecture       | Customer meetings |||
@@ -103,6 +103,7 @@ Lectures
 [107]: ../slides/03-frameworks.html#/4/7
 [108]: ../slides/03-frameworks.html#/5
 [109]: ../slides/03-frameworks.html#/7/6
+[110]: ../slides/04-requirements.html#/2/10
 
 [200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
 [201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-development-methods/01-development-methods.htm
