@@ -64,40 +64,55 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Introduction
+- Center for Open Science project was cancelled on Saturday
+  - So all choices relevant to that were discarded
+- This caused problems, as that meant far fewer responses than I had hoped for
+- There are 66 people in the course
+- I spent over 5 hours on the project assignments...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 ## Project Stats
 - Most popular projects:
-  - Highest project had 26 people select it as their first choice
-  - Next highest project had 24
-  - Third highest project had 10
-- Obviously, not all first choice requests could be honored...
-- 12 projects have 7 people; 3 have 6 people
+  - Highest project had 21 people select it as their first choice
+  - Next highest project had 18
+  - Third highest project had 6
+  - All projects had people requesting them as the first choice
+- As there were 39 (of 66: 59%) requesting two projects, obviously not all first choice requests could be honored...
+- Two projects have 6 people, two have 7, and the remaining five have 8 people
   - Which ones was due to balancing the preferences
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Project Choices
-- 49 (out of 102) got their first choice project: 48.0%
-- Only 11 (out of 102) got a project rated *lower* than their first choice project: 10.8%
-  - Of those 11 individuals, 10 of them ended up on a project they rated as a 4, when their first choice was rated a 5
-    - The other individual rated one project a 5 and the rest as 3, so there wasn't much to work with there...
-  - Note that for one group of 6, their first choice was to work together, and not on a specific project
+- 27 (out of 66) got their first choice project: 40.9%
+  - 27 their second, 9 their third, 3 their fourth
+- Only 13 got a project rated *lower* than their first choice project: 19.7%
+  - Of those 13 individuals, 12 of them ended up on a project they rated as a 4, when their first choice was rated a 5
+  - The other one was a "special case" that had other survey issues that affected their placement
+- 5 received a project rated as a 3: 7.6%
+  - But 4 of those did not rate *any* projects higher than a 3
+  - The other one was the "special case" from above
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Platform Preferences
-- Average overall platform preference: 3.27
-  - Preferences: cake: 3.23; rails: 3.00; django: 3.59
-- Average favorite platform preference: 3.96
-- If the expected platforms are chosen, then only 3 people got a platform they rated as a 2
-  - But in all three cases, those were people that rated the project preference higher than, or equal to, the platform preference
-- Expected platform count: django: 7, cake: 4, ruby: 4 
-- Average team preference for expected platform: 3.70
+- Average overall platform preference: 3.21
+  - Preferences: cake: 2.80; rails: 2.73; django: 4.09
+  - Average favorite platform preference: 4.27
+  - Average expected platform preference: 4.06
+- If the expected platforms are chosen, then only 4 people got a platform they rated as a 2
+  - But in all those cases, they got one of their top rated projects
+- Expected platform count: django: 7, cake: 2, ruby: 0
+  - There are no ruby projects!  Why????
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Friends and Enemies
 - Nobody got his/her mortal enemies
-  - I had to do some re-arranging for that
+  - Well, one person did, but I spoke to him/her about this, and they were okay with it
+  - I had to do a *lot* of re-arranging for all of this
 - I tried to preserve BFFs
   - This worked best when the BFFs all seleted each other, and had the same project/platform choices
   - In many cases, because the project/platform choices were dissimilar, the BFF choices could not be followed
@@ -105,11 +120,8 @@
 
 	  <section data-markdown><script type="text/template">
 ## MySQL knowledge
-- One team has a maximum MySQL knowledge of 3
-  - Although there are 5 people on that team with that level of knowledge
-- Every other team has a maximum MySQL knowledge of 4 or 5 (7 teams each)
-- Average MySQL knowledge overall was 2.94
-- Average max team MySQL knowledge was 4.40
+- All teams have at least one person with MySQL knowledge of 4 or higher
+- Average MySQL knowledge overall was 2.79
 	  </script></section>
 
 	</section>
@@ -133,10 +145,20 @@
 - This tag can be found in the Collab PostEm tool
 - This tag is used for:
   - The name of your github repo (http://github/uva-slp/tag)
-  - The account login on the server -- and thus part of the URL
-    - The exact URL will depend on the platform you are using
-  - The basis for the DB password on the server (it's actually `slp_tag`)
+  - Your team login on the course server
+  - The URL; see next slide
+  - The basis for the DB name on the server (it's `slp_tag`)
   - Generally how your project will be referred to
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Project tags and URLs
+- The server name herein is *not* the same as the server name you log in to!
+  - We have a CNAME set up for this course
+- Rails and Djano projects will be at http://server/tag
+- CakePHP projects will be at http://server/~tag
+  - Note the tilde ('~') in there
+  - But http://server/tag will *redirect* to http://server/~tag
 	  </script></section>
 
 	</section>
@@ -148,29 +170,28 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## 2014-2015 Iteration schedule
+## 2015-2016 Iteration schedule
 - All iterations start on a Tuesday and end on a Monday two weeks later
-  - Iterations start tomorrow, Tuesday, September 23rd
+- Iterations start on Tuesday, September 22nd
 - There are 6 iterations in the fall
-  - 1: Sep 23 -> Oct 6; 2: Oct 7 -> Oct 20; 3: Oct 21 -> Nov 3; 4: Nov 4 -> Nov 17; 5: Nov 18 -> Dec 1; 6: Dec 2 -> Dec 15
-  - Note that the last half of iteration 6 is during finals week
+  - 1: Sep 22 -> Oct 5; 2: Oct 6 -> 19; 3: Oct 20 -> Nov 2; 4: Nov 3 -> 16; 5: Nov 17 -> 30; 6: Dec 1 -> 14
+  - The last half of iteration 6 is during finals week
 - There are 8 iterations in the spring
-  - 7: Jan 13 -> Jan 26; 8: Jan 27 -> Feb 9; 9: Feb 10 -> Feb 23; 10: Feb 24 -> Mar 9; 11: Mar 10 -> Mar 23; 12: Mar 24 -> Apr 6; 13: Apr 7 -> Apr 20; 14: Apr 21 -> May 4
-  - Note that the last half of iteration 14 is during finals week
-  - Note that the end of iteration 10, and the start of 11, is during spring break
+  - 7: Jan 19 -> Feb 1; 8: Feb 2 -> 15; 9: Feb 16 -> 29; 10: Mar 1 -> 14; 11: Mar 15 -> 28; 12: Mar 29 -> Apr 11; 13: Apr 12 -> 25; 14: Apr 26 -> May 9
+  - Iteration 10 contains spring break
+  - The last half of iteration 14 is during finals week
 	  </script></section>
 
-	<section data-markdown><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Phases
-- Fall semester: 6 iterations
-  - Each phase will be two iterations long
-  - Phase 1 is iterations 1-2, phase 2 is iterations 3-4, and phase 3 is iterations 5-6
-- Spring semester: 8 iterations
-  - Phase sizes will differ depending on the group size
-  - For 6 person groups, there will be 3 phases
-    - Phase 4 is iterations 7-9, phase 5 is iterations 10-11, and phase 6 is iterations 12-14
-  - For 7 person groups, there will be 4 phases
-    - Phase 4 is iterations 7-8, phase 5 is iterations 9-10, phase "5.5" is iterations 11-12, and phase 6 is iterations 13-14
+- There are 14 iterations this year
+- Fall semester: all groups will have three phases in the fall semester: iterations 1-2, 3-4, and 5-6
+- Spring semester
+  - 6 person groups will have 3 phases in the spring: 7-9, 10-11, 12-14
+  - 7 person groups will have 4 phases in the spring: 7-8, 9-10, 11-12, 13-14
+  - 8 person groups will have 5 phases in the spring:
+    - 7 and the first half of 8; second half of 8 and 9; 10 and the first half of 11; second half of 11 and 12; 13-14
+- I will remind you of all of this when the time comes
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -194,8 +215,8 @@
 
 	  <section data-markdown><script type="text/template">
 ## Project Leads
-- Responsilbe for submitting reports
-  - We will see the custom app for submitting them on Wednesday or next Monday; first report is not due until next week
+- Person responsible for submitting reports
+  - We will see the custom course management system for submitting them on Wednesday; first report is not due until next week
 - Responsible for reserving the rooms, creating the agenda for the meeting, and keeping the meeting on track
 - This is an *administrative* role, not an *authoritative* one
 - At the start of one's time as project lead, I send them an email summarizing their duties
@@ -205,11 +226,11 @@
 ## Reserving rooms
 - You can reserve a Rice Hall conference room in one of three ways:
   - By swinging by Rice 527 (the main CS office)
-    - Ask nicely, and tell them you are in my capstone course
+    - Ask nicely, and tell them you are in CS 4970
   - By emailing office@cs.virginia.edu
-    - Ask nicely, and tell them you are in my capstone course
+    - Ask nicely, and tell them you are in CS 4970
   - By asking me during my office hours
-    - Ask nicely, and tell them you are in my capstone course
+    - Ask nicely, and tell them you are in CS 4970
       - Wait, what?
     - I'm too slow at responding to e-mails to have reservations that way...
 	  </script></section>
@@ -220,8 +241,7 @@
 - Each meeting (of all types) MUST have notes!
   - This is how I am going to be able to keep up with all the projects
   - Notes should include who was present
-- They should be entered into the Github wiki
-  - We are all CS majors, and we can all create wiki sub-pages
+- They should be entered into the custom course management system that I will show you on Wednesday
 - The secretary will rotate through everybody, just like the project lead
   - And the secretary can not be the project lead in the same iteration
 	  </script></section>
@@ -231,10 +251,9 @@
 - Keep track of ALL time you expend for this course
   - Meetings (customer and not), learning CakePHP, etc.
 - The only things you should NOT include are Monday's group meetings and Wednesday's lecture
-- This is to be reported via the custom app that I will show you on Wednesday
+- This is to be reported via the custom course management that I will show you on Wednesday
   - Recall that you grade will NEVER depend (one way or the other) on how much time you report
-  - But there WILL be a grade penalty if you do enter an amount of time
-  - You can report 0 hours (you really shouldn't, by the way) to avoid the grade penalty
+  - But there WILL be a grade penalty if you do *not* enter any time
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -264,24 +283,24 @@
 ## Stuff on my todo list...
 - At some point today or tomorrow you will receive from me:
   - A e-mail from me that is the go-ahead to contact the customer
-  - Updated pegasus account information (in particular, the group account information)
+  - Updated course server account information (in particular, the group account information)
 	  </script></section>
 
 	  <section data-markdown id="goals"><script type="text/template">
 ## Goals for iteration 1, part 1
 - Fully understand the requirements
   - Generate questions to ask the customer!
-  - This may mean that the requirements document is updated or changed; the original source version is in the [uva-slp/projects repo](https://github.com/uva-slp/projects)
+  - This may mean that the requirements document is updated or changed; the original source version is in the [uva-slp/projects repo](https://github.com/uva-slp/projects) in three formats: HTML, PDF, and Markdown
 - Meet with the customer
   - As the questions that you generated!
 - Design a basic DB schema
-  - And enter it into your pegasus group DB, or generate the forms via Rails or Django
+  - And enter it into your course server group DB, or generate the DB tables (into that DB) via Rails or Django
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Goals for iteration 1, part 2
 - Get a basic MVC website working (CRUD operations for the schema tables)
-  - This should all be working on pegasus by the end of the iteration
+  - This should all be working on the course server by the end of the iteration
 - Have the system stored properly in the github repo
   - You are all members of your respective repos
   - I will give directions for initalizing the repo later this week
