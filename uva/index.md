@@ -27,7 +27,7 @@ Lectures
 | 9   | Sep&nbsp;14 | Monday      | lecture       | [Requirements][54], project discussion  | Django part of [HW 2][22] ([md][23]) | Project discussion; [Requirements][54], slides [1][54] to [13][110] ([recording][204]) |
 | 10  | Sep&nbsp;16 | Wednesday   | lecture       | [Requirements][54], survey discussion || Survey discussion; [Requirements][54], slides [14][111] to [31][112] ([recording][204]) |
 | 11  | Sep&nbsp;18 | Friday      | class optional |               | Year-start surveys due | Class is for those who have questions about the survey or the projects |
-| 12  | Sep&nbsp;21 | Monday      | group meeting | Project start |||
+| 12  | Sep&nbsp;21 | Monday      | group meeting | [Project start][55] |||
 | 13  | Sep&nbsp;23 | Wednesday   | lecture       | Customer meetings |||
 | 14  | Sep&nbsp;25 | Friday      | no class      |               || |
 | 15  | Sep&nbsp;28 | Monday      | group meeting |               || Group meeting day |
