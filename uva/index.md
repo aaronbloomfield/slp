@@ -20,14 +20,14 @@ Lectures
 | 2   | Aug&nbsp;28 | Friday      | lecture       | [Course introduction][8] || [Course introduction][8], slides [44][101] to [75][102] (end) ([recording][200]) |
 | 3   | Aug&nbsp;31  | Monday      | lecture       | [Development methods][51] || [Developemnt methods][51], slides [1][51] to [38][103] (end) ([recording][201]) |
 | 4   | Sep&nbsp;2  | Wednesday   | lecture       | [Legal issues][52] || [Legal issues][52], slides [1][52] to [28][104] ([recording][202]) |
-| 5   | Sep&nbsp;4  | Friday      | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21])| [Legal issues][52], slides [29][105] to [41][106] ([recording][202]) |
+| 5   | Sep&nbsp;4  | Friday      | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21])| [Legal issues][52], slides [29][105] to [41][106] (end) ([recording][202]) |
 | 6   | Sep&nbsp;7  | Monday      | lecture       | [Frameworks][53] | CakePHP part of [HW 2][22] ([md][23])| [Frameworks][53], slides [1][53] to [29][107] ([recording][203]) |
-| 7   | Sep&nbsp;9 | Wednesday   | lecture       | [Frameworks][53]    || [Frameworks][53], slides [30][108] to [53][109] ([recording][203]) |
+| 7   | Sep&nbsp;9 | Wednesday   | lecture       | [Frameworks][53]    || [Frameworks][53], slides [30][108] to [53][109] (end) ([recording][203]) |
 | 8   | Sep&nbsp;11 | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) ||
 | 9   | Sep&nbsp;14 | Monday      | lecture       | [Requirements][54], project discussion  | Django part of [HW 2][22] ([md][23]) | Project discussion; [Requirements][54], slides [1][54] to [13][110] ([recording][204]) |
-| 10  | Sep&nbsp;16 | Wednesday   | lecture       | [Requirements][54], survey discussion || Survey discussion; [Requirements][54], slides [14][111] to [31][112] ([recording][204]) |
+| 10  | Sep&nbsp;16 | Wednesday   | lecture       | [Requirements][54], survey discussion || Survey discussion; [Requirements][54], slides [14][111] to [31][112] (end) ([recording][204]) |
 | 11  | Sep&nbsp;18 | Friday      | class optional |               | Year-start surveys due | Class is for those who have questions about the survey or the projects |
-| 12  | Sep&nbsp;21 | Monday      | group meeting | [Project start][55] |||
+| 12  | Sep&nbsp;21 | Monday      | group meeting | [Project start][55] || [Project start][55], slides [1][55] to [30][113] (end) ([recording][205]) |
 | 13  | Sep&nbsp;23 | Wednesday   | lecture       | Customer meetings |||
 | 14  | Sep&nbsp;25 | Friday      | no class      |               || |
 | 15  | Sep&nbsp;28 | Monday      | group meeting |               || Group meeting day |
@@ -106,9 +106,11 @@ Lectures
 [110]: ../slides/04-requirements.html#/2/10
 [111]: ../slides/04-requirements.html#/3
 [112]: ../slides/04-requirements.html#/4/7
+[113]: ../slides/05-project-start.html#/4/16
 
 [200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
 [201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-development-methods/01-development-methods.htm
 [202]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/02-legal/02-legal.htm
 [203]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/03-frameworks/03-frameworks.htm
 [204]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/04-requirements/04-requirements.htm
+[205]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/05-project-start/05-project-start.htm
