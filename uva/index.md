@@ -28,7 +28,7 @@ Lectures (fall 2015)
 | 10  | Sep&nbsp;16 | Wednesday   | lecture       | [Requirements][54], survey discussion | | Survey discussion; [Requirements][54], slides [14][111] to [31][112] (end) ([recording][204]) |
 | 11  | Sep&nbsp;18 | Friday      | class optional |               | Year-start surveys due | Class is for those who have questions about the survey or the projects |
 | 12  | Sep&nbsp;21 | Monday      | group meetings | [Project start][55] | | [Project start][55], slides [1][55] to [30][113] (end) ([recording][205]) |
-| 13  | Sep&nbsp;23 | Wednesday   | lecture       | [Customer meetings][56] | Iteration 1 begins (yesterday) | |
+| 13  | Sep&nbsp;23 | Wednesday   | lecture       | [Customer meetings][56] | Iteration 1 begins (yesterday) | [Customer meetings][56], slides [1][56] to [28][114] (end) ([recording][206]) |
 | 14  | Sep&nbsp;25 | Friday      | no class      |               | | |
 | 15  | Sep&nbsp;28 | Monday      | group meetings |               | | |
 | 16  | Sep&nbsp;30 | Wednesday   | lecture       | Estimation workday | | |
@@ -132,6 +132,7 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [111]: ../slides/04-requirements.html#/3
 [112]: ../slides/04-requirements.html#/4/7
 [113]: ../slides/05-project-start.html#/4/16
+[114]: ../slides/06-customer-meetings.html#/4/5
 
 [200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
 [201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-development-methods/01-development-methods.htm
@@ -139,3 +140,4 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [203]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/03-frameworks/03-frameworks.htm
 [204]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/04-requirements/04-requirements.htm
 [205]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/05-project-start/05-project-start.htm
+[206]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/06-customer-meetings/06-customer-meetings.htm
