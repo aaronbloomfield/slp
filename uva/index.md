@@ -31,7 +31,7 @@ Lectures (fall 2015)
 | 13  | Sep&nbsp;23 | Wednesday   | lecture       | [Customer meetings][56] | Iteration 1 begins (yesterday) | [Customer meetings][56], slides [1][56] to [28][114] (end) ([recording][206]) |
 | 14  | Sep&nbsp;25 | Friday      | no class      |               | | |
 | 15  | Sep&nbsp;28 | Monday      | group meetings |               | | |
-| 16  | Sep&nbsp;30 | Wednesday   | lecture       | Estimation workday | | |
+| 16  | Sep&nbsp;30 | Wednesday   | lecture       | [Estimation workday][57] | | [Estimation workday][57], slides [1][57] to [29][115] (end) ([recording][207]) |
 | 17  | Oct&nbsp;2  | Friday      | no class      |               | | |
 |     | Oct&nbsp;5  | Monday      | no class      | (fall break)  | Iteration 1 ends | |
 | 18  | Oct&nbsp;7  | Wednesday   | group meetings |               | Iteration 2 begins (yesterday) | |
@@ -133,6 +133,7 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [112]: ../slides/04-requirements.html#/4/7
 [113]: ../slides/05-project-start.html#/4/16
 [114]: ../slides/06-customer-meetings.html#/4/5
+[115]: ../slides/07-estimation.html#/6/2
 
 [200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
 [201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-development-methods/01-development-methods.htm
@@ -141,3 +142,4 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [204]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/04-requirements/04-requirements.htm
 [205]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/05-project-start/05-project-start.htm
 [206]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/06-customer-meetings/06-customer-meetings.htm
+[207]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/07-estimation/07-estimation.htm
