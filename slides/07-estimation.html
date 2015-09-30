@@ -106,19 +106,20 @@
   - Numeric sizing: 1 to 10
   - T-shirt sizes: XS, S, M, L, XL, XXL, XXXL
   - Fibonacci sequence: 1, 2, 3, 5, 8, 13, 21, etc.
-    - Some upper limit here, such as 13, 21
+    - Some upper limit here, such as 13 or 21
     - Tasks bigger than this should be broken down into smaller tasks
   - Dog breeds: Chihuahua (small) to Great Dane (large)
 - It matters not, as long as the team understands the scale
 - We'll use the Fibonacci sequence
-  - Although I'm open to teams using custom ones; more shortly
+  - Although I'm open to teams using custom ones; more on this shortly
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## What about unknown task lengths?
-- Often this will be overestimated: 10, XXXL, 13, Great Dane, etc.
+- Often this will be overestimated: 10, XXXL, 21, Great Dane, etc.
   - By splitting it into smaller tasks, you can better estimate the individual parts
 - One purpose of the inception step is to estimate how much the tasks might take so that they aren't all listed as Great Danes
+  - And our iteration 1 is inception-like
 - And you can use rapid prototyping, research, short sprints, etc., to gain better estimates
 	  </script></section>
 
@@ -127,9 +128,17 @@
 - 4 story points is what one person on each team can accomplish in a single 2-week iteration
   - As per UVa guildelines, you are expected to be spending about 9 hours per week on this course outside lecture
   - So one story point is about 4 hours of work
-- This means that 24 (for 6 person groups) or 28 (for 7 person groups) story points can be completed per iteration
-- There are 14 iterations, which means 14*24 = 336 story points for the entire project (392 for 7 person groups)
-- But the last 3 iterations are transition, so 11\*24 = 264 (for 6 person groups) or 11\*28 = 308 (for 7-person groups) story points are expected to be completed prior to transition
+- This means that 24 (for 6 person groups), 28 (for 7 person groups), or 32 (for 8 person groups) story points can be completed per iteration
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Calibrating our scale
+- There are 14 iterations, which means 14*24 = 336 story points for the entire project for a 6 person group
+  - 392 for 7 person groups
+  - 448 for 8 person groups
+- But the last 3 iterations are transition, so 11\*24 = 264 story points (for 6 person groups) are expected to be completed prior to transition
+  - 11\*28 = 308 for 7 person groups
+  - 11\*32 = 352 for 8 person groups
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -159,19 +168,19 @@
 	  <section data-markdown><script type="text/template">
 ## Marking off tasks
 - All of our tasks will be github issues
-- We have to do 24 (28) story points of "stuff" in this iteration
+- We have to do 24 (or 28 or 32) story points of "stuff" in this iteration
   - And thus you should be entering and marking off tasks during this iteration
 - Do <font color='red'>NOT</font> make up tasks to hit this number!
   - It's meant as a guide; I am not going to hold you to that number
     - But if you don't enter any tasks, I will assume you are not doing any work
   - I will get very cranky if dumb tasks are created to hit that number
-- Once completed, you can mark off that task as done in github
+- Once completed, you can mark off that task as completed
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Release length
 - If we have an estimate as to the number of story points in the entire project
-  - This (hopefully) was estimated during inception
+  - This (hopefully) will estimated during inception (iteration 1)
 - ...and a "threshold" for how many story points will be completed during a sprint...
   - And, presumably, the sprint length we are using
 - We can divide one by the other to get an estimate of how many sprints the project will take
@@ -184,8 +193,8 @@
 ## Wait... we are aiming for a target?
 - Yes!
 - In most projects, you determine what the customer wants, and then estimate how much money and time it will take
-- But we are fixed in terms of resources (people and time)
-- So we can only do about 264 (or 308) story points on this project
+- But our projects are fixed in terms of resources (people and time)
+- So we can only do about 264 (or 308 or 352) story points on this project
 - Thus, we will have to scale our requirements to meet this goal
   - I realize this is not how it is done in practice...
 	  </script></section>
@@ -209,13 +218,14 @@
 	  <section data-markdown><script type="text/template">
 ## Realistic release burndown
 - The next slide is the release burndown from last year's class
+  - You can see all the previous ones starting [here](01-development-methods.html#/burndown)
 - It plots story points left to complete versus the iteration
 - Can we do better this year?
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## SLP burndown from 2013-2014
-![SLP 2013-2014 burndown chart](images/02-development-methods/slp-2013-2014.png)
+![SLP 2013-2014 burndown chart](images/01-development-methods/slp-2014-2015.png)
 	  </script></section>
 
 	</section>
@@ -230,14 +240,14 @@
 ## Github iteration milestones
 - EACH iteration will have it's own milestone (named "iteration 1", "iteration 14", etc.)
   - Again, don't change the spacing or characters, but I don't care about the capitalization case you use
-- When you are moving tasks from the product backlog into the spring backlog, you just assign them to that particular milestone
+- When you are moving tasks from the product backlog into the sprint backlog, you just assign them to that particular milestone
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Github priority tags
 - EACH issue in github must have a priority tag
 - We'll use: immediate, very-high, high, medium, low, very-low, unknown
-- The tags are exactly that (I don't care about capitalization)
+- The tags should be named exactly that (I don't care about capitalization)
   - You can also make the tags be "priority-XXX", if you want, where XXX is the priorities listed above
 - If you do not put a priority tag on each issue, then my automated script will start throwing all sorts of errors, and I'll have to track you down to fix it, which will just make me cranky
 	  </script></section>
@@ -246,7 +256,7 @@
 ## Github story point tags
 - EACH issue in github must have a tag indicating the story points
   - "story-points-13", "story-points-1", etc.
-    - Using the Fibonacci numbers, of course
+    - Using the Fibonacci numbers, as discussed previously
   - Make sure these tags are exactly as specified here!
     - Don't add spaces, use underlines, etc.
     - But I don't care about the capitalization case you use
@@ -263,6 +273,7 @@
     - "story-points-chihuahua" maps to "story-points-1"
     - "story-points-great-dane" maps to "story-points-21"
     - Etc.
+- Realize that I may have to modify your scale a bit...
 	  </script></section>
 
 	</section>
@@ -279,6 +290,8 @@
   - How many total story points in each system? And how many are left?
   - Do they all have priorities and story points?
   - Does the "iteration 1" milestone have tasks assigned to it?
+    - And were those tasks completed?
+    - We realize that, since we are just getting started, that the story points completed in iteration 1 may not be the expected amount
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -286,10 +299,10 @@
 - Decide on the story point unit you want to use (and send me the mapping, if you are using something else)
 - Create the labels in github's issues for both priorities and story points
 - Create the 14 milestones
-- Enter all your issues in github
-  - Estimate the effort for each one using whatever scale your team decides to use
-  - And assign a priority to each one
+- Enter *all* your issues in github
+  - Estimate the effort for each one using whatever scale your team decides to use, and assign a priority to each
 - Assign tasks to the "iteration 1" milestone
+  - You can add tasks that you have already completed (and mark them as done and give them story points)
 - You will not likely finish this all today, but it should be finished by the end of this iteration
 	  </script></section>
 
