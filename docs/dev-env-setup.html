@@ -73,7 +73,15 @@ fclose($fp);
 echo `cd /home/slp/team/html/; git pull`;
 ?&gt;</code></pre>
 <p>Edit this file to work with your paths, and then try calling it (it will be something like, <code>http://server/team/github-hook.php</code>).</p>
-<p>Only the last line does the update; the rest is logging. You then enter a webhook (under the repository's settings, select &quot;webhooks &amp; services&quot;). Enter the URL, in the previous paragraph, of your webhook. Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.</p>
+<p><strong>NOTE:</strong> If you are doing a Django project, you will have to add a few more items into the script, such as:</p>
+<ul>
+<li>The path above (<code>/home/slp/team/html</code>) is probably different for you; yours will likely be something similar to <code>/home/slp/team/team/</code>.</li>
+<li><p>running <code>python manage.py collectstatic</code> from the appropriate directory (see <a href="http://stackoverflow.com/questions/8705305/automated-django-receive-hook-on-server-respond-to-collectstatic-with-yes">here</a> for how to prevent it from prompting you each time); the command might look like:</p>
+<pre><code>echo `cd /home/slp/team/team; python manage.py collectstatic --noinput`</code></pre></li>
+<li><p>reloading the web server (or, more easily, touching wsgi.py); the command might look like the following (but make sure the path to wsgi.py is correct!):</p>
+<pre><code>`touch /home/slp/team/team/wsgi.py`</code></pre></li>
+</ul>
+<p>Note that in the script above, only the last line does the update (via the <code>git pull</code>); the rest is logging. You then enter a webhook (under the repository's settings, select &quot;webhooks &amp; services&quot;). For repositories that are part of the organization (such as the https://github.com/uva-slp repos), only the course administrator (i.e., the course instructor) can enable web hooks and configure deploy keys. Enter the URL, in the previous paragraph, of your webhook. Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.</p>
 <p><strong><em>NOTE:</em></strong> If a file is <em>locally</em> modified (meaning somebody updates a file on the course server), then git will <strong><em>NOT</em></strong> update that file from the repo! This is why the two deployment options do not play nicely together.</p>
 <h3 id="hybrid-approach">Hybrid approach</h3>
 <p>ALternatively, you should set up a hybrid approach. You can use a deployment key to clone the git repo in the project account, but rather than have that updated automatically via a web hook, you instead only update it manually. This can be done via a single ssh command -- which, with auto-login set up, can easily be put into a Makefile:</p>

@@ -120,7 +120,19 @@ echo `cd /home/slp/team/html/; git pull`;
 
 Edit this file to work with your paths, and then try calling it (it will be something like, `http://server/team/github-hook.php`).
 
-Only the last line does the update; the rest is logging.  You then enter a webhook (under the repository's settings, select "webhooks & services").  Enter the URL, in the previous paragraph, of your webhook.  Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.
+**NOTE:** If you are doing a Django project, you will have to add a few more items into the script, such as:
+
+- The path above (`/home/slp/team/html`) is probably different for you; yours will likely be something similar to `/home/slp/team/team/`.
+- running `python manage.py collectstatic` from the appropriate directory (see [here](http://stackoverflow.com/questions/8705305/automated-django-receive-hook-on-server-respond-to-collectstatic-with-yes) for how to prevent it from prompting you each time); the command might look like:
+```
+echo `cd /home/slp/team/team; python manage.py collectstatic --noinput`
+```
+- reloading the web server (or, more easily, touching wsgi.py); the command might look like the following (but make sure the path to wsgi.py is correct!):
+```
+`touch /home/slp/team/team/wsgi.py`
+```
+
+Note that in the script above, only the last line does the update (via the `git pull`); the rest is logging.  You then enter a webhook (under the repository's settings, select "webhooks & services").  For repositories that are part of the organization (such as the https://github.com/uva-slp repos), only the course administrator (i.e., the course instructor) can enable web hooks and configure deploy keys.  Enter the URL, in the previous paragraph, of your webhook.  Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.
 
 ***NOTE:*** If a file is *locally* modified (meaning somebody updates a file on the course server), then git will ***NOT*** update that file from the repo!  This is why the two deployment options do not play nicely together.
 

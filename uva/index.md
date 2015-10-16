@@ -9,6 +9,7 @@ Much of the rest of this git repo is meant to be generic to anybody who has a cl
 - [Course syllabus][1] ([md][2])
 - [Legal forms][3] ([md][4])
 - The schedule is now at the bottom of this page
+- The collected [iteration goals](iteration-goals.html#/)
 - [Old UVa SLP documents][6] ([md][7]), including the lectures and schedule from previous semesters
 
 Lectures (fall 2015)

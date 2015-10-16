@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4970: iteration-goals slide set</title>
+    <meta name="description" content="A set of slides for UVa's Service Learning Practicum course">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../slides/css/slp.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <style>
+.reveal li {
+font-size:75%;
+line-height:120%;
+}
+    </style>
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4970
+&nbsp;
+### Capstone Practicum I
+### Fall 2015
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../slides/index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp; 
+## Iteration Goals
+	</script></section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section data-markdown><script type="text/template">
+## Purpose
+
+- This slide set is the collection of iteration goals, which are gone over in the [daily announcements](daily-announcements.html#/) slide set
+- It's meant to have all the iteration goals in one place; all this information is presented elsewhere to the class
+	  </script></section>
+
+	  <section data-markdown id="it2goals"><script type="text/template">
+## Goals for Iteration 2
+- Have a site that should start to look like a workable site for the requirements
+  - Some just had one or two MVC components for the first iteration (which was fine, as that is what was required for then)
+- Complete 24 / 28 / 32 story points worth of "stuff" (depending on group size)
+- Your regular iteration meeting with the customer and the grad TA should happen
+- Specific goals:
+  - Generate wireframes: that's [today's lecture](../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
+  - Enable easy deployment via automatic logins or ssh keys: see the [Development Environment Setup page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details.  This also includes enabling easy downloading of the database
+  - Publishing to the course server is best done via a github web hook and deploy key; see [that same page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details, but only I can set up both of those due to the github security setup
+  - Ensure that *everybody* in the development group can develop on his/her own machine
+- Some things to keep in mind:
+  - Your requrements document will be iterated on throughout the year
+  - What format you keep it in is up to you (although we recommend markdown), but we need to be able to view it
+  - Having the source (from the [uva-slp/projects repo](https://github.com/uva-slp/projects) repo) copied into a `docs/` directory in your repo is quite reasonable
+	  </script></section>
+
+	  <section data-markdown id="it1goals"><script type="text/template">
+## Goals for iteration 1
+See [here](../slides/05-project-start.html#/it1goals) for full details, but briefly:
+
+- Fully understand the requirements
+- Meet with the customer
+- Design (and implement) a basic DB schema
+- Get your dev environment set up (see [uva-slp/tutorails](https://github.com/uva-slp/tutorials) for guidance)
+- Get a basic MVC site working on the course server
+  - Once done, this will require you emailing me so that I can complete the apache2 configuration
+- Have the system stored properly in the github repo (no passwords!!!)
+- Enter all the requirements as tasks as Github issues (this is next Wednesday)
+- Everybody MUST have a github commit this iteration (and, in general, every iteration)
+	  </script></section>
+
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../slides/reveal.js/js/reveal.js"></script>
+    <script src="../slides/js/settings2.js"></script>
+
+  </body>
+</html>
