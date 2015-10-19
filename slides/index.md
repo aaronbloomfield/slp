@@ -20,8 +20,8 @@ bug, and displays the slides correctly.
 - [06: Customer meetings](06-customer-meetings.html#/)
 - [07: Estimation workday](07-estimation.html#/)
 - [08: Wireframing](08-wireframing.html#/)
-- [09: Documentation](09-documentation.html#/)
-- [10: Continuous integration testing](10-ci-testing.html#/)
+- [09: Continuous integration testing](09-ci-testing.html#/)
+- [10: Documentation](10-documentation.html#/)
 
 ------------------------------------------------------------
 

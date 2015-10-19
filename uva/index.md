@@ -37,20 +37,20 @@ Lectures (fall 2015)
 |     | Oct&nbsp;5  | Monday      | no class      | (fall break)  | Iteration 1 ends | |
 | 18  | Oct&nbsp;7  | Wednesday   | group meetings |               | Iteration 2 begins (yesterday) | |
 | 19  | Oct&nbsp;9  | Friday      | no class      |               | | |
-| 20  | Oct&nbsp;12 | Monday      | lecture       | [Wireframing][58]   | | [Wireframing][58], slides [1][58] to [39][115] (end) ([recording][208]) |
+| 20  | Oct&nbsp;12 | Monday      | lecture       | [Wireframing][58]   | | [Wireframing][58], slides [1][58] to [39][116] (end) ([recording][208]) |
 | 21  | Oct&nbsp;14 | Wednesday   | group meetings |               | | |
 | 22  | Oct&nbsp;16 | Friday      | no class      |               | | |
 | 23  | Oct&nbsp;19 | Monday      | group meetings |               | Iteration 2 ends; **PHASE CHANGE** | |
-| 24  | Oct&nbsp;21 | Wednesday   | lecture       | Documentation | Iteration 3 begins (yesterday) | |
+| 24  | Oct&nbsp;21 | Wednesday   | lecture       | Continuous Integration Testing | Iteration 3 begins (yesterday) | |
 | 25  | Oct&nbsp;23 | Friday      | no class      |               | | |
 | 26  | Oct&nbsp;26 | Monday      | group meetings |               | | |
-| 27  | Oct&nbsp;28 | Wednesday   | lecture       | ... | | |
+| 27  | Oct&nbsp;28 | Wednesday   | lecture       | CI Testing work day | | |
 | 28  | Oct&nbsp;30 | Friday      | no class      |               | | |
 | 29  | Nov&nbsp;2  | Monday      | group meetings |               | Iteration 3 ends | |
-| 30  | Nov&nbsp;4  | Wednesday   | lecture       | Continuous integration testing | Iteration 4 begins (yesterday) | |
+| 30  | Nov&nbsp;4  | Wednesday   | lecture       | Documentation | Iteration 4 begins (yesterday) | |
 | 31  | Nov&nbsp;6  | Friday      | no class      |               | | |
 | 32  | Nov&nbsp;9 | Monday      | group meetings |               | | |
-| 33  | Nov&nbsp;11 | Wednesday   | lecture       | CI Testing work day | | See [here][81] for details |
+| 33  | Nov&nbsp;11 | Wednesday   | lecture       | ...           | | |
 | 34  | Nov&nbsp;13 | Friday      | no class      |               | | |
 | 35  | Nov&nbsp;16 | Monday      | group meetings |               | Iteration 4 ends; **PHASE CHANGE** | |
 | 36  | Nov&nbsp;18 | Wednesday   | lecture       | Guest lecturer? | Iteration 5 begins (yesterday) | |
@@ -135,7 +135,7 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [113]: ../slides/05-project-start.html#/4/16
 [114]: ../slides/06-customer-meetings.html#/4/5
 [115]: ../slides/07-estimation.html#/6/2
-[115]: ../slides/08-wireframing.html#/5/4
+[116]: ../slides/08-wireframing.html#/5/4
 
 [200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
 [201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-development-methods/01-development-methods.htm
