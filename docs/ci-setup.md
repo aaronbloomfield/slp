@@ -3,9 +3,24 @@ SLP: Continuous Integration Testing: Getting Started
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
 
-There are seven sections in this document: a common introduction for everybody, one for each of the three development platforms, one for each of the two Continuous Integration testing services (we are using [Travis CI](http://travis-ci.com) and [CircleCI](http://circleci.com/)), and a common conclusion section for everybody.  Each group will be assigned to one of the two CI services.  You will need to read the introduction, the section on your platform, the section on your assigned CI service, and the conclusion.
+There are seven sections in this document, in four parts:
+
+1. A common introductory part for everybody to read, which contains the intrudction and details about the database setup
+2. A part with one section per development platform (CakePHP, Rails, or Django); you only need to read the one that pertains to the platform you are using
+3. A part with one section for each of the two Continuous Integration testing services (we are using [Travis CI](http://travis-ci.com) and [CircleCI](http://circleci.com/)); you only need to read the one that pertains to the service you are using
+4. A common conclusion part for everybody to read, which contains troubleshooting tips and how to proceed from here
+
+You will need to read the introduction, the section on your platform, the section on your assigned CI service, and the conclusion.
 
 Note that this document does not describe *how* to write unit tests, but it links to other documents for each platform that describe how to do that.  This document is concerned with getting the projects configured with the CI services.
+
+----
+
+Part 1: Common Information
+==========================
+
+Everybody needs to read this entire part.
+
 
 Introduction
 ------------
@@ -32,6 +47,12 @@ In either case, the database configuration files in the repo should ***NOT*** co
 
 ----
 
+Part 2: Development Platforms
+=============================
+
+You only need to read the part that pertains to the platform you are using.
+
+
 CakePHP
 -------
 
@@ -39,7 +60,7 @@ CakePHP
 
 This tutorial assumes that you have completed the [CakePHP Blog Tutorial](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html) and the [CakePHP Blog Tutorial, part 2](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/part-two.html), which is what was done in the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)).
 
-In order to run these tests, you will have to install the `phpunit` package on your development host (`sudo apt-get install phpunit`); this was not already done on the prepared VirtualBox image.  The [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page has been updated with this package installation requirement as well.
+In order to run these tests, you will have to install the `phpunit` package on your development host (`sudo apt-get install phpunit`); this was already done on the provided VirtualBox image.
 
 **NOTE:** You must *FIRST* change the test database name in config/app.php.  What the tests do is they *wipe* the database, and completely rebuild it.  Thus, if your test database is the same name as your regular database, it will **ERASE** everything!  All the groups have a `project_test` database (with the same permissions) specifically for this purpose.
 
@@ -110,12 +131,17 @@ The command to run the tests is `python manage.py test`, and that command is wha
 
 ----
 
+Part 3: Continuous Integration Services
+=======================================
+
+You only need to read the one that pertains to the service you are using.
+
 Travis CI
 ---------
 
 Travis is a well-known service because it provides free testing for open source projects -- specifically, if it is a public repository on Github, then Travis will allow you to run tests on it for free.  To run tests on a private repository, you have to purchase a subscription.  To this end, they have two websites: [http://travis-ci.org](http://travis-ci.org) (notice the '.org' ending) is the website for open source builds (i.e., public repositories), and [http://travis-ci.com](http://travis-ci.com) (notice the '.com' ending) is the website for non-open source builds (i.e., private repositories).  Travis has generously donated a free subscription to this course; thus we can test our private repos.  This means that we will be using the '.com' version of their website.
 
-You will need to sign in to [Travis](http://travis-ci.com) -- this is done via authorizing Travis as a Github application (when you click "sign in" on [Travis](http://travis-ci.com), it guides you through that process).  One you have logged in, you will see any and all repositories that you have access to.  In addition to your project repository, you will see three example repositories for configuring Travis with the three platforms in the course; those repos are [rails-test](https://github.com/uva-slp/rails-test), [cake-test](https://github.com/uva-slp/cake-test), and [django-test](https://github.com/uva-slp/django-test).  These are described in the Troubleshooting section of the Conclusions, below.  The specific URL for the testing of your project repo will be [https://magnum.travis-ci.com/uva-slp/project](https://magnum.travis-ci.com/uva-slp/project) where "project" is your project tag (i.e., the same name as your github repo).
+You will need to sign in to [Travis](http://travis-ci.com) -- this is done via authorizing Travis to authenticate you via Github (when you click "sign in" on [Travis](http://travis-ci.com), it guides you through that process).  One you have logged in, you will see any and all repositories that you have access to.  In addition to your project repository, you will see three example repositories for configuring Travis with the three platforms in the course; those repos are [rails-test](https://github.com/uva-slp/rails-test), [cake3-test](https://github.com/uva-slp/cake3-test), and [django-test](https://github.com/uva-slp/django-test).  These are described in the Troubleshooting section of the Conclusions, below.  The specific URL for the testing of your project repo will be [https://magnum.travis-ci.com/uva-slp/project](https://magnum.travis-ci.com/uva-slp/project) where "project" is your project tag (i.e., the same name as your github repo).
 
 If your project was assigned to Travis, then Travis has already been configured to work with your repository.  Every time commits are pushed to the repo, then Travis will look for a .travis.yml file (described next) -- if it finds one, it will run tests; if it doesn't, then it will do nothing.  Thus, as soon as you push a commit with a .travis.yml file, Travis will go to work.
 
@@ -129,11 +155,13 @@ Here is a sample .travis.yml file for Rails apps:
 language: ruby
 
 rvm:
-  - 2.1.2
+  - 2.2.3
 
 before_script:
   - "mysql -u root -e 'create database asb2t_test;'"
   - "mysql -u root -e \"grant all on asb2t_test.* to 'asb2t';\""
+
+sudo: false
 ```
 
 Here is a sample .travis.yml file for CakePHP apps:
@@ -145,8 +173,12 @@ php:
   - 5.5
 
 before_script:
+  - /home/travis/.phpenv/versions/5.5/bin/composer self-update
+  - sh -c "composer require 'cakephp/cakephp-codesniffer:dev-master'"
   - "mysql -u root -e 'create database asb2t_test;'"
   - "mysql -u root -e \"grant all on asb2t_test.* to 'asb2t';\""
+
+sudo: false
 ```
 
 Here is a sample .travis.yml for Django apps:
@@ -158,9 +190,11 @@ python:
   - "2.7"
 
 install:
-  - pip install -q Django==1.6.1
+  - pip install -q Django==1.8.4
 
 script: python manage.py test
+
+sudo: false
 ```
 
 Let's take each part one at a time.
@@ -193,10 +227,10 @@ While we are using PHP version 5.5.9, only the major and minor versions (i.e., 5
 
 ```
 rvm:
-  - 2.1.2
+  - 2.2.3
 ```
 
-[RVM](http://rvm.io/) is the Ruby Version Manager, which is a tool to manage Ruby and Rails versions.  We are using [rbenv](https://github.com/sstephenson/rbenv) (Ruby Environment) on the course server, but they both accomplish essentially the same thing.  The second line in this stanza specifies the Ruby version that we want to use (2.1.2).  Note that the Rails version is specified in our Gemfile, so we do not specify it here.
+[RVM](http://rvm.io/) is the Ruby Version Manager, which is a tool to manage Ruby and Rails versions.  We are using [rbenv](https://github.com/sstephenson/rbenv) (Ruby Environment) on the course server, but they both accomplish essentially the same thing.  The second line in this stanza specifies the Ruby version that we want to use (2.2.3).  Note that the Rails version is specified in our Gemfile, so we do not specify it here.
 
 ```
 python:
@@ -209,6 +243,16 @@ This specifies the Python versionl the Django version is specified later.  While
 
 Travis will configure the necessary version of the language, and install any obvious dependencies (standard PHP and Python libraries, run `bundle install` for Rails, etc.).  However, your system might need additional software to be installed.
 
+For CakePHP, there are two things that need to be done, which are done in the following stanza.  All CakePHP programs will need this stanza.
+
+```
+before_script:
+  - /home/travis/.phpenv/versions/5.5/bin/composer self-update
+  - sh -c "composer require 'cakephp/cakephp-codesniffer:dev-master'"
+```
+
+The first thing is to update composer to the latest version (not strictly required, but it will give you lots of warnings if you don't do that); this is done via the `self-update` command.  The second thing is to install all the dependencies, which is what the second of those two commands (the `composer require` one) does.  Note that there are two database commands that are also included in the `before_script` section; these are described below.
+
 If you have any additional dependencies that were installed with pip (or other commands), you would specify them as such:
 
 ```
@@ -216,35 +260,27 @@ install:
   - "pip install ..."
 ```
 
-In particular, the Django projects need to install Django; we have to specify which version when we install it.  Version 1.6.1 is what this course is using.
+In particular, the Django projects need to install Django; we have to specify which version when we install it.  Version 1.8.4 is what this course is using.
 
 ```
 install:
-  - pip install -q Django==1.6.1
+  - pip install -q Django==1.8.4
 ```
 
 Note that, if we were testing against multiple versions of Django, or if we wanted to know that version in our testing scripts, we could do the previous commands by setting (and then using) an environment variable:
 
 ```
 env:
-  - DJANGO_VERSION=1.6.1
+  - DJANGO_VERSION=1.8.4
 install:
   - pip install -q Django==$DJANGO_VERSION
 ```
 
-If you want to install a package -- for example, some groups are using [South](http://south.aeracode.org/) in their Django projects, and this was installed via the `python-django-south` package on Ubuntu.  To install that on Travis, you would also put it in the `install:` stanza (you may already have one if you used the `pip install` line, above):
-
-```
-install:
-  - sudo apt-get install python-django-south
-```
-
-Note that we have to use `sudo` on this command.
+One can install packages as well via the `sudo` command.  However, the `sudo: false` option in the Travis configuration file currently prevents this (this option can be removed, but issues arrise if it is).  Most packages are installed via the language-specific commands (`bundle install` for Ruby, `pip` for Python, and `composer` for PHP).  Thus, it is not expected that any additional packages will need to be installed that way, so this functionality is not covered here.
 
 **Database setup**
 
-The following sets up the necessary database:
-
+The following sets up the necessary database. Note that there are two composer commands that are also included in the `before_script` section; these are described above.
 
 ```
 before_script:
@@ -252,7 +288,7 @@ before_script:
   - "mysql -u root -e \"grant all on asb2t_test.* to 'asb2t';\""
 ```
 
-This is the database setup.  The database credentials in the repo specify that the database to be used is `asb2t_test`, and that the `asb2t` user should be able to access that database.  Note that we do not require a password for the MySQL user here.  You obviously will need to adapt that to your particular setup.  Because this is in the `before_script` stanza, that setup is created prior to running the tests (hence, the "before" part of "before_script").  Note that the syntax here is very precise, especially with regards to all those quotes.  Travis has [more information on database setup](http://docs.travis-ci.com/user/database-setup/), including a section specifically on [MySQL](http://docs.travis-ci.com/user/database-setup/#MySQL).
+This is the database setup.  The database credentials in the repo specify that the database to be used is `asb2t_test`, and that the `asb2t` user should be able to access that database.  Note that we do not require a password for the MySQL user here.  You obviously will need to adapt that to your particular setup -- in particular, your database is not "asb2t".  Because this is in the `before_script` stanza, that setup is created prior to running the tests (hence, the "before" part of "before_script").  Note that the syntax here is very precise, especially with regards to all those quotes.  Travis has [more information on database setup](http://docs.travis-ci.com/user/database-setup/), including a section specifically on [MySQL](http://docs.travis-ci.com/user/database-setup/#MySQL).
 
 If your user needs a password, then you will have change the `grant` command to something like the the following:
 
@@ -287,7 +323,7 @@ CircleCI
 
 [CircleCI](https://circleci.com/) is a well-known testing service that runs a large number of platforms.  They only provide testing for users who have paid subscription, and thus are generally used for private repositories.  Circle has generously donated a free subscription to this course; thus we can test our private repos.
 
-You will need to sign in to [Circle](http://circleci.com) -- this is done via authorizing Circle as a Github application (when you click "sign in" on [Circle](http://circleci.com), it guides you through that process).  One you have logged in, you will see any and all repositories that you have access to.  In addition to your project repository, you will see three example repositories for configuring Circle with the three platforms in the course; those repos are [rails-test](https://github.com/uva-slp/rails-test), [cake-test](https://github.com/uva-slp/cake-test), and [django-test](https://github.com/uva-slp/django-test).  These are described in the Troubleshooting section of the Conclusions, below.  The specific URL for the testing of your project repo will be [https://circleci.com/gh/uva-slp/project](https://circleci.com/gh/uva-slp/project) where "project" is your project tag (i.e., the same name as your github repo).
+You will need to sign in to [Circle](http://circleci.com) -- this is done via authorizing Circle as a Github application (when you click "sign in" on [Circle](http://circleci.com), it guides you through that process).  One you have logged in, you will see any and all repositories that you have access to.  In addition to your project repository, you will see three example repositories for configuring Circle with the three platforms in the course; those repos are [rails-test](https://github.com/uva-slp/rails-test), [cake3-test](https://github.com/uva-slp/cake3-test), and [django-test](https://github.com/uva-slp/django-test).  These are described in the Troubleshooting section of the Conclusions, below.  The specific URL for the testing of your project repo will be [https://circleci.com/gh/uva-slp/project](https://circleci.com/gh/uva-slp/project) where "project" is your project tag (i.e., the same name as your github repo).
 
 If your project was assigned to Circle, then Circle has already been configured to work with your repository. Every time commits are pushed to the repo, then Circle will look for a circle.yml file (described next) -- if it finds one, it will run tests; if it doesn't, then it will do nothing. Thus, as soon as you push a commit with a circle.yml file, Circle will go to work.
 
@@ -300,7 +336,7 @@ Here is a sample circle.yml file for Rails apps:
 ```
 machine:
   ruby:
-    version: 2.1.2
+    version: 2.2.3
 
 dependencies:
   pre:
@@ -332,7 +368,7 @@ machine:
 
 dependencies:
   pre:
-    - pip install -q Django==1.6.1
+    - pip install -q Django==1.8.4
 ```
 
 Let's take each part one at a time.
@@ -354,7 +390,7 @@ machine:
 ```
 machine:
   ruby:
-    version: 2.1.2
+    version: 2.2.3
 ```
 
 This is pretty self-explanitory about what this does.  The choices for us are PHP, Python, and Ruby, depending on what platform you are using.  Circle supports [many other languages](https://circleci.com/docs/environment) as well.  While there are other options that can be specified in the machine stanza, we won't need to use any of them now.
@@ -413,7 +449,7 @@ The MySQL socket file is the file that all mysql clients access in order to conn
 All Django apps need to have this line in the pre-dependencies section:
 
 ```
-- pip install -q Django==1.6.1
+- pip install -q Django==1.8.4
 ```
 
 We have to install the right version of Django, and this is done through pip, as described below.
@@ -429,21 +465,14 @@ install:
   - "pip install ..."
 ```
 
-In particular, the Django projects need to install Django; we have to specify which version when we install it.  Version 1.6.1 is what this course is using.
+In particular, the Django projects need to install Django; we have to specify which version when we install it.  Version 1.8.4 is what this course is using.
 
 ```
 install:
-  - pip install -q Django==1.6.1
+  - pip install -q Django==1.8.4
 ```
 
-If you want to install a package -- for example, some groups are using [South](http://south.aeracode.org/) in their Django projects, and this was installed via the `python-django-south` package on Ubuntu.  To install that on Circle, you would also put it in the `install:` stanza (you may already have one if you used the `pip install` line, above):
-
-```
-install:
-  - sudo apt-get install python-django-south
-```
-
-Note that we have to use `sudo` on this command.
+One can install packages as well via the `sudo` command.  Most packages are installed via the language-specific commands (`bundle install` for Ruby, `pip` for Python, and `composer` for PHP).  Thus, it is not expected that any additional packages will need to be installed that way, so this functionality is not covered here.
 
 **Additional configuration**
 
@@ -455,16 +484,18 @@ When you view your repo on Circle, there is a status indicator that indicates if
 
 ----
 
-Conclusions
------------
+Part 4: Common conclusions
+==========================
 
-### Troubleshooting
+Troubleshooting
+---------------
 
 Did something not work correctly?  If so, here is where to find the solutions.
 
-There are three repos that where all this configuration was performed for each language / CI tool combination.  You can look at those repos for help.  In particular, the commits take very specific steps, so seeing the changes from one commit to another may help (you can do this easily through github's interface).  Those repos are: [rails-test](https://github.com/uva-slp/rails-test), [cake-test](https://github.com/uva-slp/cake-test), and [django-test](https://github.com/uva-slp/django-test).  Each of those repos are configured with *both* Travis and Circle.  All of those repos start with the default site, run through the tutorials described in the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)), and then proceed to configure the CI tests.  The .travis.yml and circle.yml files in those repos are the sample files shown above in this document.
+There are three repos that where all this configuration was performed for each language / CI tool combination.  You can look at those repos for help.  In particular, the commits take very specific steps, so seeing the changes from one commit to another may help (you can do this easily through github's interface).  Those repos are: [rails-test](https://github.com/uva-slp/rails-test), [cake3-test](https://github.com/uva-slp/cake3-test), and [django-test](https://github.com/uva-slp/django-test).  Each of those repos are configured with *both* Travis and Circle.  All of those repos start with the default site, run through the tutorials described in the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)), and then proceed to configure the CI tests.  The .travis.yml and circle.yml files in those repos are the sample files shown above in this document.
 
-### What you must do
+What you must do
+----------------
 
 You have to do the following tasks:
 
@@ -472,9 +503,10 @@ You have to do the following tasks:
 2. Configure your project to properly run some unit tests (just running 2 is fine at this point; you'll write more in step (5), below)
 3. Configure your project to properly run on Travis or Circle, as per your assignment; it must run the tests successfully
 4. Have the status badge for your project's build shown at the *top* of your project's readme.md file, which will cause it to display on github when you view the project; for Circle projects, this needs to be the `shield` type, and not the `badge` type
+    - This is shown in the sample repos: [rails-test](https://github.com/uva-slp/rails-test), [cake3-test](https://github.com/uva-slp/cake3-test), and [django-test](https://github.com/uva-slp/django-test).
 5. Write a number of unit tests; these tests are beyond what was done in (2).  Specifically:
-   - Each *person* in the group must write at least 5 (five!) unit tests; you must commit your own unit tests to the repo
-   - Each person in the group must write at least one fixture, which is used in some/all of their unit tests; you must also commit your own fixture (need not be a separate commit)
-   - These unit tests must be actually test something, and it must be a valid unit test
-   - They must all succeed (if they don't, then fix the code to make them succeed)
-6. Ensure that all the unit tests written by the group (at least 30 or 35, depending on the group size) run successfully on the CI service
+    - Each *person* in the group must write at least 5 (five!) unit tests; you must commit your own unit tests to the repo
+    - Each person in the group must write at least one fixture, which is used in some/all of their unit tests; you must also commit your own fixture (need not be a separate commit)
+    - These unit tests must be actually test something, and it must be a valid unit test
+    - They must all succeed (if they don't, then fix the code to make them succeed)
+6. Ensure that all the unit tests written by the group (at least 5 times the group size) run successfully on the CI service

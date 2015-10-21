@@ -68,7 +68,7 @@
 ## Testing lectures
 - This is one of two lectures on testing
   - It focuses only on unit tests and CI testing services
-- The other is the full testing lecture
+- The other is the [full testing lecture](12-testing.html#/)
   - Given in the spring
   - Contents: test plan, other types of tests, etc.
 	  </script></section>
@@ -114,17 +114,17 @@
 ## Step 2: Write some Unit Tests
 - See the appropriate tutorial
   - CakePHP: [CakePHP: Testing](http://book.cakephp.org/3.0/en/development/testing.html)
-  - Rails: [A Guide to Testing Rails Applications](http://guides.rubyonrails.org/testing.html)
   - Django: [Testing in Django](https://docs.djangoproject.com/en/1.6/topics/testing/)
     - But start with [page 5 of the intro tutorial](https://docs.djangoproject.com/en/1.6/intro/tutorial05/)
+  - Rails: [A Guide to Testing Rails Applications](http://guides.rubyonrails.org/testing.html)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Step 3: Call the Testing Command
 - CakePHP: `phpunit`
-  - This requires installing phpunit: `sudo apt-get install phpunit`
-- Rails: `bundle exec rake`
+  - This requires installing phpunit (`sudo apt-get install phpunit`), which has already been done on the VirtualBox image
 - Django: `python manage.py test`
+- Rails: `bundle exec rake`
 - In all cases, this should run the unit tests, and they should all succeed
 	  </script></section>
 
@@ -148,14 +148,22 @@
   - That bugs were fixed (and thus that the bug is not later re-introduced)
 	  </script></section>
 
+	  <section>
+<h2>What to Test, take 3</h2>
+<div align="center">
+<blockquote class="twitter-tweet" lang="en"><p lang="nl" dir="ltr">QA Engineer walks into a bar. Orders a beer. Orders 0 beers. Orders 999999999 beers. Orders a lizard. Orders -1 beers. Orders a sfdeljknesv.</p>&mdash; Bill Sempf (@sempf) <a href="https://twitter.com/sempf/status/514473420277694465">September 23, 2014</a></blockquote>
+<script async src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+	  </section>
+
 	  <section data-markdown><script type="text/template">
 ## Code Coverage
 - How much of the code base was "covered" (i.e., executed) by a given run?
   - Or, in our case, by a series of tests
 - There are many code coverage tools, here are some:
   - CakePHP: [phpunit](https://phpunit.de/); see [here](http://book.cakephp.org/3.0/en/development/testing.html#generating-code-coverage)
-  - Rails: the [simplecov](https://github.com/colszowka/simplecov) gem; see [here](http://www.rubydoc.info/gems/simplecov/frames)
   - Django: [coverage](http://nedbatchelder.com/code/coverage/), see [here](https://docs.djangoproject.com/en/1.6/topics/testing/advanced/#integration-with-coverage-py)
+  - Rails: the [simplecov](https://github.com/colszowka/simplecov) gem; see [here](http://www.rubydoc.info/gems/simplecov/frames)
 - Later in the year we will need to ensure that our code is fully covered by our unit tests
 	  </script></section>
 
@@ -203,15 +211,7 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## How a CI service works
-- A *webhook* is set up in the github repo to notify the service on each push
-  - Commits are ignored, only pushes are monitored (as only pushes modify the github repo)
-- When notified of a push, the service creates a container, clones the repo, then configures that container as per the configuration in the repo
-- The tests are run, and the result is (somehow) reported back to the user
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Continuous Integration Software
+## Continuous Integration Methods
 - This is the software that automates the running of your tests
 - Some are software you download or buy, and run on your server; an example is [Jenkins](http://jenkins-ci.org/)
 - Others run your code (and tests) on their servers, or in the "cloud"
@@ -220,11 +220,19 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## How a CI service works
+- A *webhook* is set up in the github repo to notify the CI service on each push
+  - Commits are ignored, only pushes are monitored (as only pushes modify the github repo)
+- When notified of a push, the service creates a container, clones the repo, then configures that container as per the configuration file in the repo
+- The tests are run, and the result is (somehow) reported back to the user
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 ## Circle CI versus Travis CI
 - They are remarkably the same:
   - Both integrate nicely with github, use Linux Containers and [YAML](http://en.wikipedia.org/wiki/YAML) configuration files, and run the major platforms
 - [Travis CI](https://magnum.travis-ci.com/) is a bit easier to configure, as it can infer a bit more about the system
-  - It provides free testing for public github repos
+  - It also provides free testing for public github repos
 - [Circle CI](https://circleci.com) has much better debugging facilities (you can SSH into the container, for example)
 - In the end, these two are a wash, and the services are largely identical for our purposes
 - Each project will be assigned to one of the two services
@@ -233,7 +241,7 @@
 	  <section data-markdown><script type="text/template">
 ## Configuring your CI service
 - See the [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md))
-- You will have to do this in iteration 4
+- You will have to do this in iteration 3
 	  </script></section>
 
 	</section>
@@ -246,12 +254,12 @@
 
 	  <section data-markdown><script type="text/template">
 ## Who is assigned to which group
-- Travis CI: band (6; cake), tjace (7; cake), haven (6; django), hopeslegacy (6; django), servicedogs (7; django), wtju (7; rails), arbor (7; rails), cars (7; rails)
-- Circle CI: jaunt (7; cake), was (7; cake), alzheimers (7; django), loaves (7; django), madisonhouse (7; django), innisfree (7; rails), shelter (7; rails)
+- Travis CI: aim (6, django), meals (8, django), pacem (7, django), readykids (6, cake), twice (7, django)
+- Circle CI: gcadc (8, django), helpline (8, django), pb&j (8, cake), rtf (8, django), 
 - Methodology
-  - 4 groups requested a CI service, and were granted that one
-  - There are 8 on Travis (including all the 6 person groups) and 7 on Circle
-  - Each service has 3 django, 2 cake, and 2 rails; Travis has an extra rails app
+  - 2 groups requested a CI service (one for Travis, one for Circle), and were granted that one
+  - The groups were balanced by the number of group members, not the number of groups
+    - There are 34 students on Travis and 32 on Circle
     </script></section>
 
     <section data-markdown><script type="text/template">
@@ -261,7 +269,7 @@
 3. Configure your project to run unit tests on the assigned CI service
 4. Have the status badge for your project's build shown at the top of your project's readme.md file
 5. Write a number of unit tests, beyond what was done in (2); see the next slide
-6. Ensure that all the unit tests written by the group (at least 30 or 35, depending on the group size) run successfully on the CI service
+6. Ensure that all the unit tests written by the group (at least 30, 35, or 40, depending on the group size) run successfully on the CI service
     </script></section>
 
     <section data-markdown><script type="text/template">
@@ -279,6 +287,22 @@
 - If you have tests, then they should all pass!
   - You can run the test specific to the code you are writing; the rest are run by the CI service
   - If they don't pass, then either fix the code or fix the test
+    </script></section>
+
+    <section data-markdown><script type="text/template">
+## Your build should never fail!
+- You are explicitly emailed by the CI service if your build fails, so there is no excuse why it should stay failing
+    </script></section>
+
+    <section data-markdown><script type="text/template">
+## How to begin
+- The [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) page in the repo that goes over how to configure your project
+- There are three repos that are now available to you: [rails-test](https://github.com/uva-slp/rails-test), [cake3-test](https://github.com/uva-slp/cake3-test), and [django-test](https://github.com/uva-slp/django-test)
+  - Each is configured with *both* Travis and Circle
+  - Each of those repos start with the default site, run through the tutorials from the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)), and then proceed to configure the CI tests
+    - You can view the commit diffs, if necessary
+  - The .travis.yml and circle.yml files in those repos are the sample files shown in the [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) page
+    - And theys how how to display the status badges (although you have to get your own API key)
     </script></section>
 
 
