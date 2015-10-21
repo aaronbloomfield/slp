@@ -252,7 +252,7 @@
 # Conclusions
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="assignments"><script type="text/template">
 ## Who is assigned to which group
 - Travis CI: aim (6, django), meals (8, django), pacem (7, django), readykids (6, cake), twice (7, django)
 - Circle CI: gcadc (8, django), helpline (8, django), pb&j (8, cake), rtf (8, django), 
@@ -294,8 +294,8 @@
 - You are explicitly emailed by the CI service if your build fails, so there is no excuse why it should stay failing
     </script></section>
 
-    <section data-markdown><script type="text/template">
-## How to begin
+    <section data-markdown id="howtobegin"><script type="text/template">
+## How to begin, part 1
 - The [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) page in the repo that goes over how to configure your project
 - There are three repos that are now available to you: [rails-test](https://github.com/uva-slp/rails-test), [cake3-test](https://github.com/uva-slp/cake3-test), and [django-test](https://github.com/uva-slp/django-test)
   - Each is configured with *both* Travis and Circle
@@ -305,6 +305,14 @@
     - And theys how how to display the status badges (although you have to get your own API key)
     </script></section>
 
+    <section data-markdown id="howtobegin"><script type="text/template">
+## How to begin, part 2
+- The CI servers will be set up, by me, to run the tests on your repo
+  - You have to create the appropriate configuration file
+- The [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) lists, at the very bottom, a series of steps to follow
+  - And that page describes the configuration files
+- You have to *each* write 5 unit tests
+    </script></section>
 
 	</section>
 
