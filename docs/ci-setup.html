@@ -90,7 +90,7 @@ if &#39;test&#39; in sys.argv:
 <pre><code>language: ruby
 
 rvm:
-  - 2.2.3
+  - 2.1.2
 
 before_script:
   - &quot;mysql -u root -e &#39;create database asb2t_test;&#39;&quot;
@@ -135,8 +135,8 @@ sudo: false</code></pre>
   - 5.5</code></pre>
 <p>While we are using PHP version 5.5.9, only the major and minor versions (i.e., 5.5) are specifed; the patch level (i.e., the &quot;.9&quot;) is not specified.</p>
 <pre><code>rvm:
-  - 2.2.3</code></pre>
-<p><a href="http://rvm.io/">RVM</a> is the Ruby Version Manager, which is a tool to manage Ruby and Rails versions. We are using <a href="https://github.com/sstephenson/rbenv">rbenv</a> (Ruby Environment) on the course server, but they both accomplish essentially the same thing. The second line in this stanza specifies the Ruby version that we want to use (2.2.3). Note that the Rails version is specified in our Gemfile, so we do not specify it here.</p>
+  - 2.1.2</code></pre>
+<p><a href="http://rvm.io/">RVM</a> is the Ruby Version Manager, which is a tool to manage Ruby and Rails versions. We are using <a href="https://github.com/sstephenson/rbenv">rbenv</a> (Ruby Environment) on the course server, but they both accomplish essentially the same thing. The second line in this stanza specifies the Ruby version that we want to use (2.1.2). Note that the Rails version is specified in our Gemfile, so we do not specify it here.</p>
 <pre><code>python:
   - &quot;2.7&quot;</code></pre>
 <p>This specifies the Python versionl the Django version is specified later. While we are using Python version 2.7.6, only the major and minor versions (i.e., 2.7) are specifed; the patch level (i.e., the &quot;.6&quot;) is not specified. Note that, unlike the other languages, the Python version is enclosed in double quotes.</p>
@@ -186,7 +186,7 @@ install:
 <p>Here is a sample circle.yml file for Rails apps:</p>
 <pre><code>machine:
   ruby:
-    version: 2.2.3
+    version: 2.1.2
 
 dependencies:
   pre:
@@ -222,7 +222,7 @@ dependencies:
     version: 2.7.6</code></pre>
 <pre><code>machine:
   ruby:
-    version: 2.2.3</code></pre>
+    version: 2.1.2</code></pre>
 <p>This is pretty self-explanitory about what this does. The choices for us are PHP, Python, and Ruby, depending on what platform you are using. Circle supports <a href="https://circleci.com/docs/environment">many other languages</a> as well. While there are other options that can be specified in the machine stanza, we won't need to use any of them now.</p>
 <p><strong>Dependencies</strong></p>
 <p>There are many types of dependencies that you can put into a circle.yml file, but we are only going to focus here on <em>pre</em> dependencies, which means it is done before anything else (including before the <code>bundle install</code> command for Rails apps).</p>

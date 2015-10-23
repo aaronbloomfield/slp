@@ -155,7 +155,7 @@ Here is a sample .travis.yml file for Rails apps:
 language: ruby
 
 rvm:
-  - 2.2.3
+  - 2.1.2
 
 before_script:
   - "mysql -u root -e 'create database asb2t_test;'"
@@ -227,10 +227,10 @@ While we are using PHP version 5.5.9, only the major and minor versions (i.e., 5
 
 ```
 rvm:
-  - 2.2.3
+  - 2.1.2
 ```
 
-[RVM](http://rvm.io/) is the Ruby Version Manager, which is a tool to manage Ruby and Rails versions.  We are using [rbenv](https://github.com/sstephenson/rbenv) (Ruby Environment) on the course server, but they both accomplish essentially the same thing.  The second line in this stanza specifies the Ruby version that we want to use (2.2.3).  Note that the Rails version is specified in our Gemfile, so we do not specify it here.
+[RVM](http://rvm.io/) is the Ruby Version Manager, which is a tool to manage Ruby and Rails versions.  We are using [rbenv](https://github.com/sstephenson/rbenv) (Ruby Environment) on the course server, but they both accomplish essentially the same thing.  The second line in this stanza specifies the Ruby version that we want to use (2.1.2).  Note that the Rails version is specified in our Gemfile, so we do not specify it here.
 
 ```
 python:
@@ -336,7 +336,7 @@ Here is a sample circle.yml file for Rails apps:
 ```
 machine:
   ruby:
-    version: 2.2.3
+    version: 2.1.2
 
 dependencies:
   pre:
@@ -390,7 +390,7 @@ machine:
 ```
 machine:
   ruby:
-    version: 2.2.3
+    version: 2.1.2
 ```
 
 This is pretty self-explanitory about what this does.  The choices for us are PHP, Python, and Ruby, depending on what platform you are using.  Circle supports [many other languages](https://circleci.com/docs/environment) as well.  While there are other options that can be specified in the machine stanza, we won't need to use any of them now.
