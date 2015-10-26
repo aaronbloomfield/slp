@@ -41,7 +41,7 @@ Lectures (fall 2015)
 | 21  | Oct&nbsp;14 | Wednesday   | group meetings |               | | |
 | 22  | Oct&nbsp;16 | Friday      | no class      |               | | |
 | 23  | Oct&nbsp;19 | Monday      | group meetings |               | Iteration 2 ends; **PHASE CHANGE** | |
-| 24  | Oct&nbsp;21 | Wednesday   | lecture       | Continuous Integration Testing | Iteration 3 begins (yesterday) | |
+| 24  | Oct&nbsp;21 | Wednesday   | lecture       | [Continuous Integration Testing][59] | Iteration 3 begins (yesterday) | |
 | 25  | Oct&nbsp;23 | Friday      | no class      |               | | |
 | 26  | Oct&nbsp;26 | Monday      | group meetings |               | | |
 | 27  | Oct&nbsp;28 | Wednesday   | lecture       | CI Testing work day | | |
@@ -114,8 +114,8 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [56]: ../slides/06-customer-meetings.html#/
 [57]: ../slides/07-estimation.html#/
 [58]: ../slides/08-wireframing.html#/
-[59]: ../slides/09-documentation.html#/
-[60]: ../slides/10-ci-testing.html#/
+[59]: ../slides/09-ci-testing.html#/
+[60]: ../slides/10-documentation.html#/
 
 [81]: daily-announcements.html#citestingworkday
 
