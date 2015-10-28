@@ -61,6 +61,103 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2>Wednesday, October 28th, 2015</h2>
+<h4></h4>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1595/">xkcd # 1595</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, October 28th, 2015
+- We are at the middle of iteration 3 (day 9)
+  - Leads: your weekly reports are due yesterday, and everybody turned them in!
+- Phase change one week ago
+  - If you have not done so, please complete the end-of-phase survey; see [here](#/end-of-phase-survey) for details.
+  - Three people have not and I'm getting cranky.
+- Course server stuff (CNAME for URLs, installing packages, etc.)
+- CS 4971 in the spring: 10 a.m. in THN E303 (good time, bad room)
+- Iteration 2 evaluations released late last week -- please look them over!  Goals are [here](#/it2goals)
+  - You have two weeks (until November 13th) to request a re-evaluation
+- Reminders (all done via the [course administration tool](https://slp.cs.virginia.edu/admin))
+  - Don't forget to report your hours!  This is a course requirement
+  - Also, please don't forget to submit meeting reports whenever you meet with a customer (but don't do this with the meetings with the grad TA)
+  - Likewise, all group meetings need to have notes taken
+    - You can back-date meeting notes, if necessary (via stating so in the title)
+  - If you miss class for a *valid* reason, please submit an excuse for that day to prevent you from being marked absent
+- New repo you have access to: [uva-slp/tutorials](https://github.com/uva-slp/tutorials); while some may be outdated, many will be *quite* useful, such as setting up your dev platform
+- Today is a continuous integration group work day; more on this in a bit
+	  </script></section>
+
+	  <section data-markdown id="it3goals"><script type="text/template">
+## A question about the course structure
+- Two of the surveys requested that the information for this class be presented in a different manner
+  - Calendar, schedule, etc.
+- What would help the most?
+- Some thoughts...
+  - A calendar would just have the list of iterations (found [here](course-introduction-fall.html#/itlist)) and phases (found [here](course-introduction-fall.html#/phlist))
+    - Should I make those links more prominent? I can put them on the [SLP: UVa](index.html) page
+  - The current iteration goals are always listed in each day's daily announcements
+    - In general, I aim to make *all* the things-to-be-remembered available in the most recent day's daily announcements
+  - I could have a what-is-due-when for a given iteration, but it really is just two things:
+    - When the three types of reports are due (found [here](course-introduction-fall.html#/reports))
+    - All the stuff that is due at the end (the [iteration goals](iteration-goals.html#/) and the reporting of hours)
+- So what would help the most?
+  - Feel free to email me later or leave me [anonymous feedback](https://collab.itc.virginia.edu/portal/site/abd4c720-2e1c-4e78-ba51-747402696f40/page/c4420ab7-347c-42df-beef-39869b8179a2) about this
+	  </script></section>
+
+	  <section data-markdown id="it3goals"><script type="text/template">
+## Goals for Iteration 3
+- Complete 24 / 28 / 32 story points worth of stuff
+  - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
+  - Your site should have significnantly more functionality than last time
+- Show the wireframe to the customer, get their feedback, iterate on the design
+- You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
+  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
+  - The respective CI server is already set up to run tests on your repo on every push
+  - Yout have to write the configuration file to get it to work properly
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
+- You will have to write a number of unit tests (at least 5 per person)
+	  </script></section>
+
+  <section data-markdown id="citestingworkday"><script type="text/template">
+## Today's task
+- Today we will be working on the CI testing setup
+- No groups are fully there yet (which is fine, since it's due at the end of the iteration)
+  - 5 (of 9) groups have passing builds, but nobody has a significant number of their unit tests written yet
+  - Recall that each *person* must contribute at least 5 valid test cases (and one fixture per person)
+- To do today:
+  - Get Travis or Circle configured for your project
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+  - Contribute the desired number of unit tests (at least 5 per person)
+- At the end of today, all the build status badges should be green!
+  </script></section>
+
+  <section id="cistatus">
+<h2>CI Testing Status</h2>
+<table class="transparent" style="font-size:18pt">
+<tr><td style="border-bottom:0px">AIM</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/aim"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/aim.svg?branch=master&token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">GCADC</td><td style="border-bottom:0px"><a href="https://circleci.com/gh/uva-slp/gcadc"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/gcadc.png?style=shield"></a></td></tr>
+<tr><td style="border-bottom:0px">HELP Line</td><td style="border-bottom:0px"><a href="https://circleci.com/gh/uva-slp/helpline"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/helpline.png?style=shield"></a></td></tr>
+<tr><td style="border-bottom:0px">Meals</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/meals"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/meals.svg?branch=master&token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">PACEM</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/pacem"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/pacem.svg?branch=master&token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">PB&amp;J Fund</td><td style="border-bottom:0px"><a href="https://circleci.com/gh/uva-slp/pbjfund"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/pbjfund.png?style=shield"></a></td></tr>
+<tr><td style="border-bottom:0px">ReadyKids</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/readykids"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/readykids.svg?branch=master&token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">Rivanna Trails</td><td style="border-bottom:0px"><a href="https://circleci.com/gh/uva-slp/rtf"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://circleci.com/gh/uva-slp/rtf.png?style=shield"></a></td></tr>
+<tr><td style="border-bottom:0px">Twice is Nice</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/twice"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/twice.svg?branch=master&token=travistoken"></a></td></tr>
+</table>
+<p>This page refreshes every 30 seconds</p>
+<p style="font-size:18px">This page will not display the tokens properly unless you are both (1) logged into circleci.com with view access to those repos, and (2) you manually change the TravisCI token in the HTML code of this page</p>
+  </section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Monday, October 26th, 2015</h2>
 <h4>30 Days Hath September</h4>
 <img class="stretch" src="http://imgs.xkcd.com/comics/30_days_hath_september.png" title="There&#39;s a cool mental calculation hack I recently learned for this: If you open the calendar app on your phone or computer, the highest-numbered box along the bottom is equal to the number of days in the month!" alt="30 Days Hath September">
@@ -87,7 +184,7 @@ line-height:120%;
 - Today is a group work day
 	  </script></section>
 
-	  <section data-markdown id="it3goals"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Goals for Iteration 3
 - Complete 24 / 28 / 32 story points worth of stuff
   - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
@@ -160,7 +257,7 @@ line-height:120%;
 [4]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/surveys/end_of_phase/survey-p4.html
 	  </script></section>
 
-	  <section data-markdown id="it3goals"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Goals for Iteration 3
 - Complete 24 / 28 / 32 story points worth of stuff
   - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
@@ -176,7 +273,7 @@ line-height:120%;
 - You will have to write a number of unit tests (at least 5 per person)
 	  </script></section>
 
-	  <section data-markdown id="it3goals"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Attendance check-in
 - Note that check-ins are only necessary when prompted
   - They don't hurt otherwise, but they don't do anything
@@ -1225,6 +1322,22 @@ due by Friday at noon
     <script src="../slides/reveal.js/lib/js/head.min.js"></script>
     <script src="../slides/reveal.js/js/reveal.js"></script>
     <script src="../slides/js/settings.js"></script>
+<script>
+var interval;
+
+function reloadCIStatusPage() {
+  if (Reveal.getCurrentSlide().id == "cistatus" )
+    location.reload();
+  else
+    clearInterval(interval);
+}
+
+Reveal.addEventListener( 'slidechanged', function( event ) {
+  if ( event.currentSlide.id == "cistatus" ) {
+    var interval = setInterval(function(){reloadCIStatusPage()}, 30000000);
+  }
+} );
+</script>
 
   </body>
 </html>

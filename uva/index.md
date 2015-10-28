@@ -44,7 +44,7 @@ Lectures (fall 2015)
 | 24  | Oct&nbsp;21 | Wednesday   | lecture       | [Continuous Integration Testing][59] | Iteration 3 begins (yesterday) | |
 | 25  | Oct&nbsp;23 | Friday      | no class      |               | | |
 | 26  | Oct&nbsp;26 | Monday      | group meetings |               | | |
-| 27  | Oct&nbsp;28 | Wednesday   | lecture       | CI Testing work day | | |
+| 27  | Oct&nbsp;28 | Wednesday   | lecture       | [CI Testing work day][81] | | |
 | 28  | Oct&nbsp;30 | Friday      | no class      |               | | |
 | 29  | Nov&nbsp;2  | Monday      | group meetings |               | Iteration 3 ends | |
 | 30  | Nov&nbsp;4  | Wednesday   | lecture       | Documentation | Iteration 4 begins (yesterday) | |
