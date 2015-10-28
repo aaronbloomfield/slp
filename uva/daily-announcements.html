@@ -149,6 +149,11 @@ line-height:120%;
 <tr><td style="border-bottom:0px">Twice is Nice</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/twice"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/twice.svg?branch=master&token=travistoken"></a></td></tr>
 </table>
 <p>This page refreshes every 30 seconds</p>
+<p style="font-size:18px">This page last updated on: <span id="cistatusdate">...</span></p>
+<script>
+    var now = new Date();
+    document.getElementById("cistatusdate").innerHTML = now;
+</script>
 <p style="font-size:18px">This page will not display the tokens properly unless you are both (1) logged into circleci.com with view access to those repos, and (2) you manually change the TravisCI token in the HTML code of this page</p>
   </section>
 
