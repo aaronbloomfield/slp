@@ -62,21 +62,22 @@ line-height:120%;
 
 	  <section>
 <h2>Wednesday, October 28th, 2015</h2>
-<h4></h4>
-<img class="stretch" >
-<p class="center"><a href="http://xkcd.com/1595/">xkcd # 1595</a></p>
+<h4>Launch Status Check</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/launch_status_check.png" title="Visual checks suggest the cool bird has exited the launch zone. Tip the rocket sideways and resume the countdown--we&#39;re gonna go find it!" alt="Launch Status Check">
+<p class="center"><a href="http://xkcd.com/1596/">xkcd # 1596</a></p>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Wednesday, October 28th, 2015
 - We are at the middle of iteration 3 (day 9)
-  - Leads: your weekly reports are due yesterday, and everybody turned them in!
+  - Leads: your weekly reports are due yesterday (everybody turned them in)
 - Phase change one week ago
   - If you have not done so, please complete the end-of-phase survey; see [here](#/end-of-phase-survey) for details.
-  - Three people have not and I'm getting cranky.
+  - Two people have not and I'm getting cranky.
 - Course server stuff (CNAME for URLs, installing packages, etc.)
 - CS 4971 in the spring: 10 a.m. in THN E303 (good time, bad room)
-- Iteration 2 evaluations released late last week -- please look them over!  Goals are [here](#/it2goals)
+- Iteration 2 evaluations released late last week -- please look them over!
+  - Iteration 2 goals are [here](#/it2goals)
   - You have two weeks (until November 13th) to request a re-evaluation
 - Reminders (all done via the [course administration tool](https://slp.cs.virginia.edu/admin))
   - Don't forget to report your hours!  This is a course requirement
@@ -126,7 +127,7 @@ line-height:120%;
 - Today we will be working on the CI testing setup
 - No groups are fully there yet (which is fine, since it's due at the end of the iteration)
   - 5 (of 9) groups have passing builds, but nobody has a significant number of their unit tests written yet
-  - Recall that each *person* must contribute at least 5 valid test cases (and one fixture per person)
+  - In addition, recall that each *person* must contribute at least 5 valid test cases (and one fixture per person)
 - To do today:
   - Get Travis or Circle configured for your project
   - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
@@ -1334,7 +1335,7 @@ function reloadCIStatusPage() {
 
 Reveal.addEventListener( 'slidechanged', function( event ) {
   if ( event.currentSlide.id == "cistatus" ) {
-    var interval = setInterval(function(){reloadCIStatusPage()}, 30000000);
+    var interval = setInterval(function(){reloadCIStatusPage()}, 30000);
   }
 } );
 </script>
