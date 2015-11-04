@@ -62,9 +62,9 @@ Lectures (fall 2015)
 | 40  | Dec&nbsp;2  | Wednesday   | lecture       |               | Iteration 6 begins (yesterday) | |
 | 41  | Dec&nbsp;4  | Friday      | no class      |               | | |
 | 42  | Dec&nbsp;7  | Monday      | group meetings |               | | |
-|     | Dec&nbsp;9  | Wednesday   | lecture       |               | | |
+|     | Dec&nbsp;9  | Wednesday   | no class       |               | | |
 |     | Dec&nbsp;11 | Friday      | no class      |               | | |
-|     | Dec&nbsp;14 | Monday      | group meetings |               | Iteration 6 ends; **PHASE CHANGE** | |
+|     | Dec&nbsp;14 | Monday      | no class |               | Iteration 6 ends; **PHASE CHANGE** | |
 
 
 Iteration Schedule, fall 2015 and spring 2016
