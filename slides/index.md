@@ -8,6 +8,19 @@ in current versions of Firefox will prevent the font used in the
 slides from displaying correctly; Google Chrome does not have this
 bug, and displays the slides correctly.
 
+------------------------------------------------------------
+
+### Spring lectures
+
+- Daily announcements (UVa specific)
+- [Course Introduction (spring)](../uva/course-introduction-spring.html#/) (UVa specific)
+- [11: Deliverables](11-deliverables.html#/)
+- [12: Testing](12-testing.html#/)
+- [13: Maintenance](13-maintenance.html#/)
+- [Course conclusion](../uva/course-conclusion.html#/) (UVa specific)
+
+------------------------------------------------------------
+
 ### Fall lectures
 
 - [Daily announcements](../uva/daily-announcements.html#/) (UVa specific)
@@ -22,17 +35,6 @@ bug, and displays the slides correctly.
 - [08: Wireframing](08-wireframing.html#/)
 - [09: Continuous integration testing](09-ci-testing.html#/)
 - [10: Documentation](10-documentation.html#/)
-
-------------------------------------------------------------
-
-### Spring lectures
-
-- Daily announcements (UVa specific)
-- [Course Introduction (spring)](../uva/course-introduction-spring.html#/) (UVa specific)
-- [11: Deliverables](11-deliverables.html#/)
-- [12: Testing](12-testing.html#/)
-- [13: Maintenance](13-maintenance.html#/)
-- [Course conclusion](../uva/course-conclusion.html#/) (UVa specific)
 
 ------------------------------------------------------------
 

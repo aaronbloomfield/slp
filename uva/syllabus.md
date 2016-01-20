@@ -7,9 +7,9 @@ This syllabus applies two two courses: CS 4970 in the fall of 2015 (called "Caps
 
 ### Fall 2015 and Spring 2016, [https://github.com/aaronbloomfield/slp/](https://github.com/aaronbloomfield/slp/)
 ### Fall 2015: M/W/F 12:00-12:50, Rice 130
-### Spring 2016 (times to be determined; room to be determined)
+### Spring 2016: M/W/F 10:00-10:50, Rice 130
 
-**Instructor:** [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron).  Office is Rice Hall, room 403.  Office hours are M/W 1:30-3:00.
+**Instructor:** [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron).  Office is Rice Hall, room 403.  Office hours are M/W 1:30-3:00 for the fall, and TBA for the spring.
 
 **Course Description:** The Service Learning Practicum course involves the application of software engineering and computing principles to the development of a complete software system for non-profit organizations in our community. Students will be expected to work through the entire software system development process, including customer interfacing for requirements, detailed design, and a comprehensive maintenance plan.
 

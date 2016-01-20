@@ -5,6 +5,10 @@ Old UVa-specific SLP files
 
 This page contains various files from previous semesters at UVa.
 
+### Fall 2015 (CS 4970)
+- [Daily announcements, fall 2015](daily-announcements-fall-2015.html#/)
+- [UVa main page, fall 2015](uva-page-fall-2015.html) ([md](uva-page-fall-2015.md))
+
 ### Spring 2015 (CS 4971)
 - [Daily announcements, spring 2015](daily-announcements-spring-2015.html#/)
 - [UVa main page, spring 2015](uva-page-spring-2015.html) ([md](uva-page-spring-2015.md))

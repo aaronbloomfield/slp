@@ -52,23 +52,23 @@
 	<section data-markdown><script type="text/template">
 ## Compressed course introduction
 - Pretty much everything is the same as last semester, expect for the few things mentioned herein
-  - See last semester's [course introduction slide set](course-introduction-fall.html), and the [course syllabus](syllabus.html) ([md](syllabus.md)), for details
+  - See last semester's [course introduction slide set](course-introduction-fall.html#/), and the [course syllabus](syllabus.html) ([md](syllabus.md)), for details
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Iteration plan
-- There will be 8 two-week iterations this semester (numbered 7-14); iteration 7 starts tomorrow
+- There will be 8 two-week iterations this semester (numbered 7-14); iteration 7 started yesterday
   - We have new leads and secretaries
-- The system must be *feature-complete* by the end of iteration 11 (March 23)
+- The system must be *feature-complete* by the end of iteration 11 (March 28)
   - Missing this deadline will result in <strong class="red">failure for the course</strong>!
-  - Note that we now have a [bunch of tutorials](http://github.com/uva-slp/tutorials) about how to implement various things
+  - Note that we have a [bunch of tutorials](http://github.com/uva-slp/tutorials) about how to implement various things
 - That leaves iterations 12-14 for transition: bug fixes, tweaks, testing, deployment, documentation, maintenance, etc.
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Wait? documentation, you say???
 - Yes, documentation:
-  - Transition plan (consists of: Deployment plan, Test plan(s))
+  - Transition plan (consists of the deployment plan, test plan(s), etc.)
   - User manual
   - Installation instructions
   - Programming reference
@@ -76,7 +76,7 @@
   - STS technical report
 - I'm looking for complete documentation, not necessarily long-winded documentation
 - I will provide detailed instructions as to what goes into each
-  - It's in the [deliverables](02-deliverables.html) slide set, which will be gone over in lecture
+  - It's in the [deliverables](../slides/11-deliverables.html#/) slide set, which will be gone over in lecture
 	</script></section>
 
 	<section data-markdown><script type="text/template">
@@ -112,59 +112,71 @@
 	</script></section>
 
 	<section data-markdown><script type="text/template">
-## Phases
-- For the 6 person groups, there will be 3 phases this semester:
+## Semester Phases
+- For the 6 person groups, there will be 3 phases:
   - Phase 4: iterations 7-9 (3 iterations)
   - Phase 5: iterations 10-11 (2 iterations)
   - Phase 6: iterations 12-14 (3 iterations)
-- For the 7 person group, there will be 4 phases this semester:
+- For the 7 person group, there will be 4 phases:
   - Phase 4: iterations 7-8 (2 iterations)
   - Phase 5: iterations 9-10 (2 iterations)
   - Phase 6: iterations 11-12 (2 iterations)
   - Phase 7: iterations 13-14 (2 iterations)
-- If there ends up being a 5 person group, we'll chat about that offline
-- Full schedule can be found [here](schedule.html) ([md](schedule.md))
+- If there ends up being a 5 person group, we can chat about how to handle this
+- There are no longer any 8-person groups
+- Full schedule can be found [here](index.html) ([md](index.md)), at the bottom
 	  </script></section>
 
 	<section data-markdown><script type="text/template">
-## Deployment Plan
-- The deliverable for iteration 7 is the **Deployment Plan**
-  - We are going to go over it in detail on Wednesday
-  - It will require input from the customer
-- If you are going to have a customer meeting **BEFORE** Wednesday's lecture, you must speak to me in class today, and I'll fill you in on what you need to ask
-	</script></section>
-
-	<section data-markdown><script type="text/template">
 ## Project Status
-- Your customer should have played with the system over break
+- Your customer should have used the system over break
 - You should thus have feedback from him or her
   - (you may have to email them to remind them to send you that feedback)
-- That, plus existing github issues, should provide you some stuff to do in the current iteration
+- That, plus existing github issues, should provide you some idea of what to work on in the current iteration
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Meetings
 - You do not have to have your bi-weekly meeting with the customer this iteration, **AS LONG AS** you get email feedback instead
   - Although you are welcome to do so
-- The bi-weekly meetings with the graduate TA will start next iteration
+- The bi-weekly meetings with the customer and also graduate TA will start next iteration
+  - We'll have a scheduling period during next Monday's group meeting lecture
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Deployment Plan
+- The deliverable for iteration 7 is the **Deployment Plan**
+  - We are going to go over it in detail next Wednesday
+  - It will require input from the customer (via email is fine)
+- If you are going to have a customer meeting **BEFORE** Wednesday's lecture, you must speak to me in class today, and I'll fill you in on what you need to ask
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Grades reminder
-As mentioned in the [first lecture in the fall](course-introduction-fall.html) (specifically, [here](course-introduction-fall.html#/grades)):
+From the [first lecture in the fall](course-introduction-fall.html) (specifically, [here](course-introduction-fall.html#/grades)):
 
 - Not completing time sheets or surveys will penalize your grade
   - Likewise with reports
 - ***EVERYBODY*** is expected to contribute to the project
   - This means, among other things, that there should be (real) git commits from everybody (and likely for each iteration)
 - We can re-do the spring iteration evaluations, for example if we could not find something, as long as it is brought to our attention within a reasonable time frame (say, 2 weeks from when they are released)
-- Attendance is still required (I know the class starts at 9 a.m., and I can't do anything about that)
+- Attendance is still required
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+## Course size issues
+- About 10% of last semester's class will not be in this spring's class
+  - They weren't all due to failures!
+- Registration is currently at 59, which is where I expect it to settle
+- This means the group sizes will be changing
+  - There are no longer any 8-person groups
+- If your team size changed, then every team will have to fill out a new [SLP Project Start Information Sheet](../uva/project-start-info-sheet-2015.pdf)
 	</script></section>
 
 	<section data-markdown><script type="text/template">
 ## Today's agenda: group meeting
 - It's the beginning of iteration 7:
-  - New leads and secretaries 
+  - New leads and secretaries (and possibly re-doing the [SLP Project Start Information Sheet](../uva/project-start-info-sheet-2015.pdf))
   - Is your CI build green?
   - Did you get feedback from the customer?
   - What issues will be worked on during this iteration?
@@ -174,14 +186,16 @@ As mentioned in the [first lecture in the fall](course-introduction-fall.html) (
 
 	<section data-markdown><script type="text/template">
 ## Schedule for the first month
-- Mon, Jan 12th (today): course introduction, group meetings
-- Wed, Jan 14th: deployment plan discussion, group meetings
-- Mon, Jan 19th: no class, as it's MLK day
-- Wed, Jan 21st: group meetings (since they weren't that Monday)
-- Mon, Jan 26th: group meetings
-- Wed, Jan 28th: [deliverables](02-deliverables.html) lecture
-- Mon, Feb 2nd: group meetings
-- Wed, Feb 4th: the rest of the [deliverables](02-deliverables.html) lecture
+- Wed, Jan 20th (today): course introduction, group meetings
+- Mon, Jan 25th: group meetings
+- Wed, Jan 27th: [deliverables](11-deliverables.html#/) lecture
+- Mon, Feb 1st: group meetings
+- Wed, Feb 3rd: the rest of the [deliverables](11-deliverables.html#/) lecture
+- Mon, Feb 8th: group meetings
+- Wed, Feb 10th: [testing](12-testing.html#/) lecture
+- Mon, Feb 15th: group meetings
+- Wed, Feb 17th: the rest of the [testing](12-testing.html#/) lecture
+- Mon, Feb 22nd: group meetings
 	</script></section>
 
       </div>
