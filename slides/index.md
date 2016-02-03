@@ -12,7 +12,7 @@ bug, and displays the slides correctly.
 
 ### Spring lectures
 
-- Daily announcements (UVa specific)
+- [Daily announcements](../uva/daily-announcements.html#/) (UVa specific)
 - [Course Introduction (spring)](../uva/course-introduction-spring.html#/) (UVa specific)
 - [11: Deliverables](11-deliverables.html#/)
 - [12: Testing](12-testing.html#/)
@@ -23,7 +23,7 @@ bug, and displays the slides correctly.
 
 ### Fall lectures
 
-- [Daily announcements](../uva/daily-announcements.html#/) (UVa specific)
+- [Daily announcements, fall 2015](../uva/old/daily-announcements-fall-2015.html#/) (UVa specific)
 - [Course introduction (fall)](../uva/course-introduction-fall.html#/) (UVa specific)
 - [01: Development methods](01-development-methods.html#/)
 - [02: Legal Issues](02-legal.html#/)
