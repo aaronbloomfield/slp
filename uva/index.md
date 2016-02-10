@@ -12,7 +12,7 @@ Much of the rest of this git repo is meant to be generic to anybody who has a cl
 - The collected [iteration goals](iteration-goals.html#/)
 - [Old UVa SLP documents][6] ([md][7]), including the lectures and schedule from previous semesters
 
-Lectures (spring 2015)
+Lectures (spring 2016)
 --------------------
 
 This will be filled in shortly...

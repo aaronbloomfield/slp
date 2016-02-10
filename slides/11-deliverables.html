@@ -479,7 +479,7 @@
 ## Format
 
 <table class="transparent"><tr>
-<td class="top"><p>&nbsp;</p><ul><li>Two-column</li><li>Single spaced</li><li>Size 10 font</li><li>Standard margins</li><li>5-6 pages</li><li>That will be<br>somewhere<br>between<br>4,000 to 5,000<br>words</li></td>
+<td class="top"><p>&nbsp;</p><ul><li>Two-column</li><li>Single spaced</li><li>Size 10 font</li><li>Standard margins</li><li>5-6 pages</li><li>That will be<br>somewhere<br>between<br>4,000 to 5,000<br>words</li></ul></td>
 <td><img src="images/slp-article-first-page.png" alt="SLP paper first page"></td>
 </tr></table>
 
@@ -540,7 +540,7 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Sections, part 4
+## Sections, part 5
 - *Results*
   - The system solved some problem – what are the results of that?
   - Example: "The scheduler allowed the customer to prepare a schedule in 30 minutes, where it took 3 hours before"
@@ -552,7 +552,7 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Sections, part 5
+## Sections, part 6
 - *Future work*
   - If you had a full-time job for an entire year to work on this system -- and only this system -- what features would you add?
 - *Acknowledgments*
@@ -578,13 +578,20 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## This to remove
-- In both templates (and especially the LaTeX version), there are a few items that we do not need:
-  - The license block (very bottom of the 1st column on the first page)
-  - Categories and Subject Descriptions
-  - General Terms
-  - Keywords
-- You can (and should) remove all of these.
+## Things to remove
+
+<table class="transparent"><tr>
+<td class="top" width="63%">
+<ul><li>In both templates (and especially the LaTeX version), there are a few items that we do not need:<ul>
+<li>The license block (very bottom of the 1st column on the first page)</li>
+<li>Categories and Subject Descriptions</li>
+<li>General Terms</li>
+<li>Keywords</li></ul></li>
+<li>You can (and should) remove all of these.</li>
+</ul></td>
+<td><img src="images/slp-article-first-page.png" alt="SLP paper first page"></td>
+</tr></table>
+
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -658,6 +665,7 @@
 - Everybody in the group should participate in some way; this is a group presentation
 - This should be rehearsed, and flow smoothly
   - If you were presenting such a project in front of your boss, you would not want to run into logistical problems during the presentation (such as, "wait, I thought *you* were talking about this part")
+- Format is described [here](#/finalpresformat)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -673,7 +681,7 @@
 ## What to include, part 2
 - Tools used (or things used well) - this could be efficient or innovative use of the provided tools (git, github, etc.), but is more likely going to be additional tools that you used
   - Here, a "tool" is something that supports the development of the system, but is not part of it.
-  - Don't bother explaining to us what Redmine is (or any other tool the rest of the class used)
+  - Don't bother explaining to us what github is (or any other tool the rest of the class used)
 - Challenges you faced while developing it
 - Any significant requirements changes (either by the customer, or a change of the "minimum" or "desired" requirements)
   - Keep in mind the customer may be present, so phrase it accordingly...
@@ -716,7 +724,7 @@
 - The intent is to merge all the slides into a single slide show to show off all that you have done
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="finalpresformat"><script type="text/template">
 ## Format
 - You are welcome to use any software that you want for your main presentation
   - PowerPoint (from Microsoft Office), Impress (from LibreOffice), Keynote (Mac OS X), or reveal.js (what this slide set is in)
@@ -739,9 +747,9 @@
 ## Overview
 - Everybody will create a tutorial on something
 - Audience: your fellow students in the class
-- As you think of topics throughout the semester, feel free to e-mail them to me
-  - I have to verify all topics
-  - And it's first-come first-serve
+- As you think of topics throughout the semester, you should reserve them
+  - In the [uva-slp/tutorials wiki](https://github.com/uva-slp/tutorials/wiki) there is a [reservations page](https://github.com/uva-slp/tutorials/wiki/Reservations) where you should reserve your topics
+  - It's first-come first-serve
 - Look over the tutorials in [uva-slp/tutorials](https://github.com/uva-slp/tutorials), as you can't duplicate something that is there
 - This is in lieu of the final exam!
 	  </script></section>
@@ -751,7 +759,7 @@
 - The intent is to write a tutorial on *something* that you had to work through this semester
   - Something that, if you had had a tutorial ahead of time, would have saved you time or effort
   - It must be something that there does not exist a tutorial already online
-- They are due at either the beginning or the end of the final exam period (Thu, May 5th, from 9 a.m. to 12 noon)
+- They are due at the *beginning* of the final exam period (Thu, May 5th, from 9 a.m. to 12 noon)
   - At the beginning if we are doing our presentations then; at the end if we do our presentations earlier
 	  </script></section>
 
@@ -761,7 +769,7 @@
 - All the tutorials must be developed in the [uva-slp/tutorials](https://github.com/uva-slp/tutorials), just like last semester
   - Preference would be for each tutorial to be on one page (i.e. no sub-pages), if possible
 - Tutorials should have embedded images, screen shots, code segments, etc., as appropriate. 
-- You are welcome to build upon existing online tutorials, but you must also cite them as well.
+- You are welcome to build upon existing online tutorials, but you must also cite them as well
 - However, we do NOT want you just duplicating an existing online tutorial
 	  </script></section>
 
@@ -818,7 +826,7 @@
 	  <section data-markdown><script type="text/template">
 ## Documentation submission, cont'd
 - Stuff to include:
-  - user-manual.md/pdf: the Markdown or PDF version of the user manual
+  - user-manual.pdf: the Markdown or PDF version of the user manual
   - installation-instructions.md/pdf: the installation instructions (actually part of the transition plan, mentioned on the next slide also)
   - programming-reference.md/pdf: the programming reference
     - If it's part of the code base (such as doxygen comments), then there should still be a programming-reference.md/pdf file that states this (and has quick directions how to generate said documentation)
@@ -828,13 +836,13 @@
 ## Documentation submission, cont'd
 - More contents to include:
   - technical-report.pdf: what you turned in for your STS thesis
-  - requirements-document.md/pdf: what was completed at the end of iteration 11
+  - requirements-document.md: what was completed at the end of iteration 11
   - Transition plan documents: what you developed in iterations 7-10
-    - deployment-plan.md/pdf
-    - installation-instructions.md/pdf
-    - master-test-plan.md/pdf
+    - deployment-plan.md
+    - installation-instructions.md
+    - master-test-plan.md
     - coverage/index.html (code coverage report, described [here](12-testing.html#/codecoverage))
-  - specific-test-plan.md/pdf
+  - specific-test-plan.md
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -854,6 +862,14 @@
 - More contents to include:
   - readme.md: this should any explanations about where files (for online files) are or how to access them, or anything else that is relevant to the documentation
     - If there is nothing to report, please just put "nothing to report" in a readme.md file, so that I know this file wasn't just forgotten
+	  </script></section>
+
+	  <section data-markdown id="readmemd"><script type="text/template">
+## File formats
+- Some things will be PDF (along with the source files in the repo):
+  - Definitely the user manual, technical report, an export of the final presentation
+  - Possibly the installation instructions and programming reference (those can be Markdown also)
+- All other things will likely be Markdown
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -893,6 +909,7 @@
 - More stuff to email the customer:
   - A .zip file of the code base
     - Indicate to them that I can also provide this code base as well
+    - You are welcome to download this from github, but be **SURE** to remove the .git/ directory before you re-zip it back up and email it to the customer!
 - If the customer wants to see more of the documentation, that's fine
   - Nothing is really secret from them; I just assumed they would not be interested in the rest
 - And thank them for their participation!  I want to remain on good terms!
@@ -925,7 +942,7 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Due dates
+## Due dates, part 1
 - Due at the end of iterations 7-11:
   - Iteration 7 (February 1st): deployment plan
   - Iteration 8 (February 15th): installation instructions
@@ -935,7 +952,13 @@
 - Due throughout the transition period (iterations 12-14; specific dates TBA): user manual, programming reference
 - Due ????: STS technical report
   - I will need them two weeks before STS needs them
-- Due at the beginning or end of the final exam period (Thu, May 5th from 9 a.m. to 12 noon): final presentation slide set, screen shot(s), the one-slide version, and the tutorial
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Due dates, part 2
+- Due at the beginning or end of the final exam period (Thu, May 5th from 9 a.m. to 12 noon): final presentation slide set and your tutorial
+- Due at the end of iteration 14: the final hand-off to the customer, screen shot(s), and the one-slide version
+  - Note that I will have to check everything in the repo, so don't wait until the last minute to do them!
 	  </script></section>
 
 	</section>
