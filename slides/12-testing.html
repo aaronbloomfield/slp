@@ -681,7 +681,7 @@ qux(4);
 - Each of the platform tools follow, with an online example
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="codecoverage-python"><script type="text/template">
 ## Python / Django instructions
 - The assumption is that `python manage.py test` works
 - Install [coverage.py](https://pypi.python.org/pypi/coverage) (already done on the course server):
@@ -702,7 +702,7 @@ python-coverage html -d coverage
   - The first is a text-based report; the second is text-based and includes line numbers; the third is an HTML-based report (in a coverage/ sub-directory)
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="codecoverage-php"><script type="text/template">
 ## PHP / CakePHP instructions
 - The assumption is that `phpunit` works
 - No additional installs are necessary
@@ -716,7 +716,7 @@ phpunit --coverage-html coverage
   - The first generates a text-based report to standard output; the second generates a text-based report to `report.txt`; the third creates an HTML-based report in the `coverage/` sub-directory
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="codecoverage-rails"><script type="text/template">
 ## Ruby / Rails
 - The assumption is that `bundle exec rake test` works
 - Installation (instructions are duplicated from [here](https://github.com/colszowka/simplecov#getting-started)):
