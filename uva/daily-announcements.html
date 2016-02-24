@@ -64,12 +64,123 @@ line-height:120%;
 	  <section>
 <h2></h2>
 <img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1647/">xkcd # 1647</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, February 24th
+- We are in the middle of iteration 9
+  - Leads: your weekly reports were due yesterday by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
+    - Two groups didn't get it in...
+  - The deliverable for this iteration is the [code coverage report](../slides/12-testing.html#/codecoverage), as well as 60% unit test coverage
+  - Iteration goals are on a successive slide...
+  - We plan on doing a mid-semester individual evaluation with the iteration 9 group evaluations
+- Iteration 8 group evaluations were released
+  - Remember that you have two weeks (from when they were released) to ask for a re-evaluation; email Wasi for that, or bring it up at your meeting with him
+  - With the end of iteration 8, all 7 person groups (and those following the 7 person group schedule) have to fill out the end-of-phase surveys; reminders have been sent
+    - You can't wait forever to complete this!  It is very bad to not complete the surveys.
+- We've discussed the [grad TA meeting schedule](#/gradtaschedule), the [spring semester iterations and phases](#/phasechanges) and the [phase change schedule](#/phasechangeschedule)
+- Reminders (all done via the [course administration tool](https://slp.cs.virginia.edu/admin))
+  - Don't forget to report your hours!  This is a course requirement
+  - Also, please don't forget to submit meeting reports whenever you meet with a customer 
+  - Likewise, all group meetings need to have notes taken (backdate via noting such in the title)
+  - If you miss class for a *valid* reason, please submit an excuse to avoid being marked absent
+- Remember that you have access [uva-slp/tutorials](https://github.com/uva-slp/tutorials) repo; while some may be outdated, many will be *quite* useful, such as setting up your dev platform
+- Today is the first of two lectures on [testing](../slides/12-testing.html#/)
+	  </script></section>
+
+	<section data-markdown><script type="text/template">
+## (Updated) schedule for the first "month"
+- ~~Wed, Jan 20th course introduction, group meetings~~
+- ~~Mon, Jan 25th: snow day~~
+- ~~Wed, Jan 27th: group meetings~~
+- ~~Mon, Feb 1st: group meetings~~
+- ~~Wed, Feb 3rd: [deliverables](../slides/11-deliverables.html#/) lecture~~
+- ~~Mon, Feb 8th: group meetings~~
+- ~~Wed, Feb 10th: the rest of the [deliverables](../slides/11-deliverables.html#/) lecture~~
+- ~~Mon, Feb 15th: snow day~~
+- ~~Wed, Feb 17th: group meetings~~
+- ~~Mon, Feb 22nd: group meetings~~
+- Wed, Feb 24th: [testing](../slides/12-testing.html#/) lecture
+- Mon, Feb 29nd: group meetings
+- Wed, Mar 2nd: the rest of the [testing](../slides/12-testing.html#/) lecture
+- Mon, Mar 7th: group meetings
+- Wed, Mar 9th: profit!
+	</script></section>
+
+	  <section data-markdown id="it9goals"><script type="text/template">
+## Goals for Iteration 9
+- Complete 4 story points worth of work per group member
+- Complete the [code coverage report](../slides/12-testing.html#/codecoverage)
+  - The system must be at 60% code coverage!
+  - That report should be in a docs/coverage/ directory; the output of your code coverage command is the format we are looking for
+  - This is the document deliverable for this iteration
+- Ensure that your other deliverables are up to date, along with your requirements document
+  - That's the [deployment plan](../slides/11-deliverables.html#/deployment-plan) and
+[installation instructions](../slides/11-deliverables.html#/installation)
+- Keep in mind that the system must be fully deployed (if not yet fully complete) by the end of iteration 10
+- Keep in mind that the system must be feature complete by the end of iteration 11, so plan your work accordingly
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Code Coverage Report Overview
+- Due to the snow days, we may not get to the [full description](../slides/12-testing.html#/codecoverage) in time
+- To complete the steps:
+  - Run the appropriate commands for your particular language: see [PHP/CakePHP](../slides/12-testing.html#/codecoverage-php), [Python/Django](../slides/12-testing.html#/codecoverage-python), or [Ruby/Rails](../slides/12-testing.html#/codecoverage-rails)
+  - In all cases, we want the HTML version of the report
+  - We are looking for you to test *your* code, not the CakePHP / Django / Rails library itself
+    - Nor any other libraries or packages or gems that you use
+- You must also have 60% of your code covered by unit tests
+  - We are focusing on the PHP, Python, or Ruby code; no Javascript code yet
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Notes about future iterations
+- The deliverable for iteration 9 is the [code coverage report](../slides/12-testing.html#/codecoverage)
+- The deliverable for iteration 10 will be the [master test plan](../slides/12-testing.html#/mastertestplan)
+  - You will also start having to have Javascript code coverage
+- But note that the testing slide set, where both those links are to, still needs to be updated
+- The deliverable for iteration 11 will be the transition plan
+  - Really just edits and updates to the other four documents ([deployment plan](../slides/11-deliverables.html#/deployment-plan), 
+[installation instructions](../slides/11-deliverables.html#/installation), [code coverage report](../slides/12-testing.html#/codecoverage), and [master test plan](../slides/12-testing.html#/mastertestplan))
+- The system must be *fully deployed* by the end of iteration **10**
+  - That is March 14th, one full iteration before development ends
+  - I realize that the system may not be complete by that point
+- The fully implemented system must be deployed by the end of iteration 11 (March 28th)
+- There will be very few iteration goals for those iterations beyond what is listed above
+- Iterations 12-14 will consist of testing, documentation, system tweaking and bug fixing, and general maintenance tasks
+- You can always see the full set of iteration goals in the [iteration goals](iteration-goals.html#/) slide set
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- None!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+	  </section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
+<h2>Twitter Bot</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/twitter_bot.png" title="PYTHON FLAG ENABLE THREE LAWS" alt="Twitter Bot">
 <p class="center"><a href="http://xkcd.com/1646/">xkcd # 1646</a></p>
 	  </section>
 
 	  <section data-markdown><script type="text/template">
 ## Monday, February 22nd
-- We are at in the start of iteration 9
+- We are in the middle of iteration 9
   - Leads: your weekly reports are due tomorrow by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
   - The deliverable for this iteration is the [code coverage report](../slides/12-testing.html#/codecoverage), as well as 60% unit test coverage
   - Iteration goals are on a successive slide...
@@ -88,7 +199,7 @@ line-height:120%;
   - Wednesday will be the first of two lectures on [testing](../slides/12-testing.html#/)
 	  </script></section>
 
-	<section data-markdown><script type="text/template">
+	<section data-markdown id="gradtaschedule"><script type="text/template">
 ## (Updated) Grad TA Meeting Schedule
 
 | Group | Location | Time | Day | Week |
@@ -104,7 +215,7 @@ line-height:120%;
 | Twice  | Rice 514 | 1 p.m. | Fri | week 2 |
 	</script></section>
 
-	<section data-markdown><script type="text/template">
+	<section data-markdown id="phasechanges"><script type="text/template">
 ## Phase changes
 - Six person grounds and 7 person groups will have different phases; as per the [spring course introtduction](course-introduction-spring.html#/) (specifically, [here](course-introduction-spring.html#/phases)):
 - For the 6 person groups, there will be 3 phases:
@@ -121,7 +232,7 @@ line-height:120%;
   - So please complete it within one week, else the whole world will fall into darkness
 	</script></section>
 
-	<section data-markdown><script type="text/template">
+	<section data-markdown id="phasechangeschedule"><script type="text/template">
 ## Phase change schedule
 
 | End if It. | 6 per group | 7 per group |
@@ -155,7 +266,7 @@ line-height:120%;
 - Wed, Mar 9th: profit!
 	</script></section>
 
-	  <section data-markdown id="it9goals"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Goals for Iteration 9
 - Complete 4 story points worth of work per group member
 - Complete the [code coverage report](../slides/12-testing.html#/codecoverage)
