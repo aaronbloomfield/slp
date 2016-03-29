@@ -37,8 +37,8 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"> * - Run 'chmod 4755 wsgi-admin': this will set the set-uid bit when</font></i>
 <i><font color="#9A1900"> *   the program runs.  This means the program will run as the user</font></i>
 <i><font color="#9A1900"> *   who owns it, who (presumably) can edit those files.</font></i>
-<i><font color="#9A1900"> * - the django.conf and django-ssl.conf files need to be writable by</font></i>
-<i><font color="#9A1900"> *   the user who owns the compiled file</font></i>
+<i><font color="#9A1900"> * - the django.conf file needs to be writable by the user who owns</font></i>
+<i><font color="#9A1900"> *   the compiled file</font></i>
 <i><font color="#9A1900"> * - the DB file also needs to be writable by that user</font></i>
 <i><font color="#9A1900"> *</font></i>
 <i><font color="#9A1900"> * Note that the app name is no longer used (it was previously used as</font></i>
@@ -47,6 +47,29 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900"> *</font></i>
 <i><font color="#9A1900"> * The callback functions were adapted from</font></i>
 <i><font color="#9A1900"> * </font></i><u><font color="#0000FF">http://www.sqlite.org/quickstart.html</font></u>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Apache2 Configuration</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Note that that multiple apache2 sites (such as http:// and</font></i>
+<i><font color="#9A1900"> * https://) can not *both* define the WSGIDaemonProcess.  The site</font></i>
+<i><font color="#9A1900"> * that is brought up first (likely http://) must define it.  For that</font></i>
+<i><font color="#9A1900"> * reason, that command is enclosed in an </font></i><b><font color="#0000FF">&lt;IfModule&gt;</font></b><i><font color="#9A1900"> command.  To</font></i>
+<i><font color="#9A1900"> * include it in the http:// site (likely 000-default.conf), have the</font></i>
+<i><font color="#9A1900"> * following stanza:</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * </font></i><b><font color="#0000FF">&lt;IfDefine</font></b> <font color="#009900">NoDaemonProcess</font><b><font color="#0000FF">&gt;</font></b>
+<i><font color="#9A1900"> *   UnDefine NoDaemonProcess</font></i>
+<i><font color="#9A1900"> * </font></i><b><font color="#0000FF">&lt;/IfDefine&gt;</font></b>
+<i><font color="#9A1900"> * Include django.conf</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * For the htts:// site (likely default-ssl.conf), have the following</font></i>
+<i><font color="#9A1900"> * stanza:</font></i>
+<i><font color="#9A1900"> *</font></i>
+<i><font color="#9A1900"> * Define NoDaemonProcess</font></i>
+<i><font color="#9A1900"> * Include django.conf</font></i>
+<i><font color="#9A1900"> *</font></i>
 <i><font color="#9A1900"> *</font></i>
 <i><font color="#9A1900"> * DB schema:</font></i>
 <i><font color="#9A1900"> *</font></i>
@@ -86,14 +109,13 @@ http://www.gnu.org/software/src-highlite">
 
 <i><font color="#9A1900">// constants to change as per your system configuration</font></i>
 <b><font color="#000080">#define</font></b> DJANGO_CONF_FILE <font color="#FF0000">"/etc/apache2/django.conf"</font>
-<b><font color="#000080">#define</font></b> DJANGO_SSL_CONF_FILE <font color="#FF0000">"/etc/apache2/django-ssl.conf"</font>
 <b><font color="#000080">#define</font></b> APACHE2_RELOAD_CMD <font color="#FF0000">"/usr/local/bin/reload-apache2"</font>
 <b><font color="#000080">#define</font></b> URL_PREFIX <font color="#FF0000">"/django"</font>
 <b><font color="#000080">#define</font></b> DATABASE_FILE <font color="#FF0000">"/etc/apache2/django.db"</font>
 <b><font color="#000080">#define</font></b> DEFAULT_APP_NAME <font color="#FF0000">"polls"</font>
 
 <i><font color="#9A1900">// some global variables</font></i>
-<font color="#008080">stringstream</font> wsgifile<font color="#990000">,</font> wsgisslfile<font color="#990000">,</font> query<font color="#990000">;</font>
+<font color="#008080">stringstream</font> wsgifile<font color="#990000">,</font> query<font color="#990000">;</font>
 <font color="#009900">int</font> count <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">,</font> find_uid <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">,</font> reg_root <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">,</font> remove_id <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">,</font> force_uid <font color="#990000">=</font> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#008080">string</font> find_filename <font color="#990000">=</font> <font color="#FF0000">""</font><font color="#990000">,</font> appname <font color="#990000">=</font> <b><font color="#000000">string</font></b><font color="#990000">(</font>DEFAULT_APP_NAME<font color="#990000">),</font> wsgi_file_name<font color="#990000">,</font> staticdir<font color="#990000">;</font>
 <font color="#009900">bool</font> check_file <font color="#990000">=</font> <b><font color="#0000FF">true</font></b><font color="#990000">,</font> compact_list <font color="#990000">=</font> <b><font color="#0000FF">false</font></b><font color="#990000">,</font> show_all <font color="#990000">=</font> <b><font color="#0000FF">false</font></b><font color="#990000">;</font>
@@ -252,17 +274,15 @@ http://www.gnu.org/software/src-highlite">
         <i><font color="#9A1900">/// ... unless they have specified otherwise</font></i>
         urluserid <font color="#990000">=</font> <b><font color="#000000">string</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">9</font><font color="#990000">]);</font>
 
-    foo<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
-    foo <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Alias "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>rootdir<font color="#990000">?</font><font color="#FF0000">""</font><font color="#990000">:</font>URL_PREFIX<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/static "</font> <font color="#990000">&lt;&lt;</font> staticdir <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+    wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"Alias "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>rootdir<font color="#990000">?</font><font color="#FF0000">""</font><font color="#990000">:</font>URL_PREFIX<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/static "</font> <font color="#990000">&lt;&lt;</font> staticdir <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;Directory "</font> <font color="#990000">&lt;&lt;</font> staticdir <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  Require all granted</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;/Directory&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-    foo <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"WSGIScriptAlias "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>rootdir<font color="#990000">?</font><font color="#FF0000">""</font><font color="#990000">:</font>URL_PREFIX<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font> <font color="#990000">&lt;&lt;</font> fullpath <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-    wsgifile <font color="#990000">&lt;&lt;</font> foo<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
-    wsgisslfile <font color="#990000">&lt;&lt;</font> foo<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
-    wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"WSGIDaemonProcess "</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" python-path="</font> <font color="#990000">&lt;&lt;</font> up2 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font> <i><font color="#9A1900">// not in the ssl version</font></i>
-    foo<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">(</font><font color="#FF0000">""</font><font color="#990000">);</font>
-    foo <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;Location "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>rootdir<font color="#990000">?</font><font color="#FF0000">""</font><font color="#990000">:</font>URL_PREFIX<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+    wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"WSGIScriptAlias "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>rootdir<font color="#990000">?</font><font color="#FF0000">""</font><font color="#990000">:</font>URL_PREFIX<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font> <font color="#990000">&lt;&lt;</font> fullpath <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;IfDefine !NoDaemonProcess&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+	     <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  WSGIDaemonProcess "</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" python-path="</font> <font color="#990000">&lt;&lt;</font> up2 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+	     <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;/IfDefine&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
+    wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;Location "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>rootdir<font color="#990000">?</font><font color="#FF0000">""</font><font color="#990000">:</font>URL_PREFIX<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  WSGIProcessGroup "</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;/Location&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;Directory "</font> <font color="#990000">&lt;&lt;</font> up1 <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
@@ -270,8 +290,6 @@ http://www.gnu.org/software/src-highlite">
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"    Require all granted</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  &lt;/Files&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;/Directory&gt;</font><font color="#CC33CC">\n\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
-    wsgifile <font color="#990000">&lt;&lt;</font> foo<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
-    wsgisslfile <font color="#990000">&lt;&lt;</font> foo<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
     <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>
 
@@ -470,13 +488,10 @@ http://www.gnu.org/software/src-highlite">
 
     <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> mode <font color="#990000">!=</font> MODE_LIST <font color="#990000">)</font> <font color="#FF0000">{</font>
 
-        <i><font color="#9A1900">// write to django.conf and django-ssl.conf files</font></i>
+        <i><font color="#9A1900">// write to django.conf</font></i>
         <font color="#008080">ofstream</font> <b><font color="#000000">fout</font></b><font color="#990000">(</font>DJANGO_CONF_FILE<font color="#990000">);</font>
         fout <font color="#990000">&lt;&lt;</font> wsgifile<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
         fout<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
-        <font color="#008080">ofstream</font> <b><font color="#000000">fout2</font></b><font color="#990000">(</font>DJANGO_SSL_CONF_FILE<font color="#990000">);</font>
-        fout2 <font color="#990000">&lt;&lt;</font> wsgisslfile<font color="#990000">.</font><b><font color="#000000">str</font></b><font color="#990000">();</font>
-        fout2<font color="#990000">.</font><b><font color="#000000">close</font></b><font color="#990000">();</font>
         cout <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"django.conf file regenerated"</font> <font color="#990000">&lt;&lt;</font> endl<font color="#990000">;</font>
 
         <i><font color="#9A1900">// reload apache</font></i>

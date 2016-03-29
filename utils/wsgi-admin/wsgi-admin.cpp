@@ -26,8 +26,8 @@
  * - Run 'chmod 4755 wsgi-admin': this will set the set-uid bit when
  *   the program runs.  This means the program will run as the user
  *   who owns it, who (presumably) can edit those files.
- * - the django.conf and django-ssl.conf files need to be writable by
- *   the user who owns the compiled file
+ * - the django.conf file needs to be writable by the user who owns
+ *   the compiled file
  * - the DB file also needs to be writable by that user
  *
  * Note that the app name is no longer used (it was previously used as
@@ -36,6 +36,29 @@
  *
  * The callback functions were adapted from
  * http://www.sqlite.org/quickstart.html
+ *
+ *
+ * Apache2 Configuration
+ *
+ * Note that that multiple apache2 sites (such as http:// and
+ * https://) can not *both* define the WSGIDaemonProcess.  The site
+ * that is brought up first (likely http://) must define it.  For that
+ * reason, that command is enclosed in an <IfModule> command.  To
+ * include it in the http:// site (likely 000-default.conf), have the
+ * following stanza:
+ *
+ *
+ * <IfDefine NoDaemonProcess>
+ *   UnDefine NoDaemonProcess
+ * </IfDefine>
+ * Include django.conf
+ *
+ * For the htts:// site (likely default-ssl.conf), have the following
+ * stanza:
+ *
+ * Define NoDaemonProcess
+ * Include django.conf
+ *
  *
  * DB schema:
  *
@@ -75,14 +98,13 @@ using namespace std;
 
 // constants to change as per your system configuration
 #define DJANGO_CONF_FILE "/etc/apache2/django.conf"
-#define DJANGO_SSL_CONF_FILE "/etc/apache2/django-ssl.conf"
 #define APACHE2_RELOAD_CMD "/usr/local/bin/reload-apache2"
 #define URL_PREFIX "/django"
 #define DATABASE_FILE "/etc/apache2/django.db"
 #define DEFAULT_APP_NAME "polls"
 
 // some global variables
-stringstream wsgifile, wsgisslfile, query;
+stringstream wsgifile, query;
 int count = 0, find_uid = 0, reg_root = 0, remove_id = 0, force_uid = 0;
 string find_filename = "", appname = string(DEFAULT_APP_NAME), wsgi_file_name, staticdir;
 bool check_file = true, compact_list = false, show_all = false;
@@ -241,17 +263,15 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
         /// ... unless they have specified otherwise
         urluserid = string(argv[9]);
 
-    foo.str("");
-    foo << "Alias " << (rootdir?"":URL_PREFIX) << "/" << urluserid << "/static " << staticdir << "\n"
+    wsgifile << "Alias " << (rootdir?"":URL_PREFIX) << "/" << urluserid << "/static " << staticdir << "\n"
         << "<Directory " << staticdir << ">\n"
         << "  Require all granted\n"
         << "</Directory>\n";
-    foo << "WSGIScriptAlias " << (rootdir?"":URL_PREFIX) << "/" << urluserid << " " << fullpath << "\n";
-    wsgifile << foo.str();
-    wsgisslfile << foo.str();
-    wsgifile << "WSGIDaemonProcess " << urluserid << " python-path=" << up2 << "\n"; // not in the ssl version
-    foo.str("");
-    foo << "<Location " << (rootdir?"":URL_PREFIX) << "/" << urluserid << ">\n"
+    wsgifile << "WSGIScriptAlias " << (rootdir?"":URL_PREFIX) << "/" << urluserid << " " << fullpath << "\n";
+    wsgifile << "<IfDefine !NoDaemonProcess>\n"
+	     << "  WSGIDaemonProcess " << urluserid << " python-path=" << up2 << "\n"
+	     << "</IfDefine>\n";
+    wsgifile << "<Location " << (rootdir?"":URL_PREFIX) << "/" << urluserid << ">\n"
         << "  WSGIProcessGroup " << urluserid << "\n"
         << "</Location>\n"
         << "<Directory " << up1 << ">\n"
@@ -259,8 +279,6 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
         << "    Require all granted\n"
         << "  </Files>\n"
         << "</Directory>\n\n";
-    wsgifile << foo.str();
-    wsgisslfile << foo.str();
     return 0;
 }
 
@@ -459,13 +477,10 @@ int main(int argc, char **argv) {
 
     if ( mode != MODE_LIST ) {
 
-        // write to django.conf and django-ssl.conf files
+        // write to django.conf
         ofstream fout(DJANGO_CONF_FILE);
         fout << wsgifile.str();
         fout.close();
-        ofstream fout2(DJANGO_SSL_CONF_FILE);
-        fout2 << wsgisslfile.str();
-        fout2.close();
         cout << "django.conf file regenerated" << endl;
 
         // reload apache
