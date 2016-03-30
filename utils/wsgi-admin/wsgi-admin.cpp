@@ -72,6 +72,7 @@
  * rootdir boolean default 0
  * staticdir text
  * urluserid text
+ * morepath text
  *
  * The line to create this in sqlite3:
  * create table wsgi(id integer primary key asc, uid int, wsgi text, valid boolean, added datetime, removed datetime, app text, rootdir boolean default 0, staticdir text, urluserid text);
@@ -106,12 +107,12 @@ using namespace std;
 // some global variables
 stringstream wsgifile, query;
 int count = 0, find_uid = 0, reg_root = 0, remove_id = 0, force_uid = 0;
-string find_filename = "", appname = string(DEFAULT_APP_NAME), wsgi_file_name, staticdir;
+string find_filename = "", appname = string(DEFAULT_APP_NAME), wsgi_file_name, staticdir, morepath;
 bool check_file = true, compact_list = false, show_all = false;
 
 // for when they invoke it incorrectly...
 void printUsage(char *argv0, bool doexit = true) {
-    cerr << "Usage:  " << argv0 << " -register -file <wsgi_file> [-app <app_name>] [-root]\n"
+    cerr << "Usage:  " << argv0 << " -register -file <wsgi_file> [-app <app_name>] [-root] [-path <virtual_env_path>]\n"
          << "\t" << argv0 << " -remove -id <num>\n"
          << "\t" << argv0 << " -list [-compact]\n"
          << "\t" << argv0 << " -regenrate" << endl;
@@ -262,6 +263,9 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
     else
         /// ... unless they have specified otherwise
         urluserid = string(argv[9]);
+    string path = up2;
+    if ( (argv[10] != NULL) && (strlen(argv[10]) != 0) )
+      path += ":" + string(argv[10]);
 
     wsgifile << "Alias " << (rootdir?"":URL_PREFIX) << "/" << urluserid << "/static " << staticdir << "\n"
         << "<Directory " << staticdir << ">\n"
@@ -269,7 +273,7 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
         << "</Directory>\n";
     wsgifile << "WSGIScriptAlias " << (rootdir?"":URL_PREFIX) << "/" << urluserid << " " << fullpath << "\n";
     wsgifile << "<IfDefine !NoDaemonProcess>\n"
-	     << "  WSGIDaemonProcess " << urluserid << " python-path=" << up2 << "\n"
+	     << "  WSGIDaemonProcess " << urluserid << " python-path=" << path << "\n"
 	     << "</IfDefine>\n";
     wsgifile << "<Location " << (rootdir?"":URL_PREFIX) << "/" << urluserid << ">\n"
         << "  WSGIProcessGroup " << urluserid << "\n"
@@ -319,6 +323,10 @@ int main(int argc, char **argv) {
             if ( argc == i+1 )
                 die ("Must supply a directory name to -staticdir");
             staticdir = string(argv[++i]);
+        } else if ( (param == "-path") || (param == "-morepath") ) {
+            if ( argc == i+1 )
+                die ("Must supply a directory name to -path or -morepath");
+            morepath = string(argv[++i]);
         } else if ( param == "-nocheck" ) {
             if ( (uid != 0) && (uid != 1000) )
                 die ("You are not allowed to use the -nocheck flag");
@@ -419,7 +427,8 @@ int main(int argc, char **argv) {
         // insert entry into DB
         query.str("");
         query << "insert into wsgi values (null," << uid << ",\"" << realpath(wsgi_file_name.c_str(),NULL)
-              << "\",1,datetime(),null,\"" << appname << "\"," << reg_root << ",\"" << staticdir << "\",\"\")";
+              << "\",1,datetime(),null,\"" << appname << "\"," << reg_root << ",\"" << staticdir 
+	      << "\",\"\",\"" << morepath << "\")";
         ret = sqlite3_exec(db, query.str().c_str(), NULL, NULL, &errmsg);
         if ( ret != SQLITE_OK )
             sqlite3_die(errmsg,query.str());
