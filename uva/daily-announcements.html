@@ -62,6 +62,97 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2></h2>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1666/">xkcd # 1666</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, April 13th
+- Development is over!  Can't you just see the upcoming summer vacation???
+  - But we still have work to do...
+- We are at the start of iteration 13; iteration goals are on a successive slide
+  - Leads: your TPS reports were due yesterday by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
+  - With the end of iteration 12, 7 person groups will had a phase change; the survey prompts were sent out last night
+- Note that all the iteration goals are in the [iteration-goals.html](iteration-goals.html#/) slide set
+- Evaluations
+  - Iteration 11 group evaluations have been released; you have until April 18th to complain
+  - Iteration 12 group evaluations should be out this weekend
+- We've discussed the [grad TA meeting schedule](#/gradtaschedule), the [spring semester iterations and phases](#/phasechanges) and the [phase change schedule](#/phasechangeschedule)
+- You will still be meeting with the customer & grad TA throughout transition!
+- Reminders (all done via the [course administration tool](https://slp.cs.virginia.edu/admin))
+  - Don't forget to report your hours!  This is a course requirement
+  - Also, please don't forget to submit meeting reports whenever you meet with a customer 
+  - Likewise, all group meetings need to have notes taken (backdate via noting such in the title)
+  - If you miss class for a *valid* reason, please submit an excuse to avoid being marked absent
+- Remember that you have access [uva-slp/tutorials](https://github.com/uva-slp/tutorials) repo
+- Today is a group work day
+  - With the end of the testing lecture set, there is not as much relevant material to lecture about (as expected), and we will start having group workdays on Wednesdays as well
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## A few other notes
+- All the CircleCI folks will be migrating to TravisCI
+  - See details [here](#/circleexodus) as to why
+  - This change-over should be easy, and have already enabled TravisCI for all the SLP repos
+  - Already moved: rtf, helpline, gcadc
+  - Still to move: pbjfund
+- Everybody is going to have to convert their system to run in Python's virtualenv
+  - As promised, I *removed* all the system pip packages
+  - Thus, (almost) all of the pip installed packages (other than virtualenv) have been removed from the course server
+  - Most sites worked fine, but three don't work: gcadc, helpline, and pacem
+- Technical reports
+  - I have received two: from pacem (on 4/6) and helpline (on 4/8)
+  - I will respond within about a week, which gives us one more week for any required changes
+  - You are welcome to turn yours in at the end of iteration 13 (but no later!)
+    - However, realize that this means you will not get it all signed off until the *end* of iteration 14!
+- [Final presentations](../slides/11-deliverables.html#/finalpres)
+  - We decided to have then during class
+  - They will commence on Friday, April 22nd, and continue through the next week (Monday, April 25th, and Wednesday, April 27th)
+  - We will only use the next Friday (April 29th) if we do not finish them in time
+  - Yes, attendance is still required at these
+  - Everybody will have 15 minutes to present -- while you should not be short, if you run over, then we won't finish three people per class...
+	  </script></section>
+
+	  <section data-markdown id="it13goals"><script type="text/template">
+## Goals for Iteration 13
+- Deliverables
+  - [User manual](../slides/11-deliverables.html#/usermanual) (completed)
+  - [Programming reference](../slides/11-deliverables.html#/progref) (completed)
+  - [STS technical report](../slides/11-deliverables.html#/stsreport) (completed)
+    - Put it in the repo in PDF form, along with the source, and send me an email
+  - Prepare your [final presentation](../slides/11-deliverables.html#/finalpres) slide set
+  - Updated [installation instructions](../slides/11-deliverables.html#/installation)
+- Testing
+  - [Specific test plans](../slides/12-testing.html#/specificplans) (completed and documented)
+    - This includes: installation test plan, usability test plan, security test plan, requriements test plan, compatibility test plan
+  - All tests must pass (including green CI status and being able to run the tests on the course server)
+  - [Javascript code coverage](../slides/12-testing.html#/jscodecoverage) should be at 100% (and update the jscoverage.pdf file)
+- Implement any updates, tweaks, UI fixes, or bug fixes found by you or the customer
+- Must have selected and reserved your [final tutorial](../slides/11-deliverables.html#/tutorials) choice
+	  </script></section>
+
+  <section data-markdown><script type="text/template">
+## Github Story Points<br>Hall of Shame
+
+Remember that *all* issues (even closed ones) must have a story points tag.  The following do not:
+
+&nbsp;
+
+- None!
+
+&nbsp;
+
+You can give a tag of "story-points-none" if the task is not worth any story points
+  </script></section>
+
+	  </section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>City Talk Pages</h2>
 <img class="stretch" src="http://imgs.xkcd.com/comics/city_talk_pages.png" title="I don&#39;t think the Lakeshore Air Crash Museum really belongs under &#39;Tourist Attractions.&#39; It&#39;s not a museum--it&#39;s just an area near the Lake Festival Laser Show where a lot of planes have crashed." alt="City Talk Pages">
 <p class="center"><a href="http://xkcd.com/1665/">xkcd # 1665</a></p>
@@ -89,7 +180,7 @@ line-height:120%;
   - With the end of the testing lecture set, there is not as much relevant material to lecture about (as expected), and we will start having group workdays on Wednesdays as well
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="circleexodus"><script type="text/template">
 ## A few other notes
 - All the CircleCI folks will be migrating to TravisCI
   - CircleCI did not give me the free container that they said they would in September...
@@ -194,7 +285,7 @@ You can give a tag of "story-points-none" if the task is not worth any story poi
   - Everybody will have 15 minutes to present -- while you should not be short, if you run over, then we won't finish three people per class...
 	  </script></section>
 
-	  <section data-markdown id="it12goals"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Goals for Iteration 12
 - Devlierables
   - [User manual](../slides/11-deliverables.html#/usermanual) (draft, but a good draft)
@@ -293,7 +384,7 @@ You can give a tag of "story-points-none" if the task is not worth any story poi
   - Everybody will have 15 minutes to present -- while you should not be short, if you run over, then we won't finish three people per class...
 	  </script></section>
 
-	  <section data-markdown id="it12goals"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Goals for Iteration 12
 - Devlierables
   - [User manual](../slides/11-deliverables.html#/usermanual) (draft, but a good draft)
