@@ -41,7 +41,7 @@
 # CS 4971
 &nbsp;
 ### Capstone Practicum II
-### Spring 2015
+### Spring 2016
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../slides/index.html) / <a href="course-conclusion.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
@@ -77,57 +77,67 @@
 
 	  <section data-markdown><script type="text/template">
 ## What you have to do to get outta here...
-- The remaining tasks are all described on the following slides
+- The remaining tasks are all described herein
+- Leads must still submit both reports, including a TPS report!
 - They include:
   - If you didn't complete the specific tests from iteration 13, they need to be completed!
-  - Complete the iteration 14 checklist
-  - Documentation in the proper format
-  - Github repo clean-up
-  - Hand-off to the customer
-  - Completion of the surveys
-- A few other things are at the very end of this slide set (in the [Conclusion](#/conclusion))
+  - Complete all the [iteration 14 goals](iteration-goals.html#/it14goals), which include:
+    - Documentation in the proper format
+    - Github repo clean-up
+    - Hand-off to the customer
+    - Completion of the surveys
+- Please fill out the Collab course evaluations!
+- This is all repeated at the [end of this slide set](#/conclusion))
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
-## Iteration 14 checklist
-(this is what is due during this current iteration)
-
-- Individual tutorial (completed)
-- Screen shots
-- One slide version
-- All tests must pass (including green CI status and being able to run the tests on the course server)
+	  <section data-markdown id="it14goals"><script type="text/template">
+## Goals for Iteration 14
+- Deliverables
+  - [Individual tutorial](../slides/11-deliverables.html#/tutorials) (completed)
+  - [Screen shots](../slides/11-deliverables.html#/screenshots)
+  - [One slide version](../slides/11-deliverables.html#/singleslide)
+- You should have submitted everything as specified in the [submission requirements](../slides/11-deliverables.html#/submission) part of the [deliverables](../slides/11-deliverables.html#/) slide set
+- Testing: all tests must pass (including green CI status and being able to run the tests on the course server)
 - At the end: end-of-phase AND end-of-year surveys
-  - FYI, these need to be completed, else incompletes will be issued  :-(
-- All github issues trimmed
-- Leads must still submit both reports, including a TPS report!
-- Final hand-off to myself and the customer
+- All github issues and branches trimmed
+- Implement any updates, tweaks, UI fixes, or bug fixes found by you or the customer
+- [Final presentation](../slides/11-deliverables.html#/finalpres) to the class
+- [Final hand-off to the customer](../slides/11-deliverables.html#/customer)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Documentation
-- Your documentation needs to be in a standard state -- both so that I can ensure that everything is present, and to help me find things for the customer
-- Pretty much everything will need to be in ***TWO*** formats: .md (or whatever source you used) and .pdf (so the customer can read them)
+- Your documentation needs to be in a standard format
+  - Both so that I can ensure that everything is present, and to help me find things for the customer
+- Documents should either be in Markdown or PDF
+  - Any documents going to the customer must be in PDF; you can use pandoc (see [later](#/pandoc)) to convert them
+    - This includes: user-manual.pdf, installation-instructions.pdf, requirements-document.pdf, and programming-reference.pdf
+  - All PDF documents must have the original source
   - If you used Google Docs (or similar), that's fine -- just save a .odt (or whatever) version in the repo
+    - We need to be able to generate a nicely formatted PDF from the Google Docs export, however!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Documentation, page 2
 - If some of the documenmts are elsewhere in the repo, create a one-line document of the appropriate name that just states where the document can be found
-  - This is most likely to occur with the programming reference and/or installation instructions
+  - This should only (possibly) occur with the programming reference and/or installation instructions
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Document files I will look for
 - technical-report.???/pdf
-- user-manual.md/pdf
-- installation-instructions.md/pdf
-- programming-reference.md/pdf
-- requirements-document.md/pdf
-- deployment-plan.md/pdf
-- master-test-plan.md/pdf
-- specific-test-plans.md/pdf
+- user-manual.???/pdf
+- programming-reference.md
+- requirements-document.md
+- transition plan: deployment-plan.md, master-test-plan.md, installation-instructions.md
+- specific-test-plans.md
 - coverage/index.html (and the entire coverage/ directory)
-- code-coverage-excuses.md (optional; see [here](../slides/spring/03-testing.html#/codecoverageslacking))
+- jscoverage.pdf
+- code-coverage-excuses.md (optional; see [here](../slides/12-testing.html#/codecoverageslacking))
 - final-presentation.???/pdf
 - one-slide.pptx
 - screenshot*.png
-- readme.md (see [here](../slides/spring/02-deliverables.html#/readmemd))
+- readme.md (see [here](../slides/11-deliverables.html#/readmemd))
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -140,49 +150,53 @@
   - Just send me an email asking me to check your docs/ directory to make sure everything is correct
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="pandoc"><script type="text/template">
 ## Documentation, continued, continued
 - Note that if any of these documents are LaTeX, put those files in an appropriately named sub-directory
   - i.e., `technical-report/`, `programming-reference/`, etc.
 - You can use pandoc to convert markdown to PDF:
-  - Install the package, if it's not already: `sudo apt-get install pandoc`
+  - Install the package, if it's not already:
+```
+sudo apt-get install pandoc
+```
   - The command to convert it is:
 ```
 pandoc -f markdown --smart -o file.pdf file.md
 ```
+- Docs that need nice formatting (user manual, etc.) cannot be done this way!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Github repo cleanup
-- Your github repo should be in a reasonable state -- remember that other people may work on your project
+- Your github repo should be in a reasonable state
+  - Remember that other people may work on your project
 - In particular:
   - Reasonable directory structure
     - Example: if you have a bagillion data files in the root directory (I know who you are!), then put them in a data/ sub-directory
-  - All issues either resolved, or we have talked about it (an open issue means you did not complete something)
+  - All issues either resolved, or we have talked about it
+    - An open issue means you didn't complete something
     - That being said, you can have future enhancements listed as github issues
-  - Other than the master branch, the other branches should all have a specific purpose (i.e., clean up your branches)
+  - Other than the master branch, any other existing branches should all have a specific purpose (i.e., clean up your branches)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Hand-off to the customer
-- This is described more fully [here](../slides/spring/02-deliverables.html#/customer)
+- This is described more fully [here](../slides/spring/11-deliverables.html#/customer)
 - In particular (but read the full description):
   - Email them thanking them for the whole process
-  - Include some documentation and other attachments, and briefly describe them
+  - Include the appropriate (but not all!) documentation and other attachments, and briefly describe them
   - CC me when you do so
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Completion of the surveys
-- There are two!
-  - One is the usual end-of-phase survey
+## Completion of the TWO surveys
+- One is the usual end-of-phase survey
 - The other is a (rather extensive) end-of-year survey
   - One question is whether you would be willing to be contacted in the future for support issues
     - There is no pressure to answer this one way or the other!
-  - Part of your grade will depend on you completing this survey well
-    - This does ***NOT*** mean sycophantic, flatting answers!  It means taking the time to write thoughtful responses
-    - More details [here](#/filloutsurveys)
-- The survey prompts will be sent out later this week (Thursday or Friday)
+  - Incompletes will be issues if either survey is not completed, so please complete them!
+    - This does ***NOT*** mean sycophantic, flattering answers!  It means taking the time to write thoughtful responses; more details [here](#/filloutsurveys)
+- The survey prompts will be sent out later this week or early next week
 - Both must be completed!
 	  </script></section>
 
@@ -194,7 +208,7 @@ pandoc -f markdown --smart -o file.pdf file.md
   - Not having cleaned up the github repo
   - Not having the documentation in the correct format
   - Not having handed off the project to the customer
-  - Not having completed all the things from the checklists from iterations 12, 13, and 14
+  - Not having completed all the things from the iteration goals from iterations 12, 13, and 14
   - Not having a working system (yes, I have to say that...)
 - The following will prevent you, specifically, from completing this course:
   - Not completing the two remaining surveys
@@ -213,7 +227,7 @@ pandoc -f markdown --smart -o file.pdf file.md
 	  <section data-markdown><script type="text/template">
 ## Burndown charts
 - Remember I had you estimate all the tasks at the beginning of the year?
-- The purpose was to illustrate how difficult estimation really is
+- There were many reasons, but one purpose was to illustrate how difficult estimation really is
 - Let's compare a sample burndown chart with our charts...
 	  </script></section>
 
@@ -224,18 +238,23 @@ pandoc -f markdown --smart -o file.pdf file.md
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Burndown chart from 2012-2013 (2 years ago)
-![SLP 2012-2013 burndown chart](../slides/fall/images/02-development-methods/slp-2012-2013.png)
+## Burndown from 2012-2013 (3 years ago)
+![SLP 2012-2013 burndown chart](../slides/images/01-development-methods/slp-2012-2013.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Burndown chart from 2013-2014 (1 year ago)
-![SLP 2013-2014 burndown chart](../slides/fall/images/02-development-methods/slp-2013-2014.png)
+## Burndown from 2013-2014 (2 years ago)
+![SLP 2013-2014 burndown chart](../slides/images/01-development-methods/slp-2013-2014.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Burndown chart from 2014-2015 (ours!)
-![SLP 2014-2015 burndown chart](images/slp-2014-2015-remaining-hours.svg)
+## Burndown from 2014-2015 (1 year ago)
+![SLP 2014-2015 burndown chart](../slides/images/01-development-methods/slp-2014-2015.png)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Burndown from 2015-2016 (ours!)
+![SLP 2014-2015 burndown chart](../slides/images/01-development-methods/slp-2015-2016.png)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -267,22 +286,22 @@ pandoc -f markdown --smart -o file.pdf file.md
 
 	  <section data-markdown><script type="text/template">
 ## Total github issues
-![](images/slp-2014-2015-total-issues.svg)
+![](images/slp-2015-2016-total-issues.svg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Remaining github issues
-![](images/slp-2014-2015-remaining-issues.svg)
+![](images/slp-2015-2016-remaining-issues.svg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Total github story points
-![](images/slp-2014-2015-total-hours.svg)
+![](images/slp-2015-2016-total-hours.svg)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Remaining github story points
-![](images/slp-2014-2015-remaining-hours.svg)
+![](images/slp-2015-2016-remaining-hours.svg)
 	  </script></section>
 
 	</section>
@@ -297,68 +316,98 @@ pandoc -f markdown --smart -o file.pdf file.md
 
 	  <section data-markdown><script type="text/template">
 ## Github issues
-- As of last night, there were 2,859 total issues across all 15 projects
-  - Low of 104 for one group, high of 447
+- As of last night, there were 1,086 total issues across all 9 projects
+  - Low of 74 for one group, high of 208 for another group
   - This does not count pull requests
-- That's about 191 per project, on average
+- That's about 121 per project, on average
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Git statistics
-- As of last night, there were 10,889 total commits for all 15 groups
-  - Low of 167 for one group, high of 2,922
+- As of last night, there were 6,474 total commits for all 9 projects
+  - Low of 480 for one group, high of 1,172
   - This is for all branches, and includes merge commits
-- That's about 726 commits per group, on average
-  - About 52 per iteration
-  - About 9 per person per iteration (assuming a 6 person group)
+- That's about 719 commits per group, on average
+  - Last year's average was 726, so it's pretty close to that!
+  - About 51 commits per iteration (52 last year)
+  - About 8 commits per person per iteration
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Git observations
-- Only 304 commits resolved (or closed or fixed) an issue via a commit message
-  - Out of 10,889 commit messages, that's only 2.8%
-  - Out of 2,859 total issues, that's only 10.6%
-- There was not a single commit with any sort of profanity
+- Only 82 commits resolved (or closed or fixed) an issue via a commit message
+  - Out of 6,474 commit messages, that's only 1.3%
+  - Out of 1,086 total issues, that's 7.6%
 - Some commit messages follow
+  - Note that none of these offend me, so don't feel stressed if your commit message is on here
+  - In fact, I found them rather humorous
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Profane commit messages
+- Fixed the global error shit
+- travis shit again
+- merge shit
+- damn
+- unf*ck circleci, whoopsie
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Most excited commit messages
-- CSV WORKS!
-- first commit!
-- fixed more namespacing issues!!!!
-- fixing a variable name and comments!
-- Got AJAX working!
-- Moar wireframes!
-- Stuff gets highlighted!
-- WE HAZ DOCZ
-- We're off on a new adventure!
+- fixed malformed input issue with advanced search!
+- added typeahead for volunteers in adv search thanks to kevin!
+- maybe netbadge!
+- Website is purple!
+- Rudimentary trail display!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Less than useful commit messages
-- Working
-- pulling...
-- quick fix
-- small things
-- stuff
-- It broke. Again.
-- aaaagh
-- fix?
-- error fix
-- Fixing stuff
-- Stuff done going to bed
+
+<table class="transparent">
+<tr><td><ul>
+<li>...</li>
+<li>aasdf</li>
+<li>some stuff</li>
+<li>final?</li>
+<li>more merges</li>
+<li>Hotfix link</li>
+<li>argh</li>
+<li>asd</li>
+<li>asdfasdfasdf</li>
+<li>added a comment</li>
+<li>added pdf</li>
+<li>a few more</li>
+<li>again ...</li>
+</ul></td><td><ul>
+<li>againnn</li>
+<li>plz</li>
+<li>not much</li>
+<li>more</li>
+<li>misc</li>
+<li>message</li>
+<li>lol</li>
+<li>idk</li>
+<li>git</li>
+<li>git op</li>
+<li>fix</li>
+<li>fix3</li>
+<li>f</li>
+</ul></td></tr></table>
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Somewhat humorous commit messages
-- apparently i need to save files before committing. who knew?
-- is zoe cursed? testing circle ci
-- Deletion updates frame now DONEOENOENOENOE
-- I <3 Import Errors
-- INSTALLLLLAAATIIOONNN
-- Killed Parkers testss
-- Beginning some colorful colors!
+- travis < death
+- travisci.org != travisci.com
+- tryin hard
+- version control
+- sorry
+- Routes Nav Bar w works No idea why
+- Renamed deployment for Bloomy
+- lots of half finished things; Bloomfield plz
+- knock knock style police
+- i give up
 	  </script></section>
 
 	</section>
@@ -379,32 +428,25 @@ pandoc -f markdown --smart -o file.pdf file.md
 - So take it with a big grain of salt...
 	  </script></section>
 
+<!-- queries:
+
+mysql> select sum(hours), time_cards.user_id, project_id, (select title from projects where projects.id=project_id) as name from time_cards, roles where roles.user_id=time_cards.user_id  and project_id>=30 group by project_id;
+
+remove the group-by to get the overall sum
+-->
+
 	  <section data-markdown><script type="text/template">
 ## Reported hours
 
-<p>&nbsp;</p>
-<table class="transparent">
-<tr><td><ul>
-<li>alzheimers: 607.8 hours</li>
-<li>arbor: 559.4 hours</li>
-<li>cars: 662.0 hours</li>
-<li>band: 721.8 hours</li>
-<li>hopeslegacy: 1,247.5 hours</li>
-<li>innisfree: 496.0 hours</li>
-<li>jaunt: 801.2 hours</li>
-<li>loaves: 847.5 hours</li>
-</ul>
-</td><td class="top">
-<ul>
-<li>madisonhouse: 530.2 hours</li>
-<li>servicedogs: 583.5 hours</li>
-<li>haven: 450.8 hours</li>
-<li>shelter: 443.2 hours</li>
-<li>tjace: 746.5 hours</li>
-<li>was: 649.0 hours</li>
-<li>wtju: 756.2 hours</li>
-</ul>
-</td></tr></table>
+- aim: 508.6 hours
+- meals: 770.8 hours
+- gcadc: 484 hours
+- helpline: 652 hours
+- pbjfund: 738.8 hours
+- pacem: 719 hours
+- readykids: 744 hours
+- rtf: 512.8 hours
+- twice: 577.5 hours
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -415,42 +457,45 @@ The numerical amount of hours you submitted has never, and will never, be used a
 
 	  <section data-markdown><script type="text/template">
 ## Reported hours analysis
-- Total was 10,102.6 hours
-- Average was 673.5 hours per group
-  - It was 657 hours per group last year
-- Which is 48.1 hours per (two-week) iteration
-- Which is 8.0 hours per student per (two-week) iteration (assuming a 6-person group)
-- Which is 4.0 hours per student per week
-- At $100 per hour (a reasonable consulting rate), that's $67,350 "given" to the community per project
-- Or $1,010,260 overall (over $1 million!)
+- Total was 5,707.3 hours
+- Average was 634.1 hours per group
+  - It was 674 hours last year, 657 the year before
+- Which is 45.3 hours per (two-week) iteration
+- Which is 6.5 hours per student per (two-week) iteration (assuming a 7-person group)
+- Which is 3.25 hours per student per week
+- At $100 per hour (a reasonable consulting rate), that's $63,410 "given" to the community per project
+- Or $570,730 overall (over half a million!)
 - Even if we charge half that, it's still a very significant sum
 	  </script></section>
 
 <!-- To obtain the data for the next slide:
 
-- Generated the reported times table
-- Get a list of all students that are no longer in the course
-- The total reported times should be n*i where n is the number of students and i is the number of iterations
-- Verify that (modfiy the date and the usernames, of course):
+- Generated the reported times table via the user interface; keep in mind that this produces data from 15 iterations
+- Ensure that the dropped students from the spring no longer have a 'role' entry
+- Query (change the project_id range):
 
-select * from reported_times where start_date>"2014-07-01" and username!="mst3k" and username!="mst4k";
+select * from reported_times where user_id in(select roles.user_id from roles where project_id>=30 and role='student') and count=0 and count_late=0 and iteration_num<15;
 
-- Now, count how many were missing:
-
-select * from reported_times where start_date>"2014-07-01" and count=0 and count_late=0 and username!="mst3k" and username!="mst4k";
+- remove ' and count=0 and count_late=0' to get *all* of the iterations (should be n*14, where n is the number of students in the course)
 
 -->
 
 	  <section data-markdown><script type="text/template">
 ## Can we do better?
-- 205 (of 14*97 = 1358) iterations did not have any hours reported
+- 119 (of 14*59 = 826) iterations did not have any hours reported
   - Due to not entering hours; entering zero hours is not counted here
-  - 70 of those are from the current iteration 14, which has not been required to be reported yet
+  - 49 of those are from the current iteration 14, which has not been required to be reported yet
 - Can we assume that those iterations had work done?  Sure, why not
   - Some of those are from people who totally slacked off, but others (I know) did not report all their hours; but we'll scale it down all the same
-- 205/1358 = 15.1%, which we'll scale down to 10% -- so we can increase all our estimates by that much
-- That yields $74,085 given per project (round to $74k)
-- And $1,111,286 overall (round to $1.1 million)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Can we do better?
+- 119 of 826 iterations had no hours reported
+- 119/826 = 14.4%, which we'll scale down to 10%
+  - So we can increase all our estimates by that much
+- That yields $69,751 given per project (round to $70k)
+- And $627,803 overall (round to $625k)
 	  </script></section>
 
 
@@ -466,45 +511,43 @@ select * from reported_times where start_date>"2014-07-01" and count=0 and count
 
 	  <section data-markdown><script type="text/template">
 ## Course Objectives
-Students who complete the course will:
 
-- have gained experience with the development of large software projects through all phases from inception through development, testing, deployment, and maintenance
-- be able to design a customized development methodology for a particular project with given specifications
-- understand customer interaction for a software development project
-- understand proper documentation generation for a software development project
-- be able to properly generate, use, and understand the importance of various artifacts: use cases, requirements documents, etc.
+- Have gained experience with the development of large software projects through all phases from inception through development, testing, deployment, and maintenance
+- Be able to design a customized development methodology for a particular project with given specifications
+- Understand customer interaction for a software development project
+- Understand proper documentation generation for a software development project
+- Be able to properly generate, use, and understand the importance of various artifacts: use cases, requirements documents, etc.
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## What didn't work well
-- Deployment was still slow, even though it started even earlier this year than previous years
-  - A fix is on deck for that one...
-- CakePHP's slooooooooow release of the 3.0 API
 - The increased load on the teaching faculty meant I could not prepare as many lectures as I had intended
-- The increased course size meant I could not follow the projects as closely as I would have liked
-- The 9 a.m. meeting time in the spring was not super popular...
+- The large course size meant I could not follow the projects as closely as I would have liked
+- I apparently scared everybody off of Ruby on Rails, after spending all that time prepping the platform
+- The late spring move from Circle to Travis
+- Having 10% of the class not continue from the fall to the spring
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## What did work well
-- We developed 15 projects for the customers!
-- And it seems that all of them will be used by the nonprofits
-- Django, as a platform, was well received and (generally) bug free
+- We developed 9 projects for the customers!
+  - And it seems that all of them will be used by the nonprofits
+- Django and CakePHP, as platforms, were well received and (generally) bug free
+- Better course structure allowed the projects to be kept on track better than in previous years
 - Having a grad TA really helped everything move along smoothly
 - You (hopefully) gained some real-world experience
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Changes for next year
-- I estimate about 80 students (down from about 100 this year)
+- I estimate about 100 students (up from about 60 this year)
 - All new projects!
-- Use of [waffle.io](http://waffle.io)
-- A full legal agreement with the customers
-  - This has already been written, and be presented up front this time
-- Likely no new platforms, although the verions will probably be updated
-- Deployment even earlier (December)
+- Possible use of [waffle.io](http://waffle.io)
+- Likely no new platforms, although the versions will probably be updated
 - More lectures, especially during the spring
-- I might bring back mentors next year
+- Only using Travis, and no more Cirlce
+- Possible use of existing online tools: slack, etc.
+- Things will migrate to Ubuntu 16.04 (course server, VirtualBox image, etc.)
 	  </script></section>
 
 	</section>
@@ -515,6 +558,14 @@ Students who complete the course will:
 
 	  <section data-markdown id="conclusion"><script type="text/template">
 # Conclusion
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## An aside: customer statistics
+- There were 9 projects and thus 9 customers
+  - Three male, six female
+- Of the six female customers, three gave birth within the last month or two
+- Thus, in our not-so-scientific study where *n*=6, there is a 50% chance that a female customer will deliver a baby in the spring semester
 	  </script></section>
 
 	  <section data-markdown id="filloutsurveys"><script type="text/template">
@@ -532,14 +583,13 @@ Students who complete the course will:
 	  <section data-markdown><script type="text/template">
 ## What is left for you to do
 - Leads: fill out your weekly report today, and your TPS reports next Monday
-- Fill out the end-of-phase survey (survey prompt to follow later this week)
-- Fill out the end-of-year survey (survey prompt to follow later this week)
+- Ensure you completed the specific tests from iteration 13
+- Fill out the end-of-phase and end-of-year surveys (survey prompt to follow)
   - I'm really interested in your comments!
   - And if you get a survey time-out, I can provide you with your previous answers
   - I'll put the survey pages online so you can see the questions ahead of time
-- Tutorials!  I hope you have a topic...
-- Fill out the Collab course evaluations
-- Complete the stuff mentioned in the beginning of this slide set
+- Complete all of the [iteration 14 goals](iteration-goals.html#/it14goals)
+- Pleasse fill out the Collab course evaluations
 - And...
 	  </script></section>
 
@@ -559,7 +609,7 @@ Students who complete the course will:
 
     <script src="../slides/reveal.js/lib/js/head.min.js"></script>
     <script src="../slides/reveal.js/js/reveal.js"></script>
-    <script src="../slides/js/settings2.js"></script>
+    <script src="../slides/js/settings.js"></script>
 
   </body>
 </html>
