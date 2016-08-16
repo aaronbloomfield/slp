@@ -1,42 +1,91 @@
-UVa Specific Material, fall 2015 and spring 2016
+UVa Specific Material, fall 2016 and spring 2017
 ================================================
 
 [Go up to the main README file](../README.html) ([md](../README.md))
 
 Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the CS 4970/4971 version of the course at the University of Virginia.
 
-- [Spring semester daily announcements][5]
+- [Fall semester daily announcements][5]
 - [Course syllabus][1] ([md][2])
 - [Legal forms][3] ([md][4])
 - The schedule is now at the bottom of this page
 - The collected [iteration goals](iteration-goals.html#/)
 - [Old UVa SLP documents][6] ([md][7]), including the lectures and schedule from previous semesters
 
-Lectures (spring 2016)
+Lectures (fall 2016)
 --------------------
 
-This will be filled in shortly...
+| Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
+|-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
+| 1   | Aug&nbsp;24 | Wednesday   | lecture       | [Course introduction][8]  | | |
+| 2   | Aug&nbsp;26 | Friday      | lecture       | [Course introduction][8] | | |
+| 3   | Aug&nbsp;29 | Monday      | lecture       | [Development methods][51] | | |
+| 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][52] | | |
+| 5   | Sep&nbsp;2  | Friday      | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21])| |
+| 6   | Sep&nbsp;5  | Monday      | lecture       | [Frameworks][53] | CakePHP part of [HW 2][22] ([md][23])| |
+| 7   | Sep&nbsp;7  | Wednesday   | lecture       | [Frameworks][53]    | | |
+| 8   | Sep&nbsp;9  | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) | |
+| 9   | Sep&nbsp;12 | Monday      | lecture       | [Requirements][54], project discussion  | Django part of [HW 2][22] ([md][23]) | |
+| 10  | Sep&nbsp;14 | Wednesday   | lecture       | [Requirements][54], survey discussion | | |
+| 11  | Sep&nbsp;16 | Friday      | class optional |               | Year-start surveys due | |
+| 12  | Sep&nbsp;19 | Monday      | group meetings | [Project start][55] | | |
+| 13  | Sep&nbsp;21 | Wednesday   | lecture       | [Customer meetings][56] | Iteration 1 begins (yesterday) | |
+| 14  | Sep&nbsp;23 | Friday      | no class      |               | | |
+| 15  | Sep&nbsp;26 | Monday      | group meetings |               | | |
+| 16  | Sep&nbsp;28 | Wednesday   | lecture       | [Estimation workday][57] | | |
+| 17  | Sep&nbsp;30 | Friday      | no class      |               | | |
+|     | Oct&nbsp;3   | Monday      | no class      | (fall break)  | Iteration 1 ends | |
+| 18  | Oct&nbsp;5  | Wednesday   | group meetings |               | Iteration 2 begins (yesterday) | |
+| 19  | Oct&nbsp;7  | Friday      | no class      |               | | |
+| 20  | Oct&nbsp;10 | Monday      | lecture       | [Wireframing][58]   | | |
+| 21  | Oct&nbsp;12 | Wednesday   | group meetings |               | | |
+| 22  | Oct&nbsp;14 | Friday      | no class      |               | | |
+| 23  | Oct&nbsp;17 | Monday      | group meetings |               | Iteration 2 ends; **PHASE CHANGE** | |
+| 24  | Oct&nbsp;19 | Wednesday   | lecture       | [Continuous Integration Testing][59] | Iteration 3 begins (yesterday) | |
+| 25  | Oct&nbsp;21 | Friday      | no class      |               | | |
+| 26  | Oct&nbsp;24 | Monday      | group meetings |               | | |
+| 27  | Oct&nbsp;26 | Wednesday   | lecture       | [CI Testing work day][81] | | |
+| 28  | Oct&nbsp;28 | Friday      | no class      |               | | |
+| 29  | Oct&nbsp;31 | Monday      | group meetings |               | Iteration 3 ends | |
+| 30  | Nov&nbsp;2  | Wednesday   | lecture       | Documentation | Iteration 4 begins (yesterday) | |
+| 31  | Nov&nbsp;4  | Friday      | no class      |               | | |
+| 32  | Nov&nbsp;7 | Monday      | group meetings |               | | |
+| 33  | Nov&nbsp;9  | Wednesday   | lecture       | ...           | | |
+| 34  | Nov&nbsp;12 | Friday      | no class      |               | | |
+| 35  | Nov&nbsp;14 | Monday      | group meetings |               | Iteration 4 ends; **PHASE CHANGE** | |
+| 36  | Nov&nbsp;16 | Wednesday   | lecture       | Guest lecturer? | Iteration 5 begins (yesterday) | |
+| 37  | Nov&nbsp;18 | Friday      | no class      |               | | |
+| 38  | Nov&nbsp;21 | Monday      | group meetings |               | | |
+|     | Nov&nbsp;23 | Wednesday   | no class      | (Thanksgiving break) | | |
+|     | Nov&nbsp;25 | Friday      | no class      | (Thanksgiving break) | | |
+| 39  | Nov&nbsp;28 | Monday      | group meetings |               | Iteration 5 ends | |
+| 40  | Nov&nbsp;30 | Wednesday   | lecture       |               | Iteration 6 begins (yesterday) | |
+| 41  | Dec&nbsp;2  | Friday      | no class      |               | | |
+| 42  | Dec&nbsp;5  | Monday      | group meetings |               | | |
+|     | Dec&nbsp;7  | Wednesday   | no class       |               | | |
+|     | Dec&nbsp;9  | Friday      | no class      |               | | |
+|     | Dec&nbsp;12 | Monday      | no class       |         | Iteration 6 ends; **PHASE CHANGE** | |
 
 
-Iteration Schedule, fall 2015 and spring 2016
+Iteration Schedule, fall 2016 and spring 2017
 ---------------------------------------------
 
 Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the end of the day on a Monday two weeks later (at 11:59 p.m. on that Monday).  The first 6 iterations are in the fall semester, and the last 8 iterations are in the spring semester.
 
-1. Iteration 1: Tue, Sep 22 -> Oct 5
-2. Iteration 2: Tue, Oct 6 -> 19
-3. Iteration 3: Tue, Oct 20 -> Nov 2
-4. Iteration 4: Tue, Nov 3 -> 16
-5. Iteration 5: Tue, Nov 17 -> 30
-6. Iteration 6: Tue, Dec 1 -> 14 (note that this iteration ends during finals week)
-7. Iteration 7: Tue, Jan 19 -> Feb 1
-8. Iteration 8: Tue, Feb 2 -> 15
-9. Iteration 9: Tue, Feb 16 -> 29
-10. Iteration 10: Tue, Mar 1 -> 14 (note that this iteration contains spring break)
-11. Iteration 11: Tue, Mar 15 -> 28	(note that this is the last "development" iteration; also, this iteration starts during spring break)
-12. Iteration 12: Tue, Mar 29 -> Apr 11
-13. Iteration 13: Tue, Apr 12 -> 25
-14. Iteration 14: Tue, Apr 26 -> May 9 (note that this iteration ends during finals week)
+1. Iteration 1: Tue, Sep 20 -> Oct 3
+2. Iteration 2: Tue, Oct 4 -> 17
+3. Iteration 3: Tue, Oct 18 -> Oct 31
+4. Iteration 4: Tue, Nov 1 -> 14
+5. Iteration 5: Tue, Nov 15 -> 28
+6. Iteration 6: Tue, Nov 29 -> 12 (note that this iteration ends during finals week)
+7. Iteration 7: Tue, Jan 17 -> Jan 30
+8. Iteration 8: Tue, Jan 31 -> 13
+9. Iteration 9: Tue, Feb 14 -> 27
+10. Iteration 10: Tue, Feb 28 -> 13 (note that this iteration contains spring break)
+11. Iteration 11: Tue, Mar 14 -> 27	(note that this is the last "development" iteration)
+12. Iteration 12: Tue, Mar 28 -> Apr 10
+13. Iteration 13: Tue, Apr 11 -> 24
+14. Iteration 14: Tue, Apr 25 -> May 8 (note that this iteration ends during finals week)
 
 
 

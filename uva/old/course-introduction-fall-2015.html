@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4970: course-introduction-fall slide set</title>
+    <meta name="description" content="A set of slides for UVa's Service Learning Practicum course">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../../slides/css/slp.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../slides/reveal.js/css/print/pdf.css' : '../../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../../slides/css/dhtmlwindow.css" type="text/css">
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4970
+&nbsp;
+### Capstone Practicum I
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../../slides/index.html) / <a href="course-introduction-fall.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp;
+## Course Introduction
+	</script></section>
+
+	<section data-markdown><script type="text/template">
+# Contents
+&nbsp;  
+[Background](#/background)  
+[Who](#/who)  
+[What](#/what)  
+[When](#/when)  
+[Reports](#/reportssec)  
+[Grades](#/grades)  
+[Legal Issues](#/legal)  
+[Technologies Used](#/tech)  
+	</script></section>
+
+	<section>
+
+	  <section data-markdown id="background"><script type="text/template">
+# Background
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Capstone Requirement
+- In January of 2013, a new requirement was created for the BS CS degree:
+  - All students must complete 3 credits of a capstone course: either CS 4971 (the second half of this sequence) or CS 4980 (for independent projects)
+  - CS 4970 (this course) counts as a CS elective
+- This requirement is now live in SIS
+- As of the fall of 2015, there are no longer any students who could complete the old (i.e., non-capstone) requirements
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Capstone Practicum I & II description
+“This course is one option in the CS Senior Thesis track. Under the Practicum track, students will take two 3-credit courses, CS 4970 and CS 4971. These courses would form a year-long group-based and project-based practicum class. There would be an actual customer, which could be either internal (the course instructor, other CS professors, etc.) or external (local companies, local non-profits, etc.).”
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Implementation
+- The wording is vague so as to allow each instructor to choose how they want to run the capstone
+- My implementation is the Service Learning Practicum (SLP) where the students develop software projects for local nonprofits
+- I will use "Service Learning Practicum", "SLP", "Capstone Practicum", and "CS 4970/4971" interchangably
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## This slide set is dense...
+- There is a LOT of course structure described in these slides
+- I will remind you of the necessary parts as they come to pass
+  - So you don't have to have all the due dates memorized
+  - But you should be sure to understand everything
+- It is all available online as well
+  - http://aaronbloomfield.github.io/slp
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## A rule for this course
+- Please turn off all social media and chats during lecture
+- I am going to try not to waste your time
+  - Don't waste mine by not paying attention
+- You can only have your computer open if it is directly course-related
+- That being said, you will need to have *some* means of connecting to the Internet during lecture
+  - This can be a laptop, smart phone, or anything else that can log into a website
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## git Repository
+- All the course materials are kept in a (public) github repository: [http://github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp)
+  - You can view that material online directly at http://aaronbloomfield.github.io/slp/
+  - The tentative lecture schedule is there as well (the list of slide sets)
+- You will all need to use git for the course, and we will be using [github](https://github.com) exclusively
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## A github note
+- The first homework, out next class, is an introduction to git and github (https://github.com), for which you will need two ***private*** repositories
+    - We will only need them for a month or two in the fall
+- First, if you don't already have one, you should create a github account, as you'll need it for this course
+- Then, request the student discount at https://education.github.com/; this may take a few days to be processed
+- You should do this ***today***, due to the delay in github processing it
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## I need your github userids
+- Please fill out the brief form at http://tinyurl.com/ngrq6ql
+- You just list your uva userid, github userid, and github registered email address
+- This must be done by the end of next week, but the sooner the better
+- I will also send you that link via email
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Course syllabus
+- It is availabe in the github repo; you can click [here](syllabus.html) to view it
+- It contains all the information covered in this slide set, plus some more stuff
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="who"><script type="text/template">
+# Who
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Teams
+- Students will be in groups of size of 6 or 7, and assigned to a given project
+  - That will be the project (and the group) for the entire academic year!
+- Group and project assignment will be based on your survey responses
+  - That survey will attempt to ensure that you do not end up in a group -- or on a project -- that you do not want to be in
+- You will be able to specify any "mortal enemies" that you have in the class
+  - i.e., somebody you don't want to work with
+- But I can make no guarantees...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Project lead
+- This is one of the team members who does some of the coordination for the team
+  - It's an administrative position, not an authoritative one!
+- Lead responsibilities:
+  - Handle meeting scheduling
+  - Move the meetings along
+  - Submit reports (more on this later)
+  - Be the single point of contact for the team
+- The lead will rotate through all the group members throughout the academic year
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Secretary
+- The other leadership position in each group; it also rotates through all the group members
+- S/he takes notes at each meeting and enters them into the course management system
+  - More on the course management system later...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Consensus
+- The goal of these projects is for all decisions to be made through a consensus of the group members
+- This may not always be possible, but it makes for a far more enjoyable experience
+- If there is a major disagreement, then it is my job to help resolve it
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Customers
+- A representative from each of the nonprofits will be part of each group
+- Sometimes the executive director, but often the staff member who most has to deal with the issues that the system is solving
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Graduate TA
+- Wasi Ahmad (wua4nw)
+- He will be meeting with each group for a 30-minute period every other week
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="what"><script type="text/template">
+# What
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Projects
+- I expect to have 10-12 projects
+  - 6-7 students per project, so the number projects will depend on the final enrollment numbers
+  - There are 8-10 currently specified projects, and a half dozen possible ones on deck
+- So we will have a full docket of projects
+- They won't be assigned until September 20th
+- Each project will have a requirements document which will contain:
+  - Minimum requirements
+  - Desired requirements
+  - Optional requirements
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="when"><script type="text/template">
+# When
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Typical weekly class schedule
+- Once the semester gets going, our schedule will be:
+  - Mondays: a group meetings in the lecture classroom
+  - Wednesdays: a lecture on a relevant topic
+  - Fridays: no class!  w00t!
+- However, we will be having lectures M/W/F for the first few weeks of class
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Meetings
+- There are three types of meetings
+- Customer meetings: where the customer is present
+  - There will be one of these every two weeks, for about 1 hour each
+  - We'll go over how to handle these meetings before your first one
+  - Will typically be in the first week of an iteration
+- Instructor meeting: every two weeks, with the graduate TA, and for about 30 minutes each
+- Group meetings: any other meeting of the group (likely 1-2 per week)
+  - This includes the in-class meetings on Mondays
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## "Sprints" or "Iterations"
+- Work in this class will be in 2-week "sprints" or "iterations"
+  - More on this in an [upcoming lecture](../../slides/01-development-methods.html#/)
+- Tasks are chosen to be completed by the end of a given sprint
+- The sprint will end on a Monday immediately prior to a customer meeting
+- The customer will have a few days to look it over
+- The current system can then be discussed in the customer meeting
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## "Phases"
+- A "phase" is a period that contains 2 or 3 iterations
+- Each person will be the project lead for one phase this year
+  - And the secretary for a different phase
+- At the end of each phase, everybody has to fill out an end-of-phase survey
+  - How things went, etc.
+  - These are required, and massive points will be deducted if you don't fill them out!
+  - Don't worry, I'll be sure you remind you about them repeatedly
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Attendance
+- We are all adults, playing the part of professional software engineers
+- Don't miss class or meetings
+  - Attendance factors into the course grade
+- I'm going to get cranky if people are always coming in late to class...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Project deployment schedule
+- Projects will not be assigned until late September
+- A functional prototype consisting of the "minimum" requirements is to be deployed in December
+- The final system is to be deployed by March 28th, 2016
+  - Missing this deadline will result in <strong class="red">failure for the course</strong> for the entire group!
+  - This gives us a 6 weeks to tweak it, bug fix it, etc.
+- Not delivering a working system in December (for CS 4970) or May (for CS 4971) will also result in  <strong class="red">an incomplete or failure for the course</strong>!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## High-level fall schedule
+- September: learn the software framework to be used, select projects, get to know the group
+- October: meet with the customer to learn the details of the project, continue to learn the software framework
+- November: development of the initial system
+- December: refinement of the initial system, deployment to a UVa server for the customer to start using
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Spring 2016 semester
+- All of you will need to take the Spring 2016 version of this class (CS 4971)
+  - All of those who are using this course as their senior thesis project will need to take it to complete their senior thesis and fulfill the capstone requirement
+  - All those who are not 4th year BS CS majors have agreed to take the spring version of the course
+- The spring semester is just a continuation of this course
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## High-level spring schedule
+- January: fixing the bugs the customer found over the holiday break, continue software development
+- February: plan for deployment, continue software development
+- March: initial deployment of the revised system, continue software development
+- April: deployment, beta testing by the customer, writing of the documentation
+- May: Final deployment and delivery of the software to the customer
+	  </script></section>
+
+	  <section data-markdown id="itlist"><script type="text/template">
+## 2015-2016 Iteration schedule
+- All iterations start on a Tuesday and end on a Monday two weeks later
+- Iterations start on Tuesday, September 22nd
+- There are 6 iterations in the fall
+  - 1: Sep 22 -> Oct 5; 2: Oct 6 -> 19; 3: Oct 20 -> Nov 2; 4: Nov 3 -> 16; 5: Nov 17 -> 30; 6: Dec 1 -> 14
+  - The last half of iteration 6 is during finals week
+- There are 8 iterations in the spring
+  - 7: Jan 19 -> Feb 1; 8: Feb 2 -> 15; 9: Feb 16 -> 29; 10: Mar 1 -> 14; 11: Mar 15 -> 28; 12: Mar 29 -> Apr 11; 13: Apr 12 -> 25; 14: Apr 26 -> May 9
+  - Iteration 10 contains spring break
+  - The last half of iteration 14 is during finals week
+        </script></section>
+
+	<section data-markdown id="phlist"><script type="text/template">
+## Phases
+- Fall semester: 6 iterations
+  - Each phase will be two iterations long
+  - Phase 1 is iterations 1-2, phase 2 is iterations 3-4, and phase 3 is iterations 5-6
+- Spring semester: 8 iterations
+  - Phase sizes will differ depending on the group size
+  - For 6 person groups, there will be 3 phases
+    - Phase 4 is iterations 7-9, phase 5 is iterations 10-11, and phase 6 is iterations 12-14
+  - For 7 person groups, there will be 4 phases
+    - Phase 4 is iterations 7-8, phase 5 is iterations 9-10, phase "5.5" is iterations 11-12, and phase 6 is iterations 13-14
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Tracking time
+- You MUST keep track of your time for this course (once projects start)
+  - It will be entered via a custom system accessed through Collab -> SLP Admin, or directly through netbadge
+- Not keeping track of time will incur a grade penalty!
+  - A helpful (free) tool for time tracking is [Toggl](https://www.toggl.com/), but you must *STILL* copy your time into the custom system
+- However, to prevent time inflation, I make this guarantee to you:
+  - I will NEVER use the amount of time you enter to determine any part of your grade for this course (or the spring course)
+- You are on your honor to enter time accurately
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="reportssec"><script type="text/template">
+# Reports
+	  </script></section>
+
+	  <section data-markdown id="reportsinfo"><script type="text/template">
+## Reports
+- One of the lead responsibilities: submit reports
+- The lead will need to submit three (or so) reports in each iteration
+- There are three types: weekly report (one to be submitted), TPS reports (one to be submitted), and meeting reports (variable number to be submitted, but often just one)
+- Recall that iterations are 2 weeks long
+- Reports are submitted via Collab -> SLP Admin or log in directly via https://slp.cs.virginia.edu/admin
+  - Please don't email them to me
+	  </script></section>
+
+	  <section data-markdown id="weeklyreport"><script type="text/template">
+## The Weekly Report
+- This report is submitted one week into the two-week iteration, and briefly describes the progress made so far during that week
+  - The customer meeting should have occurred during this time; you will have gotten feedback from that meeting
+  - You will have chosen your tasks for the iteration
+  - You will have (hopefully) made some development progress
+- This report need not be long -- a 5-line paragraph is sufficient (say, 100 words)
+  - They are judged on their quality, not quantity
+- I don't like reading fluff!
+	  </script></section>
+
+	  <section data-markdown id="tpsreport"><script type="text/template">
+## The TPS Report
+- TPS stands for "Termination and Post-reflection of Sprint"
+  - Don't get the reference?  Watch [Office Space](http://en.wikipedia.org/wiki/Office_Space)!
+- This report is a bit longer than the weekly reports (say, 200 words)
+- It should stand by itself (i.e., not require somebody to read another report to understand the context)
+- Contents:
+  - What was achieved this iteration?  It will likely have to reference github issues
+  - Did you achieve all your expectations set out in the first weekly report?
+  - Etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## The Meeting Report
+- This to be submitted whenever there is a meeting with an external individual (customer)
+- The purpose is to notify me of such a meeting, so I can contact them to see how things are going from their end
+- It is due by the <strong class="red">end of the meeting</strong> that the report is for
+  - Any team member can submit this report, and it should be done at the very end of the meeting
+- Meetings without an external individual (i.e., the customer) should not submit this type of report
+  - Don't submit them when meeting with the graduate TA
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Meeting report contents
+- This report should only be **ONE LINE**
+  - "Today we met with Jane Doe from 1:00-2:00 in Rice 404"
+    - (assuming Jane Doe is your customer's name)
+  - That's really all I want; this report is not meant to take any significant amount of time
+- It should NOT go into details about what happened in that meeting
+  - Those details are already in the meeting minutes
+  - And summaries would presumably go into the weekly or TPS reports
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Report due dates
+- An iteration:
+  - ...starts on a Tuesday (that is iteration day 1)
+  - ...ends at the end of the day on Monday two weeks later (that is iteration day 14)
+- Weekly report: due by noon on Tuesday one week into the iteration (day 8)
+- TPS report: due by noon on the Tuesday immediately after the iteration ends (day "15")
+- Meeting report: due by the end of said meeting
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Rules on reports
+- Don't add fluff!  I hate fluff.
+- I'm interested in quality, not quantity; the word counts were just guidelines
+- Reports are viewable by the entire group
+  - If you have issues that require a different visibility, speak to me in person or by email
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Report submission...
+- ... is YOUR responsibility
+- I will always remind you in lecture, but I am not going to e-mail you to remind you
+- There are grade penalties for reports not submitted or that are submitted late!
+- Reports are entered into a custom system that I will show you in a week or so
+  - And an e-mail is sent to me automatically when one is submitted
+- Remember that the ***entire*** group gets a grade penalty if a report is not submitted, and the non-lead members can check to make sure it's submitted
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="grades"><script type="text/template">
+# Grades
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## My grading philosophy...
+- Everybody starts out with an A, and then it can only go downhill from there
+- Because of this, there is no percentage of grade components
+- No bell curve!  So everybody could receive an A.  Or a D.
+- Delivery of a non-working system (in both December and May) will result in an incomplete or a failure for the ENTIRE group
+  - I held up the graduation of an entire group in May 2013 because of this
+  - And there were some students who did not graduate last May because of this
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Things that contribute to your grades
+- Homework assignments
+- Pop quizzes and attendance
+- Customer satisfaction (based on my interactions with them as well as a survey they complete)
+- Final project (in lieu of a final exam)
+- Progress in achieving goals (more on this shortly)
+- My evaluations of your effort and your group's effort
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Things that decrement your grades
+- Missing class or meetings
+- Not submitting your reports (or submitting them really late)
+- Not completing the surveys when requested
+- Not submitting hours each iteration
+- Not properly keeping track of your group progress through github issues
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Things that increment your grades
+- Helping the class in some way
+- Higher-than-average contributions to your group
+- Winning the Nobel Peace Prize
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Things that do NOT affect your grade
+- The number of hours you submit
+  - Only whether you are regularly submitting them
+- Your honest evaluations of your effort or your group members effort
+- Customer evaluations
+  - Customer satisfaction does affect your grade, but I take this into account with a grain of salt; the customer does not evaluate you directly
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Things that just make me really cranky and thus really negatively affect your grades
+- Not submitting the surveys by their due date
+  - This just holds up my work, and I have to go track those people down
+- Not submitting the reports
+  - The ***ENTIRE*** group gets a penatly for this
+  - Which means that non-lead members should check to make sure the reports were submitted!
+- Not submitting your hours
+  - It makes it really hard to generate any statistics when people forget this
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Sample Grading Metric
+- Base metric
+  - 50%: iteration evaluations
+  - 30%: final project evaluation
+  - 10%: homeworks
+  - 10%: final exam, project, or presentation
+- Modifications
+  - Group work is multiplied by a *factor*, which is an estimate of how much work you did for the group
+  - Penalties for missing class or not completing your reported times
+  - Massive penalties for not completing the surveys
+- This is all subject to change, of course...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More on the grading metric
+- The grading metric is specifically calibrated so that if you receive an average of "good" on your iteration evaluations *and* do an average amount of work for your project, then you are on track to receive an A
+- Here, "on track" means that there are other factors as well:
+  - Homeworks
+  - Project evaluatoin
+  - Final exam, project, or presentation
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Homeworks, pop quizzes, etc.
+- There will be occasional things to be done:
+  - Fill out this survey, etc.
+- There will be occasional homeworks:
+  - Create a website using this framework, etc.
+- There may be occasional pop quizzes
+- The goal of all this is to make sure everybody is doing the work necessary
+  - I really hate grading
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration evaluations
+- Each iteration will have an evaluation completed approximately 1 week after the iteration completes
+- In addition to comments, there will be one overall evaluation as to the progress: none, poor, fair, good, excellent
+- This will directly affect the grade for each group member!
+- You can request that we re-evaluate within 2 weeks of when they are released
+  - But such re-evaluation is only if we missed something!
+  - You can't make up the work *after* the iteration and have that be re-evaluated!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## "Progress in achieving goals"
+- This does not mean that you have to complete everything you initially set out to do
+  - If you set out to do too much, then you will be in trouble
+- It means that:
+  - Your goals have to be reasonable
+  - You have to make consistent progress
+  - You have to keep your goals (and expectations) updated
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Exams
+- None planned!
+- But we will have a final project in lieu of a final exam
+- And the project presentations will take place during the final exam period (Sat, Dec 12 from 2 p.m. -- 5 p.m.)
+  - That's toward the end of iteration 6
+- That being said, I reserve the write to add one if I feel like I want to spend some time grading...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Surveys
+- There are 8 or 9 surveys that you will have to complete this entire year (4 or 5 a semester)
+  - The beginning of fall semester survey in September, which includes your project preferences
+  - One after each phase, which is a chance for you to say how the phase went (there are 3 or 4 of these a semester)
+  - The end of year survey in May
+- All are through a system called LimeSurvey; I'll provide you with a link
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Senior Theses
+- Most of you are using this as the technical project for your senior thesis
+- You must still register for STS 4500!
+- You will list me as your technical advisor, and you will be in a group (or project-based) senior thesis
+  - Prospectus signatures are due December 1st
+- Those groups won't be known until late September; if this causes an issue, let me know
+  - If they want your technical topic, you can let them know that you are in the CS capstone course, and that the topics will be known late September
+  - If that doesn't work, I can chat with them
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## More senior theses stuff
+- Your technical deliverables will be written by the group
+  - As far as STS 4500/4600 goes, you just have a technical report
+  - You will have other documentation to write in the spring for this course
+- The technical report will have to be in ACM SIG format
+  - I'll provide templates as we reach that point in the spring
+- For the STS topic, you can pick something related to the nonprofit you are working with
+  - Or make up your own topic
+- In the initial survey you will let me know who your STS instructor is
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="legal"><script type="text/template">
+# Legal Issues
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What software you can use
+- You are NOT to reinvent the wheel!
+  - If there exists software components that achieve what you want to achieve, you should use that directly!
+  - You must properly cite the software that you use!
+- However, we have to be cognizant of the licensing issues
+  - As this is a real-world development project
+- In particular, you probably can NOT use any GPL software
+  - I have [an entire lecture](../../slides/02-legal.html#/) on this...
+	  </script></section>
+
+	  <section data-markdown id="legaldetails"><script type="text/template">
+## Legal agreements, part 1
+- There will be a legal agreement that I will ask you to sign
+- It gives the nonprofit the right to:
+  - Use your software forever
+  - Improve upon your software
+- It prevents the nonprofit from:
+  - Selling or distributing your software
+  - Using it for commercial purposes
+- It retains for you:
+  - All other rights, including the right to distribute or sell the software
+	  </script></section>
+
+	  <section data-markdown id="mustisign"><script type="text/template">
+## Legal agreements, part 2
+- There are two
+- Both can be found [here](legal.html)
+- "Student Participation and Release Form" is what gives the nonprofit rights to use the system you develop
+  - It is what was mentioned on the previous slide
+- "Capstone NDA" is a UVa-approved non-disclosure agreement that the nonprofit may ask you to sign
+	  </script></section>
+
+	  <section data-markdown id="mustisign"><script type="text/template">
+## Must you sign the agreement?
+- No, but if you don't, then you can not develop software for a nonprofit
+  - And that means you will likely have to take the independent project track, and drop this course
+- Nobody has yet objected to the agreement yet
+  - Development of the agreement was in conjunction with the Provost's office and UVa's general counsel
+  - In particular, it does not restrict your rights, it only gives some (limited) rights to the nonprofit
+- In the survey, I will ask if you are willing to sign the agreement and the NDA
+	  </script></section>
+
+	</section>
+
+	<section>
+
+	  <section data-markdown id="tech"><script type="text/template">
+# Technologies Used
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Collab
+- Unfortunately...
+- I'll only use it for: mailing list, account information dissemination, large file downloads
+- And not much else...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## VirtualBox
+- It mostly works properly
+  - But don't use version 5!  Stay with version 4.3!
+- I will provide a VirtualBox image all configured for development for the three platforms used in this course
+  - The image details can be found [here](../../docs/virtualbox-image-details.html)
+- If you used my image from CS 2150, you can either copy the files over, or do an upgrade (that page describes how to upgrade the image)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## github.com
+- The main course repo will be there, including all the slide notes
+  - https://github.com/aaronbloomfield/slp
+- A number of repos that you will use will be in the "uva-slp" github organization
+- You will need to provide two private repositories for the git/github homework
+- Your individual project repositories will be hosted there
+  - They will be private, and will be provided to you for free
+- We'll be using issues and the wiki extensively
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Continuous Integration (CI) site
+- Last year we used both [CircleCI](https://circleci.com/) and [TravisCI](https://travis-ci.com/)
+  - Half of the groups were assigned to one, and half to the other
+- I will be using one or both of them again this year
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## waffle.io
+- [waffle.io](https://waffle.io/) is a issue tracking system that improves upon github issues
+- Using this will be new this year
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Course administration system
+- A custom system accessed through Collab or netbadge
+- When the projects start, we'll go over this
+- This will be used for:
+  - Time tracking
+  - Taking of notes for meetings
+  - Submitting reports
+  - Uploading STS 4500/4600 files
+  - And lots more...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## CakePHP
+- This is a framework written for the PHP language
+- Pros:
+  - PHP is an easy language to learn
+  - Relatively easy to install
+- Cons:
+  - There are a bunch of odd things that it does (such as using lots of memory, a start-up cost to each URL access) that tend to drive people crazy
+  - PHP is falling out of favor (although it's not going anywhere any time soon)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Ruby on Rails
+- Ruby is the language, Rails is the framework
+- Pros:
+  - Ruby and Rails interoperate much better than CakePHP
+  - It's a "cleaner" OO experience than CakePHP
+  - There are a LOT of libraries ("gems") available
+- Cons:
+  - Installation is a real pain in the @#($&#.
+  - Most hosting sites have very old (and likely very insecure) versions installed
+    - And you can't run multiple versions on a single web server instance
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Django
+- A python-based development platform
+- Pros:
+  - Python is a really nice language to develop in
+  - There are a lot of libraries available
+  - This platform is becoming much more popular these days
+- Cons:
+  - It is harder (but not impossible) to find hosting providers
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Wireframing
+- Everybody will have to create wireframes for their project
+  - This is in the October timeframe
+- Examples
+  - [balsamiq](http://balsamiq.com/)
+  - [MockFlow](http://www.mockflow.com/)
+  - And others...
+- By far, the most popular one last year was [jetstrap](https://jetstrap.com/)
+  - A drag-and-drop wireframe tool that outputs [Bootstrap](http://getbootstrap.com/) code
+	  </script></section>
+
+	</section>
+
+      </div>
+
+    </div>
+
+    <script src="../../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../slides/reveal.js/js/reveal.js"></script>
+    <script src="../../slides/js/settings-deeper.js"></script>
+
+  </body>
+</html>

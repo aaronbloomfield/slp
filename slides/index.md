@@ -10,20 +10,11 @@ bug, and displays the slides correctly.
 
 ------------------------------------------------------------
 
-### Spring lectures
+### Fall 2016 lectures
+
+Please note that the slides are generally not finalized until the day of lecture, and some of the links may not work until the lecture is ready to be presented.
 
 - [Daily announcements](../uva/daily-announcements.html#/) (UVa specific)
-- [Course Introduction (spring)](../uva/course-introduction-spring.html#/) (UVa specific)
-- [11: Deliverables](11-deliverables.html#/)
-- [12: Testing](12-testing.html#/)
-- [13: Maintenance](13-maintenance.html#/)
-- [Course conclusion](../uva/course-conclusion.html#/) (UVa specific)
-
-------------------------------------------------------------
-
-### Fall lectures
-
-- [Daily announcements, fall 2015](../uva/old/daily-announcements-fall-2015.html#/) (UVa specific)
 - [Course introduction (fall)](../uva/course-introduction-fall.html#/) (UVa specific)
 - [01: Development methods](01-development-methods.html#/)
 - [02: Legal Issues](02-legal.html#/)
@@ -35,6 +26,17 @@ bug, and displays the slides correctly.
 - [08: Wireframing](08-wireframing.html#/)
 - [09: Continuous integration testing](09-ci-testing.html#/)
 - [10: Documentation](10-documentation.html#/)
+
+------------------------------------------------------------
+
+### Spring 2017 lectures
+
+- [Daily announcements](../uva/daily-announcements.html#/) (UVa specific) (link will point to the fall daily announcements until the spring semester starts)
+- [Course Introduction (spring)](course-introduction-spring.html#/) (UVa specific) (link will not work until the start of the spring semester)
+- [11: Deliverables](11-deliverables.html#/)
+- [12: Testing](12-testing.html#/)
+- [13: Maintenance](13-maintenance.html#/)
+- [Course conclusion](course-conclusion-spring-2016.html#/) (UVa specific) (link will not work until the end of the spring semester)
 
 ------------------------------------------------------------
 

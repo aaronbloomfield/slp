@@ -22,7 +22,7 @@ Entering `make` in the cloned repo directory will convert all the .md files to .
 External Links
 --------------
 
-You can view more [information about the Service Learning Practicum](http://www.cs.virginia.edu/~asb/slp/).  In particular, this page includes information about how to apply, as well as current and former projects.
+You can view more [information about the Service Learning Practicum](http://slp.cs.virginia.edu/).  In particular, this page includes information about how to apply, as well as current and former projects.
 
 We have also had some press coverage:
 
@@ -42,7 +42,7 @@ The material in this repository is released under a [Creative Commons Attributio
 Copyright (c) 2013-2015 by Aaron Bloomfield.
 
 
-[24]: http://www.cs.virginia.edu/~asb/slp/2012-2013.php#cnemv
+[24]: http://slp.cs.virginia.edu/2012-2013.php#cnemv
 [28]: http://www.cavalierdaily.com/article/2013/10/a-different-kind-of-classroom_1024
 [29]: http://www.cavalierdaily.com/
 [30]: http://www.earlessrabbit.com/bronze/ttff-crowd-funded-pitch-night/http://www.earlessrabbit.com/bronze/ttff-crowd-funded-pitch-night/
