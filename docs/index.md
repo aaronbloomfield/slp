@@ -5,8 +5,7 @@ SLP: Documents
 
 ### UVa-specific
 
-- [Syllabus](../uva/syllabus.html) ([md](../uva/syllabus.md)) for the fall 2015 and spring 2016 semesters
-- [Schedule](../uva/schedule.html) ([md](../uva/schedule.md)): the schedule of lectures, iterations, etc.
+- [Syllabus](../uva/syllabus.html) ([md](../uva/syllabus.md)) for the fall 2016 and spring 2017 semesters
 
 ### Documents and tutorials
 
