@@ -17,11 +17,11 @@ Lectures (fall 2016)
 
 | Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
 |-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
-| 1   | Aug&nbsp;24 | Wednesday   | lecture       | [Course introduction][8]  | | |
+| 1   | Aug&nbsp;24 | Wednesday   | lecture       | [Course introduction][8]  | | [Course introduction][8], slides [1][8] to [8.2](course-introduction-fall.html#/7/1)  |
 | 2   | Aug&nbsp;26 | Friday      | lecture       | [Course introduction][8] | | |
 | 3   | Aug&nbsp;29 | Monday      | lecture       | [Development methods][51] | | |
-| 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][52] | | |
-| 5   | Sep&nbsp;2  | Friday      | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21])| |
+| 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21]), [github survey](http://goo.gl/Vjn3Yx) | |
+| 5   | Sep&nbsp;2  | Friday      | lecture       | [Legal issues][52] | | |
 | 6   | Sep&nbsp;5  | Monday      | lecture       | [Frameworks][53] | CakePHP part of [HW 2][22] ([md][23])| |
 | 7   | Sep&nbsp;7  | Wednesday   | lecture       | [Frameworks][53]    | | |
 | 8   | Sep&nbsp;9  | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) | |
