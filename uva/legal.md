@@ -16,6 +16,7 @@ These forms can be printed out and completed by hand, or one can type form field
 
 - [Student Participation and Release Form in Word format](student-participation-form.docx)
 - [Student Participation and Release Form in PDF format](student-participation-form.pdf)
+- The version of this form that they sign has a bubble footer at the bottom for proper tabulation; this can be found [here](student-participation-form-for-tpegs-with-footer.pdf) (this was generated via a [.docx](student-participation-form-for-tpegs.docx) and [.pdf](student-participation-form-for-tpegs.pdf)).
 
 This form is how a student indicates his/her awareness of what is going on in the capstone -- specifically, that software is being developed for an external entity.  Item 6 is where the license is provided to the nonprofit to use the software.  Should the student be under 18 (not likely for a fourth-year course), then the student's parent will also have to sign the form.
 
