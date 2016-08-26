@@ -13,20 +13,20 @@
 <p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
 <h3 id="install-ruby-and-rails">Install Ruby and Rails</h3>
 <p>Ruby is the programming language, and Rails is the framework. They are typically used at the same time, so the entire setup is often just called &quot;Rails&quot;.</p>
-<p>Note that Ruby is the programming language, and Rails is the framework. When all is completed, you <strong><em>MUST</em></strong> have Ruby version 2.2.3 installed and Rails 4.2.3 installed. It's okay if you have a different patch level version (i.e., Ruby 2.2.4 or rails 4.2.4, for example), but you can't have a different minor or major version.</p>
+<p>Note that Ruby is the programming language, and Rails is the framework. When all is completed, you <strong><em>MUST</em></strong> have Ruby version 2.3.1 installed and Rails 4.2.6 installed. It's okay if you have a different patch level version (i.e., Ruby 2.3.2 or rails 4.2.7, for example), but you can't have a different minor or major version.</p>
 <p>If you are running this on the VirtualBox image, then this step has already been performed. See below for getting this working on the course server.</p>
-<p>If you are running this on your <em>own</em> machine, then you will want to follow the instructions at <a href="https://gorails.com/setup/ubuntu/14.04">https://gorails.com/setup/ubuntu/14.04</a> if you are running Ubuntu 14.04. If you are running Mac OS X, that site has directions <a href="https://gorails.com/setup/osx">here</a>. Likewise, other versions of Ubuntu can be found from those two links. If you are using another operating system, you are on your own (but note that the versions <strong><em>MUST</em></strong> match what we are using (Ruby 2.2.3 and Rails 4.2.3)).</p>
-<p>To install this on the course server, you could follow the directions from <a href="https://gorails.com/setup/ubuntu/14.04">that site</a>. However, those directions take about a half hour to complete. Instead, follow the following steps. Note that this will only work on the course server!</p>
+<p>If you are running this on your <em>own</em> machine, then you will want to follow the instructions at <a href="https://gorails.com/setup/ubuntu/16.04">https://gorails.com/setup/ubuntu/16.04</a> if you are running Ubuntu 16.04. If you are running Mac OS X, that site has directions <a href="https://gorails.com/setup/osx">here</a>. Likewise, other versions of Ubuntu can be found from those two links. If you are using another operating system, you are on your own (but note that the versions <strong><em>MUST</em></strong> match what we are using (Ruby 2.3.1 and Rails 4.2.6)).</p>
+<p>To install this on the course server, you could follow the directions from <a href="https://gorails.com/setup/ubuntu/16.04">that site</a>. However, those directions take about a half hour to complete. Instead, follow the following steps. Note that this will only work on the course server!</p>
 <ol style="list-style-type: decimal">
 <li>Enter <code>cd</code> to ensure you are in your home directory</li>
 <li>Enter <code>tar xfz /usr/local/rails-setup.tgz</code></li>
 <li>Edit your <code>.bashrc</code> file, and add the three lines indicated in the <code>bashrc-mods.txt</code> file</li>
 <li>Log out, then log back in again</li>
-<li>Try the &quot;final steps&quot; commands from <a href="https://gorails.com/setup/ubuntu/14.04">those directions</a>. In particular, if you run <code>rails new myapp</code>, then it should work. (You will likely want to delete the myapp/ directory once you've tested this)</li>
+<li>Try the &quot;final steps&quot; commands from <a href="https://gorails.com/setup/ubuntu/16.04">those directions</a>. In particular, if you run <code>rails new myapp</code>, then it should work. (You will likely want to delete the myapp/ directory once you've tested this)</li>
 </ol>
 <p>You will have to run through the rest of the &quot;final steps&quot; commands to configure your rails application. As your first rails application needs to be called &quot;railshw&quot;, you will need to enter <code>rails new railshw -d mysql</code>, and then the rest of the commands listed there.</p>
 <h3 id="setting-up-a-new-rails-app">Setting up a new Rails app</h3>
-<p>To set up a new Rails app, you will need to follow the &quot;final steps&quot; instructions from <a href="https://gorails.com/setup/ubuntu/14.04">here</a>. Specifically:</p>
+<p>To set up a new Rails app, you will need to follow the &quot;final steps&quot; instructions from <a href="https://gorails.com/setup/ubuntu/16.04">here</a>. Specifically:</p>
 <ol style="list-style-type: decimal">
 <li>Run <code>rails new railshw -d mysql</code>, where &quot;railshw&quot; is the name of the app you are creating
 <ul>
@@ -34,13 +34,9 @@
 <li>For your project (when you are assigned to your project later), the name of the Rails app should match your project tag</li>
 <li>If it asks you for your password for sudo, hit Control-C. It wants to install the Ruby gems (the libraries) system-wide, and we are going to do it in your individual user account. To do this, enter <code>cd railshw</code> to move into the Rails application directory that you just created, then enter <code>bundle install --path vendor/bundle</code>. This will take a minute or two to complete.</li>
 </ul></li>
-<li>Edit railshw/config/database.yml, and enter your MySQL credentials (change username, password, and database). For now, change <strong><em>all</em></strong> the fields (username and password appear twice, and database appears three times). The database name is the same as your userid. For the homework, you can list your password in plaintext in that file. However, for your project app, you are <strong><em>NOT</em></strong> to have the plain text passwords in the files in the repository -- see the Security section, next, for how to handle the password.</li>
+<li>Edit <code>railshw/config/database.yml</code>, and enter your MySQL credentials (change username, password, and database). For now, change <strong><em>all</em></strong> the fields (username and password appear twice, and database appears three times). The database name is the same as your userid. For the homework, you can list your password in plaintext in that file. However, for your project app, you are <strong><em>NOT</em></strong> to have the plain text passwords in the files in the repository -- see the Security section, next, for how to handle the password.</li>
 <li>From the railshw/ directory, run <code>bundle install</code> (or, if on the course server, <code>bundle install --path vendor/bundle</code>).</li>
-<li>This no longer works, so ignore this. <del>If you want to use a database table <em>prefix</em> (which you do for the homework), then you will have to edit the three files in railshw/config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each: <code>config.active_record.table_name_prefix = &quot;ruby_&quot;</code>. Hhere, <code>ruby_</code> is the prefix, but use whatever you would like, within reason. This line can go at the end, just before the last line (which is <code>end</code>).</del></li>
-<li>From the railshw/ directory, run <code>rake db:create</code>. It will say that 'mst3k already exists', twice -- that's fine.
-<ul>
-<li>For the fall 2015 semester, an upgrade to the mysql2 gem has broken it, and it reports a number of errors (you can see details about that <a href="https://github.com/brianmario/mysql2/issues/675">here</a> and <a href="https://github.com/rails/rails/issues/21544">here</a>, if you are interested). To fix this, you need to revert to an earlier mysql2 gem. To do so, replace the <code>gem 'mysql2'</code> line in your Gemfile with <code>gem 'mysql2', '~&gt; 0.3.20'</code>, and run <code>bundle install --path vendor/bundle</code>. At that point, <code>rake db:migrate</code> should work.</li>
-</ul></li>
+<li>From the railshw/ directory, run <code>rake db:create</code>. It will say that 'mst3k already exists', once or twice -- that's fine.</li>
 <li>Install the gems locally to your Rails app: from ~/railshw, run <code>bundle install --path vendor/bundle</code>; this will take a few minutes to run.</li>
 </ol>
 <p>If you are running this on the course server, you will need to reload the apache web server by running <code>/usr/local/bin/reload-apache2</code>. At this point, you should be able to view your Rails app at <code>http://server/rails/mst3k</code>. Note that there is no tilde (&quot;~&quot;) there! And obviously replace &quot;mst3k&quot; with your userid. It should look <strong><em>exactly</em></strong> like the image at the bottom of this page.</p>
@@ -56,7 +52,7 @@
 <ul>
 <li>Depending on the gem, it may prompt you to enter <code>bundle install --path vendor/bundle</code> instead</li>
 </ul></li>
-<li>You should be able to view your app through <code>rails server</code>, as you have installed it locally (in ./.rbenv/versions/2.2.3/lib/ruby/gems/2.2.0/gems/, if you are interested).</li>
+<li>You should be able to view your app through <code>rails server</code>, as you have installed it locally (in ./.rbenv/versions/2.3.1/lib/ruby/gems/2.2.0/gems/, if you are interested).</li>
 <li>The previous command installs the gem(s) in a single <code>gems/</code> directory that <em>all</em> of your Ruby apps can use. However, the webserver cannot access that directory. Thus, you need to run <code>bundle --deployment</code>. This will install all the gems <em>again</em>, but this time to vendor/bundle, which the web server <em>can</em> find.</li>
 <li>Reload the apache web server by running <code>/usr/local/bin/reload-apache2</code></li>
 </ol>
@@ -78,7 +74,7 @@
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>If you get a Passenger error on the server that states, &quot;wrong ELF class&quot;, as shown <a href="images/rails-bad-elf.png">here</a>, then the problem is that you have installed all of your gems (via <code>bundle install --path vendor/bundle</code>) on your local <strong><em>32-bit</em></strong> machine or image, and then uploaded them to the server, which is a 64-bit machine. To fix, you must delete the <strong><em>entire</em></strong> bundle directory on the server: <code>/bin/rm -rf ~/railshw/vendor/bundle</code>, and then reinstall them all again (via <code>bundle install --path vendor/bundle</code>).</p>
 <h3 id="viewing-your-rails-application">Viewing your Rails application</h3>
-<p>If you want to view your rails application locally, you can view it via the rails server, as described in <a href="https://gorails.com/setup/ubuntu/14.04">those directions</a> (basically, run <code>rails server</code>, and then view it at <code>http://localhost:3000</code> in your favorite web browser).</p>
+<p>If you want to view your rails application locally, you can view it via the rails server, as described in <a href="https://gorails.com/setup/ubuntu/16.04">those directions</a> (basically, run <code>rails server</code>, and then view it at <code>http://localhost:3000</code> in your favorite web browser).</p>
 <p>Your Rails app will have a VERY specific directory that it must be installed in, as the web server is already configured for that directory. As long as it is in that directory, it will be visible through Apache.</p>
 <p>When you view your app, it should look <strong><em>exactly</em></strong> like the image at the image below (albeit with a different URL):</p>
 <div class="figure">

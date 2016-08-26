@@ -21,21 +21,21 @@
 <li>You should have your MySQL datbase and login information ready, as you will need that shortly; you should have gotten that in the Collab Post'Em tool</li>
 <li>Install CakePHP, following the directions <a href="http://book.cakephp.org/3.0/en/installation.html#installing-cakephp">here</a>
 <ul>
-<li>On the course server, it <strong>MUST</strong> be in ~/html/cakephp/, or else we will not be able to find it (and we will not grade it); this means that the final URL will be http://server/~mst3k/cakephp/ (where &quot;server&quot; is the course server)</li>
-<li>So we recommend putting it in ~/public_html/cakephp/ on VirtualBox, and ~/html/cakephp/ on the course server.</li>
-<li>To do this, run <code>composer create-project --prefer-dist cakephp/app cakephp</code> from your ~/public_html directory (on VirtualBox) or ~/html directory (on the course server)</li>
+<li>On the course server, it <strong>MUST</strong> be in <code>~/html/cakephp/</code>, or else we will not be able to find it (and we will not grade it); this means that the final URL will be http://server/~mst3k/cakephp/ (where &quot;server&quot; is the course server)</li>
+<li>So we recommend putting it in <code>~/public_html/cakephp/</code> on VirtualBox, and <code>~/html/cakephp/</code> on the course server.</li>
+<li>To do this, run <code>composer create-project --prefer-dist cakephp/app cakephp</code> from your <code>~/public_html</code> directory (on VirtualBox) or <code>~/html</code> directory (on the course server)</li>
 <li>If your URLs are the same, then you can just do an rsync upload to transfer the files, and they should work on the course server as well; see the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>) for details about rsync</li>
 </ul></li>
 <li>Configure the CakePHP installation
 <ul>
-<li>There are <strong><em>TWO</em></strong> .htaccess files (in the root CakePHP directory (~mst3k/html/cakephp/) and in the webroot directly below that (~mst3k/html/cakephp/webroot/)), and both will need to be edited and a line like <code>RewriteBase /~mst3k/cakephp/</code> put in (edited for your particular directory/URL). Put this in as the second to last line, just above the <code>&lt;/IfModule&gt;</code> line.</li>
+<li>There are <strong><em>TWO</em></strong> .htaccess files (in the root CakePHP directory (<code>~mst3k/html/cakephp/</code>) and in the webroot directly below that (<code>~mst3k/html/cakephp/webroot/</code>)), and both will need to be edited and a line like <code>RewriteBase /~mst3k/cakephp/</code> put in (edited for your particular directory/URL). Put this in as the second to last line, just above the <code>&lt;/IfModule&gt;</code> line.</li>
 <li>At this point, you should be able to view your URL, although it will indicate that it cannot connect to the database</li>
 <li>In config/app.php, edit app.php, and edit the Datasources =&gt; default array: you will need to change the values for username, password, and database to match your MySQL credentials (both username and database are your userid for this homework; your password is from above)</li>
 </ul></li>
-<li>At this point, you should be able to view the page. It should look <strong>exactly</strong> like the image below
+<li>At this point, you should be able to view the page (<code>http://localhost/~mst3k/cakephp/</code>, or similar). It will look much like the image below, although the particular colors and layout change with each minor version.
 <ul>
-<li>Obviously, &quot;server&quot; is the course server</li>
-<li>Note that all the check marks are green! If <strong>ANY</strong> of them are yellow or red, then something is wrong, and it is not configured properly</li>
+<li>For CakePHP 3.3 (the version as of August 2016), it will have a large red area that says, &quot;CakePHP / Build fast, grow solid. / Get the Ovens Ready&quot;. Beneath that will be another large light blue area that has green checkboxes for <strong>EVERY</strong> line (make sure the 'CakePHP is able to connect to the database' one is green also!).</li>
+<li>Note that all the check marks are green! If <strong>ANY</strong> of them are yellow or red, then something is wrong, and it is not configured properly (the small yellow box that mentions debug mode is fine).</li>
 </ul></li>
 </ul>
 <h3 id="troubleshooting">Troubleshooting</h3>

@@ -12,11 +12,11 @@
 <h1 id="slp-django-getting-started">SLP: Django: Getting Started</h1>
 <p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
 <h3 id="python-version">Python version</h3>
-<p>On both the course server and the VirtualBox image, there are two versions of python installed. It is the system default version (<code>python -V</code>) that is used in the WSGI module (which is what runs the Django project in the web server). As of the writing of this tutorial, that is version 2.7.6. Running <code>python3 -V</code> indicates that Python 3.4.0 is also installed.</p>
+<p>On both the course server and the VirtualBox image, there are two versions of python installed. It is the system default version (<code>python -V</code>) that is used in the WSGI module (which is what runs the Django project in the web server). As of the writing of this tutorial, that is version 2.7.6. Running <code>python3 -V</code> indicates that Python 3.4.3 is also installed.</p>
 <h3 id="install-django">Install Django</h3>
 <p>Django has already been installed on the VirtualBox image provided, as well as on the course server.</p>
-<p>To install Django on your own system, under Ubuntu 14.04, you need to install pip, the Python package manager: <code>sudo apt-get install python-pip</code>. If it is not installed, you will also want to install the <code>python-mysqldb</code> package so that Python can connect to the MySQL database. You can then install Django via <code>sudo pip install Django==1.8.4</code> (you may want to see if there is a newer release available than 1.8.4, which was the most recent release as of the writing of this document). Note that installing the python-django package under Ubuntu will NOT work, as that is Django version 1.6.</p>
-<p>As of the writing of this tutorial (Aug 31, 2015), a stock Ubuntu 14.04 system comes with Python versions 2.7.6 (via <code>python</code>) and 3.4.0 (via <code>python3</code>) installed, and the above pip command installs Django version 1.8.4.</p>
+<p>To install Django on your own system, under Ubuntu 16.04, you need to install pip, the Python package manager: <code>sudo apt-get install python-pip</code>. If it is not installed, you will also want to install the <code>python-mysqldb</code> package so that Python can connect to the MySQL database. You can then install Django via <code>sudo pip install Django==1.10</code> (you may want to see if there is a newer release available than 1.10, which was the most recent release as of the writing of this document). Note that installing the python-django package under Ubuntu will NOT work, as that is Django version 1.6.</p>
+<p>As of the writing of this tutorial (Aug 25, 2016), a stock Ubuntu 16.04 system comes with Python versions 2.7.6 (via <code>python</code>) and 3.4.3 (via <code>python3</code>) installed, and the above pip command installs Django version 1.10.</p>
 <h3 id="setting-up-a-new-django-project">Setting up a new Django project</h3>
 <p>Much of these directions are based on the <a href="https://docs.djangoproject.com/en/1.8/intro/">Django intro tutorial</a> from <a href="https://www.djangoproject.com/">Django Project</a>. These directions are for Django version 1.8; if a newer version is released, then and you have to change the tutorial page version, via the link in the lower right, to 1.8, which is the version we are using.</p>
 <p>To create a Django project, follow these steps. They are adapted from <a href="https://docs.djangoproject.com/en/1.8/intro/tutorial01/">part 1 of the Django tutorial</a>.</p>
@@ -24,12 +24,12 @@
 <li>Enter <code>django-admin startproject mysite</code>. This will create a <code>mysite/</code> directory with a bunch of files in it.
 <ul>
 <li>For the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="hw-frameworks.md">md</a>), you probably will want to use &quot;djangohw&quot; as the project name</li>
-<li>You will need to change all instances of &quot;mysite&quot; to your actual project name (&quot;djangohw&quot;, or whatever).</li>
+<li>You will need to change all instances of &quot;mysite&quot; in these directions to your actual project name (&quot;djangohw&quot;, or whatever).</li>
 <li>Note that you can call the binary <code>django-admin</code> or <code>django-admin.py</code>, as the former just invokes the latter.</li>
 <li>The Django directory that is created should be in your home directory on the course server.</li>
 </ul></li>
 <li>To view your project, you can run <code>python manage.py runserver</code> from inside the <code>mysite/</code> directory. This will print a URL, such as <code>http://127.0.0.1:8000/</code> -- you can view that URL in your browser, and it should look exactly like the image at the very bottom of this page. This will only work locally, though -- you can't view a Django project shown via the &quot;runserver&quot; command from the course server very easily (at least, not without redirecting ports).</li>
-<li>To update the database information, edit mysite/mysite/settings.py
+<li>To update the database information, edit <code>mysite/mysite/settings.py</code>
 <ul>
 <li>To use MySQL, change the <code>ENGINE</code> value in <code>DATABASES</code> from <code>django.db.backends.sqlite3</code> to <code>django.db.backends.mysql</code></li>
 <li>Enter values for your DB credentials: <code>USER</code>, <code>NAME</code>, <code>PASSWORD</code>, and <code>HOST</code>.</li>
@@ -46,7 +46,7 @@
 <li>Note that there is no easy way to add a DB table prefix to every table -- instead, you would have to specify the name of <em>every</em> table that Django uses. You can see a whole bunch of people getting all twitchy over this <a href="https://code.djangoproject.com/ticket/891">here</a>.</li>
 <li>And edit <code>TIME_ZONE</code> to match our time zone (EST).</li>
 </ul></li>
-<li>From the <code>mysite/</code> directory, run <code>python manage.py syncdb</code>. This will set up the DB tables.
+<li>From the <code>mysite/</code> directory, run <code>python manage.py migrate</code>. This will set up the DB tables.
 <ul>
 <li>The 'superusers' that it prompts you for are a login for your web system -- you can use your userid, and pick any password that you'd like. Note that by setting the username and password here, you can skip the &quot;Create an admin user&quot; section at the top of <a href="https://docs.djangoproject.com/en/1.8/intro/tutorial02/">page 2 of the Django tutorial</a>.</li>
 </ul></li>

@@ -84,14 +84,12 @@ Note that the CakePHP tutorial has a [part two](http://book.cakephp.org/3.0/en/t
 A few notes:
 
 - The directions here are written assuming that you are developing the system on your VirtualBox image, and then uploading that to the server once completed; if not, that's totally fine, but you may have to adapt them somewhat.
-- ~~Note that you can set a MySQL table *prefix* in config/app.php, such as `cake_`.  This will ensure that all of your CakePHP tables are not accidentally used by your other frameworks.~~
-    - Apparently, CakePHP version 3.0 no longer allows one to set the table prefixes this way.  However, for this homework, the tables that you use for the CakePHP part should not conflit with the tables used for Django.
 
 ### Ruby on Rails
 
 First, read through the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page.  The assumption is that you will test it locally via `rails server`, and the deploy it on the course server via the directions on that page.  If you want to try your hand configuring your *own* Rails server, you can look at the [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md)) page -- but be warned, it's a real pain in the rear to configure a Rails server.
 
-We are using Ruby version 2.2.3 and Rails version 4.2.3 for this assigment.  If you have a more recent patch level (the last of the three digits of the version number), that's fine.  But you can't have a different major version (the first of those three numbers) or a different minor version (the middle of those three numbers).
+We are using Ruby version 2.3.1 and Rails version 4.2.6 for this assigment.  If you have a more recent patch level (the last of the three digits of the version number), that's fine.  But you can't have a different major version (the first of those three numbers) or a different minor version (the middle of those three numbers).
 
 Your app *must* be called `railshw`, and it *must* be in your home directory.  In other words, there must be a `/home/slp/mst3k/railshw/public` directory, as this is what the webserver will be looking for.  If you change anything in that path, the web server will never find your app.  You can then view your app at `http://server/rails/mst3k`, where "server" is the course server.
 
@@ -99,12 +97,6 @@ This part of the assignment is to complete the blog tutorial [here](http://guide
 
 - That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and the course server
 - To create the Rails application, you just enter `rails new railshw -d mysql` in your home directory (this is in section 3.2 of that web page; be sure to name it `railshw` so the URL is correct)
-
-Since you will be using the same database for all three frameworks, you will want to have each Ruby table have given prefix.  You can do this by editing *all* three files in config/environments/ (the files are: development.rb, production.rb, and test.rb), and adding the following line to each (here, `ruby_` is the prefix, but use whatever you would like, within reason).  This line can go at the end, just before the last line (which is `end`).
-
-```
-config.active_record.table_name_prefix = "ruby_"
-```
 
 Lastly, to see how to upload your Rails app to the server, see the "Uploading to the server" section of the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page.
 
@@ -114,7 +106,7 @@ First, read through the [Django getting started](django-getting-started.html) ([
 
 Unlike Ruby on Rails, you can name the Django project anything you want, and put it in any directory that you want.  Although naming it `djangohw` and putting it in our home directory on the course server would not be bad ideas.
 
-The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.8/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.8 version!
+The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.10/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.10 version!
 
 A few notes on that tutorial (these were notes from a previous version of the tutorial, so take these with a grain of salt):
 

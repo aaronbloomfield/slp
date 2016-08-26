@@ -1,5 +1,5 @@
-SLP: git Homework
-=================
+SLP: git/github Homework
+========================
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
 

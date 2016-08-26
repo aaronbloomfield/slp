@@ -5,15 +5,15 @@ SLP: Django: Getting Started
 
 ### Python version
 
-On both the course server and the VirtualBox image, there are two versions of python installed.  It is the system default version (`python -V`) that is used in the WSGI module (which is what runs the Django project in the web server).  As of the writing of this tutorial, that is version 2.7.6.  Running `python3 -V` indicates that Python 3.4.0 is also installed.
+On both the course server and the VirtualBox image, there are two versions of python installed.  It is the system default version (`python -V`) that is used in the WSGI module (which is what runs the Django project in the web server).  As of the writing of this tutorial, that is version 2.7.6.  Running `python3 -V` indicates that Python 3.4.3 is also installed.
 
 ### Install Django
 
 Django has already been installed on the VirtualBox image provided, as well as on the course server.
 
-To install Django on your own system, under Ubuntu 14.04, you need to install pip, the Python package manager: `sudo apt-get install python-pip`.  If it is not installed, you will also want to install the `python-mysqldb` package so that Python can connect to the MySQL database.  You can then install Django via `sudo pip install Django==1.8.4` (you may want to see if there is a newer release available than 1.8.4, which was the most recent release as of the writing of this document).  Note that installing the python-django package under Ubuntu will NOT work, as that is Django version 1.6.
+To install Django on your own system, under Ubuntu 16.04, you need to install pip, the Python package manager: `sudo apt-get install python-pip`.  If it is not installed, you will also want to install the `python-mysqldb` package so that Python can connect to the MySQL database.  You can then install Django via `sudo pip install Django==1.10` (you may want to see if there is a newer release available than 1.10, which was the most recent release as of the writing of this document).  Note that installing the python-django package under Ubuntu will NOT work, as that is Django version 1.6.
 
-As of the writing of this tutorial (Aug 31, 2015), a stock Ubuntu 14.04 system comes with Python versions 2.7.6 (via `python`) and 3.4.0 (via `python3`) installed, and the above pip command installs Django version 1.8.4.
+As of the writing of this tutorial (Aug 25, 2016), a stock Ubuntu 16.04 system comes with Python versions 2.7.6 (via `python`) and 3.4.3 (via `python3`) installed, and the above pip command installs Django version 1.10.
 
 
 ### Setting up a new Django project
@@ -24,11 +24,11 @@ To create a Django project, follow these steps.  They are adapted from [part 1 o
 
 1. Enter `django-admin startproject mysite`.  This will create a `mysite/` directory with a bunch of files in it.
     - For the [Frameworks homework](hw-frameworks.html) ([md](hw-frameworks.md)), you probably will want to use "djangohw" as the project name
-	- You will need to change all instances of "mysite" to your actual project name ("djangohw", or whatever).
+	- You will need to change all instances of "mysite" in these directions to your actual project name ("djangohw", or whatever).
     - Note that you can call the binary `django-admin` or `django-admin.py`, as the former just invokes the latter.
 	- The Django directory that is created should be in your home directory on the course server.
 2. To view your project, you can run `python manage.py runserver` from inside the `mysite/` directory.  This will print a URL, such as `http://127.0.0.1:8000/` -- you can view that URL in your browser, and it should look exactly like the image at the very bottom of this page.  This will only work locally, though -- you can't view a Django project shown via the "runserver" command from the course server very easily (at least, not without redirecting ports).
-3. To update the database information, edit mysite/mysite/settings.py
+3. To update the database information, edit `mysite/mysite/settings.py`
     - To use MySQL, change the `ENGINE` value in `DATABASES` from `django.db.backends.sqlite3` to `django.db.backends.mysql`
 	- Enter values for your DB credentials: `USER`, `NAME`, `PASSWORD`, and `HOST`.
 	- A completed `DATABASES` section might look like the following:
@@ -45,7 +45,7 @@ DATABASES = {
 ```
 	- Note that there is no easy way to add a DB table prefix to every table -- instead, you would have to specify the name of *every* table that Django uses.  You can see a whole bunch of people getting all twitchy over this [here](https://code.djangoproject.com/ticket/891).
     - And edit `TIME_ZONE` to match our time zone (EST).
-4. From the `mysite/` directory, run `python manage.py syncdb`.  This will set up the DB tables.
+4. From the `mysite/` directory, run `python manage.py migrate`.  This will set up the DB tables.
     - The 'superusers' that it prompts you for are a login for your web system -- you can use your userid, and pick any password that you'd like.  Note that by setting the username and password here, you can skip the "Create an admin user" section at the top of [page 2 of the Django tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial02/).
 
 At this point, you Django project is up and running, even if it doesn't do much.  You can now start about half-way down on the [Django tutorial, part 1](https://docs.djangoproject.com/en/1.8/intro/tutorial01/#creating-models) page (start at the "Creating models" section).
