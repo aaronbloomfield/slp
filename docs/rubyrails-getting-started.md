@@ -31,13 +31,13 @@ To set up a new Rails app, you will need to follow the "final steps" instruction
     - For this homework, your Rails app MUST be named "railshw", and it MUST be in your home directory, as this is how the web server is configured.  In particular, there must be a ~mst3k/railshw/public directory.
     - For your project (when you are assigned to your project later), the name of the Rails app should match your project tag
     - If it asks you for your password for sudo, hit Control-C.  It wants to install the Ruby gems (the libraries) system-wide, and we are going to do it in your individual user account.  To do this, enter `cd railshw` to move into the Rails application directory that you just created, then enter `bundle install --path vendor/bundle`.  This will take a minute or two to complete.
-2. Edit `railshw/config/database.yml`, and enter your MySQL credentials (change username, password, and database).  For now, change ***all*** the fields (username and password appear twice, and database appears three times).  The database name is the same as your userid.  For the homework, you can list your password in plaintext in that file.  However, for your project app, you are ***NOT*** to have the plain text passwords in the files in the repository -- see the Security section, next, for how to handle the password.
+2. Edit `railshw/config/database.yml`, and enter your MySQL credentials (change username, password, and database).  For now, change ***all*** the fields (username and password appear twice, and database appears three times).  You can keep the same database (the same name as your userid) for production and development (as this is just a homework -- you should **NOT** do that in practice), and use a different database (such as `mst3k_test`) for testing.  For the homework, you can list your password in plaintext in that file.  However, for your project app, you are ***NOT*** to have the plain text passwords in the files in the repository -- see the Security section, next, for how to handle the password.
 3. From the railshw/ directory, run `bundle install` (or, if on the course server, `bundle install --path vendor/bundle`).
-4. From the railshw/ directory, run `rake db:create`.  It will say that 'mst3k already exists', once or twice -- that's fine.
-5. Install the gems locally to your Rails app: from ~/railshw, run `bundle install --path vendor/bundle`; this will take a few minutes to run.
+4. From the railshw/ directory, run `rake db:create`.  It will say that 'mst3k already exists' or 'mst3k_test already exists', once or twice -- that's fine.
 
 If you are running this on the course server, you will need to reload the apache web server by running `/usr/local/bin/reload-apache2`.  At this point, you should be able to view your Rails app at `http://server/rails/mst3k`.  Note that there is no tilde ("~") there!  And obviously replace "mst3k" with your userid.  It should look ***exactly*** like the image at the bottom of this page.
 
+If you are running this on your own machine, you may need to run `gem install bundler` as root (as indicated [here](http://stackoverflow.com/questions/19061774/cannot-load-such-file-bundler-setup-loaderror)); this was already done on the course server.
 
 ### Security
 

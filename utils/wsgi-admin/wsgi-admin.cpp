@@ -1,5 +1,5 @@
 /**
- * wsgi-admin, by Aaron Bloomfield, (c) 2014
+ * wsgi-admin, by Aaron Bloomfield, (c) 2014-2016
  *
  * This is part of the SLP repository
  * (https://github.com/aaronbloomfield/slp), and is released under a
@@ -289,9 +289,12 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
 // what does the main() say?
 int main(int argc, char **argv) {
 
+    int uid = getuid(); // get user's uid
+    setuid(0); // ensure we are running as root (requires SUID bit set as well)
+
     enum { MODE_NONE, MODE_REGISTER, MODE_REMOVE, MODE_REGENERATE, MODE_LIST } mode = MODE_NONE;
     char *filename = NULL;
-    int uid = getuid(), ret;
+    int ret;
 
     if ( argc == 1 )
         printUsage(argv[0]);

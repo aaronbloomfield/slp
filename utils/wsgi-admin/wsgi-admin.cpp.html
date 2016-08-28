@@ -1,16 +1,9 @@
-<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta name="GENERATOR" content="GNU source-highlight 3.1.6
+<!-- Generator: GNU source-highlight 3.1.6
 by Lorenzo Bettini
 http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite">
-<title>wsgi-admin.cpp</title>
-</head>
-<body bgcolor="white">
+http://www.gnu.org/software/src-highlite -->
 <pre><tt><i><font color="#9A1900">/**</font></i>
-<i><font color="#9A1900"> * wsgi-admin, by Aaron Bloomfield, (c) 2014</font></i>
+<i><font color="#9A1900"> * wsgi-admin, by Aaron Bloomfield, (c) 2014-2016</font></i>
 <i><font color="#9A1900"> *</font></i>
 <i><font color="#9A1900"> * This is part of the SLP repository</font></i>
 <i><font color="#9A1900"> * (</font></i><u><font color="#0000FF">https://github.com/aaronbloomfield/slp</font></u><i><font color="#9A1900">), and is released under a</font></i>
@@ -300,9 +293,12 @@ http://www.gnu.org/software/src-highlite">
 <i><font color="#9A1900">// what does the main() say?</font></i>
 <font color="#009900">int</font> <b><font color="#000000">main</font></b><font color="#990000">(</font><font color="#009900">int</font> argc<font color="#990000">,</font> <font color="#009900">char</font> <font color="#990000">**</font>argv<font color="#990000">)</font> <font color="#FF0000">{</font>
 
+    <font color="#009900">int</font> uid <font color="#990000">=</font> <b><font color="#000000">getuid</font></b><font color="#990000">();</font> <i><font color="#9A1900">// get user's uid</font></i>
+    <b><font color="#000000">setuid</font></b><font color="#990000">(</font><font color="#993399">0</font><font color="#990000">);</font> <i><font color="#9A1900">// ensure we are running as root (requires SUID bit set as well)</font></i>
+
     <b><font color="#0000FF">enum</font></b> <font color="#FF0000">{</font> MODE_NONE<font color="#990000">,</font> MODE_REGISTER<font color="#990000">,</font> MODE_REMOVE<font color="#990000">,</font> MODE_REGENERATE<font color="#990000">,</font> MODE_LIST <font color="#FF0000">}</font> mode <font color="#990000">=</font> MODE_NONE<font color="#990000">;</font>
     <font color="#009900">char</font> <font color="#990000">*</font>filename <font color="#990000">=</font> NULL<font color="#990000">;</font>
-    <font color="#009900">int</font> uid <font color="#990000">=</font> <b><font color="#000000">getuid</font></b><font color="#990000">(),</font> ret<font color="#990000">;</font>
+    <font color="#009900">int</font> ret<font color="#990000">;</font>
 
     <b><font color="#0000FF">if</font></b> <font color="#990000">(</font> argc <font color="#990000">==</font> <font color="#993399">1</font> <font color="#990000">)</font>
         <b><font color="#000000">printUsage</font></b><font color="#990000">(</font>argv<font color="#990000">[</font><font color="#993399">0</font><font color="#990000">]);</font>
@@ -515,5 +511,3 @@ http://www.gnu.org/software/src-highlite">
     <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>
 </tt></pre>
-</body>
-</html>
