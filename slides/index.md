@@ -16,8 +16,8 @@ Please note that the slides are generally not finalized until the day of lecture
 
 - [Daily announcements](../uva/daily-announcements.html#/) (UVa specific)
 - [Course introduction (fall)](../uva/course-introduction-fall.html#/) (UVa specific)
-- [01: Development methods](01-development-methods.html#/)
-- [02: Legal Issues](02-legal.html#/)
+- [01: Legal Issues](01-legal.html#/)
+- [02: Development methods](02-development-methods.html#/)
 - [03: Frameworks](03-frameworks.html#/)
 - [04: Requirements](04-requirements.html#/)
 - [05: Project start](05-project-start.html#/)

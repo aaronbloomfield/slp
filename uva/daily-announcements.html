@@ -62,6 +62,86 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2>Wednesday, August 31st</h2>
+<h4></h4>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1727/">xkcd # 1727</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, August 31st
+- The [first homework, on git and github](../../docs/hw-git.html), is out; it's due by the end of the day today (Wed, Aug 31)
+  - There is also a brief [intro to git](../../docs/git-intro.html) as well, and everybody should at least skim through it...
+  - You have to allow `aaronbloomfield` and `cjmincey` to be Collaborators on any private repos you create for this assignment, but *after* you complete the homework!
+- The [frameworks HW](../docs/hw-frameworks.html) is also ready; more on this on the next slide
+- We have a VirtualBox Linux image all configured for you
+  - The image is on Collab's Resources; also see the [installation
+  - Make sure you specify that it's a 64-bit guest!
+  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../docs/virtualbox-image-details.html)
+- Unlike CS 2150, I don't care what system you develop on
+  - But most (if not all) of the software will be on a LAMP system, so you'll have to use something similar to LAMP.  I've seen people set up Mac OS X to run MAMP, and Windows to run WAMP...
+- Please fill out the github userid survey at http://goo.gl/Vjn3Yx by the end of the day today
+  - You should have received an email about that
+  - I will need that information to get your assignments graded, and to release the project information to you
+- Today we will be finishing [legal issues](../slides/01-legal.html) and starting [development methodologies](../slides/02-development-methods.html#/)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Homework status
+- The [git/github HW due](../docs/hw-git.html) is due today (by the end of the day)
+- The [frameworks HW](../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
+  - CakePHP, due Mon, 9/5; URL: http://server/~mst3k/cakephp/
+    - As long as you put your code in `~/html/cakephp`, it will have that URL
+  - Rails, due Fri, 9/9: URL: http://server/rails/mst3k
+    - That URL is already configured, as long as your Rails project is in `~/railshw/`
+  - Django, due Mon, 9/12: URL: http://server/django/mstek
+    - You set this up via the `wsgi-admin` call; we recommend putting it in `~/djangohw/`
+- The course server is all configured and ready to go
+  - You can find your account info in the Collab Post'Em tool
+  - SSH keys: 
+    - RSA key fingerprint is 51:c6:7e:a6:44:b3:8e:f9:85:57:e0:7f:fb:c7:20:d3
+    - ECDSA key fingerprint is ed:1c:0e:61:94:2c:3f:53:d1:f1:dd:90:9b:f7:cb:a7
+  - In theory, you should not require `sudo` to complete anything
+- You have three databases that you can use (all use the same password): `mst3k`, `test_mst3k`, and `mst3k_test`
+  - Use them however you would like to make the three projects work
+  - If you need a fourth to make it work, let me know
+- There are a few custom commands on the course server that you can use:
+  - `reload-apache2`: reloads the web server
+  - `view-apache2-log`: views the apache2 log
+  - `wsgi-admin`: to register your Django application
+- Each framework has a "getting started" page that is also updated
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## (updated) Schedule for the first month
+- ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
+- ~~Fri, 8/26: [course introduction](course-introduction-fall.html#/)~~
+- ~~Mon, 8/29: [legal issues](../slides/01-legal.html#/)~~
+- Wed, 8/31: [legal issues](../slides/01-legal.html#/), [development methods](../slides/02-development-methods.html#/) (today)
+  - [git/github HW due](../docs/hw-git.html)
+- Fri, 9/2: [development methods](../slides/02-development-methods.html#/)
+- Mon, 9/5: [frameworks](../slides/03-frameworks.html#/)
+  - [cake HW due](../docs/hw-frameworks.html)
+- Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)
+- Fri, 9/9: (we may or may not have a class)
+  - [rails HW due](../docs/hw-frameworks.html)
+- Mon, 9/12: [requirements](../slides/04-requirements.html#/), project discussion
+  - [django HW due](../docs/hw-frameworks.html)
+  - I am aiming to have all the project descriptions released this day
+- Wed, 9/14: [requirements](../slides/04-requirements.html#/), survey discussion
+- Fri, 9/16: likely (but not definitely!) no class; surveys due
+- Mon, 9/19: groups assigned, [project start](../slides/05-project-start.html#/), first group meetings
+
+Note that the slides are not ready until they are lectured on
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Monday, August 29th</h2>
 <h4>Unicode</h4>
 <img class="stretch" src="http://imgs.xkcd.com/comics/unicode.png" title="I&#39;m excited about the proposal to add a &quot;brontosaurus&quot; emoji codepoint because it has the potential to bring together a half-dozen different groups of pedantic people into a single glorious internet argument." alt="Unicode">
@@ -84,7 +164,7 @@ line-height:120%;
   - Why don't you do that now?
   - You should have received an email about that
   - I will need that information to get your assignments graded, and to release the project information to you
-- Today we will be going through [development methodologies](../../slides/01-development-methods.html#/)
+- Today we will be going through [legal issues](../slides/01-legal.html)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -117,10 +197,10 @@ line-height:120%;
 ## (updated) Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
 - ~~Fri, 8/26: [course introduction](course-introduction-fall.html#/)~~
-- Mon, 8/29: [legal issues](../slides/02-legal.html#/) (today)
-- Wed, 8/31: [legal issues](../slides/02-legal.html#/), [development methods](../slides/01-development-methods.html#/)
+- Mon, 8/29: [legal issues](../slides/01-legal.html#/) (today)
+- Wed, 8/31: [legal issues](../slides/01-legal.html#/), [development methods](../slides/02-development-methods.html#/)
   - [git/github HW due](../docs/hw-git.html)
-- Fri, 9/2: [development methods](../slides/01-development-methods.html#/)
+- Fri, 9/2: [development methods](../slides/02-development-methods.html#/)
 - Mon, 9/5: [frameworks](../slides/03-frameworks.html#/)
   - [cake HW due](../docs/hw-frameworks.html)
 - Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)
@@ -165,15 +245,15 @@ Note that the slides are not ready until they are lectured on
   - Why don't you do that now?
   - You should have received an email about that
   - I will need that information to get your assignments graded, and to release the project information to you
-- Today we will finish the [course introduction](course-introduction-fall.html#/) and start on [development methodologies](../../slides/01-development-methods.html#/)
+- Today we will finish the [course introduction](course-introduction-fall.html#/) and start on [development methodologies](../../slides/02-development-methods.html#/)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
-- Fri, 8/26: [course introduction](course-introduction-fall.html#/), [development methods](../slides/01-development-methods.html#/)
-- Mon, 8/29: [development methods](../slides/01-development-methods.html#/), [legal issues](../slides/02-legal.html#/)
-- Wed, 8/31: [legal issues](../slides/02-legal.html#/); [git/github HW due](../docs/hw-git.html)
+- Fri, 8/26: [course introduction](course-introduction-fall.html#/), [development methods](../slides/02-development-methods.html#/)
+- Mon, 8/29: [development methods](../slides/02-development-methods.html#/), [legal issues](../slides/01-legal.html#/)
+- Wed, 8/31: [legal issues](../slides/01-legal.html#/); [git/github HW due](../docs/hw-git.html)
 - Fri, 9/2: we may or may not have class, depending on how the lectures are progressing...
 - Mon, 9/5: [frameworks](../slides/03-frameworks.html#/); [cake HW due](../docs/hw-frameworks.html)
 - Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)

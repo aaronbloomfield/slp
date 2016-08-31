@@ -18,10 +18,10 @@ Lectures (fall 2016)
 | Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
 |-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
 | 1   | Aug&nbsp;24 | Wednesday   | lecture       | [Course introduction][8]  | | [Course introduction][8], slides [1][8] to [8.2](course-introduction-fall.html#/7/1)  |
-| 2   | Aug&nbsp;26 | Friday      | lecture       | [Course introduction][8] | | |
-| 3   | Aug&nbsp;29 | Monday      | lecture       | [Development methods][51] | | |
-| 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][52] | [HW 1: git][20] ([md][21]), [github survey](http://goo.gl/Vjn3Yx) | |
-| 5   | Sep&nbsp;2  | Friday      | lecture       | [Legal issues][52] | | |
+| 2   | Aug&nbsp;26 | Friday      | lecture       | [Course introduction][8] | | [Course introduction][8], slides [8.1](course-introduction-fall.html#/7) to [10.11](course-introduction-fall.html#/9/10) (end) |
+| 3   | Aug&nbsp;29 | Monday      | lecture       | [Legal issues][51] | | [Legal issues][51], slides [1][51] to [5.14](../slides/01-legal.html#/4/13) |
+| 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][51], [Development methods][52]| [HW 1: git][20] ([md][21]), [github survey](http://goo.gl/Vjn3Yx) | |
+| 5   | Sep&nbsp;2  | Friday      | lecture       | [Development methods][52] | | |
 | 6   | Sep&nbsp;5  | Monday      | lecture       | [Frameworks][53] | CakePHP part of [HW 2][22] ([md][23])| |
 | 7   | Sep&nbsp;7  | Wednesday   | lecture       | [Frameworks][53]    | | |
 | 8   | Sep&nbsp;9  | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) | |
@@ -106,8 +106,8 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [22]: ../docs/hw-frameworks.html
 [23]: ../docs/hw-frameworks.md
 
-[51]: ../slides/01-development-methods.html#/
-[52]: ../slides/02-legal.html#/
+[51]: ../slides/01-legal.html#/
+[52]: ../slides/02-development-methods.html#/
 [53]: ../slides/03-frameworks.html#/
 [54]: ../slides/04-requirements.html#/
 [55]: ../slides/05-project-start.html#/
@@ -122,10 +122,10 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [100]: course-introduction-fall.html#/6/8
 [101]: course-introduction-fall.html#/7
 [102]: course-introduction-fall.html#/9/10
-[103]: ../slides/01-development-methods.html#/7/5
-[104]: ../slides/02-legal.html#/4/13
-[105]: ../slides/02-legal.html#/5
-[106]: ../slides/02-legal.html#/6/8
+[103]: ../slides/02-development-methods.html#/7/5
+[104]: ../slides/01-legal.html#/4/13
+[105]: ../slides/01-legal.html#/5
+[106]: ../slides/01-legal.html#/6/8
 [107]: ../slides/03-frameworks.html#/4/7
 [108]: ../slides/03-frameworks.html#/5
 [109]: ../slides/03-frameworks.html#/7/6
@@ -138,8 +138,8 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [116]: ../slides/08-wireframing.html#/5/4
 
 [200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
-[201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-development-methods/01-development-methods.htm
-[202]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/02-legal/02-legal.htm
+[201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/02-development-methods/02-development-methods.htm
+[202]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-legal/01-legal.htm
 [203]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/03-frameworks/03-frameworks.htm
 [204]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/04-requirements/04-requirements.htm
 [205]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/05-project-start/05-project-start.htm
