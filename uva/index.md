@@ -20,7 +20,7 @@ Lectures (fall 2016)
 | 1   | Aug&nbsp;24 | Wednesday   | lecture       | [Course introduction][8]  | | [Course introduction][8], slides [1][8] to [8.2](course-introduction-fall.html#/7/1)  |
 | 2   | Aug&nbsp;26 | Friday      | lecture       | [Course introduction][8] | | [Course introduction][8], slides [8.1](course-introduction-fall.html#/7) to [10.11](course-introduction-fall.html#/9/10) (end) |
 | 3   | Aug&nbsp;29 | Monday      | lecture       | [Legal issues][51] | | [Legal issues][51], slides [1][51] to [5.14](../slides/01-legal.html#/4/13) |
-| 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][51], [Development methods][52]| [HW 1: git][20] ([md][21]), [github survey](http://goo.gl/Vjn3Yx) | |
+| 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][51], [Development methods][52]| [HW 1: git][20] ([md][21]), [github survey](http://goo.gl/Vjn3Yx) | [Legal issues][51], slides [6.1](../slides/01-legal.html#/5) to [7.10](../slides/01-legal.html#/6/9) (end); [Development methods][52], slides [1][52] to [4.5](../slides/02-development-methods.html#/3/4) |
 | 5   | Sep&nbsp;2  | Friday      | lecture       | [Development methods][52] | | |
 | 6   | Sep&nbsp;5  | Monday      | lecture       | [Frameworks][53] | CakePHP part of [HW 2][22] ([md][23])| |
 | 7   | Sep&nbsp;7  | Wednesday   | lecture       | [Frameworks][53]    | | |
