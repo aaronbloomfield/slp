@@ -18,15 +18,15 @@ Lectures (fall 2016)
 | Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
 |-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
 | 1   | Aug&nbsp;24 | Wednesday   | lecture       | [Course introduction][8]  | | [Course introduction][8], slides [1][8] to [8.2](course-introduction-fall.html#/7/1)  |
-| 2   | Aug&nbsp;26 | Friday      | lecture       | [Course introduction][8] | | [Course introduction][8], slides [8.1](course-introduction-fall.html#/7) to [10.11](course-introduction-fall.html#/9/10) (end) |
+| 2   | Aug&nbsp;26 | Friday      | lecture       | [Course introduction][8] | | [Course introduction][8], slides [8.1](course-introduction-fall.html#/7) to [10.11](course-introduction-fall.html#/9/10) (end)  ([recording][200]) |
 | 3   | Aug&nbsp;29 | Monday      | lecture       | [Legal issues][51] | | [Legal issues][51], slides [1][51] to [5.14](../slides/01-legal.html#/4/13) |
-| 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][51], [Development methods][52]| [HW 1: git][20] ([md][21]), [github survey](http://goo.gl/Vjn3Yx) | [Legal issues][51], slides [6.1](../slides/01-legal.html#/5) to [7.10](../slides/01-legal.html#/6/9) (end); [Development methods][52], slides [1][52] to [4.5](../slides/02-development-methods.html#/3/4) |
-| 5   | Sep&nbsp;2  | Friday      | lecture       | [Development methods][52] | | |
+| 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][51], [Development methods][52]| [HW 1: git][20] ([md][21]), [github survey](http://goo.gl/Vjn3Yx) | [Legal issues][51], slides [6.1](../slides/01-legal.html#/5) to [7.10](../slides/01-legal.html#/6/9) (end)  ([recording][201]); [Development methods][52], slides [1][52] to [4.5](../slides/02-development-methods.html#/3/4) |
+| 5   | Sep&nbsp;2  | Friday      | lecture       | [Development methods][52] | | [Development methods][52], slides [4.5](../slides/02-development-methods.html#/3/4) to [8.6](../slides/02-development-methods.html#/7/5) (end) ([recording][202]) |
 | 6   | Sep&nbsp;5  | Monday      | lecture       | [Frameworks][53] | CakePHP part of [HW 2][22] ([md][23])| |
 | 7   | Sep&nbsp;7  | Wednesday   | lecture       | [Frameworks][53]    | | |
 | 8   | Sep&nbsp;9  | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) | |
-| 9   | Sep&nbsp;12 | Monday      | lecture       | [Requirements][54], project discussion  | Django part of [HW 2][22] ([md][23]) | |
-| 10  | Sep&nbsp;14 | Wednesday   | lecture       | [Requirements][54], survey discussion | | |
+| 9   | Sep&nbsp;12 | Monday      | lecture       | [Requirements][54], survey & project discussion  | Django part of [HW 2][22] ([md][23]) | |
+| 10  | Sep&nbsp;14 | Wednesday   | lecture       | [Requirements][54] | | |
 | 11  | Sep&nbsp;16 | Friday      | class optional |               | Year-start surveys due | |
 | 12  | Sep&nbsp;19 | Monday      | group meetings | [Project start][55] | | |
 | 13  | Sep&nbsp;21 | Wednesday   | lecture       | [Customer meetings][56] | Iteration 1 begins (yesterday) | |
@@ -137,12 +137,12 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [115]: ../slides/07-estimation.html#/6/2
 [116]: ../slides/08-wireframing.html#/5/4
 
-[200]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/course-introduction-fall/course-introduction-fall.htm
-[201]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/02-development-methods/02-development-methods.htm
-[202]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/01-legal/01-legal.htm
-[203]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/03-frameworks/03-frameworks.htm
-[204]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/04-requirements/04-requirements.htm
-[205]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/05-project-start/05-project-start.htm
-[206]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/06-customer-meetings/06-customer-meetings.htm
-[207]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/07-estimation/07-estimation.htm
-[208]: https://collab.itc.virginia.edu/access/content/group/abd4c720-2e1c-4e78-ba51-747402696f40/lectures/08-wireframing/08-wireframing.htm
+[200]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/course-introduction-fall/course-introduction.htm
+[201]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/01-legal/01-legal.htm
+[202]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/02-dev-methods/02-dev-methods.htm
+[203]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/03-frameworks/03-frameworks.htm
+[204]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/04-requirements/04-requirements.htm
+[205]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/05-project-start/05-project-start.htm
+[206]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/06-customer-meetings/06-customer-meetings.htm
+[207]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/07-estimation/07-estimation.htm
+[208]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/08-wireframing/08-wireframing.htm

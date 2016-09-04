@@ -93,7 +93,7 @@ We are using Ruby version 2.3.1 and Rails version 4.2.6 for this assigment.  If 
 
 Your app *must* be called `railshw`, and it *must* be in your home directory.  In other words, there must be a `/home/slp/mst3k/railshw/public` directory, as this is what the webserver will be looking for.  If you change anything in that path, the web server will never find your app.  You can then view your app at `http://server/rails/mst3k`, where "server" is the course server.
 
-This part of the assignment is to complete the blog tutorial [here](http://guides.rubyonrails.org/getting_started.html)
+This part of the assignment is to complete the blog tutorial [here](http://guides.rubyonrails.org/v4.2/getting_started.html).  Note that the default getting_started page on that site is for Rails 5.0, and we are using 4.2; the link points to the correct version.
 
 - That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and the course server
 - To create the Rails application, you just enter `rails new railshw -d mysql` in your home directory (this is in section 3.2 of that web page; be sure to name it `railshw` so the URL is correct)
