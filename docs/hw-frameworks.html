@@ -70,7 +70,7 @@
 <h3 id="django">Django</h3>
 <p>First, read through the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page. The assumption is that you will test it locally via <code>python manage.py runserver</code>, and the deploy it on the course server via the directions on that page. If you want to try your hand configuring your <em>own</em> Apache server to run Django, you can look at the <a href="django-deployment.html">Django deployment</a> (<a href="django-deployment.md">md</a>) page -- but be warned, it's a real pain in the rear to configure a Django server (although not as bad as Rails).</p>
 <p>Unlike Ruby on Rails, you can name the Django project anything you want, and put it in any directory that you want. Although naming it <code>djangohw</code> and putting it in our home directory on the course server would not be bad ideas.</p>
-<p>The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found <a href="https://docs.djangoproject.com/en/1.10/intro/">here</a> (the &quot;Tutorial&quot; line in the &quot;First steps&quot; section). Make sure you are going through the 1.10 version!</p>
+<p>The task for the Django part of this homework is to go through all <em>seven</em> parts of the introductory tutorial, found <a href="https://docs.djangoproject.com/en/1.10/intro/">here</a> (the &quot;Tutorial&quot; line in the &quot;First steps&quot; section). Make sure you are going through the 1.10 version!</p>
 <p>A few notes on that tutorial (these were notes from a previous version of the tutorial, so take these with a grain of salt):</p>
 <ul>
 <li>When editing the models.py file, you may have to put two additional imports at the top that the tutorial does not mention (<code>from django.utils import timezone</code> and <code>import datetime</code>); this is described in more detail <a href="https://code.djangoproject.com/ticket/19793">here</a></li>
@@ -102,7 +102,7 @@
 <li>You <em>MUST</em> enter the urls.py rule to make that URL work; see the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page for details (specifically, the &quot;Configuring the Django project's URLs&quot; section)</li>
 </ul></li>
 </ul>
-<p>For any sites that have user authentication, you MUST allow user <code>kermit</code> with password <code>frog</code> to log in and see any and all features. For the Rails app, we will also try authenticating <code>dhh</code> and <code>secret</code>, which is what the tutorial tells you to use (so either one is fine for the Rails app).</p>
+<p>For any sites that have user authentication, you MUST allow user <code>kermit</code> with password <code>frog</code> to log in and see any and all features. If <code>frog</code> doesn't work (it's too short), try <code>frog1234</code>. For the Rails app, we will also try authenticating <code>dhh</code> and <code>secret</code>, which is what the tutorial tells you to use (so either one is fine for the Rails app).</p>
 <p>Whether your program is late or not will be determined by the timestamp on the files in your home directory on the course server.</p>
 </body>
 </html>

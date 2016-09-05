@@ -106,7 +106,7 @@ First, read through the [Django getting started](django-getting-started.html) ([
 
 Unlike Ruby on Rails, you can name the Django project anything you want, and put it in any directory that you want.  Although naming it `djangohw` and putting it in our home directory on the course server would not be bad ideas.
 
-The task for the Django part of this homework is to go through all six parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.10/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.10 version!
+The task for the Django part of this homework is to go through all *seven* parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.10/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.10 version!
 
 A few notes on that tutorial (these were notes from a previous version of the tutorial, so take these with a grain of salt):
 
@@ -140,6 +140,6 @@ None!  We have access to your files on the course server, and we can view your p
 - Django: `http://server/django/mst3k`
     - You *MUST* enter the urls.py rule to make that URL work; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details (specifically, the "Configuring the Django project's URLs" section)
 
-For any sites that have user authentication, you MUST allow user `kermit` with password `frog` to log in and see any and all features.  For the Rails app, we will also try authenticating `dhh` and `secret`, which is what the tutorial tells you to use (so either one is fine for the Rails app).
+For any sites that have user authentication, you MUST allow user `kermit` with password `frog` to log in and see any and all features.  If `frog` doesn't work (it's too short), try `frog1234`.  For the Rails app, we will also try authenticating `dhh` and `secret`, which is what the tutorial tells you to use (so either one is fine for the Rails app).
 
 Whether your program is late or not will be determined by the timestamp on the files in your home directory on the course server.
