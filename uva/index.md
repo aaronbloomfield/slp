@@ -22,9 +22,9 @@ Lectures (fall 2016)
 | 3   | Aug&nbsp;29 | Monday      | lecture       | [Legal issues][51] | | [Legal issues][51], slides [1][51] to [5.14](../slides/01-legal.html#/4/13) |
 | 4   | Aug&nbsp;31 | Wednesday   | lecture       | [Legal issues][51], [Development methods][52]| [HW 1: git][20] ([md][21]), [github survey](http://goo.gl/Vjn3Yx) | [Legal issues][51], slides [6.1](../slides/01-legal.html#/5) to [7.10](../slides/01-legal.html#/6/9) (end)  ([recording][201]); [Development methods][52], slides [1][52] to [4.5](../slides/02-development-methods.html#/3/4) |
 | 5   | Sep&nbsp;2  | Friday      | lecture       | [Development methods][52] | | [Development methods][52], slides [4.5](../slides/02-development-methods.html#/3/4) to [8.6](../slides/02-development-methods.html#/7/5) (end) ([recording][202]) |
-| 6   | Sep&nbsp;5  | Monday      | lecture       | [Frameworks][53] | CakePHP part of [HW 2][22] ([md][23])| |
-| 7   | Sep&nbsp;7  | Wednesday   | lecture       | [Frameworks][53]    | | |
-| 8   | Sep&nbsp;9  | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) | |
+| 6   | Sep&nbsp;5  | Monday      | lecture       | [Frameworks][53] | CakePHP part of [HW 2][22] ([md][23])| [Frameworks][53], slides [1][53] to ??? |
+| 7   | Sep&nbsp;7  | Wednesday   | lecture       | [Frameworks][53]    | | [Frameworks][53], slides ??? to [8.8](../slides/03-frameworks.html#/7/7) (end); [Requirements][54], slides [1][54] to ??? |
+| 8   | Sep&nbsp;9  | Friday      | no class      |               | Rails part of [HW 2][22] ([md][23]) | (no class today) |
 | 9   | Sep&nbsp;12 | Monday      | lecture       | [Requirements][54], survey & project discussion  | Django part of [HW 2][22] ([md][23]) | |
 | 10  | Sep&nbsp;14 | Wednesday   | lecture       | [Requirements][54] | | |
 | 11  | Sep&nbsp;16 | Friday      | class optional |               | Year-start surveys due | |
