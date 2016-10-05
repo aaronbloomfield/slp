@@ -62,6 +62,53 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2>Wednesday, October 5th</h2>
+<h4></h4>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1742/">xkcd # 1742</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, October 5th
+- We are at the start of iteration 2
+  - Leads: your TPS report was due yesterday by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
+    - One group didn't submit it!
+  - Iteration 1 evaluations should be out by the end of this week
+- The homeworks are all finished!  Yay!  We are working on grading them...
+- You are welcome to use the VirtualBox Linux image for your development, or install it natively on your machine (more on how to do this shortly)
+  - Plasmashell crash issue: the culprit seems to be tooltips, so try disabling them (right click taskbar -> Task Manager Settings -> General -> Uncheck "show tooltips")
+- You can't `sudo` on the course server, so please stop trying
+- My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
+- If you didn't sign the [legal agreement](student-participation-form.pdf) then you will have to do so today
+- Schedule
+  - Since there was no class on Monday, today is a group work day
+  - The following weeks we will see: wireframing, continuous integration testing, and documentation
+	  </script></section>
+
+	  <section data-markdown id="it2goals"><script type="text/template">
+## Goals for Iteration 2
+- Have a site that should start to look like a workable site for the requirements
+  - Some just had one or two MVC components for the first iteration (which was fine, as that is what was required for then)
+- Complete 4 story points worth of work per group member
+- Your regular iteration meeting with the customer and the grad TA should happen
+- Specific goals:
+  - Generate wireframes: that's [an entire lecture](../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
+  - Enable easy deployment via automatic logins or ssh keys: see the [Development Environment Setup page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details.  This also includes enabling easy downloading of the database
+  - Publishing to the course server is best done via a github web hook and deploy key; see [that same page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details, but only I can set up both of those due to the github security setup
+  - Ensure that *everybody* in the development group can develop on his/her own machine
+- Some things to keep in mind:
+  - Your requrements document will be iterated on throughout the year
+  - What format you keep it in is up to you (although we recommend markdown), but we need to be able to view it
+  - Having the source (from the [uva-slp/projects repo](https://github.com/uva-slp/projects) repo) copied into a `docs/` directory in your repo is quite reasonable
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Wednesday, September 28th</h2>
 <h4>Fixing Problems</h4>
 <img class="stretch" src="http://imgs.xkcd.com/comics/fixing_problems.png" title="&#39;What was the original problem you were trying to fix?&#39; &#39;Well, I noticed one of the tools I was using had an inefficiency that was wasting my time.&#39;" alt="Fixing Problems">
@@ -106,7 +153,7 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
 - Everybody MUST have a github commit this iteration (and, in general, every iteration)
 	  </script></section>
 
-	  <section data-markdown id="it1goals"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Getting the site running on the course server
 - This is one of the requirements for iteration 1
 - You will need to configure it on your end
