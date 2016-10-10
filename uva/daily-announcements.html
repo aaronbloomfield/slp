@@ -62,6 +62,70 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2>Monday, October 10th</h2>
+<h4></h4>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1744/">xkcd # 1744</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, October 10th
+- We are in the middle of iteration 2
+  - Leads: your weekly report is due tomorrow by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
+  - Some people didn't submit their hours; this is bad!
+  - Iteration 1 evaluations are out; see a successive slide
+- The homeworks are all finished!  The Cake and the git/github HW grades are posted, and regrades are enabled for a week or two.
+- You are welcome to use the VirtualBox Linux image for your development, or install it natively on your machine (more on how to do this shortly)
+  - Plasmashell crash issue: the culprit seems to be tooltips, so try disabling them (right click taskbar -> Task Manager Settings -> General -> Uncheck "show tooltips")
+- You can't `sudo` on the course server, so please stop trying
+- My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
+- If you didn't sign the [legal agreement](student-participation-form.pdf) then you will have to do so today
+- There will be a few (easy) additional iteration 2 requirements explained on Wednesday (set up slack, etc.)
+- Schedule
+  - Today is a group work day
+  - Wednesday will be the [wireframes](../slides/08-wireframing.html#/) lecture, and a few wireframes will need to be done for this iteration
+  - The following few weeks we will see: continuous integration testing and documentation
+	  </script></section>
+
+	  <section data-markdown id="it2goals"><script type="text/template">
+## Goals for Iteration 2
+- Have a site that should start to look like a workable site for the requirements
+  - Some just had one or two MVC components for the first iteration (which was fine, as that is what was required for then)
+  - Going to http://server/tag should bring up something other than "Hello World", or the Django error page
+- Complete 4 story points worth of work per group member
+- Your regular iteration meeting with the customer and the grad TA should happen
+- Specific goals:
+  - Generate wireframes: that's [an entire lecture](../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
+  - Enable easy deployment via automatic logins or ssh keys: see the [Development Environment Setup page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details.  This also includes enabling easy downloading of the database
+  - Publishing to the course server is best done via a github web hook and deploy key; see [that same page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details, but only I can set up both of those due to the github security setup
+  - Ensure that *everybody* in the development group can develop on his/her own machine
+- Some things to keep in mind:
+  - Your requrements document will be iterated on throughout the year
+  - What format you keep it in is up to you (although we recommend markdown), but we need to be able to view it
+  - Having the source (from the [uva-slp/projects repo](https://github.com/uva-slp/projects) repo) copied into a `docs/` directory in your repo is quite reasonable
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Iteration 1 evaluations
+- They were released last night (or early this morning)
+- It turns out that most people just ignored the iteration 1 goals...
+  - 15 people did not have a git commit
+  - 10 people did not submit any hours
+  - Most groups did not have a working CRUD website
+- Of the 15 group evaluations, 10 were poor, 2 were fair, and 3 were good
+  - This directly affects your entire group's grade!
+- If you feel we did not judge you fairly, then you may request a re-evaluation within 2 weeks
+  - Basically, speak to the graduate TA at your next meeting with him
+  - Note that we will *only* judge you based on the work you completed at the end of the iteration; if you completed something afterward, then it doesn't count for the just-ended iteration
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Wednesday, October 5th</h2>
 <h4>Will It Work</h4>
 <img class="stretch" src="http://imgs.xkcd.com/comics/will_it_work.png" title="&#39;Copy and paste from a random thread on a website&#39; is the hardest to predict, and depends on the specific website, programming language, tone of the description, and current phase of the moon." alt="Will It Work">
@@ -87,7 +151,7 @@ line-height:120%;
   - The following weeks we will see: wireframing, continuous integration testing, and documentation
 	  </script></section>
 
-	  <section data-markdown id="it2goals"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Goals for Iteration 2
 - Have a site that should start to look like a workable site for the requirements
   - Some just had one or two MVC components for the first iteration (which was fine, as that is what was required for then)
