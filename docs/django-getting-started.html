@@ -35,13 +35,13 @@
 <li>Enter values for your DB credentials: <code>USER</code>, <code>NAME</code>, <code>PASSWORD</code>, and <code>HOST</code>.</li>
 <li><p>A completed <code>DATABASES</code> section might look like the following:</p>
 <pre><code>DATABASES = {
-    &#39;default&#39;: {
-        &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
-        &#39;NAME&#39;: &#39;mst3k&#39;,
-        &#39;USER&#39;: &#39;mst3k&#39;,
-        &#39;PASSWORD&#39;: &#39;password&#39;,
-        &#39;HOST&#39;: &#39;127.0.0.1&#39;,
-    }
+&#39;default&#39;: {
+    &#39;ENGINE&#39;: &#39;django.db.backends.mysql&#39;,
+    &#39;NAME&#39;: &#39;mst3k&#39;,
+    &#39;USER&#39;: &#39;mst3k&#39;,
+    &#39;PASSWORD&#39;: &#39;password&#39;,
+    &#39;HOST&#39;: &#39;127.0.0.1&#39;,
+}
 }</code></pre></li>
 <li>Note that there is no easy way to add a DB table prefix to every table -- instead, you would have to specify the name of <em>every</em> table that Django uses. You can see a whole bunch of people getting all twitchy over this <a href="https://code.djangoproject.com/ticket/891">here</a>.</li>
 <li>And edit <code>TIME_ZONE</code> to match our time zone (EST).</li>
@@ -97,6 +97,7 @@
 <p>If you look at http://server/django/mst3k/admin, it will look like the following:</p>
 <div class="figure">
 <img src="images/django-static-bad.png" />
+
 </div>
 <p>You will note that there is no formatting, as the various files needed for that formatting (images, CSS files, etc.) can not be found. These files are called <em>static files</em>, as their content does not change (much).</p>
 <p>There are many static files that are needed for a Django project; these are described in more detail in <a href="https://docs.djangoproject.com/en/1.8/intro/tutorial06/">part 6 of the Djago tutorial</a>. Normally, the static files are found in http://server/static. However, as there are many Django projects running on this web server, there are many <em>different</em> static directories, and thus the URL is different: ours will be at http://server/django/mst3k/static.</p>
@@ -110,6 +111,7 @@ STATIC_ROOT = &#39;/home/slp/mst3k/mysite/static/&#39;</code></pre>
 <p>Lastly, reload the project (<code>touch mysite/wsgi.py</code>), and view the admin page again (http://server/django/mst3k/admin); it should look <em>exactly</em> like the following, other than the userid (if it does not, then something went wrong):</p>
 <div class="figure">
 <img src="images/django-static-good.png" />
+
 </div>
 <p>Once that is done, the tutorial (specifically, <a href="https://docs.djangoproject.com/en/1.8/intro/tutorial06/">part 6</a>) proceeds normally, and no changes to the tutorial are needed.</p>
 <h5 id="configuring-the-django-projects-urls">Configuring the Django project's URLs</h5>
@@ -122,6 +124,7 @@ STATIC_ROOT = &#39;/home/slp/mst3k/mysite/static/&#39;</code></pre>
 <p>If you are running this on the course server, then you will <em>NOT</em> see this page. Instead, verify that you can see the http://server/django/mst3k/admin, which should look like the images above.</p>
 <div class="figure">
 <img src="images/django-initial.png" />
+
 </div>
 </body>
 </html>

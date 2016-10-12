@@ -77,9 +77,9 @@
 <li>If python complains about not knowing what 'timezone' is, figure out which file it is running into this issue (this is listed in the stack trace), and put <code>from django.utils import timezone</code> at the top of that file</li>
 <li><p>The last line of <code>test_index_view_with_two_past_polls()</code> (in <a href="https://docs.djangoproject.com/en/1.8/intro/tutorial05/">page 5</a>) may need to change to the following, as per <a href="http://www.simonveal.com/trying-to-compare-non-ordered-queryset-against-more-than-one-ordered-values/">here</a>:</p>
 <pre><code>self.assertQuerysetEqual(
-        response.context[&#39;latest_poll_list&#39;].order_by(&#39;question&#39;),
-         [&#39;&lt;Poll: Past poll 1.&gt;&#39;, &#39;&lt;Poll: Past poll 2.&gt;&#39;]
-    )</code></pre></li>
+    response.context[&#39;latest_poll_list&#39;].order_by(&#39;question&#39;),
+     [&#39;&lt;Poll: Past poll 1.&gt;&#39;, &#39;&lt;Poll: Past poll 2.&gt;&#39;]
+)</code></pre></li>
 <li><p>Note that one of the tests (specifically, <code>test_detail_view_with_a_future_poll()</code>) only succeeds if a future poll returns a 404 page, which is what the original <code>results()</code> view did. However, when the view was switched over to Django's generic views (the bottom of <a href="https://docs.djangoproject.com/en/1.8/intro/tutorial04/">tutorial 4</a>), that is no longer the default behavior. Thus, that test can be removed. This will make much more sense once you have read through the end of the testing section in the tutorial.</p></li>
 </ul>
 <p>When you have updated your Django project, remember to touch the wsgi.py file to make the web server reload your project; see the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page for details.</p>
