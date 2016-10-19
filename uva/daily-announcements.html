@@ -62,6 +62,96 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2>Wednesday, October 19th</h2>
+<h4></h4>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1748/">xkcd # 1748</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Wednesday, October 19th
+- We are at the start of iteration 3
+  - Leads: your TPS reports are due tomorrow by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
+  - Iteration 1 evaluations are out; you have two weeks (from when they were released) to request a re-evaluation
+  - Iteration 2 evaluations should be out by the end of this week
+- Phase change!
+  - With the end of iteration 2, all groups had a *phase change*
+  - New leads and new secretaries; leads got the "incoming project lead" email last night
+  - Everybody has to complete the phase change survey; more on this in a bit
+- Don't forget to report your hours!
+- The Cake and the git/github HW grades are posted, and regrades are enabled for a week or two.
+  - Rails and Django grades should be posted shortly
+- You can't `sudo` on the course server, so please stop trying
+- All the course materials can be found online at http://aaronbloomfield.github.io/slp (or /pdr for CS 2150 stuffs)
+- My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
+- Today is a lecture on [continuous integration](../slides/09-ci-testing.html#/)
+  - Next Monday is a group work day
+  - Next Wednesday will be a continuous integration work day
+	  </script></section>
+
+	  <section data-markdown id="it3goals"><script type="text/template">
+## Goals for Iteration 3
+- Complete 4 story points worth of work per group member
+  - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
+  - Your site should have significnantly more functionality than last time
+- In the first week, complete the end-of-phase survey
+- Show the wireframe to the customer, get their feedback, iterate on the design
+- You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
+  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
+  - The respective CI server is already set up to run tests on your repo on every push
+  - Yout have to write the configuration file to get it to work properly
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
+- You will have to write a number of unit tests (at least 5 per person)
+  - And one fixture each!
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Phase change survey
+- Everybody has to fill it out!
+  - It's a course requirement
+- The *ONLY* people in the class that will see the results are myself and the graduate TA
+  - I encourage you to be open an honest, and I promise I will preserve your anonyminity
+- It should take about 10 minutes to complete
+- The same survey will be completed after each phase
+  - So you will have to complete as many as there are members in your group
+- You can see the questions asked [here][5] (it's in Collab, under Resources/surveys/phase-change); it has pages [1][1], [2][2], [3][3], and [4][4]
+- There is about a week-long period to fill it out
+  - There is a big grade penalty for not filling it out (or just giving quick dummy answers)
+- You will receive a survey prompt shortly, as well as increasingly anxious reminders
+- There is a *timeout* issue with regard to filling out surveys
+  - LimeSurvey (the survey tool being used) will time you out after 10 (or so) minutes -- and then you'll have to start over!
+  - So, if you want to spend time thinking about the responses, look over the survey in Collab first!
+  - If you do get timed out, I can send you your previouslly completed responses
+
+[5]: https://collab.itc.virginia.edu/portal/site/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/page/574ac9d3-5b16-4dfc-ad27-bc2b5a1a029f
+[1]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/surveys/phase-change/phase-change-p1.html
+[2]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/surveys/phase-change/phase-change-p2.html
+[3]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/surveys/phase-change/phase-change-p3.html
+[4]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/surveys/phase-change/phase-change-p4.html
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## CI Testing Setup
+- Today is the lecture on [continuous integration testing](../slides/09-ci-testing.html#/)
+- All of you now have access to three more repos mentioned in that lecture set: [cake-test](https://github.com/uva-slp/cake-test), [rails-test](https://github.com/uva-slp/rails-test), and [django-test](https://github.com/uva-slp/django-test)
+  - You will only need to use the one that corresponds to the platform you are using
+  - Note that all three of these repos use a slightly older version of the frameworks, but the setup should be the same
+    - Let me know if anything doesn't work!
+- I will shortly be enabling TravisCI for all of your repos
+  - It will email you when a build fails; I wanted to warn you about this before I flipped the switch
+  - Note that if a lot of people push their commits at the same time, it will form a long queue of the ones waiting to be tested
+- There is an entire page named [Continuous Integration Testing: Getting Started](../docs/ci-setup.html), and you should read that and the [CI testing slide set](../slides/09-ci-testing.html#/)
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Monday, October 17th</h2>
 <h4>Spider Paleontology</h4>
 <img class="stretch" src="http://imgs.xkcd.com/comics/spider_paleontology.png" title="Whenever you see a video of birds doing something weird, remember: Birds are a small subset of dinosaurs, so the weirdness of birds is a small subset of the weirdness of dinosaurs." alt="Spider Paleontology">
@@ -151,7 +241,7 @@ line-height:120%;
   - The following few weeks we will see: continuous integration testing and documentation
 	  </script></section>
 
-	  <section data-markdown id="it2goals"><script type="text/template">
+	  <section data-markdown><script type="text/template">
 ## Goals for Iteration 2
 - Have a site that should start to look like a workable site for the requirements
   - Some just had one or two MVC components for the first iteration (which was fine, as that is what was required for then)

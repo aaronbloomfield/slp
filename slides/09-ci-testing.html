@@ -204,8 +204,9 @@
 
 	  <section data-markdown><script type="text/template">
 ## Background: LXC (Linux Containers)
-- Boot-up time is only a second or two
+- Boot-up time is only a few seconds
   - But the kernel version is the same as the running host
+  - Really the kernel "splits" itself to run the container
 - This means that processes can be run *very* fast inside an LXC
 - Your CS 2150 submissions were all run within a Linux Container for security reasons
 	  </script></section>
@@ -215,7 +216,8 @@
 - This is the software that automates the running of your tests
 - Some are software you download or buy, and run on your server; an example is [Jenkins](http://jenkins-ci.org/)
 - Others run your code (and tests) on their servers, or in the "cloud"
-  - We'll see two: [Travis CI](https://magnum.travis-ci.com/) and [Circle CI](https://circleci.com)
+  - We'll see one: [Travis CI](https://magnum.travis-ci.com/)
+  - We have used [Circle CI](https://circleci.com) in the past, but we are not using it this year
 - Wikipedia has a [long list](http://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software) of such software
 	  </script></section>
 
@@ -235,7 +237,7 @@
   - It also provides free testing for public github repos
 - [Circle CI](https://circleci.com) has much better debugging facilities (you can SSH into the container, for example)
 - In the end, these two are a wash, and the services are largely identical for our purposes
-- Each project will be assigned to one of the two services
+- For this year, all projects will use TravisCI
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -252,6 +254,7 @@
 # Conclusions
 	  </script></section>
 
+<!--
 	  <section data-markdown id="assignments"><script type="text/template">
 ## Who is assigned to which group
 - Travis CI: aim (6, django), meals (8, django), pacem (7, django), readykids (6, cake), twice (7, django)
@@ -261,6 +264,7 @@
   - The groups were balanced by the number of group members, not the number of groups
     - There are 34 students on Travis and 32 on Circle
     </script></section>
+	  -->
 
     <section data-markdown><script type="text/template">
 ## Your tasks
@@ -298,15 +302,17 @@
 ## How to begin, part 1
 - The [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) page in the repo that goes over how to configure your project
 - There are three repos that are now available to you: [rails-test](https://github.com/uva-slp/rails-test), [cake3-test](https://github.com/uva-slp/cake3-test), and [django-test](https://github.com/uva-slp/django-test)
-  - Each is configured with *both* Travis and Circle
+  - Each is configured with *both* Travis and Circle (even though we aren't using Circle)
   - Each of those repos start with the default site, run through the tutorials from the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)), and then proceed to configure the CI tests
     - You can view the commit diffs, if necessary
-  - The .travis.yml and circle.yml files in those repos are the sample files shown in the [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) page
-    - And theys how how to display the status badges (although you have to get your own API key)
+  - Note that the repos are slightly older versions of the frameworks, but the setup is still the same
     </script></section>
 
     <section data-markdown id="howtobegin"><script type="text/template">
 ## How to begin, part 2
+- About the three testing repos (continued)
+  - The .travis.yml and circle.yml files in those repos are the sample files shown in the [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) page
+    - And theys how how to display the status badges (although you have to get your own API key)
 - The CI servers will be set up, by me, to run the tests on your repo
   - You have to create the appropriate configuration file
 - The [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) lists, at the very bottom, a series of steps to follow
