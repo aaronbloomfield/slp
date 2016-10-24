@@ -62,6 +62,58 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2>Monday, October 24th</h2>
+<h4></h4>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1750/">xkcd # 1750</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, October 24th
+- We are in the middle of iteration 3
+  - Leads: your weekly reports are due tomorrow by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
+  - Iteration 2 evaluations were released late last week; you have two weeks (From Mon, 10/24) to request a re-evaluation
+  - With the end of iteration 2, all groups had a *phase change*: new leads and secretaries
+- Phase change survey
+  - See [here](#/phasechangesurvey) and [here](#/citestingsetup) for details
+  - It must be completed very soon; reminders were sent last night
+- Don't forget to report your hours!
+- The Cake and the git/github HW grades are posted, and regrades are enabled for a week or two.
+  - Rails and Django grades should be posted shortly
+- You can't `sudo` on the course server, so please stop trying
+- All the course materials can be found online at http://aaronbloomfield.github.io/slp (or /pdr for CS 2150 stuffs)
+- My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
+- Today is a group work day
+  - Next Wednesday will be a continuous integration work day
+  - It will help you quite a bit if you get it actually configured on Travis *before* Wednesday
+    - Five groups have done so already
+	  </script></section>
+
+	  <section data-markdown id="it3goals"><script type="text/template">
+## Goals for Iteration 3
+- Complete 4 story points worth of work per group member
+  - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
+  - Your site should have significnantly more functionality than last time
+- In the first week, complete the end-of-phase survey
+- Show the wireframe to the customer, get their feedback, iterate on the design
+- You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
+  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
+  - The respective CI server is already set up to run tests on your repo on every push
+  - Yout have to write the configuration file to get it to work properly
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
+- You will have to write a number of unit tests (at least 5 per person)
+  - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Wednesday, October 19th</h2>
 <h4>Future Archaeology</h4>
 <img class="stretch" src="http://imgs.xkcd.com/comics/future_archaeology.png" title="&quot;The only link we&#39;ve found between the two documents is that a fragment of the Noah one mentions Aaron&#39;s brother Moses parting an ocean. Is that right?&quot; &quot;... yes. Yes, exactly.&quot;" alt="Future Archaeology">
@@ -104,10 +156,10 @@ line-height:120%;
   - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
     - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
 - You will have to write a number of unit tests (at least 5 per person)
-  - And one fixture each!
+  - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="phasechangesurvey"><script type="text/template">
 ## Phase change survey
 - Everybody has to fill it out!
   - It's a course requirement
@@ -132,7 +184,7 @@ line-height:120%;
 [4]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/surveys/phase-change/phase-change-p4.html
 	  </script></section>
 
-	  <section data-markdown><script type="text/template">
+	  <section data-markdown id="citestingsetup"><script type="text/template">
 ## CI Testing Setup
 - Today is the lecture on [continuous integration testing](../slides/09-ci-testing.html#/)
 - All of you now have access to three more repos mentioned in that lecture set: [cake-test](https://github.com/uva-slp/cake-test), [rails-test](https://github.com/uva-slp/rails-test), and [django-test](https://github.com/uva-slp/django-test)
@@ -143,6 +195,16 @@ line-height:120%;
   - It will email you when a build fails; I wanted to warn you about this before I flipped the switch
   - Note that if a lot of people push their commits at the same time, it will form a long queue of the ones waiting to be tested
 - There is an entire page named [Continuous Integration Testing: Getting Started](../docs/ci-setup.html), and you should read that and the [CI testing slide set](../slides/09-ci-testing.html#/)
+	  </script></section>
+
+          <section data-markdown><script type="text/template">
+## Attendance check-in
+- Please do a check-in now:
+  - Go to http://tinyurl.com/slpcheckin
+  - Once that redirects (to https://slp.cs.virginia.edu:444/admin/checkins/checkin), you will need to Netbadge in
+  - Enter the code: "travel"
+    - Please maintain the same case and what-not
+- Remember: if you miss class for a *valid* reason, you can submit an attendance excuse via the course management system
 	  </script></section>
 
 	</section>
