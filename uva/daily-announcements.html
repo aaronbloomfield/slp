@@ -62,6 +62,138 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2>Wednesday, October 26th</h2>
+<h4>Mushrooms</h4>
+<img class="stretch" src="http://imgs.xkcd.com/comics/mushrooms.png" title="Evolutionarily speaking, mushrooms are technically a type of ghost." alt="Mushrooms">
+<p class="center"><a href="http://xkcd.com/1749/">xkcd # 1749</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, October 24th
+- We are in the middle of iteration 3
+  - Leads: your weekly reports were due yesterday by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
+    - Everybody got them in!
+  - Iteration 2 evaluations were released late last week; you have two weeks (From Mon, 10/24) to request a re-evaluation
+  - With the end of iteration 2, all groups had a *phase change*: new leads and secretaries
+- Phase change survey
+  - See [here](#/phasechangesurvey) and [here](#/citestingsetup) for details
+  - It must be completed very soon; reminders were sent last night (only 1 person left)
+- Don't forget to report your hours!
+- Django groups: if you want to install your own packages, you will have to configure virtualenv (more on this in a bit)
+  - Eventually, all Django groups will have to do this
+- The Cake and the git/github HW grades are posted, and regrades are enabled for a week or two.
+  - Rails and Django grades should be posted shortly
+- You can't `sudo` on the course server, so please stop trying
+- All the course materials can be found online at http://aaronbloomfield.github.io/slp (or /pdr for CS 2150 stuffs)
+- My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
+- Today is a CI testing workday (more on this in a bit)
+	  </script></section>
+
+	  <section data-markdown id="it3goals"><script type="text/template">
+## Goals for Iteration 3
+- Complete 4 story points worth of work per group member
+  - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
+  - Your site should have significnantly more functionality than last time
+- In the first week, complete the end-of-phase survey
+- Show the wireframe to the customer, get their feedback, iterate on the design
+- You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
+  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
+  - The respective CI server is already set up to run tests on your repo on every push
+  - Yout have to write the configuration file to get it to work properly
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
+- You will have to write a number of unit tests (at least 5 per person)
+  - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Moving over to virtualenv
+- On pegasus, using the `virtualenv` command, create your virtual environment
+  - Pick a reasonable directory name: ~/venv-django-1.10, or whatever:
+```
+virtualenv ~/venv-django-1.10
+```
+  - Add "`-p /usr/bin/python3`" right after "`virtualenv`" if you are using Python 3
+- Email me the directory name so I can configure the web server
+  - Not much will work until that's configured properly; I can do this quickly
+- Enter the virtual environment: from the command line, enter:
+```
+source ~/venv-django-1.10/bin/activate
+```
+  - You will notice a difference in the prompt
+  - You can leave the virtual environment by entering `deactivate` (or just logging out)
+- Install the packages that you need via pip (or pip3, if you are using Python3):
+```
+pip install foo
+pip install bar==1.2.3
+```
+  - Your installation instructions will list all the packages (and versions) that you need installed!
+- Reload the web server as needed: `/usr/local/bin/reload-apache2`
+	  </script></section>
+
+  <section data-markdown id="citestingworkday"><script type="text/template">
+## Today's task
+- Today we will be working on the CI testing setup
+- No groups are fully there yet (which is fine, since it's due at the end of the iteration)
+  - 9 (of 15) groups have passing builds, but nobody has a significant number of their unit tests written yet
+  - In addition, recall that each *person* must contribute at least 5 valid test cases (and one fixture per person; and at least one test must use that fixture)
+- To do today:
+  - Get Travis or Circle configured for your project: extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test), [django-test](https://github.com/uva-slp/django-test), and [rails-test](https://github.com/uva-slp/rails-test))
+  - Contribute the desired number of unit tests (at least 5 per person)
+- At the end of today's class, all the build status badges should be green!
+- A note about container usage
+  - We only have one container for all 15 groups; this will cause delays if everybody pushes their commits around the same time, as they get queued up
+  - If you are just doing unit tests, then please hold off on pushing those to let all the groups configure their builds (i.e., generate green status bars)
+  - You should be able to run the unit tests in your development environment, so you can confirm to yourself that they works
+  </script></section>
+
+  <section id="cistatus"><h2>CI Testing Status</h2>
+
+  <table class="transparent" style="font-size:18pt"><tr><td>
+    
+<table class="transparent" style="font-size:18pt">
+  <tr><td style="border-bottom:0px">CSG</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/csg"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/csg.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">CVPED</td><td style="border-bottom:0px"><a href="https://circleci.com/gh/uva-slp/cvped"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/cvped.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">Georgia's</td><td style="border-bottom:0px"><a href="https://circleci.com/gh/uva-slp/georgias"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/georgias.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">Holiday</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/holiday"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/holiday.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">Innisfree</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/innisfree2"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/innisfree2.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">Loaves</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/loaves2"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/loaves2.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">MBG</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/mbg"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/mbg.svg?token=travistoken"></a></td></tr>
+</table>
+
+      </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+
+<table class="transparent" style="font-size:18pt">
+  <tr><td style="border-bottom:0px">Meals</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/meals"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/meals.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">Paramount</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/paramount"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/paramount.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">Pauselab</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/pauselab"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/pauselab.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">PCCS</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/pccs"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/pccs.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">PMH</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/pmh"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/pmh.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">RCA</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/rca"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/rca.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">Therapy</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/therapy"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/therapy.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">UvaInfoSec</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/uvainfosec"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/uvainfosec.svg?token=travistoken"></a></td></tr>
+</table>
+
+</td></tr></table>
+
+
+<p>This page refreshes every 30 seconds</p>
+<p style="font-size:18px">This page last updated on: <span id="cistatusdate">...</span></p>
+<script>
+    var now = new Date();
+    document.getElementById("cistatusdate").innerHTML = now;
+</script>
+<p style="font-size:18px">This page will not display the tokens properly unless you manually change the TravisCI token in the HTML code of this page</p>
+  </section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Monday, October 24th</h2>
 <h4>Life Goals</h4>
 <img class="stretch" src="http://imgs.xkcd.com/comics/life_goals.png" title="I got to check off &#39;Make something called xkcd&#39; early." alt="Life Goals">
