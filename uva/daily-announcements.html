@@ -62,6 +62,52 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h4></h4>
+<img class="stretch" >
+<p class="center"><a href="http://xkcd.com/1753/">xkcd # 1753</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Halloween, arrrrrr!
+- We are at the end of iteration 3
+  - Leads: your TPS reports are due tomorrow by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
+  - Iteration 2 evaluations were released; you have two weeks (From Mon, 10/24) to request a re-evaluation
+- Don't forget to report your hours!
+- Django groups: if you want to install your own packages, you will have to configure virtualenv; see [here](#/virtualenv) for details
+  - Eventually, all Django groups will have to do this
+- The Cake and the git/github HW grades are posted, and regrades are enabled for a week or two.
+  - Rails and Django grades are done, and just need uploading...
+- You can't `sudo` on the course server, so please stop trying
+- All the course materials can be found online at http://aaronbloomfield.github.io/slp (or /pdr for CS 2150 stuffs)
+- My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
+- Today is a group work day
+	  </script></section>
+
+	  <section data-markdown id="it3goals"><script type="text/template">
+## Goals for Iteration 3
+- Complete 4 story points worth of work per group member
+  - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
+  - Your site should have significnantly more functionality than last time
+- In the first week, complete the end-of-phase survey
+- Show the wireframe to the customer, get their feedback, iterate on the design
+- You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
+  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
+  - The respective CI server is already set up to run tests on your repo on every push
+  - Yout have to write the configuration file to get it to work properly
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
+- You will have to write a number of unit tests (at least 5 per person)
+  - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Wednesday, October 26th</h2>
 <h4>Mushrooms</h4>
 <img class="stretch" src="http://imgs.xkcd.com/comics/mushrooms.png" title="Evolutionarily speaking, mushrooms are technically a type of ghost." alt="Mushrooms">
@@ -69,7 +115,7 @@ line-height:120%;
 	  </section>
 
 	  <section data-markdown><script type="text/template">
-## Monday, October 24th
+## Wednesday, October 26th
 - We are in the middle of iteration 3
   - Leads: your weekly reports were due yesterday by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
     - Everybody got them in!
@@ -148,6 +194,16 @@ pip install bar==1.2.3
   - You should be able to run the unit tests in your development environment, so you can confirm to yourself that they works
   </script></section>
 
+  <section data-markdown><script type="text/template">
+## Attendance check-in
+- Please do a check-in now:
+  - Go to http://tinyurl.com/slpcheckin
+  - Once that redirects (to https://slp.cs.virginia.edu:444/admin/checkins/checkin), you will need to Netbadge in
+  - Enter the code: "travis"
+    - Please maintain the same case and what-not
+- Remember: if you miss class for a *valid* reason, you can submit an attendance excuse via the course management system
+	  </script></section>
+	  
   <section id="cistatus"><h2>CI Testing Status</h2>
 
   <table class="transparent" style="font-size:18pt"><tr><td>
