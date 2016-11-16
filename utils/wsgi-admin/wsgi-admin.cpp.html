@@ -1,7 +1,14 @@
-<!-- Generator: GNU source-highlight 3.1.6
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="GNU source-highlight 3.1.8
 by Lorenzo Bettini
 http://www.lorenzobettini.it
-http://www.gnu.org/software/src-highlite -->
+http://www.gnu.org/software/src-highlite">
+<title>wsgi-admin.cpp</title>
+</head>
+<body bgcolor="white">
 <pre><tt><i><font color="#9A1900">/**</font></i>
 <i><font color="#9A1900"> * wsgi-admin, by Aaron Bloomfield, (c) 2014-2016</font></i>
 <i><font color="#9A1900"> *</font></i>
@@ -277,7 +284,7 @@ http://www.gnu.org/software/src-highlite -->
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;/Directory&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
     wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"WSGIScriptAlias "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>rootdir<font color="#990000">?</font><font color="#FF0000">""</font><font color="#990000">:</font>URL_PREFIX<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" "</font> <font color="#990000">&lt;&lt;</font> fullpath <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
     wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;IfDefine !NoDaemonProcess&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
-	     <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  WSGIDaemonProcess "</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" python-path="</font> <font color="#990000">&lt;&lt;</font> path <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
+	     <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  WSGIDaemonProcess "</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" user="</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">" python-path="</font> <font color="#990000">&lt;&lt;</font> path <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
 	     <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;/IfDefine&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">;</font>
     wsgifile <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&lt;Location "</font> <font color="#990000">&lt;&lt;</font> <font color="#990000">(</font>rootdir<font color="#990000">?</font><font color="#FF0000">""</font><font color="#990000">:</font>URL_PREFIX<font color="#990000">)</font> <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"/"</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"&gt;</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
         <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"  WSGIProcessGroup "</font> <font color="#990000">&lt;&lt;</font> urluserid <font color="#990000">&lt;&lt;</font> <font color="#FF0000">"</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font>
@@ -511,3 +518,5 @@ http://www.gnu.org/software/src-highlite -->
     <b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
 <font color="#FF0000">}</font>
 </tt></pre>
+</body>
+</html>

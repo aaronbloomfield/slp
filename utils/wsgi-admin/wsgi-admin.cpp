@@ -273,7 +273,7 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
         << "</Directory>\n";
     wsgifile << "WSGIScriptAlias " << (rootdir?"":URL_PREFIX) << "/" << urluserid << " " << fullpath << "\n";
     wsgifile << "<IfDefine !NoDaemonProcess>\n"
-	     << "  WSGIDaemonProcess " << urluserid << " python-path=" << path << "\n"
+	     << "  WSGIDaemonProcess " << urluserid << " user=" << urluserid << " python-path=" << path << "\n"
 	     << "</IfDefine>\n";
     wsgifile << "<Location " << (rootdir?"":URL_PREFIX) << "/" << urluserid << ">\n"
         << "  WSGIProcessGroup " << urluserid << "\n"
