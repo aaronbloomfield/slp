@@ -14,7 +14,7 @@ SLP: Documents
 
 ### Homeworks
 
-- [Git HW](hw-git.html) ([md](hw-git.html))
+- [Git HW](hw-git.html) ([md](hw-git.md))
     - [Introduction to git and github](git-intro.html) ([md](git-intro.md))
 
 - [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md))
@@ -28,3 +28,7 @@ SLP: Documents
         - [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md))
     - [Django getting started](django-getting-started.html) ([md](django-getting-started.md))
         - [Django deployment](django-deployment.html) ([md](django-deployment.md))
+
+### Projects
+
+- [Nonprofit data collection](project-nonprofit-data-collection.html) ([md](project-nonprofit-data-collection.md))
