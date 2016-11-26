@@ -31,6 +31,7 @@ If this information is not available, then please speak to me about it -- I don'
 
 You will also need to determine if this organization fits into any of the following categories.  The reason for this is that there are laws and policies that restrict, to different extents, how much we can interact with these types of organizations.  You can see more details [here](http://www.cs.virginia.edu/~asb/slp/nonprofits.php#reqs), if you are interested.
 
+- *Political organization*: these are organizations that have a political purpose.  This includes political parties, as well as SuperPACs and organizations whose purpose is lobbying (or hiring lobbyists).
 - *Religious purposed organizations*: these are organizations whose goal is to *promote* a religion.  This includes churches, synagogues, mosques, etc.  A secular nonprofit run by a religious organization, such as a church running a soup kitchen, does not count for this category, since the purpose is secular, even though the organization is religious.
 - *Social organizations*: fraternities, sororities, social clubs, etc.  Anything where the primary purpose is to promote social interaction between the members.
 - *Athletic organizations or leagues*: soccer teams, rugby leagues, etc.  Anything where the primary purpose is to allow the playing of one sport (or other athletic activity).  A nonprofit that teaches children how to play a sport is not considered in this category, as the purpose of that is education, not playing a sport.
