@@ -7,7 +7,7 @@ This syllabus applies two two courses: CS 4970 in the fall of 2016 (called "Caps
 
 ### Fall 2016 and Spring 2017, [https://github.com/aaronbloomfield/slp/](https://github.com/aaronbloomfield/slp/)
 ### Fall 2016: M/W/F 12:00-12:50, Rice 130
-### Spring 2017: TBA
+### Spring 2017: M/W/F 10:00-10:50, Rice 130
 
 **Instructor:** [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron).  Office is Rice Hall, room 403.  Office hours TBA.
 
