@@ -32,7 +32,7 @@ Please note that the slides are generally not finalized until the day of lecture
 ### Spring 2017 lectures
 
 - [Daily announcements](../uva/daily-announcements.html#/) (UVa specific) (link will point to the fall daily announcements until the spring semester starts)
-- [Course Introduction (spring)](course-introduction-spring.html#/) (UVa specific) (link will not work until the start of the spring semester)
+- [Course Introduction (spring)](../uva/course-introduction-spring.html#/) (UVa specific) (link will not work until the start of the spring semester)
 - [11: Deliverables](11-deliverables.html#/)
 - [12: Testing](12-testing.html#/)
 - [13: Maintenance](13-maintenance.html#/)
