@@ -5,6 +5,7 @@ SLP: UVa Specific Material, fall 2016 and spring 2017
 
 Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the CS 4970/4971 version of the course at the University of Virginia.
 
+- [Spring semester daily announcements][9]
 - [Fall semester daily announcements][5]
 - [Course syllabus][1] ([md][2])
 - [Legal forms][3] ([md][4])
