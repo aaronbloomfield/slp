@@ -5,13 +5,24 @@ SLP: UVa Specific Material, fall 2016 and spring 2017
 
 Much of the rest of this git repo is meant to be generic to anybody who has a class such as this one.  But this page contains details specific to the CS 4970/4971 version of the course at the University of Virginia.
 
-- [Spring semester daily announcements][9]
-- [Fall semester daily announcements][5]
+- [Spring semester daily announcements][5] (and from the [fall][12])
+- Course introduction from the [fall][8] and [spring][9]
 - [Course syllabus][1] ([md][2])
 - [Legal forms][3] ([md][4])
 - The schedule is now at the bottom of this page
 - The collected [iteration goals](iteration-goals.html#/)
 - [Old UVa SLP documents][6] ([md][7]), including the lectures and schedule from previous semesters
+
+Lectures (spring 2017)
+--------------------
+
+| Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
+|-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
+| 1   | Jan&nbsp;18 | Wednesday   | lecture & group meetings | [Course introduction][9]  | | [Course introduction][9], slides [1][9] to [18][117] |
+| 2   | Jan&nbsp;23 | Monday      | group meetings | | | |
+
+
+&nbsp;  
 
 Lectures (fall 2016)
 --------------------
@@ -101,6 +112,7 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [9]: course-introduction-spring.html#/
 [10]: schedule.html
 [11]: schedule.md
+[12]: daily-announcements-fall.html#/
 
 [20]: ../docs/hw-git.html
 [21]: ../docs/hw-git.md
@@ -137,6 +149,7 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [114]: ../slides/06-customer-meetings.html#/4/5
 [115]: ../slides/07-estimation.html#/6/2
 [116]: ../slides/08-wireframing.html#/5/4
+[117]: course-introduction-spring.html#/17
 
 [200]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/course-introduction-fall/course-introduction.htm
 [201]: https://collab.itc.virginia.edu/access/content/group/cd4a69a3-3a30-4ea6-b1bc-985ae7eca8bb/lectures/01-legal/01-legal.htm
