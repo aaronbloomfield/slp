@@ -41,7 +41,6 @@
 # CS 4971
 &nbsp;
 ### Capstone Practicum II
-### Spring 2016
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
 <center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](index.html) / <a href="11-deliverables.html?print-pdf"><img class="print" width="20" src="images/print-icon.png"></a></small></center>
@@ -142,10 +141,10 @@
 
 	  <section data-markdown><script type="text/template">
 ## Overview
-- To be completed by the end of iteration 11 (March 28th), this will contain the necessary information for a proper transition
+- To be completed by the end of iteration 11 (March 27th), this will contain the necessary information for a proper transition
   - The parts of the transition plan are developed over the next few iterations
 - Audience: the development group
-- The requirements document is not technically part of the transition plan, but the updated version is also due March 28th
+- The requirements document is not technically part of the transition plan, but the updated version is also due March 27th
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -155,15 +154,15 @@
 - The full transition plan consists of:
   1. Deployment plan
   2. Installation instructions
-  3. Master test plan
-  4. Code coverage report
+  3. Code coverage report
+  4. Master test plan
 - The parts above are due at the end of iterations 7-10, respectively
-  - The full transition plan is due at the end of iteration 11
+- The full transition plan is due at the end of iteration 11
 	  </script></section>
 
 	  <section data-markdown id="deployment-plan"><script type="text/template">
 ## Deployment plan
-- Due at the end of iteration 7 (February 1st)
+- Due at the end of iteration 7 (January 30th)
 - It should contain:
   - Where the system is being deployed (URL, provider, etc.)
     - Alternatively: AWS, Heroku, customer's machine, etc.
@@ -193,14 +192,45 @@
 
 	  <section data-markdown><script type="text/template">
 ## Installation instructions
-- Due at the end of iteration 8 (February 15th)
+- Due at the end of iteration 8 (February 14th)
 - Discussed [later in this slide set](#/installation)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
+## Code coverage report
+- Due at the end of iteration 9 (February 28th)
+- You already have a number of unit tests written, and it should be running on Travis or CircleCI
+- You need to ask: do the unit tests cover *all* of the code?
+- Each group will need to run a code coverage analysis tool, and report how much of the code base is covered
+- There are two parts, both discussed in the [testing slide set](12-testing.html#/):
+  - [Main code coverage](12-testing.html#/codecoverage) for your Python / Ruby / PHP code
+  - [Javascript code coverage](12-testing.html#/jscodecoverage) for your Javascript code
+- You will need to hit 100% code coverage by the end of iteration 12 (April 10th)
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Code coverage report
+- Your *entire* code base needs to be (eventually) covered!
+  - Anything *not* covered will have to have an explanation as to why
+- This means you will need to start writing lots of unit tests!
+  - Don't wait until the last minute to do this!
+  - It will be *far* easier to do this as you develop in the next few iterations
+- This part of the transition plan is purposely the last part due to give you more time to develop the unit tests
+- More details about code coverage will be forthcoming in the [testing slide set](12-testing.html) slide set
+  - That slide set is not yet ready, as it needs updates...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Code coverage report updates
+- At the end of *each* iteration, you will need to re-run the code coverage report
+  - This way, when we look at it after each iteration, it will be up-to-date with respect to the unit tests you have written
+- It takes all of 2 minutes to run this report, once it's been set up and run the first time...
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
 ## Master test plan
-- Due at the end of iteration 10 (March 14th)
-- See the forthcoming [testing slide set](03-testing.html) for details
+- Due at the end of iteration 10 (March 13th)
+- See the forthcoming [testing slide set](12-testing.html) for details
   - That slide set is not yet ready, as it needs updates...
 - This is a high-level overview of the testing
   - From the point of view of the tests: which requirements are being tested?
@@ -209,28 +239,8 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Code coverage report
-- Due at the end of iteration 9 (February 29th)
-- You already have a number of unit tests written, and it should be running on Travis or CircleCI
-- You need to ask: do the unit tests cover *all* of the code?
-- Each group will need to run a code coverage analysis tool, and report how much of the code base is covered
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
-## Code coverage report
-- Your *entire* code base needs to be covered!
-  - Anything *not* covered will have to have an explanation as to why
-- This means you will need to start writing lots of unit tests!
-  - Don't wait until the last minute to do this!
-  - It will be *far* easier to do this as you develop in the next few iterations
-- This part of the transition plan is purposely the last part due to give you more time to develop the unit tests
-- More details about code coverage will be forthcoming in the [testing slide set](03-testing.html) slide set
-  - That slide set is not yet ready, as it needs updates...
-	  </script></section>
-
-	  <section data-markdown><script type="text/template">
 ## Full transition plan
-- Due at the end of iteration 11 (March 28th)
+- Due at the end of iteration 11 (March 27th)
 - This entails taking the four previous sections and updating them and making edits
   - Example: as you will likely add more code in this iteration, you will be writing some more unit tests, and thus your code coverage report will have to be updated
 - This will be turned in along with the updated requirements document
@@ -371,7 +381,7 @@
 ## Testing
 - This will need to be tested!
   - The 'installation testing' aspect of the master test plan
-  - More details in the [testing slide set](03-testing.html) slide set
+  - More details in the [testing slide set](12-testing.html) slide set
 - Given a BLANK VirtualBox image, or a BLANK Dreamhost or Bluehost account, do the instructions work?
   - Note that the provided course image already has some of the installation commands completed!
 	  </script></section>
@@ -572,7 +582,7 @@
 
 	  <section data-markdown><script type="text/template">
 ## Screen shots
-- The article is not a picture book, but a screen shot is not unreasonable
+- The article is not a picture book, but a screen shot or two is not unreasonable
 - This will make it easier for the reader to visualize what is going on
 - Total screen shot usage should not take up more than 1/2 page, total
 	  </script></section>
@@ -601,17 +611,17 @@
 - You may certainly refer to the nonprofit by name, of course
 - It should always be written in the plural first tense
   - "We did this", not "I did this"
-  - This is true for single-author articles as well
+  - (This is true for single-author articles as well, by the way)
 - Who did what is irrelevant for the purposes of this article; everything was done "by the group"
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Author list
 - All authors should be listed
-  - The order is up to you, but I suggest alphabetically
-- There should be exactly two lines under your name:
+  - The order is up to you, but I suggest alphabetically by last name
+- There should be *exactly* two lines under your name:
   - Your affiliation ("University of Virginia")
-  - Your email ("mst3k@virginia.edu", or pick another)
+  - Your email ("mst3k@virginia.edu")
 - And nothing else!  No cell numbers, no addresses, etc.
 - Note that the additional authors section at the end should be ignored; put all the authors on the top of the front page
 	  </script></section>
@@ -638,8 +648,8 @@
 	  <section data-markdown><script type="text/template">
 ## Overview
 - There will be a final presentation at the end of the semester
-  - One option is during the last few classes (this means showing up on Fridays)
-  - Another option is during the final exam time slot (Thursday, May 5th, from 9 a.m. to 12 noon)
+  - One option is during the last few classes (this means showing up on Fridays!)
+  - Another option is during the final exam time slot, but we can't fit all the projects into that time
   - Details about when to follow
 - Audience: the rest of the class and the customers
   - And other selected guests and big-wigs
@@ -665,7 +675,7 @@
 - Everybody in the group should participate in some way; this is a group presentation
 - This should be rehearsed, and flow smoothly
   - If you were presenting such a project in front of your boss, you would not want to run into logistical problems during the presentation (such as, "wait, I thought *you* were talking about this part")
-- Format is described [here](#/finalpresformat)
+- Format is described [elsewhere in this slide set](#/finalpresformat)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -759,8 +769,7 @@
 - The intent is to write a tutorial on *something* that you had to work through this semester
   - Something that, if you had had a tutorial ahead of time, would have saved you time or effort
   - It must be something that there does not exist a tutorial already online
-- They are due at the *beginning* of the final exam period (Thu, May 5th, from 9 a.m. to 12 noon)
-  - At the beginning if we are doing our presentations then; at the end if we do our presentations earlier
+- They are due at the end of iteration 14 (Tuesday, May 9th by noon)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -939,24 +948,26 @@
   - It's a waste of paper
   - It's a waste of ink toner
 - The only thing with a page requirement is the STS article, and with all the detailed sections described herein, you should not have a problem hitting that page length
+- I will return any fluff-ridden pieces to you for you to dispose of (and rewrite)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Due dates, part 1
 - Due at the end of iterations 7-11:
-  - Iteration 7 (February 1st): deployment plan
-  - Iteration 8 (February 15th): installation instructions
-  - Iteration 9 (February 29th): code coverage report
-  - Iteration 10 (March 14th): master test plan
-  - Iteration 11 (March 28th): full transition plan, including the updated requirements document
+  - Iteration 7 (January 30th): deployment plan
+  - Iteration 8 (February 14th): installation instructions
+  - Iteration 9 (February 28th): code coverage report
+  - Iteration 10 (March 13th): master test plan
+  - Iteration 11 (March 27th): full transition plan, including the updated requirements document
 - Due throughout the transition period (iterations 12-14; specific dates TBA): user manual, programming reference
+  - If you are really interested, you can find the due dates listed in the [iteration goals slide set](../uva/iteration-goals.html#/)
 - Due ????: STS technical report
   - I will need them two weeks before STS needs them
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Due dates, part 2
-- Due at the beginning or end of the final exam period (Thu, May 5th from 9 a.m. to 12 noon): final presentation slide set and your tutorial
+- Due at the end of iteration 14 (Tuesday, May 9th by noon): final presentation slide set and your tutorial
 - Due at the end of iteration 14: the final hand-off to the customer, screen shot(s), and the one-slide version
   - Note that I will have to check everything in the repo, so don't wait until the last minute to do them!
 	  </script></section>
