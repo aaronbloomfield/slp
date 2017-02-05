@@ -16,10 +16,42 @@ Much of the rest of this git repo is meant to be generic to anybody who has a cl
 Lectures (spring 2017)
 --------------------
 
-| Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
-|-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
-| 1   | Jan&nbsp;18 | Wednesday   | lecture & group meetings | [Course introduction][9]  | | [Course introduction][9], slides [1][9] to [18][117] |
-| 2   | Jan&nbsp;23 | Monday      | group meetings | | | |
+| Num | Date | Day of week | Lecture type | Planned topic | Iteration and deliverables | Actual lecture progress (and recording) |
+|-----|--------|-------------|--------------------------------|--------------------------|----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| 1 | Jan 18 | Wednesday | lecture & group meetings | [Course introduction][9] |  | [Course introduction][9], slides [1][9] to [18][117] (end) |
+| 2 | Jan 23 | Monday | group meetings |  |  |  |
+| 3 | Jan 25 | Wednesday | lecture | [Deliverables][61] |  | [Deliverables][61], slides [1][61] to [8.3](../slides/11-deliverables.html#/7/2) |
+| 4 | Jan 30 | Monday | group meetings |  | Iteration 7 ends; deliverable is the [deployment plan](../slides/11-deliverables.html#/deployment-plan) |  |
+| 5 | Feb&nbsp;1 | Wednesday | lecture | [Deliverables][61] |  | [Deliverables][61], slides [9.1](../slides/11-deliverables.html#/8) to [11.4](../slides/11-deliverables.html#/10/3) |
+| 6 | Feb&nbsp;6 | Monday | group meetings |  |  |  |
+| 7 | Feb&nbsp;8 | Wednesday | lecture | [Testing][62] |  |  |
+| 8 | Feb&nbsp;13 | Monday | group meetings |  | Iteration 8 ends; deliverable is the [installation instructions](../slides/11-deliverables.html#/installation) |  |
+| 9 | Feb&nbsp;15 | Wednesday | lecture | [Testing][62] |  |  |
+| 10 | Feb&nbsp;20 | Monday | group meetings |  |  |  |
+| 11 | Feb&nbsp;22 | Wednesday | ... | ... |  |  |
+| 12 | Feb&nbsp;27 | Monday | group meetings |  | Iteration 9 ends; deliverable is the [code coverage report](../slides/12-testing.html#/codecoverage) |  |
+| 13 | Mar&nbsp;1 | Wednesday |  |  |  |  |
+|  | Mar&nbsp;6 | Monday | spring break |  |  |  |
+|  | Mar&nbsp;8 | Wednesday | spring break |  |  |  |
+| 14 | Mar&nbsp;13 | Monday | group meetings |  | Iteration 10 ends; deliverable is the [code coverage report](../slides/12-testing.html#/mastertestplan) |  |
+| 15 | Mar&nbsp;15 | Wednesday |  |  |  |  |
+| 16 | Mar&nbsp;20 | Monday | group meetings |  |  |  |
+| 17 | Mar&nbsp;22 | Wednesday |  |  |  |  |
+| 18 | Mar&nbsp;27 | Monday | group meetings |  | Iteration 11 ends; deliverable is the [code coverage report](../slides/11-deliverables.html#/transition) |  |
+| 19 | Mar&nbsp;29 | Wednesday |  |  |  |  |
+| 20 | Apr&nbsp;3 | Monday | group meetings |  |  |  |
+| 21 | Apr&nbsp;5 | Wednesday |  |  |  |  |
+|22  | Apr&nbsp;10 | Monday | group meetings |  | Iteration 12 ends; deliverables are in the [iteration goals slide set](iteration-goals.html#/it12goals) |  |
+| 23 | Apr&nbsp;12 | Wednesday | final presentations |  |  |  |
+| 24 | Apr&nbsp;14 | Friday | final presentations |  |  |  |
+| 25 | Apr&nbsp;17 | Monday | group meetings |  |  |  |
+| 26 | Apr&nbsp;19 | Wednesday | final presentations |  |  |  |
+| 27 | Apr&nbsp;21 | Friday | final presentations |  |  |  |
+| 28 | Apr&nbsp;24 | Monday | group meetings |  | Iteration 13 ends; deliverables are in the [iteration goals slide set](iteration-goals.html#/it13goals) |  |
+| 29 | Apr&nbsp;26 | Wednesday | final presentations |  |  |  |
+| 30 | Apr&nbsp;28 | Friday | final presentations (possible) |  |  |  |
+| 31 | May&nbsp;1 | Monday | course conclusion |  |  |  |
+|  | May&nbsp;8 | Monday |  |  | Iteration 14 ends; deliverables are in the [iteration goals slide set](iteration-goals.html#/it14goals) |  |
 
 
 &nbsp;  
@@ -129,6 +161,9 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [58]: ../slides/08-wireframing.html#/
 [59]: ../slides/09-ci-testing.html#/
 [60]: ../slides/10-documentation.html#/
+[61]: ../slides/11-deliverables.html#/
+[62]: ../slides/12-testing.html#/
+[63]: ../slides/13-maintenance.html#/
 
 [81]: daily-announcements.html#citestingworkday
 
