@@ -24,9 +24,9 @@ Lectures (spring 2017)
 | 4 | Jan 30 | Monday | group meetings |  | Iteration 7 ends; deliverable is the [deployment plan](../slides/11-deliverables.html#/deployment-plan) |  |
 | 5 | Feb&nbsp;1 | Wednesday | lecture | [Deliverables][61] |  | [Deliverables][61], slides [9.1](../slides/11-deliverables.html#/8) to [11.4](../slides/11-deliverables.html#/10/3) |
 | 6 | Feb&nbsp;6 | Monday | group meetings |  |  |  |
-| 7 | Feb&nbsp;8 | Wednesday | lecture | [Testing][62] |  |  |
-| 8 | Feb&nbsp;13 | Monday | group meetings |  | Iteration 8 ends; deliverable is the [installation instructions](../slides/11-deliverables.html#/installation) |  |
-| 9 | Feb&nbsp;15 | Wednesday | lecture | [Testing][62] |  |  |
+| 7 | Feb&nbsp;8 | Wednesday | lecture | [Testing][62] |  |  [Deliverables][61], slides [12.1](../slides/11-deliverables.html#/11) to [14.4](../slides/11-deliverables.html#/13/3) (end); [Testing][62], sldies [1][62] to [4.10](../slides/12-testing.html#/3/9) |
+| 8 | Feb&nbsp;13 | Monday | group meetings |  | Iteration 8 ends; deliverable is the [installation instructions](../slides/11-deliverables.html#/installation) | |
+| 9 | Feb&nbsp;15 | Wednesday | lecture | [Testing][62] |  | [Testing][62], sldies [4.10](../slides/12-testing.html#/3/9) to ... |
 | 10 | Feb&nbsp;20 | Monday | group meetings |  |  |  |
 | 11 | Feb&nbsp;22 | Wednesday | ... | ... |  |  |
 | 12 | Feb&nbsp;27 | Monday | group meetings |  | Iteration 9 ends; deliverable is the [code coverage report](../slides/12-testing.html#/codecoverage) |  |
