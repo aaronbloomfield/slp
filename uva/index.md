@@ -29,15 +29,15 @@ Lectures (spring 2017)
 | 9 | Feb&nbsp;15 | Wednesday | lecture | [Testing][62] |  | [Testing][62], sldies [4.10](../slides/12-testing.html#/3/9) to [8.4](../slides/12-testing.html#/7/3) |
 | 10 | Feb&nbsp;20 | Monday | group meetings |  |  |  |
 | 11 | Feb&nbsp;22 | Wednesday | lecture | [Testing][62] |  | [Testing][62], sldies [8.4](../slides/12-testing.html#/7/3) to ... |
-| 12 | Feb&nbsp;27 | Monday | group meetings |  | Iteration 9 ends; deliverable is the [code coverage report](../slides/12-testing.html#/codecoverage) |  |
+| 12 | Feb&nbsp;27 | Monday | group meetings |  | Iteration 9 ends; deliverable is the [master test plan](../slides/12-testing.html#/mastertestplan) |  |
 | 13 | Mar&nbsp;1 | Wednesday |  |  |  |  |
 |  | Mar&nbsp;6 | Monday | spring break |  |  |  |
 |  | Mar&nbsp;8 | Wednesday | spring break |  |  |  |
-| 14 | Mar&nbsp;13 | Monday | group meetings |  | Iteration 10 ends; deliverable is the [code coverage report](../slides/12-testing.html#/mastertestplan) |  |
+| 14 | Mar&nbsp;13 | Monday | group meetings |  | Iteration 10 ends; deliverable is the [code coverage report](../slides/12-testing.html#/codecoverage) |  |
 | 15 | Mar&nbsp;15 | Wednesday |  |  |  |  |
 | 16 | Mar&nbsp;20 | Monday | group meetings |  |  |  |
 | 17 | Mar&nbsp;22 | Wednesday |  |  |  |  |
-| 18 | Mar&nbsp;27 | Monday | group meetings |  | Iteration 11 ends; deliverable is the [code coverage report](../slides/11-deliverables.html#/transition) |  |
+| 18 | Mar&nbsp;27 | Monday | group meetings |  | Iteration 11 ends; deliverable is the [transition plan](../slides/11-deliverables.html#/transition) |  |
 | 19 | Mar&nbsp;29 | Wednesday |  |  |  |  |
 | 20 | Apr&nbsp;3 | Monday | group meetings |  |  |  |
 | 21 | Apr&nbsp;5 | Wednesday |  |  |  |  |
