@@ -12,6 +12,7 @@ Much of the rest of this git repo is meant to be generic to anybody who has a cl
 - The schedule is now at the bottom of this page
 - The collected [iteration goals](iteration-goals.html#/)
 - [Old UVa SLP documents][6] ([md][7]), including the lectures and schedule from previous semesters
+- [Grading metric][13] ([md][14])
 
 Lectures (spring 2017)
 --------------------
@@ -145,6 +146,8 @@ Iterations start on a Tuesday (at 12:01 a.m. on Tuesday morning), and end at the
 [10]: schedule.html
 [11]: schedule.md
 [12]: daily-announcements-fall.html#/
+[13]: grades.html
+[14]: grades.md
 
 [20]: ../docs/hw-git.html
 [21]: ../docs/hw-git.md
