@@ -5,7 +5,7 @@ SLP: Introduction to UNIX: VirtualBox image creation details
 
 For those who are interested, this is how the image was set up.
 
-These directions are identical to the ones in the [PDR repository](https://github.com/aaronbloomfield/pdr) (specifically, tutorial 1, found [here](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/vb-image-details.html)).
+These directions are identical to the ones in the [PDR repository](https://github.com/markfloryan/pdr) (specifically, tutorial 1).
 
 
 # Introduction
@@ -19,17 +19,16 @@ The top of each section describes which of the sub-sections need to be installed
 This installation document installs the following versions:
 
 - [Kubuntu 16.04, 64-bit](http://kubuntu.org/getkubuntu/)
-- [Apache 2.4.18](http://packages.ubuntu.com/xenial/apache2)
-- [PHP 7.0.8](http://packages.ubuntu.com/xenial/php)
-- Python [2.7.12](http://packages.ubuntu.com/xenial/python) and [3.5.2](http://packages.ubuntu.com/xenial/python3); [Django 1.10](https://www.djangoproject.com/download/)
-- [Ruby 2.3.1; Rails 4.2.6](https://gorails.com/setup/ubuntu/16.04)
+- Clang++ version 3.8.0
+- Python [3.5.2](http://packages.ubuntu.com/xenial/python3); [Django 1.11](https://www.djangoproject.com/download/)
+- [Ruby 2.4.1; Rails 5.1.3](https://gorails.com/setup/ubuntu/16.04)
 
-Newer versions of the above may have since come out, but at the time of the writing of this document (August 2016), they were either the versions installed via apt-get (Apache, PHP, and Python), or the latest versions installed manually (Django, Ruby, and Rails).
+Newer versions of the above may have since come out, but at the time of the writing of this document (August 2017), they were either the versions installed via apt-get (Clang, Python), or the latest versions installed manually (Django, Ruby, and Rails).
 
 **Notes**
 
 - The guest hard drive reported 9.9 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 8.0 Gb.  When compressed via zip, it was 2.5 Gb in size.
-- Firefox was a recent version, and video (via youtube) worked right out of the box, along with sound; video and sound (also via youtube) worked fine with Chrome
+- Video and sound (via youtube) worked fine with Chrome
 - The VM may capture the mouse - to uncapture it, you press the "host key", (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts).  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
 - In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command `VBoxManage internalcommands sethduuid disk.vdi` (changing `disk.vdi` appropriately) will change the UUID, and allow you to proceed
 
@@ -42,7 +41,7 @@ All installations need to run through this, as it sets up the default Kubuntu in
 - Created a new VirtualBox image
     - I named it "Kubuntu 16.04" or similar; this automatically selected Linux as the OS type; I manually selected "Ubuntu (64 bit)" as the version
     - I set the memory at 1536 Mb (instead of the default of 512 Mb), ensured that the disk size was "dynamically allocated" and was set to 20 Gb (instead of the default 8 Gb); everything else was set at the default
-- I installed Kubuntu 16.04.1 LTS (64 bit), desktop edition, from the DVD image downloaded from [http://www.kubuntu.org/getkubuntu](http://www.kubuntu.org/getkubuntu) (the specific image file is [here](http://cdimage.ubuntu.com/kubuntu/releases/16.04.1/release/kubuntu-16.04.1-desktop-amd64.iso))
+- I installed Kubuntu 16.04.1 LTS (64 bit), desktop edition, from the DVD image downloaded from [http://www.kubuntu.org/getkubuntu](http://www.kubuntu.org/getkubuntu) (the specific image file is [here](http://cdimage.ubuntu.com/kubuntu/releases/16.04.1/release/kubuntu-16.04.3.desktop-amd64.iso))
     - When prompted, I clicked on 'download updates' and 'install 3rd party software' when the options were given
     - For hard drive, I used the default: "Guided -- use entire disk"
     - The computer name is cassiopeia, the login name is 'student', full name is 'L33t H4x0r', and the password is 'password'
@@ -59,13 +58,12 @@ All installations need to run through this, as it sets up the default Kubuntu in
 
 # Development installation
 
-The "Program and Data Representation configuration" section
-is for the [Program and Data Representation](http://aaronbloomfield.github.io/pdr) course, and it includes all of the compilers and editors needed.  The "LAMP configuration (with both PHP and Python)" section installs a full [LAMP stack](https://en.wikipedia.org/wiki/LAMP_%28software_bundle%29) for use with web development; both PHP and Python are installed.  The "Ruby on Rails configuration" section is for developing Ruby on Rails software.
+The "Program and Data Representation configuration" section is for the [Program and Data Representation](http://markfloryan.github.io/pdr) course, and it includes all of the compilers and editors needed.  The "Python/Django" section installs the files needed to run Python 3 and the Django framework.  The "Ruby on Rails configuration" section is for developing Ruby on Rails software.
 
 **Program and Data Representation configuration**
 
 - Installed the other packages: `sudo apt-get install clang emacs24 vim nasm astyle tofrodos source-highlight gdb lldb doxygen doxygen-doc graphviz ddd git g++ python-gpgme gobjc gnustep gnustep-make gnustep-common libgnustep-base-dev evince`
-    - Note that there are two other `apt-get install` lines to be run, below: when installing LAMP and when following the [Ruby on Rails installation instructions](https://gorails.com/setup/ubuntu/14.04), both of which are described below
+    - Note that there are two other `apt-get install` lines to be run, below
     - The python-gpgme package is a supporting package for Dropbox, in case students want to install that
 	- The last 5 packages are for Objective C, based on the instructions [here](http://www.fatvat.co.uk/2010/04/getting-started-with-objective-c-on.html) (it may be that only a subset of those packages are actually necessary)
 - Ran the following two commands to change the default C/C++ compiler to clang:
@@ -76,10 +74,10 @@ sudo update-alternatives --set c++ /usr/bin/clang++
 - Downloaded Google Chrome from [here](https://www.google.com/chrome/browser/desktop/index.html), and installed it via `sudo dpkg -i google-chrome-stable_current_i386.deb`
     - That installation did not work perfectly (which was expected), and to fix an installation such as this you run `sudo apt-get -f install`
     - Then the .deb file was removed
-- Added konsole, emacs, firefox, and google chrome icons to favorites (from the K (start) menu, right-click and select 'add to favorites'), and the task bar (from the favorites menu, right-click and select 'add to panel')
+- Added konsole, emacs, and google chrome icons to favorites (from the K (start) menu, right-click and select 'add to favorites'), and the task bar (from the favorites menu, right-click and select 'add to panel'; this may require right-clicking on the panel and selecting panel options -> panel settings prior to moving the icons)
 - Browser customization
-    - Set both Firefox and Chrome's home page to Collab
-    - Added the http://aaronbloomfield.github.io/pdr/uva/index.html page as the second tab loaded up by both Firefox and Chrome
+    - Set both Chrome's home page to Collab
+    - Added the http://markfloryan.github.io/pdr/uva/index.html page as the second tab loaded up by Chrome
     - Chrome is set as the default browser
 - I loaded up emacs from the command line, and then told it to disable showing the startup messages (this could also be accomplished by following the guidelines [here](http://xenon.stanford.edu/~manku/dotemacs.html)).
 - Added a few aliases were added (the last 4 lines of .bashrc) to help prevent people from accidentally removing files (adding -i for rm, mv, and cp; and aliasing xemacs to emacs).  This was done both in /home/student/.bashrc and /etc/skel/.bashrc.
@@ -89,29 +87,31 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias xemacs='emacs'
 ```
-- Cloned the github repo via `git clone https://github.com/aaronbloomfield/pdr`; note that a `git pull` will still have to be executed each time to update it
+- Cloned the github repo via `git clone https://github.com/markfloryan/pdr`; note that a `git pull` will still have to be executed each time to update it
 - Removed all the empty default directories in ~/student other than Desktop and Downloads
-- Changed the auto-lock feature: K-menu -> Computer -> System Settings -> Desktop Behavior -> Screen Locking, uncheck the "lock screen..." button, and click Apply.
+- Changed the auto-lock feature: K-menu -> Computer -> System Settings -> Desktop Behavior -> Screen Locking, uncheck the "lock screen automatically..." button, and click Apply.
+- Plasmashell, which is part of the graphical window system, was crashing repeatedly.  The reason seems to be tooltip previews of application windows, so these should be disabled: right click taskbar -> Task Manager Settings -> General -> Uncheck "show tooltips"
 
-**LAMP configuration (with both PHP and Python)**
+**LAMP configuration (with both PHP and Python 3)**
 
-- Installed more packages: `sudo apt-get install apache2 php php-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php-mysql default-jdk openssh-server tk-dev python-mysqldb php-mcrypt php-intl python-pip composer libapache2-mod-php`
+- Installed more packages: `sudo apt-get install apache2 php php-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php-mysql default-jdk openssh-server tk-dev python-mysqldb php-mcrypt php-intl python3-pip composer libapache2-mod-php sqlite3`
     - any prompted passwords (such as mysql) are 'password'
     - anything that needed configuration with a web server (phpmyadmin, for example) is only configured with the apache2 server
-	- once done, ran `sudo -H pip install --upgrade pip`
+	- once done, ran `sudo -H pip3 install --upgrade pip`
+	- ran `sudo apt-get remove openjdk-8-doc`, since that takes up a lot of space and can be accessed on the Internet
 - apache2 configuration
     - enabled the userdir apache2 module (i.e., using ~userid/ for each userid): `sudo a2enmod userdir`
     - enabled the URL rewriting apache2 module: `sudo a2enmod rewrite`
 	- enabled the two PHP modules needed for the CakePHP framework: `sudo phpenmod intl` and `sudo phpenmod mcrypt`
-    - enabled PHP in user directories: edit (via sudo) `etc/apache2/mods-available/php7.0.conf`, and change the `Off` in the 
+    - enabled PHP in user directories: edit (via sudo) `/etc/apache2/mods-available/php7.0.conf`, and change the `Off` in the 
 `php_admin_value engine Off` line to `On`
     - restart apache: `sudo service apache2 restart`
     - the 'student' user can already view the apache2 error logs (in /var/log/apache2), but if they couldn't, then they would have to have been added to the 'adm' group (i.e., `usermod -a -G adm student`, but this requires logging out and logging in for the group change to take effect)
-    - made a 'public_html' directory both in ~student and /etc/skel
+    - made a 'public_html' directory both in ~student and /etc/skel; the former is chown'ed to student:student
 - ssh'ed to localhost to accept the ssh key
-- Installed Django: the version of Django installed via apt-get is old, so we will install via pip: `sudo -H pip install Django==1.10`
+- Installed Django: the version of Django installed via apt-get is old, so we will install via pip: `sudo -H pip install Django==1.11`
 - Attempted a CakePHP installation, to ensure that composer worked, and also to pre-download the files that would be used: `composer create-project --prefer-dist cakephp/app test`.  The directory created was then deleted
-- Installed the `virtualenv` Python package: `sudo -H pip install virtualenv`
+- Installed the virtualenv Python package: `sudo -H pip install virtualenv`
 
 **Ruby on Rails configuration**
 
@@ -121,11 +121,12 @@ alias xemacs='emacs'
 sudo update-alternatives --set cc /usr/bin/gcc
 sudo update-alternatives --set c++ /usr/bin/g++
 ```
-- I then followed the directions at [https://gorails.com/setup/ubuntu/16.04](https://gorails.com/setup/ubuntu/16.04).  The versions I used were Ruby 2.3.1, and Rails 4.2.6 (at the time of this document's writing); newer versions may have since appeared.
+- I then followed the directions at [https://gorails.com/setup/ubuntu/16.04](https://gorails.com/setup/ubuntu/16.04).  The versions I used were Ruby 2.4.1, and Rails 5.1.3 (at the time of this document's writing); newer versions may have since appeared.
     - The rbenv installation method for Ruby was used
     - The git/github configuration step was skipped, as that requires the final user of the image
     - MySQL was already set up in the LAMP configuration section
     - PostgreSQL is another SQL database, but we are not using that on the image
+	- The `--no-ri --no-rdoc` flags were added to each `gem` command
 - To start rails application, execute the following commands (the edit to be done in emacs is listed below):
 ```
 cd
@@ -150,9 +151,9 @@ These sections are for configuring the image to run a programming contest using 
 **Programming Contest configuration**
 
 - If you are upgrading from a previous image version, run `sudo apt-get update` and then `sudo apt-get dist-upgrade`
-- Install the packages: `sudo apt-get install emacs24 vim eclipse g++ git gdb openjdk-7-jdk gedit`
+- Install the packages: `sudo apt-get install emacs24 vim eclipse g++ git gdb openjdk-8-jdk gedit`
     - If the Basic Installation section, above, was installed, then some of these packages have already been installed
-	- The openjdk-7-doc package is not installed here to keep the image size down, but the packages above install it anyway
+	- The openjdk-8-doc package is not installed here to keep the image size down, but the packages above install it anyway
 	- For various reasons, the eclipse package is typically not installed on the image released to the students, but should be installed on the final contest image
 - Download the latest [PC^2](http://www.ecs.csus.edu/pc2/) software and unzip it in /usr/local/
 	- At the time of this writing, the latest version is 9.3.2-3449, and the direct download link is [here](http://www.ecs.csus.edu/pc2/code/v9/pc2-9.3.2-3449/pc2-9.3.2-3449.zip); thus, the directory it is unzipped into would be `/usr/local/pc2-9.3.2`
@@ -274,4 +275,4 @@ Because previous versions of this image were a different version of Ubuntu (spec
 
 **Changes for the future**
 
-- Plasmashell, which is part of the graphical window system, was crashing repeatedly.  The reason seems to be tooltip previews of application windows, so these should be disabled: right click taskbar -> Task Manager Settings -> General -> Uncheck "show tooltips"
+- none, yet

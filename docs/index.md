@@ -9,8 +9,17 @@ SLP: Documents
 
 ### Documents and tutorials
 
+- [Choosing a developemnt environment](choosing-dev-env.html) ([md](choosing-dev-env.md))
+- [VirtualBox introduction](virtualbox-intro.html) ([md](virtualbox-intro.md))
+    - [VirtualBox image details](virtualbox-image-details.html) ([md](virtualbox-image-details.md))
+- [Docker usage](docker-usage.html) ([md](docker-usage.md))
+- [Linux Administration Howtos](linux-admin-howtos.html) ([md](linux-admin-howtos.md))
 - [Development environment setup](dev-env-setup.html) ([md](dev-env-setup.md))
 - [Continuous Integration testing setup](ci-setup.html) ([md](ci-setup.md))
+- Database information
+    - [MySQL introduction](mysql-intro.html) ([md](mysql-intro.md))
+    - [MySQL reference](mysql-reference.html) ([md](mysql-reference.md))
+    - Note: change this to: a general SQL page, one on MySQL, and one on SQLite
 
 ### Homeworks
 
@@ -18,11 +27,6 @@ SLP: Documents
     - [Introduction to git and github](git-intro.html) ([md](git-intro.md))
 
 - [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md))
-    - [VirtualBox introduction](virtualbox-intro.html) ([md](virtualbox-intro.md))
-        - [VirtualBox image details](virtualbox-image-details.html) ([md](virtualbox-image-details.md))
-        - [Linux Administration Howtos](linux-admin-howtos.html) ([md](linux-admin-howtos.md))
-    - [MySQL introduction](mysql-intro.html) ([md](mysql-intro.md))
-    - [MySQL reference](mysql-reference.html) ([md](mysql-reference.md))
     - [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md))
     - [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md))
         - [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md))
