@@ -94,7 +94,7 @@ alias xemacs='emacs'
 
 **LAMP configuration (with both PHP and Python 3)**
 
-- Installed more packages: `sudo apt-get install apache2 php php-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php-mysql default-jdk openssh-server tk-dev python-mysqldb php-mcrypt php-intl python3-pip composer libapache2-mod-php sqlite3`
+- Installed more packages: `sudo apt-get install apache2 php php-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php-mysql default-jdk openssh-server tk-dev python-mysqldb php-mcrypt php-intl python3-pip composer libapache2-mod-php sqlite3 postgresql postgresql-contrib`
     - any prompted passwords (such as mysql) are 'password'
     - anything that needed configuration with a web server (phpmyadmin, for example) is only configured with the apache2 server
 	- once done, ran `sudo -H pip3 install --upgrade pip`
@@ -236,7 +236,7 @@ The "Installing Dropbox" section is not installed by default.  The "Image finali
 	- `django-admin startproject mysite`
 - Reboot (rebooting also clears out /tmp)
 - Run `apt-get autoremove` and `apt-get clean`
-- Cleared both browser histories
+- Cleared browser history
 - To reduce the size of the hard disk (since I have to host it for people to download), I ran `sudo cat /dev/zero > zero; sudo /bin/rm -f zero`.  This creates a large file of all 0's until it runs out of space, then removes that file.
 - Ran `history -c` to remove the history of the commands entered on the command line
 - Logged out then shut down the guest, and ran: `VBoxManage modifyhd disk.vdi --compact` (using the real image file name instead of "disk.vdi").  A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.

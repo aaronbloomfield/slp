@@ -11,12 +11,27 @@
 <body>
 <h1 id="slp-docker-usage">SLP: Docker Usage</h1>
 <p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>Docker install</p>
+<ul>
+<li>You will have to enable virtualization, which is a BIOS option. If you have already run VirtualBox on this machine, then you've done that. Otherwise, there will be an option for &quot;virtualization technology&quot;, &quot;VT-X&quot;, &quot;AMD-v&quot;, or similar.</li>
+<li>Windows can download and install from <a href="https://docs.docker.com/docker-for-windows/install/" class="uri">https://docs.docker.com/docker-for-windows/install/</a>
+<ul>
+<li>That version requires Windows 10; previous versions of Windows can use the install at <a href="https://www.docker.com/products/docker-toolbox" class="uri">https://www.docker.com/products/docker-toolbox</a></li>
+<li>Once installed, you run the Docker Quickstart Terminal
+<ul>
+<li>If you run into a problem such as the one described <a href="https://github.com/docker/toolbox/issues/473">here</a>, even if you are on a different version of Widnows, then it could be a driver issue: there is a bug with the NDIS6 driver, and you should select the NDIS5 driver during isntall (see <a href="https://stackoverflow.com/questions/33725779/failed-to-open-create-the-internal-network-vagrant-on-windows10/33733486#33733486">here</a> for details). Thus, you'll have to uninstall and reinstall docker, selecting the appropriate driver.</li>
+</ul></li>
+<li>To connect to the mapped port, run <code>docker-machine ip default</code> in another docker quickstart terminal (while the other container is running). You will get an IP address such as 192.168.99.100. You can then view the mapped port at http://192.168.99.100:3000.</li>
+</ul></li>
+<li>Mac OS X can download and install from <a href="https://docs.docker.com/docker-for-mac/install/" class="uri">https://docs.docker.com/docker-for-mac/install/</a></li>
+</ul>
 <p>Docker startup</p>
 <ul>
 <li>Download the docker image
 <ul>
 <li>Run <code>docker login &lt;server&gt;:5000</code>, where <code>&lt;server&gt;</code> is the provided docker server</li>
-<li>Run <code>docker pull &lt;server&gt;:5000/slp:latest</code>
+<li>Run <code>docker pull &lt;server&gt;:5000/slp:latest</code></li>
+<li>The image name is now &quot;&lt;server&gt;:5000/slp&quot;, which is annoying to type each time; you can rename it via <code>docker tag &lt;server&gt;:5000/slp slp</code>
 <ul>
 <li>You can run that last command in the future to upgrade to the latest version</li>
 <li>That being said, the above commands only need to be run once (or if you are upgrading), and not each time you start up a container</li>

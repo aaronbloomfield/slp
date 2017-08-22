@@ -98,7 +98,7 @@ alias xemacs=&#39;emacs&#39;</code></pre></li>
 </ul>
 <p><strong>LAMP configuration (with both PHP and Python 3)</strong></p>
 <ul>
-<li>Installed more packages: <code>sudo apt-get install apache2 php php-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php-mysql default-jdk openssh-server tk-dev python-mysqldb php-mcrypt php-intl python3-pip composer libapache2-mod-php sqlite3</code>
+<li>Installed more packages: <code>sudo apt-get install apache2 php php-cli netbeans phpmyadmin phpunit libmysqlclient-dev mysql-server mysql-client php-mysql default-jdk openssh-server tk-dev python-mysqldb php-mcrypt php-intl python3-pip composer libapache2-mod-php sqlite3 postgresql postgresql-contrib</code>
 <ul>
 <li>any prompted passwords (such as mysql) are 'password'</li>
 <li>anything that needed configuration with a web server (phpmyadmin, for example) is only configured with the apache2 server</li>
@@ -233,7 +233,7 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 </ul></li>
 <li>Reboot (rebooting also clears out /tmp)</li>
 <li>Run <code>apt-get autoremove</code> and <code>apt-get clean</code></li>
-<li>Cleared both browser histories</li>
+<li>Cleared browser history</li>
 <li>To reduce the size of the hard disk (since I have to host it for people to download), I ran <code>sudo cat /dev/zero &gt; zero; sudo /bin/rm -f zero</code>. This creates a large file of all 0's until it runs out of space, then removes that file.</li>
 <li>Ran <code>history -c</code> to remove the history of the commands entered on the command line</li>
 <li>Logged out then shut down the guest, and ran: <code>VBoxManage modifyhd disk.vdi --compact</code> (using the real image file name instead of &quot;disk.vdi&quot;). A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.</li>
