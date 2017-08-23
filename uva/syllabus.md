@@ -5,7 +5,7 @@ CS 4970 & CS 4971: Service Learning Practicum (SLP)
 
 This syllabus applies two two courses: CS 4970 in the fall of 2017 (called "Capstone Practicum I") and CS 4971 in the spring of 2018 (called "Capstone Practicum II").
 
-### Fall 2017 and Spring 2018, [https://github.com/aaronbloomfield/slp/](https://github.com/aaronbloomfield/slp/)
+### For both Fall 2017 and Spring 2018, [https://github.com/aaronbloomfield/slp/](https://github.com/aaronbloomfield/slp/)
 ### Fall 2017: M/W/F 12:00-12:50, Rice 130
 ### Spring 2018: TBA
 

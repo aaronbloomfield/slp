@@ -17,7 +17,7 @@ Within that repo, you will need to complete each of the following sections for t
 
 ### Allow us to view the repo
 
-The course instructor and any graduate TA(s) need to be able to view the private repos that you create.  From the main repo page, click on Settings (in the right-hand column), click on Collaborators (in the left-hand column), and enter our github usernames.  You can find the appropriate github usernames in the [daily announcements slide](../uva/daily-announcements.html#/) set.
+The course instructor(s) and any graduate TA(s) need to be able to view the private repos that you create.  From the main repo page, click on Settings (in the right-hand column), click on Collaborators (in the left-hand column), and enter our github usernames.  You can find the appropriate github usernames in the [daily announcements slide](../uva/daily-announcements.html#/) set.
 
 However, please ***ADD US AFTER YOU HAVE FINISHED THE HOMEWORK***.  This prevents us from getting notifications every time you make any change to your repo (edit a wiki page, add an issue, etc.).  We are going to get really cranky -- and take points off! -- if we get a dozen emails from every person's repo as they are working through this homework.  Since there are many students in the class, that's well over 1,000 github emails that we would rather not have to deal with.
 
@@ -36,7 +36,7 @@ You should create at least one table.  So that we can easily find your markdown'
 - Create a bunch of issues; we don't care what their content is.  Entertain us, but be appropriate, please.  Use Markdown in them for formatting.  Because we don't want to look at *all* of your issues to find the one that shows that you can use Markdown, you should use Markdown in *all* of them.  You can create some Markdown text and cut-and-paste that into the other issues for this.
 - Create some new labels.   Label a bunch of issues with different labels.
 - Create a milestone.  Make some (but not all!) of your issues part of that milestone.
-- [Resolve an issue via a commit message](https://help.github.com/articles/closing-issues-via-commit-messages).  So that we can find the issue that you have resolved this way, let's say you will resolve issues #10 and #12 this way.  This means we will be looking at https://github.com/username/cs4970-git-hw/issues/10 and https://github.com/username/cs4970-git-hw/issues/12 to find these issues.
+- [Resolve an issue via a commit message](https://help.github.com/articles/closing-issues-using-keywords/).  So that we can find the issue that you have resolved this way, let's say you will resolve issues #10 and #12 this way.  This means we will be looking at https://github.com/username/cs4970-git-hw/issues/10 and https://github.com/username/cs4970-git-hw/issues/12 to find these issues.
 
 ### Forks and pull requests
 
@@ -77,6 +77,8 @@ First, the easy ways to get zero credit:
 - Can both the instructor and TA access the repo?  If not, then zero credit.
 
 Still with us?  Great!  We are going to check that you have completed the various parts described above.  Be sure that the conflict.merge.txt file, from the "complicated merging" section is included.
+
+In particular, we are going to check that those *specific* issues (#10 and #12) were resolved via a commit message.
 
 ### Releasing the private repository
 
