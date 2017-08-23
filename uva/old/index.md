@@ -17,6 +17,7 @@ See [here](http://slp.cs.virginia.edu/2016-2017.php) for the projects developed.
 - [Slide listing for the 2016-2017 academic year](slides-2016-2017.html) ([md](slides-2016-2017.md))
 - Slide sets, fall 2016: [daily announcements](daily-announcements-fall-2016.html#/), [course introduction](course-introduction-fall-2016.html#/), (conclusion was in the daily announcements)
 - Slide sets, spring 2017: [daily announcements](daily-announcements-spring-2017.html#/), [course introduction](course-introduction-spring-2017.html#/), [course conclusion](course-conclusion-spring-2017.html)
+- [Grading metrics](grades-2016-2017.html) ([md](grades-2016-2017.md))
 
 ----
 
