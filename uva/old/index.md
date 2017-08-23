@@ -7,6 +7,19 @@ This page contains various files from previous semesters at UVa.
 
 ----
 
+## 2016-2017 Academic Year
+
+See [here](http://slp.cs.virginia.edu/2016-2017.php) for the projects developed.
+
+- [Syllabus for the 2016-2017 academic year](syllabus-2016-2017.html) ([md](syllabus-2016-2017.md))
+- [Main uva/index page](index-2016-2017.html) ([md](index-2016-2017.md))
+- [Iteration goals for the 2016-2017 academic year](iteration-goals-2016-2017.html)
+- [Slide listing for the 2016-2017 academic year](slides-2016-2017.html) ([md](slides-2016-2017.md))
+- Slide sets, fall 2016: [daily announcements](daily-announcements-fall-2016.html#/), [course introduction](course-introduction-fall-2016.html#/), (conclusion was in the daily announcements)
+- Slide sets, spring 2017: [daily announcements](daily-announcements-spring-2017.html#/), [course introduction](course-introduction-spring-2017.html#/), [course conclusion](course-conclusion-spring-2017.html)
+
+----
+
 ## 2015-2016 Academic Year
 
 See [here](http://slp.cs.virginia.edu/2015-2016.php) for the projects developed.
@@ -14,9 +27,9 @@ See [here](http://slp.cs.virginia.edu/2015-2016.php) for the projects developed.
 ### Full academic year
 - [Syllabus for the 2015-2016 academic year](syllabus-2015-2016.html) ([md](syllabus-2015-2016.md))
 - [Iteration goals for the 2015-2016 academic year](iteration-goals-2015-2016.html)
-- [Slides for the 2015-2016 academic year](slides-2015-2016.html) ([md](slides-2015-2016.md))
+- [Slide listing for the 2015-2016 academic year](slides-2015-2016.html) ([md](slides-2015-2016.md))
 
-### Spring 2015 (CS 4971)
+### Spring 2016 (CS 4971)
 - [Daily announcements, spring 2016](daily-announcements-spring-2016.html#/)
 - [Course introduction slide set](course-introduction-spring-2016.html)
 - [UVa main page, spring 2016](uva-page-spring-2016.html) ([md](uva-page-spring-2016.md))

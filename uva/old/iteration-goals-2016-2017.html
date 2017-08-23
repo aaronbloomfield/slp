@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>CS 4970: iteration-goals slide set</title>
+    <meta name="description" content="A set of slides for UVa's Service Learning Practicum course">
+    <meta name="author" content="Aaron Bloomfield">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../../slides/css/slp.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../../slides/reveal.js/lib/css/zenburn.css">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../slides/reveal.js/css/print/pdf.css' : '../../slides/reveal.js/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+	<script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<![endif]-->
+    <script type="text/javascript" src="../../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../../slides/css/dhtmlwindow.css" type="text/css">
+    <style>
+.reveal li {
+font-size:75%;
+line-height:120%;
+}
+    </style>
+  </head>
+
+  <body>
+    <div id="dhtmlwindowholder"><span style="display:none"></span></div>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+	  <section data-markdown><script type="text/template">
+# CS 4970
+&nbsp;
+### Capstone Practicum I & II
+### Fall 2016 & Spring 2017
+&nbsp;
+<center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../../slides/index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png"></a></small></center>
+&nbsp;  
+&nbsp; 
+## Iteration Goals
+	</script></section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section data-markdown><script type="text/template">
+## Purpose
+
+- This slide set is the collection of iteration goals, which are gone over in the [daily announcements](daily-announcements.html#/) slide set
+- It's meant to have all the iteration goals in one place; all this information is presented elsewhere to the class
+	  </script></section>
+
+	  <section data-markdown id="it14goals"><script type="text/template">
+## Goals for Iteration 14
+- Deliverables
+  - [Individual tutorial](../../slides/11-deliverables.html#/tutorials) (completed)
+  - [Screen shots](../../slides/11-deliverables.html#/screenshots)
+  - [One slide version](../../slides/11-deliverables.html#/singleslide)
+- You should have submitted everything as specified in the [submission requirements](../../slides/11-deliverables.html#/submission) part of the [deliverables](../../slides/11-deliverables.html#/) slide set
+- Testing
+  - All tests must pass (including green CI status and being able to run the tests on the course server)
+- At the end: end-of-phase AND end-of-year surveys
+- Complete your individual journaling prompt
+- All github issues and branches trimmed
+  - Unless it's an open source project; then have any appropriate issues be zero story points
+- Implement any updates, tweaks, UI fixes, or bug fixes found by you or the customer
+- [Final presentation](../../slides/11-deliverables.html#/finalpres) to the class (likely done in iteration 13)
+- [Final hand-off to the customer](../../slides/11-deliverables.html#/customer)
+	  </script></section>
+
+	  <section data-markdown id="it13goals"><script type="text/template">
+## Goals for Iteration 13
+- Deliverables
+  - [User manual](../../slides/11-deliverables.html#/usermanual) (completed)
+  - [Programming reference](../../slides/11-deliverables.html#/progref) (completed)
+  - [STS technical report](../../slides/11-deliverables.html#/stsreport) (completed)
+    - Email it to me in PDF format
+  - Prepare your [final presentation](../../slides/11-deliverables.html#/finalpres) slide set
+  - Updated [installation instructions](../../slides/11-deliverables.html#/installation)
+- Testing
+  - [Specific test plans](../../slides/12-testing.html#/specificplans) (completed and documented)
+    - This includes: installation test plan, usability test plan, security test plan, requriements test plan, compatibility test plan
+  - All tests must pass (including green CI status and being able to run the tests on the course server)
+  - [Javascript code coverage](../../slides/12-testing.html#/jscodecoverage) should be at 100% (and update the jscoverage.pdf file)
+- Implement any updates, tweaks, UI fixes, or bug fixes found by you or the customer
+- Must have selected and reserved your [final tutorial](../../slides/11-deliverables.html#/tutorials) choice
+	  </script></section>
+
+	  <section data-markdown id="it12goals"><script type="text/template">
+## Goals for Iteration 12
+- Devlierables
+  - [User manual](../../slides/11-deliverables.html#/usermanual) (draft, but a good draft)
+  - [STS technical report](../../slides/11-deliverables.html#/stsreport) (draft or outline)
+    - It's due to me either at the end of iteration 13 or two weeks before STS needs it signed, whichever comes first
+- Testing
+  - [Main code coverage](../../slides/12-testing.html#/codecoverage) at 100% (and updated [code coverage report](../../slides/12-testing.html#/codecoverage))
+    - Anything not covered should be described in a code-coverage-excuses.md file
+  - [Javascript code coverage](../../slides/12-testing.html#/jscodecoverage) should be at 75% (and update the jscoverage.pdf file)
+  - [Specific test plans](../../slides/12-testing.html#/specificplans) (written)
+    - This includes: installation test plan, usability test plan, security test plan, requriements test plan, compatibility test plan
+  - Ensure unit tests can be run on the course server
+  - All tests must pass (including green CI status and being able to run the tests on the course server)
+- Implement any updates, tweaks, UI fixes, or bug fixes found by you or the customer
+- You should start thinking about (and reserving) your [final tutorial](../../slides/11-deliverables.html#/tutorials) choice
+	  </script></section>
+
+	  <section data-markdown id="it11goals"><script type="text/template">
+## Goals for Iteration 11
+- Complete 4 story points worth of work per group member
+- Complete the full transition plan
+  - Really this means make any edits or updates to the [master test plan](../../slides/12-testing.html#/mastertestplan), [deployment plan](../../slides/11-deliverables.html#/deployment-plan), and [installation instructions](../../slides/11-deliverables.html#/installation)
+  - This is the document deliverable for this iteration; but if those are fully up to date, then there will not be much work to do on this part
+- Ensure the system is at 80% [main code coverage](../../slides/12-testing.html#/codecoverage)
+  - And update the [code coverage report](../../slides/12-testing.html#/codecoverage) report in the docs/coverage/ directory
+- [Javascript code coverage](../../slides/12-testing.html#/jscodecoverage) should be at 50% (and update the jscoverage.pdf file)
+- Note that the system was *fully deployed* on the destination server last iteration
+- The system must be *feature complete* (meaning all the minimum and desired requirements) by the end of this iteration
+  - It must be running on both the course server as well as the deployment host
+- The requirements document must be fully updated and in sync with the deployed system
+	  </script></section>
+
+	  <section data-markdown id="it10goals"><script type="text/template">
+## Goals for Iteration 10
+- Complete 4 story points worth of work per group member
+- Complete the [code coverage report](../../slides/12-testing.html#/codecoverage)
+  - That report should be in a docs/coverage/ directory; the output of your code coverage command is the format we are looking for
+  - This is the document deliverable for this iteration
+- Ensure the system is at 70% [main code coverage](../../slides/12-testing.html#/codecoverage)
+  - And update the [code coverage report](../../slides/12-testing.html#/codecoverage) report in the docs/coverage/ directory
+- [Javascript code coverage](../../slides/12-testing.html#/jscodecoverage) should be at 25% (and update the jscoverage.pdf file)
+- Ensure that your other deliverables are up to date, along with your requirements document
+  - That's the [deployment plan](../../slides/11-deliverables.html#/deployment-plan) and
+[installation instructions](../../slides/11-deliverables.html#/installation)
+- The system must be *fully deployed* on the destination server
+  - It's expected that the system will likely not be feature complete at this point
+- Submit an 'other' report that contains the URL of the deployed system, as well as credentials that myself and the grad TA can use to log in and see how well it works
+  - We won't mess anything up on the deployed system; we'll use the course server to do that...
+- Keep in mind that the system must be feature complete by the end of iteration 11, so plan your work accordingly
+	  </script></section>
+
+	  <section data-markdown id="it9goals"><script type="text/template">
+## Goals for Iteration 9
+- Complete 4 story points worth of work per group member
+- Complete the [master test plan](../../slides/12-testing.html#/mastertestplan)
+  - This is the document deliverable for this iteration
+- Everybody must write 5 more unit tests
+- Ensure that your other deliverables are up to date, along with your requirements document
+  - That's the [deployment plan](../../slides/11-deliverables.html#/deployment-plan) and
+[installation instructions](../../slides/11-deliverables.html#/installation)
+- Note that the system must be fully deployed (if not yet fully complete) by the end of iteration 10
+- Keep in mind that the system must be feature complete by the end of iteration 11, so plan your work accordingly
+	  </script></section>
+
+	  <section data-markdown id="it8goals"><script type="text/template">
+## Goals for Iteration 8
+- Complete 4 story points worth of work per group member
+- This iteration starts the regular meetings with the customer and also the graduate TA
+- Everybody must write 5 more unit tests
+- Write the [installation instructions](../../slides/11-deliverables.html#/installation)
+  - Enter that as a docs/installation-instructions.md file in the repo
+  - This is the document deliverable for this iteration
+- Keep in mind that the system must be feature complete by the end of iteration 11, so plan your work accordingly
+	  </script></section>
+
+	  <section data-markdown id="it7goals"><script type="text/template">
+## Goals for Iteration 7
+- Complete 4 story points worth of work per group member
+- Update the requirements document with the work to be done for this semester
+  - Since the minimum requirements were done last semester, this should all be under desired requirements
+  - But this may need to be adjusted depending on last semester's progress, customer feedback, etc.
+- Write the [deployment plan](../../slides/11-deliverables.html#/deployment-plan)
+  - Enter that as a docs/deployment-plan.md file in the repo
+  - This is the document deliverable for this iteration
+- Get feedback from the customer about the system, either in person or by email
+  - This will be used to edit the requirements document and the github issues
+- Edit the github issues to make them as reasonably accurate as you can at this point
+- Plan out what to do in the next iteration (include that in the TPS report)
+	  </script></section>
+
+	  <section data-markdown id="it6goals"><script type="text/template">
+## Goals for Iteration 6
+- Complete 4 story points worth of work per group member
+- Submit an 'other' report that contains credentials to log in (possibly multiple credentials for various user levels)
+- Get customer feedback on the preliminary system (from the last iteration), and iterate on that design
+- Complete the final system that implements the minimum requirements, and have it working on the course server
+- Ensure that your requirements document is fully updated!
+- Have the customer start using and testing the system via an email, CC'ed to me, that requests that they start testing the sytsem over break
+  - Also mention that you'll likely be out of contact until mid-January
+- Complete a preliminary *deployment plan*: a Markdown document in your repo as docs/deployment-plan.md that has all the known deployment info
+- Complete 5 more unit tests per person (total now is 15+ per person)
+- Meet with the grad TA and demo your final system
+  - If the meeting time is doing to cause scheduling issues (during a final, after you've left grounds, etc.), you can request a different time to meet
+  - If you meeting is early in the iteration, it's fine if some functionality is not yet finished; we can check that when it's all done
+- Three individual tasks: complete the individual project, upload your STS prospectus, and (at the end) phase-change survey
+	  </script></section>
+
+	  <section data-markdown id="it5goals"><script type="text/template">
+## Goals for Iteration 5
+- Complete 4 story points worth of work per group member
+- In the first week, complete the end-of-phase survey
+- Have a preliminary system that implements the minimum requirements working on the course server
+  - Recall that the final system to implement the minimum requirements is due by the end of iteration 6
+- Ask the customer about where the system will be deployed
+  - When you get a response (even if that response is "I don't know yet"), please fill out an 'other' report
+  - The intent here is to get the customer to start thinking about it; you don't need them to have any or all of the details at this point
+- No more unit tests this iteration (but there will be more required next iteration)
+	  </script></section>
+
+	  <section data-markdown id="it4goals"><script type="text/template">
+## Goals for Iteration 4
+- Complete 4 story points worth of work per group member
+- Everybody should complete 5 more unit tests
+  - You don't need to also do a fixture, as long as you did one in the last iteration
+  - This means you should have at least 10 unit tests per team member
+- The wireframes should be (presumably) finalized, and likely implemented, by the end of this iteration
+  - Please still keep copies in the docs/wireframes directory in your repo!
+- As the iterations continue, there will be fewer specific requirements (other than "do work" and "write tests")
+- Keep in mind that at the end of iteration 5, you will have to have a preliminary version of the final system running on the course server
+  - Here, "the final system" means the system that impelements the minimum requirements
+  - Are you keeping your reqirements document updated?
+	  </script></section>
+
+	  <section data-markdown id="it3goals"><script type="text/template">
+## Goals for Iteration 3
+- Complete 4 story points worth of work per group member
+  - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
+  - Your site should have significnantly more functionality than last time
+- In the first week, complete the end-of-phase survey
+- Show the wireframe to the customer, get their feedback, iterate on the design
+- You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
+  - The [last two slides](../../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../../slides/09-ci-testing.html#/assignments)
+  - The respective CI server is already set up to run tests on your repo on every push
+  - Yout have to write the configuration file to get it to work properly
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../../slides/09-ci-testing.html), the [CI setup](../../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
+- You will have to write a number of unit tests (at least 5 per person)
+  - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
+	  </script></section>
+
+	  <section data-markdown id="it2goals"><script type="text/template">
+## Goals for Iteration 2
+- Have a site that should start to look like a workable site for the requirements
+  - Some just had one or two MVC components for the first iteration (which was fine, as that is what was required for then)
+  - Going to http://server/tag should bring up something other than "Hello World", or the Django error page
+- Complete 4 story points worth of work per group member
+- Your regular iteration meeting with the customer and the grad TA should happen
+- Specific goals:
+  - Generate wireframes: that's [an entire lecture](../../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
+  - Enable easy deployment via automatic logins or ssh keys: see the [Development Environment Setup page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details.  This also includes enabling easy downloading of the database
+  - Publishing to the course server is best done via a github web hook and deploy key; see [that same page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details, but only I can set up both of those due to the github security setup
+  - Ensure that *everybody* in the development group can develop on his/her own machine
+- Some things to keep in mind:
+  - Your requrements document will be iterated on throughout the year
+  - What format you keep it in is up to you (although we recommend markdown), but we need to be able to view it
+  - Having the source (from the [uva-slp/projects repo](https://github.com/uva-slp/projects) repo) copied into a `docs/` directory in your repo is quite reasonable
+	  </script></section>
+
+	  <section data-markdown id="it1goals"><script type="text/template">
+## Goals for iteration 1
+See [here](../../slides/05-project-start.html#/it1goals) for full details, but briefly:
+
+- Fully understand the requirements
+- Meet with the customer
+- Design (and implement) a basic DB schema
+- Get your dev environment set up (see [uva-slp/tutorails](https://github.com/uva-slp/tutorials) for guidance)
+- Get a basic MVC site working on the course server
+  - Once done, this will require you emailing me so that I can complete the apache2 configuration
+- Have the system stored properly in the github repo (no passwords!!!)
+- That means having all your framework created files in an app/ folder!
+- Enter all the requirements as tasks as Github issues as described [here](../../slides/07-estimation.html#/task)
+- Everybody MUST have a github commit this iteration (and, in general, every iteration)
+	  </script></section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+      </div>
+
+    </div>
+
+    <script src="../../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../slides/reveal.js/js/reveal.js"></script>
+    <script src="../../slides/js/settings-deeper.js"></script>
+
+  </body>
+</html>

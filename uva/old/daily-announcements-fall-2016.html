@@ -8,25 +8,25 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../slides/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../slides/reveal.js/css/theme/black.css" id="theme">
-    <link rel="stylesheet" href="../slides/css/slp.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="../../slides/css/slp.css">
     <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="../slides/reveal.js/lib/css/zenburn.css">
+    <link rel="stylesheet" href="../../slides/reveal.js/lib/css/zenburn.css">
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
       link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? '../slides/reveal.js/css/print/pdf.css' : '../slides/reveal.js/css/print/paper.css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../../slides/reveal.js/css/print/pdf.css' : '../../slides/reveal.js/css/print/paper.css';
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
     <!--[if lt IE 9]>
-	<script src="../slides/reveal.js/lib/js/html5shiv.js"></script>
+	<script src="../../slides/reveal.js/lib/js/html5shiv.js"></script>
 	<![endif]-->
-    <script type="text/javascript" src="../slides/js/dhtmlwindow.js"></script>
-    <script type="text/javascript" src="../slides/js/canvas.js"></script>
-    <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
+    <script type="text/javascript" src="../../slides/js/dhtmlwindow.js"></script>
+    <script type="text/javascript" src="../../slides/js/canvas.js"></script>
+    <link rel="stylesheet" href="../../slides/css/dhtmlwindow.css" type="text/css">
     <style>
 .reveal li {
 font-size:75%;
@@ -50,7 +50,7 @@ line-height:120%;
 ### Fall 2016
 &nbsp;
 <center><small>[Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [@bloomfieldaaron](http://twitter.com/bloomfieldaaron)</small></center>
-<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../slides/index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../slides/images/print-icon.png"></a></small></center>
+<center><small>Repository: [github.com/aaronbloomfield/slp](http://github.com/aaronbloomfield/slp) / [&uarr;](../../slides/index.html) / <a href="daily-announcements.html?print-pdf"><img class="print" width="20" src="../../slides/images/print-icon.png"></a></small></center>
 &nbsp;  
 &nbsp; 
 ## Daily Announcements
@@ -168,7 +168,7 @@ line-height:120%;
   - We generally won't have lectures on Fridays (but we will at the very end of the semester)
 - Grades for both semesters will be completely independent
 - There will be more lectures next semester
-  - On deliverables, testing, etc.; see [here](../slides/index.html) for details
+  - On deliverables, testing, etc.; see [here](../../slides/index.html) for details
 - There will be 8 iterations instead of 6
   - The first 5 will be development; the last 3 deployment
   - Different group sizes will have a different phase schedule as a result
@@ -194,7 +194,7 @@ line-height:120%;
     - I won't be able to remind you, since there won't be classes then!
     - And the rest of the group should check to make sure they are submitted
 - Individually:
-  - Complete your [final project](../docs/project-nonprofit-data-collection.html) by 5 p.m. on Thursday, December 8th
+  - Complete your [final project](../../docs/project-nonprofit-data-collection.html) by 5 p.m. on Thursday, December 8th
   - Complete the end-of-phase survey (released Sunday, Dec 11) (part of the iteration 6 goals)
   - Make sure you have registered for CS 4971 for the spring
   - Once the grading metrics are released (likely Tuesday, Dec 13 or Wednesday, Dec 14), review them and respond, if necessary, within 24 hours
@@ -309,7 +309,7 @@ line-height:120%;
     - I won't be able to remind you, since there won't be classes then!
     - And the rest of the group should check to make sure they are submitted
 - Individually:
-  - Complete your [final project](../docs/project-nonprofit-data-collection.html) by 5 p.m. on Thursday, December 8th
+  - Complete your [final project](../../docs/project-nonprofit-data-collection.html) by 5 p.m. on Thursday, December 8th
   - Complete the end-of-phase survey (released Sunday, Dec 11) (part of the iteration 6 goals)
   - Make sure you have registered for CS 4971 for the spring
   - Once the grading metrics are released (likely Tuesday, Dec 13 or Wednesday, Dec 14), review them and respond, if necessary, within 24 hours
@@ -410,7 +410,7 @@ line-height:120%;
 - Instead of a final exam, there will be a small project
 - It is expected to take well under 3 hours, which is the time that a final would actually take (not counting studying)
   - I expect it will take about an hour
-- The full assignment is [here](../docs/project-nonprofit-data-collection.html)
+- The full assignment is [here](../../docs/project-nonprofit-data-collection.html)
   - You have to actually read that through!
 - Basically, it is the collection of data so that I can email local nonprofits in future years for SLP
 - Everybody has 8 or 9 nonprofits to collect the information for
@@ -737,11 +737,11 @@ line-height:120%;
 - In the first week, complete the end-of-phase survey
 - Show the wireframe to the customer, get their feedback, iterate on the design
 - You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
-  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
-  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
+  - The [last two slides](../../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../../slides/09-ci-testing.html#/assignments)
   - The respective CI server is already set up to run tests on your repo on every push
   - Yout have to write the configuration file to get it to work properly
-  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../../slides/09-ci-testing.html), the [CI setup](../../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
     - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
 - You will have to write a number of unit tests (at least 5 per person)
   - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
@@ -789,11 +789,11 @@ line-height:120%;
 - In the first week, complete the end-of-phase survey
 - Show the wireframe to the customer, get their feedback, iterate on the design
 - You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
-  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
-  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
+  - The [last two slides](../../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../../slides/09-ci-testing.html#/assignments)
   - The respective CI server is already set up to run tests on your repo on every push
   - Yout have to write the configuration file to get it to work properly
-  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../../slides/09-ci-testing.html), the [CI setup](../../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
     - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
 - You will have to write a number of unit tests (at least 5 per person)
   - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
@@ -831,7 +831,7 @@ pip install bar==1.2.3
   - 9 (of 15) groups have passing builds, but nobody has a significant number of their unit tests written yet
   - In addition, recall that each *person* must contribute at least 5 valid test cases (and one fixture per person; and at least one test must use that fixture)
 - To do today:
-  - Get Travis or Circle configured for your project: extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test), [django-test](https://github.com/uva-slp/django-test), and [rails-test](https://github.com/uva-slp/rails-test))
+  - Get Travis or Circle configured for your project: extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../../slides/09-ci-testing.html), the [CI setup](../../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test), [django-test](https://github.com/uva-slp/django-test), and [rails-test](https://github.com/uva-slp/rails-test))
   - Contribute the desired number of unit tests (at least 5 per person)
 - At the end of today's class, all the build status badges should be green!
 - A note about container usage
@@ -931,11 +931,11 @@ pip install bar==1.2.3
 - In the first week, complete the end-of-phase survey
 - Show the wireframe to the customer, get their feedback, iterate on the design
 - You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
-  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
-  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
+  - The [last two slides](../../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../../slides/09-ci-testing.html#/assignments)
   - The respective CI server is already set up to run tests on your repo on every push
   - Yout have to write the configuration file to get it to work properly
-  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../../slides/09-ci-testing.html), the [CI setup](../../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
     - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
 - You will have to write a number of unit tests (at least 5 per person)
   - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
@@ -970,7 +970,7 @@ pip install bar==1.2.3
 - You can't `sudo` on the course server, so please stop trying
 - All the course materials can be found online at http://aaronbloomfield.github.io/slp (or /pdr for CS 2150 stuffs)
 - My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
-- Today is a lecture on [continuous integration](../slides/09-ci-testing.html#/)
+- Today is a lecture on [continuous integration](../../slides/09-ci-testing.html#/)
   - Next Monday is a group work day
   - Next Wednesday will be a continuous integration work day
 	  </script></section>
@@ -983,11 +983,11 @@ pip install bar==1.2.3
 - In the first week, complete the end-of-phase survey
 - Show the wireframe to the customer, get their feedback, iterate on the design
 - You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
-  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
-  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
+  - The [last two slides](../../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - Each group was assigned to one or the other; assignments are [here](../../slides/09-ci-testing.html#/assignments)
   - The respective CI server is already set up to run tests on your repo on every push
   - Yout have to write the configuration file to get it to work properly
-  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
+  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../../slides/09-ci-testing.html), the [CI setup](../../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
     - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
 - You will have to write a number of unit tests (at least 5 per person)
   - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
@@ -1020,7 +1020,7 @@ pip install bar==1.2.3
 
 	  <section data-markdown id="citestingsetup"><script type="text/template">
 ## CI Testing Setup
-- Today is the lecture on [continuous integration testing](../slides/09-ci-testing.html#/)
+- Today is the lecture on [continuous integration testing](../../slides/09-ci-testing.html#/)
 - All of you now have access to three more repos mentioned in that lecture set: [cake-test](https://github.com/uva-slp/cake-test), [rails-test](https://github.com/uva-slp/rails-test), and [django-test](https://github.com/uva-slp/django-test)
   - You will only need to use the one that corresponds to the platform you are using
   - Note that all three of these repos use a slightly older version of the frameworks, but the setup should be the same
@@ -1028,7 +1028,7 @@ pip install bar==1.2.3
 - I will shortly be enabling TravisCI for all of your repos
   - It will email you when a build fails; I wanted to warn you about this before I flipped the switch
   - Note that if a lot of people push their commits at the same time, it will form a long queue of the ones waiting to be tested
-- There is an entire page named [Continuous Integration Testing: Getting Started](../docs/ci-setup.html), and you should read that and the [CI testing slide set](../slides/09-ci-testing.html#/)
+- There is an entire page named [Continuous Integration Testing: Getting Started](../../docs/ci-setup.html), and you should read that and the [CI testing slide set](../../slides/09-ci-testing.html#/)
 	  </script></section>
 
           <section data-markdown><script type="text/template">
@@ -1071,7 +1071,7 @@ pip install bar==1.2.3
 - My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
 - We will be setting up slack (if you haven't done so already) today
 - Today is a group work day
-  - This Wednesday is a lecture on [continuous integration](../slides/09-ci-testing.html#/)
+  - This Wednesday is a lecture on [continuous integration](../../slides/09-ci-testing.html#/)
   - Next Monday is another group work day
   - Next Wednesday will be a continuous integration work day
 	  </script></section>
@@ -1085,7 +1085,7 @@ pip install bar==1.2.3
 - Complete 4 story points worth of work per group member
 - Your regular iteration meeting with the customer and the grad TA should happen
 - Specific goals:
-  - Generate wireframes: that's [an entire lecture](../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
+  - Generate wireframes: that's [an entire lecture](../../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
   - Enable easy deployment via automatic logins or ssh keys: see the [Development Environment Setup page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details.  This also includes enabling easy downloading of the database
   - Publishing to the course server is best done via a github web hook and deploy key; see [that same page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details, but only I can set up both of those due to the github security setup
   - Ensure that *everybody* in the development group can develop on his/her own machine
@@ -1133,7 +1133,7 @@ pip install bar==1.2.3
 - All the course materials can be found online at http://aaronbloomfield.github.io/slp (or /pdr for CS 2150 stuffs)
 - My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
 - We will be setting up slack (if you haven't done so already) on Monday during the group meetings
-- We'll be going over [wireframes](../slides/08-wireframing.html#/) today
+- We'll be going over [wireframes](../../slides/08-wireframing.html#/) today
   - The following few weeks we will see: continuous integration testing and documentation
 	  </script></section>
 
@@ -1146,7 +1146,7 @@ pip install bar==1.2.3
 - Complete 4 story points worth of work per group member
 - Your regular iteration meeting with the customer and the grad TA should happen
 - Specific goals:
-  - Generate wireframes: that's [an entire lecture](../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
+  - Generate wireframes: that's [an entire lecture](../../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
   - Enable easy deployment via automatic logins or ssh keys: see the [Development Environment Setup page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details.  This also includes enabling easy downloading of the database
   - Publishing to the course server is best done via a github web hook and deploy key; see [that same page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details, but only I can set up both of those due to the github security setup
   - Ensure that *everybody* in the development group can develop on his/her own machine
@@ -1194,7 +1194,7 @@ pip install bar==1.2.3
 - If you didn't sign the [legal agreement](student-participation-form.pdf) then you will have to do so today
 - There will be a few (easy) additional iteration 2 requirements explained on Wednesday (set up slack, etc.)
 - Schedule: today is a group work day
-  - Wednesday will be the [wireframes](../slides/08-wireframing.html#/) lecture, and a few wireframes will need to be done for this iteration
+  - Wednesday will be the [wireframes](../../slides/08-wireframing.html#/) lecture, and a few wireframes will need to be done for this iteration
   - The following few weeks we will see: continuous integration testing and documentation
 	  </script></section>
 
@@ -1207,7 +1207,7 @@ pip install bar==1.2.3
 - Complete 4 story points worth of work per group member
 - Your regular iteration meeting with the customer and the grad TA should happen
 - Specific goals:
-  - Generate wireframes: that's [an entire lecture](../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
+  - Generate wireframes: that's [an entire lecture](../../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
   - Enable easy deployment via automatic logins or ssh keys: see the [Development Environment Setup page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details.  This also includes enabling easy downloading of the database
   - Publishing to the course server is best done via a github web hook and deploy key; see [that same page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details, but only I can set up both of those due to the github security setup
   - Ensure that *everybody* in the development group can develop on his/her own machine
@@ -1259,7 +1259,7 @@ pip install bar==1.2.3
 - If you didn't sign the [legal agreement](student-participation-form.pdf) then you will have to do so today
 - Schedule
   - Since there was no class on Monday, today is a group work day
-  - Next Wednesday will be the [wireframes](../slides/08-wireframing.html#/) lecture, and a few wireframes will need to be done for this iteration
+  - Next Wednesday will be the [wireframes](../../slides/08-wireframing.html#/) lecture, and a few wireframes will need to be done for this iteration
   - The following weeks we will see: wireframing, continuous integration testing, and documentation
 	  </script></section>
 
@@ -1272,7 +1272,7 @@ pip install bar==1.2.3
 - Complete 4 story points worth of work per group member
 - Your regular iteration meeting with the customer and the grad TA should happen
 - Specific goals:
-  - Generate wireframes: that's [an entire lecture](../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
+  - Generate wireframes: that's [an entire lecture](../../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
   - Enable easy deployment via automatic logins or ssh keys: see the [Development Environment Setup page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details.  This also includes enabling easy downloading of the database
   - Publishing to the course server is best done via a github web hook and deploy key; see [that same page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details, but only I can set up both of those due to the github security setup
   - Ensure that *everybody* in the development group can develop on his/her own machine
@@ -1323,7 +1323,7 @@ pip install bar==1.2.3
 - CS town hall with the CS dept chair!  Did anybody go?  How did it go?
 - If you didn't sign the [legal agreement](student-participation-form.pdf) then you will have to do so today
 - Schedule
-  - Today we will see [project estimation](../slides/07-estimation.html), and start the estimating
+  - Today we will see [project estimation](../../slides/07-estimation.html), and start the estimating
   - Monday is fall break, so no class
   - Next Wednesday will be a group work day
   - The following weeks we will see: wireframing, continuous integration testing, and documentation
@@ -1331,7 +1331,7 @@ pip install bar==1.2.3
 
 	  <section data-markdown id="it1goals"><script type="text/template">
 ## Goals for iteration 1
-See [here](../slides/05-project-start.html#/it1goals) for full details, but briefly:
+See [here](../../slides/05-project-start.html#/it1goals) for full details, but briefly:
 
 - Fully understand the requirements
 - Meet with the customer
@@ -1341,7 +1341,7 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
   - Once done, this will require you emailing me so that I can complete the apache2 configuration
 - Have the system stored properly in the github repo (no passwords!!!)
   - That means having all your framework created files in an app/ folder!
-- Enter all the requirements as tasks as Github issues as described [here](../slides/07-estimation.html#/task)
+- Enter all the requirements as tasks as Github issues as described [here](../../slides/07-estimation.html#/task)
 - Everybody MUST have a github commit this iteration (and, in general, every iteration)
 	  </script></section>
 
@@ -1390,7 +1390,7 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
   - We will sign the [legal agreement](student-participation-form.pdf) then (specifically, [this version](student-participation-form-for-tpegs-with-footer.pdf))
   - I also have the name badges and markers with me
   - And we will do grad TA meeting scheduling (successive slide)
-- On Wednesday we will see [project estimation](../slides/07-estimation.html), so please wait until then to start entering all your github issues
+- On Wednesday we will see [project estimation](../../slides/07-estimation.html), so please wait until then to start entering all your github issues
 	  </script></section>
 
           <section data-markdown><script type="text/template">
@@ -1428,7 +1428,7 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
 
 	  <section data-markdown><script type="text/template">
 ## Goals for iteration 1
-See [here](../slides/05-project-start.html#/it1goals) for full details, but briefly:
+See [here](../../slides/05-project-start.html#/it1goals) for full details, but briefly:
 
 - Fully understand the requirements
 - Meet with the customer
@@ -1467,8 +1467,8 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
 - Next Monday is a group work day, and is when you will be scheduling your bi-weekly meeting with Jordan, the graduate TA
   - Thus, please have access to your schedules!
   - We will also sign the [legal agreement](student-participation-form.pdf) then (specifically, [this version](student-participation-form-for-tpegs-with-footer.pdf))
-- Today we will be will be starting and finishing the [customer meetings](../slides/06-customer-meetings.html#/) slide set
-  - Next Wednesday we will see [project estimation](../slides/07-estimation.html), so please wait until then to start entering all your github issues
+- Today we will be will be starting and finishing the [customer meetings](../../slides/06-customer-meetings.html#/) slide set
+  - Next Wednesday we will see [project estimation](../../slides/07-estimation.html), so please wait until then to start entering all your github issues
 	  </script></section>
 
           <section data-markdown><script type="text/template">
@@ -1498,7 +1498,7 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
 - There are now group accounts (and databases) on the course server; the updated account info is in PostEm
   - Keep in mind that PostEm is moving to the course administration tool...
   - You are more than welcome to change the password, if you would like
-  - Or you can set up [auto-login](../docs/dev-env-setup.html)
+  - Or you can set up [auto-login](../../docs/dev-env-setup.html)
 - The github repos are all ready, and issues and the wiki have been enabled on each
   - I did an initial commit for each
 - You have access to the [uva-slp/tutorails](https://github.com/uva-slp/tutorials) repo
@@ -1508,7 +1508,7 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
 
 	  <section data-markdown><script type="text/template">
 ## Goals for iteration 1
-See [here](../slides/05-project-start.html#/it1goals) for full details, but briefly:
+See [here](../../slides/05-project-start.html#/it1goals) for full details, but briefly:
 
 - Fully understand the requirements
 - Meet with the customer
@@ -1565,7 +1565,7 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
   - There were three changes made in the last two hours; those people have ben emailed (and Collab PostEm updated)
 - You can't `sudo` on the course server, so please stop trying
 - My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
-- Today we will be will be starting and finishing the [project start](../slides/05-project-start.html#/) slide set
+- Today we will be will be starting and finishing the [project start](../../slides/05-project-start.html#/) slide set
 	  </script></section>
 
 	</section>
@@ -1591,29 +1591,29 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
 - You can't `sudo` on the course server, so please stop trying
 - We should know by the end of the day today if we are going to have class on Friday or not
 - My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
-- Today we will be will be working through [requirements](../slides/04-requirements.html#/) (starting at slide [3.8](../slides/04-requirements.html#/2/7))
+- Today we will be will be working through [requirements](../../slides/04-requirements.html#/) (starting at slide [3.8](../../slides/04-requirements.html#/2/7))
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## (updated) Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
 - ~~Fri, 8/26: [course introduction](course-introduction-fall.html#/)~~
-- ~~Mon, 8/29: [legal issues](../slides/01-legal.html#/)~~
-- ~~Wed, 8/31: [legal issues](../slides/01-legal.html#/), [development methods](../slides/02-development-methods.html#/)~~
-  - ~~[git/github HW due](../docs/hw-git.html)~~
-- ~~Fri, 9/2: [development methods](../slides/02-development-methods.html#/)~~
-- ~~Mon, 9/5: [frameworks](../slides/03-frameworks.html#/)~~
-  - ~~[cake HW due](../docs/hw-frameworks.html)~~
-- ~~Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)~~
+- ~~Mon, 8/29: [legal issues](../../slides/01-legal.html#/)~~
+- ~~Wed, 8/31: [legal issues](../../slides/01-legal.html#/), [development methods](../../slides/02-development-methods.html#/)~~
+  - ~~[git/github HW due](../../docs/hw-git.html)~~
+- ~~Fri, 9/2: [development methods](../../slides/02-development-methods.html#/)~~
+- ~~Mon, 9/5: [frameworks](../../slides/03-frameworks.html#/)~~
+  - ~~[cake HW due](../../docs/hw-frameworks.html)~~
+- ~~Wed, 9/7: [frameworks](../../slides/03-frameworks.html#/)~~
 - ~~Fri, 9/9: (no class today)~~
-  - ~~[rails HW due](../docs/hw-frameworks.html)~~
+  - ~~[rails HW due](../../docs/hw-frameworks.html)~~
   - ~~The project descriptions are released this day~~
-- ~~Mon, 9/12: survey and project discussion, [requirements](../slides/04-requirements.html#/)~~
-  - ~~[django HW due](../docs/hw-frameworks.html)~~
+- ~~Mon, 9/12: survey and project discussion, [requirements](../../slides/04-requirements.html#/)~~
+  - ~~[django HW due](../../docs/hw-frameworks.html)~~
   - ~~I am aiming to have the year start survey ready on this day~~
-- Wed, 9/14: [requirements](../slides/04-requirements.html#/) (today)
+- Wed, 9/14: [requirements](../../slides/04-requirements.html#/) (today)
 - Fri, 9/16: likely (but not definitely!) no class; surveys due
-- Mon, 9/19: groups assigned, [project start](../slides/05-project-start.html#/), first group meetings
+- Mon, 9/19: groups assigned, [project start](../../slides/05-project-start.html#/), first group meetings
 
 Note that the slides are not ready until they are lectured on
 	  </script></section>
@@ -1683,7 +1683,7 @@ Note that the slides are not ready until they are lectured on
 
 	  <section data-markdown><script type="text/template">
 ## Monday, September 12th
-- The [frameworks HW](../docs/hw-frameworks.html) is finishing up today; see [here](#/frameworkshw) for details
+- The [frameworks HW](../../docs/hw-frameworks.html) is finishing up today; see [here](#/frameworkshw) for details
   - It's *much* better to get it in late than to not get it in at all (say, within a few days after it's due)
 - We have a VirtualBox Linux image all configured for you
   - Plasmashell crash issue: one possibility: tooltips, so try disabling them (right click taskbar -> Task Manager Settings -> General -> Uncheck "show tooltips")
@@ -1695,29 +1695,29 @@ Note that the slides are not ready until they are lectured on
 - It is unclear if we will have class or not this Friday (Sep 16); I'll know more about that on Wednesday
 - My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
 - Today we will be will be talking about the projects and the survey
-  - In any remaining time, we will be working through [requirements](../slides/04-requirements.html#/) (starting at slide [3.8](../slides/04-requirements.html#/2/7))
+  - In any remaining time, we will be working through [requirements](../../slides/04-requirements.html#/) (starting at slide [3.8](../../slides/04-requirements.html#/2/7))
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## (updated) Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
 - ~~Fri, 8/26: [course introduction](course-introduction-fall.html#/)~~
-- ~~Mon, 8/29: [legal issues](../slides/01-legal.html#/)~~
-- ~~Wed, 8/31: [legal issues](../slides/01-legal.html#/), [development methods](../slides/02-development-methods.html#/)~~
-  - ~~[git/github HW due](../docs/hw-git.html)~~
-- ~~Fri, 9/2: [development methods](../slides/02-development-methods.html#/)~~
-- ~~Mon, 9/5: [frameworks](../slides/03-frameworks.html#/)~~
-  - ~~[cake HW due](../docs/hw-frameworks.html)~~
-- ~~Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)~~
+- ~~Mon, 8/29: [legal issues](../../slides/01-legal.html#/)~~
+- ~~Wed, 8/31: [legal issues](../../slides/01-legal.html#/), [development methods](../../slides/02-development-methods.html#/)~~
+  - ~~[git/github HW due](../../docs/hw-git.html)~~
+- ~~Fri, 9/2: [development methods](../../slides/02-development-methods.html#/)~~
+- ~~Mon, 9/5: [frameworks](../../slides/03-frameworks.html#/)~~
+  - ~~[cake HW due](../../docs/hw-frameworks.html)~~
+- ~~Wed, 9/7: [frameworks](../../slides/03-frameworks.html#/)~~
 - ~~Fri, 9/9: (no class today)~~
-  - ~~[rails HW due](../docs/hw-frameworks.html)~~
+  - ~~[rails HW due](../../docs/hw-frameworks.html)~~
   - ~~The project descriptions are released this day~~
-- Mon, 9/12: survey and project discussion, [requirements](../slides/04-requirements.html#/) (today)
-  - [django HW due](../docs/hw-frameworks.html)
+- Mon, 9/12: survey and project discussion, [requirements](../../slides/04-requirements.html#/) (today)
+  - [django HW due](../../docs/hw-frameworks.html)
   - I am aiming to have the year start survey ready on this day
-- Wed, 9/14: [requirements](../slides/04-requirements.html#/)
+- Wed, 9/14: [requirements](../../slides/04-requirements.html#/)
 - Fri, 9/16: likely (but not definitely!) no class; surveys due
-- Mon, 9/19: groups assigned, [project start](../slides/05-project-start.html#/), first group meetings
+- Mon, 9/19: groups assigned, [project start](../../slides/05-project-start.html#/), first group meetings
 
 Note that the slides are not ready until they are lectured on
 	  </script></section>
@@ -1787,7 +1787,7 @@ Note that the slides are not ready until they are lectured on
 
 	  <section data-markdown><script type="text/template">
 ## Wednesday, September 7th
-- The [frameworks HW](../docs/hw-frameworks.html) is all ready; more on this on the next slide
+- The [frameworks HW](../../docs/hw-frameworks.html) is all ready; more on this on the next slide
 - We have a VirtualBox Linux image all configured for you
   - I am still working on the plasmashell crash issue
 - Project status: 12 docs written, 1 to write up, 3 meetings scheduled for this week
@@ -1801,13 +1801,13 @@ Note that the slides are not ready until they are lectured on
   - You are welcome to read the past ones, but the 2016 projects are what we care about
   - They are in Markdown and HTML; you can easily view them on github via: https://github.com/uva-slp/projects/blob/master/2016/readme.md
 - My office hours are 9:30-10:30 on Mondays and 9:30-11:30 on Wednesdays
-- Today we will be will be finishing [frameworks](../slides/03-frameworks.html#/) and starting on [requirements](../slides/04-requirements.html#/)
+- Today we will be will be finishing [frameworks](../../slides/03-frameworks.html#/) and starting on [requirements](../../slides/04-requirements.html#/)
 	  </script></section>
 
 	  <section data-markdown id="frameworkshw"><script type="text/template">
 ## Homework status
-- The [git/github HW due](../docs/hw-git.html) was due last Wednesday
-- The [frameworks HW](../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
+- The [git/github HW due](../../docs/hw-git.html) was due last Wednesday
+- The [frameworks HW](../../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
   - CakePHP, due Mon, 9/5 (end of the day): URL: http://server/~mst3k/cakephp/
     - As long as you put your code in `~/html/cakephp`, it will have that URL
   - Rails, due Fri, 9/9 (end of the day): URL: http://server/rails/mst3k
@@ -1834,22 +1834,22 @@ Note that the slides are not ready until they are lectured on
 ## (updated) Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
 - ~~Fri, 8/26: [course introduction](course-introduction-fall.html#/)~~
-- ~~Mon, 8/29: [legal issues](../slides/01-legal.html#/)~~
-- ~~Wed, 8/31: [legal issues](../slides/01-legal.html#/), [development methods](../slides/02-development-methods.html#/)~~
-  - ~~[git/github HW due](../docs/hw-git.html)~~
-- ~~Fri, 9/2: [development methods](../slides/02-development-methods.html#/)~~
-- ~~Mon, 9/5: [frameworks](../slides/03-frameworks.html#/)~~
-  - ~~[cake HW due](../docs/hw-frameworks.html)~~
-- Wed, 9/7: [frameworks](../slides/03-frameworks.html#/) (today)
+- ~~Mon, 8/29: [legal issues](../../slides/01-legal.html#/)~~
+- ~~Wed, 8/31: [legal issues](../../slides/01-legal.html#/), [development methods](../../slides/02-development-methods.html#/)~~
+  - ~~[git/github HW due](../../docs/hw-git.html)~~
+- ~~Fri, 9/2: [development methods](../../slides/02-development-methods.html#/)~~
+- ~~Mon, 9/5: [frameworks](../../slides/03-frameworks.html#/)~~
+  - ~~[cake HW due](../../docs/hw-frameworks.html)~~
+- Wed, 9/7: [frameworks](../../slides/03-frameworks.html#/) (today)
 - Fri, 9/9: (no class today)
-  - [rails HW due](../docs/hw-frameworks.html)
+  - [rails HW due](../../docs/hw-frameworks.html)
   - I am aiming to have all the project descriptions released this day
-- Mon, 9/12: [requirements](../slides/04-requirements.html#/), survey and project discussion
-  - [django HW due](../docs/hw-frameworks.html)
+- Mon, 9/12: [requirements](../../slides/04-requirements.html#/), survey and project discussion
+  - [django HW due](../../docs/hw-frameworks.html)
   - I am aiming to have the year start survey ready on this day
-- Wed, 9/14: [requirements](../slides/04-requirements.html#/)
+- Wed, 9/14: [requirements](../../slides/04-requirements.html#/)
 - Fri, 9/16: likely (but not definitely!) no class; surveys due
-- Mon, 9/19: groups assigned, [project start](../slides/05-project-start.html#/), first group meetings
+- Mon, 9/19: groups assigned, [project start](../../slides/05-project-start.html#/), first group meetings
 
 Note that the slides are not ready until they are lectured on
 	  </script></section>
@@ -1869,24 +1869,24 @@ Note that the slides are not ready until they are lectured on
 
 	  <section data-markdown><script type="text/template">
 ## Monday, September 5th
-- The [frameworks HW](../docs/hw-frameworks.html) is all ready; more on this on the next slide
+- The [frameworks HW](../../docs/hw-frameworks.html) is all ready; more on this on the next slide
 - We have a VirtualBox Linux image all configured for you
   - The image is on Collab's Resources; also see the [installation
   - Make sure you specify that it's a 64-bit guest!
-  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../docs/virtualbox-image-details.html)
+  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../../docs/virtualbox-image-details.html)
 - Are people having Plasma crash issues?
 - Project status (same as last Friday): 12 docs written, 3 meetings scheduled, and 1 more meeting pending
 - Unlike CS 2150, I don't care what system you develop on
   - But most (if not all) of the software will be on a LAMP system, so you'll have to use something similar to LAMP.  I've seen people set up Mac OS X to run MAMP, and Windows to run WAMP...
 - You can't `sudo` on the course server, so please stop trying
 - If you are not registered, please come chat with me after class today, as I have a status update
-- Today we will be will be discussing [frameworks](../slides/03-frameworks.html#/)
+- Today we will be will be discussing [frameworks](../../slides/03-frameworks.html#/)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Homework status
-- The [git/github HW due](../docs/hw-git.html) was due last Wednesday
-- The [frameworks HW](../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
+- The [git/github HW due](../../docs/hw-git.html) was due last Wednesday
+- The [frameworks HW](../../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
   - CakePHP, due Mon, 9/5 (end of the day): URL: http://server/~mst3k/cakephp/
     - As long as you put your code in `~/html/cakephp`, it will have that URL
   - Rails, due Fri, 9/9 (end of the day): URL: http://server/rails/mst3k
@@ -1913,22 +1913,22 @@ Note that the slides are not ready until they are lectured on
 ## (updated) Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
 - ~~Fri, 8/26: [course introduction](course-introduction-fall.html#/)~~
-- ~~Mon, 8/29: [legal issues](../slides/01-legal.html#/)~~
-- ~~Wed, 8/31: [legal issues](../slides/01-legal.html#/), [development methods](../slides/02-development-methods.html#/)~~
-  - ~~[git/github HW due](../docs/hw-git.html)~~
-- ~~Fri, 9/2: [development methods](../slides/02-development-methods.html#/)~~
-- Mon, 9/5: [frameworks](../slides/03-frameworks.html#/) (today)
-  - [cake HW due](../docs/hw-frameworks.html)
-- Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)
+- ~~Mon, 8/29: [legal issues](../../slides/01-legal.html#/)~~
+- ~~Wed, 8/31: [legal issues](../../slides/01-legal.html#/), [development methods](../../slides/02-development-methods.html#/)~~
+  - ~~[git/github HW due](../../docs/hw-git.html)~~
+- ~~Fri, 9/2: [development methods](../../slides/02-development-methods.html#/)~~
+- Mon, 9/5: [frameworks](../../slides/03-frameworks.html#/) (today)
+  - [cake HW due](../../docs/hw-frameworks.html)
+- Wed, 9/7: [frameworks](../../slides/03-frameworks.html#/)
 - Fri, 9/9: (we may or may not have a class)
-  - [rails HW due](../docs/hw-frameworks.html)
+  - [rails HW due](../../docs/hw-frameworks.html)
   - I am aiming to have all the project descriptions released this day
-- Mon, 9/12: [requirements](../slides/04-requirements.html#/), survey and project discussion
-  - [django HW due](../docs/hw-frameworks.html)
+- Mon, 9/12: [requirements](../../slides/04-requirements.html#/), survey and project discussion
+  - [django HW due](../../docs/hw-frameworks.html)
   - I am aiming to have the year start survey ready on this day
-- Wed, 9/14: [requirements](../slides/04-requirements.html#/)
+- Wed, 9/14: [requirements](../../slides/04-requirements.html#/)
 - Fri, 9/16: likely (but not definitely!) no class; surveys due
-- Mon, 9/19: groups assigned, [project start](../slides/05-project-start.html#/), first group meetings
+- Mon, 9/19: groups assigned, [project start](../../slides/05-project-start.html#/), first group meetings
 
 Note that the slides are not ready until they are lectured on
 	  </script></section>
@@ -1948,11 +1948,11 @@ Note that the slides are not ready until they are lectured on
 
 	  <section data-markdown><script type="text/template">
 ## Friday, September 2nd
-- The [frameworks HW](../docs/hw-frameworks.html) is all ready; more on this on the next slide
+- The [frameworks HW](../../docs/hw-frameworks.html) is all ready; more on this on the next slide
 - We have a VirtualBox Linux image all configured for you
   - The image is on Collab's Resources; also see the [installation
   - Make sure you specify that it's a 64-bit guest!
-  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../docs/virtualbox-image-details.html)
+  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../../docs/virtualbox-image-details.html)
 - Project status: 12 docs written, 3 meetings scheduled, and 1 more meeting pending
 - Unlike CS 2150, I don't care what system you develop on
   - But most (if not all) of the software will be on a LAMP system, so you'll have to use something similar to LAMP.  I've seen people set up Mac OS X to run MAMP, and Windows to run WAMP...
@@ -1960,13 +1960,13 @@ Note that the slides are not ready until they are lectured on
   - You should have received an email about that
   - I will need that information to get your assignments graded, and to release the project information to you
 - If you are not registered, please come chat with me after class today, as I have a status update
-- Today we will be finishing [development methodologies](../slides/02-development-methods.html#/)
+- Today we will be finishing [development methodologies](../../slides/02-development-methods.html#/)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Homework status
-- The [git/github HW due](../docs/hw-git.html) was due on Wednesday
-- The [frameworks HW](../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
+- The [git/github HW due](../../docs/hw-git.html) was due on Wednesday
+- The [frameworks HW](../../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
   - CakePHP, due Mon, 9/5 (end of the day): URL: http://server/~mst3k/cakephp/
     - As long as you put your code in `~/html/cakephp`, it will have that URL
   - Rails, due Fri, 9/9 (end of the day): URL: http://server/rails/mst3k
@@ -1993,22 +1993,22 @@ Note that the slides are not ready until they are lectured on
 ## (updated) Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
 - ~~Fri, 8/26: [course introduction](course-introduction-fall.html#/)~~
-- ~~Mon, 8/29: [legal issues](../slides/01-legal.html#/)~~
-- ~~Wed, 8/31: [legal issues](../slides/01-legal.html#/), [development methods](../slides/02-development-methods.html#/)~~
-  - ~~[git/github HW due](../docs/hw-git.html)~~
-- Fri, 9/2: [development methods](../slides/02-development-methods.html#/) (today)
-- Mon, 9/5: [frameworks](../slides/03-frameworks.html#/)
-  - [cake HW due](../docs/hw-frameworks.html)
-- Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)
+- ~~Mon, 8/29: [legal issues](../../slides/01-legal.html#/)~~
+- ~~Wed, 8/31: [legal issues](../../slides/01-legal.html#/), [development methods](../../slides/02-development-methods.html#/)~~
+  - ~~[git/github HW due](../../docs/hw-git.html)~~
+- Fri, 9/2: [development methods](../../slides/02-development-methods.html#/) (today)
+- Mon, 9/5: [frameworks](../../slides/03-frameworks.html#/)
+  - [cake HW due](../../docs/hw-frameworks.html)
+- Wed, 9/7: [frameworks](../../slides/03-frameworks.html#/)
 - Fri, 9/9: (we may or may not have a class)
-  - [rails HW due](../docs/hw-frameworks.html)
+  - [rails HW due](../../docs/hw-frameworks.html)
   - I am aiming to have all the project descriptions released this day
-- Mon, 9/12: [requirements](../slides/04-requirements.html#/), survey and project discussion
-  - [django HW due](../docs/hw-frameworks.html)
+- Mon, 9/12: [requirements](../../slides/04-requirements.html#/), survey and project discussion
+  - [django HW due](../../docs/hw-frameworks.html)
   - I am aiming to have the year start survey ready on this day
-- Wed, 9/14: [requirements](../slides/04-requirements.html#/)
+- Wed, 9/14: [requirements](../../slides/04-requirements.html#/)
 - Fri, 9/16: likely (but not definitely!) no class; surveys due
-- Mon, 9/19: groups assigned, [project start](../slides/05-project-start.html#/), first group meetings
+- Mon, 9/19: groups assigned, [project start](../../slides/05-project-start.html#/), first group meetings
 
 Note that the slides are not ready until they are lectured on
 	  </script></section>
@@ -2028,14 +2028,14 @@ Note that the slides are not ready until they are lectured on
 
 	  <section data-markdown><script type="text/template">
 ## Wednesday, August 31st
-- The [first homework, on git and github](../../docs/hw-git.html), is out; it's due by the end of the day today (Wed, Aug 31)
-  - There is also a brief [intro to git](../../docs/git-intro.html) as well, and everybody should at least skim through it...
+- The [first homework, on git and github](../../../../docs/hw-git.html), is out; it's due by the end of the day today (Wed, Aug 31)
+  - There is also a brief [intro to git](../../../../docs/git-intro.html) as well, and everybody should at least skim through it...
   - You have to allow `aaronbloomfield` and `cjmincey` to be Collaborators on any private repos you create for this assignment, but *after* you complete the homework!
-- The [frameworks HW](../docs/hw-frameworks.html) is also ready; more on this on the next slide
+- The [frameworks HW](../../docs/hw-frameworks.html) is also ready; more on this on the next slide
 - We have a VirtualBox Linux image all configured for you
   - The image is on Collab's Resources; also see the [installation
   - Make sure you specify that it's a 64-bit guest!
-  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../docs/virtualbox-image-details.html)
+  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../../docs/virtualbox-image-details.html)
 - Project status: 7 docs written, 1 pending, 4 meetings planned
   - Aiming to get 3 more (for a total of 15) by late next week
 - Unlike CS 2150, I don't care what system you develop on
@@ -2043,13 +2043,13 @@ Note that the slides are not ready until they are lectured on
 - Please fill out the github userid survey at http://goo.gl/Vjn3Yx by the end of the day today
   - You should have received an email about that
   - I will need that information to get your assignments graded, and to release the project information to you
-- Today we will be finishing [legal issues](../slides/01-legal.html) and starting [development methodologies](../slides/02-development-methods.html#/)
+- Today we will be finishing [legal issues](../../slides/01-legal.html) and starting [development methodologies](../../slides/02-development-methods.html#/)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Homework status
-- The [git/github HW due](../docs/hw-git.html) is due today (by the end of the day)
-- The [frameworks HW](../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
+- The [git/github HW due](../../docs/hw-git.html) is due today (by the end of the day)
+- The [frameworks HW](../../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
   - CakePHP, due Mon, 9/5; URL: http://server/~mst3k/cakephp/
     - As long as you put your code in `~/html/cakephp`, it will have that URL
   - Rails, due Fri, 9/9: URL: http://server/rails/mst3k
@@ -2076,21 +2076,21 @@ Note that the slides are not ready until they are lectured on
 ## (updated) Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
 - ~~Fri, 8/26: [course introduction](course-introduction-fall.html#/)~~
-- ~~Mon, 8/29: [legal issues](../slides/01-legal.html#/)~~
-- Wed, 8/31: [legal issues](../slides/01-legal.html#/), [development methods](../slides/02-development-methods.html#/) (today)
-  - [git/github HW due](../docs/hw-git.html)
-- Fri, 9/2: [development methods](../slides/02-development-methods.html#/)
-- Mon, 9/5: [frameworks](../slides/03-frameworks.html#/)
-  - [cake HW due](../docs/hw-frameworks.html)
-- Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)
+- ~~Mon, 8/29: [legal issues](../../slides/01-legal.html#/)~~
+- Wed, 8/31: [legal issues](../../slides/01-legal.html#/), [development methods](../../slides/02-development-methods.html#/) (today)
+  - [git/github HW due](../../docs/hw-git.html)
+- Fri, 9/2: [development methods](../../slides/02-development-methods.html#/)
+- Mon, 9/5: [frameworks](../../slides/03-frameworks.html#/)
+  - [cake HW due](../../docs/hw-frameworks.html)
+- Wed, 9/7: [frameworks](../../slides/03-frameworks.html#/)
 - Fri, 9/9: (we may or may not have a class)
-  - [rails HW due](../docs/hw-frameworks.html)
-- Mon, 9/12: [requirements](../slides/04-requirements.html#/), project discussion
-  - [django HW due](../docs/hw-frameworks.html)
+  - [rails HW due](../../docs/hw-frameworks.html)
+- Mon, 9/12: [requirements](../../slides/04-requirements.html#/), project discussion
+  - [django HW due](../../docs/hw-frameworks.html)
   - I am aiming to have all the project descriptions released this day
-- Wed, 9/14: [requirements](../slides/04-requirements.html#/), survey discussion
+- Wed, 9/14: [requirements](../../slides/04-requirements.html#/), survey discussion
 - Fri, 9/16: likely (but not definitely!) no class; surveys due
-- Mon, 9/19: groups assigned, [project start](../slides/05-project-start.html#/), first group meetings
+- Mon, 9/19: groups assigned, [project start](../../slides/05-project-start.html#/), first group meetings
 
 Note that the slides are not ready until they are lectured on
 	  </script></section>
@@ -2110,27 +2110,27 @@ Note that the slides are not ready until they are lectured on
 
 	  <section data-markdown><script type="text/template">
 ## Monday, August 29th
-- The [first homework, on git and github](../../docs/hw-git.html), is out; it's due Wednesday (Aug 31) by the end of the day
-  - There is also a brief [intro to git](../../docs/git-intro.html) as well, and everybody should at least skim through it...
+- The [first homework, on git and github](../../../../docs/hw-git.html), is out; it's due Wednesday (Aug 31) by the end of the day
+  - There is also a brief [intro to git](../../../../docs/git-intro.html) as well, and everybody should at least skim through it...
   - You have to allow `aaronbloomfield` and `cjmincey` to be Collaborators on any private repos you create for this assignment, but *after* you complete the homework!
-- The [frameworks HW](../docs/hw-frameworks.html) is also ready; more on this on the next slide
+- The [frameworks HW](../../docs/hw-frameworks.html) is also ready; more on this on the next slide
 - We have a VirtualBox Linux image all configured for you
   - The image is on Collab's Resources; also see the [installation
   - Make sure you specify that it's a 64-bit guest!
-  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../docs/virtualbox-image-details.html)
+  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../../docs/virtualbox-image-details.html)
 - Unlike CS 2150, I don't care what system you develop on
   - But most (if not all) of the software will be on a LAMP system, so you'll have to use something similar to LAMP.  I've seen people set up Mac OS X to run MAMP, and Windows to run WAMP...
 - Please fill out the github userid survey at http://goo.gl/Vjn3Yx by Wednesday of next week
   - Why don't you do that now?
   - You should have received an email about that
   - I will need that information to get your assignments graded, and to release the project information to you
-- Today we will be going through [legal issues](../slides/01-legal.html)
+- Today we will be going through [legal issues](../../slides/01-legal.html)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Homework status
-- The [git/github HW due](../docs/hw-git.html) is due by Wednesday (end of the day)
-- The [frameworks HW](../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
+- The [git/github HW due](../../docs/hw-git.html) is due by Wednesday (end of the day)
+- The [frameworks HW](../../docs/hw-frameworks.html) has three parts; the URLs **MUST** match what is listed below:
   - CakePHP, due Mon, 9/5; URL: http://server/~mst3k/cakephp/
     - As long as you put your code in `~/html/cakephp`, it will have that URL
   - Rails, due Fri, 9/9: URL: http://server/rails/mst3k
@@ -2157,21 +2157,21 @@ Note that the slides are not ready until they are lectured on
 ## (updated) Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
 - ~~Fri, 8/26: [course introduction](course-introduction-fall.html#/)~~
-- Mon, 8/29: [legal issues](../slides/01-legal.html#/) (today)
-- Wed, 8/31: [legal issues](../slides/01-legal.html#/), [development methods](../slides/02-development-methods.html#/)
-  - [git/github HW due](../docs/hw-git.html)
-- Fri, 9/2: [development methods](../slides/02-development-methods.html#/)
-- Mon, 9/5: [frameworks](../slides/03-frameworks.html#/)
-  - [cake HW due](../docs/hw-frameworks.html)
-- Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)
+- Mon, 8/29: [legal issues](../../slides/01-legal.html#/) (today)
+- Wed, 8/31: [legal issues](../../slides/01-legal.html#/), [development methods](../../slides/02-development-methods.html#/)
+  - [git/github HW due](../../docs/hw-git.html)
+- Fri, 9/2: [development methods](../../slides/02-development-methods.html#/)
+- Mon, 9/5: [frameworks](../../slides/03-frameworks.html#/)
+  - [cake HW due](../../docs/hw-frameworks.html)
+- Wed, 9/7: [frameworks](../../slides/03-frameworks.html#/)
 - Fri, 9/9: (no class)
-  - [rails HW due](../docs/hw-frameworks.html)
-- Mon, 9/12: [requirements](../slides/04-requirements.html#/), project discussion
-  - [django HW due](../docs/hw-frameworks.html)
+  - [rails HW due](../../docs/hw-frameworks.html)
+- Mon, 9/12: [requirements](../../slides/04-requirements.html#/), project discussion
+  - [django HW due](../../docs/hw-frameworks.html)
   - I am aiming to have all the project descriptions released this day
-- Wed, 9/14: [requirements](../slides/04-requirements.html#/), survey discussion
+- Wed, 9/14: [requirements](../../slides/04-requirements.html#/), survey discussion
 - Fri, 9/16: likely (but not definitely!) no class; surveys due
-- Mon, 9/19: groups assigned, [project start](../slides/05-project-start.html#/), first group meetings
+- Mon, 9/19: groups assigned, [project start](../../slides/05-project-start.html#/), first group meetings
 
 Note that the slides are not ready until they are lectured on
 	  </script></section>
@@ -2191,37 +2191,37 @@ Note that the slides are not ready until they are lectured on
 
 	  <section data-markdown><script type="text/template">
 ## The Beginning
-- The [first homework, on git and github](../../docs/hw-git.html), is out; it's due next Wednesday (Sep 2nd) by the end of the day
-  - There is also a brief [intro to git](../../docs/git-intro.html) as well, and everybody should at least skim through it...
+- The [first homework, on git and github](../../../../docs/hw-git.html), is out; it's due next Wednesday (Sep 2nd) by the end of the day
+  - There is also a brief [intro to git](../../../../docs/git-intro.html) as well, and everybody should at least skim through it...
   - You have to allow `aaronbloomfield` and `cjmincey` to be Collaborators on any private repos you create for this assignment, but *after* you complete the homework!
 - There will be 1-2 more HWs each successive week, then the projects start
 - We have a VirtualBox Linux image all configured for you
   - The image is on Collab's Resources; also see the [installation
   - Make sure you specify that it's a 64-bit guest!
-  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../docs/virtualbox-image-details.html)
+  - Also see the [installation instructions](http://aaronbloomfield.github.io/pdr/tutorials/01-intro-unix/virtual-box.html) (from CS 2150's lab 1) and the [image details](../../docs/virtualbox-image-details.html)
 - Unlike CS 2150, I don't care what system you develop on
   - But most (if not all) of the software will be on a LAMP system, so you'll have to use something similar to LAMP.  I've seen people set up Mac OS X to run MAMP, and Windows to run WAMP...
 - Please fill out the github userid survey at http://goo.gl/Vjn3Yx by Wednesday of next week
   - Why don't you do that now?
   - You should have received an email about that
   - I will need that information to get your assignments graded, and to release the project information to you
-- Today we will finish the [course introduction](course-introduction-fall.html#/) and start on [development methodologies](../../slides/02-development-methods.html#/)
+- Today we will finish the [course introduction](course-introduction-fall.html#/) and start on [development methodologies](../../../../slides/02-development-methods.html#/)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Schedule for the first month
 - ~~Wed, 8/24: [course introduction](course-introduction-fall.html#/)~~
-- Fri, 8/26: [course introduction](course-introduction-fall.html#/), [development methods](../slides/02-development-methods.html#/)
-- Mon, 8/29: [development methods](../slides/02-development-methods.html#/), [legal issues](../slides/01-legal.html#/)
-- Wed, 8/31: [legal issues](../slides/01-legal.html#/); [git/github HW due](../docs/hw-git.html)
+- Fri, 8/26: [course introduction](course-introduction-fall.html#/), [development methods](../../slides/02-development-methods.html#/)
+- Mon, 8/29: [development methods](../../slides/02-development-methods.html#/), [legal issues](../../slides/01-legal.html#/)
+- Wed, 8/31: [legal issues](../../slides/01-legal.html#/); [git/github HW due](../../docs/hw-git.html)
 - Fri, 9/2: we may or may not have class, depending on how the lectures are progressing...
-- Mon, 9/5: [frameworks](../slides/03-frameworks.html#/); [cake HW due](../docs/hw-frameworks.html)
-- Wed, 9/7: [frameworks](../slides/03-frameworks.html#/)
-- Fri, 9/9: (no class); [rails HW due](../docs/hw-frameworks.html)
-- Mon, 9/12: [requirements](../slides/04-requirements.html#/), project discussion; [django HW due](../docs/hw-frameworks.html)
-- Wed, 9/14: [requirements](../slides/04-requirements.html#/), survey discussion
+- Mon, 9/5: [frameworks](../../slides/03-frameworks.html#/); [cake HW due](../../docs/hw-frameworks.html)
+- Wed, 9/7: [frameworks](../../slides/03-frameworks.html#/)
+- Fri, 9/9: (no class); [rails HW due](../../docs/hw-frameworks.html)
+- Mon, 9/12: [requirements](../../slides/04-requirements.html#/), project discussion; [django HW due](../../docs/hw-frameworks.html)
+- Wed, 9/14: [requirements](../../slides/04-requirements.html#/), survey discussion
 - Fri, 9/16: no class; surveys due
-- Mon, 9/19: groups assigned, [project start](../slides/05-project-start.html#/), first group meetings
+- Mon, 9/19: groups assigned, [project start](../../slides/05-project-start.html#/), first group meetings
 
 Status: the homeworks are all ready to go, as are the "getting-started" pages for the frameworks, but ONLY for the local machine.  The course server is not yet ready, but will be by early next week.  The slides, however, are not ready until they are lectured on.
 	  </script></section>
@@ -2234,9 +2234,9 @@ Status: the homeworks are all ready to go, as are the "getting-started" pages fo
 
     </div>
 
-    <script src="../slides/reveal.js/lib/js/head.min.js"></script>
-    <script src="../slides/reveal.js/js/reveal.js"></script>
-    <script src="../slides/js/settings.js"></script>
+    <script src="../../slides/reveal.js/lib/js/head.min.js"></script>
+    <script src="../../slides/reveal.js/js/reveal.js"></script>
+    <script src="../../slides/js/settings-deeper.js"></script>
 <script>
 var interval;
 
