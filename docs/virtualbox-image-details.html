@@ -4,19 +4,25 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>SLP: Introduction to UNIX: VirtualBox image creation details</title>
+  <title>VirtualBox image creation details</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../markdown.css" type="text/css" />
 </head>
 <body>
-<h1 id="slp-introduction-to-unix-virtualbox-image-creation-details">SLP: Introduction to UNIX: VirtualBox image creation details</h1>
-<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
-<p>For those who are interested, this is how the image was set up.</p>
-<p>These directions are identical to the ones in the <a href="https://github.com/markfloryan/pdr">PDR repository</a> (specifically, tutorial 1).</p>
+<h1 id="virtualbox-image-creation-details">VirtualBox image creation details</h1>
+<p><a href="index.html">Go up to the main directory page</a> (<a href="index.md">md</a>)</p>
+<p>For those who are interested, this is how the VirtualBox image was created.</p>
+<p>These directions are duplicated in multiple repositories, as they all use the same image. Those are:</p>
+<ul>
+<li><a href="https://github.com/aaronbloomfield/slp">aaronbloomfield/slp</a> (docs directory)</li>
+<li><a href="https://github.com/markfloryan/pdr">markfloryan/pdr</a> (tutorial 1)</li>
+<li><a href="https://github.com/aaronbloomfield/dada">aaronbloomfield/dada</a> (docs directory)</li>
+<li><a href="https://github.com/uva-acm/hspc">uva-acm/hspc</a> (common directory)</li>
+</ul>
 <h1 id="introduction">Introduction</h1>
 <p>This page has a number of different sections, and the sections you need to install will vary depending on what you are using this image for. The image provided with the class has only two sections not installed: Dropbox configuration (in &quot;Image completion&quot;) and Turning of the Internet access (in &quot;Programming Contest configuration&quot;).</p>
 <p>The top of each section describes which of the sub-sections need to be installed for what.</p>
-<p><strong>Versions</strong></p>
+<p><strong>Software Versions</strong></p>
 <p>This installation document installs the following versions:</p>
 <ul>
 <li><a href="http://kubuntu.org/getkubuntu/">Kubuntu 16.04, 64-bit</a></li>
@@ -27,7 +33,8 @@
 <p>Newer versions of the above may have since come out, but at the time of the writing of this document (August 2017), they were either the versions installed via apt-get (Clang, Python), or the latest versions installed manually (Django, Ruby, and Rails).</p>
 <p><strong>Notes</strong></p>
 <ul>
-<li>The guest hard drive reported 9.9 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 8.0 Gb. When compressed via zip, it was 2.5 Gb in size.</li>
+<li>The guest hard drive reported 9.3 Gb of space available, prior to distribution of the image. The disk image itself was, after compaction, 7.6 Gb. When compressed via zip, it was 2.6 Gb in size.</li>
+<li>You will likely need to use a different unzip program to extract the image; the ones that come bundled with most operating systems can not handle archives of that size. We have used <a href="http://www.7-zip.org/">7-zip</a> with success.</li>
 <li>Video and sound (via youtube) worked fine with Chrome</li>
 <li>The VM may capture the mouse - to uncapture it, you press the &quot;host key&quot;, (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts). To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up</li>
 <li>In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing. If so, then the command <code>VBoxManage internalcommands sethduuid disk.vdi</code> (changing <code>disk.vdi</code> appropriately) will change the UUID, and allow you to proceed</li>
@@ -239,6 +246,7 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 <li>Logged out then shut down the guest, and ran: <code>VBoxManage modifyhd disk.vdi --compact</code> (using the real image file name instead of &quot;disk.vdi&quot;). A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.</li>
 </ul>
 <p><strong>Installing Dropbox (optional)</strong></p>
+<p><strong>NOTE:</strong> these instructions have not been tested for a few years, so they may no longer work properly...</p>
 <ul>
 <li>If you want to install Dropbox, you can download the package from https://www.dropbox.com/install</li>
 <li>You want the 32-bit Ubuntu version from <a href="https://www.dropbox.com/install?os=lnx">this page</a></li>

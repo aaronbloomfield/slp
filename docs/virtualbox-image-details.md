@@ -1,11 +1,16 @@
-SLP: Introduction to UNIX: VirtualBox image creation details
-============================================================
+VirtualBox image creation details
+=================================
 
-[Go up to the main SLP documents page](index.html) ([md](index.md))
+[Go up to the main directory page](index.html) ([md](index.md))
 
-For those who are interested, this is how the image was set up.
+For those who are interested, this is how the VirtualBox image was created.
 
-These directions are identical to the ones in the [PDR repository](https://github.com/markfloryan/pdr) (specifically, tutorial 1).
+These directions are duplicated in multiple repositories, as they all use the same image.  Those are:
+
+- [aaronbloomfield/slp](https://github.com/aaronbloomfield/slp) (docs directory)
+- [markfloryan/pdr](https://github.com/markfloryan/pdr) (tutorial 1)
+- [aaronbloomfield/dada](https://github.com/aaronbloomfield/dada) (docs directory)
+- [uva-acm/hspc](https://github.com/uva-acm/hspc) (common directory)
 
 
 # Introduction
@@ -14,7 +19,7 @@ This page has a number of different sections, and the sections you need to insta
 
 The top of each section describes which of the sub-sections need to be installed for what.
 
-**Versions**
+**Software Versions**
 
 This installation document installs the following versions:
 
@@ -27,7 +32,8 @@ Newer versions of the above may have since come out, but at the time of the writ
 
 **Notes**
 
-- The guest hard drive reported 9.9 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 8.0 Gb.  When compressed via zip, it was 2.5 Gb in size.
+- The guest hard drive reported 9.3 Gb of space available, prior to distribution of the image.  The disk image itself was, after compaction, 7.6 Gb.  When compressed via zip, it was 2.6 Gb in size.
+- You will likely need to use a different unzip program to extract the image; the ones that come bundled with most operating systems can not handle archives of that size.  We have used [7-zip](http://www.7-zip.org/) with success.
 - Video and sound (via youtube) worked fine with Chrome
 - The VM may capture the mouse - to uncapture it, you press the "host key", (which is the right Control key on Linux and Windows hosts, and the left Command key on Mac hosts).  To have it warn you about what this is, you can reset all warnings via the VirtualBox help menu, and it will warn you about this at boot-up
 - In the image creation process, you may run into a problem with VirtualBox where it cannot register a new (or different) disk because it has the same UUID as a previous disk that you are replacing.  If so, then the command `VBoxManage internalcommands sethduuid disk.vdi` (changing `disk.vdi` appropriately) will change the UUID, and allow you to proceed
@@ -242,6 +248,8 @@ The "Installing Dropbox" section is not installed by default.  The "Image finali
 - Logged out then shut down the guest, and ran: `VBoxManage modifyhd disk.vdi --compact` (using the real image file name instead of "disk.vdi").  A better way would be to load up into recovery mode and run zerofill, but the grub menu does not seem to be easily available to load into recovery mode, so I didn't pursue it any further.
 
 **Installing Dropbox (optional)**
+
+**NOTE:** these instructions have not been tested for a few years, so they may no longer work properly...
 
 - If you want to install Dropbox, you can download the package from https://www.dropbox.com/install
 - You want the 32-bit Ubuntu version from [this page](https://www.dropbox.com/install?os=lnx)
