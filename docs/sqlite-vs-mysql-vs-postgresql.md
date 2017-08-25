@@ -7,12 +7,12 @@ This page is should help you speed up the process of understanding the major dif
 
 ### A high level comparison ###
 
-Colons can be used to align columns.
+https://db-engines.com/en/system/MySQL;PostgreSQL;SQLite
 
 | SQLite        | MySQL           | PostgreSQL  |
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
+| gets embedded inside the application      | right-aligned | $1600 |
+| entire database consists of a single file      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 
 ### Starting MySQL as root ###
