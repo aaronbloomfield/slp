@@ -19,7 +19,7 @@ SLP: Documents
 - Database information
     - [MySQL introduction](mysql-intro.html) ([md](mysql-intro.md))
     - [MySQL reference](mysql-reference.html) ([md](mysql-reference.md))
-    - Note: change this to: a general SQL page, one on MySQL, and one on SQLite
+    - Note: change this to: a general SQL page, one on MySQL, and one on SQLite.
 
 ### Homeworks
 
