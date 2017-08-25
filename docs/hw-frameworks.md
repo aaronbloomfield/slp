@@ -3,7 +3,7 @@ SLP: Frameworks Homework
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
 
-In this homework, you will create [MVC](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) systems using three different frameworks: CakePHP, Ruby on Rails, and Django.
+In this homework, you will create [MVC](http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) systems using different frameworks: Ruby on Rails, and Django.
 
 All of these systems will use the SAME database, and one of the important aspects of this homework is to make sure that they all use *different* tables in that database.
 
@@ -40,19 +40,19 @@ At this point, you have the same databse config on both your local machine as on
 If you are working at home, you will likely want to upload the files to the server.  To do so, you can try this command (presumably from your ~/html directory):
 
 ```
-rsync -a --del --progress cakephp/ mst3k@server:~/html/cakephp/
+rsync -a --del --progress foobar/ mst3k@server:~/html/foobar/
 ```
 
-Note that this command is very particular about the parameters!  If you were to specify `cakephp` instead of `cakephp/` (this is after the `--progress` parameter), then it will do something very different.
+Note that this command is very particular about the parameters!  If you were to specify `foobar` instead of `foobar/` (this is after the `--progress` parameter), then it will do something very different.
 
 This command will upload all the *changed* files to the server.  The `-a` flag causes it to upload the entire directory structure.  The `--del` flag tells rsync to *delete* files on the remote server that have been deleted on the local copy.  And the `--progress` flag tells it to display the progress.
 
-One of the issues is that this will overwrite files that have been modified, and this may not always be waht you want.  For example, in CakePHP, you will have set up two .htaccess files, and they will be different on your local machine and the remote server.  So if you were to log into the server, and manually change the files, then it would overwrite them with the next rsync call.
+One of the issues is that this will overwrite files that have been modified, and this may not always be waht you want.  For example, you may have differet files that specify the database user name and password.  So if you were to log into the server, and manually change the files, then it would overwrite them with the next rsync call.
 
 To prevent this, you can use the `--exclude` flag, which causes it to not bother uploading certain files:
 
 ```
-rsync -a --del --progress --exclude '.htaccess' cakephp/ mst3k@server:~/html/cakephp/
+rsync -a --del --progress --exclude '.htaccess' foobar/ mst3k@server:~/html/foobar/
 ```
 
 This will cause rsync to not upload any files called `.htaccess`.  Note that you should upload *everything* the first time (i.e., using the first rsync command given), then log into the server and manually change the .htaccess files.  You should then call the second rsync command from then on.
@@ -73,27 +73,17 @@ ssh mst3k@server
 
 Where 'mst3k' is your userid, and 'server' is the *full* name of the server.  Once you enter your password, you will be logged into a command prompt on the server.
 
-### CakePHP
-
-First, proceed through the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page -- this should get you a first CakePHP web page working.  Be sure you use the 3.0 API of CakePHP!  The URL for that page ***MUST*** be `http://server/~mst3k/cakephp/` (where "mst3k" is your userid, and "server" is the server used for the course).  Note the lack of capitalization in your URL!  We are not going to go searching for your page, so if it is not at that URL, then you will get a zero.
-
-The purpose of this part of the assignment is to complete the [CakePHP blog tutorial](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html).  You run a single `composer` line, described in the [CakePHP getting started](cakephp-getting-started.html) ([md](cakephp-getting-started.md)) page, to install and configure your app.
-
-Note that the CakePHP tutorial has a [part two](http://book.cakephp.org/3.0/en/tutorials-and-examples/blog/part-two.html) that must be completed as well.
-
-A few notes:
-
-- The directions here are written assuming that you are developing the system on your VirtualBox image, and then uploading that to the server once completed; if not, that's totally fine, but you may have to adapt them somewhat.
-
 ### Ruby on Rails
+
+[Ruby](https://en.wikipedia.org/wiki/Ruby_(programming_language)) is the programming language, and [Rails](https://en.wikipedia.org/wiki/Ruby_on_Rails) is the framework (library).  When used together it is called "Ruby on Rails".  While it is possible to use Ruby without Rails (or Rails without Ruby), that is rarely done.
 
 First, read through the [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md)) page.  The assumption is that you will test it locally via `rails server`, and the deploy it on the course server via the directions on that page.  If you want to try your hand configuring your *own* Rails server, you can look at the [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md)) page -- but be warned, it's a real pain in the rear to configure a Rails server.
 
-We are using Ruby version 2.3.1 and Rails version 4.2.6 for this assigment.  If you have a more recent patch level (the last of the three digits of the version number), that's fine.  But you can't have a different major version (the first of those three numbers) or a different minor version (the middle of those three numbers).
+We are using Ruby version 2.4.1 and Rails version 5.1.3 for this assigment.  If you have a more recent patch level (the last of the three digits of the version number), that's fine.  But you can't have a different major version (the first of those three numbers) or a different minor version (the middle of those three numbers).
 
-Your app *must* be called `railshw`, and it *must* be in your home directory.  In other words, there must be a `/home/slp/mst3k/railshw/public` directory, as this is what the webserver will be looking for.  If you change anything in that path, the web server will never find your app.  You can then view your app at `http://server/rails/mst3k`, where "server" is the course server.
+On the course server, your app *must* be called `railshw`, and it *must* be in your home directory.  In other words, there must be a `/home/slp/mst3k/railshw/public` directory on the course server, as this is what the webserver will be looking for.  If you change anything in that path, the web server will never find your app.  You can then view your app at `http://server/rails/mst3k`, where "server" is the course server.
 
-This part of the assignment is to complete the blog tutorial [here](http://guides.rubyonrails.org/v4.2/getting_started.html).  Note that the default getting_started page on that site is for Rails 5.0, and we are using 4.2; the link points to the correct version.
+This part of the assignment is to complete the blog tutorial [here](http://guides.rubyonrails.org/v4.3/getting_started.html).  Recall that we are using Rails 5.1.3.
 
 - That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and the course server
 - To create the Rails application, you just enter `rails new railshw -d mysql` in your home directory (this is in section 3.2 of that web page; be sure to name it `railshw` so the URL is correct)
@@ -106,36 +96,35 @@ First, read through the [Django getting started](django-getting-started.html) ([
 
 Unlike Ruby on Rails, you can name the Django project anything you want, and put it in any directory that you want.  Although naming it `djangohw` and putting it in our home directory on the course server would not be bad ideas.
 
-The task for the Django part of this homework is to go through all *seven* parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.10/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.10 version!
+The task for the Django part of this homework is to go through all *seven* parts of the introductory tutorial, found [here](https://docs.djangoproject.com/en/1.11/intro/) (the "Tutorial" line in the "First steps" section).  Make sure you are going through the 1.11 version!
 
 A few notes on that tutorial (these were notes from a previous version of the tutorial, so take these with a grain of salt):
 
 - When editing the models.py file, you may have to put two additional imports at the top that the tutorial does not mention (`from django.utils import timezone` and `import datetime`); this is described in more detail [here](https://code.djangoproject.com/ticket/19793)
 - If python complains about not knowing what 'timezone' is, figure out which file it is running into this issue (this is listed in the stack trace), and put `from django.utils import timezone` at the top of that file
-- The last line of `test_index_view_with_two_past_polls()` (in [page 5](https://docs.djangoproject.com/en/1.8/intro/tutorial05/)) may need to change to the following, as per [here](http://www.simonveal.com/trying-to-compare-non-ordered-queryset-against-more-than-one-ordered-values/):
+- The last line of `test_index_view_with_two_past_polls()` (in the [tutorial page 5](https://docs.djangoproject.com/en/1.11/intro/tutorial05/)) may need to change to the following, as per [here](http://www.simonveal.com/trying-to-compare-non-ordered-queryset-against-more-than-one-ordered-values/):
 ```
 self.assertQuerysetEqual(
         response.context['latest_poll_list'].order_by('question'),
          ['<Poll: Past poll 1.>', '<Poll: Past poll 2.>']
     )
 ```
-- Note that one of the tests (specifically, `test_detail_view_with_a_future_poll()`) only succeeds if a future poll returns a 404 page, which is what the original `results()` view did.  However, when the view was switched over to Django's generic views (the bottom of [tutorial 4](https://docs.djangoproject.com/en/1.8/intro/tutorial04/)), that is no longer the default behavior.  Thus, that test can be removed.  This will make much more sense once you have read through the end of the testing section in the tutorial.
+- Note that one of the tests (specifically, `test_detail_view_with_a_future_poll()`) only succeeds if a future poll returns a 404 page, which is what the original `results()` view did.  However, when the view was switched over to Django's generic views (the bottom of the [tutorial page 4](https://docs.djangoproject.com/en/1.11/intro/tutorial04/)), that is no longer the default behavior.  Thus, that test can be removed.  This will make much more sense once you have read through the end of the testing section in the tutorial.
 
 When you have updated your Django project, remember to touch the wsgi.py file to make the web server reload your project; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details.
 
-It is much more difficult to rename your tables in Django -- you have to do it individually for each table.  But if the CakePHP tables all start with `cake_`, and the Ruby on Rails tables all start with `ruby_`, then you can leave the Django talbes to have the default name.  However, the names used in the Django tutorial should not conflict with the other tables therein.
+It is much more difficult to rename your tables in Django -- you have to do it individually for each table.  But if the Ruby on Rails tables all start with `ruby_`, then you can leave the Django talbes to have the default name.  However, the names used in the Django tutorial should not conflict with the other tables therein.
 
 For the submission, we are not going to be configuring it on the web server, for reasons that will be explained elsewhere.  Instead, we will look at your project files on the server, and run it through `python manage.py runserver`.  Thus, you MUST take the following steps:
 
 - Upload your ENTIRE django project onto the course server; put it somewhere in your root directory so we can find it
-    - There should be only three directories in your home directory: html (which also contains the CakePHP part), railshw (which contains the Rails part), and the directory that contains the Django part.
+    - There should be only three directories in your home directory: html, railshw (which contains the Rails part), and the directory that contains the Django part (you are welcome to have more, if you want; but those three are the ones we expect)
 - Make ***SURE*** that the DB on the course server contains all the tables that you need for this.  You can do a mysqldump of the DB on your VirtualBox image, and then restore that to your DB on the course server.
 
 ### Submission
 
 None!  We have access to your files on the course server, and we can view your projects at the following URLs.  It must be at these EXACT URLs, or else your assignment will not be graded.
 
-- CakePHP: `http://server/~mst3k/cakephp/`
 - Ruby on Rails: `http://server/rails/mst3k`
 - Django: `http://server/django/mst3k`
     - You *MUST* enter the urls.py rule to make that URL work; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details (specifically, the "Configuring the Django project's URLs" section)

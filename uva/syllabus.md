@@ -11,7 +11,7 @@ This syllabus applies two two courses: CS 4970 in the fall of 2017 (called "Caps
 
 **Instructors:**
 
-- [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron).  Office is Rice Hall, room 403.  Office hours are Mondays and Wednesdays from 1:30-3:00.
+- [Aaron Bloomfield](http://www.cs.virginia.edu/~asb) / [aaron@virginia.edu](mailto:aaron@virginia.edu) / [\@bloomfieldaaron](http://twitter.com/bloomfieldaaron).  Office is Rice Hall, room 403.  Office hours are Mondays and Wednesdays from 1:00-2:30.
 - [Ahmed Ibrahim](http://www.cs.virginia.edu/ibrahim/) / [a.i@virginia.edu](mailto:a.i@virginia.edu) / [\@aicsuva](http://twitter.com/aicsuva).  Office is Rice Hall, room 207.  Office hours are Mondays 5:00-6:30 and Wednesdays 1:30-3:00.
 
 **Course Description:** The Service Learning Practicum course involves the application of software engineering and computing principles to the development of a complete software system for non-profit organizations in our community. Students will be expected to work through the entire software system development process, including customer interfacing for requirements, detailed design, and a comprehensive maintenance plan.

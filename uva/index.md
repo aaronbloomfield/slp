@@ -20,16 +20,16 @@ Lectures (fall 2017)
 
 | Num | Date        | Day of week | Lecture type  | Planned topic |Iteration and deliverables| Actual lecture progress (and recording) | 
 |-----|-------------|-------------|---------------|---------------|-------------|----------------------------| 
-| 1   | Aug&nbsp;23 | Wednesday   | lecture       | [Course introduction][8]  | | |
+| 1   | Aug&nbsp;23 | Wednesday   | lecture       | [Course introduction][8]  | | [Course introduction][8], slides 1 to 7.14 |
 | 2   | Aug&nbsp;25 | Friday      | lecture       | [Course introduction][8] | | |
 | 3   | Aug&nbsp;28 | Monday      | lecture       | [Legal issues][51] | | |
 | 4   | Aug&nbsp;30 | Wednesday   | lecture       | [Legal issues][51], [Development methods][52] | [git/github HW due](../docs/hw-git.html) ([md](../docs/hw-git.md)) |
 | 5   | Sep&nbsp;1  | Friday      | lecture       | [Development methods][52] | | |
-| 6   | Sep&nbsp;4  | Monday      | lecture       | [Frameworks][53] | Python part of [HW 2][22] ([md][23])| |
-| 7   | Sep&nbsp;6  | Wednesday   | lecture       | [Frameworks][53]    | Python HW 2 (Thurs) | |
-| 8   | Sep&nbsp;8  | Friday      | no class      |               | | (likely no class today) |
-| 9   | Sep&nbsp;11 | Monday      | lecture       | [Requirements][54], survey & project discussion  | Rails part of [HW 2][22] ([md][23]) | |
-| 10  | Sep&nbsp;13 | Wednesday   | lecture       | [Requirements][54] | Rails HW 2 (Thurs) | |
+| 6   | Sep&nbsp;4  | Monday      | lecture       | [Frameworks][53] | Django part of [HW 2][22] ([md][23])| |
+| 7   | Sep&nbsp;6  | Wednesday   | lecture       | [Frameworks][53]    | | |
+| 8   | Sep&nbsp;8  | Friday      | no class      |               | Rails part of [HW 2][22] | |
+| 9   | Sep&nbsp;11 | Monday      | lecture       | [Requirements][54], survey & project discussion  | Django extension | |
+| 10  | Sep&nbsp;13 | Wednesday   | lecture       | [Requirements][54] | Rails extension (Thurs) | |
 | 11  | Sep&nbsp;15 | Friday      | class optional |               | Year-start surveys due | |
 | 12  | Sep&nbsp;18 | Monday      | group meetings | [Project start][55] | | |
 | 13  | Sep&nbsp;20 | Wednesday   | lecture       | [Customer meetings][56] | Iteration 1 begins (yesterday) | |
