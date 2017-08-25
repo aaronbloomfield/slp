@@ -11,6 +11,10 @@ Visit the following link and go over a high level comparison between the three R
 
 https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems
 
+[comment]: <> (System Properties Comparison MySQL vs. PostgreSQL vs. SQLite)
+
+[comment]: <> (https://db-engines.com/en/system/MySQL;PostgreSQL;SQLite)
+
 ### Starting MySQL as root ###
 
 To start MySQL from the command line, enter:
