@@ -16,7 +16,7 @@ The 'root' user can create databases.  On the VirtualBox image, the password for
 To start MySQL from the command line, enter:
 
 ```
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 The `-u root` flag is specifying the user to log in as.  The `-p` flag is stating that you want it to prompt you for a password.  On the VirtualBox image, the password is 'password'.  You can also specify the password on the command line (such as `mysql -u root -ppassword` (notice no space between the `-p` and the password; if there is a space, then MySQL will assume that you want to be prompted for the password, and what comes next on the command line will be interested as something else)), however this is **NOT** recomended, as the password is visible to any users (since it is the process you are now running).
