@@ -3,13 +3,17 @@ SLP: SQLite vs MySQL vs PostgreSQL
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
 
-This page is meant to allow you to use enough MySQL so that you can complete the first set of tutorials.  It is not meant to be a reference; the [MySQL Reference](mysql-reference.html) ([md](mysql-reference.md)) page does that.  And it's not meant to be an introduction to MySQL commands, either - in fact, no actual data entry (or extraction) commands are listed here.
+This page is should help you speed up the process of understanding the major difference between SQLite, MySQL, and PostgreSQL. You should then be able to decide which one is suitable for your project. On this page you will find useful links and quick explanations to get you started.
 
-### Users and permissions ###
+### A high level comparison ###
 
-MySQL has, as far as this tutorial is concerned, two types of users: ones who can create databases and users, and ones who cannot.
+Colons can be used to align columns.
 
-The 'root' user can create databases.  On the VirtualBox image, the password for the root user is 'password'.  You will need to create a MySQL user that has your userid (we'll use 'mst3k' in this tutorial for your userid).
+| SQLite        | MySQL           | PostgreSQL  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 ### Starting MySQL as root ###
 
