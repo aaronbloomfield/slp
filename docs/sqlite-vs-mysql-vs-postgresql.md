@@ -8,7 +8,8 @@ This page is should help you speed up the process of understanding the major dif
 ### A high level comparison ###
 
 Visit the following link and go over a high level comparison between the three RDBMSs:
-https://db-engines.com/en/system/MySQL;PostgreSQL;SQLite
+
+https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems
 
 ### Starting MySQL as root ###
 
