@@ -7,13 +7,8 @@ This page is should help you speed up the process of understanding the major dif
 
 ### A high level comparison ###
 
+Visit the following link and go over a high level comparison between the three RDBMSs:
 https://db-engines.com/en/system/MySQL;PostgreSQL;SQLite
-
-| SQLite        | MySQL           | PostgreSQL  |
-| ------------- |:-------------:| -----:|
-| gets embedded inside the application      | right-aligned | $1600 |
-| entire database consists of a single file      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
 
 ### Starting MySQL as root ###
 
