@@ -4,17 +4,17 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>SLP: MySQL Introduction</title>
+  <title>SLP: SQLite vs MySQL vs PostgreSQL</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../markdown.css" type="text/css" />
 </head>
 <body>
-<h1 id="slp-mysql-introduction">SLP: MySQL Introduction</h1>
+<h1 id="slp-sqlite-vs-mysql-vs-postgresql">SLP: SQLite vs MySQL vs PostgreSQL</h1>
 <p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
-<p>This page is meant to allow you to use enough MySQL so that you can complete the first set of tutorials. It is not meant to be a reference; the <a href="mysql-reference.html">MySQL Reference</a> (<a href="mysql-reference.md">md</a>) page does that. And it's not meant to be an introduction to MySQL commands, either - in fact, no actual data entry (or extraction) commands are listed here.</p>
-<h3 id="users-and-permissions">Users and permissions</h3>
-<p>MySQL has, as far as this tutorial is concerned, two types of users: ones who can create databases and users, and ones who cannot.</p>
-<p>The 'root' user can create databases. On the VirtualBox image, the password for the root user is 'password'. You will need to create a MySQL user that has your userid (we'll use 'mst3k' in this tutorial for your userid).</p>
+<p>This page is should help you speed up the process of understanding the major difference between SQLite, MySQL, and PostgreSQL. You should then be able to decide which one is suitable for your project. On this page you will find useful links and quick explanations to get you started.</p>
+<h3 id="a-high-level-comparison">A high level comparison</h3>
+<p>Visit the following link and go over a high level comparison between the three RDBMSs:</p>
+<p>https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems</p>
 <h3 id="starting-mysql-as-root">Starting MySQL as root</h3>
 <p>To start MySQL from the command line, enter:</p>
 <pre><code>sudo mysql -u root -p</code></pre>
