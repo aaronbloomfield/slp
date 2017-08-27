@@ -37,12 +37,37 @@
 <li><p><strong>DROP INDEX</strong> - deletes an index</p></li>
 </ul>
 <h3 id="create-database">CREATE DATABASE</h3>
-<p>To create a database, type <code>CREATE DATABASE dbname;</code>. Now, create a database called <code>uva</code>.</p>
+<p>To create a database, type <code>CREATE DATABASE dbname;</code>.</p>
+<p>Now, create a database called <code>uva</code>.</p>
 <h3 id="create-table">CREATE TABLE</h3>
 <p>Before you can create tables, you must choose a database. You can type <code>USE uva</code> to use the <code>uva</code> database you just created.</p>
-<p>We want to create a table named <code>students</code> which has the following fields: - comp_ID (PRIMARY KEY) - First_Name - Last_Name - Major - Year</p>
+<p>We want to create a table named <code>students</code> which has the following fields:</p>
+<ul>
+<li><p>comp_ID (PRIMARY KEY)</p></li>
+<li><p>First_Name</p></li>
+<li><p>Last_Name</p></li>
+<li><p>Major</p></li>
+<li><p>Year</p></li>
+</ul>
 <p>You can create such table using the following command:</p>
-<pre><code>create table students( comp_ID varchar(6) PRIMARY KEY, First_Name varchar(20), Last_Name varchar(20), Major varchar(5) NULL, Year int(1) );</code></pre>
+<pre><code>create table students( comp_ID varchar(6) PRIMARY KEY,
+
+First_Name varchar(20), Last_Name varchar(20), 
+
+Major varchar(5) NULL, Year int(1) );</code></pre>
+<h3 id="insert-into">INSERT INTO</h3>
+<p>To populate the newly created table with some entries, use the following commands:</p>
+<pre><code>insert into students values (&quot;adf7kd&quot;, &quot;Anna&quot;, &quot;Kournikova&quot;, &quot;CpE&quot;, 3);
+
+insert into students values (&quot;dc7ed&quot;, &quot;David&quot;, &quot;Cooperfield&quot;, &quot;CS&quot;, 4);
+
+insert into students values (&quot;ca9s&quot;, &quot;Criss&quot;, &quot;Angel&quot;, &quot;BME&quot;, 2);
+
+insert into students values (&quot;mc3tg&quot;, &quot;Mariah&quot;, &quot;Carey&quot;, &quot;CS&quot;, 3);
+
+insert into students values (&quot;slj3r&quot;, &quot;Samuel&quot;, &quot;Jackson&quot;, &quot;CpE&quot;, 3);
+
+insert into students values (&quot;ct4u&quot;, &quot;Charlize&quot;, &quot;Theron&quot;, &quot;BME&quot;, 4);</code></pre>
 <h3 id="select-example">SELECT Example</h3>
 <p>Assume you have the following <code>students</code> table:</p>
 <table>

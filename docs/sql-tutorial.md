@@ -48,24 +48,54 @@ This sections lists the most important SQL commands:
 	
 ### CREATE DATABASE ###
 
-To create a database, type `CREATE DATABASE dbname;`. Now, create a database called `uva`.
+To create a database, type `CREATE DATABASE dbname;`. 
+
+Now, create a database called `uva`.
 
 ### CREATE TABLE ###
 
 Before you can create tables, you must choose a database. You can type `USE uva` to use the `uva` database you just created.
 
 We want to create a table named `students` which has the following fields:
+
 - comp_ID (PRIMARY KEY)
+
 - First_Name
+
 - Last_Name
+
 - Major
+
 - Year
 
 You can create such table using the following command:
 
 ```
-create table students( comp_ID varchar(6) PRIMARY KEY, First_Name varchar(20), Last_Name varchar(20), Major varchar(5) NULL, Year int(1) );
+create table students( comp_ID varchar(6) PRIMARY KEY,
+
+First_Name varchar(20), Last_Name varchar(20), 
+
+Major varchar(5) NULL, Year int(1) );
 ```
+
+### INSERT INTO ###
+
+To populate the newly created table with some entries, use the following commands:
+
+```
+insert into students values ("adf7kd", "Anna", "Kournikova", "CpE", 3);
+
+insert into students values ("dc7ed", "David", "Cooperfield", "CS", 4);
+
+insert into students values ("ca9s", "Criss", "Angel", "BME", 2);
+
+insert into students values ("mc3tg", "Mariah", "Carey", "CS", 3);
+
+insert into students values ("slj3r", "Samuel", "Jackson", "CpE", 3);
+
+insert into students values ("ct4u", "Charlize", "Theron", "BME", 4);
+```
+
 
 ### SELECT Example ###
 
