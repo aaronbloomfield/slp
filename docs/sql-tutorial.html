@@ -71,7 +71,61 @@ INSERT INTO students VALUES (&quot;ct4u&quot;, &quot;Charlize&quot;, &quot;Thero
 <h3 id="select-example">SELECT Example</h3>
 <p>To view all the tuples in the <code>students</code> table, run the following command <code>SELECT * from students;</code></p>
 <p>You should get the following table:</p>
-<p>|---------|------------|-------------|-------|------| | comp_ID | First_Name | Last_Name | Major | Year | |---------|------------|-------------|-------|------| | adf7kd | Anna | Kournikova | CpE | 3 | | ca9s | Criss | Angel | BME | 2 | | ct4u | Charlize | Theron | BME | 4 | | dc7ed | David | Cooperfield | CS | 4 | | mc3tg | Mariah | Carey | CS | 3 | | slj3r | Samuel | Jackson | CpE | 3 | |---------|------------|-------------|-------|------|</p>
+<table>
+<thead>
+<tr class="header">
+<th>comp_ID</th>
+<th>First_Name</th>
+<th>Last_Name</th>
+<th>Major</th>
+<th>Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>adf7kd</td>
+<td>Anna</td>
+<td>Kournikova</td>
+<td>CpE</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>ca9s</td>
+<td>Criss</td>
+<td>Angel</td>
+<td>BME</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>ct4u</td>
+<td>Charlize</td>
+<td>Theron</td>
+<td>BME</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>dc7ed</td>
+<td>David</td>
+<td>Cooperfield</td>
+<td>CS</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>mc3tg</td>
+<td>Mariah</td>
+<td>Carey</td>
+<td>CS</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>slj3r</td>
+<td>Samuel</td>
+<td>Jackson</td>
+<td>CpE</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
 <p>What happens if you try to insert the following:</p>
 <p><code>INSERT INTO students VALUES (&quot;mc3tg&quot;, &quot;Mariah&quot;, &quot;Carey&quot;, &quot;CS&quot;, 3);</code></p>
 </body>

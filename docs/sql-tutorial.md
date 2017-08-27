@@ -103,16 +103,16 @@ To view all the tuples in the `students` table, run the following command
 
 You should get the following table:
 
-|---------|------------|-------------|-------|------|
-| comp_ID | First_Name | Last_Name   | Major | Year |
-|---------|------------|-------------|-------|------|
-| adf7kd  | Anna       | Kournikova  | CpE   |    3 |
-| ca9s    | Criss      | Angel       | BME   |    2 |
-| ct4u    | Charlize   | Theron      | BME   |    4 |
-| dc7ed   | David      | Cooperfield | CS    |    4 |
-| mc3tg   | Mariah     | Carey       | CS    |    3 |
-| slj3r   | Samuel     | Jackson     | CpE   |    3 |
-|---------|------------|-------------|-------|------|
+
+comp_ID | First_Name | Last_Name   | Major | Year |
+---------|------------|-------------|-------|------|
+adf7kd  | Anna       | Kournikova  | CpE   |    3 |
+ca9s    | Criss      | Angel       | BME   |    2 |
+ct4u    | Charlize   | Theron      | BME   |    4 |
+dc7ed   | David      | Cooperfield | CS    |    4 |
+mc3tg   | Mariah     | Carey       | CS    |    3 |
+slj3r   | Samuel     | Jackson     | CpE   |    3 |
+
 
 
 What happens if you try to insert the following:
