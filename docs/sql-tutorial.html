@@ -57,46 +57,22 @@ First_Name varchar(20), Last_Name varchar(20),
 Major varchar(5) NULL, Year int(1) );</code></pre>
 <h3 id="insert-into">INSERT INTO</h3>
 <p>To populate the newly created table with some entries, use the following commands:</p>
-<pre><code>insert into students values (&quot;adf7kd&quot;, &quot;Anna&quot;, &quot;Kournikova&quot;, &quot;CpE&quot;, 3);
+<pre><code>INSERT INTO students VALUES (&quot;adf7kd&quot;, &quot;Anna&quot;, &quot;Kournikova&quot;, &quot;CpE&quot;, 3);
 
-insert into students values (&quot;dc7ed&quot;, &quot;David&quot;, &quot;Cooperfield&quot;, &quot;CS&quot;, 4);
+INSERT INTO students VALUES (&quot;dc7ed&quot;, &quot;David&quot;, &quot;Cooperfield&quot;, &quot;CS&quot;, 4);
 
-insert into students values (&quot;ca9s&quot;, &quot;Criss&quot;, &quot;Angel&quot;, &quot;BME&quot;, 2);
+INSERT INTO students VALUES (&quot;ca9s&quot;, &quot;Criss&quot;, &quot;Angel&quot;, &quot;BME&quot;, 2);
 
-insert into students values (&quot;mc3tg&quot;, &quot;Mariah&quot;, &quot;Carey&quot;, &quot;CS&quot;, 3);
+INSERT INTO students VALUES (&quot;mc3tg&quot;, &quot;Mariah&quot;, &quot;Carey&quot;, &quot;CS&quot;, 3);
 
-insert into students values (&quot;slj3r&quot;, &quot;Samuel&quot;, &quot;Jackson&quot;, &quot;CpE&quot;, 3);
+INSERT INTO students VALUES (&quot;slj3r&quot;, &quot;Samuel&quot;, &quot;Jackson&quot;, &quot;CpE&quot;, 3);
 
-insert into students values (&quot;ct4u&quot;, &quot;Charlize&quot;, &quot;Theron&quot;, &quot;BME&quot;, 4);</code></pre>
+INSERT INTO students VALUES (&quot;ct4u&quot;, &quot;Charlize&quot;, &quot;Theron&quot;, &quot;BME&quot;, 4);</code></pre>
 <h3 id="select-example">SELECT Example</h3>
 <p>To view all the tuples in the <code>students</code> table, run the following command <code>SELECT * from students;</code></p>
 <p>You should get the following table:</p>
-<table style="width:74%;">
-<colgroup>
-<col width="13%" />
-<col width="18%" />
-<col width="19%" />
-<col width="11%" />
-<col width="11%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><p>comp_ID</p></td>
-<td><p>First_Name</p></td>
-<td><p>Last_Name</p></td>
-<td><p>Major</p></td>
-<td><p>Year</p></td>
-</tr>
-<tr class="even">
-<td><p>adf7kd ca9s ct4u dc7ed mc3tg slj3r</p></td>
-<td><p>Anna Criss Charlize David Mariah Samuel</p></td>
-<td><p>Kournikova Angel Theron Cooperfield Carey Jackson</p></td>
-<td><p>CpE BME BME CS CS CpE</p></td>
-<td><p>3 2 4 4 3 3</p></td>
-</tr>
-</tbody>
-</table>
+<p>|---------|------------|-------------|-------|------| | comp_ID | First_Name | Last_Name | Major | Year | |---------|------------|-------------|-------|------| | adf7kd | Anna | Kournikova | CpE | 3 | | ca9s | Criss | Angel | BME | 2 | | ct4u | Charlize | Theron | BME | 4 | | dc7ed | David | Cooperfield | CS | 4 | | mc3tg | Mariah | Carey | CS | 3 | | slj3r | Samuel | Jackson | CpE | 3 | |---------|------------|-------------|-------|------|</p>
 <p>What happens if you try to insert the following:</p>
-<p><code>insert into students values (&quot;mc3tg&quot;, &quot;Mariah&quot;, &quot;Carey&quot;, &quot;CS&quot;, 3);</code></p>
+<p><code>INSERT INTO students VALUES (&quot;mc3tg&quot;, &quot;Mariah&quot;, &quot;Carey&quot;, &quot;CS&quot;, 3);</code></p>
 </body>
 </html>

@@ -83,17 +83,17 @@ Major varchar(5) NULL, Year int(1) );
 To populate the newly created table with some entries, use the following commands:
 
 ```
-insert into students values ("adf7kd", "Anna", "Kournikova", "CpE", 3);
+INSERT INTO students VALUES ("adf7kd", "Anna", "Kournikova", "CpE", 3);
 
-insert into students values ("dc7ed", "David", "Cooperfield", "CS", 4);
+INSERT INTO students VALUES ("dc7ed", "David", "Cooperfield", "CS", 4);
 
-insert into students values ("ca9s", "Criss", "Angel", "BME", 2);
+INSERT INTO students VALUES ("ca9s", "Criss", "Angel", "BME", 2);
 
-insert into students values ("mc3tg", "Mariah", "Carey", "CS", 3);
+INSERT INTO students VALUES ("mc3tg", "Mariah", "Carey", "CS", 3);
 
-insert into students values ("slj3r", "Samuel", "Jackson", "CpE", 3);
+INSERT INTO students VALUES ("slj3r", "Samuel", "Jackson", "CpE", 3);
 
-insert into students values ("ct4u", "Charlize", "Theron", "BME", 4);
+INSERT INTO students VALUES ("ct4u", "Charlize", "Theron", "BME", 4);
 ```
 
 ### SELECT Example ###
@@ -103,19 +103,19 @@ To view all the tuples in the `students` table, run the following command
 
 You should get the following table:
 
-+---------+------------+-------------+-------+------+
+|---------|------------|-------------|-------|------|
 | comp_ID | First_Name | Last_Name   | Major | Year |
-+---------+------------+-------------+-------+------+
+|---------|------------|-------------|-------|------|
 | adf7kd  | Anna       | Kournikova  | CpE   |    3 |
 | ca9s    | Criss      | Angel       | BME   |    2 |
 | ct4u    | Charlize   | Theron      | BME   |    4 |
 | dc7ed   | David      | Cooperfield | CS    |    4 |
 | mc3tg   | Mariah     | Carey       | CS    |    3 |
 | slj3r   | Samuel     | Jackson     | CpE   |    3 |
-+---------+------------+-------------+-------+------+
+|---------|------------|-------------|-------|------|
 
 
 What happens if you try to insert the following:
 
-`insert into students values ("mc3tg", "Mariah", "Carey", "CS", 3);`
+`INSERT INTO students VALUES ("mc3tg", "Mariah", "Carey", "CS", 3);`
 
