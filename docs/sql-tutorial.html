@@ -69,63 +69,34 @@ insert into students values (&quot;slj3r&quot;, &quot;Samuel&quot;, &quot;Jackso
 
 insert into students values (&quot;ct4u&quot;, &quot;Charlize&quot;, &quot;Theron&quot;, &quot;BME&quot;, 4);</code></pre>
 <h3 id="select-example">SELECT Example</h3>
-<p>Assume you have the following <code>students</code> table:</p>
-<table>
-<thead>
-<tr class="header">
-<th>comp_ID</th>
-<th>First_Name</th>
-<th>Last_Name</th>
-<th>Major</th>
-<th>Year</th>
-</tr>
-</thead>
+<p>To view all the tuples in the <code>students</code> table, run the following command <code>SELECT * from students;</code></p>
+<p>You should get the following table:</p>
+<table style="width:74%;">
+<colgroup>
+<col width="13%" />
+<col width="18%" />
+<col width="19%" />
+<col width="11%" />
+<col width="11%" />
+</colgroup>
 <tbody>
 <tr class="odd">
-<td>adf7kd</td>
-<td>Anna</td>
-<td>Kournikova</td>
-<td>CpE</td>
-<td>3</td>
+<td><p>comp_ID</p></td>
+<td><p>First_Name</p></td>
+<td><p>Last_Name</p></td>
+<td><p>Major</p></td>
+<td><p>Year</p></td>
 </tr>
 <tr class="even">
-<td>dc7ed</td>
-<td>David</td>
-<td>Copperfield</td>
-<td>CS</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>ca9s</td>
-<td>Criss</td>
-<td>Angel</td>
-<td>BME</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>mc3tg</td>
-<td>Mariah</td>
-<td>Carey</td>
-<td>CS</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>slj3r</td>
-<td>Samuel</td>
-<td>Jackson</td>
-<td>CpE</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>ct4u</td>
-<td>Charlize</td>
-<td>Theron</td>
-<td>BME</td>
-<td>4</td>
+<td><p>adf7kd ca9s ct4u dc7ed mc3tg slj3r</p></td>
+<td><p>Anna Criss Charlize David Mariah Samuel</p></td>
+<td><p>Kournikova Angel Theron Cooperfield Carey Jackson</p></td>
+<td><p>CpE BME BME CS CS CpE</p></td>
+<td><p>3 2 4 4 3 3</p></td>
 </tr>
 </tbody>
 </table>
-<p>Running the following command <code>SELECT * from students;</code> will result in the following:</p>
-<p>Note: The table above was created using the following command:</p>
+<p>What happens if you try to insert the following:</p>
+<p><code>insert into students values (&quot;mc3tg&quot;, &quot;Mariah&quot;, &quot;Carey&quot;, &quot;CS&quot;, 3);</code></p>
 </body>
 </html>
