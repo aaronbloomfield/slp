@@ -23,26 +23,76 @@
 </ul>
 <h3 id="sql-commands">SQL Commands</h3>
 <p>This sections lists the most important SQL commands:</p>
-<pre><code>- SELECT - extracts data from a database
-
-- UPDATE - updates data in a database
-
-- DELETE - deletes data from a database
-
-- INSERT INTO - inserts new data into a database
-
-- CREATE DATABASE - creates a new database
-
-- ALTER DATABASE - modifies a database
-
-- CREATE TABLE - creates a new table
-
-- ALTER TABLE - modifies a table
-
-- DROP TABLE - deletes a table
-
-- CREATE INDEX - creates an index (search key)
-
-- DROP INDEX - deletes an index</code></pre>
+<ul>
+<li><p><strong>SELECT</strong> - extracts data from a database</p></li>
+<li><p><strong>UPDATE</strong> - updates data in a database</p></li>
+<li><p><strong>DELETE</strong> - deletes data from a database</p></li>
+<li><p><strong>INSERT INTO</strong> - inserts new data into a database</p></li>
+<li><p><strong>CREATE DATABASE</strong> - creates a new database</p></li>
+<li><p><strong>ALTER DATABASE</strong> - modifies a database</p></li>
+<li><p><strong>CREATE TABLE</strong> - creates a new table</p></li>
+<li><p><strong>ALTER TABLE</strong> - modifies a table</p></li>
+<li><p><strong>DROP TABLE</strong> - deletes a table</p></li>
+<li><p><strong>CREATE INDEX</strong> - creates an index (search key)</p></li>
+<li><p><strong>DROP INDEX</strong> - deletes an index</p></li>
+</ul>
+<h3 id="select-example">SELECT Example</h3>
+<p>Assume you have the following <code>students</code> table:</p>
+<table>
+<thead>
+<tr class="header">
+<th>comp_ID</th>
+<th>First_Name</th>
+<th>Last_Name</th>
+<th>Major</th>
+<th>Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>adf7kd</td>
+<td>Anna</td>
+<td>Kournikova</td>
+<td>CpE</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>dc7ed</td>
+<td>David</td>
+<td>Copperfield</td>
+<td>CS</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>ca9s</td>
+<td>Criss</td>
+<td>Angel</td>
+<td>BME</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>mc3tg</td>
+<td>Mariah</td>
+<td>Cary</td>
+<td>CS</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>slj3r</td>
+<td>Samuel</td>
+<td>Jackson</td>
+<td>CpE</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>cc4u</td>
+<td>Charlize</td>
+<td>Charlize</td>
+<td>BME</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Running the following command <code>SELECT * from students;</code> will result in the following:</p>
 </body>
 </html>

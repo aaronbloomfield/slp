@@ -23,25 +23,41 @@ SQL is a Structured Query Language that lets you create, access, and manipulate 
 
 This sections lists the most important SQL commands:
 
-	- SELECT - extracts data from a database
+- __SELECT__ - extracts data from a database
 	
-	- UPDATE - updates data in a database
+- __UPDATE__ - updates data in a database
 	
-	- DELETE - deletes data from a database
+- __DELETE__ - deletes data from a database
 	
-	- INSERT INTO - inserts new data into a database
+- __INSERT INTO__ - inserts new data into a database
 	
-	- CREATE DATABASE - creates a new database
+- __CREATE DATABASE__ - creates a new database
 	
-	- ALTER DATABASE - modifies a database
+- __ALTER DATABASE__ - modifies a database
 	
-	- CREATE TABLE - creates a new table
+- __CREATE TABLE__ - creates a new table
 	
-	- ALTER TABLE - modifies a table
+- __ALTER TABLE__ - modifies a table
 	
-	- DROP TABLE - deletes a table
+- __DROP TABLE__ - deletes a table
 	
-	- CREATE INDEX - creates an index (search key)
+- __CREATE INDEX__ - creates an index (search key)
 	
-	- DROP INDEX - deletes an index
+- __DROP INDEX__ - deletes an index
 	
+### SELECT Example ###
+
+Assume you have the following `students` table:
+
+comp_ID | First_Name | Last_Name | Major | Year 
+------------ | ------------- | ------------- | ------------- | -------------
+adf7kd | Anna | Kournikova | CpE | 3 
+dc7ed | David | Copperfield | CS | 4 
+ca9s | Criss | Angel | BME | 2 
+mc3tg | Mariah | Cary | CS | 3 
+slj3r | Samuel | Jackson | CpE | 3 
+cc4u | Charlize | Charlize | BME | 4 
+
+Running the following command
+`SELECT * from students;`
+will result in the following:
