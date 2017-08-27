@@ -47,7 +47,7 @@ Note that this command is very particular about the parameters!  If you were to 
 
 This command will upload all the *changed* files to the server.  The `-a` flag causes it to upload the entire directory structure.  The `--del` flag tells rsync to *delete* files on the remote server that have been deleted on the local copy.  And the `--progress` flag tells it to display the progress.
 
-One of the issues is that this will overwrite files that have been modified, and this may not always be waht you want.  For example, you may have differet files that specify the database user name and password.  So if you were to log into the server, and manually change the files, then it would overwrite them with the next rsync call.
+One of the issues is that this will overwrite files that have been modified, and this may not always be what you want.  For example, you may have differet files that specify the database user name and password.  So if you were to log into the server, and manually change the files, then it would overwrite them with the next rsync call.
 
 To prevent this, you can use the `--exclude` flag, which causes it to not bother uploading certain files:
 
