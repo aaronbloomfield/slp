@@ -45,6 +45,28 @@ This sections lists the most important SQL commands:
 	
 - __DROP INDEX__ - deletes an index
 	
+	
+### CREATE DATABASE ###
+
+To create a database, type `CREATE DATABASE dbname;`. Now, create a database called `uva`.
+
+### CREATE TABLE ###
+
+Before you can create tables, you must choose a database. You can type `USE uva` to use the `uva` database you just created.
+
+We want to create a table named `students` which has the following fields:
+- comp_ID (PRIMARY KEY)
+- First_Name
+- Last_Name
+- Major
+- Year
+
+You can create such table using the following command:
+
+```
+create table students( comp_ID varchar(6) PRIMARY KEY, First_Name varchar(20), Last_Name varchar(20), Major varchar(5) NULL, Year int(1) );
+```
+
 ### SELECT Example ###
 
 Assume you have the following `students` table:
@@ -54,10 +76,13 @@ comp_ID | First_Name | Last_Name | Major | Year
 adf7kd | Anna | Kournikova | CpE | 3 
 dc7ed | David | Copperfield | CS | 4 
 ca9s | Criss | Angel | BME | 2 
-mc3tg | Mariah | Cary | CS | 3 
+mc3tg | Mariah | Carey | CS | 3 
 slj3r | Samuel | Jackson | CpE | 3 
-cc4u | Charlize | Charlize | BME | 4 
+ct4u | Charlize | Theron | BME | 4 
 
 Running the following command
 `SELECT * from students;`
 will result in the following:
+
+
+Note: The table above was created using the following command:

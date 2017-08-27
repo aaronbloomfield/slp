@@ -36,6 +36,13 @@
 <li><p><strong>CREATE INDEX</strong> - creates an index (search key)</p></li>
 <li><p><strong>DROP INDEX</strong> - deletes an index</p></li>
 </ul>
+<h3 id="create-database">CREATE DATABASE</h3>
+<p>To create a database, type <code>CREATE DATABASE dbname;</code>. Now, create a database called <code>uva</code>.</p>
+<h3 id="create-table">CREATE TABLE</h3>
+<p>Before you can create tables, you must choose a database. You can type <code>USE uva</code> to use the <code>uva</code> database you just created.</p>
+<p>We want to create a table named <code>students</code> which has the following fields: - comp_ID (PRIMARY KEY) - First_Name - Last_Name - Major - Year</p>
+<p>You can create such table using the following command:</p>
+<pre><code>create table students( comp_ID varchar(6) PRIMARY KEY, First_Name varchar(20), Last_Name varchar(20), Major varchar(5) NULL, Year int(1) );</code></pre>
 <h3 id="select-example">SELECT Example</h3>
 <p>Assume you have the following <code>students</code> table:</p>
 <table>
@@ -73,7 +80,7 @@
 <tr class="even">
 <td>mc3tg</td>
 <td>Mariah</td>
-<td>Cary</td>
+<td>Carey</td>
 <td>CS</td>
 <td>3</td>
 </tr>
@@ -85,14 +92,15 @@
 <td>3</td>
 </tr>
 <tr class="even">
-<td>cc4u</td>
+<td>ct4u</td>
 <td>Charlize</td>
-<td>Charlize</td>
+<td>Theron</td>
 <td>BME</td>
 <td>4</td>
 </tr>
 </tbody>
 </table>
 <p>Running the following command <code>SELECT * from students;</code> will result in the following:</p>
+<p>Note: The table above was created using the following command:</p>
 </body>
 </html>
