@@ -4,16 +4,22 @@ for infile in `ls *.md`; do
     lineone=`head -1 $infile`
     outfile=`echo $infile | sed 's/md$/html/g'`
     pandoc -V "pagetitle:$lineone" -f markdown -c markdown.css -t html -o $outfile $infile
+    sed -i s/"<td align=\"left\">"/"<td>"/g *.html
+    sed -i s/"<th align=\"left\">"/"<th>"/g *.html
 done
 
 for infile in `ls */*.md`; do
     lineone=`head -1 $infile`
     outfile=`echo $infile | sed 's/md$/html/g'`
     pandoc -V "pagetitle:$lineone" -f markdown -c ../markdown.css -t html -o $outfile $infile
+    sed -i s/"<td align=\"left\">"/"<td>"/g */*.html
+    sed -i s/"<th align=\"left\">"/"<th>"/g */*.html
 done
 
 for infile in `ls */*/*.md | grep -v reveal.js`; do
     lineone=`head -1 $infile`
     outfile=`echo $infile | sed 's/md$/html/g'`
     pandoc -V "pagetitle:$lineone" -f markdown -c ../../markdown.css -t html -o $outfile $infile
+    sed -i s/"<td align=\"left\">"/"<td>"/g */*/*.html
+    sed -i s/"<th align=\"left\">"/"<th>"/g */*/*.html
 done
