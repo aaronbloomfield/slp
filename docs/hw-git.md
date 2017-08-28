@@ -48,7 +48,7 @@ This is the only section that uses the `git-hw-to-fork` repo; all other sections
 
 ### Branches and merging
 
-Git provides a visual graph of the branches of a repo via the network tool -- it's found off of the graphs link (which is on the right side of the main github repo page).  Alternatively, you can find it at https://github.com/username/repo/network.
+Git provides a visual graph of the branches of a repo via the network tool -- it's found off of the Insights link (which is on the right side of the main github repo page) then the Graphs link from the Insights menu.  Alternatively, you can find it at https://github.com/username/repo/network.
 
 Do the branching and merging required to make the network graph look like the last image on the [git branching and merging page](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging) that you read in the [git intro](git-intro.html) ([md](git-intro.md)).  That image can be found [here](http://git-scm.com/figures/18333fig0317-tn.png).  Hint: that page describes the commands (and their order) necessary to make the graph look like that.  You are welcome to have other commits, of course -- we just want to see that particular structure in there somewhere.  You should then remove all the extra branches (other than master, of course) once you have created those branches and merges.
 
