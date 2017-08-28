@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: SQL Tutorial</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-sql-tutorial">SLP: SQL Tutorial</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>SQL is a Structured Query Language that lets you create, access, and manipulate databases. It can be used to:</p>
+<ul>
+<li><p>create new databases</p></li>
+<li><p>create new tables in a database</p></li>
+<li><p>insert records in a table</p></li>
+<li><p>retrieve data from a table</p></li>
+<li><p>update records in a table</p></li>
+<li><p>delete records from a table</p></li>
+<li><p>execute queries to retreive (sub)records from the database</p></li>
+</ul>
+<h3 id="sql-commands">SQL Commands</h3>
+<p>This sections lists the most important SQL commands:</p>
+<ul>
+<li><p><strong>SELECT</strong> - extracts data from a database</p></li>
+<li><p><strong>UPDATE</strong> - updates data in a database</p></li>
+<li><p><strong>DELETE</strong> - deletes data from a database</p></li>
+<li><p><strong>INSERT INTO</strong> - inserts new data into a database</p></li>
+<li><p><strong>CREATE DATABASE</strong> - creates a new database</p></li>
+<li><p><strong>ALTER DATABASE</strong> - modifies a database</p></li>
+<li><p><strong>CREATE TABLE</strong> - creates a new table</p></li>
+<li><p><strong>ALTER TABLE</strong> - modifies a table</p></li>
+<li><p><strong>DROP TABLE</strong> - deletes a table</p></li>
+<li><p><strong>CREATE INDEX</strong> - creates an index (search key)</p></li>
+<li><p><strong>DROP INDEX</strong> - deletes an index</p></li>
+</ul>
+<h3 id="create-database">CREATE DATABASE</h3>
+<p>To create a database, type <code>CREATE DATABASE dbname;</code>.</p>
+<p>Now, create a database called <code>uva</code>.</p>
+<h3 id="create-table">CREATE TABLE</h3>
+<p>Before you can create tables, you must choose a database. You can type <code>USE uva</code> to use the <code>uva</code> database you just created.</p>
+<p>We want to create a table named <code>students</code> which has the following fields:</p>
+<ul>
+<li><p>comp_ID (PRIMARY KEY)</p></li>
+<li><p>First_Name</p></li>
+<li><p>Last_Name</p></li>
+<li><p>Major</p></li>
+<li><p>Year</p></li>
+</ul>
+<p>You can create such table using the following command:</p>
+<pre><code>create table students( comp_ID varchar(6) PRIMARY KEY,
+
+First_Name varchar(20), Last_Name varchar(20), 
+
+Major varchar(5) NULL, Year int(1) );</code></pre>
+<h3 id="insert-into">INSERT INTO</h3>
+<p>To populate the newly created table with some entries, use the following commands:</p>
+<pre><code>INSERT INTO students VALUES (&quot;adf7kd&quot;, &quot;Anna&quot;, &quot;Kournikova&quot;, &quot;CpE&quot;, 3);
+
+INSERT INTO students VALUES (&quot;dc7ed&quot;, &quot;David&quot;, &quot;Cooperfield&quot;, &quot;CS&quot;, 4);
+
+INSERT INTO students VALUES (&quot;ca9s&quot;, &quot;Criss&quot;, &quot;Angel&quot;, &quot;BME&quot;, 2);
+
+INSERT INTO students VALUES (&quot;mc3tg&quot;, &quot;Mariah&quot;, &quot;Carey&quot;, &quot;CS&quot;, 3);
+
+INSERT INTO students VALUES (&quot;slj3r&quot;, &quot;Samuel&quot;, &quot;Jackson&quot;, &quot;CpE&quot;, 3);
+
+INSERT INTO students VALUES (&quot;ct4u&quot;, &quot;Charlize&quot;, &quot;Theron&quot;, &quot;BME&quot;, 4);</code></pre>
+<h3 id="select-example">SELECT Example</h3>
+<p>To view all the tuples in the <code>students</code> table, run the following command <code>SELECT * from students;</code></p>
+<p>You should get the following table:</p>
+<table>
+<thead>
+<tr class="header">
+<th>comp_ID</th>
+<th>First_Name</th>
+<th>Last_Name</th>
+<th>Major</th>
+<th>Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>adf7kd</td>
+<td>Anna</td>
+<td>Kournikova</td>
+<td>CpE</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>ca9s</td>
+<td>Criss</td>
+<td>Angel</td>
+<td>BME</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>ct4u</td>
+<td>Charlize</td>
+<td>Theron</td>
+<td>BME</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>dc7ed</td>
+<td>David</td>
+<td>Cooperfield</td>
+<td>CS</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>mc3tg</td>
+<td>Mariah</td>
+<td>Carey</td>
+<td>CS</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>slj3r</td>
+<td>Samuel</td>
+<td>Jackson</td>
+<td>CpE</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>What happens if you try to insert the following:</p>
+<p><code>INSERT INTO students VALUES (&quot;mc3tg&quot;, &quot;Mariah&quot;, &quot;Carey&quot;, &quot;CS&quot;, 3);</code></p>
+<h3 id="section"></h3>
+</body>
+</html>

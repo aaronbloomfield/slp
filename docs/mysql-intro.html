@@ -17,7 +17,7 @@
 <p>The 'root' user can create databases. On the VirtualBox image, the password for the root user is 'password'. You will need to create a MySQL user that has your userid (we'll use 'mst3k' in this tutorial for your userid).</p>
 <h3 id="starting-mysql-as-root">Starting MySQL as root</h3>
 <p>To start MySQL from the command line, enter:</p>
-<pre><code>mysql -u root -p</code></pre>
+<pre><code>sudo mysql -u root -p</code></pre>
 <p>The <code>-u root</code> flag is specifying the user to log in as. The <code>-p</code> flag is stating that you want it to prompt you for a password. On the VirtualBox image, the password is 'password'. You can also specify the password on the command line (such as <code>mysql -u root -ppassword</code> (notice no space between the <code>-p</code> and the password; if there is a space, then MySQL will assume that you want to be prompted for the password, and what comes next on the command line will be interested as something else)), however this is <strong>NOT</strong> recomended, as the password is visible to any users (since it is the process you are now running).</p>
 <p>You will have a <code>mysql&gt;</code> prompt; enter <code>exit</code> or <code>quit</code> to exit.</p>
 <h3 id="creating-a-database">Creating a database</h3>
