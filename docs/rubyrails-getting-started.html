@@ -11,20 +11,11 @@
 <body>
 <h1 id="slp-ruby-on-rails-getting-started">SLP: Ruby on Rails: Getting Started</h1>
 <p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
-<h3 id="install-ruby-and-rails">Install Ruby and Rails</h3>
 <p>Ruby is the programming language, and Rails is the framework. They are typically used at the same time, so the entire setup is often just called &quot;Rails&quot;.</p>
-<p>Note that Ruby is the programming language, and Rails is the framework. When all is completed, you <strong><em>MUST</em></strong> have Ruby version 2.3.1 installed and Rails 4.2.6 installed. It's okay if you have a different patch level version (i.e., Ruby 2.3.2 or rails 4.2.7, for example), but you can't have a different minor or major version.</p>
-<p>If you are running this on the VirtualBox image, then this step has already been performed. See below for getting this working on the course server.</p>
-<p>If you are running this on your <em>own</em> machine, then you will want to follow the instructions at <a href="https://gorails.com/setup/ubuntu/16.04" class="uri">https://gorails.com/setup/ubuntu/16.04</a> if you are running Ubuntu 16.04. If you are running Mac OS X, that site has directions <a href="https://gorails.com/setup/osx">here</a>. Likewise, other versions of Ubuntu can be found from those two links. If you are using another operating system, you are on your own (but note that the versions <strong><em>MUST</em></strong> match what we are using (Ruby 2.3.1 and Rails 4.2.6)).</p>
-<p>To install this on the course server, you could follow the directions from <a href="https://gorails.com/setup/ubuntu/16.04">that site</a>. However, those directions take about a half hour to complete. Instead, follow the following steps. Note that this will only work on the course server!</p>
-<ol style="list-style-type: decimal">
-<li>Enter <code>cd</code> to ensure you are in your home directory</li>
-<li>Enter <code>tar xfz /usr/local/rails-setup.tgz</code></li>
-<li>Edit your <code>.bashrc</code> file, and add the three lines indicated in the <code>bashrc-mods.txt</code> file</li>
-<li>Log out, then log back in again</li>
-<li>Try the &quot;final steps&quot; commands from <a href="https://gorails.com/setup/ubuntu/16.04">those directions</a>. In particular, if you run <code>rails new myapp</code>, then it should work. (You will likely want to delete the myapp/ directory once you've tested this)</li>
-</ol>
-<p>You will have to run through the rest of the &quot;final steps&quot; commands to configure your rails application. As your first rails application needs to be called &quot;railshw&quot;, you will need to enter <code>rails new railshw -d mysql</code>, and then the rest of the commands listed there.</p>
+<h3 id="install-ruby-and-rails">Install Ruby and Rails</h3>
+<p>Note that Ruby is the programming language, and Rails is the framework.</p>
+<p>The correct versions of Ruby and Rails have already been set up properly on the VirtualBox image and on the docker image.</p>
+<p>If you are running this on your <em>own</em> machine, then you will want to follow the instructions at <a href="https://gorails.com/setup/ubuntu/16.04" class="uri">https://gorails.com/setup/ubuntu/16.04</a> if you are running Ubuntu 16.04. If you are running Mac OS X, that site has directions <a href="https://gorails.com/setup/osx">here</a>. Likewise, other versions of Ubuntu can be found from those two links. If you are using another operating system, you are on your own (but note that the versions <strong><em>MUST</em></strong> match what we are using (Ruby 2.4.1 and Rails 5.1.3)). It's okay if you have a more recent patch level version (i.e., Ruby 2.4.2 or rails 5.1.4, for example), but you can't have a different minor or major version.</p>
 <h3 id="setting-up-a-new-rails-app">Setting up a new Rails app</h3>
 <p>To set up a new Rails app, you will need to follow the &quot;final steps&quot; instructions from <a href="https://gorails.com/setup/ubuntu/16.04">here</a>. Specifically:</p>
 <ol style="list-style-type: decimal">
@@ -33,6 +24,7 @@
 <li>For this homework, your Rails app MUST be named &quot;railshw&quot;, and it MUST be in your home directory, as this is how the web server is configured. In particular, there must be a ~mst3k/railshw/public directory.</li>
 <li>For your project (when you are assigned to your project later), the name of the Rails app should match your project tag</li>
 <li>If it asks you for your password for sudo, hit Control-C. It wants to install the Ruby gems (the libraries) system-wide, and we are going to do it in your individual user account. To do this, enter <code>cd railshw</code> to move into the Rails application directory that you just created, then enter <code>bundle install --path vendor/bundle</code>. This will take a minute or two to complete.</li>
+<li>If you running it through the docker image, then eliminate the <code>-d mysql</code> -- this will force it to be a SQLite3 database, and you will transition to the MySQL database when you move to the course server.</li>
 </ul></li>
 <li>Edit <code>railshw/config/database.yml</code>, and enter your MySQL credentials (change username, password, and database). For now, change <strong><em>all</em></strong> the fields (username and password appear twice, and database appears three times). You can keep the same database (the same name as your userid) for production and development (as this is just a homework -- you should <strong>NOT</strong> do that in practice), and use a different database (such as <code>mst3k_test</code>) for testing. For the homework, you can list your password in plaintext in that file. However, for your project app, you are <strong><em>NOT</em></strong> to have the plain text passwords in the files in the repository -- see the Security section, next, for how to handle the password.</li>
 <li>From the railshw/ directory, run <code>bundle install</code> (or, if on the course server, <code>bundle install --path vendor/bundle</code>).</li>
@@ -50,27 +42,25 @@
 <li>Edit the Gemfile, and add the line to add the gem: <code>gem 'foobar', group: :development</code>, or similar</li>
 <li>Run <code>bundle install</code>
 <ul>
-<li>Depending on the gem, it may prompt you to enter <code>bundle install --path vendor/bundle</code> instead</li>
+<li>If you are on the course server, <code>bundle install --path vendor/bundle</code> instead</li>
 </ul></li>
-<li>You should be able to view your app through <code>rails server</code>, as you have installed it locally (in ./.rbenv/versions/2.3.1/lib/ruby/gems/2.2.0/gems/, if you are interested).</li>
-<li>The previous command installs the gem(s) in a single <code>gems/</code> directory that <em>all</em> of your Ruby apps can use. However, the webserver cannot access that directory. Thus, you need to run <code>bundle --deployment</code>. This will install all the gems <em>again</em>, but this time to vendor/bundle, which the web server <em>can</em> find.</li>
-<li>Reload the apache web server by running <code>/usr/local/bin/reload-apache2</code></li>
+<li>If you are running it locally, you should be able to view your app through <code>rails server</code></li>
+<li>If you are on the course server, reload the apache web server by running <code>/usr/local/bin/reload-apache2</code></li>
 </ol>
 <h3 id="uploading-to-the-server">Uploading to the server</h3>
-<p>The server is 64-bit, and your local development platform is likely 32-bit (especially if you are using the VirtualBox image). Thus, in addition to uploading, you will have to reinstall the gems. To do so:</p>
 <ul>
 <li>Upload the files to pegasus: <code>rsync -a railshw/ mst3k@server:~/railshw</code>
 <ul>
 <li>The syntax for that command (such as all the forward slashes) must be exact!</li>
-<li>At this point, your rails page should give a Passenger error with &quot;wrong ELF class&quot; listed there</li>
 </ul></li>
 <li>Log into pegasus: <code>ssh mst3k@server</code></li>
-<li>Move into the railshw/ directory that was just created when we uploaded the directory: <code>cd railshw</code></li>
-<li>Delete the vendor/bundle directory: <code>/bin/rm -rf vendor/bundle</code></li>
-<li>Reinstall the gems: <code>bundle install --path vendor/bundle</code></li>
+<li>Move into the railshw/ directory that was just created when we uploaded the directory: <code>cd railshw</code> and install the gems: <code>bundle install --path vendor/bundle</code></li>
 <li>At this point, you should be able to view your application</li>
 </ul>
+<p>If you see a Passenger error with &quot;wrong ELF class&quot; listed there, then you are running a 32-bit machine locally, and the course server is 64-bit. In the project directory, run <code>/bin/rm -rf vendor/bundle</code> and then reinstall the gems (as above, with <code>--path</code>).</p>
 <p>You may need to transfer the DB, or run db:migrate, depending on the details of your app</p>
+<h3 id="sqlite-to-mysql">SQLite to MySQL</h3>
+<p>If you used the docker image, then you likely kept the data for the app in a SQLite3 database. You can use the framework's command to create the tables. You can use the <a href="http://www.sqlitetutorial.net/sqlite-dump/">.dump command</a> to extract the data, and then enter it into the MySQL database on the course server. If you are unsure what the format of the database configuration file should be, create a new app (with a different name) that uses MySQL, and look at the file therein for the format (or just copy the database configuration file over).</p>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>If you get a Passenger error on the server that states, &quot;wrong ELF class&quot;, as shown <a href="images/rails-bad-elf.png">here</a>, then the problem is that you have installed all of your gems (via <code>bundle install --path vendor/bundle</code>) on your local <strong><em>32-bit</em></strong> machine or image, and then uploaded them to the server, which is a 64-bit machine. To fix, you must delete the <strong><em>entire</em></strong> bundle directory on the server: <code>/bin/rm -rf ~/railshw/vendor/bundle</code>, and then reinstall them all again (via <code>bundle install --path vendor/bundle</code>).</p>
 <h3 id="viewing-your-rails-application">Viewing your Rails application</h3>

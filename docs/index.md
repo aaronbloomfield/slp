@@ -28,8 +28,9 @@ SLP: Documents
 
 - [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md))
     - [Django getting started](django-getting-started.html) ([md](django-getting-started.md))
+	- [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md))
+	- If you are deploying to apache2 on your own machine (which you don't have to do for this course, since we have that configured for you):
         - [Django deployment](django-deployment.html) ([md](django-deployment.md))
-    - [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md))
         - [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md))
 
 

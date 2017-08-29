@@ -3,25 +3,15 @@ SLP: Ruby on Rails: Getting Started
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
 
-### Install Ruby and Rails
-
 Ruby is the programming language, and Rails is the framework.  They are typically used at the same time, so the entire setup is often just called "Rails".
 
-Note that Ruby is the programming language, and Rails is the framework.  When all is completed, you ***MUST*** have Ruby version 2.3.1 installed and Rails 4.2.6 installed.  It's okay if you have a different patch level version (i.e., Ruby 2.3.2 or rails 4.2.7, for example), but you can't have a different minor or major version.
+### Install Ruby and Rails
 
-If you are running this on the VirtualBox image, then this step has already been performed.  See below for getting this working on the course server.
+Note that Ruby is the programming language, and Rails is the framework.
 
-If you are running this on your *own* machine, then you will want to follow the instructions at [https://gorails.com/setup/ubuntu/16.04](https://gorails.com/setup/ubuntu/16.04) if you are running Ubuntu 16.04.  If you are running Mac OS X, that site has directions [here](https://gorails.com/setup/osx).  Likewise, other versions of Ubuntu can be found from those two links.  If you are using another operating system, you are on your own (but note that the versions ***MUST*** match what we are using (Ruby 2.3.1 and Rails 4.2.6)).
+The correct versions of Ruby and Rails have already been set up properly on the VirtualBox image and on the docker image.
 
-To install this on the course server, you could follow the directions from [that site](https://gorails.com/setup/ubuntu/16.04).  However, those directions take about a half hour to complete.  Instead, follow the following steps.  Note that this will only work on the course server!
-
-1. Enter `cd` to ensure you are in your home directory
-2. Enter `tar xfz /usr/local/rails-setup.tgz`
-3. Edit your `.bashrc` file, and add the three lines indicated in the `bashrc-mods.txt` file
-4. Log out, then log back in again
-5. Try the "final steps" commands from [those directions](https://gorails.com/setup/ubuntu/16.04).  In particular, if you run `rails new myapp`, then it should work.  (You will likely want to delete the myapp/ directory once you've tested this)
-
-You will have to run through the rest of the "final steps" commands to configure your rails application.  As your first rails application needs to be called "railshw", you will need to enter `rails new railshw -d mysql`, and then the rest of the commands listed there.
+If you are running this on your *own* machine, then you will want to follow the instructions at [https://gorails.com/setup/ubuntu/16.04](https://gorails.com/setup/ubuntu/16.04) if you are running Ubuntu 16.04.  If you are running Mac OS X, that site has directions [here](https://gorails.com/setup/osx).  Likewise, other versions of Ubuntu can be found from those two links.  If you are using another operating system, you are on your own (but note that the versions ***MUST*** match what we are using (Ruby 2.4.1 and Rails 5.1.3)).  It's okay if you have a more recent patch level version (i.e., Ruby 2.4.2 or rails 5.1.4, for example), but you can't have a different minor or major version.
 
 ### Setting up a new Rails app
 
@@ -31,6 +21,7 @@ To set up a new Rails app, you will need to follow the "final steps" instruction
     - For this homework, your Rails app MUST be named "railshw", and it MUST be in your home directory, as this is how the web server is configured.  In particular, there must be a ~mst3k/railshw/public directory.
     - For your project (when you are assigned to your project later), the name of the Rails app should match your project tag
     - If it asks you for your password for sudo, hit Control-C.  It wants to install the Ruby gems (the libraries) system-wide, and we are going to do it in your individual user account.  To do this, enter `cd railshw` to move into the Rails application directory that you just created, then enter `bundle install --path vendor/bundle`.  This will take a minute or two to complete.
+    - If you running it through the docker image, then eliminate the `-d mysql` -- this will force it to be a SQLite3 database, and you will transition to the MySQL database when you move to the course server.
 2. Edit `railshw/config/database.yml`, and enter your MySQL credentials (change username, password, and database).  For now, change ***all*** the fields (username and password appear twice, and database appears three times).  You can keep the same database (the same name as your userid) for production and development (as this is just a homework -- you should **NOT** do that in practice), and use a different database (such as `mst3k_test`) for testing.  For the homework, you can list your password in plaintext in that file.  However, for your project app, you are ***NOT*** to have the plain text passwords in the files in the repository -- see the Security section, next, for how to handle the password.
 3. From the railshw/ directory, run `bundle install` (or, if on the course server, `bundle install --path vendor/bundle`).
 4. From the railshw/ directory, run `rake db:create`.  It will say that 'mst3k already exists' or 'mst3k_test already exists', once or twice -- that's fine.
@@ -54,25 +45,25 @@ For those who are interested, there are more options listed [here](http://railsa
 
 1. Edit the Gemfile, and add the line to add the gem: `gem 'foobar', group: :development`, or similar
 2. Run `bundle install`
-    - Depending on the gem, it may prompt you to enter `bundle install --path vendor/bundle` instead
-3. You should be able to view your app through `rails server`, as you have installed it locally (in ./.rbenv/versions/2.3.1/lib/ruby/gems/2.2.0/gems/, if you are interested).
-4. The previous command installs the gem(s) in a single `gems/` directory that *all* of your Ruby apps can use.  However, the webserver cannot access that directory.  Thus, you need to run `bundle --deployment`.  This will install all the gems *again*, but this time to vendor/bundle, which the web server *can* find.
-4. Reload the apache web server by running `/usr/local/bin/reload-apache2`
+    - If you are on the course server, `bundle install --path vendor/bundle` instead
+3. If you are running it locally, you should be able to view your app through `rails server`
+4. If you are on the course server, reload the apache web server by running `/usr/local/bin/reload-apache2`
 
 ### Uploading to the server
 
-The server is 64-bit, and your local development platform is likely 32-bit (especially if you are using the VirtualBox image).  Thus, in addition to uploading, you will have to reinstall the gems.  To do so:
-
 - Upload the files to pegasus: `rsync -a railshw/ mst3k@server:~/railshw`
     - The syntax for that command (such as all the forward slashes) must be exact!
-    - At this point, your rails page should give a Passenger error with "wrong ELF class" listed there
 - Log into pegasus: `ssh mst3k@server`
-- Move into the railshw/ directory that was just created when we uploaded the directory: `cd railshw`
-- Delete the vendor/bundle directory: `/bin/rm -rf vendor/bundle`
-- Reinstall the gems: `bundle install --path vendor/bundle`
+- Move into the railshw/ directory that was just created when we uploaded the directory: `cd railshw` and install the gems: `bundle install --path vendor/bundle`
   - At this point, you should be able to view your application
 
+If you see a Passenger error with "wrong ELF class" listed there, then you are running a 32-bit machine locally, and the course server is 64-bit.  In the project directory, run `/bin/rm -rf vendor/bundle` and then reinstall the gems (as above, with `--path`).
+
 You may need to transfer the DB, or run db:migrate, depending on the details of your app
+
+### SQLite to MySQL
+
+If you used the docker image, then you likely kept the data for the app in a SQLite3 database.  You can use the framework's command to create the tables.  You can use the [.dump command](http://www.sqlitetutorial.net/sqlite-dump/) to extract the data, and then enter it into the MySQL database on the course server.  If you are unsure what the format of the database configuration file should be, create a new app (with a different name) that uses MySQL, and look at the file therein for the format (or just copy the database configuration file over).
 
 ### Troubleshooting
 

@@ -5,22 +5,20 @@ SLP: Django: Getting Started
 
 ### Python version
 
-On both the course server and the VirtualBox image, there are two versions of python installed.  It is the system default version (`python -V`) that is used in the WSGI module (which is what runs the Django project in the web server).  As of the writing of this tutorial, that is version 2.7.6.  Running `python3 -V` indicates that Python 3.4.3 is also installed.
+On both the course server and the VirtualBox image, there are two versions of python installed.  It is the system default version (`python -V`) that is used in the WSGI module (which is what runs the Django project in the web server).  As of the writing of this tutorial, that is version 2.7.12.  Running `python3 -V` indicates that Python 3.5.2 is also installed.  These are the defaults for a stock version of Ubuntu 16.04 as of the writing of this document (August 2017).
 
 ### Install Django
 
-Django has already been installed on the VirtualBox image provided, as well as on the course server.
+Django has already been installed on the VirtualBox image provided, the docker image provided, as well as on the course server.
 
-To install Django on your own system, under Ubuntu 16.04, you need to install pip, the Python package manager: `sudo apt-get install python-pip`.  If it is not installed, you will also want to install the `python-mysqldb` package so that Python can connect to the MySQL database.  You can then install Django via `sudo pip install Django==1.10` (you may want to see if there is a newer release available than 1.10, which was the most recent release as of the writing of this document).  Note that installing the python-django package under Ubuntu will NOT work, as that is Django version 1.6.
-
-As of the writing of this tutorial (Aug 25, 2016), a stock Ubuntu 16.04 system comes with Python versions 2.7.6 (via `python`) and 3.4.3 (via `python3`) installed, and the above pip command installs Django version 1.10.
+To install Django on your own system, under Ubuntu 16.04, you need to install pip, the Python package manager: `sudo apt-get install python-pip`.  If it is not installed, you will also want to install the `python-mysqldb` package so that Python can connect to the MySQL database.  You can then install Django via `sudo pip install Django==1.11` (you may want to see if there is a newer release available than 1.11, which was the most recent release as of the writing of this document).  Note that installing the python-django package under Ubuntu will NOT work, as that is a previous Django version.
 
 
 ### Setting up a new Django project
 
-Much of these directions are based on the [Django intro tutorial](https://docs.djangoproject.com/en/1.8/intro/) from [Django Project](https://www.djangoproject.com/).  These directions are for Django version 1.8; if a newer version is released, then and you have to change the tutorial page version, via the link in the lower right, to 1.8, which is the version we are using.
+Much of these directions are based on the [Django intro tutorial](https://docs.djangoproject.com/en/1.11/intro/) from [Django Project](https://www.djangoproject.com/).  These directions are for Django version 1.11; if a newer version is released, then and you have to change the tutorial page version, via the link in the lower right, to 1.11, which is the version we are using.
 
-To create a Django project, follow these steps.  They are adapted from [part 1 of the Django tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial01/).
+To create a Django project, follow these steps.  They are adapted from [part 1 of the Django tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/).
 
 1. Enter `django-admin startproject mysite`.  This will create a `mysite/` directory with a bunch of files in it.
     - For the [Frameworks homework](hw-frameworks.html) ([md](hw-frameworks.md)), you probably will want to use "djangohw" as the project name
@@ -46,13 +44,13 @@ DATABASES = {
 	- Note that there is no easy way to add a DB table prefix to every table -- instead, you would have to specify the name of *every* table that Django uses.  You can see a whole bunch of people getting all twitchy over this [here](https://code.djangoproject.com/ticket/891).
     - And edit `TIME_ZONE` to match our time zone (EST).
 4. From the `mysite/` directory, run `python manage.py migrate`.  This will set up the DB tables.
-    - The 'superusers' that it prompts you for are a login for your web system -- you can use your userid, and pick any password that you'd like.  Note that by setting the username and password here, you can skip the "Create an admin user" section at the top of [page 2 of the Django tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial02/).
+    - The 'superusers' that it prompts you for are a login for your web system -- you can use your userid, and pick any password that you'd like.  Note that by setting the username and password here, you can skip the "Create an admin user" section at the top of [page 2 of the Django tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial02/).
 
-At this point, you Django project is up and running, even if it doesn't do much.  You can now start about half-way down on the [Django tutorial, part 1](https://docs.djangoproject.com/en/1.8/intro/tutorial01/#creating-models) page (start at the "Creating models" section).
+At this point, you Django project is up and running, even if it doesn't do much.  You can now start about half-way down on the [Django tutorial, part 1](https://docs.djangoproject.com/en/1.11/intro/tutorial01/#creating-models) page (start at the "Creating models" section).
 
 ### Viewing it locally
 
-As mentioned in [part 1 of the Django tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial01/), to view your Django project locally, you run `python manage.py runserver`, and then view it in the URL provided (likely `http://127.0.0.1:8000/`).
+As mentioned in [part 1 of the Django tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial01/), to view your Django project locally, you run `python manage.py runserver`, and then view it in the URL provided (likely `http://127.0.0.1:8000/`).
 
 ### Registering the Django project with Apache on the course server
 
@@ -115,6 +113,10 @@ This will update the timestamp on the wsgi.py file to the current time.  The web
 
 If you are still running into problems (such as Internal Server Errors (500)), try reloading the web server via `reload-apache2`.
 
+### SQLite to MySQL
+
+If you used the docker image, then you likely kept the data for the app in a SQLite3 database.  You can use the framework's command to create the tables.  You can use the [.dump command](http://www.sqlitetutorial.net/sqlite-dump/) to extract the data, and then enter it into the MySQL database on the course server.  If you are unsure what the format of the database configuration file should be, create a new app (with a different name) that uses MySQL, and look at the file therein for the format (or just copy the database configuration file over).
+
 ## Configuring the Django project
 
 While the project works, many things will still need tweaking.
@@ -127,7 +129,7 @@ If you look at http://server/django/mst3k/admin, it will look like the following
 
 You will note that there is no formatting, as the various files needed for that formatting (images, CSS files, etc.) can not be found.  These files are called *static files*, as their content does not change (much).
 
-There are many static files that are needed for a Django project; these are described in more detail in [part 6 of the Djago tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial06/).  Normally, the static files are found in http://server/static.  However, as there are many Django projects running on this web server, there are many *different* static directories, and thus the URL is different: ours will be at http://server/django/mst3k/static.
+There are many static files that are needed for a Django project; these are described in more detail in [part 6 of the Djago tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial06/).  Normally, the static files are found in http://server/static.  However, as there are many Django projects running on this web server, there are many *different* static directories, and thus the URL is different: ours will be at http://server/django/mst3k/static.
 
 This tutorial assumes that your static files are going to be kept in a `static/` sub-directory of your project directory (i.e., the `static/` directory is in the same directory as the `manage.py` file).  You do not need to make that directory yet; that will be done below.  The wsgi-admin program, which you used above, makes that assumption (where your static directory is) as well.  If you want your static directory in a different location, then you will need to re-run the wsgi-admin program (after removing your current entry) and use the `-staticdir` flag, which is described above.
 
@@ -150,13 +152,13 @@ Lastly, reload the project (`touch mysite/wsgi.py`), and view the admin page aga
 
 ![](images/django-static-good.png)
 
-Once that is done, the tutorial (specifically, [part 6](https://docs.djangoproject.com/en/1.8/intro/tutorial06/)) proceeds normally, and no changes to the tutorial are needed.
+Once that is done, the tutorial (specifically, [part 6](https://docs.djangoproject.com/en/1.11/intro/tutorial06/)) proceeds normally, and no changes to the tutorial are needed.
 
 ##### Configuring the Django project's URLs
 
-This section assumes that there is a `polls` app in the project, which is what is done in the tutorial that is part of the [Frameworks homework](hw-frameworks.html) ([md](hw-frameworks.md)).  If you made a different named app, just replace "polls" with the app name in the instructions below.  This section also assumes you have a default view (we'll use `index`) for that app.  This is done in the first half of [page 3 of the Django tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial03/).  If you have not yet added that app *and* that view to the project, then this won't work -- come back to this spot in the instructions when you have added that app (and view).
+This section assumes that there is a `polls` app in the project, which is what is done in the tutorial that is part of the [Frameworks homework](hw-frameworks.html) ([md](hw-frameworks.md)).  If you made a different named app, just replace "polls" with the app name in the instructions below.  This section also assumes you have a default view (we'll use `index`) for that app.  This is done in the first half of [page 3 of the Django tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial03/).  If you have not yet added that app *and* that view to the project, then this won't work -- come back to this spot in the instructions when you have added that app (and view).
 
-Currently, http://server/django/mst3k gives a page not found error, but http://server/django/mst3k/polls works; we are going to redirect the former to the latter.  The first half of [page 3 of the Django tutorial](https://docs.djangoproject.com/en/1.8/intro/tutorial03/) had you create a polls/urls.py to add the index view.  In addition, it had you edit mysite/urls.py to add a "polls" line -- this told Django how to route one to the polls app.  What we are going to do is to tell Django that if you view the *entire* project (at http://server/django/mst3k) to *also* route one to the polls app.
+Currently, http://server/django/mst3k gives a page not found error, but http://server/django/mst3k/polls works; we are going to redirect the former to the latter.  The first half of [page 3 of the Django tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial03/) had you create a polls/urls.py to add the index view.  In addition, it had you edit mysite/urls.py to add a "polls" line -- this told Django how to route one to the polls app.  What we are going to do is to tell Django that if you view the *entire* project (at http://server/django/mst3k) to *also* route one to the polls app.
 
 To do this, add a the following line to the following into that urlpatterns array (above the existing 'polls' line):
 
