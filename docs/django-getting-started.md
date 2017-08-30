@@ -101,6 +101,10 @@ To remove your entry, assuming it has an ID 42 (the ID is found via the `wsgi-ad
 wsgi-admin -remove -id 42
 ```
 
+Once the system is registered properly, you can view the site at http://server/django/mst3k; you will get the following image.  We'll get it working properly in the "Configuring the Django project" section, below.
+
+![](images/django-first-take.png)
+
 ### Updating the Django project
 
 If you have updated your Django project -- meaning you have edited *any* of the files -- then you will need to tell the web server that this has occurred.  While you can reload the web server (via the `reload-apache2` command), it's much better to update the timestamp on your wsgi.py file.  To do this, use the `touch` command:
@@ -123,7 +127,7 @@ While the project works, many things will still need tweaking.
 
 ##### Setting the static directory
 
-If you look at http://server/django/mst3k/admin, it will look like the following:
+If you look at http://server/django/mst3k/admin (notice the "/admin" at the end), it will look like the following:
 
 ![](images/django-static-bad.png)
 

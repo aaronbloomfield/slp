@@ -85,6 +85,11 @@
 <p>Note that that command will also tell you the ID of your entry, which is a positive integer. Also note that you can only have one entry per account, so you will have to remove an existing entry if you want to create a new one (or if you want to change any of the settings).</p>
 <p>To remove your entry, assuming it has an ID 42 (the ID is found via the <code>wsgi-admin -list</code> command):</p>
 <pre><code>wsgi-admin -remove -id 42</code></pre>
+<p>Once the system is registered properly, you can view the site at http://server/django/mst3k; you will get the following image. We'll get it working properly in the &quot;Configuring the Django project&quot; section, below.</p>
+<div class="figure">
+<img src="images/django-first-take.png" />
+
+</div>
 <h3 id="updating-the-django-project">Updating the Django project</h3>
 <p>If you have updated your Django project -- meaning you have edited <em>any</em> of the files -- then you will need to tell the web server that this has occurred. While you can reload the web server (via the <code>reload-apache2</code> command), it's much better to update the timestamp on your wsgi.py file. To do this, use the <code>touch</code> command:</p>
 <pre><code>touch ~/mysite/mysite/wsgi.py</code></pre>
@@ -95,7 +100,7 @@
 <h2 id="configuring-the-django-project">Configuring the Django project</h2>
 <p>While the project works, many things will still need tweaking.</p>
 <h5 id="setting-the-static-directory">Setting the static directory</h5>
-<p>If you look at http://server/django/mst3k/admin, it will look like the following:</p>
+<p>If you look at http://server/django/mst3k/admin (notice the &quot;/admin&quot; at the end), it will look like the following:</p>
 <div class="figure">
 <img src="images/django-static-bad.png" />
 
