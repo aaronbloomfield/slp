@@ -23,11 +23,11 @@ Lectures (fall 2017)
 | 1   | Aug&nbsp;23 | Wednesday   | lecture       | [Course introduction][8]  | | [Course introduction][8], slides 1 to 7.14 |
 | 2   | Aug&nbsp;25 | Friday      | lecture       | [Course introduction][8] | | [Course introduction][8], slides 8.1 to 9.19 |
 | 3   | Aug&nbsp;28 | Monday      | lecture       | [Legal issues][51] | | [Course introduction][8], slides 10.1 to 11.11 (end); [Legal issues][51], slides 1 to 5.6 |
-| 4   | Aug&nbsp;30 | Wednesday   | lecture       | [Legal issues][51], [Development methods][52] | [git/github HW due](../docs/hw-git.html) ([md](../docs/hw-git.md)) |
-| 5   | Sep&nbsp;1  | Friday      | lecture       | [Development methods][52] | | |
-| 6   | Sep&nbsp;4  | Monday      | lecture       | [Frameworks][53] | Django part of [HW 2][22] ([md][23])| |
-| 7   | Sep&nbsp;6  | Wednesday   | lecture       | [Frameworks][53]    | | |
-| 8   | Sep&nbsp;8  | Friday      | no class      |               | Rails part of [HW 2][22] | |
+| 4   | Aug&nbsp;30 | Wednesday   | lecture       | [Legal issues][51] | [git/github HW due](../docs/hw-git.html) ([md](../docs/hw-git.md)) | [Legal issues][51], slides 5.7 to 7.6 |
+| 5   | Sep&nbsp;1  | Friday      | lecture       | [Legal issues][51], [Development methods][52] | | [Legal issues][51], slides 7.7 to 8.7 (end); [dev methods][52], slides 1 to ... |
+| 6   | Sep&nbsp;4  | Monday      | lecture       | [Development methods][52] | Django part of [HW 2][22] ([md][23])| |
+| 7   | Sep&nbsp;6  | Wednesday   | lecture       | [Frameworks][53] | | |
+| 8   | Sep&nbsp;8  | Friday      | no class      | [Frameworks][53] | Rails part of [HW 2][22] | |
 | 9   | Sep&nbsp;11 | Monday      | lecture       | [Requirements][54], survey & project discussion  | Django extension | |
 | 10  | Sep&nbsp;13 | Wednesday   | lecture       | [Requirements][54] | Rails extension (Thurs) | |
 | 11  | Sep&nbsp;15 | Friday      | class optional |               | Year-start surveys due | |
