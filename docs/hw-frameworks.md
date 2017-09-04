@@ -102,13 +102,6 @@ A few notes on that tutorial (these were notes from a previous version of the tu
 
 - When editing the models.py file, you may have to put two additional imports at the top that the tutorial does not mention (`from django.utils import timezone` and `import datetime`); this is described in more detail [here](https://code.djangoproject.com/ticket/19793)
 - If python complains about not knowing what 'timezone' is, figure out which file it is running into this issue (this is listed in the stack trace), and put `from django.utils import timezone` at the top of that file
-- The last line of `test_index_view_with_two_past_polls()` (in the [tutorial page 5](https://docs.djangoproject.com/en/1.11/intro/tutorial05/)) may need to change to the following, as per [here](http://www.simonveal.com/trying-to-compare-non-ordered-queryset-against-more-than-one-ordered-values/):
-```
-self.assertQuerysetEqual(
-        response.context['latest_poll_list'].order_by('question'),
-         ['<Poll: Past poll 1.>', '<Poll: Past poll 2.>']
-    )
-```
 - Note that one of the tests (specifically, `test_detail_view_with_a_future_poll()`) only succeeds if a future poll returns a 404 page, which is what the original `results()` view did.  However, when the view was switched over to Django's generic views (the bottom of the [tutorial page 4](https://docs.djangoproject.com/en/1.11/intro/tutorial04/)), that is no longer the default behavior.  Thus, that test can be removed.  This will make much more sense once you have read through the end of the testing section in the tutorial.
 
 When you have updated your Django project, remember to touch the wsgi.py file to make the web server reload your project; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details.
@@ -129,6 +122,6 @@ None!  We have access to your files on the course server, and we can view your p
 - Django: `http://server/django/mst3k`
     - You *MUST* enter the urls.py rule to make that URL work; see the [Django getting started](django-getting-started.html) ([md](django-getting-started.md)) page for details (specifically, the "Configuring the Django project's URLs" section)
 
-For any sites that have user authentication, you MUST allow user `kermit` with password `frog` to log in and see any and all features.  If `frog` doesn't work (it's too short), try `frog1234`.  For the Rails app, we will also try authenticating `dhh` and `secret`, which is what the tutorial tells you to use (so either one is fine for the Rails app).
+For any sites that have user authentication, you MUST allow user `kermit` with password `frog` to log in and see any and all features.  If `frog` doesn't work (it's too short), try `frog1234`.  (You do this via `python manage.py createsuperuser`).  For the Rails app, we will also try authenticating `dhh` and `secret`, which is what the tutorial tells you to use (so either one is fine for the Rails app).
 
 Whether your program is late or not will be determined by the timestamp on the files in your home directory on the course server.
