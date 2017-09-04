@@ -10,6 +10,8 @@ Installing packages
 
 To install Django on your own system, under Ubuntu 14.04, just enter `sudo apt-get install python-django python-mysqldb`, and it will do the rest.  As of the writing of this tutorial (Aug 31, 2014), this installs Python version 2.7.6 and Django version 1.6.1.
 
+About installing the wsgi module, and for python 2/3...
+
 Configuring Apache
 ------------------
 

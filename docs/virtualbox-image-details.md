@@ -283,4 +283,6 @@ Because previous versions of this image were a different version of Ubuntu (spec
 
 **Changes for the future**
 
-- none, yet
+- An earlier version of this document (also from the fall 2017) semester had a few packages missing; to install those, run: `sudo apt-get install g++-multilib libc6-dev-i386 libc6-dev:i386 flex`
+    - This document includes those packages
+- Install a few things to ensure that python3 and django work with mysql: `pip install mysqlclient` and `apt-get install python3-mysqldb`

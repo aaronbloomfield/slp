@@ -278,7 +278,11 @@ sudo rsync -a --del hspcteam/ /home/hspcteam/</code></pre></li>
 <p>Because previous versions of this image were a different version of Ubuntu (specifically, 14.04), we are not providing upgrade information, as it is too extensive to properly check those instructions.</p>
 <p><strong>Changes for the future</strong></p>
 <ul>
-<li>none, yet</li>
+<li>An earlier version of this document (also from the fall 2017) semester had a few packages missing; to install those, run: <code>sudo apt-get install g++-multilib libc6-dev-i386 libc6-dev:i386 flex</code>
+<ul>
+<li>This document includes those packages</li>
+</ul></li>
+<li>Install a few things to ensure that python3 and django work with mysql: <code>pip install mysqlclient</code> and <code>apt-get install python3-mysqldb</code></li>
 </ul>
 </body>
 </html>

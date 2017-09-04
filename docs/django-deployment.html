@@ -14,6 +14,7 @@
 <p>This page is for how to <em>deploy</em> your Django apps on an Ubuntu server -- specifically, Ubuntu 14.04. This is not needed for your local development, as you can run <code>python manage.py runserver</code> to test it out locally, or test it out on the course server provided. However, if you <strong><em>do</em></strong> want to get it running through Apache, read on...</p>
 <h2 id="installing-packages">Installing packages</h2>
 <p>To install Django on your own system, under Ubuntu 14.04, just enter <code>sudo apt-get install python-django python-mysqldb</code>, and it will do the rest. As of the writing of this tutorial (Aug 31, 2014), this installs Python version 2.7.6 and Django version 1.6.1.</p>
+<p>About installing the wsgi module, and for python 2/3...</p>
 <h2 id="configuring-apache">Configuring Apache</h2>
 <p>This assumes Apache version 2.4; if you are using version 2.2, then the syntax for this is quite different (some of those differences are described below).</p>
 <p>This part specifically deals with configuring <em>multiple</em> django apps on the same web server, as that is what is needed for this course. For <em>each</em> django app, the following 8 lines need to be added to <code>/etc/apache2/sites-available/000-default.conf</code>, right above the end <code>&lt;/VirtualHost&gt;</code> line:</p>
