@@ -121,6 +121,8 @@ If you are still running into problems (such as Internal Server Errors (500)), t
 
 If you used the docker image, then you likely kept the data for the app in a SQLite3 database.  You can use the framework's command to create the tables.  You can use the [.dump command](http://www.sqlitetutorial.net/sqlite-dump/) to extract the data, and then enter it into the MySQL database on the course server.  If you are unsure what the format of the database configuration file should be, create a new app (with a different name) that uses MySQL, and look at the file therein for the format (or just copy the database configuration file over).
 
+It may be that the SQLite dump does not work well under MySQL.  One option is to edit the dump extensively, but that is long and annoying to do.  Another option is to migrate the DB through the framework on the course server, and re-enter the data into the DB (from the tutorial, copy and paste all the insert commands).
+
 ## Configuring the Django project
 
 While the project works, many things will still need tweaking.
