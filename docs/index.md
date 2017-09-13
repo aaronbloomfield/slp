@@ -33,7 +33,7 @@ SLP: Documents
         - [Django deployment](django-deployment.html) ([md](django-deployment.md))
         - [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md))
 
-- [Frameworks extension homework](hw-framework-ext.html) ([md](hw-framework-ext.md))
+- [Frameworks expansion homework](hw-framework-exp.html) ([md](hw-framework-exp.md))
 
 ### Projects
 
