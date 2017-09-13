@@ -19,6 +19,12 @@ You will need to add these features
 - Note that all polls are public, and all will display on the landing page (there are no per-user pages)
 - Also note that the original functionality (from the main [frameworks homework](hw-frameworks.html) ([md](hw-frameworks.md)) should still be present -- it's fine if there is more (CSS, more polls), but the original one should stay there.
 
+A couple of notes:
+
+- You can use the built-in user model for this, but the admin needs to be able to create a user without going into the built-in admin panel
+- Passwords can be set via the built-in `user.set_password()` function
+- It's fine if the link to create users just doesn't appear for regular users (this is not particularly secure, and not viable for the project, but okay for this homework)
+
 ### Ruby / Rails
 
 - This will be essentially identical to the Django version (create users with permissions, etc.), except that the users will be able to manage blogs instead of polls. All blog posts are to appear on the main landing page.  We will use the same admin login (kermit/frog1234) to test this.
