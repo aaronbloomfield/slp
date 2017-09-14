@@ -28,3 +28,5 @@ A couple of notes:
 ### Ruby / Rails
 
 - This will be essentially identical to the Django version (create users with permissions, etc.), except that the users will be able to manage blogs instead of polls. All blog posts are to appear on the main landing page.  We will use the same admin login (kermit/frog1234) to test this.
+
+Consider looking at [this online rails tutorial](https://www.railstutorial.org/book/), specifically chapters 6, 7, and 8.
