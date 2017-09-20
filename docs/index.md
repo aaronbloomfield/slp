@@ -23,17 +23,16 @@ SLP: Documents
 
 ### Homeworks
 
-- [Git HW](hw-git.html) ([md](hw-git.md))
+- HW 1: [Git HW](hw-git.html) ([md](hw-git.md))
     - [Introduction to git and github](git-intro.html) ([md](git-intro.md))
-
-- [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md))
+- HWs 2 & 3: [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)) (Django is HW 2, Rail is HW 3)
     - [Django getting started](django-getting-started.html) ([md](django-getting-started.md))
 	- [Ruby on Rails getting started](rubyrails-getting-started.html) ([md](rubyrails-getting-started.md))
 	- If you are deploying to apache2 on your own machine (which you don't have to do for this course, since we have that configured for you):
         - [Django deployment](django-deployment.html) ([md](django-deployment.md))
         - [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md))
-
-- [Frameworks expansion homework](hw-framework-exp.html) ([md](hw-framework-exp.md))
+- HWs 4 & 5: [Frameworks expansion homework](hw-framework-exp.html) ([md](hw-framework-exp.md)) (Django is HW 4, Rail is HW 5)
+- HW 6: ...
 
 ### Projects
 
