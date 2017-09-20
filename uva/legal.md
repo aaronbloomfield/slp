@@ -3,14 +3,15 @@ SLP: UVa Legal Forms
 
 [Go up to the main UVa page](index.html) ([md](index.md))
 
-Unless otherwise noted, the forms on this page have been approved by the powers-that-be at the University of Virginia ("UVa") for use by UVa students participating in the Service Learning Practicum.  In particular, they are not generic legal forms for other fourth-year capstone courses at UVa!  Other institutions are welcome to look over these, but they are obviously need to be approved by that institution for use there.
+The first two forms on this page have been approved by the powers-that-be at the University of Virginia ("UVa") for use by UVa students participating in the Service Learning Practicum.  In particular, they are not generic legal forms for other fourth-year capstone courses at UVa!  Other institutions are welcome to look over these, but they are obviously need to be approved by that institution for use there.
 
-**Students**, in order to participate, will need to sign the first form ("Student Participation and Release Form"), and possibly the second form ("Capstone NDA") if the nonprofit requests it. Note that there is no requirement for UVa students to sign any of these forms; however, there may be restrictions as to what projects a student can work on if s/he is not willing to sign these forms.  In particular, those restrictions will likely mean taking the independent project track to complete the capstone requirement.  For more details about not signing the forms, see [here](../slides/fall/01-intro.html#/mustisign).
+**Students**, in order to participate, will need to sign the first form ("Student Participation and Release Form"), and possibly the second form ("Capstone NDA") if the nonprofit requests it. The last form ("Open Source Agreement") is to be signed if your projects was stated to be an open source project.  Note that there is no requirement for UVa students to sign any of these forms; however, there may be restrictions as to what projects a student can work on if s/he is not willing to sign these forms.  In particular, those restrictions will likely mean taking the independent project track to complete the capstone requirement.  For more details about not signing the forms, see [here](../slides/01-legal.html#/mustisign).
 
-**Nonprofits** only have to sign the third form ("Customer Information Agreement").  If the nonprofit wants to have an NDA in effect, then the second form ("Capstone NDA") has already been approved for use by students in this capstone course.  Any other NDA form will need to be pre-approved by UVa prior to use.  The first form ("Student Participation and Release Form") contains the licensing agreement (item 6 of the form), but that form is only signed by the students.
+**Nonprofits** only have to sign the third form ("Customer Information Agreement").  If the nonprofit wants to have an NDA in effect, then the second form ("Capstone NDA") has already been approved for use by students in this capstone course.  Any other NDA form will need to be pre-approved by UVa prior to use.  The first form ("Student Participation and Release Form") contains the licensing agreement (item 6 of the form), but that form is only signed by the students.  Likewise, the fourth form ("Open Source Agreement") is only signed by the students, and only if the project is stated to be open source.
 
 These forms can be printed out and completed by hand, or one can type form fields into the Word document format (all except the signatures, which must be completed by hand), and print that version.
 
+----
 
 ### Student Participation and Release Form
 
@@ -28,6 +29,7 @@ A few notes when filling out this form:
 - The "Capstone Project" line is a slightly longer description of the project -- the idea is to give a one sentence overview of what the project is or does.
 - "Exhibit A", mentioned in item 7, is the Capstone NDA, above.
 
+----
 
 ### Capstone NDA
 
@@ -42,6 +44,7 @@ A few notes when filling out this form:
 - The "Collaborator" is the nonprofit for which the students are developing the project.
 - The "Capstone Project" line is a slightly longer description of the project -- the idea is to give a one sentence overview of what the project is or does.
 
+----
 
 ### Customer Information Agreement
 
@@ -49,3 +52,17 @@ This document ensures that the nonprofit is aware of the various disclaimers ass
 
 - [Customer Project Agreement in Word format](customer-project-agreement.docx)
 - [Customer Project Agreement in PDF format](customer-project-agreement.pdf)
+
+----
+
+### Open Source Agreement
+
+- [Open Source Agreement in Word format](open-source-agreement.docx)
+- [Open Source Agreement in PDF format](open-source-agreement.pdf)
+
+For projects that were stated to be an open source project, the students will have to sign this form, which allows the course instructor to release the code into as open source after the conclusion of the spring semester.
+
+A note when filling out this form:
+
+- In the title of the form, you have to fill in a short title for the capstone project, such as "ACME volunteer scheduler"
+
