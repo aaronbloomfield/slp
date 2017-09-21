@@ -42,7 +42,7 @@ DATABASES = {
 }
 ```
 	- Note that there is no easy way to add a DB table prefix to every table -- instead, you would have to specify the name of *every* table that Django uses.  You can see a whole bunch of people getting all twitchy over this [here](https://code.djangoproject.com/ticket/891).
-    - And edit `TIME_ZONE` to match our time zone (EST).
+    - And edit `TIME_ZONE` to match our time zone.  The particular value you want there is 'US/Eastern'.
 4. From the `mysite/` directory, run `python manage.py migrate`.  This will set up the DB tables.
     - The 'superusers' that it prompts you for are a login for your web system -- you can use your userid, and pick any password that you'd like.  Note that by setting the username and password here, you can skip the "Create an admin user" section at the top of [page 2 of the Django tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial02/).
 

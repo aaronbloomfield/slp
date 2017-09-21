@@ -48,16 +48,19 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q -q curl
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q -q nodejs
 
-# step 8: set up Python and Django; as of August 2017, this is Python
-# version 3.5.2 and Django version 1.11.4 (which is explicitly installed)
+# step 8: set up Python and Django; as of September 2017, this is Python
+# version 3.5.2 and Django version 1.11.5 (which is explicitly installed)
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y -q -q python3-pip
 RUN pip3 install --upgrade pip
-RUN pip install Django==1.11.4
+RUN pip install Django==1.11.5
 RUN pip install virtualenv
 
 # step 9: create work directory and expose the ports used with the
 # development servers
 RUN mkdir /root/work
 EXPOSE 3000 8000
+
+# step 10: clean up
+RUN DEBIAN_FRONTEND=noninteractive apt-get clean
 
 # all done!

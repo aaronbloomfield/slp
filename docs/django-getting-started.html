@@ -43,7 +43,7 @@
 }
 }</code></pre></li>
 <li>Note that there is no easy way to add a DB table prefix to every table -- instead, you would have to specify the name of <em>every</em> table that Django uses. You can see a whole bunch of people getting all twitchy over this <a href="https://code.djangoproject.com/ticket/891">here</a>.</li>
-<li>And edit <code>TIME_ZONE</code> to match our time zone (EST).</li>
+<li>And edit <code>TIME_ZONE</code> to match our time zone. The particular value you want there is 'US/Eastern'.</li>
 </ul></li>
 <li>From the <code>mysite/</code> directory, run <code>python manage.py migrate</code>. This will set up the DB tables.
 <ul>
