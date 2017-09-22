@@ -16,6 +16,9 @@ Visit the following link and go over a high level comparison between the three R
 ### Grading ###
 
 5/5 if checklist if clear and complete
+
 4/5 if check list is missing 1 or 2 tasks
+
 1/5 if check list is missing many tasks OR not clear
+
 0/5 otherwise
