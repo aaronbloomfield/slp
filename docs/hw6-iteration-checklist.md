@@ -5,7 +5,7 @@ SLP: HW6 - Iteration Checklist
 
 In clasee, we mentioned what you should keep track of during every iteration. Because eveyone does things differently, you should create a checklist that includes all (1) the tasks you should do or (2) forms/reports/surveys you should submit in any given iteration.
 
-You have until Friday 9/29 to complete your "iteration checklist" and submit it through Collab.
+You have until the end of Friday 9/29 (11:59pm) to complete your "iteration checklist" and submit it through Collab.
 
 ### An incomplete sample checklist ###
 
