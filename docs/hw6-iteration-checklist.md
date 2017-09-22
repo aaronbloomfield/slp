@@ -1,4 +1,4 @@
-SLP: HW6 - Iteration Checklist
+SLP: HW6 - Iteration Checklist (5 points)
 =======================
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
