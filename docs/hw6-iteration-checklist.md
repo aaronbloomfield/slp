@@ -19,7 +19,7 @@ Upload your checklist (in PDF format) as an answer to HW6 assignment on our Coll
 
 ### Grading ###
 
-5/5 if checklist if clear and complete
+5/5 if checklist is clear and complete
 
 4/5 if check list is missing 1 or 2 tasks
 
