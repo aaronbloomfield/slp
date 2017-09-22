@@ -13,6 +13,10 @@ Visit the following link and go over a high level comparison between the three R
 
 [Click here to see an incomplete sample of a checklist](http://www.cs.virginia.edu/ibrahim/shared/CS4970IterationChecklist.pdf)
 
+### Submission ###
+
+Upload your checklist (in PDF format) as an answer to HW6 assignment on our Collab page. That is, when you are done, (1) go to our Collabe site, (2) click on "Assignments", (3) click on "HW6 - Iteration Checklist (5 points)", (4) Attach your checklist, then (5) click "Submit".
+
 ### Grading ###
 
 5/5 if checklist if clear and complete
