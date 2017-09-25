@@ -60,6 +60,76 @@ line-height:120%;
 	<section>
 
 	  <section>
+<h2>USB Cables</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/usb_cables.png" title="Tag yourself, I&#39;m &quot;frayed.&quot;" alt="USB Cables" srcset="http://imgs.xkcd.com/comics/usb_cables_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/1892/">xkcd # 1892</a></p>
+	  </section>
+
+	  <section data-markdown><script type="text/template">
+## Monday, September 25th
+- Office hours are in the [syllabus](syllabus.html)
+- The homeworks are (mostly) all finished and are being graded
+- We are half-way through iteration 1
+- Leads: your first report is due tomorrow by noon; see [here](course-introduction-fall.html#/reports) for details
+- You can't `sudo` on the course server, so please stop trying
+- Remember you have to report hours at least once each iteration
+- Remember about how to [reserve a room for the meetings](#/meetingsrsvp); and about the [meeting report format](course-introduction-fall.html#/meetingreport)
+- Your journal prompt is due tomorrow by noon; see [here](#/journaling) for details
+- Basecamp info will be out later this week
+- The course server will have a bit of downtime this week (hopefully less than 15 minutes a piece)
+- Today is a group work day
+  - This Wednesday we will see [project estimation](../slides/07-estimation.html), so please wait until then to start entering all your github issues
+	  </script></section>
+
+          <section data-markdown><script type="text/template">
+## Python & Django versions
+- Django 1.11.5 recently came out (on September 5th)
+  - It's a security release
+  - 1.11.4 was installed everywhere previously
+- You all will need to upgrade
+  - On the VirtualBox image: `sudo -H pip install Django==1.11`
+  - If you are using docker: `docker pull aaronbloomfield/slp`
+    - And if you did a tag for the previous one, do that again: `docker tag aaronbloomfield/slp slp`
+  - And on your own custom install, as well
+- The course server has 1.11.5 on it now
+- For those who are familiar with it, we will all be switching over to virtualenv in a few weeks
+- The default version of Python on the course server will be changing to Python 3, but that has to wait until *after* the homeworks are all graded
+  - So in a month or so
+  - Since that may (temporarily) break your system, we will give you a heads-up before doing that
+	  </script></section>
+
+          <section data-markdown><script type="text/template">
+## Today's group work day
+- We will sign the [legal agreement](student-participation-form.pdf) (specifically, [this version](student-participation-form-for-tpegs-with-footer.pdf))
+  - Some groups will also be signing the [open source agreement](open-source-agreement.pdf)
+- You will also be scheduling your bi-weekly meeting with Inkee, the graduate TA
+  - Thus, please have access to your schedules!
+- Other than that, what you talk about is up to you
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Goals for iteration 1
+See [here](../slides/05-project-start.html#/it1goals) for full details, but briefly:
+
+- Fully understand the requirements
+- Meet with the customer
+- Design (and implement) a basic DB schema
+- Get your dev environment set up (see [uva-slp/tutorails](https://github.com/uva-slp/tutorials) for guidance)
+- Get a basic MVC site working on the course server
+  - Once done, this will require you emailing me so that I can complete the apache2 configuration
+- Have the system stored properly in the github repo (no passwords!!!)
+  - That means having all your framework created files in an app/ folder!
+- Enter all the requirements as tasks as Github issues (this is next Wednesday)
+- Everybody MUST have a github commit this iteration (and, in general, every iteration)
+	  </script></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	  <section>
 <h2>Obsolete Technology</h2>
 <img class="stretch" src="http://imgs.xkcd.com/comics/obsolete_technology.png" title="And I can&#39;t believe some places still use fax machines. The electrical signals waste so much time going AROUND the Earth when neutrino beams can go straight through!" alt="Obsolete Technology" srcset="http://imgs.xkcd.com/comics/obsolete_technology_2x.png 2x">
 <p class="center"><a href="http://xkcd.com/1891/">xkcd # 1891</a></p>
@@ -93,7 +163,7 @@ line-height:120%;
   - And if you go to http://aaronbloomfield.github.io/ you can navigate there in 3 clicks...
 	  </script></section>
 
-          <section data-markdown><script type="text/template">
+          <section data-markdown id="meetingsrsvp"><script type="text/template">
 ## Meeting room reminders
 - Some reservation reminders:
 - Swing by Rice 527 (the main CS office) or email cs-office@virginia.edu to reserve a conference room for a meeting
@@ -105,7 +175,7 @@ line-height:120%;
   - That being said, if you squat in a room, the worst that will happen is that somebody will just ask you to leave...
 	  </script></section>
 
-          <section data-markdown><script type="text/template">
+          <section data-markdown id="journaling"><script type="text/template">
 ## Journaling!
 - Every iteration you will have a *journal prompt*, which will ask you to reflect on something in writing
   - Some will require a reading prior to the written reflection!
@@ -685,7 +755,7 @@ Total is 16 projects we are aiming for
 - Please fill out the github userid survey at https://goo.gl/9YpXTL by Monday of next week
   - Why don't you do that now?
   - I will need that information to get your assignments graded, and to release the project information to you
-- Today we will finish the [course introduction](course-introduction-fall.html#/) (starting [here](course-introduction-fall.html#/reportssec)) and then possibly start on [legal issues](../slides/01-legal.html#/)
+- Today we will finish the [course introduction](course-introduction-fall.html#/) (starting [here](course-introduction-fall.html#/reports)) and then possibly start on [legal issues](../slides/01-legal.html#/)
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
