@@ -32,7 +32,7 @@ SLP: Documents
         - [Django deployment](django-deployment.html) ([md](django-deployment.md))
         - [Ruby on Rails deployment](rubyrails-deployment.html) ([md](rubyrails-deployment.md))
 - HWs 4 & 5: [Frameworks expansion homework](hw-framework-exp.html) ([md](hw-framework-exp.md)) (Django is HW 4, Rail is HW 5)
-- HW 6: ...
+- HW 6: [Iteration checklist](hw6-iteration-checklist.html) ([md](hw6-iteration-checklist.md))
 
 ### Projects
 
