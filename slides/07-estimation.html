@@ -81,6 +81,10 @@
 ## What is a task: use cases
 - Just a prose (i.e. English) explanation of what's happening
   - Play a dice game: player requests to roll the dice.  System presents results: if the dice face value totals seven, player wins; otherwise, player looses.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## What is a task: use cases
 - Three types:
   - Brief: one-paragraph summary (like the one 2 slides ago) that covers the 'happy path'
     - This is like a user story
@@ -92,7 +96,7 @@
 ## What unit to estimate a task in?
 - Waterfall methods use time (hours/days/etc.)
   - But this does not differentiate between hard tasks (coding) and mundane tasks (documentation)
-  - And how can one really predict the time something will take?
+  - And how can one really predict time taken?
 - Agile methodologies often uses *effort*
   - Often measured in *story points*
   - So a hard and short task may rate the same as a long and easy task
@@ -107,16 +111,16 @@
   - T-shirt sizes: XS, S, M, L, XL, XXL, XXXL
   - Fibonacci sequence: 1, 2, 3, 5, 8, 13, 21, etc.
     - Some upper limit here, such as 13 or 21
-    - Tasks bigger than this should be broken down into smaller tasks
+    - Tasks > 21 should be split into smaller tasks
   - Dog breeds: Chihuahua (small) to Great Dane (large)
-- It matters not, as long as the team understands the scale
+- It matters not, as long as the scale is agreed upon
 - We'll use the Fibonacci sequence
-  - Although I'm open to teams using custom ones; more on this shortly
+  - Although I'm open to teams using custom ones...
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## What about unknown task lengths?
-- Often this will be overestimated: 10, XXXL, 21, Great Dane, etc.
+- Often this will be overestimated: 10, XXXL, 21, etc.
   - By splitting it into smaller tasks, you can better estimate the individual parts
 - One purpose of the inception step is to estimate how much the tasks might take so that they aren't all listed as Great Danes
   - And our iteration 1 is inception-like
@@ -171,6 +175,10 @@
 - All of our tasks will be github issues
 - We have to do 24 (or 28 or 32) story points of "stuff" in this iteration
   - And thus you should be entering and marking off tasks during this iteration
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Marking off tasks
 - Do <font color='red'>NOT</font> make up tasks to hit this number!
   - It's meant as a guide; I am not going to hold you to that number
     - But if you don't enter any tasks, I will assume you are not doing any work
@@ -186,13 +194,16 @@
   - And, presumably, the sprint length we are using
 - We can divide one by the other to get an estimate of how many sprints the project will take
   - And thus we can compute how long the project will take
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Release length
 - Estimates not guaranteed to be 100% accurate
   - But in our case, the number of sprints is fixed
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Wait... we are aiming for a target?
-- Yes!
 - In most projects, you determine what the customer wants, and then estimate how much money and time it will take
 - But our projects are fixed in terms of resources (people and time)
 - So we can only do about 264 (or 308 or 352) story points on this project
@@ -225,8 +236,8 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## SLP burndown from 2015-2016
-![SLP 2013-2014 burndown chart](images/02-development-methods/slp-2015-2016.png)
+## SLP burndown from 2016-2017
+![SLP 2016-2017 burndown chart](images/02-development-methods/slp-2016-2017.png)
 	  </script></section>
 
 	</section>
@@ -240,7 +251,7 @@
 	  <section data-markdown><script type="text/template">
 ## Github iteration milestones
 - EACH iteration will have it's own milestone (named "iteration 1", "iteration 14", etc.)
-  - Again, don't change the spacing or characters, but I don't care about the capitalization case you use
+  - Again, don't change the spacing or characters, but I don't care about the capitalization you use
 - When you are moving tasks from the product backlog into the sprint backlog, you just assign them to that particular milestone
 	  </script></section>
 
@@ -261,27 +272,48 @@
   - Make sure these tags are exactly as specified here!
     - Don't add spaces, use underlines, etc.
     - But I don't care about the capitalization case you use
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Github story point tags
 - If you do not put a story point tag on each issue, then my automated script will start throwing all sorts of errors, and I'll have to track you down to fix it, which will just make me cranky
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Using your own scale
+- Your scale should have some concept of size
+  - So gummy bear colors is not all that useful...
 - You are welcome to use your own scale of story points, with the following restrictions:
   - What you use must map to the Fibonacci numbers
     - And thus you must do the equivalent of 4 story points per user per iteration
   - Your custom github tags must all begin with "story-points-"
-  - You must provide me a mapping of your tags to the Fibonacci numbers; for example:
-    - "story-points-chihuahua" maps to "story-points-1"
-    - "story-points-great-dane" maps to "story-points-21"
-    - Etc.
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Using your own scale
+- You must provide me a mapping of your tags to the Fibonacci numbers; for example:
+  - "story-points-chihuahua" maps to "story-points-1"
+  - "story-points-great-dane" maps to "story-points-21"
+  - Etc.
 - Realize that I may have to modify your scale a bit...
+  - I have to ensure my script works with that scale
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Current alternative scales
+- Dogs: chihuahua, poodle, terrier, border-collie, retriever, great-dane, clifford
+- T-shirt sizes: xs, s, m, l, xl, xxl, xxxl
+- These all map, respectively, to 1, 2, 3, 5, 8, 13, 21
+- You don't have to let me know if you are using these *exact* scales
+- Otherwise, let's chat
+  - As I have to modify a script to handle a new scale
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Zero story points?
 - Sure, this can happen
   - Usually when one realizes that a task is not necessary
-- Just use "story-points-0" as the tag
+- Just use "story-points-0" or "story-points-none" as the tag
   - Or something else, if you give me the mapping
 	  </script></section>
 
@@ -298,6 +330,11 @@
 - At the end of iteration 1, we will ask:
   - How many total story points in each system? And how many are left?
   - Do they all have priorities and story points?
+	  </script></section>
+
+	  <section data-markdown><script type="text/template">
+## Conclusion
+- At the end of iteration 1, we will ask:
   - Does the "iteration 1" milestone have tasks assigned to it?
     - And were those tasks completed?
     - We realize that, since we are just getting started, that the story points completed in iteration 1 may not be the expected amount
@@ -306,13 +343,18 @@
 
 	  <section data-markdown id="task"><script type="text/template">
 ## Today's task...
-- Decide on the story point unit you want to use (and send me the mapping, if you are using something else)
+- Decide on the story point unit you want to use
+  - And send me the mapping, if necessary
 - Create the labels in github's issues for both priorities and story points
 - Create the 14 milestones
 - Enter *all* your issues in github
-  - Estimate the effort for each one using whatever scale your team decides to use, and assign a priority to each
+  - Estimate the effort for each task using your scale, and assign a priority to each
 - Assign tasks to the "iteration 1" milestone
   - You can add completed tasks (just mark them as done and give them story points and priority tags)
+	  </script></section>
+
+	  <section data-markdown id="task"><script type="text/template">
+## Today's task...
 - You will not likely finish this all today, but it should be finished by the end of this iteration
 	  </script></section>
 
