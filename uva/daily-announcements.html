@@ -60,6 +60,89 @@ line-height:120%;
 	<section>
 
 	<section data-markdown data-separator="^\n$"><textarea data-template>
+<h2>Self Driving</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/self_driving.png" title="&quot;Crowdsourced steering&quot; doesn&#39;t sound quite as appealing as &quot;self driving.&quot;" alt="Self Driving" srcset="http://imgs.xkcd.com/comics/self_driving_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/1897/">xkcd # 1897</a></p>
+
+
+## Wednesday, October 4th
+- Office hours are in the [syllabus](syllabus.html)
+- The homeworks are (mostly) all finished and are being graded
+- We are at the start of iteration 2
+    - It's not a phase change, so no iteration survey or leadership switch
+- Leads: your TPS report was due yesterday; everybody got it in!
+- Remember you have to report hours at least once each iteration
+- Remember about how to [reserve a room for the meetings](#/meetingsrsvp); and about the [meeting report format](course-introduction-fall.html#/meetingreport)
+- Your journal prompt for iteration 2 will be out later today, and is due next Tuesday by noon (partial credit available until Friday at noon)
+- Remember that you have to [upgrade to Django 1.11.5](#/dupgrade)
+- PostEms have now moved to the [course administration system](https://slp.cs.virginia.edu:444/admin/)
+- The course server will have a bit of downtime "soon" (hopefully less than 15 minutes a piece)
+- Because we did not have class on Monday, we'll have group meetings today
+
+
+## End of iteration 1
+- After each iteration, you will receive an *iteration evaluation*
+    - Should be out by the next Monday's class
+- It will have a paragraph for the *entire* group, as well as a progress rating (excellent, good, fair, poor, none)
+    - That is the group grade!
+	- Keep in mind that the group grades are modified by the [work-done factor](course-introduction-fall.html#/factor)
+		- We'll have an estimate of this in early November
+- It will also have:
+    - Your attendances (or lack thereof)
+	- Project lead or secretary duties summary (if appropriate)
+	- Whether you reported your times or not
+    - Some of them may have comments, but most won't
+- If you feel that we did not evaluate you or your group properly (or missed something, etc.) please speak to the grad TA within 2 weeks
+    - So at your next TA meeting with him
+    - Unless there are exception circumstances, we will *not* allow re-evaluations after the 2 week period
+
+
+## Grad TA meeting schedule
+- First Friday of an iteration (starts Oct 6):
+    - 11:00-11:30: bigevent (in Rice 504)
+	- 11:30-12:00: servicedogs (in Rice 504)
+	- 1:30-2:00: amazonaid (in Rice 504)
+	- 2:00-2:30: sara (in Rice 108)
+	- 2:30-3:00: cyberbadges (in Rice 108)
+	- 3:00-3:30: carobotics (in Rice 108)
+- Second Tuesday of an iteration (starts Oct 9):
+    - 1:00-1:30: housing (in Rice 414)
+- Second Friday of an iteration (starts Oct 13):
+    - 10:30-11:00: gordie (in Rice 504)
+	- 11:00-11:30: quiztool (in Rice 504)
+	- 11:30-12:00: meals (in Rice 504)
+	- 1:30-2:00: gardeners (in Rice 504)
+	- 2:00-2:30: jaunt (in Rice 108)
+	- 2:30-3:00: pride (in Rice 108)
+	- 3:00-3:30: hspcreg (in Rice 108)
+- Not yet scheduled: wildrock :-(
+- Remember that EVERYBODY needs to attend this meeting!
+
+
+## Goals for Iteration 2
+- Have a site that should start to look like a workable site for the requirements
+  - Some just had one or two MVC components for the first iteration (which was fine, as that is what was required for then)
+  - Going to http://server/tag should bring up something other than "Hello World", or the Django error page
+- Complete 4 story points worth of work per group member
+- Your regular iteration meeting with the customer and the grad TA should happen
+- Specific goals:
+  - Generate wireframes: that's [an entire lecture](../slides/08-wireframing.html#/); this will likely take 3 or 5 story points of work.  The intent is to show them to the customer in iteration 3
+  - Enable easy deployment via automatic logins or ssh keys: see the [Development Environment Setup page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details.  This also includes enabling easy downloading of the database
+  - Publishing to the course server is best done via a github web hook and deploy key; see [that same page](http://aaronbloomfield.github.io/slp/docs/dev-env-setup.html) for details, but only I can set up both of those due to the github security setup
+  - Ensure that *everybody* in the development group can develop on his/her own machine
+- Some things to keep in mind:
+  - Your requrements document will be iterated on throughout the year
+  - What format you keep it in is up to you (although we recommend markdown), but we need to be able to view it
+  - Having the source (from the [uva-slp/projects repo](https://github.com/uva-slp/projects) repo) copied into a `docs/` directory in your repo is quite reasonable
+	</textarea></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	<section data-markdown data-separator="^\n$"><textarea data-template>
 <h2>Real Estate</h2>
 <img class="stretch" src="http://imgs.xkcd.com/comics/real_estate.png" title="I tried converting the prices into pizzas, to put it in more familiar terms, and it just became a hard-to-think-about number of pizzas." alt="Real Estate" srcset="http://imgs.xkcd.com/comics/real_estate_2x.png 2x">
 <p class="center"><a href="http://xkcd.com/1894/">xkcd # 1894</a></p>
@@ -70,13 +153,14 @@ line-height:120%;
 - The homeworks are (mostly) all finished and are being graded
     - [HW 6: Iteration checklist](../docs/hw6-iteration-checklist.html) is due this Friday by midnight
 - We are half-way through iteration 1
-- Leads: your first report was due yesterday by noon; everybody got it in!
+- Leads: your first report was due yesterday; everybody got it in!
 - Remember you have to report hours at least once each iteration
 - Remember about how to [reserve a room for the meetings](#/meetingsrsvp); and about the [meeting report format](course-introduction-fall.html#/meetingreport)
 - Your journal prompt was due yesterday by noon; see [here](#/journaling) for details (partial credit available until Friday at noon)
 - Remember that you have to [upgrade to Django 1.11.5](#/dupgrade)
-- PostEm has now moved to the course administration system
+- PostEm has now moved to the [course administration system](https://slp.cs.virginia.edu:444/admin/)
 - The course server will have a bit of downtime this week (hopefully less than 15 minutes a piece)
+- TA meeting times & locations will be out soon
 - Today is a an [estimation workday](../slides/07-estimation.html#/)
 
 
@@ -94,7 +178,6 @@ line-height:120%;
 
 ## Goals for iteration 1
 See [here](../slides/05-project-start.html#/it1goals) for full details, but briefly:
-
 - Fully understand the requirements
 - Meet with the customer
 - Design (and implement) a basic DB schema
@@ -106,6 +189,13 @@ See [here](../slides/05-project-start.html#/it1goals) for full details, but brie
 - Enter all the requirements as tasks as Github issues (today)
 - Everybody MUST have a github commit this iteration (and, in general, every iteration)
 - Everybody must add themselves to their basecamp project
+
+
+## Attendance check-in
+- Please check-in now http://tinyurl.com/slpcheckin
+- Today's code: mountain
+- Please check in *now*; I'll wait!
+- Remember: if you miss class for a *valid* reason, you can submit an attendance excuse via the course management system
 	</textarea></section>
 
 	</section>
