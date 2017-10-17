@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP: Python's virtualenv setup</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-pythons-virtualenv-setup">SLP: Python's virtualenv setup</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>Python has a <a href="https://pypi.python.org/pypi/virtualenv">virtualenv</a> package, which allows one to keep the installed Python packages, as well as various Python versions, stored locally. This allows users to install the packages, and the Python version can differ from the system default.</p>
+<p><strong>EVERYBODY SHOULD BE ON PYTHON 3!</strong> We aren't using Python 2 any more.</p>
+<p>The following are the steps to set up a Django app via <code>virtualenv</code>. This all works on the course server as a regular user.</p>
+<ol style="list-style-type: decimal">
+<li>Create the virtualenv directory. Do this via <code>virtualenv -p /usr/bin/python3 ~/venv-django-1.11</code>.
+<ul>
+<li>The <code>-p /usr/gbin/python3</code> is how you specify the Python version, and we are using Python 3.</li>
+<li>This will create a <code>/home/slp/user/venv-django-1.11</code> directory (where <code>user</code> is the user name).</li>
+<li>It doesn't matter what your directory is named, as long as it's a reasonable name.
+<ul>
+<li>However, it should be in your home directory (the <code>~/</code> before the directory name did that), and it should <strong>NOT</strong> be in your repo.</li>
+<li>And don't bother putting in the bugfix part of the version number in the directory (the <code>.6</code> of Django version <code>1.11.6</code>), since that is likely to change throughout the project.</li>
+</ul></li>
+</ul></li>
+<li>Install the packages that you need.
+<ul>
+<li>From a command prompt, run <code>source ~/venv-django-1.10/bin/activate</code>.
+<ul>
+<li>This command will set the environment variables so that package installs go into your virtual environment, rather than to the entire system (which your user can't do).</li>
+<li>You will notice a difference in the prompt so that you can tell if you are in this environment.</li>
+<li>You can run <code>deactivate</code> to exit this environment without logging out (or you can just log out).</li>
+</ul></li>
+<li>Once you are in this environment, install your packages as you would normally: <code>pip3 install foo</code>, <code>pip3 install Django==1.11.6</code>, <code>pip3 install -r requirements.txt</code>, etc.</li>
+<li>Note that you are using Python 2 (which you shouldn't be), you would use <code>pip</code> and not <code>pip3</code>.</li>
+</ul></li>
+<li>Install the Django package into your virtual environment!
+<ul>
+<li>The system one may change, and your app may not work properly with a changed Django version.</li>
+<li>Once in the virtualenv environment (from the previous step), run <code>pip3 install Django==1.11.6</code>.</li>
+<li>Unless you have a reason to do so otherwise, always install the latest Django version by explicitly stating the version number in the <code>pip3</code> command.</li>
+<li>The latest version can be found at <a href="https://www.djangoproject.com/" class="uri">https://www.djangoproject.com/</a>.</li>
+</ul></li>
+<li>Get the virtualenv library directory name.
+<ul>
+<li>This will be needed in the next step.</li>
+<li>If your directory created in step one was <code>~/venv-django-1.11</code>, then your directory will be something like <code>/home/slp/user/venv-django-1.11/lib/python3.5/site-packages</code>.</li>
+<li>Note that the user name, virtual environment directory name, and virtual environment directory will likely be different for you.</li>
+<li>You'll need the full path name, not a shortcut (i.e., don't use <code>~</code>, so <code>~/venv-django-1.11/lib/python3.5/site-packages</code> is not valid).</li>
+<li>We'll call this the &quot;library path&quot;.</li>
+</ul></li>
+<li>De-register the old Django app from the web server.
+<ul>
+<li>Run <code>wsgi-admin -list</code>, and note the ID number (first line).</li>
+<li>Run <code>wsgi-admin -remove -id 123</code>, where &quot;123&quot; is the ID number from above.</li>
+</ul></li>
+<li>Re-register the Django application.
+<ul>
+<li>There are a number of parameters that you need to supply:.
+<ul>
+<li><code>-register</code>: because we are registering a file</li>
+<li><code>-file mysite/mysite/wsgi.py</code>: the wsgi.py file for your project; you can do a absolute path or a relative path, but it's value will change depending on your directory structure.</li>
+<li><code>-root</code>: this registers it as <code>/user</code> instead of <code>/django/user</code>. <strong>Only</strong> use this for the project sites, as we will only be looking at <code>/django/user</code> to grade the homeworks.</li>
+<li><code>-path   /home/slp/user/venv-django-1.11/lib/python3.5/site-packages</code>: this is the library path from the previous step.</li>
+</ul></li>
+<li>Thus, a full wsgi-admin command might be one of the following (the first one doesn't have <code>-root</code>, the second one does):
+<ul>
+<li><code>wsgi-admin -register -file mysite/mysite/wsgi.py -path /home/slp/user/venv-django-1.11/lib/python3.5/site-packages</code></li>
+<li><code>wsgi-admin -register -file mysite/mysite/wsgi.py -root -path /home/slp/user/venv-django-1.11/lib/python3.5/site-packages</code></li>
+</ul></li>
+</ul></li>
+<li>Test the site at http://server/django/user or http://server/user, where &quot;server&quot; is the course server, and &quot;user&quot; is the user who registered the file.
+<ul>
+<li>If something does not work, there could be many reasons. Viewing the apache error log will help -- run <code>view-apache2-log</code> to see the error messages printed.</li>
+<li>Note, however, that Django has an annoying habit of printing the error message only the first time it occurs after a reload or restart.</li>
+<li>Thus, you may want to reload the web server (<code>reload-apache2</code>), reload the site in your browser, and then look at the apache2 log then.</li>
+</ul></li>
+</ol>
+</body>
+</html>

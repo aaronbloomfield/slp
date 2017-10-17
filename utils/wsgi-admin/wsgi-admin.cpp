@@ -436,7 +436,7 @@ int main(int argc, char **argv) {
         if ( ret != SQLITE_OK )
             sqlite3_die(errmsg,query.str());
 
-        cout << "entry registered as /django/" << get_userid_by_uid(uid) << endl;
+        cout << "entry registered as /" << (reg_root?"":"django/") << get_userid_by_uid(uid) << endl;
     }
 
     // list entries in the DB

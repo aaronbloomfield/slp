@@ -20,6 +20,7 @@ SLP: Documents
     - [MySQL introduction](mysql-intro.html) ([md](mysql-intro.md))
     - [MySQL reference](mysql-reference.html) ([md](mysql-reference.md))
     - Note: change this to: a general SQL page, one on MySQL, and one on SQLite.
+- [Python's virtualenv setup](virtualenv-setup.html) ([md](virtualenv-setup.md)
 
 ### Homeworks
 
