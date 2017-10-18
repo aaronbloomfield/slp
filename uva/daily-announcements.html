@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../slides/css/dhtmlwindow.css" type="text/css">
     <style>
 .reveal li {
-font-size:75%;
+font-size:70%;
 line-height:120%;
 }
     </style>
@@ -54,6 +54,88 @@ line-height:120%;
 &nbsp; 
 ## Daily Announcements
 	</script></section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	<section data-markdown data-separator="^\n$"><textarea data-template>
+<h2>Bun Trend</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/bun_trend.png" title="Our experts have characterized the ecological impact of this trend as &quot;adorable.&quot;" alt="Bun Trend" srcset="http://imgs.xkcd.com/comics/bun_trend_2x.png 2x"/>
+<p class="center"><a href="http://xkcd.com/1903/">xkcd # 1903</a></p>
+
+
+## Wednesday, October 18th
+- Office hours are in the [syllabus](syllabus.html)
+- The homeworks are all graded and returned
+    - You can see the grades, and submit regrade requests, through the course management system
+    - This needs to be done within two weeks (by the end of October)
+- We are at the start of iteration 3
+    - Leads: your TPS reports were due yesterday by noon; see [here](course-introduction-fall.html#/reportsinfo) for details; everybody got them in!
+- With the end of iteration 3, we now do a *phase change*
+    - New leads and new secretaries (incoming project lead emails went out last night)
+    - The phase change survey (more on that shortly)
+- Iteration evaluations for iteration 1 were released last week
+    - You have two weeks to chat with Inkee about them (so during yoru next meeting)
+- We hope to have iteration 2 evals released by next Monday
+- Remember you have to report hours at least once each iteration
+- Remember about how to [reserve a room for the meetings](#/meetingsrsvp); and about the [meeting report format](course-introduction-fall.html#/meetingreport)
+- Django 1.11.6 just came out; please update
+  - You can do this when you install virtualenv
+- The course server will have a bit of downtime "soon" (< 15 mins)
+- Today will be a lecture on [continuous integration testing](../slides/09-ci-testing.html)
+
+
+## Goals for Iteration 3
+- Complete 4 story points worth of work per group member
+  - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
+  - Your site should have significnantly more functionality than last time
+- Ensure no valid passwords are stored in the repo (including past history)
+- In the first week, complete the end-of-phase survey
+- Show the wireframe to the customer, get their feedback, iterate on the design
+- Configure your project with virtualenv on the course server; see [here](../docs/virtualenv-setup.html) for details
+- You will have to configure your site with [TravisCI](https://travis-ci.com/)
+  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - The CI server is already set up to run tests on your repo on every push
+  - You have to write the .travis.yml configuration file to get it to work properly
+- Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and sample configured repo ([django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails or CakePHP, the rails-test and cake-test repos are not being made available
+- You will have to write a number of unit tests (at least 5 per person)
+  - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
+
+
+## Phase change survey
+- Everybody has to fill it out!
+  - It's a course requirement
+- The *ONLY* people in the class that will see the results are myself and the instructors
+  - I encourage you to be open an honest, and I promise I will preserve your anonyminity
+- It should take about 10 minutes to complete
+- The same survey will be completed after each phase
+  - So you will have to complete as many as there are members in your group
+- You can see the questions asked in Collab under Resources/surveys/phase-chage (it's one page, and can be found [here](https://collab.its.virginia.edu/access/content/group/9d516a99-7444-481d-b79c-521b6f1ad522/surveys/phase-change/phase-change-survey.html))
+- There is about a week-long period to fill it out
+  - There is a big grade penalty for not filling it out (or just giving quick dummy answers)
+- The URL for the survey is in the PostEm in the course management system
+- There is a *timeout* issue with regard to filling out surveys
+  - LimeSurvey (the survey tool being used) will time you out after 10 (or so) minutes -- and then you'll have to start over!
+  - So, if you want to spend time thinking about the responses, look over the survey in Collab first!
+  - If you do get timed out, I can send you your saved responses (if you saved them through the survey)
+
+
+## CI Testing Setup
+- Today is the lecture on [continuous integration testing](../slides/09-ci-testing.html#/)
+- All of you now have access to the [django-test](https://github.com/uva-slp/django-test) repo
+  - You will only need to use the one that corresponds to the platform you are using
+  - Note that it's a slightly older version of the framework, but the setup should be the same
+  - Let me know if anything doesn't work!
+- I will shortly be enabling TravisCI for all of your repos
+  - It will email you when a build fails; I wanted to warn you about this before I flipped the switch
+  - Note that if a lot of people push their commits at the same time, it will form a long queue of the ones waiting to be tested
+- We are not using CircleCI this year
+- There is an entire page named [Continuous Integration Testing: Getting Started](../../docs/ci-setup.html), and you should read that and the [CI testing slide set](../../slides/09-ci-testing.html#/)
+	</textarea></section>
+
+	</section>
 
 	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
@@ -91,7 +173,7 @@ line-height:120%;
 	- 3:00-3:30: carobotics (in Rice 108)
 - Second Tuesday of an iteration (starts Oct 9):
     - 1:00-1:30: housing (in Rice 414)
-- Second Wednesday of an iteration (starts Oct 10):
+- Second Thursday of an iteration (starts Oct 10):
     - 6:15-6:45: wildrock (in Rice 534)
 - Second Friday of an iteration (starts Oct 13):
     - 10:30-11:00: gordie (in Rice 504)

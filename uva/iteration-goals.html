@@ -239,15 +239,16 @@ line-height:120%;
 - Complete 4 story points worth of work per group member
   - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
   - Your site should have significnantly more functionality than last time
+- Ensure no valid passwords are stored in the repo (including past history)
 - In the first week, complete the end-of-phase survey
 - Show the wireframe to the customer, get their feedback, iterate on the design
-- You will have to configure your site with one of two CI servers: [TravisCI](https://travis-ci.com/) or [CircleCI](https://circleci.com/)
+- Configure your project with virtualenv on the course server; see [here](../docs/virtualenv-setup.html) for details
+- You will have to configure your site with [TravisCI](https://travis-ci.com/)
   - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
-  - Each group was assigned to one or the other; assignments are [here](../slides/09-ci-testing.html#/assignments)
-  - The respective CI server is already set up to run tests on your repo on every push
-  - Yout have to write the configuration file to get it to work properly
-  - Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and two sample configured repos ([cake3-test](https://github.com/uva-slp/cake3-test) and [django-test](https://github.com/uva-slp/django-test))
-    - Because nobody is using Rails, the rails-test repo was not updated this year, and is not being made available
+  - The CI server is already set up to run tests on your repo on every push
+  - You have to write the .travis.yml configuration file to get it to work properly
+- Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and sample configured repo ([django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails or CakePHP, the rails-test and cake-test repos are not being made available
 - You will have to write a number of unit tests (at least 5 per person)
   - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
 	  </script></section>

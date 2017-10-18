@@ -74,12 +74,12 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## What is Continuous Integration
+## What is Continuous Integration?
 - As you add code to a code base, you need to know that this code will *integrate* into the existing code base without errors
   - Given a large number of unit tests, run those tests on the system after each code change
 - This is done *continuously* (as opposed to once a week, before release, etc.)
   - This can mean upon every git push, or multiple times a day at fixed times, etc.
-- The hitch: running all those tests can take many hours!
+- The hitch: running all those tests can take hours!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -107,15 +107,16 @@
 - You need to have a test database
   - Either MySQL or [SQLite](http://en.wikipedia.org/wiki/SQLite)
   - Note that unit tests wipe the ENTIRE database!
-- Your DB passwords should ***NOT*** be kept in the github repo
+    - That's why we provided a `slp_tag_test` database on the course server
+- Your DB passwords should ***NOT*** be kept in the github repo!
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
 ## Step 2: Write some Unit Tests
 - See the appropriate tutorial
   - CakePHP: [CakePHP: Testing](http://book.cakephp.org/3.0/en/development/testing.html)
-  - Django: [Testing in Django](https://docs.djangoproject.com/en/1.6/topics/testing/)
-    - But start with [page 5 of the intro tutorial](https://docs.djangoproject.com/en/1.6/intro/tutorial05/)
+  - Django: [Testing in Django](https://docs.djangoproject.com/en/1.11/topics/testing/)
+    - But start with [page 5 of the intro tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial05/)
   - Rails: [A Guide to Testing Rails Applications](http://guides.rubyonrails.org/testing.html)
 	  </script></section>
 
@@ -134,7 +135,7 @@
   - So you should write tests for each of the components
 - Model tests: does data validate properly?  what if required data is missing?  what about invalid associations?
 - Controller tests: for each function in the controller, test out *each* flow of control through that method
-- Views: given various data in the fixture, does the view render properly
+- Views: given various data in the fixture, does the view render properly?
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
@@ -203,11 +204,11 @@
 	  </script></section>
 
 	  <section data-markdown><script type="text/template">
-## Background: LXC (Linux Containers)
+## Background: Containers
 - Boot-up time is only a few seconds
   - But the kernel version is the same as the running host
   - Really the kernel "splits" itself to run the container
-- This means that processes can be run *very* fast inside an LXC
+- This means that processes can be run *very* fast inside a container
 - Your CS 2150 submissions were all run within a Linux Container for security reasons
 	  </script></section>
 
@@ -301,18 +302,22 @@
     <section data-markdown id="howtobegin"><script type="text/template">
 ## How to begin, part 1
 - The [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) page in the repo that goes over how to configure your project
-- There are three repos that are now available to you: [rails-test](https://github.com/uva-slp/rails-test), [cake3-test](https://github.com/uva-slp/cake3-test), and [django-test](https://github.com/uva-slp/django-test)
+- There are three repos that are now available to you: ~~[rails-test](https://github.com/uva-slp/rails-test)~~, ~~[cake3-test](https://github.com/uva-slp/cake3-test)~~, and [django-test](https://github.com/uva-slp/django-test)
   - Each is configured with *both* Travis and Circle (even though we aren't using Circle)
   - Each of those repos start with the default site, run through the tutorials from the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)), and then proceed to configure the CI tests
-    - You can view the commit diffs, if necessary
-  - Note that the repos are slightly older versions of the frameworks, but the setup is still the same
+    - You can view the commit diffs, if desired
     </script></section>
 
     <section data-markdown id="howtobegin"><script type="text/template">
 ## How to begin, part 2
 - About the three testing repos (continued)
+  - Note that the repos are slightly older versions of the frameworks, but the setup is still the same
   - The .travis.yml and circle.yml files in those repos are the sample files shown in the [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) page
     - And theys how how to display the status badges (although you have to get your own API key)
+    </script></section>
+
+    <section data-markdown id="howtobegin"><script type="text/template">
+## How to begin, part 3
 - The CI servers will be set up, by me, to run the tests on your repo
   - You have to create the appropriate configuration file
 - The [CI setup page](../docs/ci-setup.html) ([md](../docs/ci-setup.md)) lists, at the very bottom, a series of steps to follow

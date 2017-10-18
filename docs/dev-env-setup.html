@@ -67,8 +67,8 @@ password=foobar</code></pre>
 <pre><code>&lt;?php
 $logfile = &quot;/home/slp/team/html/autodeploy.log&quot;;
 $fp = fopen($logfile,&quot;a&quot;);
-fprintf ($fp, &quot;Auto-deploy at &quot; . date(&quot;r&quot;) . &quot; from &quot; . $_SERVER[&#39;REMOTE_ADDR&#39;] . &quot;\n&quot;);
-fprintf ($fp, &quot;Commit info: &quot; . $_POST[&#39;payload&#39;] . &quot;\n\n&quot;);
+fprintf ($fp, &quot;Auto-deploy at &quot; . date(&quot;r&quot;) . &quot; from &quot; . (isset($_SERVER[&#39;REMOTE_ADDR&#39;])?$_SERVER[&#39;REMOTE_ADDR&#39;]:&quot;(no ip)&quot;) . &quot;\n&quot;);
+fprintf ($fp, &quot;Commit info: &quot; . (isset($_POST[&#39;payload&#39;])?$_POST[&#39;payload&#39;]:&quot;(no payload)&quot;) . &quot;\n\n&quot;);
 fclose($fp);
 echo `cd /home/slp/team/html/; git pull`;
 ?&gt;</code></pre>

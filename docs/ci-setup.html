@@ -68,14 +68,14 @@ bin/cake bake fixture Articles</code></pre>
 <p>It turns out that just running <code>rake</code> will do the same thing as <code>rake test</code> (<code>rake</code> is like <code>make</code>: if no parameters are given, it runs the first &quot;target&quot;, which is &quot;test&quot;). To ensure that rake is run in the context of all of our gems (we don't want it accidentally using a wrong gem version), a better command is <code>bundle exec rake</code>: the <code>bundle exec</code> part ensures that the correct set of gems are loaded.</p>
 <p>The testing command (<code>bundle exec rake</code>) is what we will be using on our Continuous Integration servers. Assuming that works (i.e., successfully runs all the tests), then you are ready to move onto the CI service configuration.</p>
 <h2 id="django">Django</h2>
-<p>This tutorial assumes that you have completed the <a href="https://docs.djangoproject.com/en/1.6/intro/">Django Getting Started Tutorial</a>, which is what was done in the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>).</p>
-<p>While going through that <a href="https://docs.djangoproject.com/en/1.6/intro/">Django Getting Started Tutorial</a>, you went through writing tests for the Django app; this is described on <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial05/">page 5 of the tutorial</a>. We will make a few modifications from what is said on that page, but we will generally follow what they say. Note that there were some problems and errors in what was presented in the tutorial with regard to testing; this is described in the Django section of the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>).</p>
+<p>This tutorial assumes that you have completed the <a href="https://docs.djangoproject.com/en/1.11/intro/">Django Getting Started Tutorial</a>, which is what was done in the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>).</p>
+<p>While going through that <a href="https://docs.djangoproject.com/en/1.11/intro/">Django Getting Started Tutorial</a>, you went through writing tests for the Django app; this is described on <a href="https://docs.djangoproject.com/en/1.11/intro/tutorial05/">page 5 of the tutorial</a>. We will make a few modifications from what is said on that page, but we will generally follow what they say. Note that there were some problems and errors in what was presented in the tutorial with regard to testing; this is described in the Django section of the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>).</p>
 <p>Django does not seem to want to allow setting the test database to an arbitrary name; whatever you specify, it will insist on prepending <code>test_</code> to that name (presumably so we don't kill our production or development databse, but it would still be nice to allow for different naming conventions). So we are going to use a <a href="http://en.wikipedia.org/wiki/SQLite">SQLite</a> database, as described in the introduction section, above. In order to change the database setup for the testing suite, we will use the following hack (adapted from <a href="http://stackoverflow.com/questions/6353124/running-django-tests-with-sqlite">here</a>). This should go in your settings.py file, right <strong><em>AFTER</em></strong> the <code>DATABASES</code> array.</p>
 <pre><code>import sys
 if &#39;test&#39; in sys.argv:
     DATABASES[&#39;default&#39;][&#39;ENGINE&#39;] = &#39;django.db.backends.sqlite3&#39;
     DATABASES[&#39;default&#39;][&#39;NAME&#39;] = os.path.join(BASE_DIR, &#39;db.sqlite3&#39;)</code></pre>
-<p>Working through <a href="https://docs.djangoproject.com/en/1.6/intro/tutorial05/">page 5 of the tutorial</a>, and adapting those tests to be valid tests for your project, is enough to get you up and running on writing unit tests. The full page on Django testing can be found <a href="https://docs.djangoproject.com/en/1.6/topics/testing/">here</a>.</p>
+<p>Working through <a href="https://docs.djangoproject.com/en/1.11/intro/tutorial05/">page 5 of the tutorial</a>, and adapting those tests to be valid tests for your project, is enough to get you up and running on writing unit tests. The full page on Django testing can be found <a href="https://docs.djangoproject.com/en/1.11/topics/testing/">here</a>.</p>
 <p>The command to run the tests is <code>python manage.py test</code>, and that command is what we will be using on our Continuous Integration servers. Assuming that works (i.e., successfully runs all the tests), then you are ready to move onto the CI service configuration.</p>
 <hr />
 <h1 id="part-3-continuous-integration-services">Part 3: Continuous Integration Services</h1>
@@ -114,10 +114,10 @@ sudo: false</code></pre>
 <pre><code>language: python
 
 python:
-  - &quot;2.7&quot;
+  - &quot;3.5&quot;
 
 install:
-  - pip install -q Django==1.8.4
+  - pip install -q Django==1.11.6
 
 script: python manage.py test
 
@@ -138,8 +138,8 @@ sudo: false</code></pre>
   - 2.1.2</code></pre>
 <p><a href="http://rvm.io/">RVM</a> is the Ruby Version Manager, which is a tool to manage Ruby and Rails versions. We are using <a href="https://github.com/sstephenson/rbenv">rbenv</a> (Ruby Environment) on the course server, but they both accomplish essentially the same thing. The second line in this stanza specifies the Ruby version that we want to use (2.1.2). Note that the Rails version is specified in our Gemfile, so we do not specify it here.</p>
 <pre><code>python:
-  - &quot;2.7&quot;</code></pre>
-<p>This specifies the Python versionl the Django version is specified later. While we are using Python version 2.7.6, only the major and minor versions (i.e., 2.7) are specifed; the patch level (i.e., the &quot;.6&quot;) is not specified. Note that, unlike the other languages, the Python version is enclosed in double quotes.</p>
+  - &quot;3.5&quot;</code></pre>
+<p>This specifies the Python versionl the Django version is specified later. While we are using Python version 3.5.2, only the major and minor versions (i.e., 3.5) are specifed; the patch level (i.e., the &quot;.6&quot;) is not specified. Note that, unlike the other languages, the Python version is enclosed in double quotes.</p>
 <p><strong>Installing necessary software</strong></p>
 <p>Travis will configure the necessary version of the language, and install any obvious dependencies (standard PHP and Python libraries, run <code>bundle install</code> for Rails, etc.). However, your system might need additional software to be installed.</p>
 <p>For CakePHP, there are two things that need to be done, which are done in the following stanza. All CakePHP programs will need this stanza.</p>
@@ -150,12 +150,12 @@ sudo: false</code></pre>
 <p>If you have any additional dependencies that were installed with pip (or other commands), you would specify them as such:</p>
 <pre><code>install:
   - &quot;pip install ...&quot;</code></pre>
-<p>In particular, the Django projects need to install Django; we have to specify which version when we install it. Version 1.8.4 is what this course is using.</p>
+<p>In particular, the Django projects need to install Django; we have to specify which version when we install it. Version 1.11.6 is what this course is using.</p>
 <pre><code>install:
-  - pip install -q Django==1.8.4</code></pre>
+  - pip install -q Django==1.11.6</code></pre>
 <p>Note that, if we were testing against multiple versions of Django, or if we wanted to know that version in our testing scripts, we could do the previous commands by setting (and then using) an environment variable:</p>
 <pre><code>env:
-  - DJANGO_VERSION=1.8.4
+  - DJANGO_VERSION=1.11.6
 install:
   - pip install -q Django==$DJANGO_VERSION</code></pre>
 <p>One can install packages as well via the <code>sudo</code> command. However, the <code>sudo: false</code> option in the Travis configuration file currently prevents this (this option can be removed, but issues arrise if it is). Most packages are installed via the language-specific commands (<code>bundle install</code> for Ruby, <code>pip</code> for Python, and <code>composer</code> for PHP). Thus, it is not expected that any additional packages will need to be installed that way, so this functionality is not covered here.</p>
@@ -206,11 +206,11 @@ dependencies:
 <p>Here is a sample circle.yml for Django apps:</p>
 <pre><code>machine:
   python:
-    version: 2.7.6
+    version: 3.5.2
 
 dependencies:
   pre:
-    - pip install -q Django==1.8.4</code></pre>
+    - pip install -q Django==1.11.6</code></pre>
 <p>Let's take each part one at a time.</p>
 <p><strong>Machine</strong></p>
 <p>The <code>machine</code> stanza is where you specify the language and language version for your code. You only pick one of these stanzas, depending on your platform language.</p>
@@ -219,7 +219,7 @@ dependencies:
     version: 5.5.8</code></pre>
 <pre><code>machine:
   python:
-    version: 2.7.6</code></pre>
+    version: 3.5.2</code></pre>
 <pre><code>machine:
   ruby:
     version: 2.1.2</code></pre>
@@ -247,16 +247,16 @@ dependencies:
 <p>The MySQL socket file is the file that all mysql clients access in order to connect to the database; this includes the PHP mysql routines. PHP expects the socket file to be /var/run/mysqld/mysqld.sock, which is what it is on both the course server and on the VirtualBox image. But on the Circle container, it is /tmp/mysql.sock, and PHP can't seem to figure this out. So we create a <a href="http://en.wikipedia.org/wiki/Symbolic_link"><em>symlink</em></a> to link one to the other. Then, even though PHP is looking for /var/run/mysqld/mysqld.sock, it will find /tmp/mysql.sock through the symlink.</p>
 <p><strong>Django specific</strong></p>
 <p>All Django apps need to have this line in the pre-dependencies section:</p>
-<pre><code>- pip install -q Django==1.8.4</code></pre>
+<pre><code>- pip install -q Django==1.11.6</code></pre>
 <p>We have to install the right version of Django, and this is done through pip, as described below.</p>
 <p><strong>Installing necessary software</strong></p>
 <p>Circle will configure the necessary version of the language, and install any obvious dependencies (standard PHP and Python libraries, run <code>bundle install</code> for Rails, etc.). However, your system might need additional software to be installed.</p>
 <p>If you have any additional dependencies that were installed with pip (or other commands), you would specify them as such:</p>
 <pre><code>install:
   - &quot;pip install ...&quot;</code></pre>
-<p>In particular, the Django projects need to install Django; we have to specify which version when we install it. Version 1.8.4 is what this course is using.</p>
+<p>In particular, the Django projects need to install Django; we have to specify which version when we install it. Version 1.11.6 is what this course is using.</p>
 <pre><code>install:
-  - pip install -q Django==1.8.4</code></pre>
+  - pip install -q Django==1.11.6</code></pre>
 <p>One can install packages as well via the <code>sudo</code> command. Most packages are installed via the language-specific commands (<code>bundle install</code> for Ruby, <code>pip</code> for Python, and <code>composer</code> for PHP). Thus, it is not expected that any additional packages will need to be installed that way, so this functionality is not covered here.</p>
 <p><strong>Additional configuration</strong></p>
 <p>Circle allows a very large number of configuration options for your build; you can view <a href="https://circleci.com/docs">the documentation for all of them online</a>. The only other one discussed here is notifications. By default, Circle will send an email if either (1) a build is broken, or (2) a previously broken build was just fixed. Those emails are sent to the committer and the commit author (typically the are the same person). This can be changed through the <a href="https://circleci.com/docs/configuration#notify">Circle Notifications</a> section.</p>

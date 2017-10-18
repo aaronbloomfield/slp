@@ -111,8 +111,8 @@ You then need to set up a *webhook* -- this will have github force an update of 
 <?php
 $logfile = "/home/slp/team/html/autodeploy.log";
 $fp = fopen($logfile,"a");
-fprintf ($fp, "Auto-deploy at " . date("r") . " from " . $_SERVER['REMOTE_ADDR'] . "\n");
-fprintf ($fp, "Commit info: " . $_POST['payload'] . "\n\n");
+fprintf ($fp, "Auto-deploy at " . date("r") . " from " . (isset($_SERVER['REMOTE_ADDR'])?$_SERVER['REMOTE_ADDR']:"(no ip)") . "\n");
+fprintf ($fp, "Commit info: " . (isset($_POST['payload'])?$_POST['payload']:"(no payload)") . "\n\n");
 fclose($fp);
 echo `cd /home/slp/team/html/; git pull`;
 ?>

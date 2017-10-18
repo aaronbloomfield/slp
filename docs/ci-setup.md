@@ -112,9 +112,9 @@ The testing command (`bundle exec rake`) is what we will be using on our Continu
 Django
 ------
 
-This tutorial assumes that you have completed the [Django Getting Started Tutorial](https://docs.djangoproject.com/en/1.6/intro/), which is what was done in the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)).
+This tutorial assumes that you have completed the [Django Getting Started Tutorial](https://docs.djangoproject.com/en/1.11/intro/), which is what was done in the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)).
 
-While going through that [Django Getting Started Tutorial](https://docs.djangoproject.com/en/1.6/intro/), you went through writing tests for the Django app; this is described on [page 5 of the tutorial](https://docs.djangoproject.com/en/1.6/intro/tutorial05/).  We will make a few modifications from what is said on that page, but we will generally follow what they say.  Note that there were some problems and errors in what was presented in the tutorial with regard to testing; this is described in the Django section of the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)).
+While going through that [Django Getting Started Tutorial](https://docs.djangoproject.com/en/1.11/intro/), you went through writing tests for the Django app; this is described on [page 5 of the tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial05/).  We will make a few modifications from what is said on that page, but we will generally follow what they say.  Note that there were some problems and errors in what was presented in the tutorial with regard to testing; this is described in the Django section of the [Frameworks homework](hw-frameworks.html) ([md](framework-hw.md)).
 
 Django does not seem to want to allow setting the test database to an arbitrary name; whatever you specify, it will insist on prepending `test_` to that name (presumably so we don't kill our production or development databse, but it would still be nice to allow for different naming conventions).  So we are going to use a [SQLite](http://en.wikipedia.org/wiki/SQLite) database, as described in the introduction section, above.  In order to change the database setup for the testing suite, we will use the following hack (adapted from [here](http://stackoverflow.com/questions/6353124/running-django-tests-with-sqlite)).  This should go in your settings.py file, right ***AFTER*** the `DATABASES` array.
 
@@ -125,7 +125,7 @@ if 'test' in sys.argv:
     DATABASES['default']['NAME'] = os.path.join(BASE_DIR, 'db.sqlite3')
 ```
 
-Working through [page 5 of the tutorial](https://docs.djangoproject.com/en/1.6/intro/tutorial05/), and adapting those tests to be valid tests for your project, is enough to get you up and running on writing unit tests.  The full page on Django testing can be found [here](https://docs.djangoproject.com/en/1.6/topics/testing/).
+Working through [page 5 of the tutorial](https://docs.djangoproject.com/en/1.11/intro/tutorial05/), and adapting those tests to be valid tests for your project, is enough to get you up and running on writing unit tests.  The full page on Django testing can be found [here](https://docs.djangoproject.com/en/1.11/topics/testing/).
 
 The command to run the tests is `python manage.py test`, and that command is what we will be using on our Continuous Integration servers.  Assuming that works (i.e., successfully runs all the tests), then you are ready to move onto the CI service configuration.
 
@@ -187,10 +187,10 @@ Here is a sample .travis.yml for Django apps:
 language: python
 
 python:
-  - "2.7"
+  - "3.5"
 
 install:
-  - pip install -q Django==1.8.4
+  - pip install -q Django==1.11.6
 
 script: python manage.py test
 
@@ -234,10 +234,10 @@ rvm:
 
 ```
 python:
-  - "2.7"
+  - "3.5"
 ```
 
-This specifies the Python versionl the Django version is specified later.  While we are using Python version 2.7.6, only the major and minor versions (i.e., 2.7) are specifed; the patch level (i.e., the ".6") is not specified.  Note that, unlike the other languages, the Python version is enclosed in double quotes.
+This specifies the Python versionl the Django version is specified later.  While we are using Python version 3.5.2, only the major and minor versions (i.e., 3.5) are specifed; the patch level (i.e., the ".6") is not specified.  Note that, unlike the other languages, the Python version is enclosed in double quotes.
 
 **Installing necessary software**
 
@@ -260,18 +260,18 @@ install:
   - "pip install ..."
 ```
 
-In particular, the Django projects need to install Django; we have to specify which version when we install it.  Version 1.8.4 is what this course is using.
+In particular, the Django projects need to install Django; we have to specify which version when we install it.  Version 1.11.6 is what this course is using.
 
 ```
 install:
-  - pip install -q Django==1.8.4
+  - pip install -q Django==1.11.6
 ```
 
 Note that, if we were testing against multiple versions of Django, or if we wanted to know that version in our testing scripts, we could do the previous commands by setting (and then using) an environment variable:
 
 ```
 env:
-  - DJANGO_VERSION=1.8.4
+  - DJANGO_VERSION=1.11.6
 install:
   - pip install -q Django==$DJANGO_VERSION
 ```
@@ -364,11 +364,11 @@ Here is a sample circle.yml for Django apps:
 ```
 machine:
   python:
-    version: 2.7.6
+    version: 3.5.2
 
 dependencies:
   pre:
-    - pip install -q Django==1.8.4
+    - pip install -q Django==1.11.6
 ```
 
 Let's take each part one at a time.
@@ -385,7 +385,7 @@ machine:
 ```
 machine:
   python:
-    version: 2.7.6
+    version: 3.5.2
 ```
 ```
 machine:
@@ -449,7 +449,7 @@ The MySQL socket file is the file that all mysql clients access in order to conn
 All Django apps need to have this line in the pre-dependencies section:
 
 ```
-- pip install -q Django==1.8.4
+- pip install -q Django==1.11.6
 ```
 
 We have to install the right version of Django, and this is done through pip, as described below.
@@ -465,11 +465,11 @@ install:
   - "pip install ..."
 ```
 
-In particular, the Django projects need to install Django; we have to specify which version when we install it.  Version 1.8.4 is what this course is using.
+In particular, the Django projects need to install Django; we have to specify which version when we install it.  Version 1.11.6 is what this course is using.
 
 ```
 install:
-  - pip install -q Django==1.8.4
+  - pip install -q Django==1.11.6
 ```
 
 One can install packages as well via the `sudo` command.  Most packages are installed via the language-specific commands (`bundle install` for Ruby, `pip` for Python, and `composer` for PHP).  Thus, it is not expected that any additional packages will need to be installed that way, so this functionality is not covered here.
