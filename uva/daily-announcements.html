@@ -60,6 +60,56 @@ line-height:120%;
 	<section>
 
 	<section data-markdown data-separator="^\n$"><textarea data-template>
+<h2>Research Risks</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/research_risks.png" title="The 1919 Great Boston Molasses Flood remained the deadliest confectionery containment accident until the Canadian Space Agency&#39;s 2031 orbital maple syrup delivery disaster." alt="Research Risks" srcset="http://imgs.xkcd.com/comics/research_risks_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/1904/">xkcd # 1904</a></p>
+
+
+## Friday, October 23rd
+- Office hours are in the [syllabus](syllabus.html)
+- The course administration site URL has been changed: it's now https://slp.cs.virginia.edu/admin
+    - Note that there is no port 444 on the URL now
+    - Redirects should all be in place, but change any existing bookmarks
+    - Let me (Bloomfield) know if anything doesn't work or is wonky...
+- The homeworks are all graded and returned
+    - Regrades need to be submitted by the end of October
+- We are in the middle of iteration 3
+    - Leads: your weekly reports are due tomorrow by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
+- The [phase change survey](#/phasechangesurvey) must be completed!
+    - Why don't you do that right after these announcements end?
+- Iteration evaluations for iteration 1 are out; you have until Oct 30 to chat with Inkee about a possible re-evaluation
+- We hope to have iteration 2 evals released today
+- Remember you have to report hours at least once each iteration
+- Please update to Django 1.11.6 when you install virtualenv
+- The course server will have a bit of downtime "soon" (< 15 mins)
+- Today is a group work day; Wednesday is a CI testing work day
+
+
+## Goals for Iteration 3
+- Complete 4 story points worth of work per group member
+  - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
+  - Your site should have significnantly more functionality than last time
+- Ensure no valid passwords are stored in the repo (including past history)
+- In the first week, complete the end-of-phase survey
+- Show the wireframe to the customer, get their feedback, iterate on the design
+- Configure your project with virtualenv on the course server; see [here](../docs/virtualenv-setup.html) for details
+- You will have to configure your site with [TravisCI](https://travis-ci.com/)
+  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - The CI server is already set up to run tests on your repo on every push
+  - You have to write the .travis.yml configuration file to get it to work properly
+- Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and sample configured repo ([django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails or CakePHP, the rails-test and cake-test repos are not being made available
+- You will have to write a number of unit tests (at least 5 per person)
+  - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
+	</textarea></section>
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	<section data-markdown data-separator="^\n$"><textarea data-template>
 <h2>Bun Trend</h2>
 <img class="stretch" src="http://imgs.xkcd.com/comics/bun_trend.png" title="Our experts have characterized the ecological impact of this trend as &quot;adorable.&quot;" alt="Bun Trend" srcset="http://imgs.xkcd.com/comics/bun_trend_2x.png 2x"/>
 <p class="center"><a href="http://xkcd.com/1903/">xkcd # 1903</a></p>
@@ -73,11 +123,11 @@ line-height:120%;
     - This needs to be done within two weeks (by the end of October)
 - We are at the start of iteration 3
     - Leads: your TPS reports were due yesterday by noon; see [here](course-introduction-fall.html#/reportsinfo) for details; everybody got them in!
-- With the end of iteration 3, we now do a *phase change*
+- With the end of iteration 3, we have a *phase change*
     - New leads and new secretaries (incoming project lead emails went out last night)
     - The phase change survey (more on that shortly)
 - Iteration evaluations for iteration 1 were released last week
-    - You have two weeks to chat with Inkee about them (so during yoru next meeting)
+    - You have two weeks to chat with Inkee about them (so during your next meeting)
 - We hope to have iteration 2 evals released by next Monday
 - Remember you have to report hours at least once each iteration
 - Remember about how to [reserve a room for the meetings](#/meetingsrsvp); and about the [meeting report format](course-introduction-fall.html#/meetingreport)
@@ -103,8 +153,9 @@ line-height:120%;
     - Because nobody is using Rails or CakePHP, the rails-test and cake-test repos are not being made available
 - You will have to write a number of unit tests (at least 5 per person)
   - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
+	</textarea></section>
 
-
+    <section data-markdown id="phasechangesurvey"><textarea data-template>
 ## Phase change survey
 - Everybody has to fill it out!
   - It's a course requirement
@@ -121,8 +172,9 @@ line-height:120%;
   - LimeSurvey (the survey tool being used) will time you out after 10 (or so) minutes -- and then you'll have to start over!
   - So, if you want to spend time thinking about the responses, look over the survey in Collab first!
   - If you do get timed out, I can send you your saved responses (if you saved them through the survey)
+	</textarea></section>
 
-
+    <section data-markdown data-separator="^\n$"><textarea data-template>
 ## CI Testing Setup
 - Today is the lecture on [continuous integration testing](../slides/09-ci-testing.html#/)
 - All of you now have access to the [django-test](https://github.com/uva-slp/django-test) repo
@@ -165,7 +217,7 @@ line-height:120%;
 - We are at the end of iteration 2
     - Leads: your TPS reports are due tomorrow by noon; see [here](course-introduction-fall.html#/reportsinfo) for details
 - Iteration evaluations for iteration 1 were released last week
-    - You have two weeks to chat with Inkee about them (so during yoru next meeting)
+    - You have two weeks to chat with Inkee about them (so during your next meeting)
 - Remember you have to report hours at least once each iteration
 - Remember about how to [reserve a room for the meetings](#/meetingsrsvp); and about the [meeting report format](course-introduction-fall.html#/meetingreport)
 - Web hooks coming soon...
