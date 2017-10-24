@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Github Webhook Setup</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="github-webhook-setup">Github Webhook Setup</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>One way that github allows for updating a website is through a web hook -- this is a URL that github will call every time a push occurs. For repositories in the uva-slp github organization, there are two steps that must be done by the course instructors (steps 2 and 6).</p>
+<ol style="list-style-type: decimal">
+<li><p>First, you need to clone the repository, and be able to update that clone, without always entering a password. This is typically done through the user of a <a href="https://developer.github.com/guides/managing-deploy-keys/#deploy-keys">deploy key</a> -- a SSH public key that is allowed to do that for a single repository. Under the team account on the course server, run <code>ssh-keygen</code>. This will create two files: <code>~/.ssh/id_rsa.pub</code> and <code>~/.ssh/id_rsa</code>. These are the RSA public and private keys (respectively).</p></li>
+<li><p>You will need to configurre the public key as your deploy key. In the uva-slp github organization, this can only be done by admins for the organization -- which means the course instructors. Email them the public key (and <strong><em>ONLY</em></strong> the public key: <code>id_rsa.pub</code>), and they will configure it for you. If you own the repository, then you can do it through the settings tab for that repo.</p>
+<ul>
+<li><p>Note that these are tyipcally configured as read-only. One would typically <em>not</em> be committing changes directly to the repo from a shared account.</p></li>
+<li><p>The course instructor will also need to set up your user account's PHP permissions (when using your website, the web server should be running as the user of the account, and not as the default web server user).</p></li>
+</ul></li>
+<li><p>Clone the repo in the account using the ssh version: <code>git clone git@github.com:username/repo</code>. The auto-login that was done by the previous steps will not work through an https github clone URL. Make sure the cloned repo is the right directory (<code>~/html</code>, for example). The website should be viewable.</p></li>
+<li><p>You then need to set up a <em>webhook</em> -- this will have github force an update of the repo on every push. Consider the following PHP code:</p>
+<pre><code>&lt;?php
+$logfile = &quot;/home/slp/team/html/autodeploy.log&quot;;
+$fp = fopen($logfile,&quot;a&quot;);
+fprintf ($fp, &quot;Auto-deploy at &quot; . date(&quot;r&quot;) . &quot; from &quot; . (isset($_SERVER[&#39;REMOTE_ADDR&#39;])?$_SERVER[&#39;REMOTE_ADDR&#39;]:&quot;(no ip)&quot;) . &quot;\n&quot;);
+fprintf ($fp, &quot;Commit info: &quot; . (isset($_POST[&#39;payload&#39;])?$_POST[&#39;payload&#39;]:&quot;(no payload)&quot;) . &quot;\n\n&quot;);
+fclose($fp);
+echo `cd /home/slp/team/html/; git pull`;
+?&gt;</code></pre>
+<p>A few notes about this code:</p>
+<ul>
+<li>Note that in the script above, only the last line does the update (via the <code>git pull</code>); the rest is logging.</li>
+<li>The logging should <em>not</em> be in your your cloned repo on the course server.</li>
+<li>You will need to change the paths -- replace <code>team</code> with your team's account name (which is also your project tag).</li>
+<li>The path above (<code>/home/slp/team/html</code>) is probably different for Django projects; those will likely have a path similar to <code>/home/slp/team/team/</code>.</li>
+<li><p>Django projects will also have to run <code>python manage.py collectstatic</code> from the appropriate directory (see <a href="http://stackoverflow.com/questions/8705305/automated-django-receive-hook-on-server-respond-to-collectstatic-with-yes">here</a> for how to prevent it from prompting you each time); the command might look like:</p>
+<pre><code>echo `cd /home/slp/team/team; python manage.py collectstatic --noinput`</code></pre></li>
+<li><p>Django projects will also have to reload the web server (or, more easily, touching wsgi.py); the command might look like the following (but make sure the path to wsgi.py is correct!):</p>
+<pre><code>touch /home/slp/team/team/wsgi.py</code></pre></li>
+</ul></li>
+<li><p>Try calling it: the URL will be something like <code>http://server/team/github-hook.php</code> -- it should work. If not, then you will need to figure out what went wrong -- and the details for that are in the apache2 error log. To view this on the course server, enter <code>view-apache2-log</code>. Keep this command running (perhaps by running with <code>view-apache2-log &amp;</code>), as it will print out new entries to the error log as they appear. If you are on your own machine, or you have the appropriate access, you can run <code>tail -f /var/log/apache2/error.log</code> instead (possibly with a <code>&amp;</code> at the end).</p></li>
+<li><p>You then enter a webhook (under the repository's settings, select &quot;webhooks &amp; services&quot;). For repositories that are part of the organization (such as the https://github.com/uva-slp repos), only the course administrator (i.e., the course instructor) can enable web hooks. Enter the URL, in the previous paragraph, of your webhook. Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.</p></li>
+<li><p>Do a test commit to make sure it works, and then push that commit.</p></li>
+<li><p><strong><em>IMPORTANT NOTE:</em></strong> If a file is <em>locally</em> modified (meaning somebody updates a file on the course server), then git will <strong><em>NOT</em></strong> update that file from the repo! This is why you should not modify code on the server -- instead, modify it on your local machine, push the result, and let the webhook modify the server.</p></li>
+</ol>
+</body>
+</html>

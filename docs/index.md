@@ -15,11 +15,11 @@ SLP: Documents
 - [Docker usage](docker-usage.html) ([md](docker-usage.md))
 - [Linux Administration Howtos](linux-admin-howtos.html) ([md](linux-admin-howtos.md))
 - [Development environment setup](dev-env-setup.html) ([md](dev-env-setup.md))
+- [Github webhook setup](github-webhook.html) ([md](github-webhook.md))
 - [Continuous Integration testing setup](ci-setup.html) ([md](ci-setup.md))
 - Database information
     - [MySQL introduction](mysql-intro.html) ([md](mysql-intro.md))
     - [MySQL reference](mysql-reference.html) ([md](mysql-reference.md))
-    - Note: change this to: a general SQL page, one on MySQL, and one on SQLite.
 - [Python's virtualenv setup](virtualenv-setup.html) ([md](virtualenv-setup.md))
 
 ### Homeworks
