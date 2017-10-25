@@ -4,12 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Github Webhook Setup</title>
+  <title>Github Webhook Configuration</title>
   <style type="text/css">code{white-space: pre;}</style>
   <link rel="stylesheet" href="../markdown.css" type="text/css" />
 </head>
 <body>
-<h1 id="github-webhook-setup">Github Webhook Setup</h1>
+<h1 id="github-webhook-configuration">Github Webhook Configuration</h1>
 <p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
 <p>One way that github allows for updating a website is through a web hook -- this is a URL that github will call every time a push occurs. For repositories in the uva-slp github organization, there are two steps that must be done by the course instructors (steps 2 and 6).</p>
 <ol style="list-style-type: decimal">
@@ -41,7 +41,7 @@ echo `cd /home/slp/team/html/; git pull`;
 <pre><code>touch /home/slp/team/team/wsgi.py</code></pre></li>
 </ul></li>
 <li><p>Try calling it: the URL will be something like <code>http://server/team/github-hook.php</code> -- it should work. If not, then you will need to figure out what went wrong -- and the details for that are in the apache2 error log. To view this on the course server, enter <code>view-apache2-log</code>. Keep this command running (perhaps by running with <code>view-apache2-log &amp;</code>), as it will print out new entries to the error log as they appear. If you are on your own machine, or you have the appropriate access, you can run <code>tail -f /var/log/apache2/error.log</code> instead (possibly with a <code>&amp;</code> at the end).</p></li>
-<li><p>You then enter a webhook (under the repository's settings, select &quot;webhooks &amp; services&quot;). For repositories that are part of the organization (such as the https://github.com/uva-slp repos), only the course administrator (i.e., the course instructor) can enable web hooks. Enter the URL, in the previous paragraph, of your webhook. Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.</p></li>
+<li><p>You then enter a webhook (under the repository's settings, select &quot;webhooks &amp; services&quot;). For repositories that are part of the organization (such as the https://github.com/uva-slp repos), only the course administrator (i.e., the course instructor) can enable web hooks, so send him/her the URL of your web hook script. Enter the URL, in the previous paragraph, of your webhook. Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.</p></li>
 <li><p>Do a test commit to make sure it works, and then push that commit.</p></li>
 <li><p><strong><em>IMPORTANT NOTE:</em></strong> If a file is <em>locally</em> modified (meaning somebody updates a file on the course server), then git will <strong><em>NOT</em></strong> update that file from the repo! This is why you should not modify code on the server -- instead, modify it on your local machine, push the result, and let the webhook modify the server.</p></li>
 </ol>

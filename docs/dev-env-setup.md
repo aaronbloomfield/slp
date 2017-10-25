@@ -92,7 +92,7 @@ Then, you only have to type `make publish` to publish it to the course server.
 
 One can also deploy to localhost (the machine you are using).  This will be of most use for the CakePHP projects, as the Rails and Django folks view the app differently.  You can create a user on your local machine that has the same name as the team account on the course server, and do a publish there -- that command would look similar to the rsync of the previous section, but the course server is replaced with `localhost`.  This works well as a `local` target, meaning you enter `make local` to publish it to the local machine.  You will have to set up automatic ssh login.  And note that any files that you exclude still have to be uploaded the very first time (and possibly edited).
 
-### Github deployment
+### Github webhook deployment
 
 This information has moved to the [Github webhook setup page](github-webhook.html) ([md](github-webhook.md)).
 

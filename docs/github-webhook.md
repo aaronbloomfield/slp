@@ -1,5 +1,5 @@
-Github Webhook Setup
-====================
+Github Webhook Configuration
+============================
 
 [Go up to the main SLP documents page](index.html) ([md](index.md))
 
@@ -42,7 +42,7 @@ touch /home/slp/team/team/wsgi.py
 ```
 5. Try calling it: the URL will be something like `http://server/team/github-hook.php` -- it should work.  If not, then you will need to figure out what went wrong -- and the details for that are in the apache2 error log.  To view this on the course server, enter `view-apache2-log`.  Keep this command running (perhaps by running with `view-apache2-log &`), as it will print out new entries to the error log as they appear.  If you are on your own machine, or you have the appropriate access, you can run `tail -f /var/log/apache2/error.log` instead (possibly with a ` &` at the end).
 
-6. You then enter a webhook (under the repository's settings, select "webhooks & services").  For repositories that are part of the organization (such as the https://github.com/uva-slp repos), only the course administrator (i.e., the course instructor) can enable web hooks.  Enter the URL, in the previous paragraph, of your webhook.  Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.
+6. You then enter a webhook (under the repository's settings, select "webhooks & services").  For repositories that are part of the organization (such as the https://github.com/uva-slp repos), only the course administrator (i.e., the course instructor) can enable web hooks, so send him/her the URL of your web hook script.  Enter the URL, in the previous paragraph, of your webhook.  Now, every time that github receives a push from anybody, it will call that webhook, which will update the website.
 
 7. Do a test commit to make sure it works, and then push that commit.
 

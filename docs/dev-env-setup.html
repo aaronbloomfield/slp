@@ -56,7 +56,7 @@ password=foobar</code></pre>
     rsync -C --del --progress -a --exclude foo/settings.py ./ team@server:~/html/</code></pre>
 <p>Then, you only have to type <code>make publish</code> to publish it to the course server.</p>
 <p>One can also deploy to localhost (the machine you are using). This will be of most use for the CakePHP projects, as the Rails and Django folks view the app differently. You can create a user on your local machine that has the same name as the team account on the course server, and do a publish there -- that command would look similar to the rsync of the previous section, but the course server is replaced with <code>localhost</code>. This works well as a <code>local</code> target, meaning you enter <code>make local</code> to publish it to the local machine. You will have to set up automatic ssh login. And note that any files that you exclude still have to be uploaded the very first time (and possibly edited).</p>
-<h3 id="github-deployment">Github deployment</h3>
+<h3 id="github-webhook-deployment">Github webhook deployment</h3>
 <p>This information has moved to the <a href="github-webhook.html">Github webhook setup page</a> (<a href="github-webhook.md">md</a>).</p>
 <h3 id="hybrid-approach">Hybrid approach</h3>
 <p>ALternatively, you should set up a hybrid approach. You can use a deployment key to clone the git repo in the project account, but rather than have that updated automatically via a web hook, you instead only update it manually. This can be done via a single ssh command -- which, with auto-login set up, can easily be put into a Makefile:</p>

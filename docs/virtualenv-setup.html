@@ -76,6 +76,7 @@
 <li>If something does not work, there could be many reasons. Viewing the apache error log will help -- run <code>view-apache2-log</code> to see the error messages printed.</li>
 <li>Note, however, that Django has an annoying habit of printing the error message only the first time it occurs after a reload or restart.</li>
 <li>Thus, you may want to reload the web server (<code>reload-apache2</code>), reload the site in your browser, and then look at the apache2 log then.</li>
+<li>If the apache log is giving problems about MySQL (&quot;Did you install mysqlclient or MySQL-python?&quot;), try <em>uninstalling</em> all MySQL packages, and seeing if the default on the system works.</li>
 </ul></li>
 </ol>
 </body>

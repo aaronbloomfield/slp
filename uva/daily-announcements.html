@@ -60,6 +60,128 @@ line-height:120%;
 	<section>
 
 	<section data-markdown data-separator="^\n$"><textarea data-template>
+<h2>Making Progress</h2>
+<img class="stretch" src="http://imgs.xkcd.com/comics/making_progress.png" title="I started off with countless problems. But now I know, thanks to COUNT(), that I have &quot;#REF! ERROR: Circular dependency detected&quot; problems." alt="Making Progress" srcset="http://imgs.xkcd.com/comics/making_progress_2x.png 2x">
+<p class="center"><a href="http://xkcd.com/1906/">xkcd # 1906</a></p>
+
+
+## Wednesday, October 25th
+- Office hours are in the [syllabus](syllabus.html)
+- The course administration site URL has been changed: it's now https://slp.cs.virginia.edu/admin
+    - Note that there is no port 444 on the URL now
+    - Redirects should all be in place, but change any existing bookmarks
+    - Let me (Bloomfield) know if anything doesn't work or is wonky...
+- The HWs are all graded; regrades due by the end of Oct
+- We are in the middle of iteration 3
+    - Leads: weekly reports were due yesterday by noon; see [here](course-introduction-fall.html#/reportsinfo) for details; everybody got them in!
+    - Your journal entries were due yesterday by noon; you can submit them late until Friday at noon
+- New documents in the repo
+    - [Python's virtualenv setup instructions](../docs/virtualenv-setup.html)
+	- [Github webhook configuration page](../docs/github-webhook.html); you can also deploy through the other two methods described in the [development environment setup page](../docs/dev-env-setup.html)
+- Iteration 2 evaluations are out; you have until Nov 6 to request a re-eval
+- Remember you have to report hours at least once each iteration
+- Please update to Django 1.11.6 when you install virtualenv
+- The course server will have a bit of downtime "soon" (< 15 mins)
+- Today is a CI testing work day
+
+
+## Grades and such
+- There are a [number of things](course-introduction-fall.html#/decrement) that decrement your grades in this class
+    - These were gone over in the [course introduction slide set](course-introduction-fall.html#/)
+- In particular:
+    - Not submitting your hours at least once per iteration
+    - Missing class without a valid attendance excuse
+	- Not completing your journaling entries
+- There are a bunch of you who are not doing these things!
+- So, as a friendly reminder, please don't forget to do them...
+
+
+## Goals for Iteration 3
+- Complete 4 story points worth of work per group member
+  - Some of this will be the work done on the wireframing, some will be the work done on the CI testing
+  - Your site should have significnantly more functionality than last time
+- Ensure no valid passwords are stored in the repo (including past history)
+- In the first week, complete the end-of-phase survey
+- Show the wireframe to the customer, get their feedback, iterate on the design
+- Configure your project with virtualenv on the course server; see [here](../docs/virtualenv-setup.html) for details
+- You will have to configure your site with [TravisCI](https://travis-ci.com/)
+  - The [last two slides](../slides/09-ci-testing.html#/howtobegin) of the [Continuous Integration Testing](../slides/09-ci-testing.html#/) slide set discuss how to begin
+  - The CI server is already set up to run tests on your repo on every push
+  - You have to write the .travis.yml configuration file to get it to work properly
+- Extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html), the [CI setup](../docs/ci-setup.html) page, and sample configured repo ([django-test](https://github.com/uva-slp/django-test))
+    - Because nobody is using Rails or CakePHP, the rails-test and cake-test repos are not being made available
+- You will have to write a number of unit tests (at least 5 per person)
+  - And one fixture each!  Note that at least one of your tests has to actually *use* that fixture.
+
+
+## Today's task
+- Today we will be working on the CI testing setup
+- No groups are fully there yet (which is fine, since it's due at the end of the iteration)
+  - 5 (of 15) groups have passing builds, but nobody has a significant number of their unit tests written yet
+  - In addition, recall that each *person* must contribute at least 5 valid test cases (and one fixture per person; and at least one test must use that fixture)
+- To do today:
+  - Get Travis configured for your project: extensive instructions for how to configure it (as well as sample configured projects) are available: the [CI testing slide set](../slides/09-ci-testing.html#/), the [CI setup page](../docs/ci-setup.html), and two sample configured repos: ([cake3-test](https://github.com/uva-slp/cake3-test), [django-test](https://github.com/uva-slp/django-test), and [rails-test](https://github.com/uva-slp/rails-test))
+  - Contribute the desired number of unit tests (at least 5 per person)
+- At the end of today's class, all the build status badges should be green!
+- A note about container usage
+  - We only have one container for all 15 groups; this will cause delays if everybody pushes their commits around the same time, as they get queued up
+  - If you are just writing unit tests, then please hold off on pushing those to let all the groups configure their builds (i.e., generate green status bars)
+  - You should be able to run the unit tests in your development environment, so you can confirm to yourself that they works
+
+
+## A rule for today...
+- If you are configuring your repo, then please commit and push when you think you have configured it
+- If you are just writing unit tests, please *DON'T* push, as we don't want to fill up the queue at this point
+- I want to let those configuring the repos to have their pushes go through first
+</textarea></section>
+	  
+  <section id="cistatus"><h2>CI Testing Status</h2>
+
+  <table class="transparent" style="font-size:18pt"><tr><td>
+    
+<table class="transparent" style="font-size:18pt">
+<tr><td style="border-bottom:0px">amazonaid</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/amazonaid"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/amazonaid.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">bigevent</td><td style="border-bottom:0px"><a href="https://circleci.com/gh/uva-slp/bigevent"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/bigevent.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">carobotics</td><td style="border-bottom:0px"><a href="https://circleci.com/gh/uva-slp/carobotics"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/carobotics.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">cyberbadges</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/cyberbadges"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/cyberbadges.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">gardeners</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/gardeners"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/gardeners.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">gordie</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/gordie"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/gordie.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">housing</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/housing"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/housing.svg?token=travistoken"></a></td></tr>
+</table>
+
+      </td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>
+
+<table class="transparent" style="font-size:18pt">
+<tr><td style="border-bottom:0px">hspcreg</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/hspcreg"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/hspcreg.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">jaunt</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/jaunt"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/jaunt.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">meals</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/meals"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/meals.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">pride</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/pride"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/pride.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">quiztool</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/quiztool"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/quiztool.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">sara</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/sara"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/sara.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">servicedogs</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/servicedogs"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/servicedogs.svg?token=travistoken"></a></td></tr>
+<tr><td style="border-bottom:0px">wildrock</td><td style="border-bottom:0px"><a href="https://magnum.travis-ci.com/uva-slp/wildrock"><img style="display:inline;margin:0px 0px 0px 10px" alt="Build Status" src="https://magnum.travis-ci.com/uva-slp/wildrock.svg?token=travistoken"></a></td></tr>
+</table>
+
+</td></tr></table>
+
+
+<p>This page refreshes every 30 seconds</p>
+<p style="font-size:18px">This page last updated on: <span id="cistatusdate">...</span></p>
+<script>
+    var now = new Date();
+    document.getElementById("cistatusdate").innerHTML = now;
+</script>
+<p style="font-size:18px">This page will not display the tokens properly unless you manually change the TravisCI token in the HTML code of this page, and remove all the HTML comment tags
+  </section>
+
+
+	</section>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<section>
+
+	<section data-markdown data-separator="^\n$"><textarea data-template>
 <h2>Research Risks</h2>
 <img class="stretch" src="http://imgs.xkcd.com/comics/research_risks.png" title="The 1919 Great Boston Molasses Flood remained the deadliest confectionery containment accident until the Canadian Space Agency&#39;s 2031 orbital maple syrup delivery disaster." alt="Research Risks" srcset="http://imgs.xkcd.com/comics/research_risks_2x.png 2x">
 <p class="center"><a href="http://xkcd.com/1904/">xkcd # 1904</a></p>
@@ -186,7 +308,7 @@ line-height:120%;
   - It will email you when a build fails; I wanted to warn you about this before I flipped the switch
   - Note that if a lot of people push their commits at the same time, it will form a long queue of the ones waiting to be tested
 - We are not using CircleCI this year
-- There is an entire page named [Continuous Integration Testing: Getting Started](../../docs/ci-setup.html), and you should read that and the [CI testing slide set](../../slides/09-ci-testing.html#/)
+- There is an entire page named [Continuous Integration Testing: Getting Started](../docs/ci-setup.html), and you should read that and the [CI testing slide set](../slides/09-ci-testing.html#/)
 
 
 ## Attendance check-in

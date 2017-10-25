@@ -98,3 +98,6 @@ This all works on the course server as a regular user.
 	- Thus, you may want to reload the web server (`reload-apache2`),
       reload the site in your browser, and then look at the apache2
       log then.
+    - If the apache log is giving problems about MySQL ("Did you
+      install mysqlclient or MySQL-python?"), try *uninstalling* all
+      MySQL packages, and seeing if the default on the system works.
