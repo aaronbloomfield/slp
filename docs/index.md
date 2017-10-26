@@ -16,6 +16,7 @@ SLP: Documents
 - [Linux Administration Howtos](linux-admin-howtos.html) ([md](linux-admin-howtos.md))
 - [Development environment setup](dev-env-setup.html) ([md](dev-env-setup.md))
 - [Github webhook setup](github-webhook.html) ([md](github-webhook.md))
+- [Managing local settings](local-settings.html) ([md](local-settings.md))
 - [Continuous Integration testing setup](ci-setup.html) ([md](ci-setup.md))
 - Database information
     - [MySQL introduction](mysql-intro.html) ([md](mysql-intro.md))

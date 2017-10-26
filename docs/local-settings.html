@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>Managing Local Settings</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="managing-local-settings">Managing Local Settings</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p>When a system is used or deployed in multiple locations, there will be differences in the configuration of each system. This is especially true of the group projects, where it is being used on each team member's local machine, on the course server, and on the final deployment host.</p>
+<p>This document discusses ways to properly manage local settings, including passwords. The full set of directions are specific to Django, and the addendums at the end discuss using the same process for Ruby on Rails or CakePHP.</p>
+<h3 id="django-instructions">Django instructions</h3>
+<ol style="list-style-type: decimal">
+<li>Create a <code>local_settings.py</code>, and put it in the same directory as the <code>settings.py</code>. Do <strong><em>NOT</em></strong> commit this file to the repository!</li>
+<li>Create a <code>.gitignore</code> file in that same directory, and put <code>local_settings.py</code> as the one (and likely only) line in that file. Stage the <code>.gitignore</code> file to be committed: <code>git add .gitignore</code>.</li>
+<li><p>Put any and all local settings in your <code>local_settings.py</code> file. While these are going to include the database information (engine, host, user, password, and database name), they might also include values for such things as the <code>STATIC_ROOT</code> and <code>STATIC_URL</code> fields that are in <code>settings.py</code>. An example might look like the following; note that we are (intentionally) using lower case variable names here:</p>
+<pre><code>database_engine = &quot;django.db.backends.mysql&quot;
+database_name = &quot;slp_project&quot;
+database_user = &quot;project&quot;
+database_password = &quot;abcdefg&quot;
+database_host = &quot;localhost&quot;
+static_root = /home/slp/project/project/static
+static_url = &#39;/project/static/&#39;</code></pre></li>
+<li>In <code>settings.py</code>, <em>at the top</em>, import that file: <code>from project import local_settings</code></li>
+<li><p>Also in <code>settings.py</code>, modify the values listed therein to use the values imported from the module. Thus, the relevant sections of your <code>settings.py</code> might look like the following (obviously your values will be different):</p>
+<pre><code>DATABASES = {
+    &#39;default&#39;: {
+        &#39;ENGINE&#39;: local_settings.database_engine,
+        &#39;NAME&#39;: local_settings.database_name,
+        &#39;USER&#39;: local_settings.database_user,
+        &#39;PASSWORD&#39;: local_settings.database_password,
+        &#39;HOST&#39;: local_settings.database_host,
+    }
+}
+...
+STATIC_URL = local_settings.static_url
+STATIC_ROOT = local_settings.static_root</code></pre></li>
+<li>Create a <code>local_settings.py.template</code> file, which is a copy of <code>local_settings.py</code>. But change any sensitive data over to some default. In this example, you would change the password of &quot;abcdefg&quot; to &quot;password&quot;. Other things to change are API keys, etc. It's fine to keep non-sensitive information, such as the rest of the database information (other than the password), and the static lines, in the <code>local_settings.py.template</code> file. We are going to add this file to the repo -- it shows how to create a <code>local_settings.py</code>, but does not include any passwords. Thus, stage <em>this</em> file to be committed: <code>git add local_settings.py.template</code>.</li>
+<li>Include, somewhere in your directions, a brief how-to about creating the <code>local_settings.py</code> file (tell them to copy <code>local_settings.py.template</code> over and modify the fields).</li>
+<li>Push your changes: <code>git push</code>.</li>
+<li>If you -- or anybody else -- <em>ever</em> made a push that contained a commit with a password (such as your database password), you <strong><em>MUST</em></strong> change that password. There are existing bots that will scan the entire history of github repositories just to look for passwords. You can do this in MySQL via <code>set password = password('bananananana');</code> in the MySQL prompt.</li>
+<li>Have everybody create their own <code>local_settings.py</code> in their respective clone that will have their own local settings. Users can use different database settings by editing that file. Because the <code>local_settings.py</code> file is in the <code>.gitignore</code>, any changes to that file will not be committed to the repository.</li>
+<li>When configuring Travis, copy the <code>local_settings.py</code> file over to <code>settings.py</code> via a <code>cp</code> command in the <code>before_script</code> section. You can just keep the password as it is (likely just &quot;password&quot;), and tell Travis, in the database setup section, to have &quot;password&quot; be the DB password.</li>
+<li><p>Keep in mind that you can use this file to switch over to an SQLite3 database. Your <code>local_settings.py</code> example from above, configured for a SQLite3 database, might look like the following:</p>
+<pre><code>database_engine = &quot;django.db.backends.sqlite3&quot;
+database_host = &quot;don&#39;t care&quot;
+database_name = os.path.join(BASE_DIR, &#39;db.sqlite3&#39;)
+database_user = &quot;don&#39;t care&quot;
+database_password = &quot;don&#39;t care&quot;
+static_root = /home/slp/project/project/static
+static_url = &#39;/project/static/&#39;</code></pre>
+<p>In this example, some of the database fields are not used for SQLite3 (in particular, the host, user, and password), so we can set them to any values.</p></li>
+</ol>
+<h3 id="ruby-on-rails-instructions">Ruby on Rails instructions</h3>
+<p>Ruby on Rails uses a <code>database.yml</code> file for the database configuration. So you can create a <code>database.yml.template</code> file following the process described above. If there are other non-database settings that you want to allow for easy local configuration, you can create a <code>local_settings.rb</code> file, <code>require</code> that file into the appropriate existing configuration file, and it will work the same. Note that this will mean that you have <em>two</em> different files that have a template version (and are thus in your <code>.gitignore</code>).</p>
+<h3 id="cakephp-instructions">CakePHP instructions</h3>
+<p>The CakePHP configuration is similar, but you will have a <code>app_local.php</code> file, which you will <code>require</code> into <code>app.php</code>, instead of Python files.</p>
+</body>
+</html>
