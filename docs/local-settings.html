@@ -15,7 +15,7 @@
 <p>This document discusses ways to properly manage local settings, including passwords. The full set of directions are specific to Django, and the addendums at the end discuss using the same process for Ruby on Rails or CakePHP.</p>
 <h3 id="django-instructions">Django instructions</h3>
 <ol style="list-style-type: decimal">
-<li>Create a <code>local_settings.py</code>, and put it in the same directory as the <code>settings.py</code>. Do <strong><em>NOT</em></strong> commit this file to the repository!</li>
+<li>Create a <code>local_settings.py</code>, and put it in the same directory as the <code>settings.py</code>. Do <strong><em>NOT</em></strong> commit this file to the repository! You can name this anything you want, really: <code>config.py</code>, <code>secrets.py</code>, etc. We'll use <code>local_settings.py</code> in this document.</li>
 <li>Create a <code>.gitignore</code> file in that same directory, and put <code>local_settings.py</code> as the one (and likely only) line in that file. Stage the <code>.gitignore</code> file to be committed: <code>git add .gitignore</code>.</li>
 <li><p>Put any and all local settings in your <code>local_settings.py</code> file. While these are going to include the database information (engine, host, user, password, and database name), they might also include values for such things as the <code>STATIC_ROOT</code> and <code>STATIC_URL</code> fields that are in <code>settings.py</code>. An example might look like the following; note that we are (intentionally) using lower case variable names here:</p>
 <pre><code>database_engine = &quot;django.db.backends.mysql&quot;
@@ -61,4 +61,3 @@ static_url = &#39;/project/static/&#39;</code></pre>
 <p>The CakePHP configuration is similar, but you will have a <code>app_local.php</code> file, which you will <code>require</code> into <code>app.php</code>, instead of Python files.</p>
 </body>
 </html>
-

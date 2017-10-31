@@ -9,7 +9,7 @@ This document discusses ways to properly manage local settings, including passwo
 
 ### Django instructions
 
-1. Create a `local_settings.py`, and put it in the same directory as the `settings.py`.  Do ***NOT*** commit this file to the repository!
+1. Create a `local_settings.py`, and put it in the same directory as the `settings.py`.  Do ***NOT*** commit this file to the repository!  You can name this anything you want, really: `config.py`, `secrets.py`, etc.  We'll use `local_settings.py` in this document.
 2. Create a `.gitignore` file in that same directory, and put `local_settings.py` as the one (and likely only) line in that file.  Stage the `.gitignore` file to be committed: `git add .gitignore`.
 3. Put any and all local settings in your `local_settings.py` file.  While these are going to include the database information (engine, host, user, password, and database name), they might also include values for such things as the `STATIC_ROOT` and `STATIC_URL` fields that are in `settings.py`.  An example might look like the following; note that we are (intentionally) using lower case variable names here:
 ```
