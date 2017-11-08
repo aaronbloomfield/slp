@@ -18,7 +18,7 @@ database_name = "slp_project"
 database_user = "project"
 database_password = "abcdefg"
 database_host = "localhost"
-static_root = /home/slp/project/project/static
+static_root = '/home/slp/project/project/static'
 static_url = '/project/static/'
 ```
 4. In `settings.py`, *at the top*, import that file: `from project import local_settings`

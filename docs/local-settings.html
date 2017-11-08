@@ -23,7 +23,7 @@ database_name = &quot;slp_project&quot;
 database_user = &quot;project&quot;
 database_password = &quot;abcdefg&quot;
 database_host = &quot;localhost&quot;
-static_root = /home/slp/project/project/static
+static_root = &#39;/home/slp/project/project/static&#39;
 static_url = &#39;/project/static/&#39;</code></pre></li>
 <li>In <code>settings.py</code>, <em>at the top</em>, import that file: <code>from project import local_settings</code></li>
 <li><p>Also in <code>settings.py</code>, modify the values listed therein to use the values imported from the module. Thus, the relevant sections of your <code>settings.py</code> might look like the following (obviously your values will be different):</p>

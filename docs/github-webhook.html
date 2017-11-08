@@ -27,7 +27,7 @@ $fp = fopen($logfile,&quot;a&quot;);
 fprintf ($fp, &quot;Auto-deploy at &quot; . date(&quot;r&quot;) . &quot; from &quot; . (isset($_SERVER[&#39;REMOTE_ADDR&#39;])?$_SERVER[&#39;REMOTE_ADDR&#39;]:&quot;(no ip)&quot;) . &quot;\n&quot;);
 fprintf ($fp, &quot;Commit info: &quot; . (isset($_POST[&#39;payload&#39;])?$_POST[&#39;payload&#39;]:&quot;(no payload)&quot;) . &quot;\n\n&quot;);
 fclose($fp);
-echo `cd /home/slp/team/html/; git pull`;
+echo &quot;&lt;pre&gt;&quot; . `cd /home/slp/team/html/; git pull` . &quot;&lt;/pre&gt;&quot;;
 ?&gt;</code></pre>
 <p>A few notes about this code:</p>
 <ul>
