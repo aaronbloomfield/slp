@@ -7,7 +7,7 @@ This syllabus applies two two courses: CS 4970 in the fall of 2017 (called "Caps
 
 ### For both Fall 2017 and Spring 2018, [https://github.com/aaronbloomfield/slp/](https://github.com/aaronbloomfield/slp/)
 ### Fall 2017: M/W/F 12:00-12:50, Rice 130
-### Spring 2018: TBA
+### Spring 2018: M/W/F 10:00-10:50, Rice 130
 
 **Instructors:**
 
