@@ -264,8 +264,6 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
         /// ... unless they have specified otherwise
         urluserid = string(argv[9]);
     string path = up2;
-    if ( (argv[10] != NULL) && (strlen(argv[10]) != 0) )
-      path += ":" + string(argv[10]);
 
     wsgifile << "Alias " << (rootdir?"":URL_PREFIX) << "/" << urluserid << "/static " << staticdir << "\n"
         << "<Directory " << staticdir << ">\n"
@@ -273,8 +271,10 @@ static int regenerate_callback(void *NotUsed, int argc, char **argv, char **azCo
         << "</Directory>\n";
     wsgifile << "WSGIScriptAlias " << (rootdir?"":URL_PREFIX) << "/" << urluserid << " " << fullpath << "\n";
     wsgifile << "<IfDefine !NoDaemonProcess>\n"
-	     << "  WSGIDaemonProcess " << urluserid << " user=" << urluserid << " python-path=" << path << "\n"
-	     << "</IfDefine>\n";
+	     << "  WSGIDaemonProcess " << urluserid << " user=" << urluserid << " python-path=" << path;
+    if ( (argv[10] != NULL) && (strlen(argv[10]) != 0) )
+      wsgifile << " python-home=" << argv[10];
+    wsgifile << "\n</IfDefine>\n";
     wsgifile << "<Location " << (rootdir?"":URL_PREFIX) << "/" << urluserid << ">\n"
         << "  WSGIProcessGroup " << urluserid << "\n"
         << "</Location>\n"

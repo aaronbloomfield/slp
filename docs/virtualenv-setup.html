@@ -42,6 +42,7 @@
 <li>Once in the virtualenv environment (from the previous step), run <code>pip3 install Django==1.11.6</code>.</li>
 <li>Unless you have a reason to do so otherwise, always install the latest Django version by explicitly stating the version number in the <code>pip3</code> command.</li>
 <li>The latest version can be found at <a href="https://www.djangoproject.com/" class="uri">https://www.djangoproject.com/</a>.</li>
+<li>If the web server logs give an error such as, &quot;ImproperlyConfigured: Error loading MySQLdb module: this is MySQLdb version (1, 3, 12, 'final', 0), but _mysql is version (1, 3, 7, 'final', 1).&quot; followed by, &quot;Did you install mysqlclient or MySQL-python?&quot;, then you need to install an <em>older</em> version of mysqlclient -- in this example, 1.3.7. So try <code>pip install mysqlclient==1.3.7</code>.</li>
 </ul></li>
 <li>Get the virtualenv library directory name.
 <ul>

@@ -55,6 +55,13 @@ This all works on the course server as a regular user.
       in the `pip3` command.
 	- The latest version can be found at
       [https://www.djangoproject.com/](https://www.djangoproject.com/).
+	- If the web server logs give an error such as,
+      "ImproperlyConfigured: Error loading MySQLdb module: this is
+      MySQLdb version (1, 3, 12, 'final', 0), but _mysql is version
+      (1, 3, 7, 'final', 1)." followed by, "Did you install
+      mysqlclient or MySQL-python?", then you need to install an
+      *older* version of mysqlclient -- in this example, 1.3.7.  So
+      try `pip install mysqlclient==1.3.7`.
 4. Get the virtualenv library directory name.
     - This will be needed in the next step.
 	- If your directory created in step one was `~/venv-django-1.11`,

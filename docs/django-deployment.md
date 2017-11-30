@@ -44,6 +44,9 @@ A bunch of notes:
 - The [WSGIProcessGroup](https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIProcessGroup) creates a process group, which allows one (or more) apps to run as a specific user. The `user` part of that line needs to be a valid user name on the system
 - The [WSGIDaemonProcess](https://code.google.com/p/modwsgi/wiki/ConfigurationDirectives#WSGIDaemonProcess) line indicates that this particular Django app will run under the `user` user, and the path to the django app is provided. The `user` part of that line needs to match the one in the WSGIProcessGroup.
 - The `Require all granted` line allows the viewing of the Django app.  If you are using Apache 2.2 (or earlier), replace `Require all granted` with two lines: `Order deny,allow` and then `Allow from all`.
+- If using virtualenv, such as described in the [Python's virtualenv setup](virtualenv-setup.html) ([md](virtualenv-setup.md)) page, then the `WSGIDaemonProcess` line will differ, and will look like: `WSGIDaemonProcess user python-path=/home/slp/user/mysite python-home=/path/to/virtualenv/lib/python3.5/site-packages`
+  - Note that the virtualenv directory should end in `lib/python3.5/site-packages`
+  - The wsgi-admin.cpp program, described below, creates this with the `-path` flag
 
 Sine there are going to be many users in a system, it will be easier to put this in a separate file (say, called `/etc/apache2/django.conf`), and insert a `Include django.conf` line in `/etc/apache2/sites-available/000-default.conf` (also right above the `</VirtualHost>` line).
 
