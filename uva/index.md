@@ -11,7 +11,7 @@ Much of the rest of this git repo is meant to be generic to anybody who has a cl
 - [Legal forms][3] ([md][4])
 - The collected [iteration goals](iteration-goals.html#/)
 - [Old UVa SLP documents][6] ([md][7]), including the lectures and schedule from previous semesters
-
+- [Grading metric][13] ([md][14])
 
 &nbsp;  
 

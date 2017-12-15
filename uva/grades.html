@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title>SLP Grading Metric</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+</head>
+<body>
+<h1 id="slp-grading-metric">SLP Grading Metric</h1>
+<p><a href="index.html">Go up to the main UVa page</a> (<a href="index.md">md</a>)</p>
+<p>This course is somewhat of a challenge to grade, as there is very little graded work in the traditional sense. Nonetheless, here is how everything is graded for the fall 2017 semester. The details herein follow the grading guidelines described in the <a href="course-introduction-fall.html#/grades">fall 2017 course introduction</a>, with two slight modifications, described herein (search for 'difference' in this document if you want to find them quickly).</p>
+<h2 id="promises">Promises</h2>
+<p>First, there were two promises that were made to the class:</p>
+<ul>
+<li>Getting all 'good' ratings on the iteration evaluations, and doing an 'average' amount of work, would lead to an 'A', assuming everything else was in line (meaning everything else was an 'A' grade). This implies that everybody could (potentially) receive an A in the class.</li>
+<li>The number of hours you reported were never used in the grade calculation -- only whether you reported times in a given iteration or not.</li>
+</ul>
+<p>Both of these were strictly adhered to.</p>
+<h2 id="work-done-and-the-grading-factor">Work-done and the grading factor</h2>
+<p>Two of the scores were project-based: the iteration evaluations and the final group project rating. The reason is that a student who does little work in an otherwise great group should not get as much credit for the quality of the system as somebody who does great work. Likewise, a great student in a weaker group should get more credit than students who do less work.</p>
+<p>To determine this, all students are assigned a &quot;work-done&quot; rating, which is based on how much work we feel the student has done during the semester. This was originally based on a Likert scale (integer values from 1 to 5), but we realized that values between these were necessary as well. Thus, the scale is as follows.</p>
+<table>
+<thead>
+<tr class="header">
+<th>rating as text</th>
+<th>rating as a number</th>
+<th>factor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>well below average</td>
+<td>1</td>
+<td>0.35</td>
+</tr>
+<tr class="even">
+<td>a bit worse than below average</td>
+<td>1.5</td>
+<td>0.55</td>
+</tr>
+<tr class="odd">
+<td>below average</td>
+<td>2</td>
+<td>0.75</td>
+</tr>
+<tr class="even">
+<td>slightly below average</td>
+<td>2.5</td>
+<td>0.875</td>
+</tr>
+<tr class="odd">
+<td>ever so slightly below average</td>
+<td>2.75</td>
+<td>0.9375</td>
+</tr>
+<tr class="even">
+<td>average</td>
+<td>3</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>ever so slightly above average</td>
+<td>3.25</td>
+<td>1.0375</td>
+</tr>
+<tr class="even">
+<td>slightly above average</td>
+<td>3.5</td>
+<td>1.075</td>
+</tr>
+<tr class="odd">
+<td>above average</td>
+<td>4</td>
+<td>1.15</td>
+</tr>
+<tr class="even">
+<td>a bit more than above average</td>
+<td>4.5</td>
+<td>1.225</td>
+</tr>
+<tr class="odd">
+<td>well above average</td>
+<td>5</td>
+<td>1.3</td>
+</tr>
+</tbody>
+</table>
+<p>Yes, the names need a bit of work. And keep in mind that an 'average' rating is on track to get an 'A'.</p>
+<p>The last column is the <em>factor</em>, which is used to scale the group scores. Thus, if a group receives a 80% on something, a student with an 'average' rating would receive the full 80%. A student with a 'below average' rating would receive 0.75*80% = 60% for that part. Likewise, a student with a 'well above average' would receive 1.3*80 = 104% for that part.</p>
+<p>Note that a 'well below average' grade is an automatic failure for the course, regardless of any other grades. One can still fail with a score other than 'well below average'. It has always been the case, however, that students with a 'well below average' were clearly in the failure category anyway. Historically, it has been very rare for that to be issued a 'well below average' rating in the spring, as those students typically do not pass the fall semester.</p>
+<h2 id="iteration-evaluations">Iteration evaluations</h2>
+<p>The progress done on the iteration evaluations were graded out of 4 points: 0 was no progress, 1 was poor, 2 was fair, 3 was good, 4 was excellent. Note that a 0 (none) has never (yet) been issued. Also note that the last iteration in a semester typically does not have an iteration evaluation rating, as that is encapsulated into the overall project evaluation.</p>
+<p>The iteration evaluations were averaged to yield the evaluation score, and that average is shown in the grading metrics. An average of 1.0 (all poor ratings) would be 0% for this part, and an average of 3.0 (all average ratings) would be 93% (an A); this scale is linear. Thus, the conversion formula is:</p>
+<p>percent = (average - 1) x 93.0/2.0 = (average - 1) x 46.5</p>
+<p>Thus, all 'good' evaluations would yield (3.0-1) x 46.5 = 93%, which is an 'A'. An average evaluation score of 2.5 (half 'good' and half 'fair' evaluations) would result in (2.5-1) x 46.5 = 69.75%. As this is a group score, it is multiplied by the factor from above.</p>
+<h2 id="leadership-score">Leadership score</h2>
+<p>The leadership score is graded out of 10 points, and was based on the results of one's leadership iterations; these are shown in the evaluations tab of the course grading tool. One could be the secretary, lead, both, or neither in a given semester. Note that the 'neither' situation could only occur in the fall, and only for groups where there were more than six members.</p>
+<ul>
+<li>Secretary only:
+<ul>
+<li>Each iteration is graded out of 5 points</li>
+<li>Each iteration with no reports entered is 0/5</li>
+<li>For the first and last iterations: because there are expected to be fewer meetings: 1+ report filed is 5/5 points, 0 reports is 2/5 points</li>
+<li>For the middle iterations: 1 report filed is 4/5 points, 2+ reports are 5/5 points</li>
+<li>If they did three iterations, then the score is out of 15, and is scaled down to be out of 10, rounded to the nearest 1/2</li>
+</ul></li>
+<li>Lead only:
+<ul>
+<li>Each late report is 2 points off</li>
+<li>Each missing report is 5 points off; thus, missing 2 means a zero for the leadership score, regardless of anything else</li>
+<li>If they did three iterations, then scale down, by 2/3rds, the amount off from 10, then round to the nearest 1/2</li>
+</ul></li>
+<li>Both roles:
+<ul>
+<li>Grade each separately and take the average, rounding to the nearest 1/2</li>
+<li>If they did a reasonably good job on both, or they had a lot of leadership iterations, they get +1 point due to the amount of leadership they did</li>
+<li>A leadership score of 9.5 rounds up to 10; else, it stays at the x.5</li>
+</ul></li>
+<li>Neither roles:
+<ul>
+<li>In this case, the overall course grade is scaled so that the leadership score does not count; see below for details.</li>
+</ul></li>
+</ul>
+<p>Note that taking really poor notes would count as no notes taken for that occurrence.</p>
+<h2 id="grade-components">Grade components</h2>
+<p>The spring grades were computed as follows:</p>
+<ul>
+<li>45%: iteration evaluations (described above), multiplied by the factor</li>
+<li>25%: final project evaluation (typically out of 10 points), multiplied by the factor</li>
+<li>10%: project in lieu of the final exam (out of 10 points)</li>
+<li>10%: homework grades</li>
+<li>5%: leadership score (described above), out of 10 points</li>
+<li>5%: journaling entries (averaging the scores, each of which was out of 5)</li>
+</ul>
+<p>One of the differences from the <a href="course-introduction-fall.html#/grades">fall 2017 course introduction</a> was that instead of counting leadership for 10%, we counted it for 5% and the journal entries for 5%. Note that only the first two items were group work. The last four items were were individual work, and thus are not multiplied by the factor.</p>
+<p>The result of the above is called the <em>base score</em>.</p>
+<h2 id="penalties">Penalties</h2>
+<p>There were a few things that would deduct from one's grade. With one exception, these were all clearly stated throughout the semester, as well as the <a href="syllabus.html">course syllabus</a> (<a href="syllabus.md">md</a>) and the grades section of the <a href="course-introduction-fall.html#/grades">fall course introduction</a>.</p>
+<ul>
+<li>Unexcused absences (recall that attendance is required) was a 3 percentage point penalty for <em>each</em> occurrence. This applies to absences with no excuse; excused absences do not incur a penalty. Is this too harsh? Not really -- when one is in a job outside the university, one cannot just simply miss work without explaining why, or not perform a required job function, without a consequence.</li>
+<li>Not reporting hours was a 3 percentage point penalty for <em>each</em> occurrence. This is whether one reported hours or not -- how many hours reported was not factored into the grade in any way.</li>
+<li>Missing a survey incurred a 10 percentage point penalty. However, this almost never occurred, as everybody is reminded repeatedly -- and we typically wait until all the surveys before closing them.</li>
+<li>Not submitting 5 test cases in the required iterations (3, 4, and 6) incurred a 1 percentage point penalty. This was the other difference from what was in the <a href="course-introduction-fall.html#/grades">fall 2017 course introduction</a>.</li>
+</ul>
+<p>The 'base score' (from above), minus the penalties, is the <em>final course average</em>.</p>
+<h2 id="final-course-grade">Final course grade</h2>
+<p>This course used the standard decade scale. The final course average was rounded up (if appropriate), and the following table was used to compute the final course grade.</p>
+<table>
+<thead>
+<tr class="header">
+<th>minimum score</th>
+<th>letter grade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>-∞</td>
+<td>F</td>
+</tr>
+<tr class="even">
+<td>60</td>
+<td>D-</td>
+</tr>
+<tr class="odd">
+<td>63</td>
+<td>D</td>
+</tr>
+<tr class="even">
+<td>67</td>
+<td>D+</td>
+</tr>
+<tr class="odd">
+<td>70</td>
+<td>C-</td>
+</tr>
+<tr class="even">
+<td>73</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>77</td>
+<td>C+</td>
+</tr>
+<tr class="even">
+<td>80</td>
+<td>B-</td>
+</tr>
+<tr class="odd">
+<td>83</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>87</td>
+<td>B+</td>
+</tr>
+<tr class="odd">
+<td>90</td>
+<td>A-</td>
+</tr>
+<tr class="even">
+<td>93</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td>???</td>
+<td>A+</td>
+</tr>
+</tbody>
+</table>
+<p>Some notes on this:</p>
+<ul>
+<li>Due to the scaling of the grade based on the work-done rating and the factor, one can have scores in excess of 100%. In particular, students in the past have had scores exceeding 150% (although that was only one time).</li>
+<li>One can also have a negative score (typically due to a poor work-done rating and lots of penalties) -- this has also happened, but is also rare.</li>
+<li>Note that a 'well below average' grade is an automatic failure for the course, regardless of any other grades; one can still fail with a score other than 'well below average'.</li>
+<li>An 'A+' is only issued to students with that meet <em>two</em> criteria: a 'well above average' work-done rating <em>and</em> a high enough average. Note that the A+ range is a percentage of the class (typically the top 3% to 5% of the class), so the cut-off varies from semester to semester.</li>
+</ul>
+<h2 id="analysis">Analysis</h2>
+<p>One may claim that this metric is too harsh. Perhaps, but it does take into account, in a formulaic way, all the factors that contribute to the grade. And students had chance to challenge every component that is used in the grade determination.</p>
+<p>For the fall 2017 semester, these were the grade distributions:</p>
+<ul>
+<li>44% are some sort of A (A-, A, or A+); 3 of those were an A+</li>
+<li>21% are some sort of B</li>
+<li>15% are some sort of C</li>
+<li>6% are some sort of D</li>
+<li>13% are an F</li>
+</ul>
+<p>Those percentages are higher than a typical 4th year course, so the distribution of grades is reasonable in comparison to other 4th year courses.</p>
+<p>Also, it turned out this semester that the average work-done rating was <em>exactly</em> 3.0. We weren't aiming for that, it just turned out that way.</p>
+<h2 id="done">Done!</h2>
+<p>Whew! And you should see the Excel (actually LibreOffice) formulas used in the grade book worksheet...</p>
+</body>
+</html>
