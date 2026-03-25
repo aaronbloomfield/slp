@@ -1,45 +1,110 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>SLP: MySQL Introduction</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../markdown.css" />
 </head>
 <body>
 <h1 id="slp-mysql-introduction">SLP: MySQL Introduction</h1>
-<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
-<p>This page is meant to allow you to use enough MySQL so that you can complete the first set of tutorials. It is not meant to be a reference; the <a href="mysql-reference.html">MySQL Reference</a> (<a href="mysql-reference.md">md</a>) page does that. And it's not meant to be an introduction to MySQL commands, either - in fact, no actual data entry (or extraction) commands are listed here.</p>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a
+href="index.md">md</a>)</p>
+<p>This page is meant to allow you to use enough MySQL so that you can
+complete the first set of tutorials. It is not meant to be a reference;
+the <a href="mysql-reference.html">MySQL Reference</a> (<a
+href="mysql-reference.md">md</a>) page does that. And it’s not meant to
+be an introduction to MySQL commands, either - in fact, no actual data
+entry (or extraction) commands are listed here.</p>
 <h3 id="users-and-permissions">Users and permissions</h3>
-<p>MySQL has, as far as this tutorial is concerned, two types of users: ones who can create databases and users, and ones who cannot.</p>
-<p>The 'root' user can create databases. On the VirtualBox image, the password for the root user is 'password'. You will need to create a MySQL user that has your userid (we'll use 'mst3k' in this tutorial for your userid).</p>
+<p>MySQL has, as far as this tutorial is concerned, two types of users:
+ones who can create databases and users, and ones who cannot.</p>
+<p>The ‘root’ user can create databases. On the VirtualBox image, the
+password for the root user is ‘password’. You will need to create a
+MySQL user that has your userid (we’ll use ‘mst3k’ in this tutorial for
+your userid).</p>
 <h3 id="starting-mysql-as-root">Starting MySQL as root</h3>
 <p>To start MySQL from the command line, enter:</p>
 <pre><code>sudo mysql -u root -p</code></pre>
-<p>The <code>-u root</code> flag is specifying the user to log in as. The <code>-p</code> flag is stating that you want it to prompt you for a password. On the VirtualBox image, the password is 'password'. You can also specify the password on the command line (such as <code>mysql -u root -ppassword</code> (notice no space between the <code>-p</code> and the password; if there is a space, then MySQL will assume that you want to be prompted for the password, and what comes next on the command line will be interested as something else)), however this is <strong>NOT</strong> recomended, as the password is visible to any users (since it is the process you are now running).</p>
-<p>You will have a <code>mysql&gt;</code> prompt; enter <code>exit</code> or <code>quit</code> to exit.</p>
+<p>The <code>-u root</code> flag is specifying the user to log in as.
+The <code>-p</code> flag is stating that you want it to prompt you for a
+password. On the VirtualBox image, the password is ‘password’. You can
+also specify the password on the command line (such as
+<code>mysql -u root -ppassword</code> (notice no space between the
+<code>-p</code> and the password; if there is a space, then MySQL will
+assume that you want to be prompted for the password, and what comes
+next on the command line will be interested as something else)), however
+this is <strong>NOT</strong> recomended, as the password is visible to
+any users (since it is the process you are now running).</p>
+<p>You will have a <code>mysql&gt;</code> prompt; enter
+<code>exit</code> or <code>quit</code> to exit.</p>
 <h3 id="creating-a-database">Creating a database</h3>
-<p>This can only be done as root. To create a database, enter (from the <code>mysql&gt;</code> prompt):</p>
+<p>This can only be done as root. To create a database, enter (from the
+<code>mysql&gt;</code> prompt):</p>
 <pre><code>create database mst3k;</code></pre>
-<p>Note that the database that is being created is the same as your userid. The reason for this is that this will be the database name on the course server, so keeping it the same will make it easier for you when you are deploying your code.</p>
-<p>At this point, the database is created, but only the root user can access it. Thus, we want to:</p>
+<p>Note that the database that is being created is the same as your
+userid. The reason for this is that this will be the database name on
+the course server, so keeping it the same will make it easier for you
+when you are deploying your code.</p>
+<p>At this point, the database is created, but only the root user can
+access it. Thus, we want to:</p>
 <h3 id="create-other-users">Create other users</h3>
-<p>MySQL doesn't have users, per se, but instead has valid username/password pairs that can log in. To create one:</p>
+<p>MySQL doesn’t have users, per se, but instead has valid
+username/password pairs that can log in. To create one:</p>
 <pre><code>grant all on mst3k.* to &#39;mst3k&#39; identified by &#39;foobar&#39;;
 grant all on mst3k.* to &#39;mst3k&#39;@&#39;localhost&#39; identified by &#39;foobar&#39;;</code></pre>
-<p>There are a number of things to note: - There are TWO separate commands; the only difference is the <code>@'localhost'</code> on the second command. We aren't going into why this is necessary here. - <code>mst3k</code> is your userid (that is listed twice on each line), and <code>foobar</code> is your password -- Tou will likely want to use the password found in the Post'Em tool; again, this will save you the hassle of having to reconfigure your application when you deploy it to the server - The first occurrence of 'mst3k' on the line is the database name; the second is the userid who can access it. For our purposes, they just happen to be the same. - The syntax is rather tricky, and it does not accept any variations. The database specification is <code>mst3k.*</code>, for example</p>
-<p>At this point, you can log out of mysql via <code>exit</code> or <code>quit</code> (or Control-D)</p>
-<h3 id="starting-mysql-as-your-userid">Starting MySQL as your userid</h3>
+<p>There are a number of things to note: - There are TWO separate
+commands; the only difference is the <code>@'localhost'</code> on the
+second command. We aren’t going into why this is necessary here. -
+<code>mst3k</code> is your userid (that is listed twice on each line),
+and <code>foobar</code> is your password – Tou will likely want to use
+the password found in the Post’Em tool; again, this will save you the
+hassle of having to reconfigure your application when you deploy it to
+the server - The first occurrence of ‘mst3k’ on the line is the database
+name; the second is the userid who can access it. For our purposes, they
+just happen to be the same. - The syntax is rather tricky, and it does
+not accept any variations. The database specification is
+<code>mst3k.*</code>, for example</p>
+<p>At this point, you can log out of mysql via <code>exit</code> or
+<code>quit</code> (or Control-D)</p>
+<h3 id="starting-mysql-as-your-userid">Starting MySQL as your
+userid</h3>
 <p>To start MySQL as your userid, enter:</p>
 <pre><code>mysql -u mst3k -p mst3k</code></pre>
-<p>You'll notice this has a slightly different syntax - in addition to specifying the 'mst3k' user instead of the 'root' user, there is an additional 'mst3k' at the end. That last 'mst3k' is specifying the database that you want to connect to.</p>
-<p>Once logged in (i.e., you have the <code>mysql&gt;</code> prompt), you can enter <code>show tables;</code> to see what tables are in your database. There are likely none at this point, so it will state <code>Empty set</code>.</p>
+<p>You’ll notice this has a slightly different syntax - in addition to
+specifying the ‘mst3k’ user instead of the ‘root’ user, there is an
+additional ‘mst3k’ at the end. That last ‘mst3k’ is specifying the
+database that you want to connect to.</p>
+<p>Once logged in (i.e., you have the <code>mysql&gt;</code> prompt),
+you can enter <code>show tables;</code> to see what tables are in your
+database. There are likely none at this point, so it will state
+<code>Empty set</code>.</p>
 <h3 id="creating-tables-for-ruby">Creating tables for Ruby</h3>
-<p>One nice aspect of Ruby is that you don't have to create the tables yourself. When you enter <code>rake db:migrate</code>, the tables will be created for you automatically.</p>
+<p>One nice aspect of Ruby is that you don’t have to create the tables
+yourself. When you enter <code>rake db:migrate</code>, the tables will
+be created for you automatically.</p>
 <h3 id="creating-tables-for-cakephp">Creating tables for CakePHP</h3>
-<p>This is a bit more work, but still pretty easy. The tutorial will specify some MySQL commands to create the tables. For example, the blog tutorial includes the following MySQL commands:</p>
+<p>This is a bit more work, but still pretty easy. The tutorial will
+specify some MySQL commands to create the tables. For example, the blog
+tutorial includes the following MySQL commands:</p>
 <pre><code>/* First, create our posts table: */
 CREATE TABLE posts (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

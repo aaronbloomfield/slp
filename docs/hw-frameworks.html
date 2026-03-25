@@ -1,95 +1,281 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>SLP: Frameworks Homework</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../markdown.css" />
 </head>
 <body>
 <h1 id="slp-frameworks-homework">SLP: Frameworks Homework</h1>
-<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
-<p>In this homework, you will create <a href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a> systems using different frameworks: Ruby on Rails, and Django.</p>
-<p>All of these systems will use the SAME database, and one of the important aspects of this homework is to make sure that they all use <em>different</em> tables in that database.</p>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a
+href="index.md">md</a>)</p>
+<p>In this homework, you will create <a
+href="http://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller">MVC</a>
+systems using different frameworks: Ruby on Rails, and Django.</p>
+<p>All of these systems will use the SAME database, and one of the
+important aspects of this homework is to make sure that they all use
+<em>different</em> tables in that database.</p>
 <h3 id="server-setup">Server setup</h3>
-<p>We are providing you a server to use for this homework. In an effort not to broadcast the name of the course server -- and to allow it to be changed without having to update everything herein -- it is just called &quot;the server&quot; throughout these documents. The server name and the login credentials are in the Post'Em tool in Collab. It will likely be far easier to develop this on your own machine (presumably the VirtualBox image), and then move it to the server when it is ready.</p>
-<p>The easiest way is to download the Virtual Box image from Collab (in Resources). You can read the directions on the <a href="virtualbox-intro.html">VirtualBox introduction</a> (<a href="virtualbox-intro.md">md</a>) page for how to set it up. If you want to configure your own machine, you can view the steps taken to create the image on the <a href="virtualbox-image-details.html">VirtualBox image details</a> (<a href="virtualbox-image-details.md">md</a>) page.</p>
-<p>The provided course server has a valid (and properly signed) SSL certificate, so you can view any of the links through http:// or https://.</p>
+<p>We are providing you a server to use for this homework. In an effort
+not to broadcast the name of the course server – and to allow it to be
+changed without having to update everything herein – it is just called
+“the server” throughout these documents. The server name and the login
+credentials are in the Post’Em tool in Collab. It will likely be far
+easier to develop this on your own machine (presumably the VirtualBox
+image), and then move it to the server when it is ready.</p>
+<p>The easiest way is to download the Virtual Box image from Collab (in
+Resources). You can read the directions on the <a
+href="virtualbox-intro.html">VirtualBox introduction</a> (<a
+href="virtualbox-intro.md">md</a>) page for how to set it up. If you
+want to configure your own machine, you can view the steps taken to
+create the image on the <a
+href="virtualbox-image-details.html">VirtualBox image details</a> (<a
+href="virtualbox-image-details.md">md</a>) page.</p>
+<p>The provided course server has a valid (and properly signed) SSL
+certificate, so you can view any of the links through http:// or
+https://.</p>
 <h3 id="mysql">MySQL</h3>
-<p>First, you will need to become familiar with MySQL, if you are not already. Depending on your familiarity level, you may want to go through the <a href="mysql-intro.html">MySQL Introduction</a> (<a href="mysql-intro.md">md</a>) page. Both new and advanced users will want to refer to the <a href="mysql-reference.html">MySQL Reference</a> (<a href="mysql-reference.md">md</a>) page throughout this course.</p>
-<p><del>Note that the server has phpMyAdmin installed at <code>https://server/phpmyadmin/</code> (where &quot;server&quot; is the server used for the course).</del> Due to vulnerabilites in phpMyAdmin, it is disabled for the time being on the course server. You will have to use the command line interface for now.</p>
-<p>You will need to create a series of tables as part of this process - keep track of the MySQL commands that you issue, as you will have to repeat them on the server. Alternatively, you can dump your entire MySQL database via <code>mysqldump -u user -p mst3k &gt; db.sql</code>. Here, <code>user</code> is whatever user can access the directory (perhaps &quot;student&quot;, perhaps your UVa userid). Or you can do it via phpMyAdmin. Either way, you should have a file that contains all the SQL commands to create the necessary database tables - we'll need that shortly.</p>
-<p>You will need to create a database on your local machine. The easiest way is to have it be the same username and password as is on the server, so that you can use the same database configuration files.</p>
+<p>First, you will need to become familiar with MySQL, if you are not
+already. Depending on your familiarity level, you may want to go through
+the <a href="mysql-intro.html">MySQL Introduction</a> (<a
+href="mysql-intro.md">md</a>) page. Both new and advanced users will
+want to refer to the <a href="mysql-reference.html">MySQL Reference</a>
+(<a href="mysql-reference.md">md</a>) page throughout this course.</p>
+<p><del>Note that the server has phpMyAdmin installed at
+<code>https://server/phpmyadmin/</code> (where “server” is the server
+used for the course).</del> Due to vulnerabilites in phpMyAdmin, it is
+disabled for the time being on the course server. You will have to use
+the command line interface for now.</p>
+<p>You will need to create a series of tables as part of this process -
+keep track of the MySQL commands that you issue, as you will have to
+repeat them on the server. Alternatively, you can dump your entire MySQL
+database via <code>mysqldump -u user -p mst3k &gt; db.sql</code>. Here,
+<code>user</code> is whatever user can access the directory (perhaps
+“student”, perhaps your UVa userid). Or you can do it via phpMyAdmin.
+Either way, you should have a file that contains all the SQL commands to
+create the necessary database tables - we’ll need that shortly.</p>
+<p>You will need to create a database on your local machine. The easiest
+way is to have it be the same username and password as is on the server,
+so that you can use the same database configuration files.</p>
 <ul>
-<li>Start mysql as root: <code>mysql -u root -p</code>, and enter the root password (likely 'password')</li>
+<li>Start mysql as root: <code>mysql -u root -p</code>, and enter the
+root password (likely ‘password’)</li>
 <li>Create the database: <code>create database mst3k;</code></li>
-<li>Grant permission for your user to use it: <code>grant all on mst3k.* to 'mst3k' identified by 'password';</code>
+<li>Grant permission for your user to use it:
+<code>grant all on mst3k.* to 'mst3k' identified by 'password';</code>
 <ul>
-<li>Note the <code>.*</code> after the database name (the first 'mst3k')</li>
-<li>Use the same username and password as was provided on the server</li>
+<li>Note the <code>.*</code> after the database name (the first
+‘mst3k’)</li>
+<li>Use the same username and password as was provided on the
+server</li>
 </ul></li>
-<li>Call that line again, but put a <code>@'localhost'</code> after the userid:<code>grant all on mst3k.* to 'mst3k'@'localhost' identified by 'password';</code></li>
+<li>Call that line again, but put a <code>@'localhost'</code> after the
+userid:<code>grant all on mst3k.* to 'mst3k'@'localhost' identified by 'password';</code></li>
 <li>Exit mysql</li>
 </ul>
-<p>At this point, you have the same databse config on both your local machine as on the server.</p>
-<h3 id="uploading-files-to-the-server">Uploading files to the server</h3>
-<p>If you are working at home, you will likely want to upload the files to the server. To do so, you can try this command (presumably from your ~/html directory):</p>
+<p>At this point, you have the same databse config on both your local
+machine as on the server.</p>
+<h3 id="uploading-files-to-the-server">Uploading files to the
+server</h3>
+<p>If you are working at home, you will likely want to upload the files
+to the server. To do so, you can try this command (presumably from your
+~/html directory):</p>
 <pre><code>rsync -a --del --progress foobar/ mst3k@server:~/html/foobar/</code></pre>
-<p>Note that this command is very particular about the parameters! If you were to specify <code>foobar</code> instead of <code>foobar/</code> (this is after the <code>--progress</code> parameter), then it will do something very different.</p>
-<p>This command will upload all the <em>changed</em> files to the server. The <code>-a</code> flag causes it to upload the entire directory structure. The <code>--del</code> flag tells rsync to <em>delete</em> files on the remote server that have been deleted on the local copy. And the <code>--progress</code> flag tells it to display the progress.</p>
-<p>One of the issues is that this will overwrite files that have been modified, and this may not always be what you want. For example, you may have differet files that specify the database user name and password. So if you were to log into the server, and manually change the files, then it would overwrite them with the next rsync call.</p>
-<p>To prevent this, you can use the <code>--exclude</code> flag, which causes it to not bother uploading certain files:</p>
+<p>Note that this command is very particular about the parameters! If
+you were to specify <code>foobar</code> instead of <code>foobar/</code>
+(this is after the <code>--progress</code> parameter), then it will do
+something very different.</p>
+<p>This command will upload all the <em>changed</em> files to the
+server. The <code>-a</code> flag causes it to upload the entire
+directory structure. The <code>--del</code> flag tells rsync to
+<em>delete</em> files on the remote server that have been deleted on the
+local copy. And the <code>--progress</code> flag tells it to display the
+progress.</p>
+<p>One of the issues is that this will overwrite files that have been
+modified, and this may not always be what you want. For example, you may
+have differet files that specify the database user name and password. So
+if you were to log into the server, and manually change the files, then
+it would overwrite them with the next rsync call.</p>
+<p>To prevent this, you can use the <code>--exclude</code> flag, which
+causes it to not bother uploading certain files:</p>
 <pre><code>rsync -a --del --progress --exclude &#39;.htaccess&#39; foobar/ mst3k@server:~/html/foobar/</code></pre>
-<p>This will cause rsync to not upload any files called <code>.htaccess</code>. Note that you should upload <em>everything</em> the first time (i.e., using the first rsync command given), then log into the server and manually change the .htaccess files. You should then call the second rsync command from then on.</p>
-<p>Which files you exclude will depend on which ones differ between your development machine and the server. If you use the same database config, as described above, then you can use the same database credential files as well.</p>
-<p>If you did a mysqldump on your local machine to a file called <code>db.sql</code>, you can load that data into the database on the server by entering:</p>
+<p>This will cause rsync to not upload any files called
+<code>.htaccess</code>. Note that you should upload <em>everything</em>
+the first time (i.e., using the first rsync command given), then log
+into the server and manually change the .htaccess files. You should then
+call the second rsync command from then on.</p>
+<p>Which files you exclude will depend on which ones differ between your
+development machine and the server. If you use the same database config,
+as described above, then you can use the same database credential files
+as well.</p>
+<p>If you did a mysqldump on your local machine to a file called
+<code>db.sql</code>, you can load that data into the database on the
+server by entering:</p>
 <pre><code>cat db.sql | mysql -u mst3k -p mst3k</code></pre>
-<p>Replace mst3k with your userid; it will prompt you for your password. This command must be run on the server. To log into the server, enter:</p>
+<p>Replace mst3k with your userid; it will prompt you for your password.
+This command must be run on the server. To log into the server,
+enter:</p>
 <pre><code>ssh mst3k@server</code></pre>
-<p>Where 'mst3k' is your userid, and 'server' is the <em>full</em> name of the server. Once you enter your password, you will be logged into a command prompt on the server.</p>
+<p>Where ‘mst3k’ is your userid, and ‘server’ is the <em>full</em> name
+of the server. Once you enter your password, you will be logged into a
+command prompt on the server.</p>
 <h3 id="ruby-on-rails">Ruby on Rails</h3>
-<p><a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)">Ruby</a> is the programming language, and <a href="https://en.wikipedia.org/wiki/Ruby_on_Rails">Rails</a> is the framework (library). When used together it is called &quot;Ruby on Rails&quot;. While it is possible to use Ruby without Rails (or Rails without Ruby), that is rarely done.</p>
-<p>First, read through the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page. The assumption is that you will test it locally via <code>rails server</code>, and the deploy it on the course server via the directions on that page. If you want to try your hand configuring your <em>own</em> Rails server, you can look at the <a href="rubyrails-deployment.html">Ruby on Rails deployment</a> (<a href="rubyrails-deployment.md">md</a>) page -- but be warned, it's a real pain in the rear to configure a Rails server.</p>
-<p>We are using Ruby version 2.4.1 and Rails version 5.1.3 for this assigment. If you have a more recent patch level (the last of the three digits of the version number), that's fine. But you can't have a different major version (the first of those three numbers) or a different minor version (the middle of those three numbers).</p>
-<p>On the course server, your app <em>must</em> be called <code>railshw</code>, and it <em>must</em> be in your home directory. In other words, there must be a <code>/home/slp/mst3k/railshw/public</code> directory on the course server, as this is what the webserver will be looking for. If you change anything in that path, the web server will never find your app. You can then view your app at <code>http://server/rails/mst3k</code>, where &quot;server&quot; is the course server.</p>
-<p>This part of the assignment is to complete the blog tutorial <a href="http://guides.rubyonrails.org/v4.3/getting_started.html">here</a>. Recall that we are using Rails 5.1.3.</p>
+<p><a
+href="https://en.wikipedia.org/wiki/Ruby_(programming_language)">Ruby</a>
+is the programming language, and <a
+href="https://en.wikipedia.org/wiki/Ruby_on_Rails">Rails</a> is the
+framework (library). When used together it is called “Ruby on Rails”.
+While it is possible to use Ruby without Rails (or Rails without Ruby),
+that is rarely done.</p>
+<p>First, read through the <a href="rubyrails-getting-started.html">Ruby
+on Rails getting started</a> (<a
+href="rubyrails-getting-started.md">md</a>) page. The assumption is that
+you will test it locally via <code>rails server</code>, and the deploy
+it on the course server via the directions on that page. If you want to
+try your hand configuring your <em>own</em> Rails server, you can look
+at the <a href="rubyrails-deployment.html">Ruby on Rails deployment</a>
+(<a href="rubyrails-deployment.md">md</a>) page – but be warned, it’s a
+real pain in the rear to configure a Rails server.</p>
+<p>We are using Ruby version 2.4.1 and Rails version 5.1.3 for this
+assigment. If you have a more recent patch level (the last of the three
+digits of the version number), that’s fine. But you can’t have a
+different major version (the first of those three numbers) or a
+different minor version (the middle of those three numbers).</p>
+<p>On the course server, your app <em>must</em> be called
+<code>railshw</code>, and it <em>must</em> be in your home directory. In
+other words, there must be a <code>/home/slp/mst3k/railshw/public</code>
+directory on the course server, as this is what the webserver will be
+looking for. If you change anything in that path, the web server will
+never find your app. You can then view your app at
+<code>http://server/rails/mst3k</code>, where “server” is the course
+server.</p>
+<p>This part of the assignment is to complete the blog tutorial <a
+href="http://guides.rubyonrails.org/v4.3/getting_started.html">here</a>.
+Recall that we are using Rails 5.1.3.</p>
 <ul>
-<li>That page makes some assumptions as to what is installed, which are all valid for both the VirtualBox image and the course server</li>
-<li>To create the Rails application, you just enter <code>rails new railshw -d mysql</code> in your home directory (this is in section 3.2 of that web page; be sure to name it <code>railshw</code> so the URL is correct)</li>
+<li>That page makes some assumptions as to what is installed, which are
+all valid for both the VirtualBox image and the course server</li>
+<li>To create the Rails application, you just enter
+<code>rails new railshw -d mysql</code> in your home directory (this is
+in section 3.2 of that web page; be sure to name it <code>railshw</code>
+so the URL is correct)</li>
 </ul>
-<p>Lastly, to see how to upload your Rails app to the server, see the &quot;Uploading to the server&quot; section of the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page.</p>
+<p>Lastly, to see how to upload your Rails app to the server, see the
+“Uploading to the server” section of the <a
+href="rubyrails-getting-started.html">Ruby on Rails getting started</a>
+(<a href="rubyrails-getting-started.md">md</a>) page.</p>
 <h3 id="django">Django</h3>
-<p>First, read through the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page. The assumption is that you will test it locally via <code>python manage.py runserver</code>, and the deploy it on the course server via the directions on that page. If you want to try your hand configuring your <em>own</em> Apache server to run Django, you can look at the <a href="django-deployment.html">Django deployment</a> (<a href="django-deployment.md">md</a>) page -- but be warned, it's a real pain in the rear to configure a Django server (although not as bad as Rails).</p>
-<p>Unlike Ruby on Rails, you can name the Django project anything you want, and put it in any directory that you want. Although naming it <code>djangohw</code> and putting it in our home directory on the course server would not be bad ideas.</p>
-<p>The task for the Django part of this homework is to go through all <em>seven</em> parts of the introductory tutorial, found <a href="https://docs.djangoproject.com/en/1.11/intro/">here</a> (the &quot;Tutorial&quot; line in the &quot;First steps&quot; section). Make sure you are going through the 1.11 version!</p>
-<p>A few notes on that tutorial (these were notes from a previous version of the tutorial, so take these with a grain of salt):</p>
+<p>First, read through the <a href="django-getting-started.html">Django
+getting started</a> (<a href="django-getting-started.md">md</a>) page.
+The assumption is that you will test it locally via
+<code>python manage.py runserver</code>, and the deploy it on the course
+server via the directions on that page. If you want to try your hand
+configuring your <em>own</em> Apache server to run Django, you can look
+at the <a href="django-deployment.html">Django deployment</a> (<a
+href="django-deployment.md">md</a>) page – but be warned, it’s a real
+pain in the rear to configure a Django server (although not as bad as
+Rails).</p>
+<p>Unlike Ruby on Rails, you can name the Django project anything you
+want, and put it in any directory that you want. Although naming it
+<code>djangohw</code> and putting it in our home directory on the course
+server would not be bad ideas.</p>
+<p>The task for the Django part of this homework is to go through all
+<em>seven</em> parts of the introductory tutorial, found <a
+href="https://docs.djangoproject.com/en/1.11/intro/">here</a> (the
+“Tutorial” line in the “First steps” section). Make sure you are going
+through the 1.11 version!</p>
+<p>A few notes on that tutorial (these were notes from a previous
+version of the tutorial, so take these with a grain of salt):</p>
 <ul>
-<li>When editing the models.py file, you may have to put two additional imports at the top that the tutorial does not mention (<code>from django.utils import timezone</code> and <code>import datetime</code>); this is described in more detail <a href="https://code.djangoproject.com/ticket/19793">here</a></li>
-<li>If python complains about not knowing what 'timezone' is, figure out which file it is running into this issue (this is listed in the stack trace), and put <code>from django.utils import timezone</code> at the top of that file</li>
-<li>Note that one of the tests (specifically, <code>test_detail_view_with_a_future_poll()</code>) only succeeds if a future poll returns a 404 page, which is what the original <code>results()</code> view did. However, when the view was switched over to Django's generic views (the bottom of the <a href="https://docs.djangoproject.com/en/1.11/intro/tutorial04/">tutorial page 4</a>), that is no longer the default behavior. Thus, that test can be removed. This will make much more sense once you have read through the end of the testing section in the tutorial.</li>
+<li>When editing the models.py file, you may have to put two additional
+imports at the top that the tutorial does not mention
+(<code>from django.utils import timezone</code> and
+<code>import datetime</code>); this is described in more detail <a
+href="https://code.djangoproject.com/ticket/19793">here</a></li>
+<li>If python complains about not knowing what ‘timezone’ is, figure out
+which file it is running into this issue (this is listed in the stack
+trace), and put <code>from django.utils import timezone</code> at the
+top of that file</li>
+<li>Note that one of the tests (specifically,
+<code>test_detail_view_with_a_future_poll()</code>) only succeeds if a
+future poll returns a 404 page, which is what the original
+<code>results()</code> view did. However, when the view was switched
+over to Django’s generic views (the bottom of the <a
+href="https://docs.djangoproject.com/en/1.11/intro/tutorial04/">tutorial
+page 4</a>), that is no longer the default behavior. Thus, that test can
+be removed. This will make much more sense once you have read through
+the end of the testing section in the tutorial.</li>
 </ul>
-<p>When you have updated your Django project, remember to touch the wsgi.py file to make the web server reload your project; see the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page for details.</p>
-<p>It is much more difficult to rename your tables in Django -- you have to do it individually for each table. But if the Ruby on Rails tables all start with <code>ruby_</code>, then you can leave the Django talbes to have the default name. However, the names used in the Django tutorial should not conflict with the other tables therein.</p>
-<p>For the submission, we are not going to be configuring it on the web server, for reasons that will be explained elsewhere. Instead, we will look at your project files on the server, and run it through <code>python manage.py runserver</code>. Thus, you MUST take the following steps:</p>
+<p>When you have updated your Django project, remember to touch the
+wsgi.py file to make the web server reload your project; see the <a
+href="django-getting-started.html">Django getting started</a> (<a
+href="django-getting-started.md">md</a>) page for details.</p>
+<p>It is much more difficult to rename your tables in Django – you have
+to do it individually for each table. But if the Ruby on Rails tables
+all start with <code>ruby_</code>, then you can leave the Django talbes
+to have the default name. However, the names used in the Django tutorial
+should not conflict with the other tables therein.</p>
+<p>For the submission, we are not going to be configuring it on the web
+server, for reasons that will be explained elsewhere. Instead, we will
+look at your project files on the server, and run it through
+<code>python manage.py runserver</code>. Thus, you MUST take the
+following steps:</p>
 <ul>
-<li>Upload your ENTIRE django project onto the course server; put it somewhere in your root directory so we can find it
+<li>Upload your ENTIRE django project onto the course server; put it
+somewhere in your root directory so we can find it
 <ul>
-<li>There should be only three directories in your home directory: html, railshw (which contains the Rails part), and the directory that contains the Django part (you are welcome to have more, if you want; but those three are the ones we expect)</li>
+<li>There should be only three directories in your home directory: html,
+railshw (which contains the Rails part), and the directory that contains
+the Django part (you are welcome to have more, if you want; but those
+three are the ones we expect)</li>
 </ul></li>
-<li>Make <strong><em>SURE</em></strong> that the DB on the course server contains all the tables that you need for this. You can do a mysqldump of the DB on your VirtualBox image, and then restore that to your DB on the course server.</li>
+<li>Make <strong><em>SURE</em></strong> that the DB on the course server
+contains all the tables that you need for this. You can do a mysqldump
+of the DB on your VirtualBox image, and then restore that to your DB on
+the course server.</li>
 </ul>
 <h3 id="submission">Submission</h3>
-<p>None! We have access to your files on the course server, and we can view your projects at the following URLs. It must be at these EXACT URLs, or else your assignment will not be graded.</p>
+<p>None! We have access to your files on the course server, and we can
+view your projects at the following URLs. It must be at these EXACT
+URLs, or else your assignment will not be graded.</p>
 <ul>
 <li>Ruby on Rails: <code>http://server/rails/mst3k</code></li>
 <li>Django: <code>http://server/django/mst3k</code>
 <ul>
-<li>You <em>MUST</em> enter the urls.py rule to make that URL work; see the <a href="django-getting-started.html">Django getting started</a> (<a href="django-getting-started.md">md</a>) page for details (specifically, the &quot;Configuring the Django project's URLs&quot; section)</li>
+<li>You <em>MUST</em> enter the urls.py rule to make that URL work; see
+the <a href="django-getting-started.html">Django getting started</a> (<a
+href="django-getting-started.md">md</a>) page for details (specifically,
+the “Configuring the Django project’s URLs” section)</li>
 </ul></li>
 </ul>
-<p>For any sites that have user authentication, you MUST allow user <code>kermit</code> with password <code>frog</code> to log in and see any and all features. If <code>frog</code> doesn't work (it's too short), try <code>frog1234</code>. (You do this via <code>python manage.py createsuperuser</code>). For the Rails app, we will also try authenticating <code>dhh</code> and <code>secret</code>, which is what the tutorial tells you to use (so either one is fine for the Rails app).</p>
-<p>Whether your program is late or not will be determined by the timestamp on the files in your home directory on the course server.</p>
+<p>For any sites that have user authentication, you MUST allow user
+<code>kermit</code> with password <code>frog</code> to log in and see
+any and all features. If <code>frog</code> doesn’t work (it’s too
+short), try <code>frog1234</code>. (You do this via
+<code>python manage.py createsuperuser</code>). For the Rails app, we
+will also try authenticating <code>dhh</code> and <code>secret</code>,
+which is what the tutorial tells you to use (so either one is fine for
+the Rails app).</p>
+<p>Whether your program is late or not will be determined by the
+timestamp on the files in your home directory on the course server.</p>
 </body>
 </html>

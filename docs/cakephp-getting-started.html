@@ -1,53 +1,111 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>SLP: CakePHP: Getting Started</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../markdown.css" />
 </head>
 <body>
 <h1 id="slp-cakephp-getting-started">SLP: CakePHP: Getting Started</h1>
-<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a
+href="index.md">md</a>)</p>
 <p>To get a CakePHP website up and running:</p>
 <ul>
-<li>Make sure your webserver is configured for CakePHP; you need to have URL rewriting turned on. See the <a href="virtualbox-image-details.html">VirtualBox image details</a> (<a href="virtualbox-image-details.md">md</a>) page for how to do this
+<li>Make sure your webserver is configured for CakePHP; you need to have
+URL rewriting turned on. See the <a
+href="virtualbox-image-details.html">VirtualBox image details</a> (<a
+href="virtualbox-image-details.md">md</a>) page for how to do this
 <ul>
-<li>This has already benn configured on both the VirtualBox image and the course server already</li>
-<li>You should have installed composer, either locally or globally (it's installed globally on both the VirtualBox image and on the course server)</li>
+<li>This has already benn configured on both the VirtualBox image and
+the course server already</li>
+<li>You should have installed composer, either locally or globally (it’s
+installed globally on both the VirtualBox image and on the course
+server)</li>
 </ul></li>
-<li>You should have your MySQL datbase and login information ready, as you will need that shortly; you should have gotten that in the Collab Post'Em tool</li>
-<li>Install CakePHP, following the directions <a href="http://book.cakephp.org/3.0/en/installation.html#installing-cakephp">here</a>
+<li>You should have your MySQL datbase and login information ready, as
+you will need that shortly; you should have gotten that in the Collab
+Post’Em tool</li>
+<li>Install CakePHP, following the directions <a
+href="http://book.cakephp.org/3.0/en/installation.html#installing-cakephp">here</a>
 <ul>
-<li>On the course server, it <strong>MUST</strong> be in <code>~/html/cakephp/</code>, or else we will not be able to find it (and we will not grade it); this means that the final URL will be http://server/~mst3k/cakephp/ (where &quot;server&quot; is the course server)</li>
-<li>So we recommend putting it in <code>~/public_html/cakephp/</code> on VirtualBox, and <code>~/html/cakephp/</code> on the course server.</li>
-<li>To do this, run <code>composer create-project --prefer-dist cakephp/app cakephp</code> from your <code>~/public_html</code> directory (on VirtualBox) or <code>~/html</code> directory (on the course server)</li>
-<li>If your URLs are the same, then you can just do an rsync upload to transfer the files, and they should work on the course server as well; see the <a href="hw-frameworks.html">Frameworks homework</a> (<a href="framework-hw.md">md</a>) for details about rsync</li>
+<li>On the course server, it <strong>MUST</strong> be in
+<code>~/html/cakephp/</code>, or else we will not be able to find it
+(and we will not grade it); this means that the final URL will be
+http://server/~mst3k/cakephp/ (where “server” is the course server)</li>
+<li>So we recommend putting it in <code>~/public_html/cakephp/</code> on
+VirtualBox, and <code>~/html/cakephp/</code> on the course server.</li>
+<li>To do this, run
+<code>composer create-project --prefer-dist cakephp/app cakephp</code>
+from your <code>~/public_html</code> directory (on VirtualBox) or
+<code>~/html</code> directory (on the course server)</li>
+<li>If your URLs are the same, then you can just do an rsync upload to
+transfer the files, and they should work on the course server as well;
+see the <a href="hw-frameworks.html">Frameworks homework</a> (<a
+href="framework-hw.md">md</a>) for details about rsync</li>
 </ul></li>
 <li>Configure the CakePHP installation
 <ul>
-<li>There are <strong><em>TWO</em></strong> .htaccess files (in the root CakePHP directory (<code>~mst3k/html/cakephp/</code>) and in the webroot directly below that (<code>~mst3k/html/cakephp/webroot/</code>)), and both will need to be edited and a line like <code>RewriteBase /~mst3k/cakephp/</code> put in (edited for your particular directory/URL). Put this in as the second to last line, just above the <code>&lt;/IfModule&gt;</code> line.</li>
-<li>At this point, you should be able to view your URL, although it will indicate that it cannot connect to the database</li>
-<li>In config/app.php, edit app.php, and edit the Datasources =&gt; default array: you will need to change the values for username, password, and database to match your MySQL credentials (both username and database are your userid for this homework; your password is from above)</li>
+<li>There are <strong><em>TWO</em></strong> .htaccess files (in the root
+CakePHP directory (<code>~mst3k/html/cakephp/</code>) and in the webroot
+directly below that (<code>~mst3k/html/cakephp/webroot/</code>)), and
+both will need to be edited and a line like
+<code>RewriteBase /~mst3k/cakephp/</code> put in (edited for your
+particular directory/URL). Put this in as the second to last line, just
+above the <code>&lt;/IfModule&gt;</code> line.</li>
+<li>At this point, you should be able to view your URL, although it will
+indicate that it cannot connect to the database</li>
+<li>In config/app.php, edit app.php, and edit the Datasources =&gt;
+default array: you will need to change the values for username,
+password, and database to match your MySQL credentials (both username
+and database are your userid for this homework; your password is from
+above)</li>
 </ul></li>
-<li>At this point, you should be able to view the page (<code>http://localhost/~mst3k/cakephp/</code>, or similar). It will look much like the image below, although the particular colors and layout change with each minor version.
+<li>At this point, you should be able to view the page
+(<code>http://localhost/~mst3k/cakephp/</code>, or similar). It will
+look much like the image below, although the particular colors and
+layout change with each minor version.
 <ul>
-<li>For CakePHP 3.3 (the version as of August 2016), it will have a large red area that says, &quot;CakePHP / Build fast, grow solid. / Get the Ovens Ready&quot;. Beneath that will be another large light blue area that has green checkboxes for <strong>EVERY</strong> line (make sure the 'CakePHP is able to connect to the database' one is green also!).</li>
-<li>Note that all the check marks are green! If <strong>ANY</strong> of them are yellow or red, then something is wrong, and it is not configured properly (the small yellow box that mentions debug mode is fine).</li>
+<li>For CakePHP 3.3 (the version as of August 2016), it will have a
+large red area that says, “CakePHP / Build fast, grow solid. / Get the
+Ovens Ready”. Beneath that will be another large light blue area that
+has green checkboxes for <strong>EVERY</strong> line (make sure the
+‘CakePHP is able to connect to the database’ one is green also!).</li>
+<li>Note that all the check marks are green! If <strong>ANY</strong> of
+them are yellow or red, then something is wrong, and it is not
+configured properly (the small yellow box that mentions debug mode is
+fine).</li>
 </ul></li>
 </ul>
 <h3 id="troubleshooting">Troubleshooting</h3>
-<p>If you are getting &quot;internal server error&quot;, &quot;Not Found&quot;, or &quot;404: File Not Found&quot; messages when viewing your CakePHP site, there are two things to try:</p>
+<p>If you are getting “internal server error”, “Not Found”, or “404:
+File Not Found” messages when viewing your CakePHP site, there are two
+things to try:</p>
 <ul>
 <li>make sure your .htaccess file has the RewriteBase line added</li>
-<li>view the Apache error logs - see the <a href="linux-admin-howtos.html">Linux Administration Howtos</a> (<a href="linux-admin-howtos.md">md</a>) page for how to do this</li>
+<li>view the Apache error logs - see the <a
+href="linux-admin-howtos.html">Linux Administration Howtos</a> (<a
+href="linux-admin-howtos.md">md</a>) page for how to do this</li>
 </ul>
 <h3 id="that-image">That image</h3>
-<div class="figure">
-<img src="images/cakephp-initial.png" />
-
-</div>
+<p><img src="images/cakephp-initial.png" /></p>
 </body>
 </html>

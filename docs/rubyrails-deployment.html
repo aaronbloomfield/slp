@@ -1,94 +1,221 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>SLP: Ruby on Rails: Deployment</title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../markdown.css" type="text/css" />
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="../markdown.css" />
 </head>
 <body>
-<h1 id="slp-ruby-on-rails-deployment">SLP: Ruby on Rails: Deployment</h1>
-<p><a href="index.html">Go up to the main SLP documents page</a> (<a href="index.md">md</a>)</p>
+<h1 id="slp-ruby-on-rails-deployment">SLP: Ruby on Rails:
+Deployment</h1>
+<p><a href="index.html">Go up to the main SLP documents page</a> (<a
+href="index.md">md</a>)</p>
 <h3 id="introduction">Introduction</h3>
-<p>This page is for how to <em>deploy</em> your Ruby on Rails apps on an Ubuntu server -- specifically, Ubuntu 16.04. This is not needed for your local development, as you can run <code>rails server</code> to test it out locally, or test it out on the course server provided. However, if you <strong><em>do</em></strong> want to get it running through Apache, read on...</p>
-<p>These instructions are as of August 2017; you can see an <a href="https://github.com/aaronbloomfield/slp/blob/f62e5120144954b34a50a5df26dbf9c9f6b78bf8/docs/rubyrails-deployment.md">older version of this document</a> online.</p>
-<p>This assumes we are running on Ubuntu 16.04, and want to install Ruby 2.4 (2.4.1 is the latest as of this writing) and Rails 5.1 (5.1.3 is the latest as of this writing).</p>
+<p>This page is for how to <em>deploy</em> your Ruby on Rails apps on an
+Ubuntu server – specifically, Ubuntu 16.04. This is not needed for your
+local development, as you can run <code>rails server</code> to test it
+out locally, or test it out on the course server provided. However, if
+you <strong><em>do</em></strong> want to get it running through Apache,
+read on…</p>
+<p>These instructions are as of August 2017; you can see an <a
+href="https://github.com/aaronbloomfield/slp/blob/f62e5120144954b34a50a5df26dbf9c9f6b78bf8/docs/rubyrails-deployment.md">older
+version of this document</a> online.</p>
+<p>This assumes we are running on Ubuntu 16.04, and want to install Ruby
+2.4 (2.4.1 is the latest as of this writing) and Rails 5.1 (5.1.3 is the
+latest as of this writing).</p>
 <h3 id="quick-start">Quick Start</h3>
 <ul>
-<li>Install Ruby 2.4.1 on the system (the version we are using) via the directions <a href="https://www.brightbox.com/blog/2017/01/13/ruby-2-4-ubuntu-packages/">here</a></li>
-<li>Ensure that the the default <code>ruby</code> and <code>gem</code> comamnds are set <code>update-alternatives --set ruby /usr/bin/ruby2.4</code> and <code>update-alternatives --set gem /usr/bin/gem2.4</code> (the apt-get install may do this, but it's here just in case it doesn't, or if there are multiple ruby/gem versions on the system).</li>
-<li>Install passenger via the directions at <a href="https://www.phusionpassenger.com/library/install/apache/install/oss/xenial/">here</a> (if this doesn't enable the passenger module, run <code>a2enmod enable passenger</code> and then <code>service apache2 restart</code>)
+<li>Install Ruby 2.4.1 on the system (the version we are using) via the
+directions <a
+href="https://www.brightbox.com/blog/2017/01/13/ruby-2-4-ubuntu-packages/">here</a></li>
+<li>Ensure that the the default <code>ruby</code> and <code>gem</code>
+comamnds are set
+<code>update-alternatives --set ruby /usr/bin/ruby2.4</code> and
+<code>update-alternatives --set gem /usr/bin/gem2.4</code> (the apt-get
+install may do this, but it’s here just in case it doesn’t, or if there
+are multiple ruby/gem versions on the system).</li>
+<li>Install passenger via the directions at <a
+href="https://www.phusionpassenger.com/library/install/apache/install/oss/xenial/">here</a>
+(if this doesn’t enable the passenger module, run
+<code>a2enmod enable passenger</code> and then
+<code>service apache2 restart</code>)
 <ul>
-<li>I had a bunch of problems with this, as it was not installing correctly. For the last line of those instructions, I had to run <code>dpkg --purge libapache2-mod-passenger</code>, <code>apt-get clean</code>, and then <code>apt-get install libapache2-mod-passenger</code>.</li>
+<li>I had a bunch of problems with this, as it was not installing
+correctly. For the last line of those instructions, I had to run
+<code>dpkg --purge libapache2-mod-passenger</code>,
+<code>apt-get clean</code>, and then
+<code>apt-get install libapache2-mod-passenger</code>.</li>
 </ul></li>
-<li>Sanity check: Passenger uses the version of Ruby specified in the <code>/etc/apache2/mods-available/passenger.conf</code> file (specifically, the <code>PassengerDefaultRuby</code> value). Run that with -v to make sure that the version is correct: <code>/usr/bin/passenger_free_ruby -v</code></li>
-<li>Create a ~root/.gemrc file to prevent documentation from always being installed; the contents are one line: <code>gem: --no-ri --no-rdoc</code> (and putting that in /etc/skel/ is not a bad idea)</li>
+<li>Sanity check: Passenger uses the version of Ruby specified in the
+<code>/etc/apache2/mods-available/passenger.conf</code> file
+(specifically, the <code>PassengerDefaultRuby</code> value). Run that
+with -v to make sure that the version is correct:
+<code>/usr/bin/passenger_free_ruby -v</code></li>
+<li>Create a ~root/.gemrc file to prevent documentation from always
+being installed; the contents are one line:
+<code>gem: --no-ri --no-rdoc</code> (and putting that in /etc/skel/ is
+not a bad idea)</li>
 <li>Install two gems locally:
 <ul>
 <li><code>gem install bundler</code></li>
-<li><code>gem install rails</code> (this will install a bunch of dependencies)</li>
+<li><code>gem install rails</code> (this will install a bunch of
+dependencies)</li>
 </ul></li>
 <li>As a non-privledged user, run <code>rails new myapp</code></li>
-<li>It will ask for your password to install the gems globally; hit Ctrl-C, and then (in the <code>myapp</code> directory) run <code>bundle install --path vendor/bundle</code></li>
+<li>It will ask for your password to install the gems globally; hit
+Ctrl-C, and then (in the <code>myapp</code> directory) run
+<code>bundle install --path vendor/bundle</code></li>
 <li>Configure that with apache (see below), and ensure it works</li>
-<li>Once all that was working, create a rails app with a user that <em>can</em> sudo, and when installing the packages, enter that user's password. This will install some gems in <code>/var/lib/gems/2.4.0/gems</code>, which will prevent them from always being copied to a user's directory.</li>
+<li>Once all that was working, create a rails app with a user that
+<em>can</em> sudo, and when installing the packages, enter that user’s
+password. This will install some gems in
+<code>/var/lib/gems/2.4.0/gems</code>, which will prevent them from
+always being copied to a user’s directory.</li>
 </ul>
 <h3 id="configuring-apache">Configuring Apache</h3>
-<ol style="list-style-type: decimal">
-<li>Check /etc/apache2/mods-available/passenger.conf. The <code>PassengerDefaultRuby</code> line should be using <code>/usr/bin/ruby</code>, which means (assuming the previous section was completed successfully) that Passenger is using the correct version of Ruby.</li>
-<li><p>Edit your /etc/apache2/sites-available/000-default.conf file, and add the following lines. Here, <code>/home/rails/myapp</code> is where the Rails app is installed on the local file system, and <code>/rails/railstest</code> is the URL for the Rails app (specifically, it will be at http://server/rails/railstest). In this example, all the rails apps are kept in a <code>rails/</code> directory (and that directory was in the HTML document root, which is likely <code>/var/www/html/</code>), but that need not be the case. The lines to add to 000-default.conf:</p>
+<ol type="1">
+<li>Check /etc/apache2/mods-available/passenger.conf. The
+<code>PassengerDefaultRuby</code> line should be using
+<code>/usr/bin/ruby</code>, which means (assuming the previous section
+was completed successfully) that Passenger is using the correct version
+of Ruby.</li>
+<li>Edit your /etc/apache2/sites-available/000-default.conf file, and
+add the following lines. Here, <code>/home/rails/myapp</code> is where
+the Rails app is installed on the local file system, and
+<code>/rails/railstest</code> is the URL for the Rails app
+(specifically, it will be at http://server/rails/railstest). In this
+example, all the rails apps are kept in a <code>rails/</code> directory
+(and that directory was in the HTML document root, which is likely
+<code>/var/www/html/</code>), but that need not be the case. The lines
+to add to 000-default.conf:</li>
+</ol>
 <pre><code>RailsEnv development
 RailsBaseURI /rails/railstest
 &lt;Directory /home/rails/myapp&gt;
   Options -MultiViews
-&lt;/Directory&gt;</code></pre></li>
-<li>In the HTML document root (likely <code>/var/www/html</code>), make that <code>rails</code> sub-directory. In that directory, run <code>ln -s /home/rails/myapp/public railstest</code>, where <code>/home/rails/myapp</code> and <code>railstest</code> are the values from step 5, above.</li>
+&lt;/Directory&gt;</code></pre>
+<ol start="3" type="1">
+<li>In the HTML document root (likely <code>/var/www/html</code>), make
+that <code>rails</code> sub-directory. In that directory, run
+<code>ln -s /home/rails/myapp/public railstest</code>, where
+<code>/home/rails/myapp</code> and <code>railstest</code> are the values
+from step 5, above.</li>
 <li>Reload apache: <code>sudo service apache2 reload</code></li>
-<li><p>View the app at <code>http://localhost/rails/railstest</code>. It should show the image displayed at the bottom of the <a href="rubyrails-getting-started.html">Ruby on Rails getting started</a> (<a href="rubyrails-getting-started.md">md</a>) page.</p></li>
+<li>View the app at <code>http://localhost/rails/railstest</code>. It
+should show the image displayed at the bottom of the <a
+href="rubyrails-getting-started.html">Ruby on Rails getting started</a>
+(<a href="rubyrails-getting-started.md">md</a>) page.</li>
 </ol>
 <h3 id="users-installing-gems">Users installing gems</h3>
-<p>The easist way is to have the users run <code>bundle install --path vendor/bundle</code> instead of <code>bundle install</code>. This will install the gems into their rails app directory (specifically, <code>myapp/vendor/bundle/ruby/2.4.0/gems/</code>). Passenger will look there for the gems, in addition to the system directory (which is <code>/var/lib/gems/2.4.0/gems</code>). Having them install the gems locally will take up more disk space (maybe 50-100 Mb per user), but will be far easier, as the students can manage their own gems without sudo privledges.</p>
-<h3 id="allowing-users-to-reload-apache">Allowing users to reload apache</h3>
-<p>Reloading apache needs to be run as root. We will allow all users of a given group to execute these functions; we'll call the group 'rails'.</p>
+<p>The easist way is to have the users run
+<code>bundle install --path vendor/bundle</code> instead of
+<code>bundle install</code>. This will install the gems into their rails
+app directory (specifically,
+<code>myapp/vendor/bundle/ruby/2.4.0/gems/</code>). Passenger will look
+there for the gems, in addition to the system directory (which is
+<code>/var/lib/gems/2.4.0/gems</code>). Having them install the gems
+locally will take up more disk space (maybe 50-100 Mb per user), but
+will be far easier, as the students can manage their own gems without
+sudo privledges.</p>
+<h3 id="allowing-users-to-reload-apache">Allowing users to reload
+apache</h3>
+<p>Reloading apache needs to be run as root. We will allow all users of
+a given group to execute these functions; we’ll call the group
+‘rails’.</p>
 <p>Compile this file, and call it <code>reload-apache2</code>:</p>
 <pre><code>#include &lt;stdlib.h&gt;
 int main() {
   system(&quot;service apache2 reload&quot;);
   return 0;
 }</code></pre>
-<p>Take that binaries (<code>reload-apache2</code>), and move it to /usr/local/bin/. The run <code>chown root:rails reload-apache2</code> and <code>chown 4750 reload-apache2</code>. These commands mean that anybody who runs that binary (which, in this case, can only be done by somebody in the rails group) will execute those commands AS ROOT.</p>
-<p>You can add a user to a group via <code>usermod -a -G rails user</code>, but that user will have to completely log out and log back in for that change to take effect.</p>
-<h3 id="deploying-multiple-rails-apps-on-one-server">Deploying multiple Rails apps on one server</h3>
-<p>Some of these steps were done in the Passenger configuration section, above.</p>
-<ol style="list-style-type: decimal">
-<li>In the HTML document root (which is specified in /etc/apache2/sites-enabled/000-default.conf), create a <code>rails/</code> directory (this was the same as discussed in steps 5 and 6 in the Configure Passenger section, above).</li>
-<li>In that directory, make symlinks to the public folders of each of the apps you want to have on the server: <code>ln -s ~userid/myapp/public user</code></li>
+<p>Take that binaries (<code>reload-apache2</code>), and move it to
+/usr/local/bin/. The run <code>chown root:rails reload-apache2</code>
+and <code>chown 4750 reload-apache2</code>. These commands mean that
+anybody who runs that binary (which, in this case, can only be done by
+somebody in the rails group) will execute those commands AS ROOT.</p>
+<p>You can add a user to a group via
+<code>usermod -a -G rails user</code>, but that user will have to
+completely log out and log back in for that change to take effect.</p>
+<h3 id="deploying-multiple-rails-apps-on-one-server">Deploying multiple
+Rails apps on one server</h3>
+<p>Some of these steps were done in the Passenger configuration section,
+above.</p>
+<ol type="1">
+<li>In the HTML document root (which is specified in
+/etc/apache2/sites-enabled/000-default.conf), create a
+<code>rails/</code> directory (this was the same as discussed in steps 5
+and 6 in the Configure Passenger section, above).</li>
+<li>In that directory, make symlinks to the public folders of each of
+the apps you want to have on the server:
+<code>ln -s ~userid/myapp/public user</code></li>
 <li>Edit /etc/apache2/sites-available/000-default.conf
 <ul>
-<li>Add all of this right above the very last <code>&lt;/VirtualHost&gt;</code> line</li>
+<li>Add all of this right above the very last
+<code>&lt;/VirtualHost&gt;</code> line</li>
 <li>Add the line: <code>RailsEnv development</code></li>
-<li><p>For <strong><em>each</em></strong> rails app to deploy, add the following lines:</p>
+<li>For <strong><em>each</em></strong> rails app to deploy, add the
+following lines:</li>
+</ul>
 <pre><code>RailsBaseURI /rails/user
 &lt;Directory /home/user/myapp&gt;
   Options -MultiViews
-&lt;/Directory&gt;</code></pre></li>
-<li>Here, <code>/rails/user</code> is the symlink (from the apache2 document root done in step 2, above -- which means the full path to that symlink is likely something like <code>/var/www/html/rails/user</code>), and <code>/home/user/myapp</code> is where the app itself is stored</li>
-<li><p>Alternatively, you can put all of those 4-line stanzas in a separate file, such as <code>/etc/apache2/rails.conf</code>, and then put in the following two lines into <code>/etc/apache2/sites-available/000-default.conf</code> (and, presumably, <code>/etc/apache2/sites-available/default-ssl.conf</code>):</p>
+&lt;/Directory&gt;</code></pre>
+<ul>
+<li>Here, <code>/rails/user</code> is the symlink (from the apache2
+document root done in step 2, above – which means the full path to that
+symlink is likely something like <code>/var/www/html/rails/user</code>),
+and <code>/home/user/myapp</code> is where the app itself is stored</li>
+<li>Alternatively, you can put all of those 4-line stanzas in a separate
+file, such as <code>/etc/apache2/rails.conf</code>, and then put in the
+following two lines into
+<code>/etc/apache2/sites-available/000-default.conf</code> (and,
+presumably,
+<code>/etc/apache2/sites-available/default-ssl.conf</code>):</li>
+</ul>
 <pre><code>RailsEnv development
 Include rails.conf</code></pre></li>
-</ul></li>
 <li>Reload the web server (<code>service apache2 reload</code>)</li>
-<li>At this point, you should be able to view your app at <code>http://server/rails/user</code> (and possibly the https version of the URL, if that was configured).</li>
-<li>If you swtich from development to production in step 3, the app claims it cannot find the file; see the troubleshooting section, below, for details.</li>
+<li>At this point, you should be able to view your app at
+<code>http://server/rails/user</code> (and possibly the https version of
+the URL, if that was configured).</li>
+<li>If you swtich from development to production in step 3, the app
+claims it cannot find the file; see the troubleshooting section, below,
+for details.</li>
 </ol>
 <h3 id="troubleshooting">Troubleshooting</h3>
-<h4 id="generic-error-with-no-known-cause">Generic error with no known cause</h4>
-<p>Rails apps have a log/ directory (such as /home/rails/myapp/log), and therein provide a lot of detail about what is going wrong.</p>
-<h4 id="usrlibrubyincluderuby.h-not-found">/usr/lib/ruby/include/ruby.h not found</h4>
-<p>This should have been solved by installing the <code>ruby2.4-dev</code> package; if not, see the <a href="https://github.com/aaronbloomfield/slp/blob/f62e5120144954b34a50a5df26dbf9c9f6b78bf8/docs/rubyrails-deployment.md">older version of this document</a>.</p>
-<h4 id="the-page-you-were-looking-for-doesnt-exist">&quot;The page you were looking for doesn't exist&quot;</h4>
-<p>This problem seems to occur when running the Rails apps in production mode. For the reason why (and clues how to fix it), see the answer <a href="http://stackoverflow.com/questions/22026492/heroku-rails-setup-the-page-you-were-looking-for-doesnt-exist">here</a></p>
+<h4 id="generic-error-with-no-known-cause">Generic error with no known
+cause</h4>
+<p>Rails apps have a log/ directory (such as /home/rails/myapp/log), and
+therein provide a lot of detail about what is going wrong.</p>
+<h4 id="usrlibrubyincluderuby.h-not-found">/usr/lib/ruby/include/ruby.h
+not found</h4>
+<p>This should have been solved by installing the
+<code>ruby2.4-dev</code> package; if not, see the <a
+href="https://github.com/aaronbloomfield/slp/blob/f62e5120144954b34a50a5df26dbf9c9f6b78bf8/docs/rubyrails-deployment.md">older
+version of this document</a>.</p>
+<h4 id="the-page-you-were-looking-for-doesnt-exist">“The page you were
+looking for doesn’t exist”</h4>
+<p>This problem seems to occur when running the Rails apps in production
+mode. For the reason why (and clues how to fix it), see the answer <a
+href="http://stackoverflow.com/questions/22026492/heroku-rails-setup-the-page-you-were-looking-for-doesnt-exist">here</a></p>
 </body>
 </html>
