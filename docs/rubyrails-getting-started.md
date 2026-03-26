@@ -38,7 +38,7 @@ The easiest way is to copy secrets.yml to secrets.yml.template, and like for dat
 
 What this does is commit to the git repo the tempaltes, but the actual files -- the ones with the passwords -- are not kept in the repo.  This means, however, that each person who checks out the repo will have to set those values manuall.
 
-For those who are interested, there are more options listed [here](http://railsapps.github.io/rails-environment-variables.html).  Keeping this information in environment variables, which is the recommended way to handle this, causes conflits with how Passenger works (Passenger is the Apache module that runs your Rails app)
+For those who are interested, there are more options listed [here](http://railsapps.github.io/rails-environment-variables.html).  Keeping this information in environment variables, which is the recommended way to handle this, causes conflicts with how Passenger works (Passenger is the Apache module that runs your Rails app)
 
 
 ### Installing new gems
