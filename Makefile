@@ -4,5 +4,8 @@ markdown:
 	@utils/convert-markdown-to-html
 	@echo done!
 
+touchall:
+	find . | grep "\.md$$" | awk '{print "touch "$$1}' | bash
+
 clean:
 	/bin/rm -rf *~ */*~ */*/*~
